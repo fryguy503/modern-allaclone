@@ -951,6 +951,7 @@ describe('layered atlas overlays', () => {
             layers: [
                 { id: 'zone-points', label: 'Zone exits', default: true },
                 { id: 'doors', label: 'Doors', default: false },
+                { id: 'navigation', label: 'Navigation', default: false },
             ],
             groups: [{
                 key: 'nektulos:0',
@@ -970,7 +971,7 @@ describe('layered atlas overlays', () => {
                 }, {
                     id: 'door-1',
                     kind: 'doors',
-                    layers: ['doors'],
+                    layers: ['doors', 'navigation'],
                     position: { x: -900, y: -800, z: 4 },
                 }],
             }],
@@ -980,12 +981,29 @@ describe('layered atlas overlays', () => {
         state.mapData = { bounds: { minX: -100, minY: -100, maxX: 100, maxY: 100 }, points: [] };
 
         assert.equal(state.currentLocations.length, 2);
-        assert.deepEqual(state.visibleZoneAnnotations.map(({ label }) => label), ['Portal to Knowledge']);
+        assert.deepEqual(
+            state.visibleZoneAnnotations.map(({ label }) => label),
+            ['To Neriak', 'Portal to Knowledge'],
+        );
+        assert.deepEqual([...state.matchedTransitionLabelIds()], ['zone-point-1']);
+        state.activeLayers.navigation = true;
+        assert.deepEqual(
+            [...state.matchedTransitionLabelIds()].sort(),
+            ['door-1', 'zone-point-1'],
+        );
+        state.activeLayers.navigation = false;
+        assert.deepEqual([...state.matchedTransitionLabelIds()], ['zone-point-1']);
         state.currentGroup.map = state.normalizeMap(state.currentGroup.map);
         assert.equal(state.hasZoneAnnotations, true);
-        assert.deepEqual(state.visibleZoneAnnotations.map(({ label }) => label), ['Portal to Knowledge']);
+        assert.deepEqual(
+            state.visibleZoneAnnotations.map(({ label }) => label),
+            ['To Neriak', 'Portal to Knowledge'],
+        );
         state.activeLayers.doors = true;
-        assert.deepEqual(state.visibleZoneAnnotations, []);
+        assert.deepEqual(
+            [...state.matchedTransitionLabelIds()].sort(),
+            ['door-1', 'zone-point-1'],
+        );
         state.activeLayers.doors = false;
         assert.ok(state.interactionBounds().maxX >= 900);
         let baseInvalidations = 0;
@@ -995,9 +1013,177 @@ describe('layered atlas overlays', () => {
         state.onFiltersChanged();
         assert.equal(baseInvalidations, 1);
         assert.deepEqual(state.visibleZoneAnnotations, []);
+        assert.deepEqual([...state.matchedTransitionLabelIds()], []);
         state.searchQuery = 'portal';
         state.onFiltersChanged();
         assert.equal(baseInvalidations, 1);
+    });
+
+    test('deduplicates offset zone tags against database exits by destination', () => {
+        const state = npcLocationMap({
+            layers: [{ id: 'zone-points', label: 'Zone exits', default: true }],
+            groups: [{
+                key: 'lavastorm:0',
+                map: {
+                    available: true,
+                    bounds: { min_x: -1109, min_y: -4014, max_x: 1838, max_y: -90 },
+                    annotations: [
+                        { kind: 'zone-line', label: 'to Solusek`s Eye', position: { x: -936.48, y: -1316.27, z: -79.48 } },
+                        { kind: 'zone-line', label: 'to Lavaspinner`s Lair', position: { x: 676, y: -2708, z: -100.88 } },
+                        { kind: 'zone-line', label: 'to The Broodlands', position: { x: -105, y: -3820, z: 1.63 } },
+                        { kind: 'zone-line', label: 'to Nagafen`s Lair', position: { x: -438.7, y: -2193.61, z: 69.41 } },
+                        { kind: 'zone-line', label: 'to Nektulos Forrest', position: { x: 7.05, y: -177.67, z: -73.22 } },
+                        { kind: 'zone-line', label: 'to The Temple of Solusek Ro', position: { x: 1693.94, y: -1310.64, z: -106.49 } },
+                        { kind: 'zone-line', label: 'to Najena', position: { x: 1741.71, y: -544.25, z: -100.33 } },
+                    ],
+                },
+                locations: [
+                    { id: 'zone-point-2330', kind: 'zone-points', layers: ['zone-points'], label: 'To The Nektulos Forest', position: { x: -10, y: 75, z: -53 } },
+                    { id: 'zone-point-2334', kind: 'zone-points', layers: ['zone-points'], label: "To Solusek's Eye", position: { x: 930, y: 1285, z: -78 } },
+                    { id: 'zone-point-2335', kind: 'zone-points', layers: ['zone-points'], label: 'To Najena', position: { x: -1785, y: 540, z: -98 } },
+                    { id: 'zone-point-2336', kind: 'zone-points', layers: ['zone-points'], label: "To Nagafen's Lair", position: { x: 110, y: 2260, z: 15 } },
+                    { id: 'zone-point-2338', kind: 'zone-points', layers: ['zone-points'], label: 'To The Temple of Solusek Ro', position: { x: -1650, y: 1360, z: -105 } },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'lavastorm:0';
+
+        assert.deepEqual(
+            state.visibleZoneAnnotations.map(({ label }) => label),
+            [
+                'to Solusek`s Eye',
+                'to Lavaspinner`s Lair',
+                'to The Broodlands',
+                'to Nagafen`s Lair',
+                'to Nektulos Forrest',
+                'to The Temple of Solusek Ro',
+                'to Najena',
+            ],
+        );
+        assert.deepEqual(
+            [...state.matchedTransitionLabelIds()].sort(),
+            [
+                'zone-point-2330',
+                'zone-point-2334',
+                'zone-point-2335',
+                'zone-point-2336',
+                'zone-point-2338',
+            ],
+        );
+
+        for (const location of state.currentLocations) location.show_label = true;
+        state.canvasWidth = 1000;
+        state.canvasHeight = 700;
+        state.fit = fitBounds(
+            { minX: -1109, minY: -4014, maxX: 1838, maxY: -90 },
+            state.canvasWidth,
+            state.canvasHeight,
+            32,
+        );
+        const drawnLabels = [];
+        const context = {
+            save() {},
+            restore() {},
+            strokeText() {},
+            fillText(label) { drawnLabels.push(label); },
+        };
+        state.drawLocationLabels(context);
+        assert.deepEqual(drawnLabels, []);
+
+        state.selectedLocationId = 'zone-point-2330';
+        state.drawLocationLabels(context);
+        assert.deepEqual(drawnLabels, ['To The Nektulos Forest']);
+
+        state.selectedLocationId = null;
+        drawnLabels.length = 0;
+        state.showZoneLines = false;
+        state.drawLocationLabels(context);
+        assert.ok(drawnLabels.length > 0);
+    });
+
+    test('keeps authored fallbacks and pairs database labels one-to-one', () => {
+        const state = npcLocationMap({
+            layers: [{ id: 'zone-points', label: 'Zone exits', default: true }],
+            groups: [{
+                key: 'test:0',
+                map: {
+                    available: true,
+                    bounds: { min_x: 0, min_y: 0, max_x: 1000, max_y: 1000 },
+                    annotations: [
+                        { kind: 'zone-line', label: 'To Najena', position: { x: 100, y: 100, z: 0 } },
+                        { kind: 'zone-line', label: 'To Nektulos', position: { x: 105, y: 100, z: 0 } },
+                        { kind: 'zone-line', label: 'To Feerrott', position: { x: 110, y: 100, z: 0 } },
+                        { kind: 'zone-line', label: 'To Najena', position: { x: 900, y: 900, z: 0 } },
+                    ],
+                },
+                locations: [
+                    {
+                        id: 'zone-point-1',
+                        kind: 'zone-points',
+                        layers: ['zone-points'],
+                        label: 'To Najena',
+                        position: { x: -105, y: -100, z: 0 },
+                    },
+                    {
+                        id: 'zone-point-2',
+                        kind: 'zone-points',
+                        layers: ['zone-points'],
+                        label: 'To Feerrott2',
+                        position: { x: -110, y: -100, z: 0 },
+                    },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'test:0';
+
+        assert.deepEqual(state.visibleZoneAnnotations.map(({ x, y }) => [x, y]), [
+            [100, 100],
+            [105, 100],
+            [110, 100],
+            [900, 900],
+        ]);
+        assert.deepEqual([...state.matchedTransitionLabelIds()], ['zone-point-1']);
+    });
+
+    test('finds a maximum one-to-one match for nearby generic zone tags', () => {
+        const state = npcLocationMap({
+            layers: [{ id: 'zone-points', label: 'Zone exits', default: true }],
+            groups: [{
+                key: 'test:0',
+                map: {
+                    available: true,
+                    annotations: [
+                        { kind: 'zone-line', label: 'Zone In/Out', position: { x: 0, y: 0, z: 0 } },
+                        { kind: 'zone-line', label: 'Zone-Out/In', position: { x: 20, y: 0, z: 0 } },
+                    ],
+                },
+                locations: [
+                    {
+                        id: 'zone-point-alpha',
+                        kind: 'zone-points',
+                        layers: ['zone-points'],
+                        label: 'To Alpha',
+                        position: { x: -21, y: 0, z: 0 },
+                    },
+                    {
+                        id: 'zone-point-beta',
+                        kind: 'zone-points',
+                        layers: ['zone-points'],
+                        label: 'To Beta',
+                        position: { x: -40, y: 0, z: 0 },
+                    },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'test:0';
+
+        assert.deepEqual(
+            [...state.matchedTransitionLabelIds()].sort(),
+            ['zone-point-alpha', 'zone-point-beta'],
+        );
     });
 
     test('transforms every ground-spawn rectangle corner and restores ordered Brewall bounds', () => {

@@ -15,6 +15,7 @@ const MAX_DATASET_BYTES = 8 * 1024 * 1024;
 const MAX_GROUPS = 100;
 const MAX_LOCATIONS = 12000;
 const MAX_MAP_ANNOTATIONS = 256;
+const MAX_TRANSITION_LOCATIONS = 2000;
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 24;
 const MAP_PADDING = 32;
@@ -26,6 +27,8 @@ const MAX_PATH_PREVIEW_PAUSE_SECONDS = 120;
 const LOCATION_SEARCH_CACHE = new WeakMap();
 const GROUP_FEATURE_BOUNDS_CACHE = new WeakMap();
 const MAP_ANNOTATION_CACHE = new WeakMap();
+const NEARBY_TRANSITION_DISTANCE = 24;
+const MAX_FUZZY_TRANSITION_DISTANCE = 160;
 const MARKER_SHAPES = new Set([
     'circle',
     'star',
@@ -64,6 +67,168 @@ function safeText(value, maximum = 240) {
 
 function safeColor(value, fallback = '#fb7185') {
     return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value) ? value : fallback;
+}
+
+function transitionLabelKey(value) {
+    let label = safeText(value, 160)
+        .normalize('NFKD')
+        .toLocaleLowerCase('en-US')
+        .replace(/\p{M}/gu, '')
+        .replace(/[`'’]/gu, '')
+        .replace(/[^a-z0-9]+/gu, ' ')
+        .trim();
+
+    label = label
+        .replace(/^(?:the|a|an)\s+/u, '')
+        .replace(/^(?:(?:zone(?: (?:in|out|line))?|zoneline|exit|return|portal|teleport(?:er|ation)?)\s+)?to\s+/u, '')
+        .replace(/^(?:the|a|an)\s+/u, '')
+        .replace(/\s+(?:zone(?: line)?|zoneline|portal|book)$/u, '')
+        .trim();
+
+    if (/^(?:zone (?:in out|out in|in|out|line)|zoneline|exit|return|portal|teleport(?:er|ation)?)$/u.test(label)) return '';
+    if (/^(?:p o k|pok|poknowledge|knowledge|plane of knowledge)$/u.test(label)) return 'knowledge';
+    return label;
+}
+
+function withinOneEdit(left, right) {
+    if (left === right) return true;
+    if (Math.abs(left.length - right.length) > 1) return false;
+
+    let shorter = left;
+    let longer = right;
+    if (shorter.length > longer.length) [shorter, longer] = [longer, shorter];
+
+    let shortIndex = 0;
+    let longIndex = 0;
+    let edits = 0;
+    while (shortIndex < shorter.length && longIndex < longer.length) {
+        if (shorter[shortIndex] === longer[longIndex]) {
+            shortIndex += 1;
+            longIndex += 1;
+            continue;
+        }
+        edits += 1;
+        if (edits > 1) return false;
+        if (shorter.length === longer.length) shortIndex += 1;
+        longIndex += 1;
+    }
+
+    return true;
+}
+
+function transitionLabelConfidence(leftKey, rightKey) {
+    if (!leftKey || !rightKey) return 0;
+    if (leftKey === rightKey) return 2;
+
+    const leftWords = leftKey.split(' ');
+    const rightWords = rightKey.split(' ');
+    const sharesStableWord = leftWords.some((word) => word.length >= 4 && rightWords.includes(word));
+    return leftWords.length > 1
+        && rightWords.length > 1
+        && sharesStableWord
+        && withinOneEdit(leftKey, rightKey)
+        ? 1
+        : 0;
+}
+
+/** Maximum-cardinality matching keeps repeated exits one-to-one across both sources. */
+function maximumTransitionMatching(adjacency, transitionCount) {
+    const annotationMatches = new Int32Array(adjacency.length);
+    const transitionMatches = new Int32Array(transitionCount);
+    const distances = new Int32Array(adjacency.length);
+    annotationMatches.fill(-1);
+    transitionMatches.fill(-1);
+
+    const augment = (annotationIndex) => {
+        for (const transitionIndex of adjacency[annotationIndex]) {
+            const matchedAnnotation = transitionMatches[transitionIndex];
+            if (matchedAnnotation === -1
+                || (distances[matchedAnnotation] === distances[annotationIndex] + 1
+                    && augment(matchedAnnotation))) {
+                annotationMatches[annotationIndex] = transitionIndex;
+                transitionMatches[transitionIndex] = annotationIndex;
+                return true;
+            }
+        }
+        distances[annotationIndex] = -1;
+        return false;
+    };
+
+    while (true) {
+        const queue = [];
+        distances.fill(-1);
+        for (let annotationIndex = 0; annotationIndex < adjacency.length; annotationIndex += 1) {
+            if (annotationMatches[annotationIndex] !== -1) continue;
+            distances[annotationIndex] = 0;
+            queue.push(annotationIndex);
+        }
+
+        let hasAugmentingPath = false;
+        for (let cursor = 0; cursor < queue.length; cursor += 1) {
+            const annotationIndex = queue[cursor];
+            for (const transitionIndex of adjacency[annotationIndex]) {
+                const matchedAnnotation = transitionMatches[transitionIndex];
+                if (matchedAnnotation === -1) {
+                    hasAugmentingPath = true;
+                } else if (distances[matchedAnnotation] === -1) {
+                    distances[matchedAnnotation] = distances[annotationIndex] + 1;
+                    queue.push(matchedAnnotation);
+                }
+            }
+        }
+        if (!hasAugmentingPath) break;
+
+        let augmented = false;
+        for (let annotationIndex = 0; annotationIndex < adjacency.length; annotationIndex += 1) {
+            if (annotationMatches[annotationIndex] === -1 && augment(annotationIndex)) augmented = true;
+        }
+        if (!augmented) break;
+    }
+
+    return new Set([...transitionMatches.keys()].filter((index) => transitionMatches[index] !== -1));
+}
+
+function matchedTransitionIndexes(annotations, transitions) {
+    const annotationKeys = annotations.map((annotation) => transitionLabelKey(annotation.label));
+    const transitionKeys = transitions.map((transition) => transitionLabelKey(transition.label));
+    const adjacency = annotations.map((annotation, annotationIndex) => {
+        const exact = [];
+        const fuzzy = [];
+        const nearby = [];
+        const annotationKey = annotationKeys[annotationIndex];
+        for (let transitionIndex = 0; transitionIndex < transitions.length; transitionIndex += 1) {
+            const transition = transitions[transitionIndex];
+            const distanceSquared = ((transition.x - annotation.x) ** 2)
+                + ((transition.y - annotation.y) ** 2);
+            const transitionKey = transitionKeys[transitionIndex];
+            const labelConfidence = transitionLabelConfidence(
+                annotationKey,
+                transitionKey,
+            );
+            if (labelConfidence === 2) exact.push(transitionIndex);
+            else if (labelConfidence === 1
+                && distanceSquared <= MAX_FUZZY_TRANSITION_DISTANCE ** 2) fuzzy.push(transitionIndex);
+            // Generic authored labels such as "Zone-In" have no destination;
+            // pair them only with a transition at the same physical entrance.
+            else if ((!annotationKey || !transitionKey)
+                && distanceSquared <= NEARBY_TRANSITION_DISTANCE ** 2) nearby.push(transitionIndex);
+        }
+        const byDistance = (left, right) => {
+            const leftTransition = transitions[left];
+            const rightTransition = transitions[right];
+            const leftDistance = ((leftTransition.x - annotation.x) ** 2)
+                + ((leftTransition.y - annotation.y) ** 2);
+            const rightDistance = ((rightTransition.x - annotation.x) ** 2)
+                + ((rightTransition.y - annotation.y) ** 2);
+            return leftDistance - rightDistance || left - right;
+        };
+        exact.sort(byDistance);
+        fuzzy.sort(byDistance);
+        nearby.sort(byDistance);
+        return [...exact, ...fuzzy, ...nearby];
+    });
+
+    return maximumTransitionMatching(adjacency, transitions.length);
 }
 
 /** Normalize the small, non-interactive annotation allowlist shipped in map metadata. */
@@ -507,6 +672,7 @@ export default function npcLocationMap(config = {}) {
     let cachedInteractionMap = null;
     let cachedInteractionGroup = null;
     let cachedInteractionBounds = null;
+    let transitionAnnotationCache = null;
     let selectionFlashStartedAt = -1;
     let selectionFlashUntil = 0;
     let pathPreviewElapsedMs = 0;
@@ -642,6 +808,7 @@ export default function npcLocationMap(config = {}) {
             cachedBaseCanvas = null;
             cachedOverlayCanvas = null;
             featureCache = null;
+            transitionAnnotationCache = null;
             if (reducedMotionChangeHandler) {
                 if (typeof reducedMotionQuery?.removeEventListener === 'function') {
                     reducedMotionQuery.removeEventListener('change', reducedMotionChangeHandler);
@@ -905,16 +1072,49 @@ export default function npcLocationMap(config = {}) {
             if (!this.showZoneLines) return [];
             const zonePointLayer = this.layers.find((layer) => layer.id === 'zone-points');
             if (zonePointLayer && !this.activeLayers['zone-points']) return [];
+            return this.availableZoneAnnotations;
+        },
 
-            const databaseTransitions = this.currentLocations
+        matchedTransitionLabelIds() {
+            const annotations = this.visibleZoneAnnotations;
+            if (annotations.length === 0) return new Set();
+            const group = this.currentGroup;
+            const locations = this.currentLocations;
+            const layerSignature = this.layers
+                .map(({ id }) => `${id}:${this.activeLayers[id] ? 1 : 0}`)
+                .join('|');
+            if (transitionAnnotationCache?.group === group
+                && transitionAnnotationCache.annotations === annotations
+                && transitionAnnotationCache.locations === locations
+                && transitionAnnotationCache.layerSignature === layerSignature) {
+                return transitionAnnotationCache.result;
+            }
+
+            const databaseTransitions = locations
                 .filter((location) => (location?.kind === 'zone-points' || location?.kind === 'doors')
                     && (location.layers ?? []).some((layer) => this.activeLayers[layer] === true))
-                .map((location) => locationMapPoint(location))
+                .slice(0, MAX_TRANSITION_LOCATIONS)
+                .map((location) => {
+                    const point = locationMapPoint(location);
+                    return point ? {
+                        ...point,
+                        id: String(location.id),
+                        label: safeText(location.label, 160),
+                    } : null;
+                })
                 .filter(Boolean);
-
-            return this.availableZoneAnnotations.filter((annotation) => !databaseTransitions.some((point) => (
-                ((point.x - annotation.x) ** 2) + ((point.y - annotation.y) ** 2) <= 24 ** 2
-            )));
+            const matchedIndexes = matchedTransitionIndexes(annotations, databaseTransitions);
+            const result = new Set(
+                [...matchedIndexes].map((index) => databaseTransitions[index].id),
+            );
+            transitionAnnotationCache = {
+                group,
+                annotations,
+                locations,
+                layerSignature,
+                result,
+            };
+            return result;
         },
 
         get hasRoamAreas() {
@@ -2206,6 +2406,7 @@ export default function npcLocationMap(config = {}) {
 
         drawLocationLabels(context) {
             const occupied = new Set();
+            const matchedTransitionLabels = this.matchedTransitionLabelIds();
             context.save();
             context.font = '600 11px Instrument Sans, ui-sans-serif, system-ui, sans-serif';
             context.textBaseline = 'middle';
@@ -2213,7 +2414,8 @@ export default function npcLocationMap(config = {}) {
             for (const { location, point } of this.mappableEntries) {
                 const hovered = String(location.id) === String(this.hoveredLocationId);
                 const selected = String(location.id) === String(this.selectedLocationId);
-                if (!hovered && !selected && !location.show_label) continue;
+                const mapLabelWins = matchedTransitionLabels.has(String(location.id));
+                if (!hovered && !selected && (mapLabelWins || !location.show_label)) continue;
                 const screen = this.toScreen(point.x, point.y);
                 if (screen.x < -200 || screen.y < -30 || screen.x > this.canvasWidth + 20 || screen.y > this.canvasHeight + 30) continue;
                 const label = safeText(location.label, 90);
