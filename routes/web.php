@@ -36,6 +36,9 @@ Route::get('/discovery/leaderboard', [DiscoveredItemController::class, 'leaderbo
 
 // zones
 Route::get('/zones', [ZoneController::class, 'index'])->name('zones.index');
+Route::get('/zones/{zone}/atlas', [ZoneController::class, 'atlas'])
+    ->name('zones.atlas')
+    ->whereNumber('zone');
 Route::get('/zones/{zone}', [ZoneController::class, 'show'])->name('zones.show');
 
 // spells
@@ -50,7 +53,9 @@ Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipe
 
 // npcs
 Route::get('/npcs', [NpcController::class, 'index'])->name('npcs.index');
-Route::get('/npcs/{npc}', [NpcController::class, 'show'])->name('npcs.show');
+Route::get('/npcs/{npc}', [NpcController::class, 'show'])
+    ->name('npcs.show')
+    ->whereNumber('npc');
 
 // factions
 Route::get('/factions', [FactionController::class, 'index'])->name('factions.index');

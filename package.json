@@ -3,7 +3,10 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "maps:build": "node scripts/build-eq-maps.mjs",
+        "maps:check": "node scripts/build-eq-maps.mjs --check",
+        "test:js": "node --test tests/JavaScript/eq-map-format.test.js"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",
