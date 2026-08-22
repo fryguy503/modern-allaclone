@@ -20,6 +20,7 @@ class PatchController extends Controller
             $filters['per_page'],
             route('patches.index')
         );
+        $coverage = $archive->coverage();
 
         return view('patches.index', [
             'patches' => $patches,
@@ -28,10 +29,11 @@ class PatchController extends Controller
                 : collect(),
             'filters' => $filters,
             'facets' => $archive->facets(),
-            'coverage' => $archive->coverage(),
+            'coverage' => $coverage,
             'totals' => $archive->totals(),
             'metaTitle' => config('app.name').' - EverQuest Patch History',
-            'metaDescription' => 'Search and explore every supplied EverQuest beta and Live patch note from 1998 through 2022.',
+            'metaDescription' => 'Search and explore supplied EverQuest beta and Live patch notes from '
+                .substr($coverage['first_patch'], 0, 4).' through '.substr($coverage['last_patch'], 0, 4).'.',
         ]);
     }
 

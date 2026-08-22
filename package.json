@@ -6,7 +6,13 @@
         "dev": "vite",
         "maps:build": "node scripts/build-eq-maps.mjs",
         "maps:check": "node scripts/build-eq-maps.mjs --check",
-        "test:js": "node --test tests/JavaScript/eq-map-format.test.js"
+        "patches:import": "node scripts/build-patch-history.mjs --strict",
+        "patches:import:check": "node scripts/build-patch-history.mjs --strict --dry-run",
+        "patches:sync-feed": "python scripts/sync-patch-feed.py",
+        "patches:validate": "python scripts/validate-patch-history.py",
+        "test:js": "node --test tests/JavaScript/eq-map-format.test.js",
+        "test:patch-importer": "node --test tests/patch-importer.test.mjs",
+        "test:patch-tools": "python -m unittest discover -s tests -p test_*.py"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",

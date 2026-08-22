@@ -3,10 +3,35 @@
 namespace Tests\Feature;
 
 use App\Services\PatchArchive;
+use Illuminate\Support\Facades\Route;
+use Tests\Concerns\CreatesEmptyEqemuSearchSchema;
 use Tests\TestCase;
 
 class PatchHistoryTest extends TestCase
 {
+    use CreatesEmptyEqemuSearchSchema;
+
+    public function test_patch_history_is_enabled_and_advertised_by_default(): void
+    {
+        $this->assertTrue(config('everquest.patch_history.enable'));
+        $this->assertTrue(Route::has('patches.index'));
+
+        $this->get('/')
+            ->assertOk()
+            ->assertSeeText('Patch History')
+            ->assertSee('Search NPCs, items, patches...', false)
+            ->assertSee('rel="alternate" type="application/rss+xml"', false);
+    }
+
+    public function test_enabled_global_search_includes_patch_suggestions(): void
+    {
+        $this->useEmptyEqemuSearchDatabase();
+
+        $this->getJson('/search/suggest?q=Plane%20of%20Time')
+            ->assertOk()
+            ->assertJsonFragment(['type' => 'patch']);
+    }
+
     public function test_archive_index_exposes_search_facets_layouts_and_complete_exports(): void
     {
         $this->get('/patches')
@@ -15,7 +40,7 @@ class PatchHistoryTest extends TestCase
             ->assertHeader('x-frame-options', 'DENY')
             ->assertHeader('content-security-policy')
             ->assertSeeText('Every era. Every fix. One searchable history.')
-            ->assertSeeText('674')
+            ->assertSeeText('682')
             ->assertSeeText('Expansions')
             ->assertSeeText('Timeline')
             ->assertSee(route('patches.export.json'), false)
@@ -128,6 +153,40 @@ class PatchHistoryTest extends TestCase
 
         $this->withHeader('If-None-Match', $first->headers->get('etag'))
             ->get('/patches/export/json')
+            ->assertStatus(304);
+    }
+
+    public function test_raw_export_etag_hashes_the_exact_payload_and_tracks_heading_changes(): void
+    {
+        $patch = $this->app->make(PatchArchive::class)->find('1999-11-01-1');
+        $first = $this->get('/patches/1999-11-01-1/raw.txt')->assertOk();
+        $firstPayload = $first->streamedContent();
+        $firstEtag = $first->headers->get('etag');
+
+        $this->assertSame('"'.hash('sha256', $firstPayload).'"', $firstEtag);
+        $this->withHeader('If-None-Match', $firstEtag)
+            ->get('/patches/1999-11-01-1/raw.txt')
+            ->assertStatus(304);
+
+        $patch['display_date'] .= ' (corrected heading)';
+        $changedArchive = new class($patch) extends PatchArchive {
+            public function __construct(private array $patch) {}
+            public function find(string $slug): ?array { return $slug === $this->patch['slug'] ? $this->patch : null; }
+            public function lastModified(): int { return 1_700_000_000; }
+        };
+        $this->app->instance(PatchArchive::class, $changedArchive);
+
+        $changed = $this->withHeader('If-None-Match', $firstEtag)
+            ->get('/patches/1999-11-01-1/raw.txt')
+            ->assertOk();
+        $changedPayload = $changed->streamedContent();
+        $changedEtag = $changed->headers->get('etag');
+
+        $this->assertNotSame($firstPayload, $changedPayload);
+        $this->assertNotSame($firstEtag, $changedEtag);
+        $this->assertSame('"'.hash('sha256', $changedPayload).'"', $changedEtag);
+        $this->withHeader('If-None-Match', $changedEtag)
+            ->get('/patches/1999-11-01-1/raw.txt')
             ->assertStatus(304);
     }
 

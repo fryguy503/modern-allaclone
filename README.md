@@ -7,23 +7,38 @@ You can see this in use on [Project Lazarus](https://www.lazaruseq.com/alla/)
 ## Requirements
 
 - PHP >= 8.2, Composer, Mysql/MariaDB, and an EQemu DB.
-- Rebuilding the historical corpus also requires Node.js and Python 3 with `pdfplumber`.
+- Rebuilding the historical corpus also requires Node.js and Python 3. Install the
+  optional document adapters with `pip install -r scripts/requirements-patch-import.txt`.
 
 ## Historical patch archive
 
-The read-only archive at `/patches` contains 674 distinct EverQuest beta, Live, hotfix, and news records spanning July 1998 through February 2022. It supports phrase search, composable date/topic/type/expansion/source filters, cards/compact/expansion/timeline layouts, formatted and plain-text detail views, provenance, adjacent/related history, RSS, and full or filtered JSON/CSV exports.
+The read-only archive at `/patches` currently contains 682 distinct EverQuest beta, Live, hotfix, and news records from July 1998 through June 2026. It supports phrase search, composable date/topic/type/expansion/source filters, cards/compact/expansion/timeline layouts, formatted and plain-text detail views, provenance, adjacent/related history, RSS, and full or filtered JSON/CSV exports. Coverage reflects the supplied corpus and complete official-feed entries; it does not claim that every intervening forum thread is present.
 
 The generated artifacts live in `database/data`, so serving the archive never reads the external source directory or writes to either the application or EQEmu database. Imported text is treated as untrusted and escaped before structural formatting. CSV exports are UTF-8, RFC 4180-compatible, and neutralize spreadsheet formulas.
 
-To rebuild from a supplied `patcheq` corpus:
+Set `PATCH_HISTORY_ENABLED=false` to remove every patch route, navigation link,
+RSS advertisement, and patch suggestion. Run `php artisan optimize:clear` after
+changing the value on a server that caches configuration.
+
+To check and then rebuild from a supplied `patcheq` corpus:
 
 ```sh
-python scripts/extract-patch-summary.py /path/to/patcheq/Patch_Summaries.pdf database/data/patch-summary-highlights.json
-node scripts/build-patch-history.mjs /path/to/patcheq database/data
-python scripts/validate-patch-history.py /path/to/patcheq database/data
+npm run patches:import:check -- /path/to/patcheq database/data --report database/data/everquest-patch-import-report.json
+npm run patches:import -- /path/to/patcheq database/data
+npm run patches:validate -- /path/to/patcheq database/data
 ```
 
-The first command preserves the PDF's curated highlights as supplemental context. The second inventories all supplied artifacts by hash, recovers mixed historical encodings, deduplicates public records while retaining every source occurrence, and regenerates the complete JSON and CSV files. The final command verifies record counts, source hashes, occurrence provenance, encoding safety, CSV parity, PDF extraction, and the compact suggestion index.
+Documents can be placed anywhere below the source directory. TXT, Markdown,
+saved HTML/XenForo pages, RSS/Atom/XML, JSON, CSV, TSV, text-layer PDF, and DOCX
+files are discovered recursively. The importer inventories every supplied
+artifact by hash, recovers historical encodings, keeps stable public URLs,
+deduplicates records while retaining occurrence-level provenance, and refuses
+unexplained record removals. The validator then checks the JSON, CSV,
+suggestion index, and deterministic import report as one publication set.
+
+See [docs/patch-history-importing.md](docs/patch-history-importing.md) for source
+format examples, configuration overrides, OCR guidance, official-feed syncing,
+saved forum-page imports, and recovery steps.
 
 ## Installation
 
