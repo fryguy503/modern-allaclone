@@ -108,8 +108,14 @@ class ZoneAtlasService
         }
 
         [$groundSpawns, $groundTruncated] = $this->groundSpawns((int) $zone->zoneidnumber, $version, $currentExpansion);
-        [$zonePoints, $zonePointTruncated] = $this->zonePoints($shortName, $version, $map);
-        [$doors, $doorTruncated] = $this->doors($shortName, $version, $currentExpansion, $zonePoints, $map);
+        [$zonePoints, $zonePointDefinitions, $zonePointTruncated] = $this->zonePoints($shortName, $version, $map);
+        [$doors, $doorTruncated] = $this->doors(
+            $shortName,
+            $version,
+            $currentExpansion,
+            $zonePointDefinitions,
+            $map,
+        );
         [$objects, $objectTruncated] = $this->objects((int) $zone->zoneidnumber, $version, $currentExpansion, $map);
 
         $locations = $locations
@@ -428,7 +434,13 @@ class ZoneAtlasService
         ];
     }
 
-    /** @return array{0: Collection<int, array<string, mixed>>, 1: bool} */
+    /**
+     * @return array{
+     *     0: Collection<int, array<string, mixed>>,
+     *     1: Collection<int, array<string, mixed>>,
+     *     2: bool
+     * }
+     */
     private function zonePoints(string $shortName, int $version, ?array $map): array
     {
         $query = $this->database->connection('eqemu')
@@ -452,39 +464,43 @@ class ZoneAtlasService
         $rows = $rows->take(self::MAX_ZONE_POINTS);
         $targets = $this->targetZonesById($rows->pluck('target_zone_id'));
 
-        return [
-            $rows->map(function ($point) use ($targets, $map) {
-                $position = $this->position($point);
-                if ($position === null || ! $this->positionWithinMap($position, $map)) {
-                    return null;
-                }
-                $target = $targets->get((int) $point->target_zone_id);
-                $targetName = $target?->long_name ?: 'Zone '.(int) $point->target_zone_id;
-                $details = [
-                    ['label' => 'Zone point', 'value' => '#'.(int) $point->number],
-                    ['label' => 'Destination', 'value' => (string) $targetName],
-                ];
-                $targetPosition = $this->targetPosition($point);
-                if ($targetPosition !== null) {
-                    $details[] = ['label' => 'Arrival', 'value' => $this->coordinateLabel($targetPosition)];
-                }
+        $definitions = $rows->map(function ($point) use ($targets) {
+            $position = $this->position($point);
+            $target = $targets->get((int) $point->target_zone_id);
+            $targetName = $target?->long_name ?: 'Zone '.(int) $point->target_zone_id;
+            $details = [
+                ['label' => 'Zone point', 'value' => '#'.(int) $point->number],
+                ['label' => 'Destination', 'value' => (string) $targetName],
+            ];
+            $targetPosition = $this->targetPosition($point);
+            if ($targetPosition !== null) {
+                $details[] = ['label' => 'Arrival', 'value' => $this->coordinateLabel($targetPosition)];
+            }
 
-                return [
-                    'id' => 'zone-point-'.(int) $point->id,
-                    'source_id' => (int) $point->id,
-                    'kind' => 'zone-points',
-                    'layers' => ['zone-points'],
-                    'label' => 'To '.$targetName,
-                    'subtitle' => 'Zone exit',
-                    'position' => $position,
-                    'heading' => $this->finiteFloat($point->heading ?? null),
-                    'details' => $details,
-                    'show_label' => true,
-                    'url' => $target ? $this->url->route('zones.show', ['zone' => (int) $target->id]) : null,
-                    'target_zone_id' => (int) $point->target_zone_id,
-                    'zone_point_number' => (int) $point->number,
-                ];
-            })->filter()->values(),
+            return [
+                'id' => 'zone-point-'.(int) $point->id,
+                'source_id' => (int) $point->id,
+                'kind' => 'zone-points',
+                'layers' => ['zone-points'],
+                'label' => 'To '.$targetName,
+                'subtitle' => 'Zone exit',
+                'position' => $position,
+                'heading' => $this->finiteFloat($point->heading ?? null),
+                'details' => $details,
+                'show_label' => true,
+                'url' => $target ? $this->url->route('zones.show', ['zone' => (int) $target->id]) : null,
+                'target_zone_id' => (int) $point->target_zone_id,
+                'zone_point_number' => (int) $point->number,
+            ];
+        })->values();
+
+        $visible = $definitions->filter(
+            fn (array $point) => $this->zonePointOriginIsVisible($point['position'] ?? null, $map),
+        )->values();
+
+        return [
+            $visible,
+            $definitions,
             $truncated,
         ];
     }
@@ -550,10 +566,17 @@ class ZoneAtlasService
                 $linkedPoint = (int) $door->opentype === 57
                     ? $zonePoints->firstWhere('zone_point_number', (int) ($door->door_param ?? 0))
                     : null;
+                $linkedPointNeedsOrigin = $linkedPoint !== null
+                    && ! $this->zonePointOriginIsVisible($linkedPoint['position'] ?? null, $map);
                 $targetZoneId = $target
                     ? (int) $target->zoneidnumber
                     : (int) ($linkedPoint['target_zone_id'] ?? 0);
-                if ($targetZoneId > 0 && $this->duplicatesZonePoint($position, $targetZoneId, $zonePoints)) {
+                if ($targetZoneId > 0 && $this->duplicatesZonePoint(
+                    $position,
+                    $targetZoneId,
+                    $zonePoints,
+                    $map,
+                )) {
                     return null;
                 }
                 $isPortal = $destShortName !== '' || $linkedPoint !== null;
@@ -583,7 +606,9 @@ class ZoneAtlasService
                     'id' => 'door-'.(int) $door->id,
                     'source_id' => (int) $door->id,
                     'kind' => 'doors',
-                    'layers' => ['doors'],
+                    // A type-57 door is the authoritative in-zone origin when
+                    // its linked zone_point has no usable source position.
+                    'layers' => $linkedPointNeedsOrigin ? ['doors', 'zone-points'] : ['doors'],
                     'label' => $label,
                     'subtitle' => $isPortal ? 'Door portal' : 'Interactive door',
                     'position' => $position,
@@ -776,17 +801,35 @@ class ZoneAtlasService
         return $query;
     }
 
-    private function duplicatesZonePoint(array $position, int $targetZoneId, Collection $zonePoints): bool
-    {
-        return $zonePoints->contains(function (array $point) use ($position, $targetZoneId) {
+    private function duplicatesZonePoint(
+        array $position,
+        int $targetZoneId,
+        Collection $zonePoints,
+        ?array $map,
+    ): bool {
+        return $zonePoints->contains(function (array $point) use ($position, $targetZoneId, $map) {
             if ((int) ($point['target_zone_id'] ?? 0) !== $targetZoneId) {
                 return false;
             }
             $other = $point['position'] ?? null;
 
-            return is_array($other)
+            return $this->zonePointOriginIsVisible($other, $map)
                 && hypot((float) $other['x'] - $position['x'], (float) $other['y'] - $position['y']) <= 8.0;
         });
+    }
+
+    private function zonePointOriginIsVisible(mixed $position, ?array $map): bool
+    {
+        return is_array($position)
+            && $this->hasResolvedOrigin($position)
+            && $this->positionWithinMap($position, $map);
+    }
+
+    private function hasResolvedOrigin(array $position): bool
+    {
+        return (float) ($position['x'] ?? 0) !== 0.0
+            || (float) ($position['y'] ?? 0) !== 0.0
+            || (float) ($position['z'] ?? 0) !== 0.0;
     }
 
     private function position(object $row): ?array

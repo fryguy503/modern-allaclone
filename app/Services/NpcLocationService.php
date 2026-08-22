@@ -24,6 +24,25 @@ class NpcLocationService
 
     private const MAX_ZONE_SHORT_NAME_LENGTH = 64;
 
+    private const WANDER_TYPE_LABELS = [
+        0 => 'Circular',
+        1 => 'Random nearest 10',
+        2 => 'Random',
+        3 => 'Patrol',
+        4 => 'One way (repop)',
+        5 => 'Random nearest 5 (line of sight)',
+        6 => 'One way (depop)',
+        7 => 'Center point',
+        8 => 'Random center point',
+        9 => 'Random path',
+    ];
+
+    private const PAUSE_TYPE_LABELS = [
+        0 => 'Random half',
+        1 => 'Full',
+        2 => 'Random full',
+    ];
+
     /** @var array<int, string>|null */
     private ?array $enabledContentFlags = null;
 
@@ -53,7 +72,20 @@ class NpcLocationService
      *         points: int,
      *         bounds: array{min_x: float, min_y: float, min_z: float, max_x: float, max_y: float, max_z: float}
      *     }|null,
-     *     paths: array<string, array<int, array{x: float, y: float, z: float, pause: int}>>,
+     *     paths: array<string, array<int, array{
+     *         number: int,
+     *         x: float,
+     *         y: float,
+     *         z: float,
+     *         pause: int
+     *     }>>,
+     *     path_meta: array<string, array{
+     *         grid_id: int,
+     *         wander_type: int,
+     *         wander_type_label: string,
+     *         pause_type: int,
+     *         pause_type_label: string
+     *     }>,
      *     placeholders: array<string, array<int, array{id: int, name: string, level: int, chance: float, url: string}>>,
      *     locations: array<int, array{
      *         id: int,
@@ -162,11 +194,11 @@ class NpcLocationService
             ->all();
 
         $placeholders = $this->placeholderCandidates($npcId, $spawnGroupIds, $currentExpansion);
-        $paths = $this->waypointPaths($locations);
+        $pathData = $this->waypointPaths($locations);
 
         return $locations
             ->groupBy(fn ($location) => $location->short_name.':'.(int) $location->version)
-            ->map(function (Collection $zoneLocations, string $key) use ($displayRespawn, $placeholders, $paths) {
+            ->map(function (Collection $zoneLocations, string $key) use ($displayRespawn, $placeholders, $pathData) {
                 $first = $zoneLocations->first();
 
                 return [
@@ -177,7 +209,8 @@ class NpcLocationService
                     'zone_id' => (int) $first->zone_id,
                     'zone_row_id' => (int) $first->zone_row_id,
                     'map' => $this->maps->find((string) $first->short_name),
-                    'paths' => $this->pathsForGroup($zoneLocations, $paths),
+                    'paths' => $this->pathsForGroup($zoneLocations, $pathData['paths']),
+                    'path_meta' => $this->pathMetaForGroup($zoneLocations, $pathData['meta']),
                     'placeholders' => $this->placeholdersForGroup($zoneLocations, $placeholders),
                     'locations' => $zoneLocations
                         ->map(fn ($location) => $this->locationDto(
@@ -389,6 +422,34 @@ class NpcLocationService
             ->all();
     }
 
+    private function pathMetaForGroup(Collection $locations, array $metadata): array
+    {
+        $zoneId = (int) $locations->first()->zone_id;
+
+        return $locations
+            ->pluck('path_grid')
+            ->map(fn ($pathGrid) => (int) $pathGrid)
+            ->filter(fn (int $pathGrid) => $pathGrid > 0)
+            ->unique()
+            ->mapWithKeys(fn (int $pathGrid) => [
+                (string) $pathGrid => $metadata[$zoneId.':'.$pathGrid] ?? null,
+            ])
+            ->filter()
+            ->all();
+    }
+
+    /**
+     * @return array{
+     *     paths: array<string, array<int, array{number: int, x: float, y: float, z: float, pause: int}>>,
+     *     meta: array<string, array{
+     *         grid_id: int,
+     *         wander_type: int,
+     *         wander_type_label: string,
+     *         pause_type: int,
+     *         pause_type_label: string
+     *     }>
+     * }
+     */
     private function waypointPaths(Collection $locations): array
     {
         $pairs = $locations
@@ -402,49 +463,155 @@ class NpcLocationService
             ->values();
 
         if ($pairs->isEmpty()) {
-            return [];
+            return ['paths' => [], 'meta' => []];
         }
 
-        try {
-            $waypoints = $this->database->connection('eqemu')
-                ->table('grid_entries')
-                ->where(function ($query) use ($pairs) {
-                    foreach ($pairs as $pair) {
-                        $query->orWhere(function ($pairQuery) use ($pair) {
-                            $pairQuery
-                                ->where('zoneid', $pair['zone_id'])
-                                ->where('gridid', $pair['grid_id']);
-                        });
-                    }
-                })
-                ->select(['zoneid', 'gridid', 'number', 'x', 'y', 'z', 'pause'])
-                ->orderBy('zoneid')
-                ->orderBy('gridid')
-                ->orderBy('number')
-                ->limit(self::MAX_PATH_WAYPOINTS)
-                ->get();
-        } catch (QueryException $exception) {
-            if (! $this->isMissingGridEntriesTable($exception)) {
-                throw $exception;
-            }
+        $result = $this->waypointRows($pairs);
+        $waypoints = $result['rows'];
 
-            return [];
+        if ($waypoints->isEmpty()) {
+            return ['paths' => [], 'meta' => []];
         }
 
         $requestedPairs = $pairs
             ->mapWithKeys(fn ($pair) => [$pair['zone_id'].':'.$pair['grid_id'] => true])
             ->all();
+        $waypoints = $waypoints->filter(
+            fn ($waypoint) => isset($requestedPairs[(int) $waypoint->zoneid.':'.(int) $waypoint->gridid]),
+        );
 
-        return $waypoints
-            ->filter(fn ($waypoint) => isset($requestedPairs[(int) $waypoint->zoneid.':'.(int) $waypoint->gridid]))
+        $paths = $waypoints
             ->groupBy(fn ($waypoint) => (int) $waypoint->zoneid.':'.(int) $waypoint->gridid)
-            ->map(fn (Collection $path) => $path->map(fn ($waypoint) => [
-                'x' => (float) $waypoint->x,
-                'y' => (float) $waypoint->y,
-                'z' => (float) $waypoint->z,
-                'pause' => (int) $waypoint->pause,
-            ])->values()->all())
+            ->map(function (Collection $path) {
+                return $path
+                    ->map(function ($waypoint) {
+                        $x = $this->finiteFloat($waypoint->x ?? null);
+                        $y = $this->finiteFloat($waypoint->y ?? null);
+                        $z = $this->finiteFloat($waypoint->z ?? null);
+                        if ($x === null || $y === null || $z === null) {
+                            return null;
+                        }
+
+                        return [
+                            'number' => (int) $waypoint->number,
+                            'x' => $x,
+                            'y' => $y,
+                            'z' => $z,
+                            'pause' => (int) $waypoint->pause,
+                        ];
+                    })
+                    ->filter()
+                    ->values()
+                    ->all();
+            })
+            ->filter(fn (array $path) => $path !== [])
             ->all();
+
+        $metadata = [];
+        if ($result['metadata']) {
+            foreach ($waypoints->groupBy(fn ($waypoint) => (int) $waypoint->zoneid.':'.(int) $waypoint->gridid) as $key => $path) {
+                if (! isset($paths[$key])) {
+                    continue;
+                }
+
+                $first = $path->first();
+                $wanderType = (int) ($first->wander_type ?? -1);
+                $pauseType = (int) ($first->pause_type ?? -1);
+                if (! isset(self::WANDER_TYPE_LABELS[$wanderType], self::PAUSE_TYPE_LABELS[$pauseType])) {
+                    continue;
+                }
+
+                $metadata[$key] = [
+                    'grid_id' => (int) $first->gridid,
+                    'wander_type' => $wanderType,
+                    'wander_type_label' => self::WANDER_TYPE_LABELS[$wanderType],
+                    'pause_type' => $pauseType,
+                    'pause_type_label' => self::PAUSE_TYPE_LABELS[$pauseType],
+                ];
+            }
+        }
+
+        return ['paths' => $paths, 'meta' => $metadata];
+    }
+
+    /**
+     * Fetch ordered waypoints with optional grid behavior metadata. Standard
+     * EQEmu installations take one query; schemas without grid metadata retry
+     * once while retaining the waypoint route.
+     *
+     * @param  Collection<int, array{zone_id: int, grid_id: int}>  $pairs
+     * @return array{rows: Collection<int, object>, metadata: bool}
+     */
+    private function waypointRows(Collection $pairs): array
+    {
+        $includeMetadata = true;
+
+        while (true) {
+            try {
+                $query = $this->database->connection('eqemu')
+                    ->table('grid_entries as ge');
+
+                if ($includeMetadata) {
+                    $query->leftJoin('grid as g', function ($join) {
+                        $join->on('g.id', '=', 'ge.gridid')
+                            ->on('g.zoneid', '=', 'ge.zoneid');
+                    });
+                }
+
+                $query
+                    ->where(function ($query) use ($pairs) {
+                        foreach ($pairs as $pair) {
+                            $query->orWhere(function ($pairQuery) use ($pair) {
+                                $pairQuery
+                                    ->where('ge.zoneid', $pair['zone_id'])
+                                    ->where('ge.gridid', $pair['grid_id']);
+                            });
+                        }
+                    });
+
+                $select = [
+                    'ge.zoneid',
+                    'ge.gridid',
+                    'ge.number',
+                    'ge.x',
+                    'ge.y',
+                    'ge.z',
+                    'ge.pause',
+                ];
+                if ($includeMetadata) {
+                    $select[] = 'g.type as wander_type';
+                    $select[] = 'g.type2 as pause_type';
+                }
+
+                return [
+                    'rows' => $query
+                        ->select($select)
+                        ->orderBy('ge.zoneid')
+                        ->orderBy('ge.gridid')
+                        ->orderBy('ge.number')
+                        ->limit(self::MAX_PATH_WAYPOINTS)
+                        ->get(),
+                    'metadata' => $includeMetadata,
+                ];
+            } catch (QueryException $exception) {
+                if ($this->isMissingTable($exception, 'grid_entries')) {
+                    return [
+                        'rows' => collect(),
+                        'metadata' => false,
+                    ];
+                }
+                if ($includeMetadata && ($this->isMissingTable($exception, 'grid')
+                    || $this->isMissingColumn($exception, 'id')
+                    || $this->isMissingColumn($exception, 'zoneid')
+                    || $this->isMissingColumn($exception, 'type')
+                    || $this->isMissingColumn($exception, 'type2'))) {
+                    $includeMetadata = false;
+
+                    continue;
+                }
+                throw $exception;
+            }
+        }
     }
 
     private function locationDto(
@@ -517,16 +684,45 @@ class NpcLocationService
         return is_finite($value) ? $value : null;
     }
 
-    private function isMissingGridEntriesTable(QueryException $exception): bool
+    private function isMissingTable(QueryException $exception, string $table): bool
     {
-        $message = strtolower($exception->getMessage());
+        $message = $this->databaseErrorMessage($exception);
         $sqlState = (string) ($exception->errorInfo[0] ?? $exception->getCode());
         $driverCode = (int) ($exception->errorInfo[1] ?? 0);
 
-        return str_contains($message, 'grid_entries')
+        return $this->mentionsIdentifier($message, $table)
             && (in_array($sqlState, ['42S02', '42P01'], true)
                 || $driverCode === 1146
                 || str_contains($message, 'no such table')
                 || str_contains($message, 'does not exist'));
+    }
+
+    private function isMissingColumn(QueryException $exception, string $column): bool
+    {
+        $message = $this->databaseErrorMessage($exception);
+        $sqlState = (string) ($exception->errorInfo[0] ?? $exception->getCode());
+        $driverCode = (int) ($exception->errorInfo[1] ?? 0);
+
+        return $this->mentionsIdentifier($message, $column)
+            && (in_array($sqlState, ['42S22', '42703'], true)
+                || $driverCode === 1054
+                || str_contains($message, 'no such column')
+                || str_contains($message, 'unknown column')
+                || str_contains($message, 'does not exist'));
+    }
+
+    private function databaseErrorMessage(QueryException $exception): string
+    {
+        $driverMessage = $exception->errorInfo[2] ?? $exception->getPrevious()?->getMessage();
+
+        return strtolower(is_string($driverMessage) ? $driverMessage : $exception->getMessage());
+    }
+
+    private function mentionsIdentifier(string $message, string $identifier): bool
+    {
+        return preg_match(
+            '/(?<![a-z0-9_])'.preg_quote(strtolower($identifier), '/').'(?![a-z0-9_])/',
+            $message,
+        ) === 1;
     }
 }

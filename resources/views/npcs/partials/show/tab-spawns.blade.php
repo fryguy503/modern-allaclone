@@ -6,6 +6,7 @@
             'version' => $group['version'],
             'map' => $group['map'] ?? null,
             'paths' => $group['paths'] ?? [],
+            'path_meta' => $group['path_meta'] ?? [],
             'locations' => array_map(static fn (array $location): array => [
                 'id' => $location['id'],
                 'position' => $location['position'] ?? null,
@@ -18,6 +19,7 @@
     $mapConfig = [
         'npcName' => $npc->clean_name,
         'coordinateOrder' => config('everquest.coords_as_yxz') ? 'yxz' : 'xyz',
+        'pathPreviewEnabled' => config('everquest.maps.path_preview', true),
         'groups' => $mapGroups,
     ];
     $formatCoordinate = static function ($value): string {
@@ -168,6 +170,11 @@
                     </span>
                     <span class="rounded-full border border-base-content/10 bg-base-300/85 px-2.5 py-1 backdrop-blur"
                         x-text="`${Math.round(zoom * 100)}%`"></span>
+                    <span class="rounded-full border border-sky-300/25 bg-base-300/85 px-2.5 py-1 backdrop-blur"
+                        x-show="hasPaths" x-cloak>
+                        <span class="mr-1 inline-block h-2 w-2 rounded-full border border-sky-100 bg-sky-400"></span>
+                        pathing
+                    </span>
                 </div>
             </div>
 
@@ -177,10 +184,29 @@
                         <input type="checkbox" class="toggle toggle-xs toggle-primary" x-model="showMapPoints" />
                         <span class="label-text">Map labels</span>
                     </label>
-                    <label class="label cursor-pointer gap-2 py-0" x-show="hasPaths || hasRoamAreas" x-cloak>
-                        <input type="checkbox" class="toggle toggle-xs toggle-info" x-model="showPaths" />
-                        <span class="label-text">Movement</span>
+                    <label class="label cursor-pointer gap-2 py-0" x-show="hasZoneAnnotations" x-cloak>
+                        <input type="checkbox" class="toggle toggle-xs toggle-warning" x-model="showZoneLines" />
+                        <span class="label-text">Zone lines</span>
                     </label>
+                    <label class="label cursor-pointer gap-2 py-0" x-show="hasDrawableMovement || hasRoamAreas" x-cloak>
+                        <input type="checkbox" class="toggle toggle-xs toggle-info" x-model="showPaths" />
+                        <span class="label-text">Selected movement</span>
+                    </label>
+                    <div class="flex items-center gap-1" x-show="pathPreviewAvailable" x-cloak>
+                        <button type="button" class="btn btn-xs btn-outline btn-info" @click="togglePathPreview()"
+                            :disabled="reducedMotion"
+                            title="Preview the selected Patrol or one-way waypoint order. Timing is illustrative, not a live server position."
+                            x-text="pathPreviewPlaying ? 'Pause path' : (pathPreviewActive ? 'Resume path' : 'Preview path')"></button>
+                        <select class="select select-bordered select-xs w-16" x-model.number="pathPreviewSpeed"
+                            aria-label="Path preview speed">
+                            <option value="1">1×</option>
+                            <option value="4">4×</option>
+                            <option value="10">10×</option>
+                        </select>
+                        <button type="button" class="btn btn-xs btn-ghost" x-show="pathPreviewActive"
+                            @click="resetPathPreview()">Reset</button>
+                        <span class="hidden text-xs text-base-content/50 sm:inline" x-text="pathPreviewBehaviorLabel"></span>
+                    </div>
                     <label class="label cursor-pointer gap-2 py-0" x-show="mapData" x-cloak>
                         <input type="checkbox" class="toggle toggle-xs toggle-warning" x-model="elevationFocus" />
                         <span class="label-text">Focus floor</span>
@@ -197,6 +223,7 @@
                         <div class="min-w-0">
                             <p class="text-[0.65rem] font-semibold uppercase tracking-wider text-base-content/45">Selected</p>
                             <p class="truncate font-mono text-sm" x-text="selectedCoordinateText"></p>
+                            <p class="truncate text-xs text-info" x-show="pathPreviewActive" x-text="pathPreviewStatus"></p>
                         </div>
                         <button type="button" class="btn btn-xs btn-ghost shrink-0" @click="copyCoordinates()"
                             :disabled="!hasUsablePosition(selectedLocation)">Copy</button>
@@ -217,7 +244,7 @@
                 Base maps by
                 <a href="https://www.eqmaps.info/" target="_blank" rel="noopener noreferrer"
                     class="link link-hover text-info">Brewall</a>
-                · only the base geometry layer is used
+                · base geometry with curated zone-line annotations
             </p>
         </div>
 
@@ -277,6 +304,7 @@
                                         $spawnGroupId = (int) ($location['spawn_group_id'] ?? 0);
                                         $pathGrid = (int) ($location['path_grid'] ?? 0);
                                         $pathWaypoints = $locationGroup['paths'][(string) $pathGrid] ?? [];
+                                        $pathMetadata = $locationGroup['path_meta'][(string) $pathGrid] ?? [];
                                         $placeholders = $locationGroup['placeholders'][(string) $spawnGroupId] ?? [];
                                         $showPlaceholderDetails = !isset($listedPlaceholderGroups[$spawnGroupId]);
                                         $listedPlaceholderGroups[$spawnGroupId] = true;
@@ -308,10 +336,16 @@
                                             <div class="flex flex-col">
                                                 <span>{{ $location['spawn_group_name'] ?: 'Group ' . $spawnGroupId }}</span>
                                                 <span class="text-xs text-base-content/45">#{{ $spawnGroupId }}</span>
-                                                @if (!empty($pathWaypoints))
+                                                @if ($pathGrid > 0)
                                                     <span class="mt-1 badge badge-xs badge-info badge-outline">
-                                                        Path {{ $pathGrid }} · {{ count($pathWaypoints) }}
-                                                        {{ count($pathWaypoints) === 1 ? 'waypoint' : 'waypoints' }}
+                                                        Path {{ $pathGrid }}
+                                                        @if (!empty($pathMetadata['wander_type_label']))
+                                                            · {{ $pathMetadata['wander_type_label'] }}
+                                                        @endif
+                                                        @if (!empty($pathWaypoints))
+                                                            · {{ count($pathWaypoints) }}
+                                                            {{ count($pathWaypoints) === 1 ? 'waypoint' : 'waypoints' }}
+                                                        @endif
                                                     </span>
                                                 @elseif (!empty($location['roam']))
                                                     <span class="mt-1 badge badge-xs badge-info badge-outline">Roaming area</span>

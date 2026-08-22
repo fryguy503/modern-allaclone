@@ -210,6 +210,10 @@
                     <input type="checkbox" class="toggle toggle-xs toggle-primary" x-model="showMapPoints" />
                     <span class="label-text">Base-map labels</span>
                 </label>
+                <label class="label cursor-pointer gap-2 py-0" x-show="hasZoneAnnotations" x-cloak>
+                    <input type="checkbox" class="toggle toggle-xs toggle-warning" x-model="showZoneLines" />
+                    <span class="label-text">Zone lines</span>
+                </label>
                 <label class="label cursor-pointer gap-2 py-0" x-show="mapData" x-cloak>
                     <input type="checkbox" class="toggle toggle-xs toggle-warning" x-model="elevationFocus" />
                     <span class="label-text">Focus floor</span>
@@ -267,7 +271,7 @@
             Base maps by
             <a href="https://www.eqmaps.info/" target="_blank" rel="noopener noreferrer"
                 class="link link-hover text-info">Brewall</a>
-            · base geometry only
+            · base geometry with curated zone-line annotations
         </p>
     </div>
 </div>

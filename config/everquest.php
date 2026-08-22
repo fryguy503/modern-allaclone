@@ -47,6 +47,8 @@ return [
     'coords_as_yxz'                 => false,
 
     'maps' => [
+        // Allow selected NPCs with Patrol or One Way grids to preview configured movement.
+        'path_preview' => filter_var(env('EQ_MAP_PATH_PREVIEW', true), FILTER_VALIDATE_BOOL),
         // Comma-separated map short names whose legacy geometry should be preferred.
         'legacy_zones' => array_values(array_unique(array_filter(
             array_map('trim', explode(',', (string) env(

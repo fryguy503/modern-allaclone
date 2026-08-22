@@ -1,5 +1,10 @@
 import assert from 'node:assert/strict';
+import { execFile } from 'node:child_process';
+import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import { describe, test } from 'node:test';
+import { promisify } from 'node:util';
 
 import {
     EQM1_DEFAULT_LIMITS,
@@ -15,13 +20,16 @@ import {
     worldToScreen,
 } from '../../resources/js/maps/eq-map-format.js';
 import npcLocationMap, {
+    buildPathPreviewTimeline,
     formatLocationCoordinates,
     hasFinitePosition,
     locationMapArea,
     locationMapPoint,
+    normalizeMapAnnotations,
 } from '../../resources/js/components/npc-location-map.js';
 
 const encoder = new TextEncoder();
+const execFileAsync = promisify(execFile);
 
 const DEFAULT_BOUNDS = Object.freeze({
     minX: -10,
@@ -580,15 +588,16 @@ describe('NPC location map safeguards', () => {
         }
     });
 
-    test('draws shared grid paths and spawn-group roam bounds only once', () => {
+    test('draws movement geometry only for the selected spawn', () => {
         let fillCount = 0;
         let strokeCount = 0;
+        const routeStarts = [];
         const context = {
             beginPath() {},
             closePath() {},
             fill() { fillCount += 1; },
             lineTo() {},
-            moveTo() {},
+            moveTo(x, y) { routeStarts.push({ x, y }); },
             restore() {},
             save() {},
             setLineDash() {},
@@ -600,6 +609,9 @@ describe('NPC location map safeguards', () => {
             groups: [{
                 key: 'qeynos:0',
                 paths: { 9: path },
+                path_meta: {
+                    9: { wander_type: 3, wander_type_label: 'Patrol', pause_type: 1, pause_type_label: 'Full' },
+                },
                 locations: [
                     { id: 1, spawn_group_id: 77, path_grid: 9, position: { x: 1, y: 2, z: 3 }, roam },
                     { id: 2, spawn_group_id: 77, path_grid: 9, position: { x: 4, y: 5, z: 6 }, roam },
@@ -607,18 +619,332 @@ describe('NPC location map safeguards', () => {
             }],
         });
         state.selectedZoneKey = 'qeynos:0';
+        state.selectedLocationId = 2;
         state.canvasWidth = 800;
         state.canvasHeight = 600;
         state.fit = fitBounds(DEFAULT_BOUNDS, 800, 600, 24);
 
         state.drawMovement(context);
         assert.equal(state.hasPaths, true);
+        assert.equal(state.hasDrawableMovement, true);
         assert.equal(strokeCount, 2);
         assert.equal(fillCount, 1);
+        const firstWaypoint = state.toScreen(-20, -30);
+        assert.deepEqual(routeStarts[0], firstWaypoint);
+
+        state.currentGroup.path_meta[9].wander_type = 2;
+        state.drawMovement(context);
+        assert.equal(state.hasDrawableMovement, false);
+        assert.equal(strokeCount, 3);
+        assert.equal(fillCount, 2);
+    });
+
+    test('marks assigned path grids without exposing an unusable movement toggle', () => {
+        const state = npcLocationMap({
+            groups: [{
+                key: 'qeynos:0',
+                paths: { 19: [{ number: 1, x: 5, y: 6, z: 7 }] },
+                path_meta: { 19: { wander_type: 3, pause_type: 1 } },
+                locations: [{ id: 1, path_grid: 19, position: { x: 1, y: 2, z: 3 } }],
+            }],
+        });
+        state.selectedZoneKey = 'qeynos:0';
+
+        assert.equal(state.hasPathAssignment(state.currentLocations[0]), true);
+        assert.equal(state.hasPaths, true);
+        assert.equal(state.hasDrawableMovement, false);
+        assert.equal(state.pathPreviewAvailable, false);
+    });
+
+    test('limits animated path previews to patrol and one-way grids', () => {
+        const location = { id: 41, path_grid: 7, position: { x: 0, y: 0, z: 0 } };
+        const path = [
+            { number: 1, x: 10, y: 20, z: 2, pause: 0 },
+            { number: 2, x: 30, y: 40, z: 4, pause: 5 },
+            { number: 3, x: 50, y: 60, z: 6, pause: 0 },
+        ];
+
+        const patrol = buildPathPreviewTimeline(location, path, { wander_type: 3, pause_type: 1 });
+        assert.equal(patrol.loop, true);
+        assert.equal(patrol.wanderType, 3);
+        assert.equal(patrol.events[0].from.number, 1);
+        assert.equal(patrol.events.at(-1).to.number, 1);
+
+        for (const type of [4, 6]) {
+            const oneWay = buildPathPreviewTimeline(location, path, { wander_type: type, pause_type: 1 });
+            assert.equal(oneWay.loop, false);
+            assert.equal(oneWay.wanderType, type);
+        }
+        for (const type of [0, 1, 2, 5, 7, 8, 9]) {
+            assert.equal(buildPathPreviewTimeline(location, path, { wander_type: type, pause_type: 1 }), null);
+        }
+        assert.equal(buildPathPreviewTimeline(
+            location,
+            Array.from({ length: 1001 }, (_, index) => ({ number: index + 1, x: index, y: index, z: 0 })),
+            { wander_type: 4, pause_type: 1 },
+        ), null);
+    });
+
+    test('keeps path animation opt-in and exposes it only for a supported selected grid', () => {
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        globalThis.requestAnimationFrame = () => 1;
+        try {
+            const location = { id: 41, path_grid: 7, position: { x: 0, y: 0, z: 0 } };
+            const path = [
+                { number: 1, x: 10, y: 20, z: 2, pause: 0 },
+                { number: 2, x: 30, y: 40, z: 4, pause: 0 },
+            ];
+            const state = npcLocationMap({
+                groups: [{
+                    key: 'qeynos:0',
+                    paths: { 7: path },
+                    path_meta: {
+                        7: {
+                            wander_type: 3,
+                            wander_type_label: 'Patrol',
+                            pause_type: 1,
+                            pause_type_label: 'Full',
+                        },
+                    },
+                    locations: [location],
+                }],
+            });
+            state.selectedZoneKey = 'qeynos:0';
+            state.selectedLocationId = 41;
+
+            assert.equal(state.pathPreviewAvailable, true);
+            assert.equal(state.pathPreviewActive, false);
+            assert.equal(state.pathPreviewPlaying, false);
+            state.togglePathPreview();
+            assert.equal(state.pathPreviewActive, true);
+            assert.equal(state.pathPreviewPlaying, true);
+            assert.ok(state.pathPreviewFrame(performance.now() + 50));
+            state.pausePathPreview();
+            assert.equal(state.pathPreviewPlaying, false);
+
+            state.currentGroup.path_meta[7].wander_type = 2;
+            state.resetPathPreview(false);
+            assert.equal(state.pathPreviewAvailable, false);
+        } finally {
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+});
+
+describe('map annotation manifest extraction', () => {
+    test('catalogues only bounded size-3 transitions from each variant base and matching _1 overlay', async () => {
+        const temporaryRoot = await mkdtemp(join(tmpdir(), 'eq-map-annotations-'));
+        const sourceDirectory = join(temporaryRoot, 'source');
+        const legacyDirectory = join(sourceDirectory, 'legacy');
+        const outputDirectory = join(temporaryRoot, 'output');
+        const script = resolve('scripts/build-eq-maps.mjs');
+
+        await mkdir(legacyDirectory, { recursive: true });
+        await writeFile(join(sourceDirectory, 'testzone.txt'), [
+            'L 0,0,0,100,100,10,0,0,0',
+            'P 10,20,3,255,0,0,3,to_Modern__Base',
+            'P 11,21,3,0,0,0,2,Ordinary_Banker',
+            '',
+        ].join('\n'));
+        await writeFile(join(sourceDirectory, 'testzone_1.txt'), [
+            'L 9000,9000,9000,9001,9001,9001,255,0,0',
+            'P 30,40,5,255,0,0,3,to_Modern_Overlay',
+            'P 31,41,6,255,255,0,2,Teleport_to_Hub',
+            'P 32,42,7,0,0,255,3,GS:_Portal_Key_Attuner',
+            'P 33,43,7,0,0,255,3,Portal_Key_Attuner',
+            'P 150,50,7,255,0,0,3,PoK_Portal',
+            'P 9000,9000,7,255,0,0,3,to_Wrong_Coordinate_Space',
+            'P 10,20,3,255,0,0,3,to_Modern__Base',
+            '',
+        ].join('\n'));
+        await writeFile(join(legacyDirectory, 'testzone.txt'), [
+            'L 0,0,0,20,20,2,0,0,0',
+            'P 2,3,1,255,0,0,3,to_Legacy_Base',
+            'P 6,7,1,0,0,0,3,Knowledge_Portal',
+            '',
+        ].join('\n'));
+        await writeFile(join(legacyDirectory, 'testzone_1.txt'), [
+            'L 8000,8000,8000,8001,8001,8001,255,0,0',
+            'P 4,5,1,255,255,0,3,Portal_to_Legacy_Hub',
+            'P 5,6,1,255,255,0,2,to_Internal_Room',
+            '',
+        ].join('\n'));
+
+        try {
+            await execFileAsync(process.execPath, [
+                script,
+                '--source', sourceDirectory,
+                '--output', outputDirectory,
+            ]);
+
+            const manifest = JSON.parse(await readFile(join(outputDirectory, 'manifest.json'), 'utf8'));
+            const current = manifest.zones.testzone;
+            assert.deepEqual(current.annotations, [
+                {
+                    kind: 'zone-line',
+                    label: 'to Modern Base',
+                    position: { x: 10, y: 20, z: 3 },
+                },
+                {
+                    kind: 'zone-line',
+                    label: 'to Modern Overlay',
+                    position: { x: 30, y: 40, z: 5 },
+                },
+                {
+                    kind: 'portal',
+                    label: 'PoK Portal',
+                    position: { x: 150, y: 50, z: 7 },
+                },
+            ]);
+            assert.equal(current.segments, 1);
+            assert.equal(current.points, 2);
+            assert.equal(current.bounds.max_x, 100);
+
+            assert.deepEqual(current.legacy.annotations, [
+                {
+                    kind: 'zone-line',
+                    label: 'to Legacy Base',
+                    position: { x: 2, y: 3, z: 1 },
+                },
+                {
+                    kind: 'portal',
+                    label: 'Knowledge Portal',
+                    position: { x: 6, y: 7, z: 1 },
+                },
+                {
+                    kind: 'portal',
+                    label: 'Portal to Legacy Hub',
+                    position: { x: 4, y: 5, z: 1 },
+                },
+            ]);
+            assert.equal(current.legacy.segments, 1);
+            assert.equal(current.legacy.points, 2);
+            assert.equal(current.legacy.bounds.max_x, 20);
+            assert.equal(
+                current.legacy.annotations.some((annotation) => annotation.label.includes('Modern')),
+                false,
+            );
+
+            const compiledPath = join(outputDirectory, current.path.replace(/^maps\//, ''));
+            const compiled = await readFile(compiledPath);
+            assert.equal(compiled.readUInt32LE(8), 1);
+            assert.equal(compiled.readUInt32LE(12), 2);
+
+            await execFileAsync(process.execPath, [
+                script,
+                '--source', sourceDirectory,
+                '--output', outputDirectory,
+                '--check',
+            ]);
+        } finally {
+            await rm(temporaryRoot, { recursive: true, force: true });
+        }
+    });
+
+    test('refuses to publish a manifest above the catalog five-megabyte ceiling', async () => {
+        const temporaryRoot = await mkdtemp(join(tmpdir(), 'eq-map-manifest-limit-'));
+        const sourceDirectory = join(temporaryRoot, 'source');
+        const outputDirectory = join(temporaryRoot, 'output');
+        const script = resolve('scripts/build-eq-maps.mjs');
+        const filler = 'x'.repeat(130);
+
+        await mkdir(sourceDirectory, { recursive: true });
+        const writes = [];
+        for (let zoneIndex = 0; zoneIndex < 96; zoneIndex += 1) {
+            const zone = `zone${String(zoneIndex).padStart(3, '0')}`;
+            const points = Array.from({ length: 256 }, (_, pointIndex) => {
+                const x = (pointIndex % 16) * 60;
+                const y = Math.floor(pointIndex / 16) * 60;
+                return `P ${x},${y},0,255,0,0,3,to_${zone}_${pointIndex}_${filler}`;
+            });
+            writes.push(writeFile(join(sourceDirectory, `${zone}.txt`), 'L 0,0,0,1000,1000,10,0,0,0\n'));
+            writes.push(writeFile(join(sourceDirectory, `${zone}_1.txt`), `${points.join('\n')}\n`));
+        }
+        await Promise.all(writes);
+
+        try {
+            await assert.rejects(
+                execFileAsync(process.execPath, [
+                    script,
+                    '--source', sourceDirectory,
+                    '--output', outputDirectory,
+                ]),
+                (error) => {
+                    assert.match(error.stderr, /Generated manifest exceeds 5242880 bytes/);
+                    return true;
+                },
+            );
+        } finally {
+            await rm(temporaryRoot, { recursive: true, force: true });
+        }
     });
 });
 
 describe('layered atlas overlays', () => {
+    test('sanitizes map annotations and keeps them outside selectable location data', () => {
+        assert.deepEqual(normalizeMapAnnotations([
+            {
+                kind: 'zone-line',
+                label: ' To Neriak\u0000 ',
+                position: { x: 10, y: 20, z: 3 },
+            },
+            { kind: 'portal', label: 'Missing position' },
+            { kind: 'portal', label: 'Bad coordinate', position: { x: '10', y: 20, z: 3 } },
+        ]), [{ kind: 'zone-line', label: 'To Neriak', x: 10, y: 20, z: 3 }]);
+
+        const state = npcLocationMap({
+            layers: [
+                { id: 'zone-points', label: 'Zone exits', default: true },
+                { id: 'doors', label: 'Doors', default: false },
+            ],
+            groups: [{
+                key: 'nektulos:0',
+                map: {
+                    available: true,
+                    url: '/maps/nektulos.eqmap',
+                    annotations: [
+                        { kind: 'zone-line', label: 'To Neriak', position: { x: 10, y: 20, z: 3 } },
+                        { kind: 'portal', label: 'Portal to Knowledge', position: { x: 900, y: 800, z: 4 } },
+                    ],
+                },
+                locations: [{
+                    id: 'zone-point-1',
+                    kind: 'zone-points',
+                    layers: ['zone-points'],
+                    position: { x: -10, y: -20, z: 3 },
+                }, {
+                    id: 'door-1',
+                    kind: 'doors',
+                    layers: ['doors'],
+                    position: { x: -900, y: -800, z: 4 },
+                }],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'nektulos:0';
+        state.mapData = { bounds: { minX: -100, minY: -100, maxX: 100, maxY: 100 }, points: [] };
+
+        assert.equal(state.currentLocations.length, 2);
+        assert.deepEqual(state.visibleZoneAnnotations.map(({ label }) => label), ['Portal to Knowledge']);
+        state.currentGroup.map = state.normalizeMap(state.currentGroup.map);
+        assert.equal(state.hasZoneAnnotations, true);
+        assert.deepEqual(state.visibleZoneAnnotations.map(({ label }) => label), ['Portal to Knowledge']);
+        state.activeLayers.doors = true;
+        assert.deepEqual(state.visibleZoneAnnotations, []);
+        state.activeLayers.doors = false;
+        assert.ok(state.interactionBounds().maxX >= 900);
+        let baseInvalidations = 0;
+        state.invalidateBase = () => { baseInvalidations += 1; };
+        state.scheduleDraw = () => {};
+        state.activeLayers['zone-points'] = false;
+        state.onFiltersChanged();
+        assert.equal(baseInvalidations, 1);
+        assert.deepEqual(state.visibleZoneAnnotations, []);
+        state.searchQuery = 'portal';
+        state.onFiltersChanged();
+        assert.equal(baseInvalidations, 1);
+    });
+
     test('transforms every ground-spawn rectangle corner and restores ordered Brewall bounds', () => {
         const location = {
             area: { min_x: -20, max_x: 10, min_y: 5, max_y: 25 },
@@ -854,6 +1180,36 @@ describe('layered atlas overlays', () => {
             assert.equal(state.selectedLocationId, 'ground-7');
             assert.equal(state.pendingFocusId, 'ground-7');
             assert.equal(state.activeLayers['ground-spawns'], true);
+        } finally {
+            if (originalWindow === undefined) delete globalThis.window;
+            else globalThis.window = originalWindow;
+        }
+    });
+
+    test('invalidates zone annotations when a URL-disabled zone-point layer is enabled', () => {
+        const originalWindow = globalThis.window;
+        globalThis.window = {
+            location: { href: 'https://example.test/zones/1?layers=npcs' },
+            setTimeout: () => 1,
+        };
+
+        try {
+            const state = npcLocationMap({
+                syncUrl: true,
+                layers: [
+                    { id: 'npcs', label: 'NPCs', default: true },
+                    { id: 'zone-points', label: 'Zone exits', default: true },
+                ],
+            });
+            state.configureLayers(state.layers);
+            state.applyUrlState();
+            assert.equal(state.activeLayers['zone-points'], false);
+
+            let baseInvalidations = 0;
+            state.invalidateBase = () => { baseInvalidations += 1; };
+            state.activeLayers['zone-points'] = true;
+            state.onFiltersChanged();
+            assert.equal(baseInvalidations, 1);
         } finally {
             if (originalWindow === undefined) delete globalThis.window;
             else globalThis.window = originalWindow;
@@ -1188,13 +1544,18 @@ describe('layered atlas overlays', () => {
         let removedListener = null;
         let motionListener = null;
         let removedMotionListener = null;
+        let intersectionCallback = null;
         Object.defineProperty(globalThis, 'ResizeObserver', {
             configurable: true,
             value: class { observe() {} disconnect() {} },
         });
         Object.defineProperty(globalThis, 'IntersectionObserver', {
             configurable: true,
-            value: class { observe() {} disconnect() {} },
+            value: class {
+                constructor(callback) { intersectionCallback = callback; }
+                observe() {}
+                disconnect() {}
+            },
         });
         Object.defineProperty(globalThis, 'requestAnimationFrame', {
             configurable: true,
@@ -1247,6 +1608,11 @@ describe('layered atlas overlays', () => {
             listener();
             assert.equal(state.dragging, false);
             assert.equal(state.pointerStart, null);
+
+            state.pathPreviewPlaying = true;
+            intersectionCallback([{ isIntersecting: false }]);
+            assert.equal(state.pathPreviewPlaying, false);
+            assert.match(state.pathPreviewStatus, /out of view/);
 
             state.selectedLocationId = 'selected';
             state.flashSelection();

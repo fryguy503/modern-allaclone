@@ -203,6 +203,54 @@ class ZoneAtlasServiceTest extends TestCase
         $this->assertTrue($locations->has('object-601'));
     }
 
+    public function test_zero_origin_zone_points_are_hidden_but_still_resolve_linked_portals(): void
+    {
+        $connection = DB::connection('eqemu');
+        $connection->table('zone_points')->insert([
+            'id' => 402, 'zone' => 'arena', 'version' => 0, 'number' => 77,
+            'x' => 0, 'y' => 0, 'z' => 0, 'target_zone_id' => 66,
+        ]);
+        $connection->table('doors')->insert([
+            'id' => 502, 'doorid' => 78, 'zone' => 'arena', 'version' => 0,
+            'pos_x' => 320, 'pos_y' => 330, 'pos_z' => 4, 'dest_zone' => 'NONE',
+            'opentype' => 57, 'door_param' => 77,
+        ]);
+
+        $dataset = $this->zoneService()->forZone(Zone::findOrFail(1), 0);
+        $locations = collect($dataset['groups'][0]['locations'])->keyBy('id');
+        $layers = collect($dataset['layers'])->keyBy('id');
+
+        $this->assertFalse($locations->has('zone-point-402'));
+        $this->assertSame('Portal to Lower Guk', $locations['door-502']['label']);
+        $this->assertSame(['x' => 320.0, 'y' => 330.0, 'z' => 4.0], $locations['door-502']['position']);
+        $this->assertSame(['doors', 'zone-points'], $locations['door-502']['layers']);
+        $this->assertSame(3, $layers['zone-points']['count']);
+    }
+
+    public function test_outlier_zone_point_origins_promote_linked_doors_to_zone_exits(): void
+    {
+        $connection = DB::connection('eqemu');
+        $connection->table('zone_points')->insert([
+            'id' => 403, 'zone' => 'arena', 'version' => 0, 'number' => 78,
+            'x' => 1_000_001, 'y' => 125, 'z' => 5, 'target_zone_id' => 66,
+        ]);
+        $connection->table('doors')->insert([
+            'id' => 503, 'doorid' => 79, 'zone' => 'arena', 'version' => 0,
+            'pos_x' => 340, 'pos_y' => 350, 'pos_z' => 6, 'dest_zone' => 'NONE',
+            'opentype' => 57, 'door_param' => 78,
+        ]);
+
+        $dataset = $this->zoneService()->forZone(Zone::findOrFail(1), 0);
+        $locations = collect($dataset['groups'][0]['locations'])->keyBy('id');
+        $layers = collect($dataset['layers'])->keyBy('id');
+
+        $this->assertFalse($locations->has('zone-point-403'));
+        $this->assertSame('Portal to Lower Guk', $locations['door-503']['label']);
+        $this->assertSame(['x' => 340.0, 'y' => 350.0, 'z' => 6.0], $locations['door-503']['position']);
+        $this->assertSame(['doors', 'zone-points'], $locations['door-503']['layers']);
+        $this->assertSame(3, $layers['zone-points']['count']);
+    }
+
     private function zoneService(): ZoneAtlasService
     {
         return new ZoneAtlasService(

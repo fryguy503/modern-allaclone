@@ -100,7 +100,7 @@ class ZoneController extends Controller
         $mapMetadata = $atlasService->mapMetadata($zone);
 
         $cacheContext = hash('sha256', json_encode([
-            'schema' => 2,
+            'schema' => 3,
             'expansion' => (int) config('everquest.current_expansion', 0),
             'locations' => (bool) config('everquest.npc.display.spawn_locs', true),
             'respawn' => (bool) config('everquest.npc.display.respawn', true),

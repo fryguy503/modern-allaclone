@@ -72,10 +72,30 @@ class NpcLocationServiceTest extends TestCase
         $this->assertCount(2, $groups[0]['locations']);
         $this->assertCount(1, $groups[0]['paths']);
         $this->assertSame([
-            ['x' => -6400.0, 'y' => 1000.0, 'z' => 30.0, 'pause' => 5],
-            ['x' => -6300.0, 'y' => 1100.0, 'z' => 31.0, 'pause' => 0],
+            [
+                'number' => 1,
+                'x' => -6400.0,
+                'y' => 1000.0,
+                'z' => 30.0,
+                'pause' => 5,
+            ],
+            [
+                'number' => 2,
+                'x' => -6300.0,
+                'y' => 1100.0,
+                'z' => 31.0,
+                'pause' => 0,
+            ],
         ], $groups[0]['paths'][7]);
         $this->assertStringStartsWith('{"7":', json_encode($groups[0]['paths'], JSON_THROW_ON_ERROR));
+        $this->assertSame([
+            'grid_id' => 7,
+            'wander_type' => 3,
+            'wander_type_label' => 'Patrol',
+            'pause_type' => 1,
+            'pause_type_label' => 'Full',
+        ], $groups[0]['path_meta'][7]);
+        $this->assertStringStartsWith('{"7":', json_encode($groups[0]['path_meta'], JSON_THROW_ON_ERROR));
         $this->assertCount(1, $groups[0]['placeholders']);
         $this->assertStringStartsWith('{"10":', json_encode($groups[0]['placeholders'], JSON_THROW_ON_ERROR));
         $this->assertSame(69094, $groups[0]['placeholders'][10][0]['id']);
@@ -554,7 +574,34 @@ class NpcLocationServiceTest extends TestCase
 
         $this->assertSame(7, $groups[0]['locations'][0]['path_grid']);
         $this->assertSame([], $groups[0]['paths']);
+        $this->assertSame([], $groups[0]['path_meta']);
         $this->assertArrayNotHasKey('path', $groups[0]['locations'][0]);
+    }
+
+    public function test_it_keeps_ordered_paths_when_grid_metadata_is_unavailable(): void
+    {
+        Schema::connection('eqemu')->drop('grid');
+
+        $groups = $this->service()->forNpc(69093);
+
+        $this->assertSame([
+            ['number' => 1, 'x' => -6400.0, 'y' => 1000.0, 'z' => 30.0, 'pause' => 5],
+            ['number' => 2, 'x' => -6300.0, 'y' => 1100.0, 'z' => 31.0, 'pause' => 0],
+        ], $groups[0]['paths'][7]);
+        $this->assertSame([], $groups[0]['path_meta']);
+    }
+
+    public function test_it_rejects_unknown_grid_behavior_metadata_without_losing_the_path(): void
+    {
+        DB::connection('eqemu')->table('grid')
+            ->where('id', 7)
+            ->where('zoneid', 2)
+            ->update(['type' => 99, 'type2' => 99]);
+
+        $groups = $this->service()->forNpc(69093);
+
+        $this->assertCount(2, $groups[0]['paths'][7]);
+        $this->assertSame([], $groups[0]['path_meta']);
     }
 
     /** @param array<int, array<string, mixed>> $queries */
@@ -659,6 +706,13 @@ class NpcLocationServiceTest extends TestCase
             $table->float('z');
             $table->integer('pause');
         });
+
+        $schema->create('grid', function (Blueprint $table) {
+            $table->integer('id');
+            $table->integer('zoneid');
+            $table->integer('type');
+            $table->integer('type2');
+        });
     }
 
     private function seedLocations(): void
@@ -701,6 +755,11 @@ class NpcLocationServiceTest extends TestCase
             ['gridid' => 7, 'zoneid' => 2, 'number' => 1, 'x' => -6400, 'y' => 1000, 'z' => 30, 'pause' => 5],
             ['gridid' => 7, 'zoneid' => 2, 'number' => 2, 'x' => -6300, 'y' => 1100, 'z' => 31, 'pause' => 0],
             ['gridid' => 7, 'zoneid' => 999, 'number' => 1, 'x' => 999, 'y' => 999, 'z' => 999, 'pause' => 0],
+        ]);
+
+        $connection->table('grid')->insert([
+            ['id' => 7, 'zoneid' => 2, 'type' => 3, 'type2' => 1],
+            ['id' => 7, 'zoneid' => 999, 'type' => 0, 'type2' => 0],
         ]);
     }
 }

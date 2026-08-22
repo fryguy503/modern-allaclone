@@ -13,14 +13,18 @@ const MAX_CACHED_MAPS = 8;
 const MAX_DATASET_BYTES = 8 * 1024 * 1024;
 const MAX_GROUPS = 100;
 const MAX_LOCATIONS = 12000;
+const MAX_MAP_ANNOTATIONS = 256;
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 24;
 const MAP_PADDING = 32;
 const FEATURE_FOCUS_PADDING = 56;
 const PAN_EDGE_ALLOWANCE = 40;
 const SELECTION_FLASH_MS = 1100;
+const MAX_PATH_PREVIEW_WAYPOINTS = 1000;
+const MAX_PATH_PREVIEW_PAUSE_SECONDS = 120;
 const LOCATION_SEARCH_CACHE = new WeakMap();
 const GROUP_FEATURE_BOUNDS_CACHE = new WeakMap();
+const MAP_ANNOTATION_CACHE = new WeakMap();
 const MARKER_SHAPES = new Set([
     'circle',
     'star',
@@ -59,6 +63,40 @@ function safeText(value, maximum = 240) {
 
 function safeColor(value, fallback = '#fb7185') {
     return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value) ? value : fallback;
+}
+
+/** Normalize the small, non-interactive annotation allowlist shipped in map metadata. */
+export function normalizeMapAnnotations(annotations) {
+    if (!Array.isArray(annotations)) return [];
+
+    const seen = new Set();
+    return annotations.slice(0, MAX_MAP_ANNOTATIONS).map((annotation) => {
+        // normalizeMap() stores this flattened form, while server payloads use
+        // the canonical nested position shape.
+        const position = annotation?.position ?? annotation;
+        if (annotation === null || typeof annotation !== 'object' || Array.isArray(annotation)
+            || position === null || typeof position !== 'object' || Array.isArray(position)
+            || !isFiniteCoordinate(position.x)
+            || !isFiniteCoordinate(position.y)
+            || !isFiniteCoordinate(position.z)) return null;
+
+        const label = safeText(annotation.label, 120);
+        if (!label) return null;
+        const kind = safeText(annotation.kind, 32).toLowerCase() === 'portal' ? 'portal' : 'zone-line';
+        const key = `${position.x}:${position.y}:${position.z}:${label.toLocaleLowerCase()}`;
+        if (seen.has(key)) return null;
+        seen.add(key);
+
+        return { x: position.x, y: position.y, z: position.z, label, kind };
+    }).filter(Boolean);
+}
+
+function mapAnnotations(map) {
+    if (map === null || typeof map !== 'object' || Array.isArray(map)) return [];
+    if (MAP_ANNOTATION_CACHE.has(map)) return MAP_ANNOTATION_CACHE.get(map);
+    const annotations = normalizeMapAnnotations(map.annotations);
+    MAP_ANNOTATION_CACHE.set(map, annotations);
+    return annotations;
 }
 
 function markerShape(value, fallback = 'circle') {
@@ -359,6 +397,103 @@ export function formatLocationCoordinates(location, coordinateOrder = 'xyz', fra
     return labels.map((label) => `${label} ${axes[label]}`).join(', ');
 }
 
+function seededRandom(seedValue) {
+    let seed = 2166136261;
+    for (const character of String(seedValue ?? 'path')) {
+        seed ^= character.codePointAt(0);
+        seed = Math.imul(seed, 16777619);
+    }
+    seed >>>= 0;
+
+    return () => {
+        seed += 0x6d2b79f5;
+        let value = seed;
+        value = Math.imul(value ^ (value >>> 15), value | 1);
+        value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+        return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+    };
+}
+
+function pathDistance(left, right) {
+    return Math.hypot(left.x - right.x, left.y - right.y, (left.z - right.z) * 0.25);
+}
+
+function previewRoute(waypoints, wanderType) {
+    if (wanderType === 3) {
+        return [...waypoints, ...waypoints.slice(0, -1).reverse()];
+    }
+    return waypoints;
+}
+
+function resolvedPauseSeconds(rawPause, pauseType, random) {
+    const configured = Math.max(0, Math.min(MAX_PATH_PREVIEW_PAUSE_SECONDS, finiteNumber(rawPause)));
+    if (pauseType === 0) return configured * (0.5 + (random() * 0.5));
+    if (pauseType === 2) return configured * random();
+    return configured;
+}
+
+/** Build a deterministic, bounded representative timeline for an EQEmu path grid. */
+export function buildPathPreviewTimeline(location, path, pathMeta = {}) {
+    if (!hasFinitePosition(location) || !Array.isArray(path)) return null;
+    if (path.length > MAX_PATH_PREVIEW_WAYPOINTS) return null;
+    const waypoints = path.map((waypoint, index) => {
+        if (waypoint === null || typeof waypoint !== 'object' || Array.isArray(waypoint)
+            || !isFiniteCoordinate(waypoint.x)
+            || !isFiniteCoordinate(waypoint.y)
+            || !isFiniteCoordinate(waypoint.z)) return null;
+        return {
+            x: waypoint.x,
+            y: waypoint.y,
+            z: waypoint.z,
+            pause: Math.max(0, finiteNumber(waypoint.pause)),
+            number: Number.isSafeInteger(Number(waypoint.number)) ? Number(waypoint.number) : index + 1,
+            centerpoint: waypoint.centerpoint === true || Number(waypoint.centerpoint) === 1,
+        };
+    }).filter(Boolean).sort((left, right) => left.number - right.number);
+    if (waypoints.length < 2) return null;
+
+    const wanderType = Number(pathMeta?.wander_type);
+    if (![3, 4, 6].includes(wanderType)) return null;
+    const pauseType = Math.max(0, Math.min(2, Number.isSafeInteger(Number(pathMeta?.pause_type))
+        ? Number(pathMeta.pause_type) : 1));
+    const random = seededRandom(`${location.id ?? 'spawn'}:${location.path_grid ?? 'grid'}:${wanderType}`);
+    const traversal = previewRoute(waypoints, wanderType);
+    const route = traversal;
+    const routeDistance = route.slice(1).reduce(
+        (total, point, index) => total + pathDistance(route[index], point),
+        0,
+    );
+    const unitsPerSecond = Math.max(20, Math.min(250, routeDistance / 18));
+    const events = [];
+    let cursorMs = 0;
+
+    for (let index = 1; index < route.length; index += 1) {
+        const from = route[index - 1];
+        const to = route[index];
+        const travelMs = Math.max(180, (pathDistance(from, to) / unitsPerSecond) * 1000);
+        events.push({ kind: 'move', startMs: cursorMs, endMs: cursorMs + travelMs, from, to });
+        cursorMs += travelMs;
+
+        const pauseSeconds = resolvedPauseSeconds(to.pause, pauseType, random);
+        if (pauseSeconds > 0.01) {
+            const pauseMs = pauseSeconds * 1000;
+            events.push({ kind: 'pause', startMs: cursorMs, endMs: cursorMs + pauseMs, from: to, to });
+            cursorMs += pauseMs;
+        }
+    }
+
+    if (events.length === 0 || !Number.isFinite(cursorMs) || cursorMs <= 0) return null;
+    return {
+        events,
+        durationMs: cursorMs,
+        loop: wanderType !== 4 && wanderType !== 6,
+        wanderType,
+        pauseType,
+        approximate: pauseType !== 1
+            || waypoints.some((waypoint) => waypoint.pause > MAX_PATH_PREVIEW_PAUSE_SECONDS),
+    };
+}
+
 export default function npcLocationMap(config = {}) {
     let featureCache = null;
     let cachedBaseCanvas = null;
@@ -373,6 +508,11 @@ export default function npcLocationMap(config = {}) {
     let cachedInteractionBounds = null;
     let selectionFlashStartedAt = -1;
     let selectionFlashUntil = 0;
+    let pathPreviewElapsedMs = 0;
+    let pathPreviewLastFrameAt = -1;
+    let pathPreviewCache = null;
+    let zonePointLayerWasActive = null;
+    let visibilityChangeHandler = null;
 
     return {
         groups: Array.isArray(config.groups) ? config.groups : [],
@@ -396,7 +536,13 @@ export default function npcLocationMap(config = {}) {
         statusMessage: '',
         copyMessage: '',
         showMapPoints: false,
+        showZoneLines: config.showZoneLines !== false,
         showPaths: true,
+        pathPreviewEnabled: config.pathPreviewEnabled !== false,
+        pathPreviewActive: false,
+        pathPreviewPlaying: false,
+        pathPreviewSpeed: 4,
+        pathPreviewStatus: '',
         elevationFocus: false,
         elevationRange: 35,
         zoom: 1,
@@ -431,6 +577,7 @@ export default function npcLocationMap(config = {}) {
                     if (this.reducedMotion) {
                         selectionFlashStartedAt = -1;
                         selectionFlashUntil = 0;
+                        if (this.pathPreviewPlaying) this.pausePathPreview('Path preview paused for reduced motion.');
                     }
                     this.scheduleDraw();
                 };
@@ -442,6 +589,7 @@ export default function npcLocationMap(config = {}) {
             }
             this.configureLayers(this.layers);
             this.applyUrlState();
+            zonePointLayerWasActive = this.zonePointLayerActive();
             this.initializeGroupSelection();
 
             this.resizeObserver = new ResizeObserver(() => this.resizeCanvas());
@@ -452,10 +600,20 @@ export default function npcLocationMap(config = {}) {
                 lostPointerCaptureHandler = () => this.onLostPointerCapture();
                 this.$refs.canvas.addEventListener('lostpointercapture', lostPointerCaptureHandler);
             }
+            if (typeof document !== 'undefined' && typeof document.addEventListener === 'function') {
+                visibilityChangeHandler = () => {
+                    if (document.hidden && this.pathPreviewPlaying) {
+                        this.pausePathPreview('Path preview paused while this tab is hidden.');
+                    }
+                };
+                document.addEventListener('visibilitychange', visibilityChangeHandler);
+            }
 
             this.visibilityObserver = new IntersectionObserver((entries) => {
                 if (entries.some((entry) => entry.isIntersecting)) {
                     this.ensureDatasetLoaded();
+                } else if (this.pathPreviewPlaying) {
+                    this.pausePathPreview('Path preview paused while the map is out of view.');
                 }
             }, { rootMargin: '240px' });
             this.visibilityObserver.observe(this.$root);
@@ -463,6 +621,7 @@ export default function npcLocationMap(config = {}) {
             this.$watch('elevationFocus', () => this.invalidateBase());
             this.$watch('elevationRange', () => this.invalidateBase());
             this.$watch('showMapPoints', () => this.invalidateBase());
+            this.$watch('showZoneLines', () => this.invalidateBase());
             this.$watch('showPaths', () => this.invalidateBase());
             this.$watch('searchQuery', () => this.onFiltersChanged());
         },
@@ -490,6 +649,12 @@ export default function npcLocationMap(config = {}) {
             }
             reducedMotionQuery = null;
             reducedMotionChangeHandler = null;
+            if (visibilityChangeHandler && typeof document !== 'undefined') {
+                document.removeEventListener?.('visibilitychange', visibilityChangeHandler);
+            }
+            visibilityChangeHandler = null;
+            this.pathPreviewPlaying = false;
+            pathPreviewCache = null;
             if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
             if (this.urlSyncTimer) window.clearTimeout(this.urlSyncTimer);
         },
@@ -542,8 +707,14 @@ export default function npcLocationMap(config = {}) {
                     : layer.default;
             }
             this.activeLayers = next;
+            zonePointLayerWasActive = this.zonePointLayerActive();
             featureCache = null;
             overlayDirty = true;
+        },
+
+        zonePointLayerActive() {
+            return !this.layers.some((layer) => layer.id === 'zone-points')
+                || this.activeLayers['zone-points'] === true;
         },
 
         get currentGroup() {
@@ -619,6 +790,11 @@ export default function npcLocationMap(config = {}) {
             return paths !== null && typeof paths === 'object' && !Array.isArray(paths) ? paths : {};
         },
 
+        get currentPathMeta() {
+            const metadata = this.currentGroup?.path_meta;
+            return metadata !== null && typeof metadata === 'object' && !Array.isArray(metadata) ? metadata : {};
+        },
+
         get selectedLocation() {
             return this.filteredLocations.find((location) => String(location.id) === String(this.selectedLocationId))
                 ?? this.filteredLocations[0]
@@ -665,7 +841,44 @@ export default function npcLocationMap(config = {}) {
         },
 
         get hasPaths() {
-            return this.mappableLocations.some((location) => this.pathForLocation(location).length > 0);
+            return this.mappableLocations.some((location) => this.hasPathAssignment(location));
+        },
+
+        get hasDrawableMovement() {
+            return this.mappableLocations.some((location) => this.hasDrawablePath(location));
+        },
+
+        get pathPreviewAvailable() {
+            return this.pathPreviewEnabled && this.pathPreviewTimeline() !== null;
+        },
+
+        get pathPreviewBehaviorLabel() {
+            const metadata = this.pathMetaForLocation(this.selectedLocation);
+            return safeText(metadata.wander_type_label, 80) || 'Configured route';
+        },
+
+        get availableZoneAnnotations() {
+            return mapAnnotations(this.currentGroup?.map);
+        },
+
+        get hasZoneAnnotations() {
+            return this.availableZoneAnnotations.length > 0;
+        },
+
+        get visibleZoneAnnotations() {
+            if (!this.showZoneLines) return [];
+            const zonePointLayer = this.layers.find((layer) => layer.id === 'zone-points');
+            if (zonePointLayer && !this.activeLayers['zone-points']) return [];
+
+            const databaseTransitions = this.currentLocations
+                .filter((location) => (location?.kind === 'zone-points' || location?.kind === 'doors')
+                    && (location.layers ?? []).some((layer) => this.activeLayers[layer] === true))
+                .map((location) => locationMapPoint(location))
+                .filter(Boolean);
+
+            return this.availableZoneAnnotations.filter((annotation) => !databaseTransitions.some((point) => (
+                ((point.x - annotation.x) ** 2) + ((point.y - annotation.y) ** 2) <= 24 ** 2
+            )));
         },
 
         get hasRoamAreas() {
@@ -755,6 +968,9 @@ export default function npcLocationMap(config = {}) {
                     paths: group.paths !== null && typeof group.paths === 'object' && !Array.isArray(group.paths)
                         ? group.paths
                         : {},
+                    path_meta: group.path_meta !== null && typeof group.path_meta === 'object' && !Array.isArray(group.path_meta)
+                        ? group.path_meta
+                        : {},
                     locations: rawLocations.map((location) => normalizeLocation(location, allowedLayerIds)).filter(Boolean),
                 };
             });
@@ -766,7 +982,12 @@ export default function npcLocationMap(config = {}) {
         normalizeMap(map) {
             if (map === null || typeof map !== 'object' || Array.isArray(map) || map.available !== true) return null;
             const url = safeInternalUrl(map.url);
-            return url ? { ...map, url, available: true } : null;
+            return url ? {
+                ...map,
+                url,
+                available: true,
+                annotations: normalizeMapAnnotations(map.annotations),
+            } : null;
         },
 
         onFiltersChanged() {
@@ -782,8 +1003,15 @@ export default function npcLocationMap(config = {}) {
                 selectionChanged = nextSelectedId !== this.selectedLocationId;
                 this.selectedLocationId = nextSelectedId;
             }
+            if (selectionChanged) this.resetPathPreview(false);
             this.hoveredLocationId = null;
-            if (selectionChanged && this.elevationFocus) this.invalidateBase();
+            const zonePointLayerIsActive = this.zonePointLayerActive();
+            const zoneAnnotationVisibilityChanged = zonePointLayerWasActive !== zonePointLayerIsActive;
+            zonePointLayerWasActive = zonePointLayerIsActive;
+            if ((this.showZoneLines && zoneAnnotationVisibilityChanged)
+                || (selectionChanged && (this.elevationFocus || this.showPaths))) {
+                this.invalidateBase();
+            }
             else this.scheduleDraw();
             this.queueUrlSync();
         },
@@ -820,6 +1048,7 @@ export default function npcLocationMap(config = {}) {
             }
             this.searchQuery = safeText(params.get('mapq'), 120);
             this.requestedPinId = safeText(params.get('pin'), 128) || null;
+            zonePointLayerWasActive = this.zonePointLayerActive();
             featureCache = null;
         },
 
@@ -847,6 +1076,7 @@ export default function npcLocationMap(config = {}) {
 
         async selectZone(key) {
             if (!this.groups.some((group) => group.key === key)) return;
+            this.resetPathPreview(false);
             this.selectedZoneKey = key;
             featureCache = null;
             this.pendingFocusId = null;
@@ -1015,6 +1245,9 @@ export default function npcLocationMap(config = {}) {
                 : null;
             for (const point of Array.isArray(map?.points) ? map.points : []) {
                 bounds = includeBoundsPoint(bounds, Number(point?.x), Number(point?.y));
+            }
+            for (const annotation of this.availableZoneAnnotations) {
+                bounds = includeBoundsPoint(bounds, annotation.x, annotation.y);
             }
             bounds = includeBoundsArea(bounds, groupFeatureBounds(group));
 
@@ -1219,13 +1452,14 @@ export default function npcLocationMap(config = {}) {
         selectLocation(id, center = true) {
             const location = this.currentLocations.find((item) => String(item.id) === String(id));
             if (!location) return;
+            if (String(location.id) !== String(this.selectedLocationId)) this.resetPathPreview(false);
             this.selectedLocationId = location.id;
             overlayDirty = true;
             this.statusMessage = `Selected ${this.coordinateLabel(location)} in ${this.zoneLabel}.`;
             this.flashSelection();
 
             if (center && this.mapData) this.focusLocation(location);
-            else if (this.elevationFocus) this.invalidateBase();
+            else if (this.elevationFocus || this.showPaths) this.invalidateBase();
             else this.scheduleDraw();
             this.queueUrlSync();
         },
@@ -1308,6 +1542,156 @@ export default function npcLocationMap(config = {}) {
         pathForLocation(location) {
             const path = this.currentPaths[String(location?.path_grid ?? '')];
             return Array.isArray(path) ? path : [];
+        },
+
+        hasPathAssignment(location) {
+            const gridId = Number(location?.path_grid);
+            return Number.isSafeInteger(gridId) && gridId > 0;
+        },
+
+        hasDrawablePath(location) {
+            const path = this.pathForLocation(location);
+            const wanderType = this.pathMetaForLocation(location).wander_type;
+            return path.length >= 2
+                && path.length <= MAX_PATH_PREVIEW_WAYPOINTS
+                && [3, 4, 6].includes(wanderType);
+        },
+
+        pathMetaForLocation(location) {
+            const raw = this.currentPathMeta[String(location?.path_grid ?? '')];
+            if (raw === null || typeof raw !== 'object' || Array.isArray(raw)) return {};
+            const wanderType = Number(raw.wander_type);
+            const pauseType = Number(raw.pause_type);
+            return {
+                wander_type: Number.isSafeInteger(wanderType) && wanderType >= 0 && wanderType <= 9 ? wanderType : 0,
+                pause_type: Number.isSafeInteger(pauseType) && pauseType >= 0 && pauseType <= 2 ? pauseType : 1,
+                wander_type_label: safeText(raw.wander_type_label, 80),
+                pause_type_label: safeText(raw.pause_type_label, 80),
+            };
+        },
+
+        pathPreviewTimeline() {
+            const location = this.selectedLocation;
+            const path = this.pathForLocation(location);
+            const metadata = this.pathMetaForLocation(location);
+            if (pathPreviewCache?.location === location
+                && pathPreviewCache.path === path
+                && pathPreviewCache.wanderType === metadata.wander_type
+                && pathPreviewCache.pauseType === metadata.pause_type) {
+                return pathPreviewCache.timeline;
+            }
+
+            const timeline = buildPathPreviewTimeline(location, path, metadata);
+            pathPreviewCache = {
+                location,
+                path,
+                wanderType: metadata.wander_type,
+                pauseType: metadata.pause_type,
+                timeline,
+            };
+            return timeline;
+        },
+
+        togglePathPreview() {
+            if (this.pathPreviewPlaying) {
+                this.pausePathPreview('Path preview paused.');
+                return;
+            }
+            if (this.reducedMotion) {
+                this.pathPreviewStatus = 'Path preview is disabled while reduced motion is enabled.';
+                this.statusMessage = this.pathPreviewStatus;
+                return;
+            }
+            const timeline = this.pathPreviewTimeline();
+            if (!this.pathPreviewEnabled || !timeline) {
+                this.pathPreviewStatus = 'No configured path is available for this spawn.';
+                this.statusMessage = this.pathPreviewStatus;
+                return;
+            }
+
+            if (!this.pathPreviewActive || (!timeline.loop && pathPreviewElapsedMs >= timeline.durationMs)) {
+                pathPreviewElapsedMs = 0;
+            }
+            this.pathPreviewActive = true;
+            this.pathPreviewPlaying = true;
+            pathPreviewLastFrameAt = animationNow();
+            this.pathPreviewStatus = `${timeline.approximate ? 'Representative' : 'Configured'} ${this.pathPreviewBehaviorLabel.toLowerCase()} preview playing.`;
+            this.statusMessage = this.pathPreviewStatus;
+            this.scheduleDraw();
+        },
+
+        pausePathPreview(message = 'Path preview paused.') {
+            this.pathPreviewPlaying = false;
+            pathPreviewLastFrameAt = -1;
+            this.pathPreviewStatus = message;
+            this.statusMessage = message;
+            this.scheduleDraw();
+        },
+
+        resetPathPreview(announce = true) {
+            const wasActive = this.pathPreviewActive || this.pathPreviewPlaying;
+            this.pathPreviewActive = false;
+            this.pathPreviewPlaying = false;
+            this.pathPreviewStatus = '';
+            pathPreviewElapsedMs = 0;
+            pathPreviewLastFrameAt = -1;
+            pathPreviewCache = null;
+            if (announce) {
+                this.statusMessage = 'Path preview reset.';
+                this.scheduleDraw();
+            } else if (wasActive) {
+                this.scheduleDraw();
+            }
+        },
+
+        pathPreviewFrame(now = animationNow()) {
+            if (!this.pathPreviewActive) return null;
+            const timeline = this.pathPreviewTimeline();
+            if (!timeline) {
+                this.resetPathPreview(false);
+                return null;
+            }
+
+            if (this.pathPreviewPlaying) {
+                const elapsed = pathPreviewLastFrameAt < 0 ? 0 : Math.max(0, Math.min(100, now - pathPreviewLastFrameAt));
+                const speed = [1, 4, 10].includes(Number(this.pathPreviewSpeed)) ? Number(this.pathPreviewSpeed) : 4;
+                pathPreviewElapsedMs += elapsed * speed;
+                pathPreviewLastFrameAt = now;
+            }
+
+            if (timeline.loop) {
+                pathPreviewElapsedMs %= timeline.durationMs;
+            } else if (pathPreviewElapsedMs >= timeline.durationMs) {
+                pathPreviewElapsedMs = timeline.durationMs;
+                if (this.pathPreviewPlaying) {
+                    this.pathPreviewPlaying = false;
+                    pathPreviewLastFrameAt = -1;
+                    const terminal = timeline.wanderType === 4 ? 'repop' : 'depop';
+                    this.pathPreviewStatus = `One-way path complete (${terminal}).`;
+                    this.statusMessage = this.pathPreviewStatus;
+                }
+            }
+
+            const timelinePosition = Math.min(pathPreviewElapsedMs, Math.max(0, timeline.durationMs - 0.001));
+            const event = timeline.events.find((candidate) => timelinePosition >= candidate.startMs
+                && timelinePosition < candidate.endMs) ?? timeline.events[timeline.events.length - 1];
+            const eventDuration = Math.max(1, event.endMs - event.startMs);
+            const progress = event.kind === 'pause' ? 1 : Math.max(0, Math.min(1,
+                (timelinePosition - event.startMs) / eventDuration,
+            ));
+            const point = {
+                x: event.from.x + ((event.to.x - event.from.x) * progress),
+                y: event.from.y + ((event.to.y - event.from.y) * progress),
+                z: event.from.z + ((event.to.z - event.from.z) * progress),
+            };
+            if (this.pathPreviewPlaying) {
+                const nextStatus = event.kind === 'pause'
+                    ? `Paused at waypoint ${event.to.number}.`
+                    : `Moving to waypoint ${event.to.number}.`;
+                if (this.pathPreviewStatus !== nextStatus) this.pathPreviewStatus = nextStatus;
+            }
+
+            return { point, event, timeline };
         },
 
         coordinateLabel(location) {
@@ -1434,10 +1818,14 @@ export default function npcLocationMap(config = {}) {
             const pulse = this.selectionPulse();
             if (!pulse || !this.drawCachedOverlays(context, canvas)) this.drawStaticOverlays(context);
             if (pulse) this.drawSelectionPulse(context, pulse);
+            const pathPreview = this.pathPreviewFrame();
+            if (pathPreview) this.drawPathPreviewActor(context, pathPreview);
+            if (this.pathPreviewPlaying) this.scheduleDraw();
         },
 
         drawBaseLayers(context) {
             this.drawGeometry(context);
+            if (this.showZoneLines) this.drawZoneAnnotations(context);
             if (this.showMapPoints) this.drawMapPoints(context);
             if (this.showPaths) this.drawMovement(context);
         },
@@ -1533,13 +1921,52 @@ export default function npcLocationMap(config = {}) {
             }
         },
 
+        drawZoneAnnotations(context) {
+            const annotations = this.visibleZoneAnnotations;
+            if (annotations.length === 0) return;
+
+            const occupied = new Set();
+            context.save();
+            context.font = '600 10.5px Instrument Sans, ui-sans-serif, system-ui, sans-serif';
+            context.textBaseline = 'middle';
+            context.lineJoin = 'round';
+
+            for (const annotation of annotations) {
+                const screen = this.toScreen(annotation.x, annotation.y);
+                if (screen.x < -220 || screen.y < -30
+                    || screen.x > this.canvasWidth + 30 || screen.y > this.canvasHeight + 30) continue;
+
+                const color = annotation.kind === 'portal' ? '#c084fc' : '#fb923c';
+                this.markerPath(context, annotation.kind === 'portal' ? 'diamond' : 'triangle', screen.x, screen.y, 4.1);
+                context.fillStyle = color;
+                context.fill();
+                context.lineWidth = 1.25;
+                context.strokeStyle = '#fff7ed';
+                context.stroke();
+
+                const cell = `${Math.round(screen.x / 100)}:${Math.round(screen.y / 20)}`;
+                if (occupied.has(cell)) continue;
+                occupied.add(cell);
+                const label = annotation.label.replaceAll('_', ' ');
+                context.lineWidth = 3.25;
+                context.strokeStyle = 'rgba(7, 12, 24, .96)';
+                context.fillStyle = color;
+                context.strokeText(label, screen.x + 7, screen.y);
+                context.fillText(label, screen.x + 7, screen.y);
+            }
+            context.restore();
+        },
+
         drawMapPoints(context) {
+            const annotationCoordinates = new Set((this.showZoneLines ? this.visibleZoneAnnotations : [])
+                .map((annotation) => `${annotation.x}:${annotation.y}`));
             context.save();
             context.font = '500 11px Instrument Sans, ui-sans-serif, system-ui, sans-serif';
             context.textBaseline = 'bottom';
             context.lineWidth = 3;
 
             for (const point of this.mapData.points) {
+                if (annotationCoordinates.has(`${point.x}:${point.y}`)) continue;
                 const screen = this.toScreen(point.x, point.y);
                 if (screen.x < -120 || screen.y < -30 || screen.x > this.canvasWidth + 120 || screen.y > this.canvasHeight + 30) continue;
 
@@ -1553,65 +1980,53 @@ export default function npcLocationMap(config = {}) {
         },
 
         drawMovement(context) {
+            const location = this.selectedLocation;
+            if (!location) return;
+
             context.save();
             context.setLineDash([7, 5]);
             context.lineWidth = 2;
-            const drawnPathKeys = new Set();
-            const drawnRoamKeys = new Set();
 
-            for (const location of this.currentLocations) {
-                const path = this.pathForLocation(location);
-                const pathKey = String(location.path_grid ?? 'none');
-                const start = locationMapPoint(location);
-                if (start && path.length > 0 && !drawnPathKeys.has(pathKey)) {
-                    const waypoints = path
-                        .map((waypoint) => dbPositionMapPoint(waypoint))
-                        .filter((waypoint) => waypoint !== null);
+            const path = this.pathForLocation(location);
+            const canDrawOrderedPath = this.hasDrawablePath(location);
+            if (canDrawOrderedPath && path.length > 0) {
+                const waypoints = path
+                    .map((waypoint) => dbPositionMapPoint(waypoint))
+                    .filter((waypoint) => waypoint !== null);
 
-                    if (waypoints.length > 0) {
-                        drawnPathKeys.add(pathKey);
-                        const startScreen = this.toScreen(start.x, start.y);
-                        context.beginPath();
-                        context.moveTo(startScreen.x, startScreen.y);
-                        for (const waypoint of waypoints) {
-                            const screen = this.toScreen(waypoint.x, waypoint.y);
-                            context.lineTo(screen.x, screen.y);
-                        }
-                        context.strokeStyle = 'rgba(56, 189, 248, .82)';
-                        context.stroke();
-                    }
-                }
-
-                const roam = location.roam;
-                if (roam && [roam.min_x, roam.max_x, roam.min_y, roam.max_y].every(isFiniteCoordinate)) {
-                    const roamKey = [
-                        location.spawn_group_id ?? `location-${location.id ?? 'unknown'}`,
-                        roam.min_x,
-                        roam.max_x,
-                        roam.min_y,
-                        roam.max_y,
-                    ].join(':');
-                    if (drawnRoamKeys.has(roamKey)) continue;
-                    drawnRoamKeys.add(roamKey);
-
-                    const corners = [
-                        dbToBrewall(Number(roam.min_x), Number(roam.min_y)),
-                        dbToBrewall(Number(roam.max_x), Number(roam.min_y)),
-                        dbToBrewall(Number(roam.max_x), Number(roam.max_y)),
-                        dbToBrewall(Number(roam.min_x), Number(roam.max_y)),
-                    ];
+                if (waypoints.length > 0) {
+                    const firstWaypoint = waypoints[0];
+                    const startScreen = this.toScreen(firstWaypoint.x, firstWaypoint.y);
                     context.beginPath();
-                    corners.forEach(([x, y], index) => {
-                        const screen = this.toScreen(x, y);
-                        if (index === 0) context.moveTo(screen.x, screen.y);
-                        else context.lineTo(screen.x, screen.y);
-                    });
-                    context.closePath();
-                    context.fillStyle = 'rgba(56, 189, 248, .08)';
-                    context.strokeStyle = 'rgba(56, 189, 248, .65)';
-                    context.fill();
+                    context.moveTo(startScreen.x, startScreen.y);
+                    for (const waypoint of waypoints.slice(1)) {
+                        const screen = this.toScreen(waypoint.x, waypoint.y);
+                        context.lineTo(screen.x, screen.y);
+                    }
+                    context.strokeStyle = 'rgba(56, 189, 248, .82)';
                     context.stroke();
                 }
+            }
+
+            const roam = location.roam;
+            if (roam && [roam.min_x, roam.max_x, roam.min_y, roam.max_y].every(isFiniteCoordinate)) {
+                const corners = [
+                    dbToBrewall(Number(roam.min_x), Number(roam.min_y)),
+                    dbToBrewall(Number(roam.max_x), Number(roam.min_y)),
+                    dbToBrewall(Number(roam.max_x), Number(roam.max_y)),
+                    dbToBrewall(Number(roam.min_x), Number(roam.max_y)),
+                ];
+                context.beginPath();
+                corners.forEach(([x, y], index) => {
+                    const screen = this.toScreen(x, y);
+                    if (index === 0) context.moveTo(screen.x, screen.y);
+                    else context.lineTo(screen.x, screen.y);
+                });
+                context.closePath();
+                context.fillStyle = 'rgba(56, 189, 248, .08)';
+                context.strokeStyle = 'rgba(56, 189, 248, .65)';
+                context.fill();
+                context.stroke();
             }
             context.restore();
         },
@@ -1641,6 +2056,16 @@ export default function npcLocationMap(config = {}) {
                 context.arc(screen.x, screen.y, 1.15, 0, Math.PI * 2);
                 context.fillStyle = '#172033';
                 context.fill();
+
+                if (this.hasPathAssignment(location)) {
+                    context.beginPath();
+                    context.arc(screen.x + radius * 0.8, screen.y - radius * 0.8, 2.15, 0, Math.PI * 2);
+                    context.fillStyle = '#38bdf8';
+                    context.fill();
+                    context.lineWidth = 1;
+                    context.strokeStyle = '#e0f2fe';
+                    context.stroke();
+                }
             }
         },
 
@@ -1659,6 +2084,32 @@ export default function npcLocationMap(config = {}) {
             context.lineWidth = 2;
             context.stroke();
             this.scheduleDraw();
+            return true;
+        },
+
+        drawPathPreviewActor(context, preview) {
+            const point = dbPositionMapPoint(preview?.point);
+            if (!point) return false;
+            const screen = this.toScreen(point.x, point.y);
+            if (screen.x < -24 || screen.y < -24
+                || screen.x > this.canvasWidth + 24 || screen.y > this.canvasHeight + 24) return false;
+
+            context.save();
+            context.beginPath();
+            context.arc(screen.x, screen.y, 8, 0, Math.PI * 2);
+            context.fillStyle = 'rgba(14, 165, 233, .22)';
+            context.fill();
+            context.strokeStyle = 'rgba(125, 211, 252, .9)';
+            context.lineWidth = 1.5;
+            context.stroke();
+
+            this.markerPath(context, preview.event.kind === 'pause' ? 'square' : 'compass', screen.x, screen.y, 5.2);
+            context.fillStyle = preview.event.kind === 'pause' ? '#fbbf24' : '#38bdf8';
+            context.fill();
+            context.strokeStyle = '#f8fafc';
+            context.lineWidth = 1.4;
+            context.stroke();
+            context.restore();
             return true;
         },
 

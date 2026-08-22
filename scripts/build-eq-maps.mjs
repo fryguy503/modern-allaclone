@@ -24,6 +24,13 @@ const MAX_POINTS_PER_ZONE = 250_000;
 const MAX_TOTAL_RECORDS = 20_000_000;
 const MAX_LABEL_BYTES = 4 * 1024;
 const MAX_COMPILED_BYTES = 8 * 1024 * 1024;
+const MAX_MANIFEST_BYTES = 5 * 1024 * 1024;
+const MAX_ANNOTATIONS_PER_VARIANT = 256;
+const MAX_ANNOTATION_LABEL_BYTES = 240;
+const MAX_ANNOTATION_LABEL_CHARACTERS = 160;
+const MAX_ANNOTATION_COORDINATE = 1_000_000;
+const ANNOTATION_BOUNDS_MARGIN_RATIO = 0.25;
+const MIN_ANNOTATION_BOUNDS_MARGIN = 64;
 
 const FLOAT_TOKEN = /^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/;
 const INTEGER_TOKEN = /^[+-]?\d+$/;
@@ -185,8 +192,11 @@ function boundsArray(bounds) {
     return [bounds.minX, bounds.minY, bounds.minZ, bounds.maxX, bounds.maxY, bounds.maxZ];
 }
 
-function validateRawSource(source, filePath) {
-    if (source.length === 0) throw new Error(`${filePath}: source file is empty`);
+function validateRawSource(source, filePath, { allowEmpty = false } = {}) {
+    if (source.length === 0) {
+        if (allowEmpty) return;
+        throw new Error(`${filePath}: source file is empty`);
+    }
     if (source.length > MAX_SOURCE_BYTES) {
         throw new Error(`${filePath}: source exceeds ${MAX_SOURCE_BYTES} bytes`);
     }
@@ -214,6 +224,246 @@ function validateRawSource(source, filePath) {
     if (source.length - lineStart > MAX_LINE_BYTES) {
         throw new Error(`${filePath}:${lineCount}: line exceeds ${MAX_LINE_BYTES} bytes`);
     }
+}
+
+function parseLineRecord(value, filePath, lineNumber) {
+    const fields = value.split(',');
+    if (fields.length !== 9) {
+        throw context(filePath, lineNumber, `L record must contain exactly 9 fields; found ${fields.length}`);
+    }
+
+    const coordinates = fields.slice(0, 6).map((coordinate, fieldIndex) =>
+        parseFloat32(coordinate, `coordinate ${fieldIndex + 1}`, filePath, lineNumber),
+    );
+
+    return {
+        coordinates,
+        red: parseInteger(fields[6], 'red', 0, 255, filePath, lineNumber),
+        green: parseInteger(fields[7], 'green', 0, 255, filePath, lineNumber),
+        blue: parseInteger(fields[8], 'blue', 0, 255, filePath, lineNumber),
+    };
+}
+
+function parsePointRecord(value, filePath, lineNumber) {
+    const fields = splitPointFields(value);
+    if (!fields) throw context(filePath, lineNumber, 'P record must contain at least 8 fields');
+
+    const x = parseFloat32(fields[0], 'x', filePath, lineNumber);
+    const y = parseFloat32(fields[1], 'y', filePath, lineNumber);
+    const z = parseFloat32(fields[2], 'z', filePath, lineNumber);
+    const red = parseInteger(fields[3], 'red', 0, 255, filePath, lineNumber);
+    const green = parseInteger(fields[4], 'green', 0, 255, filePath, lineNumber);
+    const blue = parseInteger(fields[5], 'blue', 0, 255, filePath, lineNumber);
+    const size = parseInteger(fields[6], 'size', 1, 3, filePath, lineNumber);
+    const label = fields[7].trim();
+    if (label === '') throw context(filePath, lineNumber, 'point label may not be empty');
+    const labelBytes = Buffer.from(label, 'utf8');
+    if (labelBytes.length > MAX_LABEL_BYTES || labelBytes.length > 0xffff) {
+        throw context(filePath, lineNumber, `point label exceeds ${Math.min(MAX_LABEL_BYTES, 0xffff)} bytes`);
+    }
+
+    return { x, y, z, red, green, blue, size, labelBytes, lineNumber };
+}
+
+function parseAnnotationPointRecord(value, filePath, lineNumber) {
+    const fields = splitPointFields(value);
+    if (!fields) throw context(filePath, lineNumber, 'P annotation must contain at least 8 fields');
+
+    const label = fields[7].trim();
+    if (label === '') throw context(filePath, lineNumber, 'point annotation label may not be empty');
+
+    return {
+        x: parseFloat32(fields[0], 'x', filePath, lineNumber),
+        y: parseFloat32(fields[1], 'y', filePath, lineNumber),
+        z: parseFloat32(fields[2], 'z', filePath, lineNumber),
+        size: parseInteger(fields[6], 'size', 1, 3, filePath, lineNumber),
+        labelBytes: Buffer.from(label, 'utf8'),
+        lineNumber,
+    };
+}
+
+function decodePointLabel(point, filePath) {
+    try {
+        return UTF8_DECODER.decode(point.labelBytes);
+    } catch {
+        throw context(filePath, point.lineNumber, 'point label is not valid UTF-8');
+    }
+}
+
+function sanitizeAnnotationLabel(point, filePath) {
+    const label = decodePointLabel(point, filePath)
+        .normalize('NFKC')
+        .replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ')
+        .replaceAll('_', ' ')
+        .replace(/\s+/gu, ' ')
+        .trim();
+
+    if (label === '') return null;
+
+    const byteLength = Buffer.byteLength(label, 'utf8');
+    const characterLength = [...label].length;
+    if (byteLength > MAX_ANNOTATION_LABEL_BYTES
+        || characterLength > MAX_ANNOTATION_LABEL_CHARACTERS) {
+        throw context(
+            filePath,
+            point.lineNumber,
+            `map annotation label exceeds ${MAX_ANNOTATION_LABEL_CHARACTERS} characters or ${MAX_ANNOTATION_LABEL_BYTES} bytes`,
+        );
+    }
+
+    return label;
+}
+
+function annotationKind(label) {
+    if (/^(?:to|(?:zone[\s-]*(?:in|out|line)|zoneline)|(?:exit|return)\s+to)\b/iu.test(label)) {
+        return 'zone-line';
+    }
+    if (/^(?:knowledge|(?:the\s+)?plane\s+of\s+knowledge|p\.?\s*o\.?\s*k\.?)\s+(?:portal|book)\b/iu.test(label)) {
+        return 'portal';
+    }
+    if (/^(?:(?:an?\s+)?portals?|teleport(?:s|er|ers|ation)?|translocators?)\b.*\b(?:attun(?:e|er|ement)?|keys?)\b/iu.test(label)) {
+        return null;
+    }
+    if (/^(?:(?:an?\s+)?portals?|teleport(?:s|er|ers|ation)?|translocators?)\b/iu.test(label)) {
+        return 'portal';
+    }
+
+    return null;
+}
+
+function pointValueHasAnnotationLabel(value) {
+    const fields = splitPointFields(value);
+    if (!fields) return false;
+
+    const size = fields[6].trim();
+    if (!INTEGER_TOKEN.test(size) || Number(size) !== 3) return false;
+
+    const label = fields[7]
+        .trim()
+        .normalize('NFKC')
+        .replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ')
+        .replaceAll('_', ' ')
+        .replace(/\s+/gu, ' ')
+        .trim();
+
+    return label !== '' && annotationKind(label) !== null;
+}
+
+function annotationFromPoint(point, filePath) {
+    if (point.size !== 3) return null;
+
+    const label = sanitizeAnnotationLabel(point, filePath);
+    const kind = label === null ? null : annotationKind(label);
+    if (kind === null) return null;
+
+    for (const [axis, value] of Object.entries({ x: point.x, y: point.y, z: point.z })) {
+        if (!Number.isFinite(value) || Math.abs(value) > MAX_ANNOTATION_COORDINATE) {
+            throw context(
+                filePath,
+                point.lineNumber,
+                `map annotation ${axis} must be within ±${MAX_ANNOTATION_COORDINATE}`,
+            );
+        }
+    }
+
+    return {
+        kind,
+        label,
+        position: {
+            x: Object.is(point.x, -0) ? 0 : point.x,
+            y: Object.is(point.y, -0) ? 0 : point.y,
+            z: Object.is(point.z, -0) ? 0 : point.z,
+        },
+    };
+}
+
+function annotationWithinBounds(annotation, bounds) {
+    const spanX = Math.max(0, bounds.maxX - bounds.minX);
+    const spanY = Math.max(0, bounds.maxY - bounds.minY);
+    // Brewall tags can sit just beyond the last drawn wall. A 25% proportional
+    // gutter handles large outdoor maps, while 64 units keeps small interiors
+    // useful without accepting the clearly unrelated coordinate spaces found
+    // in some historical overlays.
+    const marginX = Math.max(MIN_ANNOTATION_BOUNDS_MARGIN, spanX * ANNOTATION_BOUNDS_MARGIN_RATIO);
+    const marginY = Math.max(MIN_ANNOTATION_BOUNDS_MARGIN, spanY * ANNOTATION_BOUNDS_MARGIN_RATIO);
+
+    return annotation.position.x >= bounds.minX - marginX
+        && annotation.position.x <= bounds.maxX + marginX
+        && annotation.position.y >= bounds.minY - marginY
+        && annotation.position.y <= bounds.maxY + marginY;
+}
+
+function collectAnnotations(pointSources, bounds) {
+    const annotations = [];
+    const seen = new Set();
+
+    for (const { filePath, points, constrainToBounds = false } of pointSources) {
+        for (const point of points) {
+            const annotation = annotationFromPoint(point, filePath);
+            if (annotation === null) continue;
+            if (constrainToBounds && !annotationWithinBounds(annotation, bounds)) continue;
+            const key = JSON.stringify([
+                annotation.kind,
+                annotation.label.toLocaleLowerCase('en-US'),
+                annotation.position.x,
+                annotation.position.y,
+                annotation.position.z,
+            ]);
+            if (seen.has(key)) continue;
+            seen.add(key);
+            annotations.push(annotation);
+            if (annotations.length > MAX_ANNOTATIONS_PER_VARIANT) {
+                throw new Error(`Map variant exceeds ${MAX_ANNOTATIONS_PER_VARIANT} portal and zone-line annotations`);
+            }
+        }
+    }
+
+    return annotations;
+}
+
+function parseAnnotationOverlay(source, filePath) {
+    validateRawSource(source, filePath, { allowEmpty: true });
+    if (source.length === 0) return { points: [], recordCount: 0 };
+
+    let content;
+    try {
+        content = UTF8_DECODER.decode(source);
+    } catch {
+        throw new Error(`${filePath}: source is not valid UTF-8`);
+    }
+
+    const points = [];
+    let recordCount = 0;
+    const lines = content.split(/\r\n|\n|\r/);
+    for (let index = 0; index < lines.length; index += 1) {
+        const lineNumber = index + 1;
+        const line = lines[index].trim();
+        if (line === '') continue;
+
+        recordCount += 1;
+        if (recordCount > MAX_RECORDS_PER_ZONE) {
+            throw new Error(`${filePath}: source exceeds ${MAX_RECORDS_PER_ZONE} records`);
+        }
+
+        const match = /^([LP])\s+(.+)$/.exec(line);
+        if (!match) throw context(filePath, lineNumber, 'record must begin with "L " or "P "');
+        if (match[1] === 'L') {
+            // Overlay geometry is intentionally ignored. Raw byte, line, and
+            // record ceilings above still bound the amount of work performed.
+            continue;
+        }
+
+        // Historical overlays contain a few malformed non-navigation P records.
+        // Parse selected navigation annotations strictly without allowing
+        // unrelated overlay content to break otherwise valid base maps.
+        if (!pointValueHasAnnotationLabel(match[2])) continue;
+        points.push(parseAnnotationPointRecord(match[2], filePath, lineNumber));
+        if (points.length > MAX_POINTS_PER_ZONE) {
+            throw new Error(`${filePath}: source exceeds ${MAX_POINTS_PER_ZONE} points`);
+        }
+    }
+
+    return { points, recordCount };
 }
 
 function parseMap(source, filePath, zone) {
@@ -247,17 +497,7 @@ function parseMap(source, filePath, zone) {
         if (!match) throw context(filePath, lineNumber, 'record must begin with "L " or "P "');
 
         if (match[1] === 'L') {
-            const fields = match[2].split(',');
-            if (fields.length !== 9) {
-                throw context(filePath, lineNumber, `L record must contain exactly 9 fields; found ${fields.length}`);
-            }
-
-            const coordinates = fields.slice(0, 6).map((value, fieldIndex) =>
-                parseFloat32(value, `coordinate ${fieldIndex + 1}`, filePath, lineNumber),
-            );
-            const red = parseInteger(fields[6], 'red', 0, 255, filePath, lineNumber);
-            const green = parseInteger(fields[7], 'green', 0, 255, filePath, lineNumber);
-            const blue = parseInteger(fields[8], 'blue', 0, 255, filePath, lineNumber);
+            const { coordinates, red, green, blue } = parseLineRecord(match[2], filePath, lineNumber);
             const colorKey = (red << 16) | (green << 8) | blue;
             let group = colorGroups.get(colorKey);
             if (!group) {
@@ -269,28 +509,12 @@ function parseMap(source, filePath, zone) {
             includeCoordinate(bounds, coordinates[0], coordinates[1], coordinates[2]);
             includeCoordinate(bounds, coordinates[3], coordinates[4], coordinates[5]);
         } else {
-            const fields = splitPointFields(match[2]);
-            if (!fields) throw context(filePath, lineNumber, 'P record must contain at least 8 fields');
-
-            const x = parseFloat32(fields[0], 'x', filePath, lineNumber);
-            const y = parseFloat32(fields[1], 'y', filePath, lineNumber);
-            const z = parseFloat32(fields[2], 'z', filePath, lineNumber);
-            const red = parseInteger(fields[3], 'red', 0, 255, filePath, lineNumber);
-            const green = parseInteger(fields[4], 'green', 0, 255, filePath, lineNumber);
-            const blue = parseInteger(fields[5], 'blue', 0, 255, filePath, lineNumber);
-            const size = parseInteger(fields[6], 'size', 1, 3, filePath, lineNumber);
-            const label = fields[7].trim();
-            if (label === '') throw context(filePath, lineNumber, 'point label may not be empty');
-            const labelBytes = Buffer.from(label, 'utf8');
-            if (labelBytes.length > MAX_LABEL_BYTES || labelBytes.length > 0xffff) {
-                throw context(filePath, lineNumber, `point label exceeds ${Math.min(MAX_LABEL_BYTES, 0xffff)} bytes`);
-            }
-
-            points.push({ x, y, z, red, green, blue, size, labelBytes });
+            const point = parsePointRecord(match[2], filePath, lineNumber);
+            points.push(point);
             if (points.length > MAX_POINTS_PER_ZONE) {
                 throw new Error(`${filePath}: source exceeds ${MAX_POINTS_PER_ZONE} points`);
             }
-            includeCoordinate(bounds, x, y, z);
+            includeCoordinate(bounds, point.x, point.y, point.z);
         }
     }
 
@@ -528,6 +752,22 @@ function manifestBounds(bounds) {
     };
 }
 
+async function readAnnotationOverlay(sourceDirectory, zone) {
+    const filePath = resolve(sourceDirectory, `${zone}_1.txt`);
+    const source = await readIfPresent(filePath);
+    if (source === null) {
+        return { filePath, sourceBytes: 0, recordCount: 0, points: [] };
+    }
+
+    const parsed = parseAnnotationOverlay(source, filePath);
+    return {
+        filePath,
+        sourceBytes: source.length,
+        recordCount: parsed.recordCount,
+        points: parsed.points,
+    };
+}
+
 async function build(options) {
     const files = await sourceFiles(options.source);
     const legacyDirectory = resolve(options.source, 'legacy');
@@ -561,6 +801,7 @@ async function build(options) {
     let compiledByteTotal = 0;
     let segmentTotal = 0;
     let pointTotal = 0;
+    let annotationTotal = 0;
     let recordTotal = 0;
     let changedFiles = 0;
 
@@ -577,6 +818,20 @@ async function build(options) {
         if (recordTotal > MAX_TOTAL_RECORDS) {
             throw new Error(`Source set exceeds ${MAX_TOTAL_RECORDS} records`);
         }
+
+        const overlay = await readAnnotationOverlay(options.source, file.zone);
+        sourceByteTotal += overlay.sourceBytes;
+        if (sourceByteTotal > MAX_TOTAL_SOURCE_BYTES) {
+            throw new Error(`Source set exceeds ${MAX_TOTAL_SOURCE_BYTES} bytes`);
+        }
+        recordTotal += overlay.recordCount;
+        if (recordTotal > MAX_TOTAL_RECORDS) {
+            throw new Error(`Source set exceeds ${MAX_TOTAL_RECORDS} records`);
+        }
+        const annotations = collectAnnotations([
+            { filePath: sourcePath, points: parsed.points },
+            { filePath: overlay.filePath, points: overlay.points, constrainToBounds: true },
+        ], parsed.bounds);
 
         const compiled = compileMap(parsed);
         const digest = sha256(compiled);
@@ -600,11 +855,13 @@ async function build(options) {
             segments: parsed.segmentCount,
             points: parsed.points.length,
             bounds: manifestBounds(parsed.bounds),
+            annotations,
         };
 
         compiledByteTotal += compiled.length;
         segmentTotal += parsed.segmentCount;
         pointTotal += parsed.points.length;
+        annotationTotal += annotations.length;
     }
 
     for (const file of legacyFiles) {
@@ -620,6 +877,22 @@ async function build(options) {
         if (recordTotal > MAX_TOTAL_RECORDS) {
             throw new Error(`Source set exceeds ${MAX_TOTAL_RECORDS} records`);
         }
+
+        // Legacy variants are isolated from the modern source tree: only the
+        // legacy base and an optional sibling legacy/<zone>_1.txt contribute.
+        const overlay = await readAnnotationOverlay(legacyDirectory, file.zone);
+        sourceByteTotal += overlay.sourceBytes;
+        if (sourceByteTotal > MAX_TOTAL_SOURCE_BYTES) {
+            throw new Error(`Source set exceeds ${MAX_TOTAL_SOURCE_BYTES} bytes`);
+        }
+        recordTotal += overlay.recordCount;
+        if (recordTotal > MAX_TOTAL_RECORDS) {
+            throw new Error(`Source set exceeds ${MAX_TOTAL_RECORDS} records`);
+        }
+        const annotations = collectAnnotations([
+            { filePath: sourcePath, points: parsed.points },
+            { filePath: overlay.filePath, points: overlay.points, constrainToBounds: true },
+        ], parsed.bounds);
 
         const compiled = compileMap(parsed);
         const digest = sha256(compiled);
@@ -643,14 +916,19 @@ async function build(options) {
             segments: parsed.segmentCount,
             points: parsed.points.length,
             bounds: manifestBounds(parsed.bounds),
+            annotations,
         };
 
         compiledByteTotal += compiled.length;
         segmentTotal += parsed.segmentCount;
         pointTotal += parsed.points.length;
+        annotationTotal += annotations.length;
     }
 
     const manifestContent = Buffer.from(`${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
+    if (manifestContent.length > MAX_MANIFEST_BYTES) {
+        throw new Error(`Generated manifest exceeds ${MAX_MANIFEST_BYTES} bytes`);
+    }
 
     if (options.check) {
         const existingManifest = await readIfPresent(manifestPath);
@@ -695,6 +973,7 @@ async function build(options) {
         legacyZones: legacyFiles.length,
         segments: segmentTotal,
         points: pointTotal,
+        annotations: annotationTotal,
         sourceBytes: sourceByteTotal,
         compiledBytes: compiledByteTotal,
         manifestBytes: manifestContent.length,
@@ -714,7 +993,7 @@ async function main() {
     const action = options.check ? 'Checked' : 'Built';
     process.stdout.write(
         `${action} ${result.zones} zones + ${result.legacyZones} legacy variants: `
-        + `${result.segments} segments, ${result.points} points, `
+        + `${result.segments} segments, ${result.points} points, ${result.annotations} map annotations, `
         + `${result.compiledBytes} compiled bytes from ${result.sourceBytes} source bytes `
         + `(${(result.ratio * 100).toFixed(2)}%), manifest ${result.manifestBytes} bytes`
         + (options.check ? '' : `, ${result.changedFiles} files changed`)
