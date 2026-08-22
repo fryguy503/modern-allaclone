@@ -41,7 +41,7 @@ class NpcLocationServiceTest extends TestCase
         parent::tearDown();
     }
 
-    public function test_it_returns_grouped_scalar_locations_with_placeholders_and_paths_in_three_queries(): void
+    public function test_it_returns_grouped_scalar_locations_with_placeholders_and_paths_in_four_queries(): void
     {
         $connection = DB::connection('eqemu');
         $connection->table('spawn2')->insert([
@@ -61,7 +61,7 @@ class NpcLocationServiceTest extends TestCase
 
         $groups = $this->service()->forNpc(69093);
 
-        $this->assertCount(3, $connection->getQueryLog());
+        $this->assertCount(4, $connection->getQueryLog());
         $this->assertCount(1, $groups);
         $this->assertSame('qeynos:0', $groups[0]['key']);
         $this->assertSame('qeynos', $groups[0]['short_name']);
@@ -204,7 +204,7 @@ class NpcLocationServiceTest extends TestCase
 
         $groups = $this->service()->forNpc(69093);
         $location = $groups[0]['locations'][0];
-        $locationSql = $connection->getQueryLog()[0]['query'];
+        $locationSql = $this->locationQueryLog($connection->getQueryLog())['query'];
 
         $this->assertStringNotContainsString('respawntime', $locationSql);
         $this->assertStringNotContainsString('variance', $locationSql);
@@ -262,7 +262,7 @@ class NpcLocationServiceTest extends TestCase
 
         $connection->enableQueryLog();
         $groups = $this->service()->forNpc(69093);
-        $bindings = $connection->getQueryLog()[0]['bindings'];
+        $bindings = $this->locationQueryLog($connection->getQueryLog())['bindings'];
 
         $this->assertCount(1, $groups);
         $this->assertSame('qeynos', $groups[0]['short_name']);
@@ -327,6 +327,141 @@ class NpcLocationServiceTest extends TestCase
         $this->assertCount(1, $groups);
         $this->assertCount(1, $groups[0]['locations']);
         $this->assertSame([69094], array_column($groups[0]['placeholders'][10], 'id'));
+    }
+
+    public function test_content_flags_hide_spawnentry_spawn2_zone_and_placeholder_rows(): void
+    {
+        $connection = DB::connection('eqemu');
+        $connection->table('content_flags')->insert([
+            ['id' => 1, 'flag_name' => 'active_event', 'enabled' => 1],
+            ['id' => 2, 'flag_name' => 'inactive_event', 'enabled' => 0],
+        ]);
+        $connection->table('zone')->insert([
+            [
+                'id' => 110,
+                'zoneidnumber' => 1100,
+                'short_name' => 'flag_required_zone',
+                'long_name' => 'Flag Required Zone',
+                'version' => 0,
+                'expansion' => 0,
+                'content_flags' => 'inactive_event',
+                'content_flags_disabled' => null,
+            ],
+            [
+                'id' => 111,
+                'zoneidnumber' => 1101,
+                'short_name' => 'flag_disabled_zone',
+                'long_name' => 'Flag Disabled Zone',
+                'version' => 0,
+                'expansion' => 0,
+                'content_flags' => null,
+                'content_flags_disabled' => 'active_event',
+            ],
+            [
+                'id' => 112,
+                'zoneidnumber' => 1102,
+                'short_name' => 'flag_visible_zone',
+                'long_name' => 'Flag Visible Zone',
+                'version' => 0,
+                'expansion' => 0,
+                'content_flags' => 'active_event',
+                'content_flags_disabled' => 'inactive_event',
+            ],
+        ]);
+
+        $cases = [
+            ['group_id' => 110, 'spawn_id' => 510, 'zone' => 'qeynos', 'entry_flags' => 'inactive_event'],
+            ['group_id' => 111, 'spawn_id' => 511, 'zone' => 'qeynos', 'entry_disabled' => 'active_event'],
+            ['group_id' => 120, 'spawn_id' => 512, 'zone' => 'qeynos', 'spawn_flags' => 'inactive_event'],
+            ['group_id' => 121, 'spawn_id' => 513, 'zone' => 'qeynos', 'spawn_disabled' => 'active_event'],
+            ['group_id' => 130, 'spawn_id' => 514, 'zone' => 'flag_required_zone'],
+            ['group_id' => 131, 'spawn_id' => 515, 'zone' => 'flag_disabled_zone'],
+            [
+                'group_id' => 140,
+                'spawn_id' => 516,
+                'zone' => 'flag_visible_zone',
+                'entry_flags' => 'inactive_event, active_event',
+                'entry_disabled' => 'inactive_event',
+                'spawn_flags' => 'active_event',
+                'spawn_disabled' => 'inactive_event',
+            ],
+        ];
+
+        $connection->table('spawngroup')->insert(array_map(fn (array $case) => [
+            'id' => $case['group_id'],
+            'name' => 'content_flag_group_'.$case['group_id'],
+            'min_x' => 0,
+            'max_x' => 0,
+            'min_y' => 0,
+            'max_y' => 0,
+        ], $cases));
+        $connection->table('spawnentry')->insert(array_map(fn (array $case) => [
+            'spawngroupID' => $case['group_id'],
+            'npcID' => 69093,
+            'chance' => 100,
+            'content_flags' => $case['entry_flags'] ?? null,
+            'content_flags_disabled' => $case['entry_disabled'] ?? null,
+        ], $cases));
+        $connection->table('spawn2')->insert(array_map(fn (array $case) => [
+            'id' => $case['spawn_id'],
+            'spawngroupID' => $case['group_id'],
+            'zone' => $case['zone'],
+            'version' => 0,
+            'x' => 1,
+            'y' => 2,
+            'z' => 3,
+            'heading' => 0,
+            'respawntime' => 1,
+            'variance' => 0,
+            'pathgrid' => 0,
+            'content_flags' => $case['spawn_flags'] ?? null,
+            'content_flags_disabled' => $case['spawn_disabled'] ?? null,
+        ], $cases));
+
+        $connection->table('spawnentry')->insert([
+            [
+                'spawngroupID' => 10,
+                'npcID' => 69100,
+                'chance' => 99,
+                'content_flags' => 'inactive_event',
+                'content_flags_disabled' => null,
+            ],
+            [
+                'spawngroupID' => 10,
+                'npcID' => 69101,
+                'chance' => 98,
+                'content_flags' => null,
+                'content_flags_disabled' => 'active_event',
+            ],
+            [
+                'spawngroupID' => 10,
+                'npcID' => 69102,
+                'chance' => 97,
+                'content_flags' => 'inactive_event, active_event',
+                'content_flags_disabled' => 'inactive_event',
+            ],
+        ]);
+        $connection->table('npc_types')->insert([
+            ['id' => 69100, 'name' => 'required_flag_hidden', 'level' => 12],
+            ['id' => 69101, 'name' => 'disabled_flag_hidden', 'level' => 12],
+            ['id' => 69102, 'name' => 'flag_visible', 'level' => 12],
+        ]);
+
+        $groups = $this->service()->forNpc(69093);
+        $spawnIds = collect($groups)
+            ->flatMap(fn (array $group) => array_column($group['locations'], 'id'))
+            ->sort()
+            ->values()
+            ->all();
+        $qeynos = collect($groups)->firstWhere('short_name', 'qeynos');
+
+        $this->assertCount(2, $groups);
+        $this->assertSame([500, 516], $spawnIds);
+        $this->assertNotNull($qeynos);
+        $this->assertEqualsCanonicalizing(
+            [69094, 69102],
+            array_column($qeynos['placeholders'][10], 'id'),
+        );
     }
 
     public function test_status_gated_zones_do_not_expose_locations(): void
@@ -408,7 +543,7 @@ class NpcLocationServiceTest extends TestCase
         $groups = $this->service()->forNpc(70000);
 
         $this->assertSame([], $groups);
-        $this->assertCount(1, $connection->getQueryLog());
+        $this->assertCount(2, $connection->getQueryLog());
     }
 
     public function test_it_omits_paths_when_the_optional_grid_entries_table_is_unavailable(): void
@@ -420,6 +555,19 @@ class NpcLocationServiceTest extends TestCase
         $this->assertSame(7, $groups[0]['locations'][0]['path_grid']);
         $this->assertSame([], $groups[0]['paths']);
         $this->assertArrayNotHasKey('path', $groups[0]['locations'][0]);
+    }
+
+    /** @param array<int, array<string, mixed>> $queries */
+    private function locationQueryLog(array $queries): array
+    {
+        foreach ($queries as $query) {
+            $sql = strtolower((string) ($query['query'] ?? ''));
+            if (str_contains($sql, 'spawnentry') && str_contains($sql, 'spawn2')) {
+                return $query;
+            }
+        }
+
+        $this->fail('The NPC location query was not logged.');
     }
 
     private function service(): NpcLocationService
@@ -447,6 +595,8 @@ class NpcLocationServiceTest extends TestCase
             $table->float('chance');
             $table->integer('min_expansion')->default(-1);
             $table->integer('max_expansion')->default(-1);
+            $table->string('content_flags')->nullable();
+            $table->string('content_flags_disabled')->nullable();
         });
 
         $schema->create('spawn2', function (Blueprint $table) {
@@ -463,6 +613,8 @@ class NpcLocationServiceTest extends TestCase
             $table->integer('pathgrid');
             $table->integer('min_expansion')->default(-1);
             $table->integer('max_expansion')->default(-1);
+            $table->string('content_flags')->nullable();
+            $table->string('content_flags_disabled')->nullable();
         });
 
         $schema->create('spawngroup', function (Blueprint $table) {
@@ -482,6 +634,14 @@ class NpcLocationServiceTest extends TestCase
             $table->integer('version');
             $table->integer('expansion');
             $table->integer('min_status')->default(0);
+            $table->string('content_flags')->nullable();
+            $table->string('content_flags_disabled')->nullable();
+        });
+
+        $schema->create('content_flags', function (Blueprint $table) {
+            $table->integer('id');
+            $table->string('flag_name');
+            $table->integer('enabled')->default(0);
         });
 
         $schema->create('npc_types', function (Blueprint $table) {

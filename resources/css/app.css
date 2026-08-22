@@ -135,6 +135,49 @@
     mask-image: radial-gradient(ellipse at center, black, transparent 86%);
 }
 
+.eq-atlas-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid color-mix(in oklab, currentColor 10%, transparent);
+    border-radius: 999px;
+    padding: 0.3rem 0.6rem;
+    color: color-mix(in oklab, currentColor 58%, transparent);
+    background: color-mix(in oklab, var(--color-base-300) 72%, transparent);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    transition: border-color 120ms ease, background-color 120ms ease, color 120ms ease;
+}
+
+.eq-atlas-filter:hover,
+.eq-atlas-filter:focus-within,
+.eq-atlas-filter--active {
+    border-color: color-mix(in oklab, var(--color-primary) 35%, transparent);
+    color: var(--color-base-content);
+    background: color-mix(in oklab, var(--color-primary) 9%, var(--color-base-300));
+}
+
+.eq-atlas-filter:focus-within {
+    outline: 2px solid color-mix(in oklab, var(--color-primary) 65%, transparent);
+    outline-offset: 2px;
+}
+
+.eq-atlas-tooltip {
+    position: absolute;
+    z-index: 30;
+    width: min(18rem, calc(100% - 1.25rem));
+    max-height: min(22rem, calc(100% - 1.25rem));
+    overflow: hidden;
+    pointer-events: none;
+    border: 1px solid rgb(148 163 184 / 22%);
+    border-radius: 0.65rem;
+    padding: 0.75rem;
+    color: var(--color-base-content);
+    background: color-mix(in oklab, var(--color-base-300) 95%, black);
+    box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 42%);
+    backdrop-filter: blur(10px);
+}
+
 .eq-location-map:fullscreen {
     display: flex;
     width: 100vw;

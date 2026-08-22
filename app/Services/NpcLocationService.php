@@ -6,6 +6,7 @@ use App\Models\NpcType;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\DatabaseManager;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Collection;
 
@@ -22,6 +23,9 @@ class NpcLocationService
     private const MAX_PATH_GRIDS = 500;
 
     private const MAX_ZONE_SHORT_NAME_LENGTH = 64;
+
+    /** @var array<int, string>|null */
+    private ?array $enabledContentFlags = null;
 
     public function __construct(
         private readonly DatabaseManager $database,
@@ -101,7 +105,7 @@ class NpcLocationService
             array_push($select, 's2.respawntime as respawn_seconds', 's2.variance as variance_seconds');
         }
 
-        $locations = $this->database->connection('eqemu')
+        $locationQuery = $this->database->connection('eqemu')
             ->table('spawnentry as se')
             ->join('spawn2 as s2', 's2.spawngroupID', '=', 'se.spawngroupID')
             ->join('spawngroup as sg', 'sg.id', '=', 'se.spawngroupID')
@@ -129,7 +133,13 @@ class NpcLocationService
             })
             ->where('z.expansion', '<=', $currentExpansion)
             ->where('z.min_status', 0)
-            ->when($ignoreZones !== [], fn ($query) => $query->whereNotIn('s2.zone', $ignoreZones))
+            ->when($ignoreZones !== [], fn ($query) => $query->whereNotIn('s2.zone', $ignoreZones));
+
+        $this->applyContentFlagFilter($locationQuery, 'se');
+        $this->applyContentFlagFilter($locationQuery, 's2');
+        $this->applyContentFlagFilter($locationQuery, 'z');
+
+        $locations = $locationQuery
             ->select($select)
             ->distinct()
             ->orderBy('z.long_name')
@@ -209,7 +219,7 @@ class NpcLocationService
         $limit = min(self::MAX_PLACEHOLDER_ROWS, $spawnGroupCount * $perGroupLimit);
         $connection = $this->database->connection('eqemu');
 
-        $deduplicatedCandidates = $connection
+        $candidateQuery = $connection
             ->table('spawnentry as candidate')
             ->join('npc_types as npc', 'npc.id', '=', 'candidate.npcID')
             ->whereIn('candidate.spawngroupID', $spawnGroupIds)
@@ -222,7 +232,11 @@ class NpcLocationService
             ->where(function ($query) use ($currentExpansion) {
                 $query->where('candidate.max_expansion', -1)
                     ->orWhere('candidate.max_expansion', '>=', $currentExpansion);
-            })
+            });
+
+        $this->applyContentFlagFilter($candidateQuery, 'candidate');
+
+        $deduplicatedCandidates = $candidateQuery
             ->select([
                 'candidate.spawngroupID as spawn_group_id',
                 'npc.id as id',
@@ -262,6 +276,87 @@ class NpcLocationService
                 ])
                 ->values()
                 ->all())
+            ->all();
+    }
+
+    /**
+     * Apply EQEmu's comma-delimited content flag rules. Required flags use OR
+     * semantics; a row is disabled when any enabled disabled-flag is present.
+     */
+    private function applyContentFlagFilter(Builder $query, string $tableAlias): void
+    {
+        if (preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $tableAlias) !== 1) {
+            throw new \InvalidArgumentException('Invalid content-filter table alias.');
+        }
+
+        $flags = $this->activeContentFlags();
+        $requiredColumn = "{$tableAlias}.content_flags";
+        $disabledColumn = "{$tableAlias}.content_flags_disabled";
+
+        $query->where(function (Builder $scope) use ($requiredColumn, $flags, $query) {
+            $scope->whereNull($requiredColumn)->orWhere($requiredColumn, '');
+            if ($flags !== []) {
+                $scope->orWhere(function (Builder $matches) use ($requiredColumn, $flags, $query) {
+                    $expression = $this->contentFlagExpression($requiredColumn, $query);
+                    foreach ($flags as $flag) {
+                        $matches->orWhereRaw("{$expression} LIKE ? ESCAPE '!'", [$this->contentFlagPattern($flag)]);
+                    }
+                });
+            }
+        });
+
+        if ($flags !== []) {
+            $query->where(function (Builder $scope) use ($disabledColumn, $flags, $query) {
+                $scope->whereNull($disabledColumn)
+                    ->orWhere($disabledColumn, '')
+                    ->orWhere(function (Builder $doesNotMatch) use ($disabledColumn, $flags, $query) {
+                        $expression = $this->contentFlagExpression($disabledColumn, $query);
+                        foreach ($flags as $flag) {
+                            $doesNotMatch->whereRaw("{$expression} NOT LIKE ? ESCAPE '!'", [$this->contentFlagPattern($flag)]);
+                        }
+                    });
+            });
+        }
+    }
+
+    private function contentFlagExpression(string $column, Builder $query): string
+    {
+        return $query->getConnection()->getDriverName() === 'sqlite'
+            ? "(',' || REPLACE(COALESCE({$column}, ''), ' ', '') || ',')"
+            : "CONCAT(',', REPLACE(COALESCE({$column}, ''), ' ', ''), ',')";
+    }
+
+    private function contentFlagPattern(string $flag): string
+    {
+        $escaped = str_replace(['!', '%', '_'], ['!!', '!%', '!_'], str_replace(' ', '', $flag));
+
+        return '%,'.$escaped.',%';
+    }
+
+    /** @return array<int, string> */
+    private function activeContentFlags(): array
+    {
+        if ($this->enabledContentFlags !== null) {
+            return $this->enabledContentFlags;
+        }
+
+        try {
+            $flags = $this->database->connection('eqemu')
+                ->table('content_flags')
+                ->where('enabled', 1)
+                ->orderBy('flag_name')
+                ->pluck('flag_name');
+        } catch (QueryException) {
+            $flags = collect();
+        }
+
+        return $this->enabledContentFlags = $flags
+            ->filter(fn ($flag) => is_string($flag))
+            ->map(fn (string $flag) => trim($flag))
+            ->filter(fn (string $flag) => $flag !== '' && ! str_contains($flag, ','))
+            ->unique()
+            ->sort()
+            ->values()
             ->all();
     }
 

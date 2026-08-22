@@ -15,7 +15,9 @@ import {
     worldToScreen,
 } from '../../resources/js/maps/eq-map-format.js';
 import npcLocationMap, {
+    formatLocationCoordinates,
     hasFinitePosition,
+    locationMapArea,
     locationMapPoint,
 } from '../../resources/js/components/npc-location-map.js';
 
@@ -613,5 +615,391 @@ describe('NPC location map safeguards', () => {
         assert.equal(state.hasPaths, true);
         assert.equal(strokeCount, 2);
         assert.equal(fillCount, 1);
+    });
+});
+
+describe('layered atlas overlays', () => {
+    test('transforms every ground-spawn rectangle corner and restores ordered Brewall bounds', () => {
+        const location = {
+            area: { min_x: -20, max_x: 10, min_y: 5, max_y: 25 },
+        };
+
+        assert.deepEqual(locationMapArea(location), {
+            minX: -10,
+            maxX: 20,
+            minY: -25,
+            maxY: -5,
+        });
+        assert.equal(locationMapArea({ area: { min_x: 0, max_x: Number.NaN, min_y: 0, max_y: 1 } }), null);
+    });
+
+    test('filters overlapping traits once and searches bounded detail text', () => {
+        const state = npcLocationMap({
+            layers: [
+                { id: 'npcs', label: 'NPCs', color: '#7dd3fc', default: true },
+                { id: 'named', label: 'Named', color: '#f472b6', default: true },
+                { id: 'merchants', label: 'Merchants', color: '#facc15', default: true },
+            ],
+            groups: [{
+                key: 'qeynos:0',
+                locations: [
+                    { id: 'npc-1', layers: ['npcs'], label: 'a guard', position: { x: 1, y: 2, z: 3 } },
+                    {
+                        id: 'npc-2',
+                        kind: 'named',
+                        layers: ['named', 'merchants'],
+                        label: 'Quartermaster Zed',
+                        details: [{ label: 'NPC ID', value: '2048' }],
+                        position: { x: 4, y: 5, z: 6 },
+                    },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'qeynos:0';
+
+        assert.deepEqual(state.filteredLocations.map((location) => location.id), ['npc-1', 'npc-2']);
+        state.activeLayers = { npcs: false, named: false, merchants: true };
+        assert.deepEqual(state.filteredLocations.map((location) => location.id), ['npc-2']);
+        assert.equal(state.locationVisualKind(state.currentLocations[1]), 'merchants');
+        assert.equal(state.locationColor(state.currentLocations[1]), '#facc15');
+        state.searchQuery = '2048';
+        assert.deepEqual(state.filteredLocations.map((location) => location.id), ['npc-2']);
+        state.searchQuery = 'guard';
+        assert.deepEqual(state.filteredLocations, []);
+    });
+
+    test('memoizes filtered and projected locations until filter state changes', () => {
+        const state = npcLocationMap({
+            layers: [{ id: 'npcs', label: 'NPCs', default: true }],
+            groups: [{
+                key: 'qeynos:0',
+                locations: [{ id: 'npc-1', layers: ['npcs'], label: 'a guard', position: { x: 1, y: 2, z: 3 } }],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'qeynos:0';
+
+        assert.strictEqual(state.filteredLocations, state.filteredLocations);
+        assert.strictEqual(state.mappableEntries, state.mappableEntries);
+        const visible = state.filteredLocations;
+        state.searchQuery = 'missing';
+        assert.notStrictEqual(state.filteredLocations, visible);
+        assert.deepEqual(state.filteredLocations, []);
+    });
+
+    test('uses area bounds for labels and clipboard text instead of the representative point', async () => {
+        const area = {
+            position: { x: -5, y: 15, z: 7 },
+            area: { min_x: -20, max_x: 10, min_y: 5, max_y: 25 },
+        };
+
+        assert.equal(
+            formatLocationCoordinates(area, 'xyz', 2),
+            'X -20.00–10.00, Y 5.00–25.00, Z 7.00',
+        );
+        assert.equal(
+            formatLocationCoordinates(area, 'yxz', 1),
+            'Y 5.0–25.0, X -20.0–10.0, Z 7.0',
+        );
+        assert.equal(
+            formatLocationCoordinates({ ...area, area: { min_x: -5, max_x: -5, min_y: 15, max_y: 15 } }),
+            'X -5.00, Y 15.00, Z 7.00',
+        );
+
+        const navigatorDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+        const originalWindow = globalThis.window;
+        let copiedText = null;
+        Object.defineProperty(globalThis, 'navigator', {
+            configurable: true,
+            value: { clipboard: { writeText: async (text) => { copiedText = text; } } },
+        });
+        globalThis.window = { setTimeout: () => 1 };
+        try {
+            const state = npcLocationMap({ coordinateOrder: 'yxz' });
+            await state.copyCoordinates(area);
+            assert.equal(copiedText, 'Y 5.00–25.00, X -20.00–10.00, Z 7.00');
+            assert.equal(state.statusMessage, `Copied ${copiedText}`);
+        } finally {
+            if (navigatorDescriptor) Object.defineProperty(globalThis, 'navigator', navigatorDescriptor);
+            else delete globalThis.navigator;
+            if (originalWindow === undefined) delete globalThis.window;
+            else globalThis.window = originalWindow;
+        }
+    });
+
+    test('lets a painted point marker outrank a containing ground area', () => {
+        const state = npcLocationMap({
+            layers: [
+                { id: 'npcs', label: 'NPCs', default: true },
+                { id: 'ground-spawns', label: 'Ground', default: true },
+            ],
+            groups: [{
+                key: 'arena:0',
+                locations: [
+                    {
+                        id: 'ground', kind: 'ground-spawns', layers: ['ground-spawns'],
+                        position: { x: 0, y: 0, z: 0 },
+                        area: { min_x: -10, max_x: 10, min_y: -10, max_y: 10 },
+                    },
+                    {
+                        id: 'npc', kind: 'npcs', layers: ['npcs'],
+                        position: { x: -5, y: 0, z: 0 },
+                    },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'arena:0';
+        state.canvasWidth = 800;
+        state.canvasHeight = 600;
+        state.fit = fitBounds({ minX: -20, minY: -20, maxX: 20, maxY: 20 }, 800, 600, 24);
+        const npcPoint = locationMapPoint(state.currentLocations[1]);
+        const screen = state.toScreen(npcPoint.x, npcPoint.y);
+
+        assert.equal(state.hitTest(screen.x, screen.y).id, 'npc');
+    });
+
+    test('prefers the smallest containing ground area when no point marker is hit', () => {
+        const state = npcLocationMap({
+            layers: [{ id: 'ground-spawns', label: 'Ground', color: '#34d399', default: true }],
+            groups: [{
+                key: 'arena:0',
+                locations: [
+                    {
+                        id: 'large', kind: 'ground-spawns', layers: ['ground-spawns'],
+                        position: { x: 0, y: 0, z: 0 },
+                        area: { min_x: -10, max_x: 10, min_y: -10, max_y: 10 },
+                    },
+                    {
+                        id: 'small', kind: 'ground-spawns', layers: ['ground-spawns'],
+                        position: { x: 0, y: 0, z: 0 },
+                        area: { min_x: -2, max_x: 2, min_y: -2, max_y: 2 },
+                    },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'arena:0';
+        state.canvasWidth = 800;
+        state.canvasHeight = 600;
+        state.fit = fitBounds({ minX: -20, minY: -20, maxX: 20, maxY: 20 }, 800, 600, 24);
+        const insideBothAreas = state.toScreen(1.5, 1.5);
+
+        assert.equal(state.hitTest(insideBothAreas.x, insideBothAreas.y).id, 'small');
+    });
+
+    test('keeps default layers for unknown-only URL state and enables a pinned feature layer', () => {
+        const originalWindow = globalThis.window;
+        globalThis.window = {
+            location: { href: 'https://example.test/zones/1?layers=unknown&pin=ground-7' },
+        };
+
+        try {
+            const location = {
+                id: 'ground-7', kind: 'ground-spawns', layers: ['ground-spawns'],
+                // A representative position is not guaranteed to be the bounds center.
+                position: { x: 80, y: 60, z: 5 },
+                area: { min_x: -10, max_x: 10, min_y: -5, max_y: 5 },
+            };
+            const state = npcLocationMap({
+                syncUrl: true,
+                layers: [
+                    { id: 'npcs', label: 'NPCs', default: true },
+                    { id: 'ground-spawns', label: 'Ground', default: false },
+                ],
+                groups: [{ key: 'arena:0', map: { available: true, url: '/arena.eqmap' }, locations: [location] }],
+            });
+            state.configureLayers(state.layers);
+            state.applyUrlState();
+            assert.deepEqual(state.activeLayers, { npcs: true, 'ground-spawns': false });
+
+            state.initializeGroupSelection();
+            assert.equal(state.selectedLocationId, 'ground-7');
+            assert.equal(state.pendingFocusId, 'ground-7');
+            assert.equal(state.activeLayers['ground-spawns'], true);
+        } finally {
+            if (originalWindow === undefined) delete globalThis.window;
+            else globalThis.window = originalWindow;
+        }
+    });
+
+    test('fits a pending rectangular pin after map dimensions are ready', () => {
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        globalThis.requestAnimationFrame = () => 1;
+        try {
+            const location = {
+                id: 'ground-7', kind: 'ground-spawns', layers: ['ground-spawns'],
+                position: { x: 0, y: 0, z: 5 },
+                area: { min_x: -10, max_x: 10, min_y: -5, max_y: 5 },
+            };
+            const state = npcLocationMap({
+                groups: [{ key: 'arena:0', locations: [location] }],
+            });
+            state.selectedZoneKey = 'arena:0';
+            state.selectedLocationId = location.id;
+            state.pendingFocusId = location.id;
+            state.mapData = { bounds: { minX: -100, minY: -100, maxX: 100, maxY: 100 } };
+            state.canvasWidth = 800;
+            state.canvasHeight = 600;
+            state.recalculateFit(true);
+
+            assert.equal(state.focusPendingLocation(), true);
+            assert.equal(state.pendingFocusId, null);
+            assert.ok(state.zoom > 1);
+            const area = locationMapArea(location);
+            const topLeft = state.toScreen(area.minX, area.minY);
+            const bottomRight = state.toScreen(area.maxX, area.maxY);
+            assert.ok(topLeft.x >= 55 && topLeft.y >= 55);
+            assert.ok(bottomRight.x <= 745 && bottomRight.y <= 545);
+            assert.ok(Math.abs((topLeft.x + bottomRight.x) / 2 - 400) < 0.001);
+            assert.ok(Math.abs((topLeft.y + bottomRight.y) / 2 - 300) < 0.001);
+        } finally {
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
+    test('reuses the base-map render until a base-affecting change marks it dirty', () => {
+        const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'document');
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        let baseRenders = 0;
+        let blits = 0;
+        const cachedContext = {
+            clearRect() {},
+            setTransform() {},
+        };
+        const cachedCanvas = {
+            width: 0,
+            height: 0,
+            getContext: () => cachedContext,
+        };
+        Object.defineProperty(globalThis, 'document', {
+            configurable: true,
+            value: { createElement: () => cachedCanvas },
+        });
+        globalThis.requestAnimationFrame = () => 1;
+
+        try {
+            const context = {
+                clearRect() {},
+                drawImage() { blits += 1; },
+                restore() {},
+                save() {},
+                setTransform() {},
+            };
+            const canvas = { width: 800, height: 600, getContext: () => context };
+            const state = npcLocationMap();
+            state.$refs = { canvas };
+            state.canvasWidth = 400;
+            state.canvasHeight = 300;
+            state.mapData = {};
+            state.drawBaseLayers = () => { baseRenders += 1; };
+            state.drawAreas = () => {};
+            state.drawLocations = () => {};
+            state.drawLocationLabels = () => {};
+
+            state.draw();
+            state.draw();
+            assert.equal(baseRenders, 1);
+            assert.equal(blits, 2);
+
+            state.invalidateBase();
+            state.draw();
+            assert.equal(baseRenders, 2);
+            assert.equal(blits, 3);
+        } finally {
+            if (documentDescriptor) Object.defineProperty(globalThis, 'document', documentDescriptor);
+            else delete globalThis.document;
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
+    test('cleans up pointer state when capture was already cancelled or lost', () => {
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        globalThis.requestAnimationFrame = () => 1;
+        try {
+            const state = npcLocationMap();
+            state.dragging = true;
+            state.pointerStart = { x: 1, y: 2, panX: 0, panY: 0 };
+            assert.doesNotThrow(() => state.onPointerUp({
+                type: 'pointercancel',
+                pointerId: 9,
+                currentTarget: {
+                    hasPointerCapture: () => false,
+                    releasePointerCapture: () => { throw new Error('must not release'); },
+                },
+            }));
+            assert.equal(state.dragging, false);
+            assert.equal(state.pointerStart, null);
+
+            state.dragging = true;
+            state.pointerStart = { x: 1, y: 2, panX: 0, panY: 0 };
+            state.onLostPointerCapture();
+            assert.equal(state.dragging, false);
+            assert.equal(state.pointerStart, null);
+        } finally {
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
+    test('installs and removes the canvas lost-capture listener without a Blade binding', () => {
+        const globals = ['ResizeObserver', 'IntersectionObserver', 'requestAnimationFrame', 'cancelAnimationFrame'];
+        const descriptors = Object.fromEntries(globals.map((name) => [
+            name,
+            Object.getOwnPropertyDescriptor(globalThis, name),
+        ]));
+        let listener = null;
+        let removedListener = null;
+        Object.defineProperty(globalThis, 'ResizeObserver', {
+            configurable: true,
+            value: class { observe() {} disconnect() {} },
+        });
+        Object.defineProperty(globalThis, 'IntersectionObserver', {
+            configurable: true,
+            value: class { observe() {} disconnect() {} },
+        });
+        Object.defineProperty(globalThis, 'requestAnimationFrame', {
+            configurable: true,
+            value: () => 1,
+        });
+        Object.defineProperty(globalThis, 'cancelAnimationFrame', {
+            configurable: true,
+            value: () => {},
+        });
+
+        try {
+            const state = npcLocationMap();
+            state.$refs = {
+                viewport: null,
+                canvas: {
+                    addEventListener(type, callback) {
+                        assert.equal(type, 'lostpointercapture');
+                        listener = callback;
+                    },
+                    removeEventListener(type, callback) {
+                        assert.equal(type, 'lostpointercapture');
+                        removedListener = callback;
+                    },
+                },
+            };
+            state.$root = {};
+            state.$watch = () => {};
+            state.init();
+
+            assert.equal(typeof listener, 'function');
+            state.dragging = true;
+            state.pointerStart = { x: 1, y: 2, panX: 0, panY: 0 };
+            listener();
+            assert.equal(state.dragging, false);
+            assert.equal(state.pointerStart, null);
+
+            state.destroy();
+            assert.strictEqual(removedListener, listener);
+        } finally {
+            for (const name of globals) {
+                if (descriptors[name]) Object.defineProperty(globalThis, name, descriptors[name]);
+                else delete globalThis[name];
+            }
+        }
     });
 });

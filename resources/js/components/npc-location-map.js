@@ -9,9 +9,15 @@ import {
 } from '../maps/eq-map-format.js';
 
 const MAP_CACHE = new Map();
+const MAX_CACHED_MAPS = 8;
+const MAX_DATASET_BYTES = 8 * 1024 * 1024;
+const MAX_GROUPS = 100;
+const MAX_LOCATIONS = 12000;
 const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 24;
 const MAP_PADDING = 32;
+const FEATURE_FOCUS_PADDING = 56;
+const LOCATION_SEARCH_CACHE = new WeakMap();
 
 function finiteNumber(value, fallback = 0) {
     const number = Number(value);
@@ -20,6 +26,160 @@ function finiteNumber(value, fallback = 0) {
 
 function isFiniteCoordinate(value) {
     return typeof value === 'number' && Number.isFinite(value);
+}
+
+function safeText(value, maximum = 240) {
+    return String(value ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim().slice(0, maximum);
+}
+
+function safeColor(value, fallback = '#fb7185') {
+    return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value) ? value : fallback;
+}
+
+function hexToRgba(color, alpha = 1) {
+    const value = safeColor(color).slice(1);
+    const red = Number.parseInt(value.slice(0, 2), 16);
+    const green = Number.parseInt(value.slice(2, 4), 16);
+    const blue = Number.parseInt(value.slice(4, 6), 16);
+    return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+}
+
+function normalizeLayers(layers) {
+    if (!Array.isArray(layers)) return [];
+
+    const seen = new Set();
+    return layers.slice(0, 32).map((layer) => {
+        const id = safeText(layer?.id, 48).toLowerCase();
+        if (!/^[a-z0-9-]+$/.test(id) || seen.has(id)) return null;
+        seen.add(id);
+        return {
+            id,
+            label: safeText(layer?.label || id, 80),
+            color: safeColor(layer?.color),
+            default: layer?.default !== false,
+            count: Math.max(0, Math.min(MAX_LOCATIONS, Number(layer?.count) || 0)),
+            truncated: layer?.truncated === true,
+        };
+    }).filter(Boolean);
+}
+
+function normalizeDetails(details) {
+    if (!Array.isArray(details)) return [];
+    return details.slice(0, 20).map((detail) => ({
+        label: safeText(detail?.label, 80),
+        value: safeText(detail?.value, 300),
+    })).filter((detail) => detail.label || detail.value);
+}
+
+function normalizeCandidates(candidates) {
+    if (!Array.isArray(candidates)) return [];
+    return candidates.slice(0, 20).map((candidate) => ({
+        id: Number.isSafeInteger(Number(candidate?.id)) ? Number(candidate.id) : null,
+        name: safeText(candidate?.name, 120),
+        level_label: safeText(candidate?.level_label, 80),
+        chance: Number.isFinite(Number(candidate?.chance)) ? Number(candidate.chance) : null,
+        merchant: candidate?.merchant === true,
+        named: candidate?.named === true,
+        raid: candidate?.raid === true,
+        quest: candidate?.quest === true,
+        url: safeInternalUrl(candidate?.url),
+    })).filter((candidate) => candidate.name);
+}
+
+function locationSearchText(location) {
+    if (location === null || typeof location !== 'object') return '';
+    const cached = LOCATION_SEARCH_CACHE.get(location);
+    if (cached !== undefined) return cached;
+
+    const searchable = [
+        location.label,
+        location.subtitle,
+        ...(Array.isArray(location.details) ? location.details.flatMap((detail) => [detail.label, detail.value]) : []),
+        ...(Array.isArray(location.candidates) ? location.candidates.map((candidate) => candidate.name) : []),
+    ].map((value) => safeText(value, 300).toLocaleLowerCase()).join(' ');
+    LOCATION_SEARCH_CACHE.set(location, searchable);
+
+    return searchable;
+}
+
+function safeInternalUrl(value) {
+    if (typeof value !== 'string' || value.length > 2048) return null;
+    try {
+        if (typeof window === 'undefined' || !window.location) {
+            const url = new URL(value, 'http://localhost/');
+            return url.origin === 'http://localhost' ? value : null;
+        }
+        const url = new URL(value, window.location.href);
+        return url.origin === window.location.origin ? url.href : null;
+    } catch {
+        return null;
+    }
+}
+
+function normalizeLocation(location, allowedLayerIds) {
+    if (location === null || typeof location !== 'object' || Array.isArray(location)) return null;
+    const id = typeof location.id === 'number' || typeof location.id === 'string'
+        ? safeText(location.id, 128)
+        : '';
+    if (!id) return null;
+
+    const position = location.position;
+    const normalizedPosition = position !== null && typeof position === 'object' && !Array.isArray(position)
+        && ['x', 'y', 'z'].every((axis) => typeof position[axis] === 'number' && Number.isFinite(position[axis]))
+        ? { x: position.x, y: position.y, z: position.z }
+        : null;
+    const area = location.area;
+    const normalizedArea = area !== null && typeof area === 'object' && !Array.isArray(area)
+        && ['min_x', 'max_x', 'min_y', 'max_y'].every((axis) => typeof area[axis] === 'number' && Number.isFinite(area[axis]))
+        ? {
+            min_x: Math.min(area.min_x, area.max_x),
+            max_x: Math.max(area.min_x, area.max_x),
+            min_y: Math.min(area.min_y, area.max_y),
+            max_y: Math.max(area.min_y, area.max_y),
+        }
+        : null;
+    const layers = Array.isArray(location.layers)
+        ? location.layers.map((layer) => safeText(layer, 48).toLowerCase())
+            .filter((layer) => allowedLayerIds.has(layer))
+        : [];
+
+    return {
+        ...location,
+        id,
+        kind: allowedLayerIds.has(safeText(location.kind, 48).toLowerCase())
+            ? safeText(location.kind, 48).toLowerCase()
+            : (layers[0] ?? ''),
+        layers: [...new Set(layers)],
+        label: safeText(location.label, 160),
+        subtitle: safeText(location.subtitle, 240),
+        position: normalizedPosition,
+        area: normalizedArea,
+        details: normalizeDetails(location.details),
+        candidates: normalizeCandidates(location.candidates),
+        url: safeInternalUrl(location.url),
+        show_label: location.show_label === true,
+    };
+}
+
+export function locationMapArea(location) {
+    const area = location?.area;
+    if (area === null || typeof area !== 'object' || Array.isArray(area)
+        || !['min_x', 'max_x', 'min_y', 'max_y'].every((axis) => isFiniteCoordinate(area[axis]))) {
+        return null;
+    }
+
+    const corners = [
+        dbToBrewall(area.min_x, area.min_y),
+        dbToBrewall(area.max_x, area.min_y),
+        dbToBrewall(area.max_x, area.max_y),
+        dbToBrewall(area.min_x, area.max_y),
+    ];
+    const xs = corners.map(([x]) => x);
+    const ys = corners.map(([, y]) => y);
+    return {
+        minX: Math.min(...xs), maxX: Math.max(...xs),
+        minY: Math.min(...ys), maxY: Math.max(...ys),
+    };
 }
 
 export function hasFinitePosition(location) {
@@ -66,11 +226,63 @@ export function locationMapPoint(location) {
     return hasFinitePosition(location) ? dbPositionMapPoint(location.position) : null;
 }
 
+function formatCoordinateValue(value, fractionDigits) {
+    const normalized = Object.is(value, -0) ? 0 : value;
+    return normalized.toFixed(fractionDigits);
+}
+
+/** Format exact points normally and rectangular spawn areas as their stored bounds. */
+export function formatLocationCoordinates(location, coordinateOrder = 'xyz', fractionDigits = 2) {
+    if (!hasFinitePosition(location)) throw new TypeError('Location must contain finite x, y, and z coordinates');
+    if (coordinateOrder !== 'xyz' && coordinateOrder !== 'yxz') {
+        throw new RangeError("Coordinate order must be either 'xyz' or 'yxz'");
+    }
+    if (!Number.isInteger(fractionDigits) || fractionDigits < 0 || fractionDigits > 6) {
+        throw new RangeError('fractionDigits must be an integer from 0 through 6');
+    }
+
+    const area = location?.area;
+    if (area === null || typeof area !== 'object' || Array.isArray(area)
+        || !['min_x', 'max_x', 'min_y', 'max_y'].every((axis) => isFiniteCoordinate(area[axis]))) {
+        return formatCoordinates(location.position, coordinateOrder, fractionDigits);
+    }
+
+    const range = (minimum, maximum) => {
+        const low = Math.min(minimum, maximum);
+        const high = Math.max(minimum, maximum);
+        const lowText = formatCoordinateValue(low, fractionDigits);
+        const highText = formatCoordinateValue(high, fractionDigits);
+        return low === high ? lowText : `${lowText}–${highText}`;
+    };
+    const axes = {
+        X: range(area.min_x, area.max_x),
+        Y: range(area.min_y, area.max_y),
+        Z: formatCoordinateValue(location.position.z, fractionDigits),
+    };
+    const labels = coordinateOrder === 'yxz' ? ['Y', 'X', 'Z'] : ['X', 'Y', 'Z'];
+
+    return labels.map((label) => `${label} ${axes[label]}`).join(', ');
+}
+
 export default function npcLocationMap(config = {}) {
+    let featureCache = null;
+    let cachedBaseCanvas = null;
+    let baseDirty = true;
+    let lostPointerCaptureHandler = null;
+
     return {
         groups: Array.isArray(config.groups) ? config.groups : [],
+        dataUrl: typeof config.dataUrl === 'string' ? config.dataUrl : '',
+        layers: normalizeLayers(config.layers),
+        activeLayers: {},
+        searchQuery: '',
+        syncUrl: config.syncUrl === true,
+        datasetLoaded: !config.dataUrl,
+        datasetLoading: false,
+        datasetError: '',
         coordinateOrder: config.coordinateOrder === 'yxz' ? 'yxz' : 'xyz',
         npcName: String(config.npcName ?? 'NPC'),
+        subjectName: String(config.subjectName ?? config.npcName ?? 'locations'),
         selectedZoneKey: null,
         selectedLocationId: null,
         hoveredLocationId: null,
@@ -98,28 +310,38 @@ export default function npcLocationMap(config = {}) {
         loadGeneration: 0,
         loadedMapUrl: null,
         loadingMapUrl: null,
+        pointerX: 0,
+        pointerY: 0,
+        urlSyncTimer: null,
+        requestedPinId: null,
+        pendingFocusId: null,
 
         init() {
-            const mappedGroup = this.groups.find((group) => group?.map?.available && group?.map?.url);
-            this.selectedZoneKey = mappedGroup?.key ?? this.groups[0]?.key ?? null;
-            this.selectedLocationId = this.mappableLocations[0]?.id ?? this.currentLocations[0]?.id ?? null;
+            this.configureLayers(this.layers);
+            this.applyUrlState();
+            this.initializeGroupSelection();
 
             this.resizeObserver = new ResizeObserver(() => this.resizeCanvas());
             if (this.$refs.viewport) {
                 this.resizeObserver.observe(this.$refs.viewport);
             }
+            if (typeof this.$refs.canvas?.addEventListener === 'function') {
+                lostPointerCaptureHandler = () => this.onLostPointerCapture();
+                this.$refs.canvas.addEventListener('lostpointercapture', lostPointerCaptureHandler);
+            }
 
             this.visibilityObserver = new IntersectionObserver((entries) => {
                 if (entries.some((entry) => entry.isIntersecting)) {
-                    this.ensureMapLoaded();
+                    this.ensureDatasetLoaded();
                 }
             }, { rootMargin: '240px' });
             this.visibilityObserver.observe(this.$root);
 
-            this.$watch('elevationFocus', () => this.scheduleDraw());
-            this.$watch('elevationRange', () => this.scheduleDraw());
-            this.$watch('showMapPoints', () => this.scheduleDraw());
-            this.$watch('showPaths', () => this.scheduleDraw());
+            this.$watch('elevationFocus', () => this.invalidateBase());
+            this.$watch('elevationRange', () => this.invalidateBase());
+            this.$watch('showMapPoints', () => this.invalidateBase());
+            this.$watch('showPaths', () => this.invalidateBase());
+            this.$watch('searchQuery', () => this.onFiltersChanged());
         },
 
         destroy() {
@@ -128,7 +350,64 @@ export default function npcLocationMap(config = {}) {
             this.loadingMapUrl = null;
             this.resizeObserver?.disconnect();
             this.visibilityObserver?.disconnect();
+            if (lostPointerCaptureHandler
+                && typeof this.$refs?.canvas?.removeEventListener === 'function') {
+                this.$refs.canvas.removeEventListener('lostpointercapture', lostPointerCaptureHandler);
+            }
+            lostPointerCaptureHandler = null;
+            cachedBaseCanvas = null;
+            featureCache = null;
             if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
+            if (this.urlSyncTimer) window.clearTimeout(this.urlSyncTimer);
+        },
+
+        initializeGroupSelection() {
+            const requestedGroup = this.requestedPinId
+                ? this.groups.find((group) => Array.isArray(group?.locations)
+                    && group.locations.some((location) => String(location.id) === this.requestedPinId))
+                : null;
+            const requested = requestedGroup?.locations.find(
+                (location) => String(location.id) === this.requestedPinId,
+            ) ?? null;
+            const mappedGroup = this.groups.find((group) => group?.map?.available && group?.map?.url);
+            this.selectedZoneKey = requestedGroup?.key ?? mappedGroup?.key ?? this.groups[0]?.key ?? null;
+            featureCache = null;
+            if (requested) {
+                this.enableLocationLayers(requested);
+                this.pendingFocusId = requested.id;
+            } else {
+                this.pendingFocusId = null;
+            }
+            this.selectedLocationId = requested?.id ?? this.mappableLocations[0]?.id ?? this.currentLocations[0]?.id ?? null;
+        },
+
+        enableLocationLayers(location) {
+            const locationLayers = Array.isArray(location?.layers) ? location.layers : [];
+            if (locationLayers.length === 0) return;
+            const next = { ...this.activeLayers };
+            let changed = false;
+            for (const layer of locationLayers) {
+                if (Object.prototype.hasOwnProperty.call(next, layer) && !next[layer]) {
+                    next[layer] = true;
+                    changed = true;
+                }
+            }
+            if (changed) {
+                this.activeLayers = next;
+                featureCache = null;
+            }
+        },
+
+        configureLayers(layers) {
+            this.layers = normalizeLayers(layers);
+            const next = {};
+            for (const layer of this.layers) {
+                next[layer.id] = Object.prototype.hasOwnProperty.call(this.activeLayers, layer.id)
+                    ? Boolean(this.activeLayers[layer.id])
+                    : layer.default;
+            }
+            this.activeLayers = next;
+            featureCache = null;
         },
 
         get currentGroup() {
@@ -139,8 +418,64 @@ export default function npcLocationMap(config = {}) {
             return Array.isArray(this.currentGroup?.locations) ? this.currentGroup.locations : [];
         },
 
+        get filteredLocations() {
+            return this.featureData().filteredLocations;
+        },
+
         get mappableLocations() {
-            return this.currentLocations.filter((location) => hasFinitePosition(location));
+            return this.featureData().mappableLocations;
+        },
+
+        get mappableEntries() {
+            return this.featureData().mappableEntries;
+        },
+
+        featureData() {
+            const group = this.currentGroup;
+            const query = safeText(this.searchQuery, 120).toLocaleLowerCase();
+            const layerSignature = this.layers
+                .map((layer) => `${layer.id}:${this.activeLayers[layer.id] ? 1 : 0}`)
+                .join('|');
+            if (featureCache?.group === group
+                && featureCache.query === query
+                && featureCache.layerSignature === layerSignature) {
+                return featureCache;
+            }
+
+            const currentLocations = Array.isArray(group?.locations) ? group.locations : [];
+            const activeLayerIds = new Set(this.layers
+                .filter((layer) => this.activeLayers[layer.id])
+                .map((layer) => layer.id));
+            const layerCounts = new Map();
+            const filteredLocations = [];
+
+            for (const location of currentLocations) {
+                const locationLayers = Array.isArray(location.layers) ? location.layers : [];
+                for (const layer of new Set(locationLayers)) {
+                    layerCounts.set(layer, (layerCounts.get(layer) ?? 0) + 1);
+                }
+                if (this.layers.length > 0
+                    && !locationLayers.some((layer) => activeLayerIds.has(layer))) continue;
+                if (query && !locationSearchText(location).includes(query)) continue;
+                filteredLocations.push(location);
+            }
+
+            const mappableEntries = filteredLocations.map((location) => ({
+                location,
+                point: locationMapPoint(location),
+                area: locationMapArea(location),
+            })).filter((entry) => entry.point !== null);
+            featureCache = {
+                group,
+                query,
+                layerSignature,
+                layerCounts,
+                filteredLocations,
+                mappableEntries,
+                mappableLocations: mappableEntries.map((entry) => entry.location),
+            };
+
+            return featureCache;
         },
 
         get currentPaths() {
@@ -149,9 +484,26 @@ export default function npcLocationMap(config = {}) {
         },
 
         get selectedLocation() {
-            return this.currentLocations.find((location) => String(location.id) === String(this.selectedLocationId))
-                ?? this.currentLocations[0]
+            return this.filteredLocations.find((location) => String(location.id) === String(this.selectedLocationId))
+                ?? this.filteredLocations[0]
                 ?? null;
+        },
+
+        get hoveredLocation() {
+            return this.filteredLocations.find((location) => String(location.id) === String(this.hoveredLocationId)) ?? null;
+        },
+
+        get tooltipStyle() {
+            const width = 290;
+            const measuredHeight = Number(this.$refs?.tooltip?.offsetHeight);
+            const height = Number.isFinite(measuredHeight) && measuredHeight > 0 ? measuredHeight : 260;
+            const left = Math.max(10, Math.min(this.canvasWidth - width - 10, this.pointerX + 16));
+            const top = Math.max(10, Math.min(this.canvasHeight - height - 10, this.pointerY + 16));
+            return `left:${left}px;top:${top}px;max-width:${width}px`;
+        },
+
+        get busy() {
+            return this.datasetLoading || this.loading || (Boolean(this.dataUrl) && !this.datasetLoaded && !this.datasetError);
         },
 
         get selectedCoordinateText() {
@@ -172,14 +524,182 @@ export default function npcLocationMap(config = {}) {
             return this.currentLocations.some((location) => location.roam);
         },
 
+        layerCount(layerId) {
+            return this.featureData().layerCounts.get(layerId) ?? 0;
+        },
+
         get zoneLabel() {
             if (!this.currentGroup) return '';
             return `${this.currentGroup.long_name}${Number(this.currentGroup.version) === 0 ? '' : ` · v${this.currentGroup.version}`}`;
         },
 
+        async ensureDatasetLoaded(force = false) {
+            if (!this.dataUrl || (this.datasetLoaded && !force)) {
+                await this.ensureMapLoaded(force);
+                return;
+            }
+            if (this.datasetLoading) return;
+
+            const endpoint = safeInternalUrl(this.dataUrl);
+            if (!endpoint) {
+                this.datasetError = 'The atlas data address is invalid.';
+                return;
+            }
+
+            const generation = ++this.loadGeneration;
+            this.datasetLoading = true;
+            this.datasetError = '';
+            this.statusMessage = `Loading ${this.subjectName} atlas data…`;
+
+            try {
+                const response = await fetch(endpoint, {
+                    credentials: 'same-origin',
+                    headers: { Accept: 'application/json' },
+                });
+                if (!response.ok) throw new Error(`Atlas request failed (${response.status})`);
+                const contentLength = Number(response.headers.get('content-length'));
+                if (Number.isFinite(contentLength) && contentLength > MAX_DATASET_BYTES) {
+                    throw new Error('Atlas data is larger than the safety limit');
+                }
+                const text = await response.text();
+                if (new TextEncoder().encode(text).byteLength > MAX_DATASET_BYTES) {
+                    throw new Error('Atlas data is larger than the safety limit');
+                }
+                const dataset = JSON.parse(text);
+                if (this.loadGeneration !== generation) return;
+                this.installDataset(dataset);
+                this.datasetLoaded = true;
+                this.initializeGroupSelection();
+                this.datasetLoading = false;
+                await this.ensureMapLoaded(true);
+            } catch (error) {
+                if (this.loadGeneration !== generation) return;
+                this.datasetError = 'The zone atlas data could not be loaded. The zone lists remain available.';
+                this.statusMessage = this.datasetError;
+                console.error('Unable to load zone atlas data:', error);
+            } finally {
+                if (this.loadGeneration === generation) this.datasetLoading = false;
+            }
+        },
+
+        installDataset(dataset) {
+            if (dataset === null || typeof dataset !== 'object' || Array.isArray(dataset)
+                || !Array.isArray(dataset.groups) || dataset.groups.length > MAX_GROUPS) {
+                throw new Error('Atlas response has an invalid shape');
+            }
+            if (Array.isArray(dataset.layers)) this.configureLayers(dataset.layers);
+            const allowedLayerIds = new Set(this.layers.map((layer) => layer.id));
+            let locationCount = 0;
+            this.groups = dataset.groups.map((group) => {
+                if (group === null || typeof group !== 'object' || Array.isArray(group)) {
+                    throw new Error('Atlas group has an invalid shape');
+                }
+                const rawLocations = Array.isArray(group.locations) ? group.locations : [];
+                locationCount += rawLocations.length;
+                if (locationCount > MAX_LOCATIONS) throw new Error('Atlas contains too many locations');
+                return {
+                    ...group,
+                    key: safeText(group.key, 140),
+                    short_name: safeText(group.short_name, 64),
+                    long_name: safeText(group.long_name, 160),
+                    version: Number.isSafeInteger(Number(group.version)) ? Number(group.version) : 0,
+                    map: this.normalizeMap(group.map),
+                    paths: group.paths !== null && typeof group.paths === 'object' && !Array.isArray(group.paths)
+                        ? group.paths
+                        : {},
+                    locations: rawLocations.map((location) => normalizeLocation(location, allowedLayerIds)).filter(Boolean),
+                };
+            });
+            featureCache = null;
+            baseDirty = true;
+        },
+
+        normalizeMap(map) {
+            if (map === null || typeof map !== 'object' || Array.isArray(map) || map.available !== true) return null;
+            const url = safeInternalUrl(map.url);
+            return url ? { ...map, url, available: true } : null;
+        },
+
+        onFiltersChanged() {
+            featureCache = null;
+            let selectionChanged = false;
+            const selectionIsVisible = this.selectedLocationId !== null
+                && this.filteredLocations.some(
+                    (location) => String(location.id) === String(this.selectedLocationId),
+                );
+            if (!selectionIsVisible) {
+                const nextSelectedId = this.mappableLocations[0]?.id ?? null;
+                selectionChanged = nextSelectedId !== this.selectedLocationId;
+                this.selectedLocationId = nextSelectedId;
+            }
+            this.hoveredLocationId = null;
+            if (selectionChanged && this.elevationFocus) this.invalidateBase();
+            else this.scheduleDraw();
+            this.queueUrlSync();
+        },
+
+        resetFilters() {
+            this.searchQuery = '';
+            const next = {};
+            for (const layer of this.layers) next[layer.id] = layer.default;
+            this.activeLayers = next;
+            this.onFiltersChanged();
+        },
+
+        setAllLayers(visible) {
+            const next = {};
+            for (const layer of this.layers) next[layer.id] = Boolean(visible);
+            this.activeLayers = next;
+            this.onFiltersChanged();
+        },
+
+        applyUrlState() {
+            if (!this.syncUrl || typeof window === 'undefined') return;
+            const params = new URL(window.location.href).searchParams;
+            const requestedLayers = safeText(params.get('layers'), 500).split(',').filter(Boolean);
+            if (requestedLayers.length === 1 && requestedLayers[0] === 'none') {
+                this.activeLayers = Object.fromEntries(this.layers.map((layer) => [layer.id, false]));
+            } else if (requestedLayers.length > 0) {
+                const allowed = new Set(this.layers.map((layer) => layer.id));
+                const knownLayers = requestedLayers.filter((layer) => allowed.has(layer));
+                if (knownLayers.length > 0) {
+                    const next = {};
+                    for (const layer of this.layers) next[layer.id] = knownLayers.includes(layer.id);
+                    this.activeLayers = next;
+                }
+            }
+            this.searchQuery = safeText(params.get('mapq'), 120);
+            this.requestedPinId = safeText(params.get('pin'), 128) || null;
+            featureCache = null;
+        },
+
+        queueUrlSync() {
+            if (!this.syncUrl || typeof window === 'undefined') return;
+            if (this.urlSyncTimer) window.clearTimeout(this.urlSyncTimer);
+            this.urlSyncTimer = window.setTimeout(() => this.syncUrlState(), 180);
+        },
+
+        syncUrlState() {
+            if (!this.syncUrl || typeof window === 'undefined') return;
+            const url = new URL(window.location.href);
+            const selectedLayers = this.layers.filter((layer) => this.activeLayers[layer.id]).map((layer) => layer.id);
+            const defaults = this.layers.filter((layer) => layer.default).map((layer) => layer.id);
+            if (selectedLayers.join(',') === defaults.join(',')) url.searchParams.delete('layers');
+            else if (selectedLayers.length > 0) url.searchParams.set('layers', selectedLayers.join(','));
+            else url.searchParams.set('layers', 'none');
+            const query = safeText(this.searchQuery, 120);
+            if (query) url.searchParams.set('mapq', query);
+            else url.searchParams.delete('mapq');
+            if (this.selectedLocationId !== null) url.searchParams.set('pin', String(this.selectedLocationId));
+            else url.searchParams.delete('pin');
+            window.history.replaceState(window.history.state, '', url);
+        },
+
         async selectZone(key) {
             if (!this.groups.some((group) => group.key === key)) return;
             this.selectedZoneKey = key;
+            featureCache = null;
+            this.pendingFocusId = null;
             this.selectedLocationId = this.mappableLocations[0]?.id ?? this.currentLocations[0]?.id ?? null;
             this.hoveredLocationId = null;
             this.mapData = null;
@@ -188,14 +708,17 @@ export default function npcLocationMap(config = {}) {
             this.zoom = 1;
             this.panX = 0;
             this.panY = 0;
+            baseDirty = true;
             await this.ensureMapLoaded(true);
         },
 
         async ensureMapLoaded(force = false) {
             const map = this.currentGroup?.map;
-            if (!map?.available || !map?.url) {
+            const mapUrl = map?.available ? safeInternalUrl(map.url) : null;
+            if (!mapUrl) {
                 this.loadGeneration += 1;
                 this.mapData = null;
+                baseDirty = true;
                 this.loadedMapUrl = null;
                 this.loadingMapUrl = null;
                 this.loading = false;
@@ -205,21 +728,24 @@ export default function npcLocationMap(config = {}) {
                 return;
             }
 
-            if (!force && this.mapData && this.loadedMapUrl === map.url) {
+            if (!force && this.mapData && this.loadedMapUrl === mapUrl) {
                 return;
             }
 
-            if (!force && this.loading && this.loadingMapUrl === map.url) return;
+            if (!force && this.loading && this.loadingMapUrl === mapUrl) return;
 
             const generation = ++this.loadGeneration;
-            this.loadingMapUrl = map.url;
+            this.loadingMapUrl = mapUrl;
             this.loading = true;
             this.loadError = '';
             this.statusMessage = `Loading the ${this.zoneLabel} base map…`;
 
             try {
-                if (!MAP_CACHE.has(map.url)) {
-                    MAP_CACHE.set(map.url, fetch(map.url, {
+                if (!MAP_CACHE.has(mapUrl)) {
+                    if (MAP_CACHE.size >= MAX_CACHED_MAPS) {
+                        MAP_CACHE.delete(MAP_CACHE.keys().next().value);
+                    }
+                    MAP_CACHE.set(mapUrl, fetch(mapUrl, {
                         credentials: 'same-origin',
                         headers: { Accept: 'application/octet-stream' },
                     }).then(async (response) => {
@@ -234,21 +760,24 @@ export default function npcLocationMap(config = {}) {
 
                         return parseEqMap(await response.arrayBuffer());
                     }).catch((error) => {
-                        MAP_CACHE.delete(map.url);
+                        MAP_CACHE.delete(mapUrl);
                         throw error;
                     }));
                 }
 
-                const parsed = await MAP_CACHE.get(map.url);
+                const parsed = await MAP_CACHE.get(mapUrl);
                 if (this.loadGeneration !== generation) return;
 
                 this.mapData = parsed;
-                this.loadedMapUrl = map.url;
+                baseDirty = true;
+                this.loadedMapUrl = mapUrl;
                 this.resetView(false);
+                this.focusPendingLocation();
                 this.statusMessage = `${this.zoneLabel} map ready: ${parsed.segmentCount.toLocaleString()} lines and ${this.mappableLocations.length.toLocaleString()} location${this.mappableLocations.length === 1 ? '' : 's'}.`;
             } catch (error) {
                 if (this.loadGeneration !== generation) return;
                 this.mapData = null;
+                baseDirty = true;
                 this.loadedMapUrl = null;
                 this.loadError = 'The base map could not be loaded. The verified location table is still available below.';
                 this.statusMessage = this.loadError;
@@ -286,12 +815,13 @@ export default function npcLocationMap(config = {}) {
 
             const context = canvas.getContext('2d');
             context?.setTransform(ratio, 0, 0, ratio, 0, 0);
+            baseDirty = true;
 
             if (this.mapData && this.fit.scale === 1 && this.fit.centerX === 0 && this.fit.centerY === 0) {
                 this.resetView(false);
             } else {
                 this.recalculateFit(false);
-                this.scheduleDraw();
+                if (!this.focusPendingLocation()) this.scheduleDraw();
             }
         },
 
@@ -300,6 +830,7 @@ export default function npcLocationMap(config = {}) {
             const maximumSafePadding = Math.max(0, (Math.min(this.canvasWidth, this.canvasHeight) - 1) / 2);
             const padding = Math.min(MAP_PADDING, maximumSafePadding);
             this.fit = fitBounds(this.mapData.bounds, this.canvasWidth, this.canvasHeight, padding);
+            baseDirty = true;
             if (resetPan) {
                 this.zoom = 1;
                 this.panX = 0;
@@ -310,7 +841,7 @@ export default function npcLocationMap(config = {}) {
         resetView(announce = true) {
             this.recalculateFit(true);
             if (announce) this.statusMessage = `Map view reset for ${this.zoneLabel}.`;
-            this.scheduleDraw();
+            this.invalidateBase();
         },
 
         zoomBy(factor, anchor = null) {
@@ -326,7 +857,7 @@ export default function npcLocationMap(config = {}) {
             this.panX += point.x - after.x;
             this.panY += point.y - after.y;
             this.statusMessage = `Map zoom ${Math.round(this.zoom * 100)}%.`;
-            this.scheduleDraw();
+            this.invalidateBase();
         },
 
         async toggleFullscreen() {
@@ -354,7 +885,11 @@ export default function npcLocationMap(config = {}) {
 
         onPointerDown(event) {
             if (!this.mapData || event.button !== 0) return;
-            event.currentTarget.setPointerCapture?.(event.pointerId);
+            try {
+                event.currentTarget?.setPointerCapture?.(event.pointerId);
+            } catch {
+                // A browser may reject capture if the pointer ended between dispatch and handling.
+            }
             this.dragging = true;
             this.pointerMoved = false;
             this.pointerStart = {
@@ -370,17 +905,20 @@ export default function npcLocationMap(config = {}) {
             if (!canvas || !this.mapData) return;
 
             if (this.dragging && this.pointerStart) {
+                this.hoveredLocationId = null;
                 const dx = event.clientX - this.pointerStart.x;
                 const dy = event.clientY - this.pointerStart.y;
                 if (Math.abs(dx) + Math.abs(dy) > 3) this.pointerMoved = true;
                 this.panX = this.pointerStart.panX + dx;
                 this.panY = this.pointerStart.panY + dy;
-                this.scheduleDraw();
+                this.invalidateBase();
                 return;
             }
 
             const rect = canvas.getBoundingClientRect();
-            const hit = this.hitTest(event.clientX - rect.left, event.clientY - rect.top);
+            this.pointerX = event.clientX - rect.left;
+            this.pointerY = event.clientY - rect.top;
+            const hit = this.hitTest(this.pointerX, this.pointerY);
             const nextHoveredId = hit?.id ?? null;
             if (String(nextHoveredId) === String(this.hoveredLocationId)) return;
             this.hoveredLocationId = nextHoveredId;
@@ -388,16 +926,43 @@ export default function npcLocationMap(config = {}) {
             this.scheduleDraw();
         },
 
+        clearHover() {
+            this.hoveredLocationId = null;
+            const canvas = this.$refs.canvas;
+            if (canvas) canvas.style.cursor = this.mapData ? 'grab' : 'default';
+            this.scheduleDraw();
+        },
+
         onPointerUp(event) {
             if (!this.dragging) return;
-            event.currentTarget.releasePointerCapture?.(event.pointerId);
-            this.dragging = false;
-            if (!this.pointerMoved) {
+            const selectOnRelease = event.type !== 'pointercancel' && !this.pointerMoved;
+            try {
+                const target = event.currentTarget;
+                const canRelease = typeof target?.releasePointerCapture === 'function';
+                const ownsCapture = typeof target?.hasPointerCapture !== 'function'
+                    || target.hasPointerCapture(event.pointerId);
+                if (canRelease && ownsCapture) {
+                    target.releasePointerCapture(event.pointerId);
+                }
+            } catch {
+                // Pointer capture can be lost implicitly before pointercancel arrives.
+            } finally {
+                this.dragging = false;
+                this.pointerStart = null;
+            }
+            if (selectOnRelease) {
                 const rect = this.$refs.canvas.getBoundingClientRect();
                 const hit = this.hitTest(event.clientX - rect.left, event.clientY - rect.top);
                 if (hit) this.selectLocation(hit.id, false);
             }
+        },
+
+        onLostPointerCapture() {
+            if (!this.dragging && this.pointerStart === null) return;
+            this.dragging = false;
+            this.pointerMoved = false;
             this.pointerStart = null;
+            this.scheduleDraw();
         },
 
         onKeydown(event) {
@@ -415,7 +980,8 @@ export default function npcLocationMap(config = {}) {
             if (event.key === '+' || event.key === '=') this.zoomBy(1.25);
             if (event.key === '-') this.zoomBy(0.8);
             if (event.key === '0') this.resetView();
-            this.scheduleDraw();
+            this.invalidateBase();
+            this.queueUrlSync();
         },
 
         selectLocation(id, center = true) {
@@ -424,15 +990,51 @@ export default function npcLocationMap(config = {}) {
             this.selectedLocationId = location.id;
             this.statusMessage = `Selected ${this.coordinateLabel(location)} in ${this.zoneLabel}.`;
 
-            const point = locationMapPoint(location);
-            if (center && this.mapData && point) {
-                this.zoom = Math.max(this.zoom, 2.25);
-                const screen = this.toScreen(point.x, point.y);
-                this.panX += this.canvasWidth / 2 - screen.x;
-                this.panY += this.canvasHeight / 2 - screen.y;
+            if (center && this.mapData) this.focusLocation(location);
+            else if (this.elevationFocus) this.invalidateBase();
+            else this.scheduleDraw();
+            this.queueUrlSync();
+        },
+
+        focusPendingLocation() {
+            if (this.pendingFocusId === null || !this.mapData
+                || this.canvasWidth < 2 || this.canvasHeight < 2) return false;
+            const location = this.currentLocations.find(
+                (item) => String(item.id) === String(this.pendingFocusId),
+            );
+            if (!location || !hasFinitePosition(location)) {
+                this.pendingFocusId = null;
+                return false;
             }
 
-            this.scheduleDraw();
+            this.pendingFocusId = null;
+            this.focusLocation(location, false);
+            return true;
+        },
+
+        focusLocation(location, announce = false) {
+            const point = locationMapPoint(location);
+            if (!this.mapData || !point || this.canvasWidth < 2 || this.canvasHeight < 2) return false;
+            const area = locationMapArea(location);
+            const areaHasExtent = area && (area.maxX > area.minX || area.maxY > area.minY);
+            let focusPoint = point;
+            if (areaHasExtent) {
+                const maximumSafePadding = Math.max(0, (Math.min(this.canvasWidth, this.canvasHeight) - 1) / 2);
+                const padding = Math.min(FEATURE_FOCUS_PADDING, maximumSafePadding);
+                const areaFit = fitBounds(area, this.canvasWidth, this.canvasHeight, padding);
+                this.zoom = clampZoom(areaFit.scale / this.fit.scale, MIN_ZOOM, MAX_ZOOM);
+                focusPoint = { x: areaFit.centerX, y: areaFit.centerY };
+            } else {
+                this.zoom = Math.max(this.zoom, 2.25);
+            }
+            this.panX = 0;
+            this.panY = 0;
+            const screen = this.toScreen(focusPoint.x, focusPoint.y);
+            this.panX = this.canvasWidth / 2 - screen.x;
+            this.panY = this.canvasHeight / 2 - screen.y;
+            if (announce) this.statusMessage = `Focused ${this.coordinateLabel(location)} in ${this.zoneLabel}.`;
+            this.invalidateBase();
+            return true;
         },
 
         hasUsablePosition(location) {
@@ -446,13 +1048,14 @@ export default function npcLocationMap(config = {}) {
 
         coordinateLabel(location) {
             if (!hasFinitePosition(location)) return 'coordinates unavailable';
-            return formatCoordinates(location.position, this.coordinateOrder, 2);
+            return formatLocationCoordinates(location, this.coordinateOrder, 2);
         },
 
         async copyCoordinates(location = this.selectedLocation) {
             if (!location) return;
             if (!hasFinitePosition(location)) {
                 this.copyMessage = 'Coordinates are unavailable for this spawn.';
+                this.statusMessage = this.copyMessage;
                 window.setTimeout(() => { this.copyMessage = ''; }, 2200);
                 return;
             }
@@ -464,6 +1067,7 @@ export default function npcLocationMap(config = {}) {
             } catch (error) {
                 this.copyMessage = 'Copy was blocked by the browser.';
             }
+            this.statusMessage = this.copyMessage;
             window.setTimeout(() => { this.copyMessage = ''; }, 2200);
         },
 
@@ -495,18 +1099,44 @@ export default function npcLocationMap(config = {}) {
             const radius = 13;
             let closest = null;
             let closestDistance = radius * radius;
+            const entries = this.mappableEntries;
 
-            for (const location of this.mappableLocations) {
-                const point = locationMapPoint(location);
-                const screen = this.toScreen(point.x, point.y);
+            // Point markers are painted above area fills, so they must win the
+            // same overlap in hit testing.
+            for (const entry of entries) {
+                const screen = this.toScreen(entry.point.x, entry.point.y);
                 const distance = ((screen.x - x) ** 2) + ((screen.y - y) ** 2);
                 if (distance <= closestDistance) {
-                    closest = location;
+                    closest = entry.location;
                     closestDistance = distance;
                 }
             }
+            if (closest) return closest;
 
-            return closest;
+            const containingAreas = [];
+            for (const entry of entries) {
+                const { area, location } = entry;
+                if (!area) continue;
+                const first = this.toScreen(area.minX, area.minY);
+                const second = this.toScreen(area.maxX, area.maxY);
+                const minX = Math.min(first.x, second.x) - 4;
+                const maxX = Math.max(first.x, second.x) + 4;
+                const minY = Math.min(first.y, second.y) - 4;
+                const maxY = Math.max(first.y, second.y) + 4;
+                if (x >= minX && x <= maxX && y >= minY && y <= maxY) {
+                    containingAreas.push({ location, size: Math.max(1, (maxX - minX) * (maxY - minY)) });
+                }
+            }
+            if (containingAreas.length > 0) {
+                containingAreas.sort((left, right) => left.size - right.size);
+                return containingAreas[0].location;
+            }
+            return null;
+        },
+
+        invalidateBase() {
+            baseDirty = true;
+            this.scheduleDraw();
         },
 
         scheduleDraw() {
@@ -530,10 +1160,42 @@ export default function npcLocationMap(config = {}) {
 
             if (!this.mapData) return;
 
+            if (!this.drawCachedBase(context, canvas)) this.drawBaseLayers(context);
+            this.drawAreas(context);
+            this.drawLocations(context);
+            this.drawLocationLabels(context);
+        },
+
+        drawBaseLayers(context) {
             this.drawGeometry(context);
             if (this.showMapPoints) this.drawMapPoints(context);
             if (this.showPaths) this.drawMovement(context);
-            this.drawLocations(context);
+        },
+
+        drawCachedBase(context, canvas) {
+            if (typeof document === 'undefined' || typeof context.drawImage !== 'function') return false;
+            if (!cachedBaseCanvas) cachedBaseCanvas = document.createElement('canvas');
+            if (cachedBaseCanvas.width !== canvas.width || cachedBaseCanvas.height !== canvas.height) {
+                cachedBaseCanvas.width = canvas.width;
+                cachedBaseCanvas.height = canvas.height;
+                baseDirty = true;
+            }
+            if (baseDirty) {
+                const baseContext = cachedBaseCanvas.getContext('2d');
+                if (!baseContext) return false;
+                baseContext.setTransform(1, 0, 0, 1, 0, 0);
+                baseContext.clearRect(0, 0, cachedBaseCanvas.width, cachedBaseCanvas.height);
+                const ratio = this.canvasWidth > 0 ? cachedBaseCanvas.width / this.canvasWidth : 1;
+                baseContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+                this.drawBaseLayers(baseContext);
+                baseDirty = false;
+            }
+
+            context.save();
+            context.setTransform(1, 0, 0, 1, 0, 0);
+            context.drawImage(cachedBaseCanvas, 0, 0);
+            context.restore();
+            return true;
         },
 
         drawGeometry(context) {
@@ -653,21 +1315,21 @@ export default function npcLocationMap(config = {}) {
         },
 
         drawLocations(context) {
-            for (const location of this.mappableLocations) {
-                const point = locationMapPoint(location);
+            for (const { location, point } of this.mappableEntries) {
                 const screen = this.toScreen(point.x, point.y);
+                if (screen.x < -24 || screen.y < -24 || screen.x > this.canvasWidth + 24 || screen.y > this.canvasHeight + 24) continue;
                 const selected = String(location.id) === String(this.selectedLocationId);
                 const hovered = String(location.id) === String(this.hoveredLocationId);
                 const radius = selected ? 9 : hovered ? 8 : 6.5;
+                const color = this.locationColor(location);
 
                 context.beginPath();
                 context.arc(screen.x, screen.y, radius + 4, 0, Math.PI * 2);
-                context.fillStyle = selected ? 'rgba(251, 191, 36, .22)' : 'rgba(244, 63, 94, .18)';
+                context.fillStyle = selected ? 'rgba(251, 191, 36, .28)' : hexToRgba(color, hovered ? 0.28 : 0.18);
                 context.fill();
 
-                context.beginPath();
-                context.arc(screen.x, screen.y, radius, 0, Math.PI * 2);
-                context.fillStyle = selected ? '#fbbf24' : '#fb7185';
+                this.markerPath(context, this.locationVisualKind(location), screen.x, screen.y, radius);
+                context.fillStyle = selected ? '#fbbf24' : color;
                 context.fill();
                 context.lineWidth = 2;
                 context.strokeStyle = '#fff7ed';
@@ -678,6 +1340,94 @@ export default function npcLocationMap(config = {}) {
                 context.fillStyle = '#172033';
                 context.fill();
             }
+        },
+
+        drawAreas(context) {
+            context.save();
+            for (const { location, area } of this.mappableEntries) {
+                if (!area) continue;
+                const first = this.toScreen(area.minX, area.minY);
+                const second = this.toScreen(area.maxX, area.maxY);
+                const x = Math.min(first.x, second.x);
+                const y = Math.min(first.y, second.y);
+                const width = Math.max(2, Math.abs(second.x - first.x));
+                const height = Math.max(2, Math.abs(second.y - first.y));
+                if (x > this.canvasWidth || y > this.canvasHeight || x + width < 0 || y + height < 0) continue;
+                const selected = String(location.id) === String(this.selectedLocationId);
+                const hovered = String(location.id) === String(this.hoveredLocationId);
+                const color = this.locationColor(location);
+                context.beginPath();
+                context.rect(x, y, width, height);
+                context.fillStyle = hexToRgba(color, selected ? 0.24 : hovered ? 0.18 : 0.09);
+                context.strokeStyle = selected ? '#fbbf24' : hexToRgba(color, hovered ? 0.95 : 0.68);
+                context.lineWidth = selected || hovered ? 2.5 : 1.5;
+                context.fill();
+                context.stroke();
+            }
+            context.restore();
+        },
+
+        drawLocationLabels(context) {
+            const occupied = new Set();
+            context.save();
+            context.font = '600 11px Instrument Sans, ui-sans-serif, system-ui, sans-serif';
+            context.textBaseline = 'middle';
+            context.lineWidth = 3.5;
+            for (const { location, point } of this.mappableEntries) {
+                const hovered = String(location.id) === String(this.hoveredLocationId);
+                const selected = String(location.id) === String(this.selectedLocationId);
+                if (!hovered && !selected && !location.show_label) continue;
+                const screen = this.toScreen(point.x, point.y);
+                if (screen.x < -200 || screen.y < -30 || screen.x > this.canvasWidth + 20 || screen.y > this.canvasHeight + 30) continue;
+                const label = safeText(location.label, 90);
+                if (!label) continue;
+                const cell = `${Math.round(screen.x / 90)}:${Math.round(screen.y / 22)}`;
+                if (!hovered && !selected && occupied.has(cell)) continue;
+                occupied.add(cell);
+                context.strokeStyle = 'rgba(7, 12, 24, .96)';
+                context.fillStyle = selected ? '#fbbf24' : this.locationColor(location);
+                context.strokeText(label, screen.x + 10, screen.y - 1);
+                context.fillText(label, screen.x + 10, screen.y - 1);
+            }
+            context.restore();
+        },
+
+        locationColor(location) {
+            const visualKind = this.locationVisualKind(location);
+            return this.layers.find((layer) => layer.id === visualKind)?.color ?? '#fb7185';
+        },
+
+        locationVisualKind(location) {
+            if (location?.kind && this.activeLayers[location.kind]) return location.kind;
+            const visibleTrait = Array.isArray(location?.layers)
+                ? location.layers.find((layer) => this.activeLayers[layer])
+                : null;
+
+            return visibleTrait ?? location?.kind ?? 'npcs';
+        },
+
+        markerPath(context, kind, x, y, radius) {
+            context.beginPath();
+            if (kind === 'ground-spawns' || kind === 'named') {
+                context.moveTo(x, y - radius);
+                context.lineTo(x + radius, y);
+                context.lineTo(x, y + radius);
+                context.lineTo(x - radius, y);
+                context.closePath();
+                return;
+            }
+            if (kind === 'merchants' || kind === 'doors' || kind === 'objects') {
+                context.rect(x - radius * 0.78, y - radius * 0.78, radius * 1.56, radius * 1.56);
+                return;
+            }
+            if (kind === 'zone-points' || kind === 'quest') {
+                context.moveTo(x, y - radius);
+                context.lineTo(x + radius * 0.9, y + radius * 0.75);
+                context.lineTo(x - radius * 0.9, y + radius * 0.75);
+                context.closePath();
+                return;
+            }
+            context.arc(x, y, radius, 0, Math.PI * 2);
         },
     };
 }

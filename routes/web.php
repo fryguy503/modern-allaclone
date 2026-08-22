@@ -36,6 +36,9 @@ Route::get('/discovery/leaderboard', [DiscoveredItemController::class, 'leaderbo
 
 // zones
 Route::get('/zones', [ZoneController::class, 'index'])->name('zones.index');
+Route::get('/zones/{zone}/atlas', [ZoneController::class, 'atlas'])
+    ->name('zones.atlas')
+    ->whereNumber('zone');
 Route::get('/zones/{zone}', [ZoneController::class, 'show'])->name('zones.show');
 
 // spells
