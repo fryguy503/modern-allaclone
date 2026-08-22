@@ -1,4 +1,4 @@
-<input type="radio" name="zone_details" class="tab" aria-label="NPCs ({{ count($npcs) ?? 0 }})" checked="checked" />
+<input type="radio" name="zone_details" class="tab" aria-label="NPCs ({{ count($npcs) ?? 0 }})" />
 <div class="tab-content bg-base-100 border-base-300">
     <div class="border border-base-content/5 overflow-x-auto">
         <table class="table table-auto md:table-fixed w-full table-zebra" id="zone-npcs-table">
