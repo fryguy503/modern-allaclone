@@ -6,6 +6,8 @@ use App\Http\Controllers\FactionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\NpcController;
+use App\Http\Controllers\PatchController;
+use App\Http\Controllers\PatchExportController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SearchController;
@@ -17,8 +19,41 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// searchable historical EverQuest patch archive
+Route::prefix('patches')->name('patches.')->group(function () {
+    Route::get('/', [PatchController::class, 'index'])->name('index');
+    Route::get('/sources', [PatchController::class, 'sources'])->name('sources');
+    Route::get('/export/json', [PatchExportController::class, 'json'])
+        ->name('export.json')->middleware('throttle:60,1');
+    Route::get('/export/csv', [PatchExportController::class, 'csv'])
+        ->name('export.csv')->middleware('throttle:60,1');
+    Route::get('/feed.xml', [PatchExportController::class, 'feed'])
+        ->name('feed')->middleware('throttle:60,1');
+    Route::get('/{slug}/raw.txt', [PatchExportController::class, 'raw'])
+        ->name('raw')->where('slug', '\\d{4}-\\d{2}-\\d{2}-\\d+');
+    Route::get('/{slug}.json', [PatchExportController::class, 'singleJson'])
+        ->name('single.json')->where('slug', '\\d{4}-\\d{2}-\\d{2}-\\d+');
+    Route::get('/{slug}.csv', [PatchExportController::class, 'singleCsv'])
+        ->name('single.csv')->where('slug', '\\d{4}-\\d{2}-\\d{2}-\\d+');
+    Route::get('/{slug}', [PatchController::class, 'show'])
+        ->name('show')->where('slug', '\\d{4}-\\d{2}-\\d{2}-\\d+');
+});
+
+// Friendly compatibility with the reference site's path-style examples.
+Route::get('/patch', [PatchController::class, 'legacyIndex']);
+Route::get('/patch/view/{slug}/raw', [PatchController::class, 'legacyRaw'])
+    ->where('slug', '\\d{4}-\\d{2}-\\d{2}-\\d+');
+Route::get('/patch/view/{slug}', [PatchController::class, 'legacyView'])
+    ->where('slug', '\\d{4}-\\d{2}-\\d{2}-\\d+');
+Route::get('/patch/export/json/{query?}', [PatchExportController::class, 'legacyJson'])
+    ->where('query', '[^/]+')->middleware('throttle:60,1');
+Route::get('/patch/export/csv/{query?}', [PatchExportController::class, 'legacyCsv'])
+    ->where('query', '[^/]+')->middleware('throttle:60,1');
+Route::get('/patch/feed', fn () => redirect()->route('patches.feed', status: 301));
+Route::get('/patch/{query}', [PatchController::class, 'legacySearch'])->where('query', '[^/]+');
+
 // global search
-Route::get('/search/suggest', [SearchController::class, 'suggest']);
+Route::get('/search/suggest', [SearchController::class, 'suggest'])->middleware('throttle:120,1');
 
 // aa abilitys
 Route::get('/aa', [AaAbilityController::class, 'index'])->name('aa.index');

@@ -1,5 +1,5 @@
 @php
-    $ddActive = Route::is('recipes.*', 'tasks.*', 'factions.*', 'pets.*');
+    $ddActive = Route::is('recipes.*', 'tasks.*', 'factions.*', 'pets.*', 'patches.*');
 @endphp
 <div id="navbar-trigger" class="h-0"></div>
 <nav class="navbar bg-neutral mb-3 sticky top-0 z-50">
@@ -56,6 +56,9 @@
                                 <li><a href="{{ route('pets.index') }}"
                                         class="{{ Route::is('pets.*') ? 'bg-base-300' : '' }}" title="Pets">Pets</a>
                                 </li>
+                                <li><a href="{{ route('patches.index') }}"
+                                        class="{{ Route::is('patches.*') ? 'bg-base-300' : '' }}"
+                                        title="EverQuest Patch History">Patch History</a></li>
                                 @if (config('everquest.discovered_items.enable'))
                                     <li><a href="{{ route('discovery.index') }}"
                                             class="{{ Route::is('discovery.index') ? 'bg-base-300' : '' }}"
@@ -131,6 +134,9 @@
                     <li><a href="{{ route('pets.index') }}"
                             class="{{ Route::is('pets.*') ? 'active bg-base-200' : '' }}" title="Pets">Pets</a>
                     </li>
+                    <li><a href="{{ route('patches.index') }}"
+                            class="{{ Route::is('patches.*') ? 'active bg-base-200' : '' }}"
+                            title="EverQuest Patch History">Patch History</a></li>
                     @if (config('everquest.discovered_items.enable'))
                         <li><a href="{{ route('discovery.index') }}"
                                 class="{{ Route::is('discovery.index') ? 'bg-base-200' : '' }}"

@@ -7,6 +7,23 @@ You can see this in use on [Project Lazarus](https://www.lazaruseq.com/alla/)
 ## Requirements
 
 - PHP >= 8.2, Composer, Mysql/MariaDB, and an EQemu DB.
+- Rebuilding the historical corpus also requires Node.js and Python 3 with `pdfplumber`.
+
+## Historical patch archive
+
+The read-only archive at `/patches` contains 674 distinct EverQuest beta, Live, hotfix, and news records spanning July 1998 through February 2022. It supports phrase search, composable date/topic/type/expansion/source filters, cards/compact/expansion/timeline layouts, formatted and plain-text detail views, provenance, adjacent/related history, RSS, and full or filtered JSON/CSV exports.
+
+The generated artifacts live in `database/data`, so serving the archive never reads the external source directory or writes to either the application or EQEmu database. Imported text is treated as untrusted and escaped before structural formatting. CSV exports are UTF-8, RFC 4180-compatible, and neutralize spreadsheet formulas.
+
+To rebuild from a supplied `patcheq` corpus:
+
+```sh
+python scripts/extract-patch-summary.py /path/to/patcheq/Patch_Summaries.pdf database/data/patch-summary-highlights.json
+node scripts/build-patch-history.mjs /path/to/patcheq database/data
+python scripts/validate-patch-history.py /path/to/patcheq database/data
+```
+
+The first command preserves the PDF's curated highlights as supplemental context. The second inventories all supplied artifacts by hash, recovers mixed historical encodings, deduplicates public records while retaining every source occurrence, and regenerates the complete JSON and CSV files. The final command verifies record counts, source hashes, occurrence provenance, encoding safety, CSV parity, PDF extraction, and the compact suggestion index.
 
 ## Installation
 

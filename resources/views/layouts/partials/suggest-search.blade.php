@@ -1,6 +1,7 @@
 <form @submit.prevent class="flex items-center space-x-2 w-full justify-end">
     <div x-data="eqsearch()" @click.away="results = []" class="relative w-full max-w-xs">
-        <input type="text" placeholder="Search NPCs, Items, Recipes..."
+        <input type="text" placeholder="Search NPCs, items, patches..."
+            aria-label="Search NPCs, items, recipes, zones, spells, factions, and patch history"
             pattern="[A-Za-z0-9 -_.'`]*"
             x-model="query"
             @input.debounce.600ms="load"
@@ -45,6 +46,7 @@
                                         'text-warning': result.type === 'spell',
                                         'text-success': result.type === 'recipe',
                                         'text-secondary': result.type === 'faction',
+                                        'text-sky-400': result.type === 'patch',
                                     }"
                                     x-text="result.type"></span>
                             </a>
