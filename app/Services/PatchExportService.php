@@ -105,17 +105,18 @@ class PatchExportService
 
     public function raw(Request $request, array $patch): StreamedResponse
     {
-        $response = response()->streamDownload(function () use ($patch): void {
-            echo $patch['display_date']."\r\n";
-            echo str_repeat('-', max(30, mb_strlen($patch['display_date'])))."\r\n\r\n";
-            echo str_replace("\n", "\r\n", $patch['content'])."\r\n";
+        $payload = $patch['display_date']."\r\n"
+            .str_repeat('-', max(30, mb_strlen($patch['display_date'])))."\r\n\r\n"
+            .str_replace("\n", "\r\n", $patch['content'])."\r\n";
+        $response = response()->streamDownload(function () use ($payload): void {
+            echo $payload;
         }, $patch['slug'].'.txt', [
             'Content-Type' => 'text/plain; charset=UTF-8',
             'X-Content-Type-Options' => 'nosniff',
             'Cache-Control' => 'public, max-age=3600, must-revalidate',
         ]);
 
-        return $this->conditional($request, $response, $patch['content_hash']);
+        return $this->conditional($request, $response, hash('sha256', $payload));
     }
 
     private function cleanPatch(array $patch): array

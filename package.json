@@ -3,7 +3,13 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "patches:import": "node scripts/build-patch-history.mjs --strict",
+        "patches:import:check": "node scripts/build-patch-history.mjs --strict --dry-run",
+        "patches:sync-feed": "python scripts/sync-patch-feed.py",
+        "patches:validate": "python scripts/validate-patch-history.py",
+        "test:patch-importer": "node --test tests/patch-importer.test.mjs",
+        "test:patch-tools": "python -m unittest discover -s tests -p test_*.py"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",

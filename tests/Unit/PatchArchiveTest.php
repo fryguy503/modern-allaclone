@@ -21,14 +21,14 @@ class PatchArchiveTest extends TestCase
         $coverage = $this->archive->coverage();
         $metadata = $this->archive->metadata();
 
-        $this->assertCount(674, $patches);
-        $this->assertSame(674, $coverage['patch_count']);
+        $this->assertCount(682, $patches);
+        $this->assertSame(682, $coverage['patch_count']);
         $this->assertSame('1998-07-07', $coverage['first_patch']);
-        $this->assertSame('2022-02-15', $coverage['last_patch']);
-        $this->assertSame(55, $coverage['source_file_count']);
-        $this->assertCount(55, $metadata['provenance']['files']);
-        $this->assertSame(1016, array_sum(array_column($patches, 'occurrence_count')));
-        $this->assertCount(674, array_unique(array_column($patches, 'slug')));
+        $this->assertSame('2026-06-24', $coverage['last_patch']);
+        $this->assertSame(56, $coverage['source_file_count']);
+        $this->assertCount(56, $metadata['provenance']['files']);
+        $this->assertSame(1287, array_sum(array_column($patches, 'occurrence_count')));
+        $this->assertCount(682, array_unique(array_column($patches, 'slug')));
     }
 
     public function test_malformed_and_duplicate_source_entries_remain_lossless(): void
@@ -125,5 +125,18 @@ class PatchArchiveTest extends TestCase
         $this->assertTrue($files->has('patches_1999-2008_combined.md'));
         $this->assertTrue($files->has('patch.txt'));
         $this->assertNotEmpty($files['patch.txt']['sha256']);
+        $this->assertTrue($files->has('official-game-update-notes-live.rss'));
+        $this->assertSame(20, $files['official-game-update-notes-live.rss']['adapter_metadata']['raw_item_count']);
+        $this->assertSame(12, $files['official-game-update-notes-live.rss']['adapter_metadata']['feed_excerpt_count']);
+    }
+
+    public function test_only_complete_official_feed_items_are_published(): void
+    {
+        $complete = $this->archive->find('2026-06-24-1');
+
+        $this->assertNotNull($complete);
+        $this->assertSame('hotfix', $complete['kind']);
+        $this->assertSame('Shattering of Ro', $complete['expansion']);
+        $this->assertNull($this->archive->find('2026-08-19-1'));
     }
 }

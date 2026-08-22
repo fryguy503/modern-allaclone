@@ -15,7 +15,9 @@
     <meta name="twitter:title" content="{{ $metaTitle ?? config('app.name') }}">
     <meta name="twitter:description" content="{{ $metaDescription ?? 'A modern EverQuest database and historical reference.' }}">
     <link rel="canonical" href="{{ request()->url() }}">
-    <link rel="alternate" type="application/rss+xml" title="EverQuest Patch History" href="{{ route('patches.feed') }}">
+    @if (config('everquest.patch_history.enable', true))
+        <link rel="alternate" type="application/rss+xml" title="EverQuest Patch History" href="{{ route('patches.feed') }}">
+    @endif
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     <base href="{{ url('/') }}/">

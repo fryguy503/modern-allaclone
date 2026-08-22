@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(PatchArchive::class);
+        if (config('everquest.patch_history.enable', true)) {
+            $this->app->singleton(PatchArchive::class);
+        }
     }
 
     /**

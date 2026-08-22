@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function suggest(Request $request, PatchArchive $patchArchive)
+    public function suggest(Request $request)
     {
         $discoveryEnabled = config('everquest.discovered_items.enable');
         $q = $request->query('q', '');
@@ -32,14 +32,17 @@ class SearchController extends Controller
         $qNpcsLike = addcslashes($qNpcs, '\\%_');
         $qIdLike = addcslashes($qId, '\\%_');
 
-        $patches = collect($patchArchive->suggest($q, 5))->map(function (array $patch) {
-            return [
-                'type' => 'patch',
-                'name' => $patch['title'].' · '.$patch['patch_date'],
-                'url' => route('patches.show', $patch['slug']),
-                'id' => 'patch-'.$patch['slug'],
-            ];
-        });
+        $patches = collect();
+        if (config('everquest.patch_history.enable', true)) {
+            $patches = collect(app(PatchArchive::class)->suggest($q, 5))->map(function (array $patch) {
+                return [
+                    'type' => 'patch',
+                    'name' => $patch['title'].' · '.$patch['patch_date'],
+                    'url' => route('patches.show', $patch['slug']),
+                    'id' => 'patch-'.$patch['slug'],
+                ];
+            });
+        }
 
         $results = collect($patches);
 

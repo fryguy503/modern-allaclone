@@ -28,6 +28,13 @@ return [
     ],
 
     /**
+     * Patch history
+     */
+    'patch_history' => [
+        'enable'          => (bool) env('PATCH_HISTORY_ENABLED', true),
+    ],
+
+    /**
      * Tasks
      */
     'tasks' => [
