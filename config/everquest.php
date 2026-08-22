@@ -22,7 +22,7 @@ return [
             'abilities'   => true,      // show npc abilities (summon, enrage, etc)
             'spells'      => true,      // show npc spells
             'loot_chance' => true,      // show the drop chance % for each item
-            'spawn_locs'  => true,      // show exact x,y,z
+            'spawn_locs'  => true,      // enable the NPC Locations tab, atlas, and exact coordinates
             'respawn'     => true,      // hide respawn time + variance
         ],
     ],

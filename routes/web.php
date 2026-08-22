@@ -50,7 +50,9 @@ Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipe
 
 // npcs
 Route::get('/npcs', [NpcController::class, 'index'])->name('npcs.index');
-Route::get('/npcs/{npc}', [NpcController::class, 'show'])->name('npcs.show');
+Route::get('/npcs/{npc}', [NpcController::class, 'show'])
+    ->name('npcs.show')
+    ->whereNumber('npc');
 
 // factions
 Route::get('/factions', [FactionController::class, 'index'])->name('factions.index');

@@ -8,6 +8,7 @@ use App\Models\DiscoveredItem;
 use App\Models\NpcSpell;
 use App\Models\NpcType;
 use App\Models\Zone;
+use App\Services\NpcLocationService;
 use Illuminate\Http\Request;
 
 class NpcController extends Controller
@@ -68,29 +69,34 @@ class NpcController extends Controller
         ]);
     }
 
-    public function show(NpcType $npc)
+    public function show(NpcType $npc, NpcLocationService $locationService)
     {
         $discoveryEnabled = config('everquest.discovered_items.enable');
-        $ignoreZones = config('everquest.ignore_zones') ?? [];
 
         $npc = NpcType::with('npcSpellset.attackProcSpell')
             ->with([
-                'spawnEntries.spawn2' => function ($q) use ($ignoreZones) {
-                    if (!empty($ignoreZones)) {
-                        $q->whereNotIn('zone', $ignoreZones);
-                    }
-
-                    $q->with(['npcs' => function ($npcs) {
-                        $npcs->select('id', 'name', 'level', 'race', 'class');
-                    }]);
-                },
-                'firstSpawnEntries.spawn2.zoneData',
                 'npcFaction.primaryFaction',
                 'npcFactionEntries.factionList',
                 'lootTable.loottableEntries.lootdropEntries.item',
                 'merchantlist.items',
             ])
             ->findOrFail($npc->id);
+
+        $locationGroups = $locationService->forNpc((int) $npc->id);
+        $hasSpawnLocations = collect($locationGroups)
+            ->contains(fn ($group) => ! empty($group['locations']));
+        $primaryGroup = $locationGroups[0] ?? null;
+        $primaryLocationZone = $primaryGroup ? [
+            'id' => $primaryGroup['zone_row_id'],
+            'zone_id' => $primaryGroup['zone_id'],
+            'short_name' => $primaryGroup['short_name'],
+            'long_name' => $primaryGroup['long_name'],
+            'version' => $primaryGroup['version'],
+        ] : null;
+
+        // Prevent the legacy Blade spawn graph from silently lazy-loading.
+        $npc->setRelation('spawnEntries', collect());
+        $npc->setRelation('firstSpawnEntries', null);
 
         if ($npc->npcSpellset) {
             $npc->attackProcSpell = $npc->npcSpellset->attackProcSpell;
@@ -167,7 +173,7 @@ class NpcController extends Controller
             $defaultTab = 'drops';
         } elseif ($npc->merchantlist->isNotEmpty()) {
             $defaultTab = 'merchant';
-        } elseif ($npc->spawnEntries->isNotEmpty()) {
+        } elseif ($hasSpawnLocations) {
             $defaultTab = 'spawns';
         } elseif ($npc->npcFactionEntries->isNotEmpty()) {
             $defaultTab = 'faction';
@@ -180,6 +186,9 @@ class NpcController extends Controller
         return view('npcs.show', [
             'npc' => $npc,
             'defaultTab' => $defaultTab,
+            'locationGroups' => $locationGroups,
+            'hasSpawnLocations' => $hasSpawnLocations,
+            'primaryLocationZone' => $primaryLocationZone,
             'raisesFaction' => $raisesFaction,
             'lowersFaction' => $lowersFaction,
             'altCurrency' => $altCurrency,

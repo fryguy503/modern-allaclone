@@ -1,7 +1,10 @@
 import './bootstrap';
 import Alpine from 'alpinejs'
+import npcLocationMap from './components/npc-location-map';
 
 const baseUrl = document.querySelector('base')?.getAttribute('href') || '/';
+
+Alpine.data('npcLocationMap', npcLocationMap);
 
 Alpine.data('eqsearch', (initialQuery = '') => ({
     query: initialQuery,
