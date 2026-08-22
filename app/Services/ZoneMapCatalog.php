@@ -39,15 +39,28 @@ class ZoneMapCatalog
             return null;
         }
 
-        $entry = $this->entries()[$shortName] ?? null;
-        if (! is_array($entry)) {
+        $defaultEntry = $this->entries()[$shortName] ?? null;
+        if (! is_array($defaultEntry)) {
             return null;
         }
 
+        if ($this->prefersLegacy($shortName) && is_array($defaultEntry['legacy'] ?? null)) {
+            $legacy = $this->normalizeEntry($shortName, $defaultEntry['legacy'], 'legacy');
+            if ($legacy !== null) {
+                return $legacy;
+            }
+        }
+
+        return $this->normalizeEntry($shortName, $defaultEntry, 'default');
+    }
+
+    private function normalizeEntry(string $shortName, array $entry, string $variant): ?array
+    {
         $relativePath = $this->relativeAssetPath(
             $shortName,
             $entry['path'] ?? null,
             $entry['sha256'] ?? null,
+            $variant,
         );
         if ($relativePath === null || ! $this->assetIsInsidePublicRoot($relativePath)) {
             return null;
@@ -68,11 +81,19 @@ class ZoneMapCatalog
 
         return [
             'available' => true,
+            'variant' => $variant,
             'url' => $this->url->asset($relativePath),
             'segments' => $segments,
             'points' => $points,
             'bounds' => $bounds,
         ];
+    }
+
+    private function prefersLegacy(string $shortName): bool
+    {
+        $legacyZones = config('everquest.maps.legacy_zones', []);
+
+        return is_array($legacyZones) && in_array($shortName, $legacyZones, true);
     }
 
     private function entries(): array
@@ -121,14 +142,15 @@ class ZoneMapCatalog
         return $this->zones;
     }
 
-    private function relativeAssetPath(string $shortName, mixed $path, mixed $sha256): ?string
+    private function relativeAssetPath(string $shortName, mixed $path, mixed $sha256, string $variant): ?string
     {
         if (! is_string($path)
             || ! is_string($sha256)
             || ! preg_match('/^[a-f0-9]{64}$/', $sha256)
-            || ! preg_match('/^maps\/zones\/([a-z0-9]+)\.([a-f0-9]{12})\.eqmap$/', $path, $matches)
+            || ! preg_match('/^maps\/zones\/([a-z0-9]+)(\.legacy)?\.([a-f0-9]{12})\.eqmap$/', $path, $matches)
             || $matches[1] !== $shortName
-            || $matches[2] !== substr($sha256, 0, 12)) {
+            || (($matches[2] ?? '') === '.legacy' ? 'legacy' : 'default') !== $variant
+            || $matches[3] !== substr($sha256, 0, 12)) {
             return null;
         }
 

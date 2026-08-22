@@ -6,7 +6,8 @@
         'layers' => [[
             'id' => 'ground-spawns',
             'label' => 'Ground spawn areas',
-            'color' => '#34d399',
+            'color' => '#4ade80',
+            'shape' => 'diamond',
             'default' => true,
             'count' => $groundCount,
         ]],

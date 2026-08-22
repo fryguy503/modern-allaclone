@@ -108,7 +108,8 @@
                             :class="activeLayers[layer.id] ? 'eq-atlas-filter--active' : ''">
                             <input type="checkbox" class="sr-only" x-model="activeLayers[layer.id]"
                                 @change="onFiltersChanged()" />
-                            <span class="h-2.5 w-2.5 shrink-0 rounded-full border border-white/50"
+                            <span class="eq-atlas-marker shrink-0"
+                                :class="`eq-atlas-marker--${layer.shape}`"
                                 :style="`background:${layer.color}`"></span>
                             <span x-text="layer.label"></span>
                             <span class="text-base-content/45" x-text="layerCount(layer.id)"></span>
@@ -133,41 +134,43 @@
 
             <div class="eq-location-map__grid" aria-hidden="true"></div>
 
-            <div class="eq-atlas-tooltip" x-ref="tooltip" x-show="hoveredLocation && !dragging" :style="tooltipStyle"
-                x-transition.opacity.duration.100ms x-cloak aria-hidden="true">
-                <template x-if="hoveredLocation">
-                    <div>
-                        <div class="mb-2 flex items-start gap-2">
-                            <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full"
-                                :style="`background:${locationColor(hoveredLocation)}`"></span>
-                            <div class="min-w-0">
-                                <p class="font-semibold leading-tight text-base-content" x-text="hoveredLocation.label || 'Map entry'"></p>
-                                <p class="mt-0.5 text-xs text-base-content/55" x-text="hoveredLocation.subtitle"></p>
+            <div x-show="hoveredLocation && !dragging" x-cloak aria-hidden="true">
+                <div class="eq-atlas-tooltip" x-ref="tooltip" :style="tooltipStyle">
+                    <template x-if="hoveredLocation">
+                        <div>
+                            <div class="mb-2 flex items-start gap-2">
+                                <span class="eq-atlas-marker mt-1.5 shrink-0"
+                                    :class="`eq-atlas-marker--${locationShape(hoveredLocation)}`"
+                                    :style="`background:${locationColor(hoveredLocation)}`"></span>
+                                <div class="min-w-0">
+                                    <p class="font-semibold leading-tight text-base-content" x-text="hoveredLocation.label || 'Map entry'"></p>
+                                    <p class="mt-0.5 text-xs text-base-content/55" x-text="hoveredLocation.subtitle"></p>
+                                </div>
                             </div>
-                        </div>
-                        <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-xs">
-                            <template x-for="detail in hoveredLocation.details" :key="`${detail.label}:${detail.value}`">
-                                <div class="contents">
-                                    <dt class="text-base-content/45" x-text="detail.label"></dt>
-                                    <dd class="truncate text-right text-base-content/85" x-text="detail.value"></dd>
+                            <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-xs">
+                                <template x-for="detail in hoveredLocation.details" :key="`${detail.label}:${detail.value}`">
+                                    <div class="contents">
+                                        <dt class="text-base-content/45" x-text="detail.label"></dt>
+                                        <dd class="truncate text-right text-base-content/85" x-text="detail.value"></dd>
+                                    </div>
+                                </template>
+                                <dt class="text-base-content/45" x-text="hoveredLocation.area ? 'Spawn area' : 'Coordinates'"></dt>
+                                <dd class="text-right font-mono text-base-content/85" x-text="coordinateLabel(hoveredLocation)"></dd>
+                            </dl>
+                            <template x-if="hoveredLocation.candidates?.length > 1">
+                                <div class="mt-2 border-t border-base-content/10 pt-2">
+                                    <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-wider text-base-content/40">Possible spawns</p>
+                                    <template x-for="candidate in hoveredLocation.candidates.slice(0, 4)" :key="candidate.id">
+                                        <p class="truncate text-xs">
+                                            <span x-text="candidate.name"></span>
+                                            <span class="text-base-content/45" x-text="candidate.chance === null ? '' : ` · ${candidate.chance}%`"></span>
+                                        </p>
+                                    </template>
                                 </div>
                             </template>
-                            <dt class="text-base-content/45" x-text="hoveredLocation.area ? 'Spawn area' : 'Coordinates'"></dt>
-                            <dd class="text-right font-mono text-base-content/85" x-text="coordinateLabel(hoveredLocation)"></dd>
-                        </dl>
-                        <template x-if="hoveredLocation.candidates?.length > 1">
-                            <div class="mt-2 border-t border-base-content/10 pt-2">
-                                <p class="mb-1 text-[0.65rem] font-semibold uppercase tracking-wider text-base-content/40">Possible spawns</p>
-                                <template x-for="candidate in hoveredLocation.candidates.slice(0, 4)" :key="candidate.id">
-                                    <p class="truncate text-xs">
-                                        <span x-text="candidate.name"></span>
-                                        <span class="text-base-content/45" x-text="candidate.chance === null ? '' : ` · ${candidate.chance}%`"></span>
-                                    </p>
-                                </template>
-                            </div>
-                        </template>
-                    </div>
-                </template>
+                        </div>
+                    </template>
+                </div>
             </div>
 
             <div class="absolute inset-0 z-20 flex items-center justify-center bg-base-300/80 backdrop-blur-sm"
@@ -220,21 +223,26 @@
 
             <template x-if="selectedLocation">
                 <div class="flex min-w-0 items-start justify-between gap-3 rounded-lg border border-primary/15 bg-primary/5 px-3 py-2 lg:max-w-2xl">
-                    <div class="min-w-0">
-                        <p class="truncate font-medium" x-text="selectedLocation.label || 'Selected location'"></p>
-                        <p class="truncate font-mono text-xs text-base-content/55" x-text="selectedCoordinateText"></p>
-                        <dl class="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-base-content/70">
-                            <template x-for="detail in selectedLocation.details.slice(0, 6)" :key="`${detail.label}:${detail.value}`">
-                                <div class="flex min-w-0 gap-1">
-                                    <dt class="text-base-content/45" x-text="`${detail.label}:`"></dt>
-                                    <dd class="truncate" x-text="detail.value"></dd>
-                                </div>
+                    <div class="flex min-w-0 gap-2">
+                        <span class="eq-atlas-marker mt-1 shrink-0"
+                            :class="`eq-atlas-marker--${locationShape(selectedLocation)}`"
+                            :style="`background:${locationColor(selectedLocation)}`"></span>
+                        <div class="min-w-0">
+                            <p class="truncate font-medium" x-text="selectedLocation.label || 'Selected location'"></p>
+                            <p class="truncate font-mono text-xs text-base-content/55" x-text="selectedCoordinateText"></p>
+                            <dl class="mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-base-content/70">
+                                <template x-for="detail in selectedLocation.details.slice(0, 6)" :key="`${detail.label}:${detail.value}`">
+                                    <div class="flex min-w-0 gap-1">
+                                        <dt class="text-base-content/45" x-text="`${detail.label}:`"></dt>
+                                        <dd class="truncate" x-text="detail.value"></dd>
+                                    </div>
+                                </template>
+                            </dl>
+                            <template x-if="selectedLocation.candidates?.length > 1">
+                                <p class="mt-1 truncate text-xs text-base-content/55"
+                                    x-text="`Possible: ${selectedLocation.candidates.slice(0, 4).map((candidate) => candidate.name).join(', ')}`"></p>
                             </template>
-                        </dl>
-                        <template x-if="selectedLocation.candidates?.length > 1">
-                            <p class="mt-1 truncate text-xs text-base-content/55"
-                                x-text="`Possible: ${selectedLocation.candidates.slice(0, 4).map((candidate) => candidate.name).join(', ')}`"></p>
-                        </template>
+                        </div>
                     </div>
                     <div class="flex shrink-0 items-center gap-1">
                         <a class="btn btn-xs btn-ghost" x-show="selectedLocation.url" :href="selectedLocation.url">Details</a>

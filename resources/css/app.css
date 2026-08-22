@@ -162,6 +162,49 @@
     outline-offset: 2px;
 }
 
+.eq-atlas-marker {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    filter: drop-shadow(0 0 0.5px rgb(255 255 255 / 92%));
+}
+
+.eq-atlas-marker--circle {
+    border-radius: 9999px;
+}
+
+.eq-atlas-marker--square {
+    border-radius: 1px;
+}
+
+.eq-atlas-marker--triangle {
+    clip-path: polygon(50% 0, 100% 88%, 0 88%);
+}
+
+.eq-atlas-marker--diamond {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.eq-atlas-marker--pentagon {
+    clip-path: polygon(50% 0, 98% 38%, 80% 100%, 20% 100%, 2% 38%);
+}
+
+.eq-atlas-marker--hexagon {
+    clip-path: polygon(25% 7%, 75% 7%, 100% 50%, 75% 93%, 25% 93%, 0 50%);
+}
+
+.eq-atlas-marker--star {
+    clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 94%, 50% 72%, 21% 94%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.eq-atlas-marker--cross {
+    clip-path: polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%);
+}
+
+.eq-atlas-marker--compass {
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+
 .eq-atlas-tooltip {
     position: absolute;
     z-index: 30;

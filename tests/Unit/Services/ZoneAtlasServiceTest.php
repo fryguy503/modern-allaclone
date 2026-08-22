@@ -73,6 +73,23 @@ class ZoneAtlasServiceTest extends TestCase
         $this->assertSame(2, $layers['zone-points']['count']);
     }
 
+    public function test_every_atlas_layer_has_a_unique_color_and_marker_shape(): void
+    {
+        $layers = collect($this->zoneService()->layerDefinitions());
+        $allowedShapes = [
+            'circle', 'star', 'square', 'pentagon', 'diamond',
+            'triangle', 'hexagon', 'cross', 'compass',
+        ];
+
+        $this->assertCount(9, $layers);
+        $this->assertCount($layers->count(), $layers->pluck('color')->unique());
+        $this->assertCount($layers->count(), $layers->pluck('shape')->unique());
+        $this->assertTrue($layers->every(
+            fn (array $layer): bool => preg_match('/^#[0-9a-f]{6}$/i', $layer['color']) === 1
+                && in_array($layer['shape'], $allowedShapes, true),
+        ));
+    }
+
     public function test_item_ground_spawn_service_retains_all_version_semantics_and_full_rectangle(): void
     {
         $groups = $this->groundService()->forItem(234020);

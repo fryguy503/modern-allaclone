@@ -17,7 +17,32 @@ const MIN_ZOOM = 0.5;
 const MAX_ZOOM = 24;
 const MAP_PADDING = 32;
 const FEATURE_FOCUS_PADDING = 56;
+const PAN_EDGE_ALLOWANCE = 40;
+const SELECTION_FLASH_MS = 1100;
 const LOCATION_SEARCH_CACHE = new WeakMap();
+const GROUP_FEATURE_BOUNDS_CACHE = new WeakMap();
+const MARKER_SHAPES = new Set([
+    'circle',
+    'star',
+    'square',
+    'pentagon',
+    'diamond',
+    'triangle',
+    'hexagon',
+    'cross',
+    'compass',
+]);
+const DEFAULT_MARKER_SHAPES = Object.freeze({
+    npcs: 'circle',
+    named: 'star',
+    merchants: 'square',
+    quest: 'pentagon',
+    'ground-spawns': 'diamond',
+    'zone-points': 'triangle',
+    doors: 'hexagon',
+    objects: 'cross',
+    navigation: 'compass',
+});
 
 function finiteNumber(value, fallback = 0) {
     const number = Number(value);
@@ -34,6 +59,75 @@ function safeText(value, maximum = 240) {
 
 function safeColor(value, fallback = '#fb7185') {
     return typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value) ? value : fallback;
+}
+
+function markerShape(value, fallback = 'circle') {
+    const shape = safeText(value, 24).toLowerCase();
+    return MARKER_SHAPES.has(shape) ? shape : fallback;
+}
+
+function animationNow() {
+    return typeof performance !== 'undefined' && typeof performance.now === 'function'
+        ? performance.now()
+        : Date.now();
+}
+
+function includeBoundsPoint(bounds, x, y) {
+    if (!Number.isFinite(x) || !Number.isFinite(y)) return bounds;
+    if (!bounds) return { minX: x, minY: y, maxX: x, maxY: y };
+    bounds.minX = Math.min(bounds.minX, x);
+    bounds.minY = Math.min(bounds.minY, y);
+    bounds.maxX = Math.max(bounds.maxX, x);
+    bounds.maxY = Math.max(bounds.maxY, y);
+    return bounds;
+}
+
+function includeBoundsArea(bounds, area) {
+    if (!area) return bounds;
+    bounds = includeBoundsPoint(bounds, area.minX, area.minY);
+    return includeBoundsPoint(bounds, area.maxX, area.maxY);
+}
+
+function groupFeatureBounds(group) {
+    if (group === null || typeof group !== 'object' || Array.isArray(group)) return null;
+    if (GROUP_FEATURE_BOUNDS_CACHE.has(group)) return GROUP_FEATURE_BOUNDS_CACHE.get(group);
+
+    let bounds = null;
+    const locations = Array.isArray(group.locations) ? group.locations : [];
+    for (const location of locations) {
+        const point = locationMapPoint(location);
+        if (point) bounds = includeBoundsPoint(bounds, point.x, point.y);
+        bounds = includeBoundsArea(bounds, locationMapArea(location));
+
+        const roam = location?.roam;
+        if (roam && [roam.min_x, roam.max_x, roam.min_y, roam.max_y].every(isFiniteCoordinate)) {
+            for (const [dbX, dbY] of [
+                [roam.min_x, roam.min_y],
+                [roam.max_x, roam.min_y],
+                [roam.max_x, roam.max_y],
+                [roam.min_x, roam.max_y],
+            ]) {
+                const [x, y] = dbToBrewall(dbX, dbY);
+                bounds = includeBoundsPoint(bounds, x, y);
+            }
+        }
+    }
+
+    const paths = group.paths !== null && typeof group.paths === 'object' && !Array.isArray(group.paths)
+        ? group.paths
+        : {};
+    for (const path of Object.values(paths)) {
+        if (!Array.isArray(path)) continue;
+        for (const waypoint of path) {
+            if (waypoint === null || typeof waypoint !== 'object' || Array.isArray(waypoint)
+                || !isFiniteCoordinate(waypoint.x) || !isFiniteCoordinate(waypoint.y)) continue;
+            const [x, y] = dbToBrewall(waypoint.x, waypoint.y);
+            bounds = includeBoundsPoint(bounds, x, y);
+        }
+    }
+
+    GROUP_FEATURE_BOUNDS_CACHE.set(group, bounds);
+    return bounds;
 }
 
 function hexToRgba(color, alpha = 1) {
@@ -56,6 +150,7 @@ function normalizeLayers(layers) {
             id,
             label: safeText(layer?.label || id, 80),
             color: safeColor(layer?.color),
+            shape: markerShape(layer?.shape, DEFAULT_MARKER_SHAPES[id] ?? 'circle'),
             default: layer?.default !== false,
             count: Math.max(0, Math.min(MAX_LOCATIONS, Number(layer?.count) || 0)),
             truncated: layer?.truncated === true,
@@ -267,8 +362,17 @@ export function formatLocationCoordinates(location, coordinateOrder = 'xyz', fra
 export default function npcLocationMap(config = {}) {
     let featureCache = null;
     let cachedBaseCanvas = null;
+    let cachedOverlayCanvas = null;
     let baseDirty = true;
+    let overlayDirty = true;
     let lostPointerCaptureHandler = null;
+    let reducedMotionQuery = null;
+    let reducedMotionChangeHandler = null;
+    let cachedInteractionMap = null;
+    let cachedInteractionGroup = null;
+    let cachedInteractionBounds = null;
+    let selectionFlashStartedAt = -1;
+    let selectionFlashUntil = 0;
 
     return {
         groups: Array.isArray(config.groups) ? config.groups : [],
@@ -315,8 +419,27 @@ export default function npcLocationMap(config = {}) {
         urlSyncTimer: null,
         requestedPinId: null,
         pendingFocusId: null,
+        reducedMotion: false,
+        tooltipMeasureVersion: 0,
 
         init() {
+            if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+                reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                this.reducedMotion = reducedMotionQuery.matches;
+                reducedMotionChangeHandler = (event) => {
+                    this.reducedMotion = event.matches === true;
+                    if (this.reducedMotion) {
+                        selectionFlashStartedAt = -1;
+                        selectionFlashUntil = 0;
+                    }
+                    this.scheduleDraw();
+                };
+                if (typeof reducedMotionQuery.addEventListener === 'function') {
+                    reducedMotionQuery.addEventListener('change', reducedMotionChangeHandler);
+                } else {
+                    reducedMotionQuery.addListener?.(reducedMotionChangeHandler);
+                }
+            }
             this.configureLayers(this.layers);
             this.applyUrlState();
             this.initializeGroupSelection();
@@ -356,7 +479,17 @@ export default function npcLocationMap(config = {}) {
             }
             lostPointerCaptureHandler = null;
             cachedBaseCanvas = null;
+            cachedOverlayCanvas = null;
             featureCache = null;
+            if (reducedMotionChangeHandler) {
+                if (typeof reducedMotionQuery?.removeEventListener === 'function') {
+                    reducedMotionQuery.removeEventListener('change', reducedMotionChangeHandler);
+                } else {
+                    reducedMotionQuery?.removeListener?.(reducedMotionChangeHandler);
+                }
+            }
+            reducedMotionQuery = null;
+            reducedMotionChangeHandler = null;
             if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
             if (this.urlSyncTimer) window.clearTimeout(this.urlSyncTimer);
         },
@@ -372,6 +505,7 @@ export default function npcLocationMap(config = {}) {
             const mappedGroup = this.groups.find((group) => group?.map?.available && group?.map?.url);
             this.selectedZoneKey = requestedGroup?.key ?? mappedGroup?.key ?? this.groups[0]?.key ?? null;
             featureCache = null;
+            overlayDirty = true;
             if (requested) {
                 this.enableLocationLayers(requested);
                 this.pendingFocusId = requested.id;
@@ -395,6 +529,7 @@ export default function npcLocationMap(config = {}) {
             if (changed) {
                 this.activeLayers = next;
                 featureCache = null;
+                overlayDirty = true;
             }
         },
 
@@ -408,6 +543,7 @@ export default function npcLocationMap(config = {}) {
             }
             this.activeLayers = next;
             featureCache = null;
+            overlayDirty = true;
         },
 
         get currentGroup() {
@@ -494,12 +630,24 @@ export default function npcLocationMap(config = {}) {
         },
 
         get tooltipStyle() {
+            // The version is intentionally read so Alpine recomputes after the
+            // conditional tooltip content has mounted and can be measured.
+            void this.tooltipMeasureVersion;
             const width = 290;
             const measuredHeight = Number(this.$refs?.tooltip?.offsetHeight);
             const height = Number.isFinite(measuredHeight) && measuredHeight > 0 ? measuredHeight : 260;
             const left = Math.max(10, Math.min(this.canvasWidth - width - 10, this.pointerX + 16));
             const top = Math.max(10, Math.min(this.canvasHeight - height - 10, this.pointerY + 16));
             return `left:${left}px;top:${top}px;max-width:${width}px`;
+        },
+
+        refreshTooltipPosition() {
+            this.tooltipMeasureVersion += 1;
+            if (this.hoveredLocationId === null || typeof this.$nextTick !== 'function') return;
+            const hoveredId = String(this.hoveredLocationId);
+            this.$nextTick(() => {
+                if (String(this.hoveredLocationId) === hoveredId) this.tooltipMeasureVersion += 1;
+            });
         },
 
         get busy() {
@@ -612,6 +760,7 @@ export default function npcLocationMap(config = {}) {
             });
             featureCache = null;
             baseDirty = true;
+            overlayDirty = true;
         },
 
         normalizeMap(map) {
@@ -622,6 +771,7 @@ export default function npcLocationMap(config = {}) {
 
         onFiltersChanged() {
             featureCache = null;
+            overlayDirty = true;
             let selectionChanged = false;
             const selectionIsVisible = this.selectedLocationId !== null
                 && this.filteredLocations.some(
@@ -709,6 +859,7 @@ export default function npcLocationMap(config = {}) {
             this.panX = 0;
             this.panY = 0;
             baseDirty = true;
+            overlayDirty = true;
             await this.ensureMapLoaded(true);
         },
 
@@ -719,6 +870,7 @@ export default function npcLocationMap(config = {}) {
                 this.loadGeneration += 1;
                 this.mapData = null;
                 baseDirty = true;
+                overlayDirty = true;
                 this.loadedMapUrl = null;
                 this.loadingMapUrl = null;
                 this.loading = false;
@@ -770,14 +922,16 @@ export default function npcLocationMap(config = {}) {
 
                 this.mapData = parsed;
                 baseDirty = true;
+                overlayDirty = true;
                 this.loadedMapUrl = mapUrl;
                 this.resetView(false);
-                this.focusPendingLocation();
+                if (!this.focusPendingLocation()) this.flashSelection();
                 this.statusMessage = `${this.zoneLabel} map ready: ${parsed.segmentCount.toLocaleString()} lines and ${this.mappableLocations.length.toLocaleString()} location${this.mappableLocations.length === 1 ? '' : 's'}.`;
             } catch (error) {
                 if (this.loadGeneration !== generation) return;
                 this.mapData = null;
                 baseDirty = true;
+                overlayDirty = true;
                 this.loadedMapUrl = null;
                 this.loadError = 'The base map could not be loaded. The verified location table is still available below.';
                 this.statusMessage = this.loadError;
@@ -816,6 +970,7 @@ export default function npcLocationMap(config = {}) {
             const context = canvas.getContext('2d');
             context?.setTransform(ratio, 0, 0, ratio, 0, 0);
             baseDirty = true;
+            overlayDirty = true;
 
             if (this.mapData && this.fit.scale === 1 && this.fit.centerX === 0 && this.fit.centerY === 0) {
                 this.resetView(false);
@@ -831,11 +986,82 @@ export default function npcLocationMap(config = {}) {
             const padding = Math.min(MAP_PADDING, maximumSafePadding);
             this.fit = fitBounds(this.mapData.bounds, this.canvasWidth, this.canvasHeight, padding);
             baseDirty = true;
+            overlayDirty = true;
             if (resetPan) {
                 this.zoom = 1;
                 this.panX = 0;
                 this.panY = 0;
+            } else {
+                this.clampPan();
             }
+        },
+
+        interactionBounds() {
+            const map = this.mapData;
+            const group = this.currentGroup;
+            if (map === cachedInteractionMap && group === cachedInteractionGroup && cachedInteractionBounds) {
+                return cachedInteractionBounds;
+            }
+
+            const mapBounds = map?.bounds;
+            let bounds = mapBounds && [mapBounds.minX, mapBounds.minY, mapBounds.maxX, mapBounds.maxY]
+                .every((value) => Number.isFinite(Number(value)))
+                ? {
+                    minX: Number(mapBounds.minX),
+                    minY: Number(mapBounds.minY),
+                    maxX: Number(mapBounds.maxX),
+                    maxY: Number(mapBounds.maxY),
+                }
+                : null;
+            for (const point of Array.isArray(map?.points) ? map.points : []) {
+                bounds = includeBoundsPoint(bounds, Number(point?.x), Number(point?.y));
+            }
+            bounds = includeBoundsArea(bounds, groupFeatureBounds(group));
+
+            cachedInteractionMap = map;
+            cachedInteractionGroup = group;
+            cachedInteractionBounds = bounds;
+            return bounds;
+        },
+
+        panLimits() {
+            const bounds = this.interactionBounds();
+            const scale = this.fit?.scale * this.zoom;
+            if (!bounds || !Number.isFinite(scale) || scale <= 0
+                || this.canvasWidth < 1 || this.canvasHeight < 1) {
+                return { minX: 0, maxX: 0, minY: 0, maxY: 0 };
+            }
+
+            const left = (this.canvasWidth / 2) + ((bounds.minX - this.fit.centerX) * scale);
+            const right = (this.canvasWidth / 2) + ((bounds.maxX - this.fit.centerX) * scale);
+            const top = (this.canvasHeight / 2) + ((bounds.minY - this.fit.centerY) * scale);
+            const bottom = (this.canvasHeight / 2) + ((bounds.maxY - this.fit.centerY) * scale);
+            const allowanceX = Math.min(PAN_EDGE_ALLOWANCE, this.canvasWidth / 2);
+            const allowanceY = Math.min(PAN_EDGE_ALLOWANCE, this.canvasHeight / 2);
+            const renderedWidth = right - left;
+            const renderedHeight = bottom - top;
+
+            let minX = this.canvasWidth - allowanceX - right;
+            let maxX = allowanceX - left;
+            let minY = this.canvasHeight - allowanceY - bottom;
+            let maxY = allowanceY - top;
+            if (renderedWidth <= this.canvasWidth - (allowanceX * 2)) {
+                minX = (this.canvasWidth - left - right) / 2;
+                maxX = minX;
+            }
+            if (renderedHeight <= this.canvasHeight - (allowanceY * 2)) {
+                minY = (this.canvasHeight - top - bottom) / 2;
+                maxY = minY;
+            }
+
+            return { minX, maxX, minY, maxY };
+        },
+
+        clampPan() {
+            const limits = this.panLimits();
+            this.panX = Math.max(limits.minX, Math.min(limits.maxX, finiteNumber(this.panX)));
+            this.panY = Math.max(limits.minY, Math.min(limits.maxY, finiteNumber(this.panY)));
+            return limits;
         },
 
         resetView(announce = true) {
@@ -856,6 +1082,7 @@ export default function npcLocationMap(config = {}) {
             const after = this.toScreen(before.x, before.y);
             this.panX += point.x - after.x;
             this.panY += point.y - after.y;
+            this.clampPan();
             this.statusMessage = `Map zoom ${Math.round(this.zoom * 100)}%.`;
             this.invalidateBase();
         },
@@ -911,6 +1138,7 @@ export default function npcLocationMap(config = {}) {
                 if (Math.abs(dx) + Math.abs(dy) > 3) this.pointerMoved = true;
                 this.panX = this.pointerStart.panX + dx;
                 this.panY = this.pointerStart.panY + dy;
+                this.clampPan();
                 this.invalidateBase();
                 return;
             }
@@ -923,14 +1151,17 @@ export default function npcLocationMap(config = {}) {
             if (String(nextHoveredId) === String(this.hoveredLocationId)) return;
             this.hoveredLocationId = nextHoveredId;
             canvas.style.cursor = hit ? 'pointer' : 'grab';
-            this.scheduleDraw();
+            this.refreshTooltipPosition();
+            this.invalidateOverlay();
         },
 
         clearHover() {
+            if (this.hoveredLocationId === null) return;
             this.hoveredLocationId = null;
             const canvas = this.$refs.canvas;
             if (canvas) canvas.style.cursor = this.mapData ? 'grab' : 'default';
-            this.scheduleDraw();
+            this.refreshTooltipPosition();
+            this.invalidateOverlay();
         },
 
         onPointerUp(event) {
@@ -980,6 +1211,7 @@ export default function npcLocationMap(config = {}) {
             if (event.key === '+' || event.key === '=') this.zoomBy(1.25);
             if (event.key === '-') this.zoomBy(0.8);
             if (event.key === '0') this.resetView();
+            this.clampPan();
             this.invalidateBase();
             this.queueUrlSync();
         },
@@ -988,7 +1220,9 @@ export default function npcLocationMap(config = {}) {
             const location = this.currentLocations.find((item) => String(item.id) === String(id));
             if (!location) return;
             this.selectedLocationId = location.id;
+            overlayDirty = true;
             this.statusMessage = `Selected ${this.coordinateLabel(location)} in ${this.zoneLabel}.`;
+            this.flashSelection();
 
             if (center && this.mapData) this.focusLocation(location);
             else if (this.elevationFocus) this.invalidateBase();
@@ -1009,6 +1243,7 @@ export default function npcLocationMap(config = {}) {
 
             this.pendingFocusId = null;
             this.focusLocation(location, false);
+            this.flashSelection();
             return true;
         },
 
@@ -1032,9 +1267,38 @@ export default function npcLocationMap(config = {}) {
             const screen = this.toScreen(focusPoint.x, focusPoint.y);
             this.panX = this.canvasWidth / 2 - screen.x;
             this.panY = this.canvasHeight / 2 - screen.y;
+            this.clampPan();
             if (announce) this.statusMessage = `Focused ${this.coordinateLabel(location)} in ${this.zoneLabel}.`;
             this.invalidateBase();
             return true;
+        },
+
+        flashSelection() {
+            overlayDirty = true;
+            if (this.selectedLocationId === null || this.reducedMotion) {
+                selectionFlashStartedAt = -1;
+                selectionFlashUntil = 0;
+                this.scheduleDraw();
+                return;
+            }
+
+            selectionFlashStartedAt = animationNow();
+            selectionFlashUntil = selectionFlashStartedAt + SELECTION_FLASH_MS;
+            this.scheduleDraw();
+        },
+
+        selectionPulse(now = animationNow()) {
+            if (this.reducedMotion || selectionFlashUntil <= now || selectionFlashStartedAt < 0) {
+                return null;
+            }
+
+            const elapsed = Math.max(0, now - selectionFlashStartedAt);
+            const progress = Math.min(1, elapsed / SELECTION_FLASH_MS);
+            const cycle = (progress * 2) % 1;
+            return {
+                radiusOffset: 3 + (cycle * 8),
+                alpha: Math.max(0, (1 - cycle) * (1 - (progress * 0.55)) * 0.85),
+            };
         },
 
         hasUsablePosition(location) {
@@ -1136,6 +1400,12 @@ export default function npcLocationMap(config = {}) {
 
         invalidateBase() {
             baseDirty = true;
+            overlayDirty = true;
+            this.scheduleDraw();
+        },
+
+        invalidateOverlay() {
+            overlayDirty = true;
             this.scheduleDraw();
         },
 
@@ -1161,9 +1431,9 @@ export default function npcLocationMap(config = {}) {
             if (!this.mapData) return;
 
             if (!this.drawCachedBase(context, canvas)) this.drawBaseLayers(context);
-            this.drawAreas(context);
-            this.drawLocations(context);
-            this.drawLocationLabels(context);
+            const pulse = this.selectionPulse();
+            if (!pulse || !this.drawCachedOverlays(context, canvas)) this.drawStaticOverlays(context);
+            if (pulse) this.drawSelectionPulse(context, pulse);
         },
 
         drawBaseLayers(context) {
@@ -1194,6 +1464,38 @@ export default function npcLocationMap(config = {}) {
             context.save();
             context.setTransform(1, 0, 0, 1, 0, 0);
             context.drawImage(cachedBaseCanvas, 0, 0);
+            context.restore();
+            return true;
+        },
+
+        drawStaticOverlays(context) {
+            this.drawAreas(context);
+            this.drawLocations(context);
+            this.drawLocationLabels(context);
+        },
+
+        drawCachedOverlays(context, canvas) {
+            if (typeof document === 'undefined' || typeof context.drawImage !== 'function') return false;
+            if (!cachedOverlayCanvas) cachedOverlayCanvas = document.createElement('canvas');
+            if (cachedOverlayCanvas.width !== canvas.width || cachedOverlayCanvas.height !== canvas.height) {
+                cachedOverlayCanvas.width = canvas.width;
+                cachedOverlayCanvas.height = canvas.height;
+                overlayDirty = true;
+            }
+            if (overlayDirty) {
+                const overlayContext = cachedOverlayCanvas.getContext('2d');
+                if (!overlayContext) return false;
+                overlayContext.setTransform(1, 0, 0, 1, 0, 0);
+                overlayContext.clearRect(0, 0, cachedOverlayCanvas.width, cachedOverlayCanvas.height);
+                const ratio = this.canvasWidth > 0 ? cachedOverlayCanvas.width / this.canvasWidth : 1;
+                overlayContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+                this.drawStaticOverlays(overlayContext);
+                overlayDirty = false;
+            }
+
+            context.save();
+            context.setTransform(1, 0, 0, 1, 0, 0);
+            context.drawImage(cachedOverlayCanvas, 0, 0);
             context.restore();
             return true;
         },
@@ -1320,26 +1622,44 @@ export default function npcLocationMap(config = {}) {
                 if (screen.x < -24 || screen.y < -24 || screen.x > this.canvasWidth + 24 || screen.y > this.canvasHeight + 24) continue;
                 const selected = String(location.id) === String(this.selectedLocationId);
                 const hovered = String(location.id) === String(this.hoveredLocationId);
-                const radius = selected ? 9 : hovered ? 8 : 6.5;
+                const radius = selected ? 6 : hovered ? 5.25 : 4.25;
                 const color = this.locationColor(location);
 
                 context.beginPath();
-                context.arc(screen.x, screen.y, radius + 4, 0, Math.PI * 2);
-                context.fillStyle = selected ? 'rgba(251, 191, 36, .28)' : hexToRgba(color, hovered ? 0.28 : 0.18);
+                context.arc(screen.x, screen.y, radius + 2.5, 0, Math.PI * 2);
+                context.fillStyle = selected ? 'rgba(251, 191, 36, .22)' : hexToRgba(color, hovered ? 0.24 : 0.14);
                 context.fill();
 
-                this.markerPath(context, this.locationVisualKind(location), screen.x, screen.y, radius);
-                context.fillStyle = selected ? '#fbbf24' : color;
+                this.markerPath(context, this.locationShape(location), screen.x, screen.y, radius);
+                context.fillStyle = color;
                 context.fill();
-                context.lineWidth = 2;
-                context.strokeStyle = '#fff7ed';
+                context.lineWidth = selected ? 2 : 1.35;
+                context.strokeStyle = selected ? '#fbbf24' : '#fff7ed';
                 context.stroke();
 
                 context.beginPath();
-                context.arc(screen.x, screen.y, 2.1, 0, Math.PI * 2);
+                context.arc(screen.x, screen.y, 1.15, 0, Math.PI * 2);
                 context.fillStyle = '#172033';
                 context.fill();
             }
+        },
+
+        drawSelectionPulse(context, pulse) {
+            const selectedEntry = this.mappableEntries.find(
+                ({ location }) => String(location.id) === String(this.selectedLocationId),
+            );
+            if (!selectedEntry) return false;
+            const screen = this.toScreen(selectedEntry.point.x, selectedEntry.point.y);
+            if (screen.x < -24 || screen.y < -24
+                || screen.x > this.canvasWidth + 24 || screen.y > this.canvasHeight + 24) return false;
+
+            context.beginPath();
+            context.arc(screen.x, screen.y, 6 + pulse.radiusOffset, 0, Math.PI * 2);
+            context.strokeStyle = `rgba(251, 191, 36, ${pulse.alpha})`;
+            context.lineWidth = 2;
+            context.stroke();
+            this.scheduleDraw();
+            return true;
         },
 
         drawAreas(context) {
@@ -1386,8 +1706,8 @@ export default function npcLocationMap(config = {}) {
                 occupied.add(cell);
                 context.strokeStyle = 'rgba(7, 12, 24, .96)';
                 context.fillStyle = selected ? '#fbbf24' : this.locationColor(location);
-                context.strokeText(label, screen.x + 10, screen.y - 1);
-                context.fillText(label, screen.x + 10, screen.y - 1);
+                context.strokeText(label, screen.x + 8, screen.y - 1);
+                context.fillText(label, screen.x + 8, screen.y - 1);
             }
             context.restore();
         },
@@ -1406,9 +1726,16 @@ export default function npcLocationMap(config = {}) {
             return visibleTrait ?? location?.kind ?? 'npcs';
         },
 
-        markerPath(context, kind, x, y, radius) {
+        locationShape(location) {
+            const kind = this.locationVisualKind(location);
+            const configured = this.layers.find((layer) => layer.id === kind)?.shape;
+            return markerShape(configured, DEFAULT_MARKER_SHAPES[kind] ?? 'circle');
+        },
+
+        markerPath(context, requestedShape, x, y, radius) {
+            const shape = markerShape(requestedShape, DEFAULT_MARKER_SHAPES[requestedShape] ?? 'circle');
             context.beginPath();
-            if (kind === 'ground-spawns' || kind === 'named') {
+            if (shape === 'diamond') {
                 context.moveTo(x, y - radius);
                 context.lineTo(x + radius, y);
                 context.lineTo(x, y + radius);
@@ -1416,14 +1743,57 @@ export default function npcLocationMap(config = {}) {
                 context.closePath();
                 return;
             }
-            if (kind === 'merchants' || kind === 'doors' || kind === 'objects') {
+            if (shape === 'square') {
                 context.rect(x - radius * 0.78, y - radius * 0.78, radius * 1.56, radius * 1.56);
                 return;
             }
-            if (kind === 'zone-points' || kind === 'quest') {
+            if (shape === 'triangle') {
                 context.moveTo(x, y - radius);
                 context.lineTo(x + radius * 0.9, y + radius * 0.75);
                 context.lineTo(x - radius * 0.9, y + radius * 0.75);
+                context.closePath();
+                return;
+            }
+            const vertices = shape === 'hexagon' ? 6 : shape === 'pentagon' ? 5 : 0;
+            if (vertices > 0) {
+                for (let index = 0; index < vertices; index += 1) {
+                    const angle = (-Math.PI / 2) + ((Math.PI * 2 * index) / vertices);
+                    const pointX = x + (Math.cos(angle) * radius);
+                    const pointY = y + (Math.sin(angle) * radius);
+                    if (index === 0) context.moveTo(pointX, pointY);
+                    else context.lineTo(pointX, pointY);
+                }
+                context.closePath();
+                return;
+            }
+            if (shape === 'star' || shape === 'compass') {
+                const points = shape === 'star' ? 5 : 4;
+                const innerRatio = shape === 'star' ? 0.43 : 0.3;
+                for (let index = 0; index < points * 2; index += 1) {
+                    const pointRadius = index % 2 === 0 ? radius : radius * innerRatio;
+                    const angle = (-Math.PI / 2) + ((Math.PI * index) / points);
+                    const pointX = x + (Math.cos(angle) * pointRadius);
+                    const pointY = y + (Math.sin(angle) * pointRadius);
+                    if (index === 0) context.moveTo(pointX, pointY);
+                    else context.lineTo(pointX, pointY);
+                }
+                context.closePath();
+                return;
+            }
+            if (shape === 'cross') {
+                const arm = radius * 0.38;
+                context.moveTo(x - arm, y - radius);
+                context.lineTo(x + arm, y - radius);
+                context.lineTo(x + arm, y - arm);
+                context.lineTo(x + radius, y - arm);
+                context.lineTo(x + radius, y + arm);
+                context.lineTo(x + arm, y + arm);
+                context.lineTo(x + arm, y + radius);
+                context.lineTo(x - arm, y + radius);
+                context.lineTo(x - arm, y + arm);
+                context.lineTo(x - radius, y + arm);
+                context.lineTo(x - radius, y - arm);
+                context.lineTo(x - arm, y - arm);
                 context.closePath();
                 return;
             }

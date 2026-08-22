@@ -46,6 +46,17 @@ return [
 
     'coords_as_yxz'                 => false,
 
+    'maps' => [
+        // Comma-separated map short names whose legacy geometry should be preferred.
+        'legacy_zones' => array_values(array_unique(array_filter(
+            array_map('trim', explode(',', (string) env(
+                'EQ_MAP_LEGACY_ZONES',
+                'bazaar,lavastorm,nektulos,highpasshold',
+            ))),
+            fn (string $zone): bool => preg_match('/^[a-z0-9]+$/', $zone) === 1,
+        ))),
+    ],
+
     // copying some of the allaclone settings for now (NOT ALL OF THESE ARE TIED BACK IN YET)
     'allow_quests_npc'              => false, // quests for npcs are available from NPC's page
     'server_max_npc_level'          => 95, // Max Level for any NPCs on the Server

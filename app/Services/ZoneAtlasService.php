@@ -47,15 +47,15 @@ class ZoneAtlasService
     public function layerDefinitions(): array
     {
         return [
-            ['id' => 'npcs', 'label' => 'NPCs', 'color' => '#7dd3fc', 'default' => true],
-            ['id' => 'named', 'label' => 'Named & raid', 'color' => '#f472b6', 'default' => true],
-            ['id' => 'merchants', 'label' => 'Merchants', 'color' => '#facc15', 'default' => true],
-            ['id' => 'quest', 'label' => 'Quest NPCs', 'color' => '#a78bfa', 'default' => true],
-            ['id' => 'ground-spawns', 'label' => 'Ground items', 'color' => '#34d399', 'default' => true],
-            ['id' => 'zone-points', 'label' => 'Zone exits', 'color' => '#fb923c', 'default' => true],
-            ['id' => 'doors', 'label' => 'Doors & portals', 'color' => '#2dd4bf', 'default' => false],
-            ['id' => 'objects', 'label' => 'Trade containers', 'color' => '#c084fc', 'default' => false],
-            ['id' => 'navigation', 'label' => 'Navigation', 'color' => '#f8fafc', 'default' => true],
+            ['id' => 'npcs', 'label' => 'NPCs', 'color' => '#38bdf8', 'shape' => 'circle', 'default' => true],
+            ['id' => 'named', 'label' => 'Named & raid', 'color' => '#fb7185', 'shape' => 'star', 'default' => true],
+            ['id' => 'merchants', 'label' => 'Merchants', 'color' => '#facc15', 'shape' => 'square', 'default' => true],
+            ['id' => 'quest', 'label' => 'Quest NPCs', 'color' => '#a78bfa', 'shape' => 'pentagon', 'default' => true],
+            ['id' => 'ground-spawns', 'label' => 'Ground items', 'color' => '#4ade80', 'shape' => 'diamond', 'default' => true],
+            ['id' => 'zone-points', 'label' => 'Zone exits', 'color' => '#fb923c', 'shape' => 'triangle', 'default' => true],
+            ['id' => 'doors', 'label' => 'Doors & portals', 'color' => '#2dd4bf', 'shape' => 'hexagon', 'default' => false],
+            ['id' => 'objects', 'label' => 'Trade containers', 'color' => '#e879f9', 'shape' => 'cross', 'default' => false],
+            ['id' => 'navigation', 'label' => 'Navigation', 'color' => '#f8fafc', 'shape' => 'compass', 'default' => true],
         ];
     }
 

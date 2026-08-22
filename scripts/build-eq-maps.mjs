@@ -496,11 +496,12 @@ async function writeIfChanged(filePath, content) {
     return true;
 }
 
-async function sourceFiles(sourceDirectory) {
+async function sourceFiles(sourceDirectory, { optional = false } = {}) {
     let entries;
     try {
         entries = await readdir(sourceDirectory, { withFileTypes: true });
     } catch (error) {
+        if (optional && error?.code === 'ENOENT') return [];
         throw new Error(`Unable to read source directory ${sourceDirectory}: ${error.message}`);
     }
 
@@ -509,7 +510,9 @@ async function sourceFiles(sourceDirectory) {
         .map((entry) => ({ name: entry.name, zone: BASE_MAP_FILE.exec(entry.name)[1] }))
         .sort((left, right) => naturalCompare(left.zone, right.zone));
 
-    if (files.length === 0) throw new Error(`No lowercase alphanumeric base map files found in ${sourceDirectory}`);
+    if (!optional && files.length === 0) {
+        throw new Error(`No lowercase alphanumeric base map files found in ${sourceDirectory}`);
+    }
     if (files.length > MAX_ZONE_COUNT) throw new Error(`Source contains more than ${MAX_ZONE_COUNT} base maps`);
     return files;
 }
@@ -527,6 +530,16 @@ function manifestBounds(bounds) {
 
 async function build(options) {
     const files = await sourceFiles(options.source);
+    const legacyDirectory = resolve(options.source, 'legacy');
+    const legacyFiles = await sourceFiles(legacyDirectory, { optional: true });
+    const defaultZones = new Set(files.map((file) => file.zone));
+    const orphanedLegacyZones = legacyFiles
+        .filter((file) => !defaultZones.has(file.zone))
+        .map((file) => file.zone);
+    if (orphanedLegacyZones.length > 0) {
+        throw new Error(`Legacy maps have no matching base map: ${orphanedLegacyZones.join(', ')}`);
+    }
+
     const zonesDirectory = resolve(options.output, 'zones');
     const manifestPath = resolve(options.output, 'manifest.json');
 
@@ -594,6 +607,49 @@ async function build(options) {
         pointTotal += parsed.points.length;
     }
 
+    for (const file of legacyFiles) {
+        const sourcePath = resolve(legacyDirectory, file.name);
+        const source = await readFile(sourcePath);
+        sourceByteTotal += source.length;
+        if (sourceByteTotal > MAX_TOTAL_SOURCE_BYTES) {
+            throw new Error(`Source set exceeds ${MAX_TOTAL_SOURCE_BYTES} bytes`);
+        }
+
+        const parsed = parseMap(source, sourcePath, `${file.zone}.legacy`);
+        recordTotal += parsed.recordCount;
+        if (recordTotal > MAX_TOTAL_RECORDS) {
+            throw new Error(`Source set exceeds ${MAX_TOTAL_RECORDS} records`);
+        }
+
+        const compiled = compileMap(parsed);
+        const digest = sha256(compiled);
+        const outputName = `${file.zone}.legacy.${digest.slice(0, 12)}.eqmap`;
+        const outputPath = resolve(zonesDirectory, outputName);
+        expectedOutputNames.add(outputName);
+
+        if (options.check) {
+            const existing = await readIfPresent(outputPath);
+            if (!existing) throw new Error(`Missing generated map: ${outputPath}`);
+            validateCompiledMap(existing, parsed);
+            if (!existing.equals(compiled)) throw new Error(`Generated map differs from source: ${outputPath}`);
+        } else if (await writeIfChanged(outputPath, compiled)) {
+            changedFiles += 1;
+        }
+
+        manifest.zones[file.zone].legacy = {
+            path: `maps/zones/${outputName}`,
+            sha256: digest,
+            bytes: compiled.length,
+            segments: parsed.segmentCount,
+            points: parsed.points.length,
+            bounds: manifestBounds(parsed.bounds),
+        };
+
+        compiledByteTotal += compiled.length;
+        segmentTotal += parsed.segmentCount;
+        pointTotal += parsed.points.length;
+    }
+
     const manifestContent = Buffer.from(`${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
 
     if (options.check) {
@@ -636,6 +692,7 @@ async function build(options) {
     const ratio = compiledByteTotal / sourceByteTotal;
     return {
         zones: files.length,
+        legacyZones: legacyFiles.length,
         segments: segmentTotal,
         points: pointTotal,
         sourceBytes: sourceByteTotal,
@@ -656,7 +713,8 @@ async function main() {
     const result = await build(options);
     const action = options.check ? 'Checked' : 'Built';
     process.stdout.write(
-        `${action} ${result.zones} zones: ${result.segments} segments, ${result.points} points, `
+        `${action} ${result.zones} zones + ${result.legacyZones} legacy variants: `
+        + `${result.segments} segments, ${result.points} points, `
         + `${result.compiledBytes} compiled bytes from ${result.sourceBytes} source bytes `
         + `(${(result.ratio * 100).toFixed(2)}%), manifest ${result.manifestBytes} bytes`
         + (options.check ? '' : `, ${result.changedFiles} files changed`)

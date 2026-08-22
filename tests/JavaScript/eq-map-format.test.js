@@ -669,6 +669,42 @@ describe('layered atlas overlays', () => {
         assert.deepEqual(state.filteredLocations, []);
     });
 
+    test('assigns every atlas layer a distinct color and marker silhouette', () => {
+        const layers = [
+            { id: 'npcs', color: '#38bdf8', shape: 'circle' },
+            { id: 'named', color: '#fb7185', shape: 'star' },
+            { id: 'merchants', color: '#facc15', shape: 'square' },
+            { id: 'quest', color: '#a78bfa', shape: 'pentagon' },
+            { id: 'ground-spawns', color: '#4ade80', shape: 'diamond' },
+            { id: 'zone-points', color: '#fb923c', shape: 'triangle' },
+            { id: 'doors', color: '#2dd4bf', shape: 'hexagon' },
+            { id: 'objects', color: '#e879f9', shape: 'cross' },
+            { id: 'navigation', color: '#f8fafc', shape: 'compass' },
+        ];
+        const state = npcLocationMap({ layers });
+        state.configureLayers(state.layers);
+
+        const shapes = layers.map((layer) => state.locationShape({ kind: layer.id, layers: [layer.id] }));
+        const signatures = shapes.map((shape) => {
+            const operations = [];
+            const context = {
+                arc: (...values) => operations.push(['arc', ...values]),
+                beginPath: () => operations.push(['begin']),
+                closePath: () => operations.push(['close']),
+                lineTo: (...values) => operations.push(['line', ...values]),
+                moveTo: (...values) => operations.push(['move', ...values]),
+                rect: (...values) => operations.push(['rect', ...values]),
+            };
+            state.markerPath(context, shape, 0, 0, 10);
+            return operations.map(([operation]) => operation).join(':');
+        });
+
+        assert.equal(new Set(state.layers.map((layer) => layer.color)).size, layers.length);
+        assert.equal(new Set(shapes).size, layers.length);
+        assert.equal(new Set(signatures).size, layers.length);
+        assert.equal(state.locationShape({ kind: 'unknown', layers: [] }), 'circle');
+    });
+
     test('memoizes filtered and projected locations until filter state changes', () => {
         const state = npcLocationMap({
             layers: [{ id: 'npcs', label: 'NPCs', default: true }],
@@ -859,6 +895,206 @@ describe('layered atlas overlays', () => {
         }
     });
 
+    test('keeps visual markers compact while preserving a generous hit target', () => {
+        const state = npcLocationMap({
+            layers: [{ id: 'npcs', color: '#38bdf8', shape: 'circle' }],
+            groups: [{
+                key: 'arena:0',
+                locations: [
+                    { id: 'normal', kind: 'npcs', layers: ['npcs'], position: { x: -10, y: 0, z: 0 } },
+                    { id: 'hovered', kind: 'npcs', layers: ['npcs'], position: { x: 0, y: 0, z: 0 } },
+                    { id: 'selected', kind: 'npcs', layers: ['npcs'], position: { x: 10, y: 0, z: 0 } },
+                ],
+            }],
+        });
+        state.configureLayers(state.layers);
+        state.selectedZoneKey = 'arena:0';
+        state.selectedLocationId = 'selected';
+        state.hoveredLocationId = 'hovered';
+        state.canvasWidth = 800;
+        state.canvasHeight = 600;
+        state.fit = fitBounds({ minX: -20, minY: -20, maxX: 20, maxY: 20 }, 800, 600, 24);
+        const radii = [];
+        state.markerPath = (context, shape, x, y, radius) => radii.push(radius);
+        const context = {
+            arc() {},
+            beginPath() {},
+            fill() {},
+            stroke() {},
+        };
+
+        state.drawLocations(context);
+
+        assert.deepEqual(radii.sort((left, right) => left - right), [4.25, 5.25, 6]);
+        const selectedPoint = locationMapPoint(state.currentLocations[2]);
+        const selectedScreen = state.toScreen(selectedPoint.x, selectedPoint.y);
+        assert.equal(state.hitTest(selectedScreen.x + 10, selectedScreen.y).id, 'selected');
+    });
+
+    test('clamps pointer and keyboard panning to finite map edges at every zoom', () => {
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        globalThis.requestAnimationFrame = () => 1;
+        try {
+            const state = npcLocationMap();
+            state.mapData = { bounds: { minX: -100, minY: -100, maxX: 100, maxY: 100 } };
+            state.canvasWidth = 800;
+            state.canvasHeight = 600;
+            state.recalculateFit(true);
+
+            state.zoom = 0.5;
+            state.panX = 1_000_000;
+            state.panY = -1_000_000;
+            assert.deepEqual(state.clampPan(), { minX: 0, maxX: 0, minY: 0, maxY: 0 });
+            assert.equal(state.panX, 0);
+            assert.equal(state.panY, 0);
+
+            state.zoom = 4;
+            state.dragging = true;
+            state.pointerStart = { x: 0, y: 0, panX: 0, panY: 0 };
+            state.$refs = { canvas: { style: {} } };
+            state.onPointerMove({ clientX: 1_000_000, clientY: -1_000_000 });
+            const limits = state.panLimits();
+            assert.equal(state.panX, limits.maxX);
+            assert.equal(state.panY, limits.minY);
+
+            state.dragging = false;
+            state.pointerStart = null;
+            state.onKeydown({ key: 'ArrowLeft', shiftKey: true, preventDefault() {} });
+            assert.equal(state.panX, limits.maxX);
+            assert.ok(Number.isFinite(state.panX));
+            assert.ok(Number.isFinite(state.panY));
+        } finally {
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
+    test('keeps outlying locations visible while clamping to all map features', () => {
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        globalThis.requestAnimationFrame = () => 1;
+        try {
+            const state = npcLocationMap({
+                groups: [{
+                    key: 'outlier:0',
+                    locations: [{
+                        id: 'far-away',
+                        position: { x: -1000, y: 0, z: 0 },
+                        layers: [],
+                    }],
+                }],
+            });
+            state.selectedZoneKey = 'outlier:0';
+            state.mapData = {
+                bounds: { minX: -100, minY: -100, maxX: 100, maxY: 100 },
+                points: [],
+            };
+            state.canvasWidth = 800;
+            state.canvasHeight = 600;
+            state.recalculateFit(true);
+
+            assert.equal(state.focusLocation(state.currentLocations[0]), true);
+            const point = locationMapPoint(state.currentLocations[0]);
+            const screen = state.toScreen(point.x, point.y);
+            assert.ok(screen.x >= 0 && screen.x <= state.canvasWidth);
+            assert.ok(screen.y >= 0 && screen.y <= state.canvasHeight);
+            assert.ok(Number.isFinite(state.panX));
+            assert.ok(Number.isFinite(state.panY));
+            assert.ok(state.interactionBounds().maxX >= point.x);
+        } finally {
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
+    test('briefly pulses a selected marker and disables animation for reduced motion', () => {
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        let requestedFrames = 0;
+        globalThis.requestAnimationFrame = () => { requestedFrames += 1; return requestedFrames; };
+        try {
+            const state = npcLocationMap();
+            state.selectedLocationId = 'npc-1';
+            state.flashSelection();
+            assert.ok(state.selectionPulse());
+            assert.equal(requestedFrames, 1);
+            assert.equal(state.selectionPulse(Number.MAX_SAFE_INTEGER), null);
+
+            state.animationFrame = null;
+            state.reducedMotion = true;
+            state.flashSelection();
+            assert.equal(state.selectionPulse(), null);
+        } finally {
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
+    test('caches static overlays while animating and stops when the selection is absent', () => {
+        const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'document');
+        const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
+        let requestedFrames = 0;
+        let staticRenders = 0;
+        let overlayBlits = 0;
+        const overlayContext = {
+            clearRect() {},
+            setTransform() {},
+        };
+        Object.defineProperty(globalThis, 'document', {
+            configurable: true,
+            value: {
+                createElement: () => ({
+                    width: 0,
+                    height: 0,
+                    getContext: () => overlayContext,
+                }),
+            },
+        });
+        globalThis.requestAnimationFrame = () => { requestedFrames += 1; return requestedFrames; };
+
+        try {
+            const context = {
+                arc() {},
+                beginPath() {},
+                clearRect() {},
+                drawImage() { overlayBlits += 1; },
+                restore() {},
+                save() {},
+                setTransform() {},
+                stroke() {},
+            };
+            const canvas = { width: 800, height: 600, getContext: () => context };
+            const state = npcLocationMap({
+                groups: [{
+                    key: 'pulse:0',
+                    locations: [{ id: 'selected', position: { x: 0, y: 0, z: 0 }, layers: [] }],
+                }],
+            });
+            state.$refs = { canvas };
+            state.selectedZoneKey = 'pulse:0';
+            state.selectedLocationId = 'selected';
+            state.canvasWidth = 800;
+            state.canvasHeight = 600;
+            state.fit = { centerX: 0, centerY: 0, scale: 1 };
+            state.mapData = {};
+            state.drawCachedBase = () => true;
+            state.drawStaticOverlays = () => { staticRenders += 1; };
+            state.flashSelection();
+
+            state.animationFrame = null;
+            state.draw();
+            state.animationFrame = null;
+            state.draw();
+            assert.equal(staticRenders, 1);
+            assert.equal(overlayBlits, 2);
+
+            state.selectedLocationId = 'missing';
+            state.animationFrame = null;
+            requestedFrames = 0;
+            state.draw();
+            assert.equal(requestedFrames, 0);
+        } finally {
+            if (documentDescriptor) Object.defineProperty(globalThis, 'document', documentDescriptor);
+            else delete globalThis.document;
+            globalThis.requestAnimationFrame = originalRequestAnimationFrame;
+        }
+    });
+
     test('reuses the base-map render until a base-affecting change marks it dirty', () => {
         const documentDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'document');
         const originalRequestAnimationFrame = globalThis.requestAnimationFrame;
@@ -942,14 +1178,16 @@ describe('layered atlas overlays', () => {
         }
     });
 
-    test('installs and removes the canvas lost-capture listener without a Blade binding', () => {
-        const globals = ['ResizeObserver', 'IntersectionObserver', 'requestAnimationFrame', 'cancelAnimationFrame'];
+    test('installs and removes canvas and reduced-motion listeners', () => {
+        const globals = ['ResizeObserver', 'IntersectionObserver', 'requestAnimationFrame', 'cancelAnimationFrame', 'window'];
         const descriptors = Object.fromEntries(globals.map((name) => [
             name,
             Object.getOwnPropertyDescriptor(globalThis, name),
         ]));
         let listener = null;
         let removedListener = null;
+        let motionListener = null;
+        let removedMotionListener = null;
         Object.defineProperty(globalThis, 'ResizeObserver', {
             configurable: true,
             value: class { observe() {} disconnect() {} },
@@ -965,6 +1203,23 @@ describe('layered atlas overlays', () => {
         Object.defineProperty(globalThis, 'cancelAnimationFrame', {
             configurable: true,
             value: () => {},
+        });
+        Object.defineProperty(globalThis, 'window', {
+            configurable: true,
+            value: {
+                clearTimeout() {},
+                matchMedia: () => ({
+                    matches: false,
+                    addEventListener(type, callback) {
+                        assert.equal(type, 'change');
+                        motionListener = callback;
+                    },
+                    removeEventListener(type, callback) {
+                        assert.equal(type, 'change');
+                        removedMotionListener = callback;
+                    },
+                }),
+            },
         });
 
         try {
@@ -993,8 +1248,16 @@ describe('layered atlas overlays', () => {
             assert.equal(state.dragging, false);
             assert.equal(state.pointerStart, null);
 
+            state.selectedLocationId = 'selected';
+            state.flashSelection();
+            assert.ok(state.selectionPulse());
+            motionListener({ matches: true });
+            assert.equal(state.reducedMotion, true);
+            assert.equal(state.selectionPulse(), null);
+
             state.destroy();
             assert.strictEqual(removedListener, listener);
+            assert.strictEqual(removedMotionListener, motionListener);
         } finally {
             for (const name of globals) {
                 if (descriptors[name]) Object.defineProperty(globalThis, name, descriptors[name]);
