@@ -246,6 +246,14 @@ export function dbToBrewall(x, y) {
     return [x === 0 ? 0 : -x, y === 0 ? 0 : -y];
 }
 
+/** Convert Brewall client-map coordinates back into EQEmu database X/Y values. */
+export function brewallToEqemu(x, y) {
+    assertFiniteNumber(x, 'x');
+    assertFiniteNumber(y, 'y');
+
+    return [x === 0 ? 0 : -x, y === 0 ? 0 : -y];
+}
+
 /**
  * Compute a centered world-to-viewport transform that preserves aspect ratio.
  * Accepts either (bounds, width, height, padding) or

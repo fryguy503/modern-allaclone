@@ -136,10 +136,17 @@
                     @pointermove="onPointerMove($event)"
                     @pointerup="onPointerUp($event)"
                     @pointercancel="onPointerUp($event)"
-                    @pointerleave="hoveredLocationId = null; scheduleDraw()"
+                    @pointerleave="clearHover()"
                     @keydown="onKeydown($event)"></canvas>
 
                 <div class="eq-location-map__grid" aria-hidden="true"></div>
+
+                <div class="pointer-events-none absolute left-3 top-3 z-40 rounded-lg border border-base-content/10 bg-base-300/85 px-2.5 py-1.5 text-xs shadow-sm backdrop-blur"
+                    x-ref="cursorCoordinates"
+                    x-show="mapData" x-cloak aria-hidden="true">
+                    <span class="mr-2 text-base-content/45">Cursor</span>
+                    <span class="font-mono tabular-nums text-base-content/85" x-text="cursorCoordinateText"></span>
+                </div>
 
                 <div class="absolute inset-0 z-20 flex items-center justify-center bg-base-300/80 backdrop-blur-sm"
                     x-show="loading" x-transition.opacity x-cloak>

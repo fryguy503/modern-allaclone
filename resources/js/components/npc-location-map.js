@@ -1,4 +1,5 @@
 import {
+    brewallToEqemu,
     clampZoom,
     dbToBrewall,
     fitBounds,
@@ -562,6 +563,7 @@ export default function npcLocationMap(config = {}) {
         loadingMapUrl: null,
         pointerX: 0,
         pointerY: 0,
+        pointerOnMap: false,
         urlSyncTimer: null,
         requestedPinId: null,
         pendingFocusId: null,
@@ -810,11 +812,45 @@ export default function npcLocationMap(config = {}) {
             // conditional tooltip content has mounted and can be measured.
             void this.tooltipMeasureVersion;
             const width = 290;
+            const margin = 10;
+            const gap = 8;
             const measuredHeight = Number(this.$refs?.tooltip?.offsetHeight);
             const height = Number.isFinite(measuredHeight) && measuredHeight > 0 ? measuredHeight : 260;
-            const left = Math.max(10, Math.min(this.canvasWidth - width - 10, this.pointerX + 16));
-            const top = Math.max(10, Math.min(this.canvasHeight - height - 10, this.pointerY + 16));
+            const maxLeft = Math.max(margin, this.canvasWidth - width - margin);
+            const maxTop = Math.max(margin, this.canvasHeight - height - margin);
+            let left = Math.max(margin, Math.min(maxLeft, this.pointerX + 16));
+            let top = Math.max(margin, Math.min(maxTop, this.pointerY + 16));
+
+            const cursorReadout = this.$refs?.cursorCoordinates;
+            const readoutWidth = Number(cursorReadout?.offsetWidth);
+            const readoutHeight = Number(cursorReadout?.offsetHeight);
+            if (Number.isFinite(readoutWidth) && readoutWidth > 0
+                && Number.isFinite(readoutHeight) && readoutHeight > 0) {
+                const readoutLeft = 12;
+                const readoutTop = 12;
+                const readoutRight = readoutLeft + readoutWidth;
+                const readoutBottom = readoutTop + readoutHeight;
+                const overlapsReadout = left < readoutRight + gap
+                    && left + width > readoutLeft - gap
+                    && top < readoutBottom + gap
+                    && top + height > readoutTop - gap;
+
+                if (overlapsReadout) {
+                    const belowReadout = readoutBottom + gap;
+                    const rightOfReadout = readoutRight + gap;
+                    if (belowReadout <= maxTop) top = belowReadout;
+                    else if (rightOfReadout <= maxLeft) left = rightOfReadout;
+                }
+            }
+
             return `left:${left}px;top:${top}px;max-width:${width}px`;
+        },
+
+        get cursorCoordinateText() {
+            if (!this.mapData || !this.pointerOnMap) return 'Y —, X —';
+            const world = this.toWorld(this.pointerX, this.pointerY);
+            const [dbX, dbY] = brewallToEqemu(world.x, world.y);
+            return `Y ${formatCoordinateValue(dbY, 2)}, X ${formatCoordinateValue(dbX, 2)}`;
         },
 
         refreshTooltipPosition() {
@@ -1178,17 +1214,22 @@ export default function npcLocationMap(config = {}) {
         resizeCanvas() {
             const canvas = this.$refs.canvas;
             const viewport = this.$refs.viewport;
-            if (!canvas || !viewport) return;
+            if (!canvas || !viewport) {
+                this.pointerOnMap = false;
+                return;
+            }
 
             const rect = viewport.getBoundingClientRect();
             if (!Number.isFinite(rect.width) || !Number.isFinite(rect.height)
                 || rect.width < 1 || rect.height < 1) {
+                this.pointerOnMap = false;
                 return;
             }
 
             const width = Math.max(1, Math.floor(rect.width));
             const height = Math.max(1, Math.floor(rect.height));
             const ratio = Math.min(window.devicePixelRatio || 1, 2);
+            if (width !== this.canvasWidth || height !== this.canvasHeight) this.pointerOnMap = false;
 
             this.canvasWidth = width;
             this.canvasHeight = height;
@@ -1338,6 +1379,7 @@ export default function npcLocationMap(config = {}) {
 
         onWheel(event) {
             event.preventDefault();
+            this.trackPointer(event);
             const rect = this.$refs.canvas.getBoundingClientRect();
             const factor = Math.exp(-event.deltaY * 0.0015);
             this.zoomBy(factor, { x: event.clientX - rect.left, y: event.clientY - rect.top });
@@ -1345,6 +1387,7 @@ export default function npcLocationMap(config = {}) {
 
         onPointerDown(event) {
             if (!this.mapData || event.button !== 0) return;
+            this.trackPointer(event, event.currentTarget);
             try {
                 event.currentTarget?.setPointerCapture?.(event.pointerId);
             } catch {
@@ -1363,6 +1406,7 @@ export default function npcLocationMap(config = {}) {
         onPointerMove(event) {
             const canvas = this.$refs.canvas;
             if (!canvas || !this.mapData) return;
+            this.trackPointer(event, canvas);
 
             if (this.dragging && this.pointerStart) {
                 this.hoveredLocationId = null;
@@ -1376,9 +1420,6 @@ export default function npcLocationMap(config = {}) {
                 return;
             }
 
-            const rect = canvas.getBoundingClientRect();
-            this.pointerX = event.clientX - rect.left;
-            this.pointerY = event.clientY - rect.top;
             const hit = this.hitTest(this.pointerX, this.pointerY);
             const nextHoveredId = hit?.id ?? null;
             if (String(nextHoveredId) === String(this.hoveredLocationId)) return;
@@ -1388,7 +1429,27 @@ export default function npcLocationMap(config = {}) {
             this.invalidateOverlay();
         },
 
+        trackPointer(event, canvas = this.$refs.canvas) {
+            if (!canvas || typeof canvas.getBoundingClientRect !== 'function') {
+                this.pointerOnMap = false;
+                return false;
+            }
+            const rect = canvas.getBoundingClientRect();
+            const x = Number(event?.clientX) - rect.left;
+            const y = Number(event?.clientY) - rect.top;
+            if (!Number.isFinite(x) || !Number.isFinite(y)) {
+                this.pointerOnMap = false;
+                return false;
+            }
+
+            this.pointerX = x;
+            this.pointerY = y;
+            this.pointerOnMap = x >= 0 && y >= 0 && x <= rect.width && y <= rect.height;
+            return this.pointerOnMap;
+        },
+
         clearHover() {
+            this.pointerOnMap = false;
             if (this.hoveredLocationId === null) return;
             this.hoveredLocationId = null;
             const canvas = this.$refs.canvas;
@@ -1398,7 +1459,11 @@ export default function npcLocationMap(config = {}) {
         },
 
         onPointerUp(event) {
-            if (!this.dragging) return;
+            const clearPointer = event.type === 'pointercancel' || event.pointerType === 'touch';
+            if (!this.dragging) {
+                if (clearPointer) this.pointerOnMap = false;
+                return;
+            }
             const selectOnRelease = event.type !== 'pointercancel' && !this.pointerMoved;
             try {
                 const target = event.currentTarget;
@@ -1419,6 +1484,7 @@ export default function npcLocationMap(config = {}) {
                 const hit = this.hitTest(event.clientX - rect.left, event.clientY - rect.top);
                 if (hit) this.selectLocation(hit.id, false);
             }
+            if (clearPointer) this.pointerOnMap = false;
         },
 
         onLostPointerCapture() {

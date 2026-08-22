@@ -10,6 +10,7 @@ import {
     EQM1_DEFAULT_LIMITS,
     EQM1_FORMAT,
     EqMapFormatError,
+    brewallToEqemu,
     clampZoom,
     dbToBrewall,
     fitBounds,
@@ -402,6 +403,9 @@ describe('map coordinate helpers', () => {
         assert.deepEqual(dbToBrewall(-6441, 1025), [6441, -1025]);
         assert.deepEqual(dbToBrewall(0, -0), [0, 0]);
         assert.throws(() => dbToBrewall(Number.NaN, 0), /x must be a finite number/);
+        assert.deepEqual(brewallToEqemu(6441, -1025), [-6441, 1025]);
+        assert.deepEqual(brewallToEqemu(-0, 0), [0, 0]);
+        assert.throws(() => brewallToEqemu(0, Number.POSITIVE_INFINITY), /y must be a finite number/);
     });
 
     test('fits bounds with aspect ratio and symmetric padding', () => {
@@ -506,10 +510,60 @@ describe('NPC location map safeguards', () => {
         assert.equal(state.coordinateLabel(valid), '1025.00, -6441.00, 30.40');
     });
 
+    test('reports the pointer in EQEmu Y, X order through pan and zoom', () => {
+        const state = npcLocationMap();
+        state.mapData = { bounds: { minX: -200, minY: -100, maxX: 200, maxY: 100 } };
+        state.canvasWidth = 800;
+        state.canvasHeight = 600;
+        state.fit = fitBounds(state.mapData.bounds, 800, 600, 24);
+        state.zoom = 2.5;
+        state.panX = 37;
+        state.panY = -19;
+        const world = { x: 50.25, y: -25.5 };
+        const screen = state.toScreen(world.x, world.y);
+        const canvas = {
+            width: 1600,
+            height: 1200,
+            getBoundingClientRect: () => ({ left: 40, top: 25, width: 800, height: 600 }),
+        };
+        state.$refs = { canvas };
+
+        assert.equal(state.cursorCoordinateText, 'Y —, X —');
+        assert.equal(state.trackPointer({ clientX: screen.x + 40, clientY: screen.y + 25 }, canvas), true);
+        assert.equal(state.cursorCoordinateText, 'Y 25.50, X -50.25');
+
+        const origin = state.toScreen(0, 0);
+        assert.equal(state.trackPointer({ clientX: origin.x + 40, clientY: origin.y + 25 }, canvas), true);
+        assert.equal(state.cursorCoordinateText, 'Y 0.00, X 0.00');
+        assert.equal(state.trackPointer({ clientX: Number.NaN, clientY: origin.y + 25 }, canvas), false);
+        assert.equal(state.cursorCoordinateText, 'Y —, X —');
+
+        state.trackPointer({ clientX: screen.x + 40, clientY: screen.y + 25 }, canvas);
+        state.clearHover();
+        assert.equal(state.pointerOnMap, false);
+        assert.equal(state.cursorCoordinateText, 'Y —, X —');
+        assert.equal(state.trackPointer({ clientX: 39, clientY: 24 }, canvas), false);
+    });
+
+    test('keeps upper-left tooltips clear of the cursor coordinate readout', () => {
+        const state = npcLocationMap();
+        state.canvasWidth = 800;
+        state.canvasHeight = 600;
+        state.pointerX = 0;
+        state.pointerY = 0;
+        state.$refs = {
+            tooltip: { offsetHeight: 100 },
+            cursorCoordinates: { offsetWidth: 150, offsetHeight: 30 },
+        };
+
+        assert.equal(state.tooltipStyle, 'left:16px;top:50px;max-width:290px');
+    });
+
     test('preserves the last canvas size while hidden and safely fits undersized viewports', () => {
         const state = npcLocationMap();
         state.canvasWidth = 320;
         state.canvasHeight = 240;
+        state.pointerOnMap = true;
         state.$refs = {
             canvas: {},
             viewport: { getBoundingClientRect: () => ({ width: 0, height: 0 }) },
@@ -518,6 +572,7 @@ describe('NPC location map safeguards', () => {
         state.resizeCanvas();
         assert.equal(state.canvasWidth, 320);
         assert.equal(state.canvasHeight, 240);
+        assert.equal(state.pointerOnMap, false);
 
         state.mapData = { bounds: DEFAULT_BOUNDS };
         state.canvasWidth = 1;
@@ -1512,6 +1567,7 @@ describe('layered atlas overlays', () => {
         try {
             const state = npcLocationMap();
             state.dragging = true;
+            state.pointerOnMap = true;
             state.pointerStart = { x: 1, y: 2, panX: 0, panY: 0 };
             assert.doesNotThrow(() => state.onPointerUp({
                 type: 'pointercancel',
@@ -1523,6 +1579,14 @@ describe('layered atlas overlays', () => {
             }));
             assert.equal(state.dragging, false);
             assert.equal(state.pointerStart, null);
+            assert.equal(state.pointerOnMap, false);
+
+            state.pointerOnMap = true;
+            assert.doesNotThrow(() => state.onPointerUp({
+                type: 'pointerup',
+                pointerType: 'touch',
+            }));
+            assert.equal(state.pointerOnMap, false);
 
             state.dragging = true;
             state.pointerStart = { x: 1, y: 2, panX: 0, panY: 0 };
