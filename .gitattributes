@@ -6,6 +6,7 @@
 *.md diff=markdown
 *.eqmap binary
 *.php diff=php
+database/data/*.csv -text
 
 /.github export-ignore
 CHANGELOG.md export-ignore
