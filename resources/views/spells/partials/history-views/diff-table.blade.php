@@ -97,8 +97,8 @@
                             'casting', 'gameplay' => 'badge-primary',
                             'availability', 'classes', 'reagents', 'Lifecycle' => 'badge-accent',
                             'targeting', 'stacking', 'restrictions' => 'badge-warning',
-                            'technical', 'advanced' => 'badge-neutral',
-                            default => $isTechnical ? 'badge-neutral' : 'badge-ghost',
+                            'technical', 'advanced' => 'badge-neutral !text-base-content',
+                            default => $isTechnical ? 'badge-neutral !text-base-content' : 'badge-ghost',
                         };
                         $beforeValue = data_get(
                             $change,

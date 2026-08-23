@@ -69,7 +69,7 @@
                             'casting', 'gameplay' => 'badge-primary',
                             'availability', 'classes', 'reagents' => 'badge-accent',
                             'targeting', 'stacking', 'restrictions' => 'badge-warning',
-                            'technical' => 'badge-neutral',
+                            'technical' => 'badge-neutral !text-base-content',
                             'lifecycle' => 'badge-info',
                             default => 'badge-ghost',
                         };
