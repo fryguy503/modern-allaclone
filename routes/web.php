@@ -13,6 +13,7 @@ use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SpellController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TradeskillPlannerController;
 use App\Http\Controllers\ZoneController;
 use App\Http\Middleware\TasksEnabled;
 use Illuminate\Support\Facades\Route;
@@ -59,7 +60,7 @@ Route::get('/search/suggest', [SearchController::class, 'suggest'])->middleware(
 
 // aa abilitys
 Route::get('/aa', [AaAbilityController::class, 'index'])->name('aa.index');
-Route::get('/aa/{ability}', [AaAbilityController::class, 'show'])->name('aa.show');;
+Route::get('/aa/{ability}', [AaAbilityController::class, 'show'])->name('aa.show');
 
 // items
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');
@@ -86,7 +87,16 @@ Route::get('/spells/popup/{spell}', [SpellController::class, 'popup'])->name('sp
 
 // recipes
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+Route::middleware(['tradeskill-planner.enabled', 'throttle:30,1'])->group(function () {
+    Route::get('/recipes/plans', [TradeskillPlannerController::class, 'saved'])
+        ->name('recipes.plans');
+    Route::get('/recipes/{recipe}/plan', [TradeskillPlannerController::class, 'show'])
+        ->name('recipes.plan')
+        ->whereNumber('recipe');
+});
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])
+    ->name('recipes.show')
+    ->whereNumber('recipe');
 
 // npcs
 Route::get('/npcs', [NpcController::class, 'index'])->name('npcs.index');

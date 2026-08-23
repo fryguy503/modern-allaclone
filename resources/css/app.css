@@ -341,3 +341,31 @@
     -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l9 0" /><path d="M4 12l7 0" /><path d="M4 18l7 0" /><path d="M15 15l3 3l3 -3" /><path d="M18 6l0 12" /></svg>');
     mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l9 0" /><path d="M4 12l7 0" /><path d="M4 18l7 0" /><path d="M15 15l3 3l3 -3" /><path d="M18 6l0 12" /></svg>');
 }
+
+.planner-tree-row {
+    position: relative;
+}
+
+.planner-tree-row::before {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 0.15rem;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+    content: '';
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+
+.planner-tree-row:hover::before,
+.planner-tree-row:focus-within::before {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .planner-tree-row::before,
+    .planner-tree-row .transition-transform {
+        transition: none;
+    }
+}
