@@ -77,12 +77,21 @@ return [
      * cut-off dates.
      */
     'spell_history' => [
-        'enable'        => false,
-        'baseline_date' => null,
-        'source_path'   => storage_path('app/private/lucy-spelldata'),
-        'artifact_path' => storage_path('app/private/spell-history'),
-        'page_size'     => 25,
-        'max_page'      => 500,
+        'enable'             => false,
+        'baseline_date'      => null,
+        'source_path'        => storage_path('app/private/lucy-spelldata'),
+        'artifact_path'      => storage_path('app/private/spell-history'),
+        'release_repository' => 'fryguy503/modern-allaclone',
+        'release_checksums'  => [
+            'spell-history-data-v4-2025-12-03' => 'a9679f4896bdf65f7920c34c95e454a13c09867ef9a09e4c32c36a4fd621c1e9',
+        ],
+        'max_download_bytes' => 1_610_612_736,
+        'max_unpacked_bytes' => 1_610_612_736,
+        'max_files'          => 100_000,
+        'connect_timeout'    => 15,
+        'download_timeout'   => 1_800,
+        'page_size'          => 25,
+        'max_page'           => 500,
     ],
 
     'discovered_items' => [

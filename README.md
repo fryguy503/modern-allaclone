@@ -136,18 +136,50 @@ php artisan spell-history:build \
     --output=/path/to/artifacts
 ```
 
-Copy the compiled artifact directory when deploying to another server, then
-edit the `spell_history` section in `config/everquest.php` to enable the feature
-and select the server's spell-data cutoff:
+For a deployment that does not have the raw Lucy snapshots, install the
+published dataset directly from its pinned GitHub release. PHP's `zip`
+extension is required for package and install commands:
+
+```bash
+php artisan spell-history:install --release=spell-history-data-v4-2025-12-03
+```
+
+The command downloads the release descriptor and ZIP without loading either
+database, verifies GitHub's SHA-256 asset digests, the descriptor checksum, and
+the independently pinned release checksum in configuration, rejects unsafe
+archive paths and links, validates every artifact in a private
+staging directory, and only then atomically switches `CURRENT`. The previously
+active dataset remains available for rollback. For an offline deployment,
+download the ZIP and its checksum sidecar and run:
+
+```bash
+php artisan spell-history:install \
+    --file=/path/to/modern-allaclone-spell-history.zip \
+    --sha256=<64-character-sha256>
+```
+
+Installation does not enable the player-facing feature or change its cutoff.
+After a successful build or install, edit the `spell_history` section in
+`config/everquest.php` to enable the feature and select the server's spell-data
+cutoff:
 
 ```php
 'spell_history' => [
-    'enable'        => true,
-    'baseline_date' => '2006-01-01',
-    'source_path'   => storage_path('app/private/lucy-spelldata'),
-    'artifact_path' => storage_path('app/private/spell-history'),
-    'page_size'     => 25,
-    'max_page'      => 500,
+    'enable'             => true,
+    'baseline_date'      => '2006-01-01',
+    'source_path'        => storage_path('app/private/lucy-spelldata'),
+    'artifact_path'      => storage_path('app/private/spell-history'),
+    'release_repository' => 'fryguy503/modern-allaclone',
+    'release_checksums'  => [
+        'spell-history-data-v4-2025-12-03' => 'a9679f4896bdf65f7920c34c95e454a13c09867ef9a09e4c32c36a4fd621c1e9',
+    ],
+    'max_download_bytes' => 1_610_612_736,
+    'max_unpacked_bytes' => 1_610_612_736,
+    'max_files'          => 100_000,
+    'connect_timeout'    => 15,
+    'download_timeout'   => 1_800,
+    'page_size'          => 25,
+    'max_page'           => 500,
 ],
 ```
 
@@ -161,6 +193,20 @@ public document root. The build streams bounded records, stages a complete
 replacement, re-verifies every source checksum, then switches the `CURRENT`
 pointer under a lock. An identical rebuild validates and reuses the existing
 content-addressed dataset.
+
+To publish a refreshed dataset, run the maintainer command on the trusted host
+that holds the completed artifacts:
+
+```bash
+php artisan spell-history:package
+```
+
+It packages only the dataset selected by `CURRENT`, never inactive or partial
+siblings. The default output directory is
+`storage/app/private/spell-history/releases`, containing the ZIP, its
+`.sha256` sidecar, and `spell-history-package.json`. Upload those three files to
+one GitHub release. The packager validates every spell before writing the ZIP
+and re-reads every archived entry before producing its checksum.
 
 Completed datasets are retained for rollback and can be pruned explicitly. The
 prune command is a dry run unless `--apply` is supplied:
