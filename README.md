@@ -61,6 +61,22 @@ Then copy the /public/build/ folder to your production server.
 
 Always install this outside your publically accessible web directory. Symlink the /public folder to your public accessible web directory.
 
+### Optional tradeskill planner
+
+The recursive tradeskill planner can be disabled without changing application code:
+
+```env
+TRADESKILL_PLANNER_ENABLED=false
+```
+
+When disabled, planner links are hidden and planner routes return `404`. When enabled, plans are saved only in the visitor's browser. Share links keep their plan state in the URL fragment, so Modern Allaclone does not need user accounts or a server-side plans table.
+
+After changing the setting on a production installation, refresh Laravel's cached configuration:
+
+```bash
+php artisan optimize:clear
+```
+
 ## Screenshots
 
 ![global search](https://github.com/user-attachments/assets/928ad81d-bbd0-459e-90ab-c9a60879044a)

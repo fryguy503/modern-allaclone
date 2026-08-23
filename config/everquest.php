@@ -1,4 +1,5 @@
 <?php
+
 /*
 ** Some of these variables/arrays come from peqphpeditor and allaclone
 */
@@ -36,6 +37,27 @@ return [
             'activities'  => true,      // show task activities
             'rewards'     => true,      // show task rewards
         ],
+    ],
+
+    /**
+     * Recursive tradeskill planner
+     *
+     * Saved plans live in the visitor's browser. These limits bound both the
+     * server-built graph and the client-side state accepted by the UI.
+     */
+    'tradeskill_planner' => [
+        'enable'                   => env('TRADESKILL_PLANNER_ENABLED', true),
+        'max_quantity'             => 1_000,
+        'max_inventory_per_item'   => 1_000_000,
+        'max_saved_plans'          => 50,
+        'max_share_length'         => 8_000,
+        'max_total_quantity'       => 10_000_000,
+        'max_depth'                => 12,
+        'max_nodes'                => 500,
+        'max_alternatives_per_item' => 10,
+        'max_sources_per_type'     => 5,
+        'max_source_rows'          => 10_000,
+        'cache_ttl_minutes'        => 60,
     ],
 
     'discovered_items' => [

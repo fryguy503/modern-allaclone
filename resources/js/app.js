@@ -1,7 +1,11 @@
 import './bootstrap';
 import Alpine from 'alpinejs'
+import { savedTradeskillPlans, tradeskillPlanner } from './tradeskill-planner';
 
 const baseUrl = document.querySelector('base')?.getAttribute('href') || '/';
+
+Alpine.data('tradeskillPlanner', tradeskillPlanner);
+Alpine.data('savedTradeskillPlans', savedTradeskillPlans);
 
 Alpine.data('eqsearch', (initialQuery = '') => ({
     query: initialQuery,

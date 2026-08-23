@@ -45,8 +45,13 @@
                             </summary>
                             <ul class="pl-4">
                                 <li><a href="{{ route('recipes.index') }}"
-                                        class="{{ Route::is('recipes.*') ? 'bg-base-300' : '' }}"
+                                        class="{{ Route::is('recipes.index', 'recipes.show', 'recipes.plan') ? 'bg-base-300' : '' }}"
                                         title="Recipes">Recipes</a></li>
+                                @if (config('everquest.tradeskill_planner.enable', true))
+                                    <li><a href="{{ route('recipes.plans') }}"
+                                            class="{{ Route::is('recipes.plans') ? 'bg-base-300' : '' }}"
+                                            title="Saved Tradeskill Plans">Saved plans</a></li>
+                                @endif
                                 <li><a href="{{ route('tasks.index') }}"
                                         class="{{ Route::is('tasks.*') ? 'bg-base-300' : '' }}"
                                         title="Tasks">Tasks</a></li>
@@ -117,8 +122,13 @@
                 </label>
                 <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li><a href="{{ route('recipes.index') }}"
-                            class="{{ Route::is('recipes.*') ? 'active bg-base-200' : '' }}"
+                            class="{{ Route::is('recipes.index', 'recipes.show', 'recipes.plan') ? 'active bg-base-200' : '' }}"
                             title="Recipes">Recipes</a></li>
+                    @if (config('everquest.tradeskill_planner.enable', true))
+                        <li><a href="{{ route('recipes.plans') }}"
+                                class="{{ Route::is('recipes.plans') ? 'active bg-base-200' : '' }}"
+                                title="Saved Tradeskill Plans">Saved plans</a></li>
+                    @endif
                     @if (config('everquest.tasks.enable'))
                         <li><a href="{{ route('tasks.index') }}"
                                 class="{{ Route::is('tasks.*') ? 'active bg-base-200' : '' }}"
