@@ -112,36 +112,49 @@ Spell pages can optionally show a read-only history compiled from Lucy Live
 spelldata snapshots. Compilation is an offline deployment step: web requests
 never scan the raw CSV archive and do not query the EQEmu database for history.
 
-Build the immutable, content-addressed artifact outside the public web root:
+Place the Lucy snapshots in the standard private source directory,
+`storage/app/private/lucy-spelldata`, then build the immutable,
+content-addressed artifact:
+
+```bash
+php artisan spell-history:build
+```
+
+The compiled artifact is written to the standard private artifact directory,
+`storage/app/private/spell-history`. The command-line `--source` and `--output`
+options remain available for one-off builds using non-standard locations:
 
 ```bash
 php artisan spell-history:build \
-    --source=/path/to/lucy_spelldata_live_2002-2025
+    --source=/path/to/lucy_spelldata_live_2002-2025 \
+    --output=/path/to/artifacts
 ```
 
-Use `--output=/path/to/artifacts` when the default
-`storage/app/private/spell-history` location is not appropriate. Copy that
-artifact directory when deploying to another server, then configure and enable
-the feature:
+Copy the compiled artifact directory when deploying to another server, then
+edit the `spell_history` section in `config/everquest.php` to enable the feature
+and select the server's spell-data cutoff:
 
-```dotenv
-SPELL_HISTORY_ENABLED=true
-SPELL_HISTORY_BASELINE_DATE=2006-01-01
-SPELL_HISTORY_PAGE_SIZE=25
-# SPELL_HISTORY_SOURCE_PATH=/path/to/lucy_spelldata_live_2002-2025
-# SPELL_HISTORY_ARTIFACT_PATH=/path/to/artifacts
+```php
+'spell_history' => [
+    'enable'        => true,
+    'baseline_date' => '2006-01-01',
+    'source_path'   => storage_path('app/private/lucy-spelldata'),
+    'artifact_path' => storage_path('app/private/spell-history'),
+    'page_size'     => 25,
+    'max_page'      => 500,
+],
 ```
 
 After changing these values, refresh Laravel's cached configuration with
 `php artisan optimize:clear` (or the equivalent configuration-cache step in
 your normal deployment).
 
-`SPELL_HISTORY_SOURCE_PATH` lets the build command run without `--source`; it is
-never read by a web request. Keep both the Lucy source archive and generated
-artifacts outside the public document root. The build streams bounded records,
-stages a complete replacement, re-verifies every source checksum, then switches
-the `CURRENT` pointer under a lock. An identical rebuild validates and reuses
-the existing content-addressed dataset.
+The configured `source_path` is read only by the build command, never by a web
+request. Keep both the Lucy source archive and generated artifacts outside the
+public document root. The build streams bounded records, stages a complete
+replacement, re-verifies every source checksum, then switches the `CURRENT`
+pointer under a lock. An identical rebuild validates and reuses the existing
+content-addressed dataset.
 
 Completed datasets are retained for rollback and can be pruned explicitly. The
 prune command is a dry run unless `--apply` is supplied:
@@ -165,8 +178,8 @@ two rollback datasets retained, allow at least four dataset equivalents (about
 2.4 GiB and 296,000 file entries) so a replacement can be staged before the old
 copies are pruned, plus normal filesystem headroom.
 
-`SPELL_HISTORY_BASELINE_DATE` accepts `YYYY-MM-DD` (the end of that calendar
-day) or `YYYY-MM-DDTHH:MM:SS`. Snapshot timestamps are intentionally treated as
+`baseline_date` accepts `YYYY-MM-DD` (the end of that calendar day) or
+`YYYY-MM-DDTHH:MM:SS`. Snapshot timestamps are intentionally treated as
 timezone-naive Lucy capture times. The latest capture at or before the cutoff is
 resolved first. If the spell is present there, its most recent recorded revision
 represents the state at that cutoff and is highlighted; unchanged captures are
@@ -175,8 +188,8 @@ confirmed absent, or has uncertain availability at the resolved capture. This
 setting is independent of `current_expansion`; for example, a Dragons of Norrath
 server can use a 2006 spell-data cutoff.
 
-Keep `SPELL_HISTORY_ENABLED=false` until a successful build is deployed. A
-rebuild stages and validates a new dataset before atomically switching the
+Keep `spell_history.enable` set to `false` until a successful build is deployed.
+A rebuild stages and validates a new dataset before atomically switching the
 `CURRENT` pointer, so live requests continue reading the previous immutable
 dataset during compilation. Lucy captures indicate when a value was observed,
 not necessarily the exact time it changed on Live. The compiler reports net

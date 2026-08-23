@@ -77,11 +77,11 @@ return [
      * cut-off dates.
      */
     'spell_history' => [
-        'enable'        => filter_var(env('SPELL_HISTORY_ENABLED', false), FILTER_VALIDATE_BOOL),
-        'baseline_date' => env('SPELL_HISTORY_BASELINE_DATE'),
-        'source_path'   => env('SPELL_HISTORY_SOURCE_PATH'),
-        'artifact_path' => env('SPELL_HISTORY_ARTIFACT_PATH', storage_path('app/private/spell-history')),
-        'page_size'     => max(1, min(100, (int) env('SPELL_HISTORY_PAGE_SIZE', 25))),
+        'enable'        => false,
+        'baseline_date' => null,
+        'source_path'   => storage_path('app/private/lucy-spelldata'),
+        'artifact_path' => storage_path('app/private/spell-history'),
+        'page_size'     => 25,
         'max_page'      => 500,
     ],
 
