@@ -28,6 +28,9 @@
             'presence_status',
             $matchedCapture ? 'present' : 'no_snapshot',
         );
+        $historyView = in_array($historyView ?? 'cards', ['cards', 'table', 'lucy'], true)
+            ? $historyView
+            : 'cards';
         $displayValue = static function ($value): string {
             if ($value === null) {
                 return 'Not set';
@@ -41,15 +44,27 @@
 
             return (string) $value !== '' ? (string) $value : '(empty)';
         };
-        $historyPageUrl = static function (int $page) use ($spellSummary): string {
-            if ($page <= 1) {
-                return route('spells.history', ['spell' => $spellSummary['id']]);
+        $historyPageUrl = static function (int $page) use ($spellSummary, $historyView): string {
+            $parameters = ['spell' => $spellSummary['id']];
+            if ($historyView !== 'cards') {
+                $parameters['view'] = $historyView;
+            }
+            if ($page > 1) {
+                $parameters['page'] = $page;
             }
 
-            return route('spells.history', [
-                'spell' => $spellSummary['id'],
-                'page' => $page,
-            ]);
+            return route('spells.history', $parameters);
+        };
+        $historyViewUrl = static function (string $view) use ($spellSummary, $currentPage): string {
+            $parameters = ['spell' => $spellSummary['id']];
+            if ($view !== 'cards') {
+                $parameters['view'] = $view;
+            }
+            if ($currentPage > 1) {
+                $parameters['page'] = $currentPage;
+            }
+
+            return route('spells.history', $parameters);
         };
     @endphp
 
@@ -193,20 +208,42 @@
     </div>
 
     <section class="mt-6" aria-labelledby="spell-history-timeline-heading">
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
                 <h2 id="spell-history-timeline-heading" class="text-xl font-bold text-sky-400">Captured revisions</h2>
                 <p class="text-sm text-base-content/55">Newest captures are shown first. Unchanged source captures are omitted.</p>
             </div>
-            <span class="text-sm tabular-nums text-base-content/55">Page {{ $currentPage }}</span>
+            <div class="flex flex-wrap items-center gap-3">
+                <nav class="join" aria-label="History display view">
+                    @foreach ([
+                        'cards' => ['label' => 'Cards', 'title' => 'Collapsible revision cards'],
+                        'table' => ['label' => 'Diff table', 'title' => 'Structured before-and-after comparison'],
+                        'lucy' => ['label' => 'Lucy list', 'title' => 'Compact date and change listing'],
+                    ] as $viewKey => $viewOption)
+                        <a href="{{ $historyViewUrl($viewKey) }}"
+                            class="join-item btn btn-sm {{ $historyView === $viewKey ? 'btn-active btn-accent' : 'btn-soft' }}"
+                            title="{{ $viewOption['title'] }}"
+                            data-history-view-option="{{ $viewKey }}"
+                            @if ($historyView === $viewKey) aria-current="page" @endif>
+                            {{ $viewOption['label'] }}
+                        </a>
+                    @endforeach
+                </nav>
+                <span class="text-sm tabular-nums text-base-content/55">Page {{ $currentPage }}</span>
+            </div>
         </div>
 
         @if ($revisions->isEmpty())
             <div role="status" class="alert alert-info alert-soft mt-4">
                 <span>No recorded field changes were found for this spell.</span>
             </div>
+        @elseif ($historyView === 'table')
+            @include('spells.partials.history-views.diff-table')
+        @elseif ($historyView === 'lucy')
+            @include('spells.partials.history-views.lucy-list')
         @else
-            <ol class="mt-4 space-y-4 border-l border-base-content/10 pl-4 md:ml-3 md:pl-6">
+            <ol class="mt-4 space-y-4 border-l border-base-content/10 pl-4 md:ml-3 md:pl-6"
+                data-history-view="cards">
                 @foreach ($revisions as $revision)
                     @php
                         $changes = collect(data_get($revision, 'changes', []));

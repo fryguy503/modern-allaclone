@@ -89,6 +89,50 @@ class SpellHistoryTest extends TestCase
         $response->assertHeaderMissing('Set-Cookie');
     }
 
+    public function test_history_offers_cards_diff_table_and_lucy_list_views(): void
+    {
+        config()->set('everquest.spell_history.baseline_date', '2024-04-09');
+
+        $cards = $this->get('/spells/3467/history');
+        $cards->assertOk()
+            ->assertSee('data-history-view-option="cards"', false)
+            ->assertSee('data-history-view-option="table"', false)
+            ->assertSee('data-history-view-option="lucy"', false)
+            ->assertSee('data-history-view="cards"', false)
+            ->assertDontSee('data-history-view="table"', false)
+            ->assertDontSee('data-history-view="lucy"', false);
+
+        $table = $this->get('/spells/3467/history?view=table');
+        $table->assertOk()
+            ->assertSee('data-history-view="table"', false)
+            ->assertDontSee('data-history-view="cards"', false)
+            ->assertDontSee('data-history-view="lucy"', false)
+            ->assertSeeText('Captured')
+            ->assertSeeText('Field')
+            ->assertSeeText('Before')
+            ->assertSeeText('After')
+            ->assertSeeText('Category')
+            ->assertSeeText('Technical')
+            ->assertSeeText('First observed')
+            ->assertSeeText('State at spell-data cutoff');
+
+        $lucy = $this->get('/spells/3467/history?view=lucy');
+        $lucy->assertOk()
+            ->assertSee('data-history-view="lucy"', false)
+            ->assertDontSee('data-history-view="cards"', false)
+            ->assertDontSee('data-history-view="table"', false)
+            ->assertSeeText('Date')
+            ->assertSeeText('Change')
+            ->assertSeeText('Changed')
+            ->assertSeeText('Cast on you message')
+            ->assertSeeText('First observed')
+            ->assertSeeText('State at spell-data cutoff');
+
+        $this->assertNotSame($cards->headers->get('ETag'), $table->headers->get('ETag'));
+        $this->assertNotSame($cards->headers->get('ETag'), $lucy->headers->get('ETag'));
+        $this->assertNotSame($table->headers->get('ETag'), $lucy->headers->get('ETag'));
+    }
+
     public function test_history_route_executes_no_database_queries(): void
     {
         $queryCount = 0;
@@ -96,7 +140,13 @@ class SpellHistoryTest extends TestCase
             $queryCount++;
         });
 
-        $this->get('/spells/3467/history')->assertOk();
+        foreach ([
+            '/spells/3467/history',
+            '/spells/3467/history?view=table',
+            '/spells/3467/history?view=lucy',
+        ] as $url) {
+            $this->get($url)->assertOk();
+        }
 
         $this->assertSame(0, $queryCount);
     }
@@ -105,11 +155,16 @@ class SpellHistoryTest extends TestCase
     {
         $this->writeArtifactFixture('<script>alert("history")</script>');
 
-        $response = $this->get('/spells/3467/history');
-
-        $response->assertOk()
-            ->assertSee('&lt;script&gt;alert(&quot;history&quot;)&lt;/script&gt;', false)
-            ->assertDontSee('<script>alert("history")</script>', false);
+        foreach ([
+            '/spells/3467/history',
+            '/spells/3467/history?view=table',
+            '/spells/3467/history?view=lucy',
+        ] as $url) {
+            $this->get($url)
+                ->assertOk()
+                ->assertSee('&lt;script&gt;alert(&quot;history&quot;)&lt;/script&gt;', false)
+                ->assertDontSee('<script>alert("history")</script>', false);
+        }
     }
 
     public function test_history_pagination_is_bounded(): void
@@ -130,6 +185,9 @@ class SpellHistoryTest extends TestCase
         config()->set('everquest.spell_history.page_size', 1);
 
         $this->get('/spells/3467/history?page=2')->assertOk();
+        $this->get('/spells/3467/history?view=table')->assertOk();
+        $this->get('/spells/3467/history?view=lucy')->assertOk();
+        $this->get('/spells/3467/history?view=table&page=2')->assertOk();
 
         foreach ([
             'page=2junk',
@@ -140,6 +198,15 @@ class SpellHistoryTest extends TestCase
             'page=2&tracking=1',
             'tracking=1',
             'page=2&page=2',
+            'view=cards',
+            'view=unknown',
+            'view=%74able',
+            'view[]=table',
+            'view=table&view=lucy',
+            'page=2&view=table',
+            'view=table&page=02',
+            'view=table&page=2&tracking=1',
+            'view=table&page=2&page=2',
         ] as $queryString) {
             $this->get('/spells/3467/history?'.$queryString)->assertNotFound();
         }
@@ -154,13 +221,38 @@ class SpellHistoryTest extends TestCase
         $secondPageUrl = route('spells.history', ['spell' => 3467, 'page' => 2]);
         $firstPage->assertOk();
         $this->assertMatchesRegularExpression(
-            '/href="'.preg_quote($secondPageUrl, '/').'"\s+rel="next"[^>]*>Older captures<\/a>/',
+            '/href="'.preg_quote(e($secondPageUrl), '/').'"\s+rel="next"[^>]*>Older captures<\/a>/',
             $firstPage->getContent(),
         );
 
         $secondPage = $this->get('/spells/3467/history?page=2');
         $firstPageUrl = route('spells.history', ['spell' => 3467]);
         $secondPage->assertOk()->assertDontSee('?page=1', false);
+        $this->assertMatchesRegularExpression(
+            '/href="'.preg_quote($firstPageUrl, '/').'"\s+rel="prev"[^>]*>Newer captures<\/a>/',
+            $secondPage->getContent(),
+        );
+    }
+
+    public function test_history_pagination_preserves_an_alternate_display_view(): void
+    {
+        config()->set('everquest.spell_history.page_size', 1);
+
+        $firstPage = $this->get('/spells/3467/history?view=table');
+        $secondPageUrl = route('spells.history', [
+            'spell' => 3467,
+            'view' => 'table',
+            'page' => 2,
+        ]);
+        $firstPage->assertOk();
+        $this->assertMatchesRegularExpression(
+            '/href="'.preg_quote(e($secondPageUrl), '/').'"\s+rel="next"[^>]*>Older captures<\/a>/',
+            $firstPage->getContent(),
+        );
+
+        $secondPage = $this->get('/spells/3467/history?view=table&page=2');
+        $firstPageUrl = route('spells.history', ['spell' => 3467, 'view' => 'table']);
+        $secondPage->assertOk()->assertDontSee('view=table&page=1', false);
         $this->assertMatchesRegularExpression(
             '/href="'.preg_quote($firstPageUrl, '/').'"\s+rel="prev"[^>]*>Newer captures<\/a>/',
             $secondPage->getContent(),

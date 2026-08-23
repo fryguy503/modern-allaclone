@@ -30,7 +30,7 @@ class SpellHistoryController extends Controller
     ): Response {
         abort_unless($spell > 0, 404);
 
-        $page = $this->canonicalPage($request);
+        [$page, $historyView] = $this->canonicalHistoryQuery($request);
         $maximumPage = max(1, min(
             (int) config('everquest.spell_history.max_page', 500),
             self::SAFE_MAXIMUM_PAGE,
@@ -92,6 +92,7 @@ class SpellHistoryController extends Controller
                 'expansion_name' => $expansionName,
             ],
             'maximumPage' => $maximumPage,
+            'historyView' => $historyView,
             'metaTitle' => config('app.name').' - Spell History: '.($spellName !== '' ? $spellName : $spell),
         ];
 
@@ -343,7 +344,8 @@ class SpellHistoryController extends Controller
         return trim($effectName)." ({$effectId})";
     }
 
-    private function canonicalPage(Request $request): int
+    /** @return array{0: int, 1: 'cards'|'table'|'lucy'} */
+    private function canonicalHistoryQuery(Request $request): array
     {
         $queryString = $request->server('QUERY_STRING', '');
         abort_unless(is_string($queryString), 404);
@@ -351,18 +353,29 @@ class SpellHistoryController extends Controller
         if ($queryString === '') {
             abort_unless($request->query() === [], 404);
 
-            return 1;
+            return [1, 'cards'];
         }
 
-        abort_unless(
-            preg_match('/^page=([1-9][0-9]*)$/D', $queryString, $matches) === 1
-                && $request->query() === ['page' => $matches[1]],
-            404,
-        );
+        if (preg_match('/^page=([1-9][0-9]*)$/D', $queryString, $matches) === 1) {
+            $pageValue = $matches[1];
+            $view = 'cards';
+            $expectedQuery = ['page' => $pageValue];
+        } elseif (preg_match('/^view=(table|lucy)(?:&page=([1-9][0-9]*))?$/D', $queryString, $matches) === 1) {
+            $view = $matches[1];
+            $pageValue = $matches[2] ?? '1';
+            $expectedQuery = ['view' => $view];
+            if (isset($matches[2])) {
+                $expectedQuery['page'] = $pageValue;
+            }
+        } else {
+            abort(404);
+        }
 
-        $page = (int) $matches[1];
-        abort_unless((string) $page === $matches[1], 404);
+        abort_unless($request->query() === $expectedQuery, 404);
 
-        return $page;
+        $page = (int) $pageValue;
+        abort_unless((string) $page === $pageValue, 404);
+
+        return [$page, $view];
     }
 }
