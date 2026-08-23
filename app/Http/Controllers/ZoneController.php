@@ -66,8 +66,8 @@ class ZoneController extends Controller
         if (config('everquest.discovered_items.enable')) {
             $itemIds = collect()
                 ->merge(collect($zoneCache['drops'])->pluck('item.id'))
-                ->merge(collect($zoneCache['foraged'])->pluck('item.id'))
-                ->merge(collect($zoneCache['fished'])->pluck('item.id'))
+                ->merge(collect($zoneCache['foraged'])->pluck('id'))
+                ->merge(collect($zoneCache['fished'])->pluck('id'))
                 ->unique()
                 ->values();
 
