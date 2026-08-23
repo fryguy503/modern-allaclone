@@ -188,11 +188,24 @@ node scripts/lucy-item-history-crawler.mjs init \
 
 Initialization is local-only and makes no request. By default, the crawl uses
 one worker, a 30-second start-to-start interval plus 0-5 seconds of jitter, and
-a 2,000-request UTC daily cap. The non-loopback hard floor is 20 seconds. These
+a 2,000-request UTC daily cap. The authorized Lucy target can be configured as
+low as a 2-second interval and as high as a 100,000-request daily cap, but those
+are validation ceilings rather than recommended starting values. These
 limits are persisted before each request, so restarting the process cannot
 accidentally burst or reset the daily budget. `Retry-After` is honored and
 transient network, 429, and server failures back off durably rather than moving
-rapidly to another item.
+rapidly to another item. A 429 waits at least one hour, and a repeated 429
+pauses the crawler for operator review.
+
+The default `direct-detail` capture strategy archives every historical detail
+page. For a substantially lower-request structured history, initialize with
+`--capture-strategy=reversible-delta`. That mode captures the item history page
+and exactly one current raw anchor (preferring Live), verifies every field
+transition as a reversible source-isolated chain, and publishes a version 2
+artifact with explicit captured-versus-reconstructed provenance. It never
+silently falls back to per-entry requests: an ambiguous or conflicting delta
+causes a safety pause. Historical details captured by an earlier direct run are
+retained as partial direct evidence.
 
 If Lucy presents its cookie bootstrap page, the crawler follows it only when it
 adds exactly `setcookie=1` to the same-origin page URL. That handshake consumes
@@ -226,10 +239,10 @@ run the `start` command from the host's normal service manager or task scheduler
 After a completed backfill, `sweep` prepares another generation without making
 a request. Its next `start` refreshes the item list, rechecks every item's
 history page at the same durable rate, fetches only newly discovered immutable
-entry IDs, refreshes current raw source records, and atomically republishes
-changed item JSON. This captures items and revisions added during a long prior
-pass without redownloading every historical detail. Previously observed entry
-IDs are retained monotonically if a later Lucy history page omits them; a
+entry IDs in `direct-detail` mode, refreshes the configured raw anchor records,
+and atomically republishes changed item JSON. This captures items and revisions
+added during a long prior pass without redownloading every historical detail.
+Previously observed entry IDs are retained monotonically if a later Lucy history page omits them; a
 conflicting reuse of an entry ID pauses publication for operator review.
 Schedule `sweep` followed by `start` at the cadence covered by the authorization;
 do not overlap sweeps.
@@ -260,12 +273,14 @@ fail safely without publishing it. Non-loopback runs are pinned to exactly
 
 An already downloaded Lucy item list can be supplied with `--item-list-file`
 to avoid the one seed download. History pages discover the Live/Test revision
-entry IDs; each historical entry page is captured in sequence, followed by the
-current raw record for every represented source. Lucy does not expose a raw
-record for an old `entryid`, so historical JSON retains the rendered snapshot
-and the Lucy change descriptions, while exact raw fields are available only for
-the current source records. Observation timestamps must not be presented as
-exact patch times.
+entry IDs. In `direct-detail` mode, each historical entry page is captured in
+sequence, followed by the current raw record for every represented source. In
+`reversible-delta` mode, no historical entry page is requested and only the
+preferred current raw source is captured; the JSON retains Lucy's change rows,
+verified reconstruction metadata, and any direct details already present in
+the checkpoint. Lucy does not expose a raw record for an old `entryid`, so a
+reconstructed state must not be described as a byte-for-byte historical Lucy
+page. Observation timestamps must not be presented as exact patch times.
 
 After artifacts exist, enable the site reader and clear Laravel's cached
 configuration:

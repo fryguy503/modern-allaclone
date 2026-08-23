@@ -15,6 +15,8 @@
         $hasMore = (bool) data_get($pagination, 'has_more', false);
         $revisionCount = (int) data_get($archive, 'revision_count', 0);
         $archiveComplete = (bool) data_get($archive, 'complete', false);
+        $isReconstructed = (bool) data_get($archive, 'is_reconstructed', false);
+        $directDetailCount = (int) data_get($archive, 'coverage.direct_detail_count', 0);
         $sources = collect(data_get($archive, 'sources', []));
         $gaps = collect(data_get($archive, 'gaps', []));
         $firstObserved = data_get($archive, 'first_observed_label');
@@ -61,8 +63,15 @@
                 {{ $itemSummary['name'] }} revisions
             </h2>
             <p class="max-w-3xl text-sm text-base-content/65">
-                Details shows this server's current EQEmu item. This timeline shows item states and changes captured
-                from Lucy, which can differ from custom server data.
+                Details shows this server's current EQEmu item.
+                @if ($isReconstructed)
+                    This timeline preserves Lucy's recorded changes and reconstructs historical field state from one
+                    captured current raw export. It can differ from custom server data and is not a collection of
+                    directly captured Lucy detail pages.
+                @else
+                    This timeline shows item states and changes captured from Lucy, which can differ from custom
+                    server data.
+                @endif
             </p>
 
             <div class="mt-2 flex flex-wrap gap-2 text-xs">
@@ -72,6 +81,14 @@
                 @foreach ($sources as $source)
                     <span class="badge badge-soft">{{ $source }}</span>
                 @endforeach
+                @if ($isReconstructed)
+                    <span class="badge badge-soft badge-warning">Reconstructed field history</span>
+                    @if ($directDetailCount > 0)
+                        <span class="badge badge-outline">
+                            {{ number_format($directDetailCount) }} directly captured {{ \Illuminate\Support\Str::plural('detail', $directDetailCount) }}
+                        </span>
+                    @endif
+                @endif
                 @if ($firstObserved && $lastObserved)
                     <span class="badge badge-outline">{{ $firstObserved }} &ndash; {{ $lastObserved }}</span>
                 @endif
@@ -79,7 +96,12 @@
 
             <p class="mt-1 text-xs text-base-content/55">
                 Lucy timestamps identify when a revision was recorded, not necessarily the exact patch time.
-                Historical detail is limited to fields Lucy rendered for that revision.
+                @if ($isReconstructed)
+                    Reconstructed history is limited to reversible fields Lucy listed as changes; unchanged fields
+                    inherit the captured current raw export and Test history may be an unanchored verified chain.
+                @else
+                    Historical detail is limited to fields Lucy rendered for that revision.
+                @endif
                 @if ($generated)
                     Artifact generated {{ $generated }}.
                 @endif
@@ -90,9 +112,11 @@
     @if (!$archiveComplete || $gaps->isNotEmpty())
         <div role="status" class="alert alert-warning alert-soft mt-4">
             <span>
-                This item's archive is incomplete@if ($gaps->isNotEmpty()) and reports
-                {{ number_format($gaps->count()) }} known coverage
-                {{ \Illuminate\Support\Str::plural('gap', $gaps->count()) }}@endif.
+                This item's archive is incomplete.
+                @if ($gaps->isNotEmpty())
+                    It reports {{ number_format($gaps->count()) }} known coverage
+                    {{ \Illuminate\Support\Str::plural('gap', $gaps->count()) }}.
+                @endif
                 Missing source pages are not inferred as unchanged item data.
             </span>
         </div>
@@ -101,7 +125,9 @@
     <section class="mt-6" aria-labelledby="item-history-timeline-heading">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-                <h2 id="item-history-timeline-heading" class="text-xl font-bold text-sky-400">Captured revisions</h2>
+                <h2 id="item-history-timeline-heading" class="text-xl font-bold text-sky-400">
+                    {{ $isReconstructed ? 'Recorded revisions' : 'Captured revisions' }}
+                </h2>
                 <p class="text-sm text-base-content/55">Newest recorded revisions are shown first.</p>
             </div>
             <div class="flex flex-wrap items-center gap-3">
@@ -188,6 +214,7 @@
                     @php
                         $changes = collect(data_get($revision, 'changes', []));
                         $snapshotLines = collect(data_get($revision, 'snapshot_lines', []));
+                        $detailFidelity = (string) data_get($revision, 'detail_fidelity', 'captured');
                         $revisionType = (string) data_get($revision, 'type', 'changed');
                         $capturedLabel = data_get($revision, 'observed_label') ?: 'Unknown observation time';
                     @endphp
@@ -255,7 +282,8 @@
                                 @if ($snapshotLines->isNotEmpty())
                                     <details class="collapse collapse-arrow border border-base-content/10 bg-base-200/40">
                                         <summary class="collapse-title py-3 text-sm font-medium">
-                                            Captured item snapshot ({{ number_format($snapshotLines->count()) }} lines)
+                                            {{ $isReconstructed ? 'Directly captured Lucy detail snapshot' : 'Captured item snapshot' }}
+                                            ({{ number_format($snapshotLines->count()) }} lines)
                                         </summary>
                                         <div class="collapse-content">
                                             <ul class="space-y-1 font-mono text-xs">
@@ -265,6 +293,11 @@
                                             </ul>
                                         </div>
                                     </details>
+                                @elseif ($isReconstructed && $detailFidelity === 'reconstructed')
+                                    <p class="rounded-box border border-warning/20 bg-warning/5 p-4 text-sm text-base-content/65">
+                                        No Lucy-rendered detail snapshot was fetched for this revision. Its field history
+                                        is reconstructed from the captured history rows and current raw export.
+                                    </p>
                                 @endif
                             </div>
                         </details>

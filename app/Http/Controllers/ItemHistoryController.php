@@ -41,6 +41,11 @@ class ItemHistoryController extends Controller
                 ...$revision,
                 'observed_label' => $this->timestampLabel($observedAt),
                 'snapshot_lines' => data_get($revision, 'detail.snapshot_lines', []),
+                'detail_fidelity' => data_get(
+                    $revision,
+                    'detail_fidelity',
+                    is_array(data_get($revision, 'detail')) ? 'captured' : 'reconstructed',
+                ),
             ];
         }, data_get($result, 'revisions', []));
 

@@ -40,6 +40,8 @@ import {
 } from './lib/lucy-crawl-state.mjs';
 import {
     LucyParseError,
+    REVERSIBLE_DELTA_CAPTURE_STRATEGY,
+    analyzeReversibleItemHistory,
     buildItemHistoryArtifact,
     canonicalJson,
     decodeLucyHtml,
@@ -60,12 +62,21 @@ const PROGRESS_SCHEMA = 'modern-allaclone.lucy-item-crawl-progress';
 const ITEM_WORK_SCHEMA = 'modern-allaclone.lucy-item-crawl-item-work';
 const ERROR_SCHEMA = 'modern-allaclone.lucy-item-crawl-error';
 const VERSION = 1;
-const CRAWLER_VERSION = '1.0.1';
+const CRAWLER_VERSION = '1.1.0';
 const DEFAULT_BASE_URL = 'https://lucy.allakhazam.com/';
 const DEFAULT_MIN_INTERVAL_MS = 30_000;
-const ABSOLUTE_MIN_INTERVAL_MS = 20_000;
+const ABSOLUTE_MIN_INTERVAL_MS = 2_000;
 const DEFAULT_JITTER_MS = 5_000;
 const DEFAULT_DAILY_CAP = 2_000;
+const MAX_DAILY_CAP = 100_000;
+const DEFAULT_CAPTURE_STRATEGY = 'direct-detail';
+const REVERSIBLE_DELTA_CONFIG_STRATEGY = 'reversible-delta';
+const CAPTURE_STRATEGIES = new Set([
+    DEFAULT_CAPTURE_STRATEGY,
+    REVERSIBLE_DELTA_CONFIG_STRATEGY,
+]);
+const RATE_LIMIT_MINIMUM_BACKOFF_MS = 60 * 60 * 1_000;
+const MAXIMUM_RETRY_BACKOFF_MS = 6 * 60 * 60 * 1_000;
 const DEFAULT_REQUEST_TIMEOUT_MS = 30_000;
 const DEFAULT_MAX_HTML_BYTES = 8 * 1024 * 1024;
 const DEFAULT_MAX_ITEM_LIST_BYTES = 32 * 1024 * 1024;
@@ -150,7 +161,8 @@ init options:
   --artifact-root=<path>         Site artifact root (default: storage/app/private/item-history)
   --base-url=<url>               Lucy origin; HTTPS is required except for loopback testing
   --item-list-file=<path>        Use an already-downloaded item list (zero seed request)
-  --min-interval-ms=<n>          Start-to-start delay (default 30000; hard floor 20000)
+  --capture-strategy=<strategy>  direct-detail (default) or reversible-delta
+  --min-interval-ms=<n>          Start-to-start delay (default 30000; hard floor 2000)
   --jitter-ms=<n>                Additive random delay (default 5000)
   --daily-cap=<n>                UTC request cap (default 2000)
 
@@ -385,12 +397,45 @@ export function assertAcceptableLucyHtml(bytes, contentType = '') {
     return html;
 }
 
+export function calculateCrawlerRetryBackoff({
+    statusCode = null,
+    attempt,
+    retryAfter = null,
+    jitterMs = DEFAULT_JITTER_MS,
+    nowMs = Date.now(),
+    random = Math.random,
+} = {}) {
+    const rateLimited = statusCode === 429;
+
+    return calculateBackoff({
+        attempt,
+        baseMs: rateLimited ? RATE_LIMIT_MINIMUM_BACKOFF_MS : 60_000,
+        maxMs: MAXIMUM_RETRY_BACKOFF_MS,
+        jitterMs,
+        retryAfter,
+        nowMs,
+        random,
+    });
+}
+
 function validateShortText(value, label, maximum = 512) {
     const normalized = String(value ?? '').trim();
     if (normalized.length < 3 || normalized.length > maximum || /[\r\n]/.test(normalized)) {
         throw new CrawlerError(`${label} must contain 3-${maximum} characters on one line.`, {
             code: 'invalid_option',
         });
+    }
+
+    return normalized;
+}
+
+function validateCaptureStrategy(value) {
+    const normalized = String(value ?? DEFAULT_CAPTURE_STRATEGY).trim().toLowerCase();
+    if (!CAPTURE_STRATEGIES.has(normalized)) {
+        throw new CrawlerError(
+            `capture-strategy must be one of: ${[...CAPTURE_STRATEGIES].join(', ')}.`,
+            { code: 'invalid_option' },
+        );
     }
 
     return normalized;
@@ -413,6 +458,9 @@ async function buildConfig(root, args) {
         ?? DEFAULT_ARTIFACT_ROOT,
     ));
     const baseUrl = validateBaseUrl(args['base-url'] ?? DEFAULT_BASE_URL);
+    const captureStrategy = validateCaptureStrategy(
+        args['capture-strategy'] ?? process.env.LUCY_ITEM_CRAWL_CAPTURE_STRATEGY,
+    );
     const minIntervalMs = parseInteger(
         args['min-interval-ms'] ?? DEFAULT_MIN_INTERVAL_MS,
         'min-interval-ms',
@@ -426,7 +474,7 @@ async function buildConfig(root, args) {
     const dailyCap = parseInteger(
         args['daily-cap'] ?? DEFAULT_DAILY_CAP,
         'daily-cap',
-        { minimum: 1, maximum: 10_000 },
+        { minimum: 1, maximum: MAX_DAILY_CAP },
     );
     const itemListFile = args['item-list-file'] === undefined
         ? null
@@ -446,6 +494,7 @@ async function buildConfig(root, args) {
         item_list_file: itemListFile,
         contact,
         authorization_reference: authorizationReference,
+        capture_strategy: captureStrategy,
         min_interval_ms: minIntervalMs,
         jitter_ms: jitterMs,
         daily_cap: dailyCap,
@@ -474,6 +523,9 @@ async function validateConfig(config, root) {
         512,
     );
     config.base_url = validateBaseUrl(config.base_url);
+    config.capture_strategy = validateCaptureStrategy(
+        config.capture_strategy ?? DEFAULT_CAPTURE_STRATEGY,
+    );
     config.artifact_root = resolve(config.artifact_root);
     config.min_interval_ms = parseInteger(config.min_interval_ms, 'configured min_interval_ms', {
         minimum: isLoopbackUrl(config.base_url) ? 0 : ABSOLUTE_MIN_INTERVAL_MS,
@@ -485,7 +537,7 @@ async function validateConfig(config, root) {
     });
     config.daily_cap = parseInteger(config.daily_cap, 'configured daily_cap', {
         minimum: 1,
-        maximum: 10_000,
+        maximum: MAX_DAILY_CAP,
     });
     const paths = await assertPrivatePaths(root, config.artifact_root);
     config.workspace = paths.workspace;
@@ -583,6 +635,7 @@ async function initializeCommand(root, args) {
         artifactRoot: config.artifact_root,
         policy: {
             concurrency: 1,
+            captureStrategy: config.capture_strategy,
             minIntervalMs: config.min_interval_ms,
             jitterMs: config.jitter_ms,
             dailyCap: config.daily_cap,
@@ -591,7 +644,7 @@ async function initializeCommand(root, args) {
 
     console.log(`Initialized private crawl workspace: ${config.workspace}`);
     console.log(`Item JSON artifact root: ${config.artifact_root}`);
-    console.log(`Policy: 1 worker, ${config.min_interval_ms}ms minimum + 0-${config.jitter_ms}ms jitter, ${config.daily_cap}/UTC day cap.`);
+    console.log(`Policy: ${config.capture_strategy}, 1 worker, ${config.min_interval_ms}ms minimum + 0-${config.jitter_ms}ms jitter, ${config.daily_cap}/UTC day cap.`);
     console.log('No network request was made. Use the start command when ready.');
 }
 
@@ -699,6 +752,7 @@ async function statusCommand(root, args) {
         metrics: status.metrics ?? null,
         last_request: status.lastRequest ?? null,
         last_error: status.lastError ?? null,
+        capture_strategy: config?.capture_strategy ?? null,
         artifact_root: config?.artifact_root ?? null,
         log: logPath(root),
     };
@@ -709,6 +763,9 @@ async function statusCommand(root, args) {
     }
 
     console.log(`State: ${report.state}${report.phase ? ` (${report.phase})` : ''}`);
+    if (report.capture_strategy !== null) {
+        console.log(`Capture strategy: ${report.capture_strategy}`);
+    }
     console.log(`Control: ${report.control}${report.control_reason ? ` — ${report.control_reason}` : ''}`);
     if (report.process !== null) {
         console.log(`Process: PID ${report.process.pid}, alive=${report.process.alive_on_this_host}, heartbeat=${report.process.heartbeat_at}`);
@@ -1142,6 +1199,7 @@ class AuthorizedLucyCrawler {
         this.queue = null;
         this.cookies = new Map();
         this.cookieExpirations = new Map();
+        this.consecutiveRateLimits = 0;
     }
 
     async run() {
@@ -1168,19 +1226,42 @@ class AuthorizedLucyCrawler {
                 artifactRoot: this.config.artifact_root,
                 policy: {
                     concurrency: 1,
+                    captureStrategy: this.config.capture_strategy,
                     minIntervalMs: this.config.min_interval_ms,
                     jitterMs: this.config.jitter_ms,
                     dailyCap: this.config.daily_cap,
                 },
                 lastError: null,
             });
-            await appendLog(this.root, 'info', 'Crawler run started.', { run_id: this.runId });
+            await appendLog(this.root, 'info', 'Crawler run started.', {
+                run_id: this.runId,
+                capture_strategy: this.config.capture_strategy,
+            });
             this.queue = await this.ensureQueue();
             await this.processQueues();
         } catch (error) {
             if (error instanceof StopRequested) {
                 await this.workspace.updateStatus({ state: 'stopped', phase: 'stopped' });
                 await appendLog(this.root, 'info', error.message, { run_id: this.runId });
+                return;
+            }
+            if (error instanceof PauseRequested || error instanceof LucyParseError) {
+                const reason = error instanceof LucyParseError
+                    ? `Lucy parser safety pause: ${error.code}`
+                    : error.message;
+                await this.workspace.setControl('pause', {
+                    reason,
+                    requestedBy: 'crawler safety circuit',
+                });
+                await this.workspace.updateStatus({
+                    state: 'paused',
+                    phase: 'safety-pause',
+                    lastError: serializeError(error),
+                });
+                await appendLog(this.root, 'error', reason, {
+                    run_id: this.runId,
+                    error: serializeError(error),
+                });
                 return;
             }
             await this.workspace.updateStatus({
@@ -1448,38 +1529,51 @@ class AuthorizedLucyCrawler {
             await writeItemWork(this.root, work);
         }
 
-        for (const revision of work.history.revisions) {
-            const key = String(revision.entry_id);
-            const detailUrl = this.pageUrl('item.html', { entryid: revision.entry_id });
-            if (work.details[key] !== undefined && work.details[key].source !== revision.source) {
-                delete work.details[key];
-                delete work.detail_captures[key];
-                await writeItemWork(this.root, work);
-            }
-            if (work.detail_captures[key] === undefined) {
-                const response = await this.fetchCapture(detailUrl, { kind: 'detail' });
-                work.detail_captures[key] = response.capture;
-                await writeItemWork(this.root, work);
-            }
-            if (work.details[key] === undefined) {
-                const html = await this.readCaptureText(work.detail_captures[key]);
-                work.details[key] = await this.parseCapturedPage(work, {
-                    stage: 'detail',
-                    key,
-                    capture: work.detail_captures[key],
-                }, () => parseItemDetailPage(html, {
-                        itemId: item.id,
-                        entryId: revision.entry_id,
-                        source: revision.source,
-                        url: this.parserPageUrl(detailUrl),
-                        historyObservedAt: revision.observed_at,
-                        captureSha256: work.detail_captures[key].sha256,
-                    }));
-                await writeItemWork(this.root, work);
+        const reversibleDelta = this.config.capture_strategy === REVERSIBLE_DELTA_CONFIG_STRATEGY;
+        if (!reversibleDelta) {
+            for (const revision of work.history.revisions) {
+                const key = String(revision.entry_id);
+                const detailUrl = this.pageUrl('item.html', { entryid: revision.entry_id });
+                if (work.details[key] !== undefined && work.details[key].source !== revision.source) {
+                    delete work.details[key];
+                    delete work.detail_captures[key];
+                    await writeItemWork(this.root, work);
+                }
+                if (work.detail_captures[key] === undefined) {
+                    const response = await this.fetchCapture(detailUrl, { kind: 'detail' });
+                    work.detail_captures[key] = response.capture;
+                    await writeItemWork(this.root, work);
+                }
+                if (work.details[key] === undefined) {
+                    const html = await this.readCaptureText(work.detail_captures[key]);
+                    work.details[key] = await this.parseCapturedPage(work, {
+                        stage: 'detail',
+                        key,
+                        capture: work.detail_captures[key],
+                    }, () => parseItemDetailPage(html, {
+                            itemId: item.id,
+                            entryId: revision.entry_id,
+                            source: revision.source,
+                            url: this.parserPageUrl(detailUrl),
+                            historyObservedAt: revision.observed_at,
+                            captureSha256: work.detail_captures[key].sha256,
+                        }));
+                    await writeItemWork(this.root, work);
+                }
             }
         }
 
-        for (const source of work.history.sources) {
+        const anchorSource = reversibleDelta
+            ? (work.history.sources.includes('Live') ? 'Live' : work.history.sources[0])
+            : null;
+        if (reversibleDelta && anchorSource === undefined) {
+            throw new LucyParseError(
+                'reconstruction_anchor_source',
+                `Item ${item.id} has no Lucy source available for reversible reconstruction.`,
+            );
+        }
+        const rawSources = reversibleDelta ? [anchorSource] : work.history.sources;
+        for (const source of rawSources) {
             const rawUrl = this.pageUrl('itemraw.html', { id: item.id, source });
             if (work.raw_captures[source] === undefined) {
                 const response = await this.fetchCapture(rawUrl, { kind: 'raw' });
@@ -1509,19 +1603,36 @@ class AuthorizedLucyCrawler {
         const activeDetailCaptures = Object.fromEntries(
             Object.entries(work.detail_captures).filter(([entryId]) => activeEntryIds.has(entryId)),
         );
+        const activeCurrentRaw = reversibleDelta
+            ? { [anchorSource]: work.current_raw[anchorSource] }
+            : work.current_raw;
+        const activeRawCaptures = reversibleDelta
+            ? { [anchorSource]: work.raw_captures[anchorSource] }
+            : work.raw_captures;
+        const reconstruction = reversibleDelta
+            ? analyzeReversibleItemHistory({
+                itemId: item.id,
+                history: work.history,
+                currentRaw: activeCurrentRaw,
+                anchorSource,
+            })
+            : null;
         const artifact = buildItemHistoryArtifact({
             itemId: item.id,
             itemListName: item.name,
             history: work.history,
             detailsByEntry: activeDetails,
-            currentRaw: work.current_raw,
+            currentRaw: activeCurrentRaw,
             generatedAt: new Date().toISOString(),
             gaps: [],
             complete: true,
+            captureStrategy: reversibleDelta ? REVERSIBLE_DELTA_CAPTURE_STRATEGY : null,
+            anchorSource,
+            reconstruction,
             captures: {
                 history: work.history_capture,
                 entries: activeDetailCaptures,
-                raw: work.raw_captures,
+                raw: activeRawCaptures,
             },
         });
         artifact.history_capture_sha256s = captureHashes(work.history);
@@ -1717,6 +1828,7 @@ class AuthorizedLucyCrawler {
                             from: requestUrl.href,
                             to: bootstrapTarget.href,
                         });
+                        this.consecutiveRateLimits = 0;
                         requestUrl = bootstrapTarget;
                         attempt -= 1;
                         continue;
@@ -1724,6 +1836,7 @@ class AuthorizedLucyCrawler {
                     this.assertLooksLikeLucyHtml(bytes, response);
                 }
                 const capture = await this.storeCapture(requestUrl, response, bytes, kind);
+                this.consecutiveRateLimits = 0;
                 return { bytes, capture, response };
             }
 
@@ -1737,6 +1850,22 @@ class AuthorizedLucyCrawler {
                     code: 'not_found',
                     context: { status: 404, url: requestUrl.href },
                 });
+            }
+            if (response?.status === 429) {
+                this.consecutiveRateLimits += 1;
+                if (this.consecutiveRateLimits >= 2) {
+                    throw new PauseRequested(
+                        'Lucy repeatedly returned HTTP 429; operator review is required before resuming.',
+                        {
+                            code: 'repeated_rate_limit',
+                            context: {
+                                status: 429,
+                                url: requestUrl.href,
+                                consecutive_rate_limits: this.consecutiveRateLimits,
+                            },
+                        },
+                    );
+                }
             }
 
             const retryable = requestFailure !== null
@@ -1755,10 +1884,9 @@ class AuthorizedLucyCrawler {
                     context: { status: response.status, url: requestUrl.href },
                 });
             }
-            const waitMs = calculateBackoff({
+            const waitMs = calculateCrawlerRetryBackoff({
+                statusCode: response?.status ?? null,
                 attempt,
-                baseMs: 60_000,
-                maxMs: 6 * 60 * 60 * 1_000,
                 jitterMs: this.config.jitter_ms,
                 retryAfter: response?.headers.get('retry-after') ?? null,
             });

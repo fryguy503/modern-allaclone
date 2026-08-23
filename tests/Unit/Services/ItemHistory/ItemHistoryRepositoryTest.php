@@ -193,6 +193,152 @@ class ItemHistoryRepositoryTest extends TestCase
         }
     }
 
+    public function test_it_accepts_reversible_delta_artifacts_with_mixed_optional_direct_details(): void
+    {
+        $artifact = $this->reversibleArtifact();
+        $this->writeArtifact(20_542, $artifact);
+
+        $repository = new ItemHistoryRepository($this->temporaryDirectory);
+        $item = $repository->item(20_542);
+        $page = $repository->forItem(20_542);
+
+        $this->assertSame(ItemHistoryArtifact::REVERSIBLE_DELTA_FORMAT_VERSION, $item['format_version']);
+        $this->assertSame('reconstructed', $item['revisions'][0]['detail_fidelity']);
+        $this->assertArrayNotHasKey('detail', $item['revisions'][0]);
+        $this->assertArrayNotHasKey('capture_sha256', $item['revisions'][0]);
+        $this->assertSame('captured', $item['revisions'][1]['detail_fidelity']);
+        $this->assertSame(['AC: 12'], $item['revisions'][1]['detail']['snapshot_lines']);
+        $this->assertTrue($page['archive']['is_reconstructed']);
+        $this->assertSame('reconstructed', $page['archive']['coverage']['historical_state']);
+        $this->assertSame(1, $page['archive']['coverage']['direct_detail_count']);
+    }
+
+    public function test_it_accepts_exact_redundant_lucy_transitions_as_verified_evidence(): void
+    {
+        $artifact = $this->reversibleArtifact();
+        $artifact['revisions'][] = [
+            'entry_id' => 2_021,
+            'source' => 'Live',
+            'observed_at' => '2021-03-03T14:00:00',
+            'observed_precision' => 'minute',
+            'type' => 'changed',
+            'changes' => [[
+                'operation' => 'changed',
+                'field' => 'ac',
+                'before' => '10',
+                'after' => '12',
+                'display' => 'Repeated AC transition',
+            ]],
+            'history_capture_sha256s' => [str_repeat('d', 64)],
+        ];
+        $artifact['revision_count'] = 3;
+        $artifact['last_observed_at'] = '2021-03-03T14:00:00';
+        $artifact['reconstruction']['sources']['Live']['revision_count'] = 3;
+        $artifact['reconstruction']['sources']['Live']['change_count'] = 3;
+        $artifact['reconstruction']['sources']['Live']['continuity_checks'] = 1;
+        $this->writeArtifact(20_542, $artifact);
+
+        $item = (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
+
+        $this->assertCount(3, $item['revisions']);
+        $this->assertSame(2_021, $item['revisions'][2]['entry_id']);
+
+        $identity = $this->reversibleArtifact();
+        $identity['revisions'][1]['changes'][0]['after'] = '10';
+        $identityRoot = $this->temporaryDirectory.'/identity-transition';
+        mkdir($identityRoot);
+        $this->writeArtifact(20_542, $identity, $identityRoot);
+        $this->assertSame(
+            '10',
+            (new ItemHistoryRepository($identityRoot))->item(20_542)['revisions'][1]['changes'][0]['after'],
+        );
+    }
+
+    public function test_it_rejects_malformed_reversible_delta_provenance_and_chains(): void
+    {
+        $invalidArtifacts = [];
+
+        $unsupportedAlgorithm = $this->reversibleArtifact();
+        $unsupportedAlgorithm['reconstruction']['algorithm'] = 'unreviewed-algorithm';
+        $invalidArtifacts[] = $unsupportedAlgorithm;
+
+        $missingHistoryEvidence = $this->reversibleArtifact();
+        $missingHistoryEvidence['evidence']['history_capture_sha256s'] = [];
+        $invalidArtifacts[] = $missingHistoryEvidence;
+
+        $mismatchedRawEvidence = $this->reversibleArtifact();
+        $mismatchedRawEvidence['evidence']['current_raw_capture_sha256'] = str_repeat('9', 64);
+        $invalidArtifacts[] = $mismatchedRawEvidence;
+
+        $missingRevisionEvidence = $this->reversibleArtifact();
+        unset($missingRevisionEvidence['revisions'][0]['history_capture_sha256s']);
+        $invalidArtifacts[] = $missingRevisionEvidence;
+
+        $unknownRevisionEvidence = $this->reversibleArtifact();
+        $unknownRevisionEvidence['revisions'][0]['history_capture_sha256s'] = [str_repeat('8', 64)];
+        $invalidArtifacts[] = $unknownRevisionEvidence;
+
+        $incompleteRevisionEvidence = $this->reversibleArtifact();
+        $incompleteRevisionEvidence['evidence']['history_capture_sha256s'][] = str_repeat('8', 64);
+        $invalidArtifacts[] = $incompleteRevisionEvidence;
+
+        $missingDirectCapture = $this->reversibleArtifact();
+        unset($missingDirectCapture['revisions'][1]['capture_sha256']);
+        $invalidArtifacts[] = $missingDirectCapture;
+
+        $orphanDirectCapture = $this->reversibleArtifact();
+        $orphanDirectCapture['revisions'][0]['capture_sha256'] = str_repeat('7', 64);
+        $invalidArtifacts[] = $orphanDirectCapture;
+
+        $wrongAnchorStatus = $this->reversibleArtifact();
+        $wrongAnchorStatus['reconstruction']['sources']['Live']['status'] = 'chain-verified-unanchored';
+        $invalidArtifacts[] = $wrongAnchorStatus;
+
+        $wrongContinuityCount = $this->reversibleArtifact();
+        $wrongContinuityCount['reconstruction']['sources']['Live']['continuity_checks'] = 1;
+        $invalidArtifacts[] = $wrongContinuityCount;
+
+        $brokenChain = $this->reversibleArtifact();
+        $brokenChain['revisions'][1]['changes'][] = [
+            'operation' => 'changed',
+            'field' => 'ac',
+            'before' => '99',
+            'after' => '13',
+            'display' => 'AC changed from 99 to 13',
+        ];
+        $brokenChain['reconstruction']['sources']['Live']['change_count'] = 3;
+        $brokenChain['reconstruction']['sources']['Live']['continuity_checks'] = 1;
+        $invalidArtifacts[] = $brokenChain;
+
+        $nonReversible = $this->reversibleArtifact();
+        $nonReversible['revisions'][1]['changes'][0] = [
+            'operation' => 'unknown',
+            'field' => null,
+            'before' => null,
+            'after' => null,
+            'display' => 'Unrecognized change',
+        ];
+        $nonReversible['reconstruction']['sources']['Live']['tracked_field_count'] = 0;
+        $invalidArtifacts[] = $nonReversible;
+
+        $malformedInitial = $this->reversibleArtifact();
+        $malformedInitial['revisions'][0]['changes'][0]['field'] = 'ac';
+        $invalidArtifacts[] = $malformedInitial;
+
+        foreach ($invalidArtifacts as $index => $artifact) {
+            $root = $this->temporaryDirectory.'/reversible-'.$index;
+            mkdir($root);
+            $this->writeArtifact(20_542, $artifact, $root);
+
+            try {
+                (new ItemHistoryRepository($root))->item(20_542);
+                $this->fail("Malformed reversible artifact case {$index} was accepted.");
+            } catch (RuntimeException) {
+                $this->addToAssertionCount(1);
+            }
+        }
+    }
+
     public function test_it_rejects_nested_structures_and_render_values_over_safe_limits(): void
     {
         $tooManyRevisions = $this->artifact();
@@ -355,6 +501,62 @@ class ItemHistoryRepositoryTest extends TestCase
                 ],
             ],
         ];
+    }
+
+    /** @return array<string, mixed> */
+    private function reversibleArtifact(): array
+    {
+        $artifact = $this->artifact();
+        $historyHash = str_repeat('d', 64);
+        $rawHash = str_repeat('e', 64);
+        $artifact['format_version'] = ItemHistoryArtifact::REVERSIBLE_DELTA_FORMAT_VERSION;
+        $artifact['parser_format_version'] = ItemHistoryArtifact::REVERSIBLE_DELTA_PARSER_FORMAT_VERSION;
+        $artifact['capture_strategy'] = ItemHistoryArtifact::REVERSIBLE_DELTA_CAPTURE_STRATEGY;
+        $artifact['coverage'] = [
+            'history_rows' => 'captured',
+            'current_raw' => 'captured',
+            'historical_state' => 'reconstructed',
+            'rendered_details' => 'partial',
+            'direct_detail_count' => 1,
+        ];
+        $artifact['evidence'] = [
+            'history_capture_sha256s' => [$historyHash],
+            'current_raw_capture_sha256' => $rawHash,
+            'current_raw_source' => 'Live',
+        ];
+        $artifact['reconstruction'] = [
+            'algorithm' => 'lucy-reversible-delta',
+            'version' => 1,
+            'derivation_sha256' => str_repeat('f', 64),
+            'value_encoding' => 'lucy-history-display-v1',
+            'sources' => [
+                'Live' => [
+                    'status' => 'chain-verified-anchored',
+                    'revision_count' => 2,
+                    'change_count' => 2,
+                    'tracked_field_count' => 1,
+                    'continuity_checks' => 0,
+                ],
+            ],
+        ];
+        $artifact['current_raw'] = [
+            'Live' => [
+                'source' => 'Live',
+                'fields' => [
+                    'id' => '20542',
+                    'name' => 'Ceremonial Iksar Chestplate',
+                    'ac' => '12',
+                ],
+                'capture_sha256' => $rawHash,
+            ],
+        ];
+        foreach ($artifact['revisions'] as &$revision) {
+            $revision['history_capture_sha256s'] = [$historyHash];
+        }
+        unset($revision);
+        unset($artifact['revisions'][0]['detail'], $artifact['revisions'][0]['capture_sha256']);
+
+        return $artifact;
     }
 
     /** @param array<string, mixed> $artifact */

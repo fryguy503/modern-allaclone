@@ -65,6 +65,30 @@ class ItemHistoryTest extends TestCase
             ->assertHeaderMissing('Set-Cookie');
     }
 
+    public function test_reversible_history_is_clearly_labeled_and_supports_optional_direct_details(): void
+    {
+        $this->writeReversibleArtifact();
+
+        $cards = $this->get('/items/20542/history?view=cards');
+        $cards->assertOk()
+            ->assertSeeText('Reconstructed field history')
+            ->assertSeeText('Recorded revisions')
+            ->assertSeeText('1 directly captured detail')
+            ->assertSeeText('Directly captured Lucy detail snapshot')
+            ->assertSeeText('No Lucy-rendered detail snapshot was fetched for this revision.')
+            ->assertDontSeeText('Captured item snapshot')
+            ->assertSee('&lt;script&gt;alert(&quot;item-history&quot;)&lt;/script&gt;', false)
+            ->assertDontSee('<script>alert("item-history")</script>', false)
+            ->assertHeaderMissing('Set-Cookie');
+
+        $this->get('/items/20542/history?view=table')
+            ->assertOk()
+            ->assertSeeText('Lore text added')
+            ->assertSeeText('AC changed from 10 to 12')
+            ->assertDontSee('<script>alert("item-history")</script>', false)
+            ->assertHeaderMissing('Set-Cookie');
+    }
+
     public function test_table_mode_is_compact_and_pagination_preserves_the_selected_view(): void
     {
         $firstPage = $this->get('/items/20542/history?view=table');
@@ -239,6 +263,75 @@ class ItemHistoryTest extends TestCase
 
         $path = $this->artifactRoot.'/'.ItemHistoryArtifact::itemRelativePath(20_542);
         mkdir(dirname($path), 0755, true);
+        file_put_contents($path, json_encode($artifact, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES));
+    }
+
+    private function writeReversibleArtifact(): void
+    {
+        $path = $this->artifactRoot.'/'.ItemHistoryArtifact::itemRelativePath(20_542);
+        $artifact = json_decode((string) file_get_contents($path), true, 64, JSON_THROW_ON_ERROR);
+        $historyHash = str_repeat('d', 64);
+        $rawHash = str_repeat('e', 64);
+
+        $artifact['format_version'] = ItemHistoryArtifact::REVERSIBLE_DELTA_FORMAT_VERSION;
+        $artifact['parser_format_version'] = ItemHistoryArtifact::REVERSIBLE_DELTA_PARSER_FORMAT_VERSION;
+        $artifact['capture_strategy'] = ItemHistoryArtifact::REVERSIBLE_DELTA_CAPTURE_STRATEGY;
+        $artifact['coverage'] = [
+            'history_rows' => 'captured',
+            'current_raw' => 'captured',
+            'historical_state' => 'reconstructed',
+            'rendered_details' => 'partial',
+            'direct_detail_count' => 1,
+        ];
+        $artifact['evidence'] = [
+            'history_capture_sha256s' => [$historyHash],
+            'current_raw_capture_sha256' => $rawHash,
+            'current_raw_source' => 'Live',
+        ];
+        $artifact['reconstruction'] = [
+            'algorithm' => 'lucy-reversible-delta',
+            'version' => 1,
+            'derivation_sha256' => str_repeat('f', 64),
+            'value_encoding' => 'lucy-history-display-v1',
+            'sources' => [
+                'Live' => [
+                    'status' => 'chain-verified-anchored',
+                    'revision_count' => 2,
+                    'change_count' => 2,
+                    'tracked_field_count' => 1,
+                    'continuity_checks' => 0,
+                ],
+                'Test' => [
+                    'status' => 'chain-verified-unanchored',
+                    'revision_count' => 1,
+                    'change_count' => 1,
+                    'tracked_field_count' => 1,
+                    'continuity_checks' => 0,
+                ],
+            ],
+        ];
+        $artifact['current_raw'] = [
+            'Live' => [
+                'source' => 'Live',
+                'fields' => [
+                    'id' => '20542',
+                    'name' => 'Ceremonial Iksar Chestplate',
+                    'ac' => '12',
+                ],
+                'capture_sha256' => $rawHash,
+            ],
+        ];
+        foreach ($artifact['revisions'] as &$revision) {
+            $revision['history_capture_sha256s'] = [$historyHash];
+        }
+        unset($revision);
+        unset(
+            $artifact['revisions'][0]['detail'],
+            $artifact['revisions'][0]['capture_sha256'],
+            $artifact['revisions'][1]['detail'],
+            $artifact['revisions'][1]['capture_sha256'],
+        );
+
         file_put_contents($path, json_encode($artifact, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES));
     }
 

@@ -29,6 +29,10 @@ final class ItemHistoryRepository
 
     private const MAX_DETAIL_LINKS = 256;
 
+    private const MAX_HISTORY_CAPTURE_HASHES = 1_024;
+
+    private const MAX_CURRENT_RAW_FIELDS = 4_096;
+
     private const MAX_JSON_STRUCTURAL_MARKERS = 100_000;
 
     private const MAX_JSON_VALUES = 200_000;
@@ -180,6 +184,7 @@ final class ItemHistoryRepository
                 'has_more' => $page < $lastPage,
             ],
             'archive' => [
+                'format_version' => $item['format_version'],
                 'generated_at' => $item['generated_at'],
                 'sources' => $item['sources'],
                 'complete' => $item['complete'],
@@ -187,6 +192,17 @@ final class ItemHistoryRepository
                 'revision_count' => $item['revision_count'],
                 'first_observed_at' => $item['first_observed_at'],
                 'last_observed_at' => $item['last_observed_at'],
+                'capture_strategy' => $item['capture_strategy'] ?? 'direct-detail-v1',
+                'coverage' => $item['coverage'] ?? [
+                    'history_rows' => 'captured',
+                    'current_raw' => 'captured',
+                    'historical_state' => 'captured',
+                    'rendered_details' => 'captured',
+                    'direct_detail_count' => $item['revision_count'],
+                ],
+                'reconstruction' => $item['reconstruction'] ?? null,
+                'is_reconstructed' => ($item['format_version'] ?? null)
+                    === ItemHistoryArtifact::REVERSIBLE_DELTA_FORMAT_VERSION,
             ],
         ];
     }
@@ -249,10 +265,13 @@ final class ItemHistoryRepository
         $revisions = $artifact['revisions'] ?? null;
         $sources = $artifact['sources'] ?? null;
         $gaps = $artifact['gaps'] ?? null;
+        $formatVersion = $artifact['format_version'] ?? null;
+        $isDirectDetail = $formatVersion === ItemHistoryArtifact::FORMAT_VERSION;
+        $isReversibleDelta = $formatVersion === ItemHistoryArtifact::REVERSIBLE_DELTA_FORMAT_VERSION;
 
         if (($artifact['schema'] ?? null) !== ItemHistoryArtifact::SCHEMA
             || ($artifact['artifact_type'] ?? null) !== 'item'
-            || ($artifact['format_version'] ?? null) !== ItemHistoryArtifact::FORMAT_VERSION
+            || (! $isDirectDetail && ! $isReversibleDelta)
             || ($artifact['item_id'] ?? null) !== $itemId
             || ! $this->validGeneratedAt($artifact['generated_at'] ?? null)
             || ! array_key_exists('latest_name', $artifact)
@@ -299,6 +318,10 @@ final class ItemHistoryRepository
             $seenSources[$source] = true;
         }
 
+        $reversibleEnvelope = $isReversibleDelta
+            ? $this->validateReversibleDeltaEnvelope($artifact, $itemId, array_keys($seenSources))
+            : null;
+
         $previousTimestamp = null;
         $observedTimestamps = [];
         $seenEntryIds = [];
@@ -306,6 +329,20 @@ final class ItemHistoryRepository
         $totalSnapshotLines = 0;
         $estimatedRenderBytes = self::PAGE_RENDER_OVERHEAD_BYTES
             + $this->escapedRenderBytes($artifact['latest_name']);
+        $directDetailCount = 0;
+        $reconstructionStats = [];
+        if ($isReversibleDelta) {
+            foreach (array_keys($seenSources) as $source) {
+                $reconstructionStats[$source] = [
+                    'revision_count' => 0,
+                    'change_count' => 0,
+                    'tracked_fields' => [],
+                    'continuity_checks' => 0,
+                    'field_state' => [],
+                    'initial_seen' => false,
+                ];
+            }
+        }
         foreach ($revisions as $revision) {
             if (! is_array($revision)) {
                 throw new RuntimeException("The item history artifact for {$itemId} has an invalid revision.");
@@ -348,7 +385,22 @@ final class ItemHistoryRepository
             foreach ($changes as $change) {
                 $this->validateChange($change, $itemId);
             }
-            $snapshotLineCount = $this->validateRevisionDetail($revision['detail'] ?? null, $itemId);
+            if ($isReversibleDelta) {
+                $this->validateReversibleDeltaRevision(
+                    $revision,
+                    $itemId,
+                    $reversibleEnvelope['history_hashes'],
+                    $reconstructionStats[$source],
+                );
+            }
+
+            $detail = $revision['detail'] ?? null;
+            $snapshotLineCount = $detail === null && $isReversibleDelta
+                ? 0
+                : $this->validateRevisionDetail($detail, $itemId);
+            if ($detail !== null) {
+                $directDetailCount++;
+            }
             $totalSnapshotLines += $snapshotLineCount;
             if ($totalSnapshotLines > self::MAX_TOTAL_SNAPSHOT_LINES) {
                 throw new RuntimeException("The item history artifact for {$itemId} contains too many snapshot lines.");
@@ -361,8 +413,17 @@ final class ItemHistoryRepository
                 }
             }
 
+            $hasCaptureHash = array_key_exists('capture_sha256', $revision)
+                || data_get($revision, 'capture.sha256') !== null;
             $captureHash = $revision['capture_sha256'] ?? data_get($revision, 'capture.sha256');
-            if (! is_string($captureHash) || preg_match('/^[a-f0-9]{64}$/D', $captureHash) !== 1) {
+            $validCaptureHash = is_string($captureHash)
+                && preg_match('/^[a-f0-9]{64}$/D', $captureHash) === 1;
+            if (($isDirectDetail && ! $validCaptureHash)
+                || ($isReversibleDelta && (
+                    ($detail !== null && ! $hasCaptureHash)
+                    || ($detail === null && $hasCaptureHash)
+                    || ($hasCaptureHash && ! $validCaptureHash)
+                ))) {
                 throw new RuntimeException("The item history artifact for {$itemId} has an invalid capture hash.");
             }
 
@@ -386,6 +447,334 @@ final class ItemHistoryRepository
             throw new RuntimeException("The item history artifact for {$itemId} has inconsistent observation bounds.");
         }
 
+        if ($isReversibleDelta) {
+            $this->validateReconstructionSummary(
+                $artifact,
+                $itemId,
+                $directDetailCount,
+                $reconstructionStats,
+                $reversibleEnvelope['current_raw_source'],
+            );
+        }
+
+    }
+
+    /**
+     * @param  list<string>  $sources
+     * @return array{history_hashes: array<string, true>, current_raw_source: string}
+     */
+    private function validateReversibleDeltaEnvelope(array $artifact, int $itemId, array $sources): array
+    {
+        $coverage = $artifact['coverage'] ?? null;
+        $evidence = $artifact['evidence'] ?? null;
+        $reconstruction = $artifact['reconstruction'] ?? null;
+        if (($artifact['parser_format_version'] ?? null)
+                !== ItemHistoryArtifact::REVERSIBLE_DELTA_PARSER_FORMAT_VERSION
+            || ($artifact['capture_strategy'] ?? null)
+                !== ItemHistoryArtifact::REVERSIBLE_DELTA_CAPTURE_STRATEGY
+            || ! is_array($coverage)
+            || ! $this->hasExactKeys($coverage, [
+                'history_rows',
+                'current_raw',
+                'historical_state',
+                'rendered_details',
+                'direct_detail_count',
+            ])
+            || ($coverage['history_rows'] ?? null) !== 'captured'
+            || ($coverage['current_raw'] ?? null) !== 'captured'
+            || ($coverage['historical_state'] ?? null) !== 'reconstructed'
+            || ! in_array($coverage['rendered_details'] ?? null, ['not-captured', 'partial'], true)
+            || ! is_int($coverage['direct_detail_count'] ?? null)
+            || $coverage['direct_detail_count'] < 0
+            || $coverage['direct_detail_count'] > ($artifact['revision_count'] ?? 0)
+            || ! is_array($evidence)
+            || ! $this->hasExactKeys($evidence, [
+                'history_capture_sha256s',
+                'current_raw_capture_sha256',
+                'current_raw_source',
+            ])
+            || ! is_array($reconstruction)
+            || ! $this->hasExactKeys($reconstruction, [
+                'algorithm',
+                'version',
+                'derivation_sha256',
+                'value_encoding',
+                'sources',
+            ])
+            || ($reconstruction['algorithm'] ?? null) !== 'lucy-reversible-delta'
+            || ($reconstruction['version'] ?? null) !== 1
+            || ! $this->validSha256($reconstruction['derivation_sha256'] ?? null)
+            || ($reconstruction['value_encoding'] ?? null) !== 'lucy-history-display-v1'
+            || ! is_array($reconstruction['sources'] ?? null)
+            || ! $this->hasExactKeys($reconstruction['sources'], $sources)) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has invalid provenance.");
+        }
+
+        $historyHashes = $this->validateHashList(
+            $evidence['history_capture_sha256s'] ?? null,
+            $itemId,
+            'history evidence',
+        );
+        $currentRawHash = $evidence['current_raw_capture_sha256'] ?? null;
+        $currentRawSource = $evidence['current_raw_source'] ?? null;
+        if (! $this->validSha256($currentRawHash)
+            || ! is_string($currentRawSource)
+            || ! in_array($currentRawSource, $sources, true)) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has invalid current-raw evidence.");
+        }
+
+        $currentRaw = $artifact['current_raw'] ?? null;
+        $raw = is_array($currentRaw) ? ($currentRaw[$currentRawSource] ?? null) : null;
+        if (! is_array($currentRaw)
+            || count($currentRaw) !== 1
+            || ! $this->hasExactKeys($currentRaw, [$currentRawSource])
+            || ! is_array($raw)
+            || ! $this->hasExactKeys($raw, ['source', 'fields', 'capture_sha256'])
+            || ($raw['source'] ?? null) !== $currentRawSource
+            || ($raw['capture_sha256'] ?? null) !== $currentRawHash
+            || ! is_array($raw['fields'] ?? null)
+            || $raw['fields'] === []
+            || count($raw['fields']) > self::MAX_CURRENT_RAW_FIELDS) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has invalid current-raw data.");
+        }
+        $rawItemId = null;
+        foreach ($raw['fields'] as $field => $value) {
+            if (! is_string($field)
+                || trim($field) === ''
+                || ! $this->boundedString($field, self::MAX_FIELD_BYTES)
+                || ! $this->boundedString($value, self::MAX_VALUE_BYTES)) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} has invalid current-raw fields.");
+            }
+            if (strtolower($field) === 'id') {
+                if ($rawItemId !== null) {
+                    throw new RuntimeException("The reversible item history artifact for {$itemId} has duplicate raw item ids.");
+                }
+                $rawItemId = $value;
+            }
+        }
+        if ($rawItemId !== (string) $itemId) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has mismatched current-raw data.");
+        }
+
+        foreach ($reconstruction['sources'] as $source => $summary) {
+            if (! is_array($summary)
+                || ! $this->hasExactKeys($summary, [
+                    'status',
+                    'revision_count',
+                    'change_count',
+                    'tracked_field_count',
+                    'continuity_checks',
+                ])
+                || ! in_array(
+                    $summary['status'] ?? null,
+                    ['chain-verified-anchored', 'chain-verified-unanchored'],
+                    true,
+                )) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} has an invalid source summary.");
+            }
+            foreach (['revision_count', 'change_count', 'tracked_field_count', 'continuity_checks'] as $counter) {
+                if (! is_int($summary[$counter] ?? null) || $summary[$counter] < 0) {
+                    throw new RuntimeException("The reversible item history artifact for {$itemId} has invalid source counts.");
+                }
+            }
+        }
+
+        return [
+            'history_hashes' => $historyHashes,
+            'current_raw_source' => $currentRawSource,
+        ];
+    }
+
+    /**
+     * @param  array<string, true>  $historyHashes
+     * @param  array<string, mixed>  $stats
+     */
+    private function validateReversibleDeltaRevision(
+        array $revision,
+        int $itemId,
+        array $historyHashes,
+        array &$stats,
+    ): void {
+        $revisionHashes = $this->validateHashList(
+            $revision['history_capture_sha256s'] ?? null,
+            $itemId,
+            'revision history evidence',
+        );
+        if (count($revisionHashes) !== count($historyHashes)
+            || array_diff_key($revisionHashes, $historyHashes) !== []
+            || array_diff_key($historyHashes, $revisionHashes) !== []) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} cites incomplete evidence.");
+        }
+
+        $changes = $revision['changes'];
+        $initialChanges = array_values(array_filter(
+            $changes,
+            static fn (array $change): bool => ($change['operation'] ?? null) === 'initial',
+        ));
+        if (($revision['type'] === 'initial' && (count($changes) !== 1 || count($initialChanges) !== 1))
+            || ($revision['type'] !== 'initial' && $initialChanges !== [])) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has an invalid initial revision.");
+        }
+        if ($initialChanges !== []
+            && (($initialChanges[0]['field'] ?? null) !== null
+                || ($initialChanges[0]['before'] ?? null) !== null
+                || ($initialChanges[0]['after'] ?? null) !== null)) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has an invalid initial change.");
+        }
+
+        $revisionIndex = $stats['revision_count'];
+        $stats['revision_count']++;
+        if ($initialChanges !== []) {
+            if ($stats['initial_seen'] || $revisionIndex !== 0) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} has an out-of-order initial revision.");
+            }
+            $stats['initial_seen'] = true;
+            $stats['change_count']++;
+
+            return;
+        }
+
+        $revisionFields = [];
+        foreach ($changes as $change) {
+            $stats['change_count']++;
+            $operation = $change['operation'];
+            $field = $change['field'] ?? null;
+            $before = $change['before'] ?? null;
+            $after = $change['after'] ?? null;
+            if (! is_string($field) || trim($field) !== $field) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} has a non-reversible change.");
+            }
+            if (($operation === 'added' && ($before !== null || ! is_string($after)))
+                || ($operation === 'removed' && (! is_string($before) || $after !== null))
+                || ($operation === 'changed'
+                    && (! is_string($before) || ! is_string($after)))
+                || ! in_array($operation, ['added', 'removed', 'changed'], true)) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} has a non-reversible change.");
+            }
+
+            $normalizedField = strtolower($field);
+            if (isset($revisionFields[$normalizedField])) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} changes a field twice in one revision.");
+            }
+            $revisionFields[$normalizedField] = true;
+            $transition = [
+                'field' => $normalizedField,
+                'before' => $operation === 'added'
+                    ? ['present' => false, 'value' => null]
+                    : ['present' => true, 'value' => $before],
+                'after' => $operation === 'removed'
+                    ? ['present' => false, 'value' => null]
+                    : ['present' => true, 'value' => $after],
+            ];
+            $known = array_key_exists($normalizedField, $stats['field_state']);
+            if ($known) {
+                $stats['continuity_checks']++;
+                $prior = $stats['field_state'][$normalizedField];
+                if ($this->sameFieldState($prior['state'], $transition['before'])) {
+                    $stats['field_state'][$normalizedField] = [
+                        'state' => $transition['after'],
+                        'transition' => $transition,
+                    ];
+                } elseif (! $this->sameFieldState($prior['state'], $transition['after'])
+                    || ! $this->sameReversibleTransition($prior['transition'], $transition)) {
+                    throw new RuntimeException("The reversible item history artifact for {$itemId} has a broken change chain.");
+                }
+            } else {
+                $stats['field_state'][$normalizedField] = [
+                    'state' => $transition['after'],
+                    'transition' => $transition,
+                ];
+            }
+
+            $stats['tracked_fields'][$normalizedField] = true;
+        }
+    }
+
+    /**
+     * @param  array{present: bool, value: ?string}  $left
+     * @param  array{present: bool, value: ?string}  $right
+     */
+    private function sameFieldState(array $left, array $right): bool
+    {
+        return $left['present'] === $right['present']
+            && (! $left['present'] || $left['value'] === $right['value']);
+    }
+
+    /**
+     * @param  array<string, mixed>  $left
+     * @param  array<string, mixed>  $right
+     */
+    private function sameReversibleTransition(array $left, array $right): bool
+    {
+        return $left['field'] === $right['field']
+            && $this->sameFieldState($left['before'], $right['before'])
+            && $this->sameFieldState($left['after'], $right['after']);
+    }
+
+    /** @param array<string, array<string, mixed>> $stats */
+    private function validateReconstructionSummary(
+        array $artifact,
+        int $itemId,
+        int $directDetailCount,
+        array $stats,
+        string $currentRawSource,
+    ): void {
+        $coverage = $artifact['coverage'];
+        $expectedRenderedDetails = $directDetailCount === 0 ? 'not-captured' : 'partial';
+        if ($coverage['direct_detail_count'] !== $directDetailCount
+            || $coverage['rendered_details'] !== $expectedRenderedDetails) {
+            throw new RuntimeException("The reversible item history artifact for {$itemId} has inconsistent detail coverage.");
+        }
+
+        foreach ($stats as $source => $computed) {
+            $declared = $artifact['reconstruction']['sources'][$source];
+            $expectedStatus = $source === $currentRawSource
+                ? 'chain-verified-anchored'
+                : 'chain-verified-unanchored';
+            if ($declared['status'] !== $expectedStatus
+                || $declared['revision_count'] !== $computed['revision_count']
+                || $declared['change_count'] !== $computed['change_count']
+                || $declared['tracked_field_count'] !== count($computed['tracked_fields'])
+                || $declared['continuity_checks'] !== $computed['continuity_checks']) {
+                throw new RuntimeException("The reversible item history artifact for {$itemId} has inconsistent reconstruction counts.");
+            }
+        }
+    }
+
+    /** @return array<string, true> */
+    private function validateHashList(mixed $value, int $itemId, string $label): array
+    {
+        if (! is_array($value)
+            || ! array_is_list($value)
+            || $value === []
+            || count($value) > self::MAX_HISTORY_CAPTURE_HASHES) {
+            throw new RuntimeException("The item history artifact for {$itemId} has invalid {$label}.");
+        }
+
+        $hashes = [];
+        foreach ($value as $hash) {
+            if (! $this->validSha256($hash) || isset($hashes[$hash])) {
+                throw new RuntimeException("The item history artifact for {$itemId} has invalid {$label}.");
+            }
+            $hashes[$hash] = true;
+        }
+
+        return $hashes;
+    }
+
+    /** @param list<string> $expected */
+    private function hasExactKeys(array $value, array $expected): bool
+    {
+        $actual = array_keys($value);
+        sort($actual, SORT_STRING);
+        sort($expected, SORT_STRING);
+
+        return $actual === $expected;
+    }
+
+    private function validSha256(mixed $value): bool
+    {
+        return is_string($value) && preg_match('/^[a-f0-9]{64}$/D', $value) === 1;
     }
 
     private function validateChange(mixed $change, int $itemId): void
@@ -517,10 +906,15 @@ final class ItemHistoryRepository
     private function estimateRevisionRenderBytes(array $revision): int
     {
         $changes = $revision['changes'];
-        $detail = $revision['detail'];
+        $detail = is_array($revision['detail'] ?? null) ? $revision['detail'] : [];
         $lines = $detail['snapshot_lines'] ?? ($detail['display_lines'] ?? []);
         $bytes = self::REVISION_RENDER_OVERHEAD_BYTES;
         $bytes += max(1, count($changes)) * self::CHANGE_RENDER_OVERHEAD_BYTES;
+        if ($detail === []) {
+            // Reconstructed cards render a bounded explanatory notice in place
+            // of a Lucy detail snapshot.
+            $bytes += self::CHANGE_RENDER_OVERHEAD_BYTES;
+        }
 
         foreach ($changes as $change) {
             foreach (['operation', 'field', 'before', 'after'] as $key) {
@@ -607,8 +1001,10 @@ final class ItemHistoryRepository
         foreach ($artifact['revisions'] as &$revision) {
             $revision['observed_precision'] = $revision['observed_precision']
                 ?? ($revision['observed_at_precision'] ?? 'unknown');
-            $revision['capture_sha256'] = $revision['capture_sha256']
-                ?? data_get($revision, 'capture.sha256');
+            $captureHash = $revision['capture_sha256'] ?? data_get($revision, 'capture.sha256');
+            if ($captureHash !== null) {
+                $revision['capture_sha256'] = $captureHash;
+            }
 
             foreach ($revision['changes'] as &$change) {
                 $change = [
@@ -626,6 +1022,9 @@ final class ItemHistoryRepository
                 $revision['detail']['snapshot_lines'] = $revision['detail']['snapshot_lines']
                     ?? ($revision['detail']['display_lines'] ?? []);
             }
+            $revision['detail_fidelity'] = is_array($revision['detail'] ?? null)
+                ? 'captured'
+                : 'reconstructed';
         }
         unset($revision);
 

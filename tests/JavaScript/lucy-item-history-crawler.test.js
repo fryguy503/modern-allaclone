@@ -18,6 +18,7 @@ import { sha256Hex } from '../../scripts/lib/lucy-item-history-parser.mjs';
 import {
     assertAcceptableLucyHtml,
     buildLucyCookieHeader,
+    calculateCrawlerRetryBackoff,
     cookieBootstrapTarget,
     publishContentAddressedCapture,
     readVerifiedContentAddressedCapture,
@@ -57,7 +58,7 @@ function historyPage(itemId, name, revisions) {
         ${rows}</table></body></html>`, 'ascii');
 }
 
-test('init and status are local-only and enforce the production rate floor', async () => {
+test('init and status are local-only and enforce the approved production rate bounds', async () => {
     const root = await mkdtemp(join(tmpdir(), 'lucy-item-crawler-init-'));
     temporaryDirectories.push(root);
     const workspace = join(root, 'work');
@@ -70,12 +71,40 @@ test('init and status are local-only and enforce the production rate floor', asy
             `--artifact-root=${artifactRoot}`,
             '--contact=test@example.invalid',
             '--authorization-ref=fixture-authorization',
-            '--min-interval-ms=19999',
+            '--min-interval-ms=1999',
         ]),
         (error) => {
-            assert.match(error.message, /min-interval-ms must be an integer from 20000/);
+            assert.match(error.message, /min-interval-ms must be an integer from 2000/);
             return true;
         },
+    );
+
+    await assert.rejects(
+        runCrawler([
+            'init',
+            `--workspace=${workspace}`,
+            `--artifact-root=${artifactRoot}`,
+            '--contact=test@example.invalid',
+            '--authorization-ref=fixture-authorization',
+            '--daily-cap=100001',
+        ]),
+        (error) => {
+            assert.match(error.message, /daily-cap must be an integer from 1 through 100000/);
+            return true;
+        },
+    );
+
+    await assert.rejects(
+        runCrawler([
+            'init',
+            `--workspace=${workspace}`,
+            `--artifact-root=${artifactRoot}`,
+            '--contact=test@example.invalid',
+            '--authorization-ref=fixture-authorization',
+            '--capture-strategy=fan-out',
+        ]),
+        (error) => error.code === 'invalid_option'
+            && /direct-detail, reversible-delta/.test(error.message),
     );
 
     await runCrawler([
@@ -84,10 +113,20 @@ test('init and status are local-only and enforce the production rate floor', asy
         `--artifact-root=${artifactRoot}`,
         '--contact=test@example.invalid',
         '--authorization-ref=fixture-authorization',
+        '--min-interval-ms=2000',
+        '--daily-cap=100000',
     ]);
     const status = await readAtomicJson(join(workspace, 'state', 'status.json'));
+    const config = await readAtomicJson(join(workspace, 'config.json'));
     assert.equal(status.state, 'ready');
     assert.equal(status.metrics.requestStarts, 0);
+    assert.equal(status.policy.captureStrategy, 'direct-detail');
+    assert.equal(config.capture_strategy, 'direct-detail');
+    assert.equal(config.min_interval_ms, 2000);
+    assert.equal(config.daily_cap, 100000);
+
+    delete config.capture_strategy;
+    await atomicWriteJson(join(workspace, 'config.json'), config);
 
     await atomicWriteJson(join(workspace, 'state', 'progress.json'), {
         schema: 'modern-allaclone.lucy-item-crawl-progress',
@@ -108,6 +147,7 @@ test('init and status are local-only and enforce the production rate floor', asy
     );
     const failedStatus = await readAtomicJson(join(workspace, 'state', 'status.json'));
     assert.equal(failedStatus.metrics.requestStarts, 0);
+    assert.equal(failedStatus.policy.captureStrategy, 'direct-detail');
 });
 
 test('init rejects a non-Lucy production origin and an artifact junction without network access', async () => {
@@ -274,6 +314,32 @@ test('challenge and Lucy server-error pages are rejected before capture', () => 
         ])),
         (error) => error.code === 'cookie_header_too_large',
     );
+});
+
+test('HTTP 429 backoff is at least one hour and honors a longer Retry-After', () => {
+    const nowMs = Date.parse('2026-08-23T12:00:00.000Z');
+    assert.equal(calculateCrawlerRetryBackoff({
+        statusCode: 429,
+        attempt: 1,
+        jitterMs: 0,
+        nowMs,
+        random: () => 0,
+    }), 60 * 60 * 1_000);
+    assert.equal(calculateCrawlerRetryBackoff({
+        statusCode: 429,
+        attempt: 1,
+        retryAfter: '7200',
+        jitterMs: 0,
+        nowMs,
+        random: () => 0,
+    }), 2 * 60 * 60 * 1_000);
+    assert.equal(calculateCrawlerRetryBackoff({
+        statusCode: 503,
+        attempt: 1,
+        jitterMs: 0,
+        nowMs,
+        random: () => 0,
+    }), 60_000);
 });
 
 test('the Lucy cookie bootstrap stays same-origin, consumes a normal request slot, and carries its cookie', async () => {
@@ -560,6 +626,9 @@ test('a loopback crawl resumes mid-item and a later sweep reuses immutable entry
 
     const artifact = JSON.parse(await readFile(join(artifactRoot, 'items', 'dc', '20542.json'), 'utf8'));
     assert.equal(artifact.schema, 'modern-allaclone.item-history');
+    assert.equal(artifact.format_version, 1);
+    assert.equal(artifact.parser_format_version, 1);
+    assert.equal(artifact.capture_strategy, undefined);
     assert.equal(artifact.item_id, 20542);
     assert.equal(artifact.complete, true);
     assert.deepEqual(artifact.gaps, []);
@@ -582,6 +651,146 @@ test('a loopback crawl resumes mid-item and a later sweep reuses immutable entry
     assert.equal(progress.completed_items, 2);
     assert.equal(progress.sweep_generation, 2);
     assert.equal(status.metrics.requestStarts, 8);
+});
+
+test('reversible-delta resumes after history and publishes from one raw anchor without detail calls', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'lucy-item-crawler-delta-'));
+    temporaryDirectories.push(root);
+    const workspace = join(root, 'work');
+    const artifactRoot = join(root, 'artifacts');
+    const itemListPath = join(root, 'itemlist.csv');
+    await writeFile(
+        itemListPath,
+        'id,name,lucylink\n20542,Singing Short Sword,https://lucy.allakhazam.com/item.html?id=20542\n',
+        'utf8',
+    );
+
+    const raw = await readFile(join(fixtures, 'itemraw-20542-live.html'));
+    const history = historyPage(20542, 'Singing Short Sword', [
+        {
+            entryId: 20280,
+            source: 'Live',
+            observedAt: '2002-12-22 18:35',
+            change: 'Initial Entry',
+        },
+        {
+            entryId: 20281,
+            source: 'Test',
+            observedAt: '2002-12-22 18:36',
+            change: 'Initial Entry',
+        },
+        {
+            entryId: 2156558,
+            source: 'Live',
+            observedAt: '2020-06-12 13:36',
+            change: "Changed idfile from 'IT148' to ''",
+        },
+        {
+            entryId: 2156559,
+            source: 'Test',
+            observedAt: '2020-06-12 13:37',
+            change: "Changed idfile from 'IT147' to 'IT148'",
+        },
+    ]);
+    const requests = [];
+    let stopAfterHistory = true;
+    let controlWorkspace = null;
+    const server = createServer((request, response) => {
+        requests.push(request.url);
+        const url = new URL(request.url, 'http://127.0.0.1');
+        if (url.pathname === '/itemhistory.html') {
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+            if (stopAfterHistory) {
+                stopAfterHistory = false;
+                void controlWorkspace.setControl('stop', {
+                    reason: 'fixture interruption after delta history capture',
+                    requestedBy: 'offline test',
+                }).then(() => response.end(history));
+                return;
+            }
+            response.end(history);
+            return;
+        }
+        if (url.pathname === '/itemraw.html'
+            && url.searchParams.get('id') === '20542'
+            && url.searchParams.get('source') === 'Live') {
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+            response.end(raw);
+            return;
+        }
+        response.writeHead(500, { 'Content-Type': 'text/html' });
+        response.end('<!doctype html><html><title>Unexpected fixture request</title></html>');
+    });
+    await new Promise((resolvePromise) => server.listen(0, '127.0.0.1', resolvePromise));
+
+    try {
+        const address = server.address();
+        await runCrawler([
+            'init',
+            `--workspace=${workspace}`,
+            `--artifact-root=${artifactRoot}`,
+            `--base-url=http://127.0.0.1:${address.port}/`,
+            `--item-list-file=${itemListPath}`,
+            '--contact=test@example.invalid',
+            '--authorization-ref=fixture-authorization',
+            '--capture-strategy=reversible-delta',
+            '--min-interval-ms=0',
+            '--jitter-ms=0',
+            '--daily-cap=10',
+        ]);
+        controlWorkspace = new CrawlWorkspace(workspace, {
+            minIntervalMs: 0,
+            jitterMs: 0,
+            dailyCap: 10,
+        });
+
+        await runCrawler(['run', `--workspace=${workspace}`]);
+        assert.deepEqual(requests, ['/itemhistory.html?id=20542']);
+        await assert.rejects(readFile(join(artifactRoot, 'items', 'dc', '20542.json')), {
+            code: 'ENOENT',
+        });
+
+        await runCrawler(['resume', `--workspace=${workspace}`]);
+        await runCrawler(['run', `--workspace=${workspace}`]);
+    } finally {
+        await new Promise((resolvePromise, rejectPromise) => server.close((error) => {
+            if (error) rejectPromise(error);
+            else resolvePromise();
+        }));
+    }
+
+    assert.deepEqual(requests, [
+        '/itemhistory.html?id=20542',
+        '/itemraw.html?id=20542&source=Live',
+    ]);
+    assert.equal(requests.some((url) => url.startsWith('/item.html?entryid=')), false);
+
+    const artifact = JSON.parse(await readFile(join(artifactRoot, 'items', 'dc', '20542.json'), 'utf8'));
+    assert.equal(artifact.format_version, 2);
+    assert.equal(artifact.parser_format_version, 2);
+    assert.equal(artifact.capture_strategy, 'reversible-delta-v1');
+    assert.deepEqual(Object.keys(artifact.current_raw), ['Live']);
+    assert.deepEqual(artifact.coverage, {
+        history_rows: 'captured',
+        current_raw: 'captured',
+        historical_state: 'reconstructed',
+        rendered_details: 'not-captured',
+        direct_detail_count: 0,
+    });
+    assert.equal(artifact.evidence.current_raw_source, 'Live');
+    assert.match(artifact.evidence.current_raw_capture_sha256, /^[a-f0-9]{64}$/);
+    assert.equal(artifact.evidence.history_capture_sha256s.length, 1);
+    assert.equal(artifact.reconstruction.algorithm, 'lucy-reversible-delta');
+    assert.equal(artifact.reconstruction.sources.Live.status, 'chain-verified-anchored');
+    assert.equal(artifact.reconstruction.sources.Test.status, 'chain-verified-unanchored');
+    assert.ok(artifact.revisions.every((revision) =>
+        revision.capture_sha256 === undefined
+        && revision.history_capture_sha256s.length === 1));
+
+    const status = await readAtomicJson(join(workspace, 'state', 'status.json'));
+    assert.equal(status.state, 'complete');
+    assert.equal(status.policy.captureStrategy, 'reversible-delta');
+    assert.equal(status.metrics.requestStarts, 2);
 });
 
 test('a semantic missing-item page is quarantined without pausing the remaining queue', async () => {

@@ -3,6 +3,12 @@ import { createHash } from 'node:crypto';
 export const LUCY_ITEM_HISTORY_SCHEMA = 'modern-allaclone.item-history';
 export const LUCY_ITEM_HISTORY_FORMAT_VERSION = 1;
 export const LUCY_ITEM_HISTORY_PARSER_FORMAT_VERSION = 1;
+export const LUCY_ITEM_HISTORY_REVERSIBLE_DELTA_FORMAT_VERSION = 2;
+export const LUCY_ITEM_HISTORY_REVERSIBLE_DELTA_PARSER_FORMAT_VERSION = 2;
+export const REVERSIBLE_DELTA_CAPTURE_STRATEGY = 'reversible-delta-v1';
+
+const REVERSIBLE_DELTA_ALGORITHM = 'lucy-reversible-delta';
+const REVERSIBLE_DELTA_VALUE_ENCODING = 'lucy-history-display-v1';
 
 const LUCY_ORIGIN = 'https://lucy.allakhazam.com';
 const SOURCE_ORDER = new Map([['Live', 0], ['Test', 1]]);
@@ -545,6 +551,115 @@ export function parseItemRawPage(html, {
     return parseCurrentRawItem(html, { itemId, source, captureSha256 });
 }
 
+/**
+ * Validate Lucy history rows as independent, source-isolated, reversible
+ * tri-state transitions. The values remain in Lucy's history-display encoding;
+ * this deliberately does not pretend that itemraw numeric/default encodings are
+ * interchangeable with the human-readable values in the history table.
+ */
+export function analyzeReversibleItemHistory({
+    itemId,
+    history,
+    currentRaw = {},
+    anchorSource = null,
+} = {}) {
+    const normalizedItemId = requireItemId(itemId, 'item id');
+    if (!isRecord(history) || history.item_id !== normalizedItemId || !Array.isArray(history.revisions)) {
+        throw parseError('reconstruction_history', 'Reversible reconstruction history does not match the requested item id.');
+    }
+    if (history.revisions.length === 0) {
+        throw parseError('reconstruction_history_empty', 'Reversible reconstruction requires at least one history revision.');
+    }
+
+    const suppliedRawCount = Array.isArray(currentRaw)
+        ? currentRaw.length
+        : (isRecord(currentRaw) ? Object.keys(currentRaw).length : 0);
+    if (suppliedRawCount !== 1) {
+        throw parseError('reconstruction_anchor_count', 'Reversible reconstruction requires exactly one current-raw anchor source.', {
+            count: suppliedRawCount,
+        });
+    }
+    const normalizedRaw = normalizeCurrentRaw(currentRaw, normalizedItemId);
+    const rawSources = Object.keys(normalizedRaw);
+    if (rawSources.length !== 1) {
+        throw parseError('reconstruction_anchor_count', 'Reversible reconstruction requires exactly one current-raw anchor source.', {
+            sources: rawSources,
+        });
+    }
+    const normalizedAnchorSource = anchorSource === null
+        ? rawSources[0]
+        : normalizeSource(anchorSource, 'reconstruction_anchor_source');
+    if (rawSources[0] !== normalizedAnchorSource) {
+        throw parseError('reconstruction_anchor_source', 'The requested anchor source differs from the current-raw capture.', {
+            requested: normalizedAnchorSource,
+            actual: rawSources[0],
+        });
+    }
+    const anchor = normalizedRaw[normalizedAnchorSource];
+    if (anchor.capture_sha256 === undefined) {
+        throw parseError('reconstruction_anchor_evidence', 'Reversible reconstruction requires capture evidence for its current-raw anchor.');
+    }
+
+    const historyCaptureSha256s = collectHistoryCaptureSha256s(history);
+    if (historyCaptureSha256s.length === 0) {
+        throw parseError('reconstruction_history_evidence', 'Reversible reconstruction requires history capture evidence.');
+    }
+
+    const normalizedRevisions = history.revisions.map(normalizeReconstructionRevision).sort(compareRevisions);
+    const sources = orderedSources([
+        ...(history.sources ?? []),
+        ...normalizedRevisions.map((revision) => revision.source),
+    ]);
+    if (!sources.includes(normalizedAnchorSource)) {
+        throw parseError('reconstruction_anchor_source', 'The current-raw anchor source has no corresponding history source.', {
+            source: normalizedAnchorSource,
+        });
+    }
+
+    const sourceResults = {};
+    const derivationSources = {};
+    for (const source of sources) {
+        const revisions = normalizedRevisions.filter((revision) => revision.source === source);
+        const analysis = analyzeReversibleSourceChain(source, revisions);
+        const status = source === normalizedAnchorSource
+            ? 'chain-verified-anchored'
+            : 'chain-verified-unanchored';
+        sourceResults[source] = {
+            status,
+            revision_count: revisions.length,
+            change_count: analysis.change_count,
+            tracked_field_count: analysis.tracked_field_count,
+            continuity_checks: analysis.continuity_checks,
+        };
+        derivationSources[source] = {
+            status,
+            revisions,
+        };
+    }
+
+    const derivationPayload = {
+        algorithm: REVERSIBLE_DELTA_ALGORITHM,
+        version: 1,
+        value_encoding: REVERSIBLE_DELTA_VALUE_ENCODING,
+        item_id: normalizedItemId,
+        history_capture_sha256s: historyCaptureSha256s,
+        anchor: {
+            source: normalizedAnchorSource,
+            capture_sha256: anchor.capture_sha256,
+            fields_sha256: sha256Hex(canonicalJson(anchor.fields)),
+        },
+        sources: derivationSources,
+    };
+
+    return {
+        algorithm: REVERSIBLE_DELTA_ALGORITHM,
+        version: 1,
+        derivation_sha256: sha256Hex(canonicalJson(derivationPayload)),
+        value_encoding: REVERSIBLE_DELTA_VALUE_ENCODING,
+        sources: sourceResults,
+    };
+}
+
 export function assembleItemHistoryArtifact({
     itemId,
     history,
@@ -553,12 +668,25 @@ export function assembleItemHistoryArtifact({
     generatedAt,
     gaps = [],
     complete = null,
+    captureStrategy = null,
+    anchorSource = null,
+    reconstruction = null,
 } = {}) {
     const normalizedItemId = requireItemId(itemId, 'item id');
     if (!isRecord(history) || history.item_id !== normalizedItemId || !Array.isArray(history.revisions)) {
         throw parseError('artifact_history', 'Artifact history does not match the requested item id.');
     }
+    const reversibleDelta = captureStrategy !== null;
+    if (reversibleDelta && captureStrategy !== REVERSIBLE_DELTA_CAPTURE_STRATEGY) {
+        throw parseError('artifact_capture_strategy', 'Artifact capture strategy is not supported.', {
+            capture_strategy: captureStrategy,
+        });
+    }
     const normalizedGeneratedAt = parseGeneratedAt(generatedAt);
+    const historyCaptureSha256s = reversibleDelta ? collectHistoryCaptureSha256s(history) : [];
+    if (reversibleDelta && historyCaptureSha256s.length === 0) {
+        throw parseError('artifact_history_evidence', 'A reversible-delta artifact requires history capture evidence.');
+    }
 
     const entriesById = new Map();
     for (const entry of entries) {
@@ -586,7 +714,7 @@ export function assembleItemHistoryArtifact({
                     entry_id: entryId,
                 });
             }
-        } else {
+        } else if (!reversibleDelta) {
             automaticGaps.push({
                 entry_id: entryId,
                 source: historyRevision.source,
@@ -601,6 +729,7 @@ export function assembleItemHistoryArtifact({
             observed_precision: normalizeObservedPrecision(historyRevision.observed_precision),
             type: normalizeRevisionType(historyRevision.type),
             changes: historyRevision.changes.map(normalizeArtifactChange),
+            ...(reversibleDelta ? { history_capture_sha256s: [...historyCaptureSha256s] } : {}),
         };
         if (detail !== null) {
             revision.detail = {
@@ -631,6 +760,18 @@ export function assembleItemHistoryArtifact({
 
     const normalizedGaps = normalizeGaps([...gaps, ...automaticGaps]);
     const currentRawArtifact = normalizeCurrentRaw(currentRaw, normalizedItemId);
+    const computedReconstruction = reversibleDelta
+        ? analyzeReversibleItemHistory({
+            itemId: normalizedItemId,
+            history,
+            currentRaw: currentRawArtifact,
+            anchorSource,
+        })
+        : null;
+    if (reversibleDelta && reconstruction !== null
+        && canonicalJson(reconstruction) !== canonicalJson(computedReconstruction)) {
+        throw parseError('artifact_reconstruction', 'Provided reconstruction metadata differs from the verified derivation.');
+    }
     const detailedRevisions = revisions.filter((revision) => revision.detail !== undefined);
     const latestDetail = detailedRevisions.length === 0 ? null : detailedRevisions[detailedRevisions.length - 1].detail;
     const sources = orderedSources([
@@ -643,14 +784,39 @@ export function assembleItemHistoryArtifact({
         throw parseError('artifact_complete_with_gaps', 'A complete item artifact cannot contain gaps.');
     }
 
+    const anchorRawSource = reversibleDelta ? Object.keys(currentRawArtifact)[0] : null;
+    const reversibleMetadata = reversibleDelta ? {
+        capture_strategy: REVERSIBLE_DELTA_CAPTURE_STRATEGY,
+        coverage: {
+            history_rows: 'captured',
+            current_raw: 'captured',
+            historical_state: 'reconstructed',
+            rendered_details: detailedRevisions.length === 0 ? 'not-captured' : 'partial',
+            direct_detail_count: detailedRevisions.length,
+        },
+        evidence: {
+            history_capture_sha256s: historyCaptureSha256s,
+            current_raw_capture_sha256: currentRawArtifact[anchorRawSource].capture_sha256,
+            current_raw_source: anchorRawSource,
+        },
+        reconstruction: computedReconstruction,
+    } : {};
+
     return {
         schema: LUCY_ITEM_HISTORY_SCHEMA,
         artifact_type: 'item',
-        format_version: LUCY_ITEM_HISTORY_FORMAT_VERSION,
-        parser_format_version: LUCY_ITEM_HISTORY_PARSER_FORMAT_VERSION,
+        format_version: reversibleDelta
+            ? LUCY_ITEM_HISTORY_REVERSIBLE_DELTA_FORMAT_VERSION
+            : LUCY_ITEM_HISTORY_FORMAT_VERSION,
+        parser_format_version: reversibleDelta
+            ? LUCY_ITEM_HISTORY_REVERSIBLE_DELTA_PARSER_FORMAT_VERSION
+            : LUCY_ITEM_HISTORY_PARSER_FORMAT_VERSION,
+        ...reversibleMetadata,
         item_id: normalizedItemId,
-        latest_name: latestDetail?.name ?? history.item_name ?? null,
-        latest_icon: latestDetail?.icon ?? null,
+        latest_name: reversibleDelta
+            ? (history.item_name ?? null)
+            : (latestDetail?.name ?? history.item_name ?? null),
+        latest_icon: reversibleDelta ? null : (latestDetail?.icon ?? null),
         generated_at: normalizedGeneratedAt,
         sources,
         complete: resolvedComplete,
@@ -658,9 +824,9 @@ export function assembleItemHistoryArtifact({
         first_observed_at: revisions[0]?.observed_at ?? null,
         last_observed_at: revisions.at(-1)?.observed_at ?? null,
         revision_count: revisions.length,
-        ...(history.capture_sha256 === undefined
-            ? {}
-            : { history_capture_sha256: requireSha256(history.capture_sha256, 'history capture') }),
+        ...(!reversibleDelta && history.capture_sha256 !== undefined
+            ? { history_capture_sha256: requireSha256(history.capture_sha256, 'history capture') }
+            : {}),
         current_raw: currentRawArtifact,
         revisions,
     };
@@ -676,6 +842,9 @@ export function buildItemHistoryArtifact({
     gaps = [],
     captures = {},
     complete = null,
+    captureStrategy = null,
+    anchorSource = null,
+    reconstruction = null,
 } = {}) {
     const normalizedHistory = { ...history };
     if ((normalizedHistory.item_name === null || normalizedHistory.item_name === undefined)
@@ -703,6 +872,9 @@ export function buildItemHistoryArtifact({
         generatedAt,
         gaps,
         complete,
+        captureStrategy,
+        anchorSource,
+        reconstruction,
     });
 }
 
@@ -1258,6 +1430,209 @@ function normalizeArtifactChange(change) {
         display: change.display,
         ...(iconIds.length === 0 ? {} : { icon_ids: [...iconIds] }),
     };
+}
+
+function normalizeReconstructionRevision(revision) {
+    if (!isRecord(revision) || !Array.isArray(revision.changes) || revision.changes.length === 0) {
+        throw parseError('reconstruction_revision', 'Reversible reconstruction requires nonempty revision change arrays.');
+    }
+    return {
+        entry_id: requireItemId(revision.entry_id, 'history entry id'),
+        source: normalizeSource(revision.source, 'reconstruction_source'),
+        observed_at: parseIsoNaiveTimestamp(revision.observed_at, 'history timestamp'),
+        observed_precision: normalizeObservedPrecision(revision.observed_precision),
+        type: normalizeRevisionType(revision.type),
+        changes: revision.changes.map(normalizeArtifactChange),
+    };
+}
+
+function analyzeReversibleSourceChain(source, revisions) {
+    const fieldStates = new Map();
+    const trackedFields = new Set();
+    const entryIds = new Set();
+    let initialSeen = false;
+    let changeCount = 0;
+    let continuityChecks = 0;
+
+    for (let revisionIndex = 0; revisionIndex < revisions.length; revisionIndex += 1) {
+        const revision = revisions[revisionIndex];
+        if (entryIds.has(revision.entry_id)) {
+            throw parseError('reconstruction_duplicate_entry', 'A source chain contains a duplicate revision entry id.', {
+                source,
+                entry_id: revision.entry_id,
+            });
+        }
+        entryIds.add(revision.entry_id);
+
+        const initialChanges = revision.changes.filter((change) => change.operation === 'initial');
+        if (initialChanges.length > 0) {
+            if (revision.type !== 'initial' || revision.changes.length !== 1
+                || initialChanges[0].field !== null || initialChanges[0].before !== null
+                || initialChanges[0].after !== null) {
+                throw parseError('reconstruction_non_reversible_change', 'Initial history rows cannot be mixed with field transitions.', {
+                    source,
+                    entry_id: revision.entry_id,
+                });
+            }
+            if (initialSeen || revisionIndex !== 0) {
+                throw parseError('reconstruction_initial_conflict', 'A source chain contains a duplicate or out-of-order initial entry.', {
+                    source,
+                    entry_id: revision.entry_id,
+                });
+            }
+            initialSeen = true;
+            changeCount += 1;
+            continue;
+        }
+        if (revision.type !== 'changed') {
+            throw parseError('reconstruction_non_reversible_change', 'Changed history rows must contain reversible field transitions.', {
+                source,
+                entry_id: revision.entry_id,
+            });
+        }
+
+        const revisionFields = new Set();
+        for (const change of revision.changes) {
+            if (change.operation === 'unknown') {
+                throw parseError('reconstruction_unknown_change', 'Reversible reconstruction cannot accept an unknown history change.', {
+                    source,
+                    entry_id: revision.entry_id,
+                    display: change.display,
+                });
+            }
+            const transition = reversibleTransition(change, source, revision.entry_id);
+            if (revisionFields.has(transition.field_key)) {
+                throw parseError('reconstruction_duplicate_field', 'A revision changes the same field more than once.', {
+                    source,
+                    entry_id: revision.entry_id,
+                    field: transition.field,
+                });
+            }
+            revisionFields.add(transition.field_key);
+            trackedFields.add(transition.field_key);
+            changeCount += 1;
+
+            const prior = fieldStates.get(transition.field_key);
+            if (prior === undefined) {
+                fieldStates.set(transition.field_key, {
+                    state: transition.after,
+                    transition,
+                });
+                continue;
+            }
+
+            if (sameTriState(prior.state, transition.before)) {
+                continuityChecks += 1;
+                fieldStates.set(transition.field_key, {
+                    state: transition.after,
+                    transition,
+                });
+                continue;
+            }
+
+            // Lucy occasionally retains two entry ids for the same effective
+            // transition. It is still deterministic and reversible, provided
+            // both the before and after assertions are byte-for-byte equal.
+            if (sameTriState(prior.state, transition.after)
+                && sameTransition(prior.transition, transition)) {
+                continuityChecks += 1;
+                continue;
+            }
+
+            throw parseError('reconstruction_continuity_conflict', 'A source-isolated field chain has conflicting adjacent values.', {
+                source,
+                entry_id: revision.entry_id,
+                field: transition.field,
+                expected_before: transition.before,
+                actual_before: prior.state,
+            });
+        }
+    }
+
+    return {
+        change_count: changeCount,
+        tracked_field_count: trackedFields.size,
+        continuity_checks: continuityChecks,
+    };
+}
+
+function reversibleTransition(change, source, entryId) {
+    if (!['added', 'removed', 'changed'].includes(change.operation)
+        || typeof change.field !== 'string' || change.field === '' || change.field.trim() !== change.field) {
+        throw parseError('reconstruction_non_reversible_change', 'History change is not a reversible field transition.', {
+            source,
+            entry_id: entryId,
+            operation: change.operation,
+            field: change.field,
+        });
+    }
+
+    let before;
+    let after;
+    if (change.operation === 'added') {
+        if (change.before !== null || typeof change.after !== 'string') {
+            throw parseError('reconstruction_non_reversible_change', 'Added fields require an absent before-state and a string after-state.', {
+                source,
+                entry_id: entryId,
+                field: change.field,
+            });
+        }
+        before = { present: false };
+        after = { present: true, value: change.after };
+    } else if (change.operation === 'removed') {
+        if (typeof change.before !== 'string' || change.after !== null) {
+            throw parseError('reconstruction_non_reversible_change', 'Removed fields require a string before-state and an absent after-state.', {
+                source,
+                entry_id: entryId,
+                field: change.field,
+            });
+        }
+        before = { present: true, value: change.before };
+        after = { present: false };
+    } else {
+        if (typeof change.before !== 'string' || typeof change.after !== 'string') {
+            throw parseError('reconstruction_non_reversible_change', 'Changed fields require string before- and after-states.', {
+                source,
+                entry_id: entryId,
+                field: change.field,
+            });
+        }
+        before = { present: true, value: change.before };
+        after = { present: true, value: change.after };
+    }
+
+    return { field: change.field, field_key: change.field.toLowerCase(), before, after };
+}
+
+function sameTriState(left, right) {
+    return left.present === right.present && (!left.present || left.value === right.value);
+}
+
+function sameTransition(left, right) {
+    return left.field_key === right.field_key
+        && sameTriState(left.before, right.before)
+        && sameTriState(left.after, right.after);
+}
+
+function collectHistoryCaptureSha256s(history) {
+    const values = [];
+    appendHistoryCaptureValues(values, history?.capture_sha256s, 'history captures');
+    if (history?.capture_sha256 !== undefined) values.push(requireSha256(history.capture_sha256, 'history capture'));
+    for (const revision of history?.revisions ?? []) {
+        appendHistoryCaptureValues(values, revision?.history_capture_sha256s, 'revision history captures');
+        if (revision?.history_capture_sha256 !== undefined) {
+            values.push(requireSha256(revision.history_capture_sha256, 'revision history capture'));
+        }
+    }
+    return [...new Set(values)].sort(compareStrings);
+}
+
+function appendHistoryCaptureValues(target, values, label) {
+    if (values === undefined) return;
+    if (!Array.isArray(values) || values.length === 0) {
+        throw parseError('invalid_sha256', `${label} must be a nonempty array of SHA-256 digests.`);
+    }
+    for (const value of values) target.push(requireSha256(value, label));
 }
 
 function normalizeCurrentRaw(currentRaw, itemId) {
