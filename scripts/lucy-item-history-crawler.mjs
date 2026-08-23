@@ -60,7 +60,7 @@ const PROGRESS_SCHEMA = 'modern-allaclone.lucy-item-crawl-progress';
 const ITEM_WORK_SCHEMA = 'modern-allaclone.lucy-item-crawl-item-work';
 const ERROR_SCHEMA = 'modern-allaclone.lucy-item-crawl-error';
 const VERSION = 1;
-const CRAWLER_VERSION = '1.0.0';
+const CRAWLER_VERSION = '1.0.1';
 const DEFAULT_BASE_URL = 'https://lucy.allakhazam.com/';
 const DEFAULT_MIN_INTERVAL_MS = 30_000;
 const ABSOLUTE_MIN_INTERVAL_MS = 20_000;
@@ -91,10 +91,11 @@ class StopRequested extends Error {
 }
 
 class PauseRequested extends Error {
-    constructor(message, { code = 'automatic_pause', cause = undefined } = {}) {
+    constructor(message, { code = 'automatic_pause', cause = undefined, context = {} } = {}) {
         super(message, { cause });
         this.name = 'PauseRequested';
         this.code = code;
+        this.context = context;
     }
 }
 
@@ -289,11 +290,87 @@ function isLoopbackUrl(value) {
     return ['localhost', '127.0.0.1', '::1'].includes(hostname);
 }
 
+export function cookieBootstrapTarget(bytes, contentType, currentUrl, baseUrl) {
+    const html = decodeLucyHtml(bytes, declaredCharset(contentType) ?? 'windows-1252').trim();
+    const wrapper = html.match(/^<head>\s*(<meta\b[^>]*>)\s*<\/head>$/i);
+    if (wrapper === null) return null;
+
+    const attribute = (name) => {
+        const match = wrapper[1].match(new RegExp(`(?:^|\\s)${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
+        return match?.[2] ?? null;
+    };
+    if (attribute('http-equiv')?.toLowerCase() !== 'refresh') return null;
+    const refresh = attribute('content')?.match(/^\s*0\s*;\s*url\s*=\s*(.{1,2048})\s*$/i);
+    if (refresh === undefined || refresh === null) return null;
+
+    let target;
+    try {
+        target = new URL(refresh[1].replaceAll('&amp;', '&'), currentUrl);
+    } catch {
+        return null;
+    }
+    const configured = new URL(baseUrl);
+    if (target.origin !== configured.origin
+        || target.username !== ''
+        || target.password !== ''
+        || target.hash !== ''
+        || target.pathname !== currentUrl.pathname
+        || (currentUrl.searchParams.has('setcookie')
+            && (currentUrl.searchParams.getAll('setcookie').length !== 1
+                || currentUrl.searchParams.get('setcookie') !== '1'))
+        || target.searchParams.getAll('setcookie').length !== 1
+        || target.searchParams.get('setcookie') !== '1') {
+        return null;
+    }
+
+    const withoutBootstrap = new URL(target.href);
+    withoutBootstrap.searchParams.delete('setcookie');
+    const currentWithoutBootstrap = new URL(currentUrl.href);
+    currentWithoutBootstrap.searchParams.delete('setcookie');
+    const canonicalParams = (url) => [...url.searchParams.entries()]
+        .sort(([leftName, leftValue], [rightName, rightValue]) => (
+            leftName.localeCompare(rightName) || leftValue.localeCompare(rightValue)
+        ));
+    if (JSON.stringify(canonicalParams(withoutBootstrap)) !== JSON.stringify(canonicalParams(currentWithoutBootstrap))) {
+        return null;
+    }
+
+    return target;
+}
+
+export function buildLucyCookieHeader(cookies) {
+    if (!(cookies instanceof Map)) throw new TypeError('cookies must be a Map');
+    if (cookies.size === 0) return null;
+
+    const header = [...cookies.entries()]
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([name, value]) => `${name}=${value}`)
+        .join('; ');
+    if (header.length > 8_192) {
+        throw new PauseRequested('Lucy cookies exceed the request-header safety limit.', {
+            code: 'cookie_header_too_large',
+        });
+    }
+
+    return header;
+}
+
 export function assertAcceptableLucyHtml(bytes, contentType = '') {
     const html = decodeLucyHtml(bytes, declaredCharset(contentType) ?? 'windows-1252');
+    const digestBytes = bytes instanceof ArrayBuffer ? new Uint8Array(bytes) : bytes;
+    const diagnostic = {
+        byte_length: bytes.byteLength,
+        content_type: String(contentType).slice(0, 256),
+        sha256: createHash('sha256').update(digestBytes).digest('hex'),
+        body_preview: html.slice(0, 512)
+            .replace(/[\u0000-\u001f\u007f]+/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim(),
+    };
     if (!/<(?:!doctype\s+html|html|title|table)\b/i.test(html)) {
         throw new PauseRequested('Lucy returned a body that does not look like an HTML item page.', {
             code: 'unexpected_body',
+            context: diagnostic,
         });
     }
     if (/\b(?:captcha|cloudflare|access denied|verify you are human|checking your browser|attention required|too many requests|just a moment|system error)\b/i.test(html)
@@ -301,6 +378,7 @@ export function assertAcceptableLucyHtml(bytes, contentType = '') {
         || /trace begun at\s+\/home\/lucy/i.test(html)) {
         throw new PauseRequested('Lucy returned a challenge, access-denied, or system-error page.', {
             code: 'challenge_or_error_page',
+            context: diagnostic,
         });
     }
 
@@ -1062,6 +1140,8 @@ class AuthorizedLucyCrawler {
         this.activeRequestController = null;
         this.runId = randomUUID();
         this.queue = null;
+        this.cookies = new Map();
+        this.cookieExpirations = new Map();
     }
 
     async run() {
@@ -1529,8 +1609,11 @@ class AuthorizedLucyCrawler {
         }
 
         let lastError = null;
+        let requestUrl = new URL(url.href);
+        let cookieBootstrapUsed = false;
         for (let attempt = 1; ; attempt += 1) {
             await this.waitForControl();
+            this.cookieHeader();
             let slot;
             try {
                 slot = await this.workspace.waitForRateSlot({
@@ -1555,6 +1638,7 @@ class AuthorizedLucyCrawler {
                 continue;
             }
 
+            const cookie = this.cookieHeader();
             const started = Date.now();
             const controller = new AbortController();
             this.activeRequestController = controller;
@@ -1563,16 +1647,18 @@ class AuthorizedLucyCrawler {
             let bytes = null;
             let requestFailure = null;
             try {
-                response = await fetch(url, {
+                const headers = {
+                    Accept: kind === 'item-list'
+                        ? 'application/gzip, application/octet-stream, text/csv;q=0.9, */*;q=0.1'
+                        : 'text/html, application/xhtml+xml;q=0.9, */*;q=0.1',
+                    'User-Agent': this.userAgent(),
+                };
+                if (cookie !== null) headers.Cookie = cookie;
+                response = await fetch(requestUrl, {
                     method: 'GET',
                     redirect: 'error',
                     signal: controller.signal,
-                    headers: {
-                        Accept: kind === 'item-list'
-                            ? 'application/gzip, application/octet-stream, text/csv;q=0.9, */*;q=0.1'
-                            : 'text/html, application/xhtml+xml;q=0.9, */*;q=0.1',
-                        'User-Agent': this.userAgent(),
-                    },
+                    headers,
                 });
                 bytes = await readResponseBytes(response, maxBytes);
                 await this.workspace.recordRequest({
@@ -1580,7 +1666,7 @@ class AuthorizedLucyCrawler {
                     success: response.ok,
                     durationMs: Date.now() - started,
                     bytes: bytes.byteLength,
-                    url: url.href,
+                    url: requestUrl.href,
                 });
             } catch (error) {
                 if (this.stopRequested && error?.name === 'AbortError') {
@@ -1592,10 +1678,10 @@ class AuthorizedLucyCrawler {
                     success: false,
                     durationMs: Date.now() - started,
                     bytes: bytes?.byteLength ?? 0,
-                    url: url.href,
+                    url: requestUrl.href,
                     error,
                 });
-                lastError = new CrawlerError(`Network request failed for ${url.href}.`, {
+                lastError = new CrawlerError(`Network request failed for ${requestUrl.href}.`, {
                     code: error?.name === 'AbortError' ? 'request_timeout' : 'network_error',
                     cause: error,
                 });
@@ -1612,8 +1698,32 @@ class AuthorizedLucyCrawler {
             }
 
             if (response?.ok && bytes !== null) {
-                if (kind !== 'item-list') this.assertLooksLikeLucyHtml(bytes, response);
-                const capture = await this.storeCapture(url, response, bytes, kind);
+                this.rememberResponseCookies(response, requestUrl);
+                if (kind !== 'item-list') {
+                    const bootstrapTarget = cookieBootstrapTarget(
+                        bytes,
+                        response.headers.get('content-type') ?? '',
+                        requestUrl,
+                        this.config.base_url,
+                    );
+                    if (bootstrapTarget !== null) {
+                        if (cookieBootstrapUsed) {
+                            throw new PauseRequested('Lucy repeated its cookie bootstrap response.', {
+                                code: 'cookie_bootstrap_loop',
+                            });
+                        }
+                        cookieBootstrapUsed = true;
+                        await appendLog(this.root, 'info', 'Following Lucy cookie bootstrap through the durable rate gate.', {
+                            from: requestUrl.href,
+                            to: bootstrapTarget.href,
+                        });
+                        requestUrl = bootstrapTarget;
+                        attempt -= 1;
+                        continue;
+                    }
+                    this.assertLooksLikeLucyHtml(bytes, response);
+                }
+                const capture = await this.storeCapture(requestUrl, response, bytes, kind);
                 return { bytes, capture, response };
             }
 
@@ -1623,9 +1733,9 @@ class AuthorizedLucyCrawler {
                 });
             }
             if (response !== undefined && response.status === 404) {
-                throw new CrawlerError(`Lucy returned HTTP 404 for ${url.href}.`, {
+                throw new CrawlerError(`Lucy returned HTTP 404 for ${requestUrl.href}.`, {
                     code: 'not_found',
-                    context: { status: 404, url: url.href },
+                    context: { status: 404, url: requestUrl.href },
                 });
             }
 
@@ -1634,15 +1744,15 @@ class AuthorizedLucyCrawler {
                 || [408, 425, 429].includes(response.status)
                 || response.status >= 500;
             if (!retryable) {
-                throw new CrawlerError(`Lucy returned unexpected HTTP ${response.status} for ${url.href}.`, {
+                throw new CrawlerError(`Lucy returned unexpected HTTP ${response.status} for ${requestUrl.href}.`, {
                     code: 'unexpected_http_status',
-                    context: { status: response.status, url: url.href },
+                    context: { status: response.status, url: requestUrl.href },
                 });
             }
             if (response !== undefined) {
                 lastError = new CrawlerError(`Lucy returned retryable HTTP ${response.status}.`, {
                     code: 'retryable_http_status',
-                    context: { status: response.status, url: url.href },
+                    context: { status: response.status, url: requestUrl.href },
                 });
             }
             const waitMs = calculateBackoff({
@@ -1656,7 +1766,7 @@ class AuthorizedLucyCrawler {
                 reason: `retry-${lastError?.code ?? 'request'}`,
             });
             await appendLog(this.root, 'warning', 'Request deferred before retry.', {
-                url: url.href,
+                url: requestUrl.href,
                 attempt,
                 wait_ms: waitMs,
                 error: serializeError(lastError),
@@ -1671,6 +1781,113 @@ class AuthorizedLucyCrawler {
 
     userAgent() {
         return `ModernAllacloneAuthorizedItemHistoryCrawler/${CRAWLER_VERSION} (+${this.config.contact}; authorization: ${this.config.authorization_reference})`;
+    }
+
+    cookieHeader() {
+        const now = Date.now();
+        for (const [name, expiresAt] of this.cookieExpirations) {
+            if (expiresAt !== null && expiresAt <= now) {
+                this.cookies.delete(name);
+                this.cookieExpirations.delete(name);
+            }
+        }
+
+        return buildLucyCookieHeader(this.cookies);
+    }
+
+    rememberResponseCookies(response, requestUrl) {
+        const values = typeof response.headers.getSetCookie === 'function'
+            ? response.headers.getSetCookie()
+            : [response.headers.get('set-cookie')].filter((value) => value !== null);
+        for (const value of values) {
+            const segments = String(value).split(';');
+            const pair = segments.shift() ?? '';
+            const separator = pair.indexOf('=');
+            const name = separator < 0 ? '' : pair.slice(0, separator).trim();
+            const cookieValue = separator < 0 ? '' : pair.slice(separator + 1).trim();
+            if (!/^[!#$%&'*+.^_`|~0-9A-Za-z-]{1,64}$/.test(name)
+                || cookieValue.length > 4096
+                || /[;,\r\n]/.test(cookieValue)) {
+                throw new PauseRequested('Lucy returned an invalid cookie.', {
+                    code: 'invalid_cookie',
+                });
+            }
+            const attributes = new Map();
+            for (const segment of segments) {
+                const attribute = segment.trim();
+                if (attribute === '') continue;
+                const attributeSeparator = attribute.indexOf('=');
+                const attributeName = (attributeSeparator < 0
+                    ? attribute
+                    : attribute.slice(0, attributeSeparator)).trim().toLowerCase();
+                const attributeValue = attributeSeparator < 0
+                    ? ''
+                    : attribute.slice(attributeSeparator + 1).trim();
+                if (!/^[a-z0-9-]{1,64}$/.test(attributeName)
+                    || /[;\r\n]/.test(attributeValue)
+                    || attributeValue.length > 1_024) {
+                    throw new PauseRequested('Lucy returned an invalid cookie attribute.', {
+                        code: 'invalid_cookie',
+                    });
+                }
+                attributes.set(attributeName, attributeValue);
+            }
+
+            const path = attributes.get('path') ?? '/';
+            if (path !== '/') {
+                throw new PauseRequested('Lucy returned an unsupported path-scoped cookie.', {
+                    code: 'unsupported_cookie_scope',
+                });
+            }
+            const domain = (attributes.get('domain') ?? requestUrl.hostname)
+                .replace(/^\./, '')
+                .toLowerCase();
+            const hostname = requestUrl.hostname.toLowerCase();
+            if (domain === '' || (hostname !== domain && !hostname.endsWith(`.${domain}`))) {
+                throw new PauseRequested('Lucy returned a cookie for another domain.', {
+                    code: 'unsupported_cookie_scope',
+                });
+            }
+            let expiresAt = null;
+            let maxAgePresent = false;
+            if (attributes.has('max-age')) {
+                maxAgePresent = true;
+                const maxAge = attributes.get('max-age');
+                const maxAgeSeconds = Number(maxAge);
+                if (!/^-?\d+$/.test(maxAge) || !Number.isSafeInteger(maxAgeSeconds)) {
+                    throw new PauseRequested('Lucy returned an invalid cookie lifetime.', {
+                        code: 'invalid_cookie',
+                    });
+                }
+                if (maxAgeSeconds <= 0) {
+                    this.cookies.delete(name);
+                    this.cookieExpirations.delete(name);
+                    continue;
+                }
+                expiresAt = Math.min(Number.MAX_SAFE_INTEGER, Date.now() + (maxAgeSeconds * 1_000));
+            }
+            if (!maxAgePresent && attributes.has('expires')) {
+                expiresAt = Date.parse(attributes.get('expires'));
+                if (!Number.isFinite(expiresAt)) {
+                    throw new PauseRequested('Lucy returned an invalid cookie expiration.', {
+                        code: 'invalid_cookie',
+                    });
+                }
+                if (expiresAt <= Date.now()) {
+                    this.cookies.delete(name);
+                    this.cookieExpirations.delete(name);
+                    continue;
+                }
+            }
+            if (attributes.has('secure') && requestUrl.protocol !== 'https:') continue;
+            if (!this.cookies.has(name) && this.cookies.size >= 16) {
+                throw new PauseRequested('Lucy returned too many cookies.', {
+                    code: 'too_many_cookies',
+                });
+            }
+            this.cookies.set(name, cookieValue);
+            this.cookieExpirations.set(name, expiresAt);
+        }
     }
 
     async storeCapture(url, response, bytes, kind) {

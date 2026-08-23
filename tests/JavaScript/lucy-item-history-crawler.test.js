@@ -17,6 +17,8 @@ import { CrawlWorkspace, atomicWriteJson, readAtomicJson } from '../../scripts/l
 import { sha256Hex } from '../../scripts/lib/lucy-item-history-parser.mjs';
 import {
     assertAcceptableLucyHtml,
+    buildLucyCookieHeader,
+    cookieBootstrapTarget,
     publishContentAddressedCapture,
     readVerifiedContentAddressedCapture,
     runCrawlerCli,
@@ -200,10 +202,26 @@ test('challenge and Lucy server-error pages are rejected before capture', () => 
                 Buffer.from(`<!doctype html><html><title>${phrase}</title><body>${phrase}</body></html>`),
                 'text/html; charset=utf-8',
             ),
-            (error) => error.code === 'challenge_or_error_page',
+            (error) => error.code === 'challenge_or_error_page'
+                && error.context.byte_length > 0
+                && /^[a-f0-9]{64}$/.test(error.context.sha256)
+                && error.context.body_preview.includes(phrase),
             phrase,
         );
     }
+
+    assert.throws(
+        () => assertAcceptableLucyHtml(Buffer.from('short non-HTML response'), 'text/plain'),
+        (error) => error.code === 'unexpected_body'
+            && error.context.content_type === 'text/plain'
+            && error.context.body_preview === 'short non-HTML response',
+    );
+    const arrayBuffer = Uint8Array.from(Buffer.from('short non-HTML ArrayBuffer response')).buffer;
+    assert.throws(
+        () => assertAcceptableLucyHtml(arrayBuffer, 'text/plain'),
+        (error) => error.code === 'unexpected_body'
+            && /^[a-f0-9]{64}$/.test(error.context.sha256),
+    );
 
     assert.match(
         assertAcceptableLucyHtml(
@@ -212,6 +230,142 @@ test('challenge and Lucy server-error pages are rejected before capture', () => 
         ),
         /Item History/,
     );
+
+    const original = new URL('https://lucy.allakhazam.com/itemhistory.html?id=1001');
+    const bootstrapBody = Buffer.from(
+        '<head><meta HTTP-EQUIV="Refresh" CONTENT="0; URL=/itemhistory.html?id=1001&setcookie=1"></head>',
+    );
+    const target = cookieBootstrapTarget(
+        bootstrapBody,
+        'text/html',
+        original,
+        'https://lucy.allakhazam.com/',
+    );
+    assert.equal(target.href, 'https://lucy.allakhazam.com/itemhistory.html?id=1001&setcookie=1');
+    assert.equal(
+        cookieBootstrapTarget(bootstrapBody, 'text/html', target, 'https://lucy.allakhazam.com/').href,
+        target.href,
+        'a repeated bootstrap must remain recognizable so the caller can stop the loop',
+    );
+    assert.equal(cookieBootstrapTarget(
+        Buffer.from('<head><meta HTTP-EQUIV="Refresh" CONTENT="0; URL=https://example.invalid/"></head>'),
+        'text/html',
+        original,
+        'https://lucy.allakhazam.com/',
+    ), null);
+    assert.equal(cookieBootstrapTarget(
+        Buffer.from('<head><meta HTTP-EQUIV="Refresh" CONTENT="0; URL=/itemhistory.html?id=1002&setcookie=1"></head>'),
+        'text/html',
+        original,
+        'https://lucy.allakhazam.com/',
+    ), null);
+    assert.equal(cookieBootstrapTarget(
+        Buffer.from('<head><meta HTTP-EQUIV="Refresh" CONTENT="0; URL=/item.html?id=1001&setcookie=1"></head>'),
+        'text/html',
+        original,
+        'https://lucy.allakhazam.com/',
+    ), null);
+
+    assert.equal(buildLucyCookieHeader(new Map([['LucySession', 'fixture']])), 'LucySession=fixture');
+    assert.throws(
+        () => buildLucyCookieHeader(new Map([
+            ['first', 'a'.repeat(4_096)],
+            ['second', 'b'.repeat(4_096)],
+        ])),
+        (error) => error.code === 'cookie_header_too_large',
+    );
+});
+
+test('the Lucy cookie bootstrap stays same-origin, consumes a normal request slot, and carries its cookie', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'lucy-item-crawler-cookie-'));
+    temporaryDirectories.push(root);
+    const workspace = join(root, 'work');
+    const artifactRoot = join(root, 'artifacts');
+    const itemListPath = join(root, 'itemlist.csv');
+    await writeFile(
+        itemListPath,
+        'id,name,lucylink\n20542,Singing Short Sword,https://lucy.allakhazam.com/item.html?id=20542\n',
+        'utf8',
+    );
+
+    const history = historyPage(20542, 'Singing Short Sword', [{
+        entryId: 2156558,
+        observedAt: '2020-02-02 13:45',
+        change: 'Initial Entry',
+    }]);
+    const detail = await readFile(join(fixtures, 'itemdetail-2156558.html'));
+    const raw = await readFile(join(fixtures, 'itemraw-20542-live.html'));
+    const requests = [];
+    const server = createServer((request, response) => {
+        requests.push({ url: request.url, cookie: request.headers.cookie ?? null });
+        const url = new URL(request.url, 'http://127.0.0.1');
+        if (url.pathname === '/itemhistory.html' && !url.searchParams.has('setcookie')) {
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+            response.end('<head><meta HTTP-EQUIV="Refresh" CONTENT="0; URL=/itemhistory.html?id=20542&setcookie=1"></head>');
+            return;
+        }
+        if (url.pathname === '/itemhistory.html' && url.searchParams.get('setcookie') === '1') {
+            response.writeHead(200, {
+                'Content-Type': 'text/html',
+                'Set-Cookie': 'LucySession=fixture-token; Path=/; Max-Age=3600; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly',
+            });
+            response.end(history);
+            return;
+        }
+        if (url.pathname === '/item.html' && url.searchParams.get('entryid') === '2156558') {
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+            response.end(detail);
+            return;
+        }
+        if (url.pathname === '/itemraw.html'
+            && url.searchParams.get('id') === '20542'
+            && url.searchParams.get('source') === 'Live') {
+            response.writeHead(200, { 'Content-Type': 'text/html' });
+            response.end(raw);
+            return;
+        }
+        response.writeHead(404, { 'Content-Type': 'text/plain' });
+        response.end('missing fixture');
+    });
+    await new Promise((resolvePromise) => server.listen(0, '127.0.0.1', resolvePromise));
+
+    try {
+        const address = server.address();
+        await runCrawler([
+            'init',
+            `--workspace=${workspace}`,
+            `--artifact-root=${artifactRoot}`,
+            `--base-url=http://127.0.0.1:${address.port}/`,
+            `--item-list-file=${itemListPath}`,
+            '--contact=test@example.invalid',
+            '--authorization-ref=fixture-authorization',
+            '--min-interval-ms=0',
+            '--jitter-ms=0',
+            '--daily-cap=10',
+        ]);
+        await runCrawler(['run', `--workspace=${workspace}`]);
+    } finally {
+        await new Promise((resolvePromise, rejectPromise) => server.close((error) => {
+            if (error) rejectPromise(error);
+            else resolvePromise();
+        }));
+    }
+
+    assert.deepEqual(requests.map(({ url }) => url), [
+        '/itemhistory.html?id=20542',
+        '/itemhistory.html?id=20542&setcookie=1',
+        '/item.html?entryid=2156558',
+        '/itemraw.html?id=20542&source=Live',
+    ]);
+    assert.equal(requests[0].cookie, null);
+    assert.equal(requests[1].cookie, null);
+    assert.equal(requests[2].cookie, 'LucySession=fixture-token');
+    assert.equal(requests[3].cookie, 'LucySession=fixture-token');
+    const status = await readAtomicJson(join(workspace, 'state', 'status.json'));
+    assert.equal(status.metrics.requestStarts, 4);
+    assert.equal(status.state, 'complete');
+    const artifact = JSON.parse(await readFile(join(artifactRoot, 'items', 'dc', '20542.json'), 'utf8'));
+    assert.equal(artifact.complete, true);
 });
 
 test('content-addressed capture publication replaces a truncated final gzip and verifies reuse', async () => {

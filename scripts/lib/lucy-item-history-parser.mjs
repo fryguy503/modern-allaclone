@@ -103,10 +103,16 @@ export function parseItemList(csvText) {
         }
     }
 
+    let lastDataRow = rows.length - 1;
+    while (lastDataRow > 0
+        && rows[lastDataRow].length === 1
+        && rows[lastDataRow][0] === '') {
+        lastDataRow -= 1;
+    }
+
     const byId = new Map();
-    for (let rowIndex = 1; rowIndex < rows.length; rowIndex += 1) {
+    for (let rowIndex = 1; rowIndex <= lastDataRow; rowIndex += 1) {
         const row = rows[rowIndex];
-        if (row.length === 1 && row[0] === '' && rowIndex === rows.length - 1) continue;
         if (row.length !== header.length) {
             throw parseError('item_list_columns', 'Lucy item list row has an unexpected column count.', {
                 row: rowIndex + 1,

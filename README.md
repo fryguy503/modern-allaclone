@@ -194,6 +194,11 @@ accidentally burst or reset the daily budget. `Retry-After` is honored and
 transient network, 429, and server failures back off durably rather than moving
 rapidly to another item.
 
+If Lucy presents its cookie bootstrap page, the crawler follows it only when it
+adds exactly `setcookie=1` to the same-origin page URL. That handshake consumes
+a normal rate-limited request slot, and the resulting cookies are kept only in
+the running worker's memory.
+
 Start it as a hidden detached process, then inspect or control it without making
 any Lucy request:
 

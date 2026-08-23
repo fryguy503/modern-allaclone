@@ -61,6 +61,28 @@ describe('Lucy daily item-list parser', () => {
             'item_list_csv',
         );
     });
+
+    test('accepts multiple trailing blank records while rejecting an interior blank record', () => {
+        const item = '1,One,https://lucy.allakhazam.com/item.html?id=1';
+        const parsed = parseItemList(`id,name,lucylink\n${item}\n\n\n`);
+        const parsedCrlf = parseItemList(`id,name,lucylink\r\n${item}\r\n\r\n`);
+
+        assert.equal(parsed.row_count, 1);
+        assert.equal(parsedCrlf.row_count, 1);
+        assert.equal(parsed.items[0].id, 1);
+        expectParseError(
+            () => parseItemList(`id,name,lucylink\n${item}\n\n2,Two,https://lucy.allakhazam.com/item.html?id=2\n`),
+            'item_list_columns',
+        );
+        expectParseError(
+            () => parseItemList(`id,name,lucylink\n${item}\n \n`),
+            'item_list_columns',
+        );
+        expectParseError(
+            () => parseItemList('id,name,lucylink\n\n\n'),
+            'item_list_empty',
+        );
+    });
 });
 
 describe('Lucy item history parser', () => {
