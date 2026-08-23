@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Item;
-use App\Models\Zone;
 use App\Filters\ItemFilter;
-use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Services\GroundSpawnLocationService;
 use App\ViewModels\ItemViewModel;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
 class ItemController extends Controller
@@ -44,11 +44,11 @@ class ItemController extends Controller
 
         return view('items.index', [
             'items' => $items,
-            'metaTitle' => config('app.name') . ' - Item Search',
+            'metaTitle' => config('app.name').' - Item Search',
         ]);
     }
 
-    public function show(Item $item)
+    public function show(Item $item, GroundSpawnLocationService $groundSpawnLocations)
     {
         $itemCache = Cache::remember("items.show.{$item->id}", now()->addMonth(), function () use ($item) {
             $item = Item::with(['evolvingDetails.item', 'discovery'])
@@ -63,13 +63,18 @@ class ItemController extends Controller
                 'forage' => $vm->forageZones(),
                 'fishing' => $vm->fishingZones(),
                 'soldByZone' => $vm->soldInZones(),
-                'ground_spawn' => $vm->itemGroundSpawn(),
             ];
         });
 
+        $cachedItem = $itemCache['item'];
+        $groundSpawns = $cachedItem->canDisplay()
+            ? collect($groundSpawnLocations->forItem((int) $cachedItem->id))
+            : collect();
+
         return view('items.show', [
             ...$itemCache,
-            'metaTitle' => config('app.name') . ' - Item: ' . $item->Name,
+            'ground_spawn' => $groundSpawns,
+            'metaTitle' => config('app.name').' - Item: '.$cachedItem->Name,
         ]);
     }
 
@@ -79,7 +84,7 @@ class ItemController extends Controller
         (new ItemViewModel($item))->withEffects();
 
         return response()->json([
-            'html' => view('items.partials.popup', ['item' => $item])->render()
+            'html' => view('items.partials.popup', ['item' => $item])->render(),
         ]);
     }
 

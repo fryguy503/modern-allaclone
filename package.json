@@ -9,7 +9,10 @@
         "patches:sync-feed": "python scripts/sync-patch-feed.py",
         "patches:validate": "python scripts/validate-patch-history.py",
         "test:patch-importer": "node --test tests/patch-importer.test.mjs",
-        "test:patch-tools": "python -m unittest discover -s tests -p test_*.py"
+        "test:patch-tools": "python -m unittest discover -s tests -p test_*.py",
+        "maps:build": "node scripts/build-eq-maps.mjs",
+        "maps:check": "node scripts/build-eq-maps.mjs --check",
+        "test:js": "node --test tests/JavaScript/eq-map-format.test.js"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",

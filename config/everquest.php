@@ -22,7 +22,7 @@ return [
             'abilities'   => true,      // show npc abilities (summon, enrage, etc)
             'spells'      => true,      // show npc spells
             'loot_chance' => true,      // show the drop chance % for each item
-            'spawn_locs'  => true,      // show exact x,y,z
+            'spawn_locs'  => true,      // enable the NPC Locations tab, atlas, and exact coordinates
             'respawn'     => true,      // hide respawn time + variance
         ],
     ],
@@ -52,6 +52,19 @@ return [
     ],
 
     'coords_as_yxz'                 => false,
+
+    'maps' => [
+        // Allow selected NPCs with Patrol or One Way grids to preview configured movement.
+        'path_preview' => filter_var(env('EQ_MAP_PATH_PREVIEW', true), FILTER_VALIDATE_BOOL),
+        // Comma-separated map short names whose legacy geometry should be preferred.
+        'legacy_zones' => array_values(array_unique(array_filter(
+            array_map('trim', explode(',', (string) env(
+                'EQ_MAP_LEGACY_ZONES',
+                'bazaar,lavastorm,nektulos,highpasshold',
+            ))),
+            fn (string $zone): bool => preg_match('/^[a-z0-9]+$/', $zone) === 1,
+        ))),
+    ],
 
     // copying some of the allaclone settings for now (NOT ALL OF THESE ARE TIED BACK IN YET)
     'allow_quests_npc'              => false, // quests for npcs are available from NPC's page

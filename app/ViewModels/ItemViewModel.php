@@ -77,7 +77,7 @@ class ItemViewModel
         $currentExpansion = config('everquest.current_expansion');
 
         $allZones = Cache::rememberForever('all_zones_drops', function () {
-            return Zone::select('id', 'short_name', 'long_name', 'version', 'expansion')
+            return Zone::select('id', 'zoneidnumber', 'short_name', 'long_name', 'version', 'expansion')
                 ->orderBy('id')
                 ->get();
         });

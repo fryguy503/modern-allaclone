@@ -35,7 +35,7 @@ class CacheZones extends Command
 
         foreach ($zones as $zone) {
             $version = $zone->version;
-            $cacheKey = "zones.show.{$zone->id}_v{$version}";
+            $cacheKey = "zones.show.v2.{$zone->id}_v{$version}";
 
             // forget any previous cache we may have
             Cache::forget($cacheKey);
@@ -44,11 +44,10 @@ class CacheZones extends Command
             Cache::rememberForever($cacheKey, function () use ($zone, $version) {
                 $zone = Zone::where('id', $zone->id)
                     ->with('zonepoints', function ($q) use ($version) {
-                        $q->when($version > 0, fn ($q) => $q->where('version', $version))
-                          ->groupBy('target_zone_id')
-                          ->with('targetZones:id,zoneidnumber,short_name,long_name');
+                        $q->where('version', $version)
+                            ->with('targetZones:id,zoneidnumber,short_name,long_name');
                     })
-                    ->when($version > 0, fn ($q) => $q->where('version', $version))
+                    ->where('version', $version)
                     ->firstOrFail();
 
                 $vm = new ZoneViewModel($zone, $version);
@@ -69,6 +68,7 @@ class CacheZones extends Command
         }
 
         $this->info('All zones cached successfully.');
+
         return Command::SUCCESS;
     }
 }

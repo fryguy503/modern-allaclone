@@ -13,17 +13,24 @@
             $npc_class = config('everquest.npc_class');
             $npc_race = config('everquest.db_races');
             $npc_body = config('everquest.db_bodytypes');
-            $zone = $npc->firstSpawnEntries?->spawn2?->zoneData;
+            $zone = $primaryLocationZone ?? null;
+            $zoneId = data_get($zone, 'zone_row_id', data_get($zone, 'id'));
+            $zoneName = data_get($zone, 'long_name');
+            $zoneVersion = (int) data_get($zone, 'version', 0);
         @endphp
         <div class="flex flex-row items-center gap-2 flex-wrap">
             <span>
                 {{ $npc_race[$npc->race] }} {{ $npc_class[$npc->class] }}
                 <small class="text-accent">{{ $npc_body[$npc->bodytype] }}</small>
             </span>
-            @if ($zone?->id)
-                <a class="text-base link-info link-hover" href="{{ route('zones.show', $zone->id) }}"
-                    title="{{ $zone->long_name }}">
-                    {{ $zone->long_name }}
+            @if ($zoneId)
+                <a class="text-base link-info link-hover"
+                    href="{{ route('zones.show', $zoneId) }}{{ $zoneVersion !== 0 ? '?v=' . $zoneVersion : '' }}"
+                    title="{{ $zoneName }}{{ $zoneVersion !== 0 ? ' (version ' . $zoneVersion . ')' : '' }}">
+                    {{ $zoneName }}
+                    @if ($zoneVersion !== 0)
+                        <span class="badge badge-xs badge-outline align-middle">v{{ $zoneVersion }}</span>
+                    @endif
                 </a>
             @endif
         </div>
@@ -221,7 +228,7 @@
             @if ($npc->merchantlist->count() > 0)
                 @include('npcs.partials.show.tab-merchant')
             @endif
-            @if ($npc->spawnEntries && $npc->spawnEntries->count() > 0)
+            @if ($hasSpawnLocations)
                 @include('npcs.partials.show.tab-spawns')
             @endif
             @if ($raisesFaction || $lowersFaction)
