@@ -28,9 +28,9 @@
             'presence_status',
             $matchedCapture ? 'present' : 'no_snapshot',
         );
-        $historyView = in_array($historyView ?? 'cards', ['cards', 'table', 'lucy'], true)
+        $historyView = in_array($historyView ?? 'table', ['cards', 'table', 'lucy'], true)
             ? $historyView
-            : 'cards';
+            : 'table';
         $displayValue = static function ($value): string {
             if ($value === null) {
                 return 'Not set';
@@ -46,7 +46,7 @@
         };
         $historyPageUrl = static function (int $page) use ($spellSummary, $historyView): string {
             $parameters = ['spell' => $spellSummary['id']];
-            if ($historyView !== 'cards') {
+            if ($historyView !== 'table') {
                 $parameters['view'] = $historyView;
             }
             if ($page > 1) {
@@ -57,7 +57,7 @@
         };
         $historyViewUrl = static function (string $view) use ($spellSummary, $currentPage): string {
             $parameters = ['spell' => $spellSummary['id']];
-            if ($view !== 'cards') {
+            if ($view !== 'table') {
                 $parameters['view'] = $view;
             }
             if ($currentPage > 1) {

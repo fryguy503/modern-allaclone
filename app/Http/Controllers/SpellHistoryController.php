@@ -353,14 +353,14 @@ class SpellHistoryController extends Controller
         if ($queryString === '') {
             abort_unless($request->query() === [], 404);
 
-            return [1, 'cards'];
+            return [1, 'table'];
         }
 
         if (preg_match('/^page=([1-9][0-9]*)$/D', $queryString, $matches) === 1) {
             $pageValue = $matches[1];
-            $view = 'cards';
+            $view = 'table';
             $expectedQuery = ['page' => $pageValue];
-        } elseif (preg_match('/^view=(table|lucy)(?:&page=([1-9][0-9]*))?$/D', $queryString, $matches) === 1) {
+        } elseif (preg_match('/^view=(cards|lucy)(?:&page=([1-9][0-9]*))?$/D', $queryString, $matches) === 1) {
             $view = $matches[1];
             $pageValue = $matches[2] ?? '1';
             $expectedQuery = ['view' => $view];

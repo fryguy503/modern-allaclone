@@ -82,7 +82,9 @@ class SpellHistoryTest extends TestCase
             ->assertSeeText('Cast on you message')
             ->assertSeeText('Current HP (0)')
             ->assertSeeText('AC (1)')
-            ->assertSeeText('Technical changes (1)')
+            ->assertSee('data-history-view="table"', false)
+            ->assertSeeText('Technical')
+            ->assertSee('badge-neutral !text-base-content', false)
             ->assertSeeText('Spell present at resolved capture')
             ->assertSeeText('State at spell-data cutoff');
 
@@ -93,7 +95,7 @@ class SpellHistoryTest extends TestCase
     {
         config()->set('everquest.spell_history.baseline_date', '2024-04-09');
 
-        $cards = $this->get('/spells/3467/history');
+        $cards = $this->get('/spells/3467/history?view=cards');
         $cards->assertOk()
             ->assertSee('data-history-view-option="cards"', false)
             ->assertSee('data-history-view-option="table"', false)
@@ -102,7 +104,7 @@ class SpellHistoryTest extends TestCase
             ->assertDontSee('data-history-view="table"', false)
             ->assertDontSee('data-history-view="lucy"', false);
 
-        $table = $this->get('/spells/3467/history?view=table');
+        $table = $this->get('/spells/3467/history');
         $table->assertOk()
             ->assertSee('data-history-view="table"', false)
             ->assertDontSee('data-history-view="cards"', false)
@@ -113,6 +115,7 @@ class SpellHistoryTest extends TestCase
             ->assertSeeText('After')
             ->assertSeeText('Category')
             ->assertSeeText('Technical')
+            ->assertSee('badge-neutral !text-base-content', false)
             ->assertSeeText('First observed')
             ->assertSeeText('State at spell-data cutoff');
 
@@ -125,6 +128,7 @@ class SpellHistoryTest extends TestCase
             ->assertSeeText('Change')
             ->assertSeeText('Changed')
             ->assertSeeText('Cast on you message')
+            ->assertSee('badge-neutral !text-base-content', false)
             ->assertSeeText('First observed')
             ->assertSeeText('State at spell-data cutoff');
 
@@ -142,7 +146,7 @@ class SpellHistoryTest extends TestCase
 
         foreach ([
             '/spells/3467/history',
-            '/spells/3467/history?view=table',
+            '/spells/3467/history?view=cards',
             '/spells/3467/history?view=lucy',
         ] as $url) {
             $this->get($url)->assertOk();
@@ -157,7 +161,7 @@ class SpellHistoryTest extends TestCase
 
         foreach ([
             '/spells/3467/history',
-            '/spells/3467/history?view=table',
+            '/spells/3467/history?view=cards',
             '/spells/3467/history?view=lucy',
         ] as $url) {
             $this->get($url)
@@ -185,9 +189,9 @@ class SpellHistoryTest extends TestCase
         config()->set('everquest.spell_history.page_size', 1);
 
         $this->get('/spells/3467/history?page=2')->assertOk();
-        $this->get('/spells/3467/history?view=table')->assertOk();
+        $this->get('/spells/3467/history?view=cards')->assertOk();
         $this->get('/spells/3467/history?view=lucy')->assertOk();
-        $this->get('/spells/3467/history?view=table&page=2')->assertOk();
+        $this->get('/spells/3467/history?view=cards&page=2')->assertOk();
 
         foreach ([
             'page=2junk',
@@ -198,15 +202,15 @@ class SpellHistoryTest extends TestCase
             'page=2&tracking=1',
             'tracking=1',
             'page=2&page=2',
-            'view=cards',
+            'view=table',
             'view=unknown',
-            'view=%74able',
-            'view[]=table',
-            'view=table&view=lucy',
-            'page=2&view=table',
-            'view=table&page=02',
-            'view=table&page=2&tracking=1',
-            'view=table&page=2&page=2',
+            'view=%63ards',
+            'view[]=cards',
+            'view=cards&view=lucy',
+            'page=2&view=cards',
+            'view=cards&page=02',
+            'view=cards&page=2&tracking=1',
+            'view=cards&page=2&page=2',
         ] as $queryString) {
             $this->get('/spells/3467/history?'.$queryString)->assertNotFound();
         }
@@ -238,10 +242,10 @@ class SpellHistoryTest extends TestCase
     {
         config()->set('everquest.spell_history.page_size', 1);
 
-        $firstPage = $this->get('/spells/3467/history?view=table');
+        $firstPage = $this->get('/spells/3467/history?view=cards');
         $secondPageUrl = route('spells.history', [
             'spell' => 3467,
-            'view' => 'table',
+            'view' => 'cards',
             'page' => 2,
         ]);
         $firstPage->assertOk();
@@ -250,9 +254,9 @@ class SpellHistoryTest extends TestCase
             $firstPage->getContent(),
         );
 
-        $secondPage = $this->get('/spells/3467/history?view=table&page=2');
-        $firstPageUrl = route('spells.history', ['spell' => 3467, 'view' => 'table']);
-        $secondPage->assertOk()->assertDontSee('view=table&page=1', false);
+        $secondPage = $this->get('/spells/3467/history?view=cards&page=2');
+        $firstPageUrl = route('spells.history', ['spell' => 3467, 'view' => 'cards']);
+        $secondPage->assertOk()->assertDontSee('view=cards&page=1', false);
         $this->assertMatchesRegularExpression(
             '/href="'.preg_quote($firstPageUrl, '/').'"\s+rel="prev"[^>]*>Newer captures<\/a>/',
             $secondPage->getContent(),

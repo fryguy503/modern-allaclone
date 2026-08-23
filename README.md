@@ -112,8 +112,8 @@ Spell pages can optionally show a read-only history compiled from Lucy Live
 spelldata snapshots. Compilation is an offline deployment step: web requests
 never scan the raw CSV archive and do not query the EQEmu database for history.
 
-Players can switch each history page between the default collapsible Cards,
-a structured Diff table, and a compact Lucy-style Date/Change list. Each view
+Players can switch each history page between the default structured Diff table,
+collapsible Cards, and a compact Lucy-style Date/Change list. Each view
 has its own canonical, publicly cacheable URL and renders only the selected
 representation; all three read the same bounded artifact page and execute no
 database queries.
