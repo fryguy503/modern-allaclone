@@ -67,6 +67,24 @@ return [
         'cache_ttl_minutes'        => 60,
     ],
 
+    /**
+     * Historical Live spell data
+     *
+     * The raw snapshot archive is compiled offline into immutable, per-spell
+     * artifacts. Web requests never scan the source archive or query EQEmu for
+     * historical data. The spell baseline is deliberately independent from
+     * current_expansion because progression and spell data often use different
+     * cut-off dates.
+     */
+    'spell_history' => [
+        'enable'        => filter_var(env('SPELL_HISTORY_ENABLED', false), FILTER_VALIDATE_BOOL),
+        'baseline_date' => env('SPELL_HISTORY_BASELINE_DATE'),
+        'source_path'   => env('SPELL_HISTORY_SOURCE_PATH'),
+        'artifact_path' => env('SPELL_HISTORY_ARTIFACT_PATH', storage_path('app/private/spell-history')),
+        'page_size'     => max(1, min(100, (int) env('SPELL_HISTORY_PAGE_SIZE', 25))),
+        'max_page'      => 500,
+    ],
+
     'discovered_items' => [
         'enable'                    => true,   // If TRUE, only Discovered Items will be displayed
         'link_character_to_magelo'  => true,    // link character who discovered to magelo (if enabled)

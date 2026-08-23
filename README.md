@@ -106,6 +106,99 @@ To use a different source directory, run `npm run maps:build -- --source /path/t
 
 The viewer includes Brewall attribution. Before redistributing map data, confirm that your source archive's terms permit your intended use.
 
+### Historical spell timeline
+
+Spell pages can optionally show a read-only history compiled from Lucy Live
+spelldata snapshots. Compilation is an offline deployment step: web requests
+never scan the raw CSV archive and do not query the EQEmu database for history.
+
+Build the immutable, content-addressed artifact outside the public web root:
+
+```bash
+php artisan spell-history:build \
+    --source=/path/to/lucy_spelldata_live_2002-2025
+```
+
+Use `--output=/path/to/artifacts` when the default
+`storage/app/private/spell-history` location is not appropriate. Copy that
+artifact directory when deploying to another server, then configure and enable
+the feature:
+
+```dotenv
+SPELL_HISTORY_ENABLED=true
+SPELL_HISTORY_BASELINE_DATE=2006-01-01
+SPELL_HISTORY_PAGE_SIZE=25
+# SPELL_HISTORY_SOURCE_PATH=/path/to/lucy_spelldata_live_2002-2025
+# SPELL_HISTORY_ARTIFACT_PATH=/path/to/artifacts
+```
+
+After changing these values, refresh Laravel's cached configuration with
+`php artisan optimize:clear` (or the equivalent configuration-cache step in
+your normal deployment).
+
+`SPELL_HISTORY_SOURCE_PATH` lets the build command run without `--source`; it is
+never read by a web request. Keep both the Lucy source archive and generated
+artifacts outside the public document root. The build streams bounded records,
+stages a complete replacement, re-verifies every source checksum, then switches
+the `CURRENT` pointer under a lock. An identical rebuild validates and reuses
+the existing content-addressed dataset.
+
+Completed datasets are retained for rollback and can be pruned explicitly. The
+prune command is a dry run unless `--apply` is supplied:
+
+```bash
+php artisan spell-history:prune
+php artisan spell-history:prune --keep-recent=2 --minimum-age-hours=24 --apply
+```
+
+The active dataset is never removed. By default, the two newest inactive
+rollback datasets are also retained, and neither a newly completed dataset nor
+one displaced by a recent activation is eligible for 24 hours. Eligible
+directories are moved to private tombstones while holding the activation lock,
+then their potentially large trees are deleted after releasing that lock; a
+later prune safely discovers any tombstone left by an interrupted process. Use
+`--path=/absolute/artifact/root` when pruning a non-default artifact location.
+
+Plan filesystem capacity for both bytes and file entries. This source archive
+currently produces roughly 600 MiB and 74,000 files per completed dataset. With
+two rollback datasets retained, allow at least four dataset equivalents (about
+2.4 GiB and 296,000 file entries) so a replacement can be staged before the old
+copies are pruned, plus normal filesystem headroom.
+
+`SPELL_HISTORY_BASELINE_DATE` accepts `YYYY-MM-DD` (the end of that calendar
+day) or `YYYY-MM-DDTHH:MM:SS`. Snapshot timestamps are intentionally treated as
+timezone-naive Lucy capture times. The latest capture at or before the cutoff is
+resolved first. If the spell is present there, its most recent recorded revision
+represents the state at that cutoff and is highlighted; unchanged captures are
+omitted. No revision is highlighted when the spell was not yet observed, was
+confirmed absent, or has uncertain availability at the resolved capture. This
+setting is independent of `current_expansion`; for example, a Dragons of Norrath
+server can use a 2006 spell-data cutoff.
+
+Keep `SPELL_HISTORY_ENABLED=false` until a successful build is deployed. A
+rebuild stages and validates a new dataset before atomically switching the
+`CURRENT` pointer, so live requests continue reading the previous immutable
+dataset during compilation. Lucy captures indicate when a value was observed,
+not necessarily the exact time it changed on Live. The compiler reports net
+semantic differences between comparable snapshot fields; source-formatting-only
+differences and the initial appearance of an exporter column are not presented
+as spell changes because neither proves that the Live spell changed.
+
+A disappearance is shown only after two trusted captures omit the spell. A
+capture with an anomalous record-count drop remains available for value history
+but cannot confirm removals; a single missing capture is shown as uncertain.
+This protects the timeline from incomplete Lucy exports.
+
+History requests are stateless, do not query either application database, and
+read only the manifest plus one bounded, sharded spell artifact. Successful
+pages use a five-minute public cache with a one-minute stale-revalidation window
+and representation-derived ETags. Disabling the feature prevents new origin
+responses, but previously cached copies can remain available for the five-minute
+freshness window and, where supported, the one-minute stale window. Purging a
+reverse-proxy/CDN removes shared copies but cannot remove copies already stored
+in players' browsers. Custom EQEmu spells that are absent from the Lucy archive
+have no historical route and return 404.
+
 Always install this outside your publically accessible web directory. Symlink the /public folder to your public accessible web directory.
 
 ### Optional tradeskill planner

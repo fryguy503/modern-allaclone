@@ -8,6 +8,13 @@
 
 @section('content')
 
+    @if (config('everquest.spell_history.enable', false))
+        @include('spells.partials.history-tabs', [
+            'spellId' => $spell->id,
+            'activeTab' => 'details',
+        ])
+    @endif
+
     @php
         $minlvl = 70;
         $spellClasses = [];
