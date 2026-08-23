@@ -36,7 +36,7 @@ class ZoneViewModel
 
         $query = NpcType::whereHas('spawnentries.spawn2', function ($query) use ($zone_short) {
             $query->where('zone', $zone_short)
-                ->when($this->version > 0, fn ($q) => $q->where('version', $this->version));
+                ->where('version', $this->version);
             })
             ->whereNotIn('race', [127, 240])
             ->select([
@@ -113,7 +113,7 @@ class ZoneViewModel
             $q->whereNotIn('race', [127, 240]);
         }])
         ->where('zone', $this->zone->short_name)
-        ->when($this->version > 0, fn ($q) => $q->where('version', $this->version))
+        ->where('version', $this->version)
         ->whereHas('spawnGroup.spawnentries.npc', function ($q) {
             $q->whereNotIn('race', [127, 240]);
         })

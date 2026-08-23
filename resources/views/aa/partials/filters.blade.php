@@ -2,12 +2,11 @@
     $classes = collect(config('everquest.classes_bit') ?? [])->sort()->toArray();
 @endphp
 
-<form method="GET" action="{{ route('aa.index') }}" class="flex gap-2 items-end">
+<form id="aa-filters" method="GET" action="{{ route('aa.index') }}" class="flex gap-2 items-end"
+    data-aa-base-url="{{ route('aa.index') }}" data-ability-selected="{{ isset($ability) ? '1' : '0' }}">
     <div class="w-72">
         <label class="label label-text">Ability</label>
-        <select id="ability-filter" name="ability" class="select w-full"
-            onchange="if (this.value) { window.location.href = '{{ url('/aa') }}/' + this.value; }"
-        >
+        <select id="ability-filter" name="ability" class="select w-full">
             <option value="">Any</option>
             @foreach($allAbilities as $a)
                 <option value="{{ $a->id }}"
@@ -26,9 +25,9 @@
         <label class="label label-text">Classes</label>
         @php $selectedClass = (string) request('classes', ''); @endphp
         @if (isset($ability))
-            <select name="classes" class="select w-full" onchange="(function(v){ if(!v) { window.location.href='{{ route('aa.index') }}'; } else { window.location.href='{{ route('aa.index') }}?classes='+encodeURIComponent(v); } })(this.value)">
+            <select id="aa-class-filter" name="classes" class="select w-full">
         @else
-            <select name="classes" class="select w-full" onchange="this.form.submit()">
+            <select id="aa-class-filter" name="classes" class="select w-full">
         @endif
             <option value="" @selected($selectedClass === '')>Any</option>
             @foreach($classes as $bit => $label)

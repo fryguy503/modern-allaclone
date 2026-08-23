@@ -1,0 +1,5458 @@
+{
+  "schema_version": 1,
+  "config_sha256": "30b1d69f81b63d9a64cd2047ea3d905ed6ead76f64947f3c7f58d6e6689185c9",
+  "summary": {
+    "discovered_files": 56,
+    "adapted_files": 53,
+    "supporting_files": 3,
+    "unsupported_files": 0,
+    "rejected_files": 0,
+    "parsed_occurrences": 1328,
+    "accepted_occurrences": 1287,
+    "duplicate_occurrences": 605,
+    "rejected_occurrences": 0,
+    "corroborating_unmatched_occurrences": 41,
+    "public_records": 682,
+    "feed_excerpt_occurrences": 12,
+    "published_feed_excerpt_occurrences": 0
+  },
+  "slugs": {
+    "enabled": true,
+    "reuse_by_content_hash_and_date": true,
+    "reuse_by_canonical_url_and_date": true,
+    "prior_archive_found": true,
+    "reused": 682,
+    "assigned": 0,
+    "collisions": [],
+    "ambiguities": [],
+    "reassignments": []
+  },
+  "comparison": {
+    "prior_records": 682,
+    "current_records": 682,
+    "removed_records": 0,
+    "removal_percent": 0,
+    "removed_slugs": []
+  },
+  "files": [
+    {
+      "path": "last.md",
+      "adapter": "markdown",
+      "status": "supporting",
+      "role": "supporting archive material",
+      "parsed_records": 0,
+      "accepted_occurrences": 0,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "status": "adapted",
+      "role": "official recent update-notes feed",
+      "parsed_records": 20,
+      "accepted_occurrences": 8,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 12,
+      "warnings": [
+        "12 feed item(s) are excerpts ending in “Read more”; canonical thread HTML is preferred when available."
+      ]
+    },
+    {
+      "path": "Patch_Summaries.pdf",
+      "adapter": "pdf",
+      "status": "adapted",
+      "role": "curated historical highlights",
+      "parsed_records": 0,
+      "accepted_occurrences": 0,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patch.txt",
+      "adapter": "text",
+      "status": "supporting",
+      "role": "supporting archive material",
+      "parsed_records": 0,
+      "accepted_occurrences": 0,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "status": "adapted",
+      "role": "corroborating patch source",
+      "parsed_records": 292,
+      "accepted_occurrences": 263,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 29,
+      "warnings": []
+    },
+    {
+      "path": "patches_1999-2010_combined.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "corroborating patch source",
+      "parsed_records": 342,
+      "accepted_occurrences": 342,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 135 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-1999.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 36,
+      "accepted_occurrences": 36,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 3 embedded Windows-1252 control codes."
+      ]
+    },
+    {
+      "path": "patches-2000-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 19,
+      "accepted_occurrences": 19,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2000-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 26,
+      "accepted_occurrences": 26,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2001-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 21,
+      "accepted_occurrences": 21,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2001-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 28,
+      "accepted_occurrences": 28,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 9 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2002-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 17,
+      "accepted_occurrences": 17,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2002-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 14,
+      "accepted_occurrences": 14,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 23 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2003-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 22,
+      "accepted_occurrences": 22,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2003-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 15,
+      "accepted_occurrences": 15,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 2 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2004-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 21,
+      "accepted_occurrences": 21,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 4 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2004-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 9,
+      "accepted_occurrences": 9,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 39 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2005-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 8 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2005-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 13,
+      "accepted_occurrences": 13,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2006-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 13,
+      "accepted_occurrences": 13,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 4 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2006-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 2 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2007-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 11,
+      "accepted_occurrences": 11,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2007-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 2 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2008-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 15,
+      "accepted_occurrences": 15,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 18 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2008-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 16 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2009-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2009-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2010-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 15,
+      "accepted_occurrences": 15,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2010-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2011-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2011-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 13,
+      "accepted_occurrences": 13,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2012-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 7,
+      "accepted_occurrences": 7,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2012-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 11,
+      "accepted_occurrences": 11,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2013-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 9,
+      "accepted_occurrences": 9,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2013-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 7,
+      "accepted_occurrences": 7,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2014-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 16,
+      "accepted_occurrences": 16,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2014-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 17,
+      "accepted_occurrences": 17,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2015-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 16,
+      "accepted_occurrences": 16,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2015-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 14,
+      "accepted_occurrences": 14,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2016-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 18,
+      "accepted_occurrences": 18,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2016-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2017-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 16,
+      "accepted_occurrences": 16,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 9 Windows-1252 singleton bytes from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2017-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2018-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 14,
+      "accepted_occurrences": 14,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2018-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2019-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 16,
+      "accepted_occurrences": 16,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2019-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 8,
+      "accepted_occurrences": 8,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": [
+        "Recovered 1 Windows-1252 singleton byte from mixed historical text."
+      ]
+    },
+    {
+      "path": "patches-2020-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2020-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 7,
+      "accepted_occurrences": 7,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2021-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 10,
+      "accepted_occurrences": 10,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2021-2.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 12,
+      "accepted_occurrences": 12,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-2022-1.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 3,
+      "accepted_occurrences": 3,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-phase3beta-eqnews.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 14,
+      "accepted_occurrences": 14,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-phase3beta-revisions.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 14,
+      "accepted_occurrences": 14,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "patches-phase4beta.txt",
+      "adapter": "text",
+      "status": "adapted",
+      "role": "canonical patch source",
+      "parsed_records": 5,
+      "accepted_occurrences": 5,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    },
+    {
+      "path": "README.md",
+      "adapter": "markdown",
+      "status": "supporting",
+      "role": "supporting archive material",
+      "parsed_records": 0,
+      "accepted_occurrences": 0,
+      "rejected_occurrences": 0,
+      "corroborating_unmatched_occurrences": 0,
+      "warnings": []
+    }
+  ],
+  "duplicates": [
+    {
+      "patch_date": "1999-04-06",
+      "content_hash": "10df39c6b2fe913908f0af9bbe5ecdb6dcc0db2e750978413c4f727ba790b88c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "37ceadc132d08ba3d43e94d666e04f6456e8baec91fb9b66277240659abb035d",
+        "5ff7c73a2b7af2c6eaa158fa5b60197c91e93c6355301d2ec78da82457fcfade",
+        "766dea3f284a654d6092a0949adb48e059dae8a21ee4237385ca33de307cb8df"
+      ]
+    },
+    {
+      "patch_date": "1999-04-29",
+      "content_hash": "a8cb25a3d29087a64a8f2b42efb412086382bbec17920202e8219f6ee7abeeec",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2b16e9c25d96fce5fd744473ed5b46e84c7f2eb67e8beef61d193c13365125f9",
+        "91222971bd64fd79920a0cbf249135d2a10c0ec06d58efeb10beaeddba218e61"
+      ]
+    },
+    {
+      "patch_date": "1999-05-03",
+      "content_hash": "4509a5136794f3a8f010ecf9c427c22d42593cb958a72b91c430edf2f65271ae",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "429a31ff0d1d0623cd9a9deb07ac534064eca4ed4675cf3768067227c5887bdf",
+        "96132a136b2fb8f4faf4ac7c55626ecb9e7d5cec3eabda54ac744f9e8babab03"
+      ]
+    },
+    {
+      "patch_date": "1999-09-13",
+      "content_hash": "17dacbbb21c00e632af8f0dbe0bffeb123f8473d04ea46d2566fcce8483cfa2b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "df29dfadc053cb87f3cede005ac97ce11711ce7a018266734125af71a5161b35",
+        "c36aec7b3762b967240695b6cfeb10e0e0d287191f5e538f48dd800b3e243a8e",
+        "ab1be99c358ca5c80aae44ca276b2dd739c1ddd9278e93b391e95f12e4d6120b"
+      ]
+    },
+    {
+      "patch_date": "1999-09-22",
+      "content_hash": "8dcd7b7a05d5e0a0af1176759d1baf26dbc1d753bcf1bfd09ff9e2eb8f4f71ab",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "259e6e07fd3426a8ecaf9fc60416fb83cd489dcb0a544c5be9b04b193faa201d",
+        "dc24ba7c42173b67d94068ee979392855b795921152345c5cc1801b7b0638363",
+        "23d2019398217ebd6b38e259c9f3d4f61579164597b68549cb8f8ef38c716e9b"
+      ]
+    },
+    {
+      "patch_date": "1999-09-28",
+      "content_hash": "aa36203ca317d4e9dae6fcc9de4c76fcfde2e2681274bf5b1caa5934dc0f2858",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "002c02718f5de4611095b918af0d01709d10441237a7001fc2cd39411133f93b",
+        "a9d551c93f56497f782ce53db61dfa7e50536d4e02633dc8207aa84077c36299",
+        "558fcec2ba661116af00f76f5674df8d662510d1e9b4629baf5e4576ac6bcd22"
+      ]
+    },
+    {
+      "patch_date": "1999-10-13",
+      "content_hash": "88ec67750192336fc1537d216bed468fc06d8a2c968f38d9d14a8b55d87b5da1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9d1c448520d7c3573914ea68401f3cf2c9c12fd31f0a230e581d5cdffc9b0b55",
+        "83cfae0996aa4f972ce5db8aca49849e28e0b2379f56f465a95e56f2e3105f54",
+        "17892e607a52b388acf0541b1035618e03766c249243b713d8c9589e1fdf5306"
+      ]
+    },
+    {
+      "patch_date": "1999-11-01",
+      "content_hash": "a0498334583721f2352af076568463a6d55d9adb649ccf79f1b98e904b7784dc",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "20e2773e2171d0cada6135ea4ccf67b4181a51cd75ed6a982a9ec1fc59aa58ff",
+        "0074bdfeff30a1b954eb86f327545e6c06acace58e27e301bc92310ac2bed453"
+      ]
+    },
+    {
+      "patch_date": "1999-12-01",
+      "content_hash": "b4da478088d90e6719880dad1c3dd33bc33e6cdcb80d3910c062e5f6412475cd",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2da4b35829f6c206a05dd08ec4449f2248aac5102a4d596c17d0d477b60241ea",
+        "def35ba23f6fbbf192a514524d668cf28eec3a56d27ffa8040f94496164fad1c",
+        "3742fe3a3e2b66b939252d7b32211200778e8eca7714cf16bd7b804436c860fd"
+      ]
+    },
+    {
+      "patch_date": "1999-12-08",
+      "content_hash": "4a484aabbc57128e99327c6424cd8d2166baba54b1f3ee3798d0bdc304af2b37",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fff16a42a06e9c7c94450bf9030afee4e9b215252c8097bb94b47943943ef7dd",
+        "23faa0f708d28a1a6735720ceed520087d94203c5162ae2171fa80b74d5a5fc5",
+        "210131a68118640004786f14afd86a5ec92a344bfd85a9d17bc14f3b4bcb3bed"
+      ]
+    },
+    {
+      "patch_date": "1999-12-14",
+      "content_hash": "757adb2a7c6e6e3511bbdd8280e8088e90afe7282bd0c4f279dcbdd7e4f296ca",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "76484f4030938b0ee98a80842a0908805759cb03ec3c8e190252301829bf311e",
+        "089be65e0ab6a6268e029e3a2aeeef98a1288347f1d0868fc82a3c90a3e0d857",
+        "615c31a55a3efe9d7e328179aa0381bef345b39022c96d4e92ec919d59860fe1"
+      ]
+    },
+    {
+      "patch_date": "1999-12-21",
+      "content_hash": "3c92f6a959e02f7e5bc10496869a45e2b5bc728a7a4db5584253552882fd2124",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "351873b56f87ba8b1e8ce7d058f53d33f5dbf1b1b5f160b60159d9375b422a95",
+        "4b521842970bff9ba72129e8e3259831ec745356e2aae7d9dcd16a04dc39d140",
+        "618cb1cbac5f4bfb38f9411ce06530ba94ffaf3a56667fd791de6b07e1b931f3"
+      ]
+    },
+    {
+      "patch_date": "2000-02-03",
+      "content_hash": "dcf0c33de212c29f86e8b2ff6da6dc1d7dad59f0598bfd9be9ab558de116aa0e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6885b13e0172fa56abcf090ea3659ce150315183ba9aed249b641d8752f588b5",
+        "c335829a56ce5946444ddc8e1468a9bc516f0e8f26e1076373f09f02d19f975b",
+        "a79c8f1abf5235a5d5572f00cf191e75f7a98dcdf000ec95c05859390f3a4660"
+      ]
+    },
+    {
+      "patch_date": "2000-02-17",
+      "content_hash": "0e5ab2da488fb0bd067a7445c9f4c3f0eed895c9ee9163b026a11075c7a43405",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "66ea600e6e4f996e49b3f93e5822470db1cd8e1fc9270e1de29d983a824adf4c",
+        "32ca854e4a523a39bca6221aa12bd8c8467b802b29a4e376e70792fc12346587",
+        "34e4db21dfb0cdfaf27cdc0cf47b82f210b2486741f6cdbcf0a8d25e4d5cfcd3"
+      ]
+    },
+    {
+      "patch_date": "2000-02-23",
+      "content_hash": "aca012f438d3fa32057cb167ccd61aeb188486d17556e37818553569aade7e03",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "80146e472c977eb916e3b9730498b89d8dfcc1047aab938ec9495a82192bc2cd",
+        "379c5aaa99cd52be7709613c1f224c36cb2dc1f1a2bac4bffc58853f00fa2dc9",
+        "3f7d82e43a77264a6cb33be65446961786e0779def118321f548ace8efa94b6b"
+      ]
+    },
+    {
+      "patch_date": "2000-03-29",
+      "content_hash": "334dbc39e58f0b21156db0fe35e9cf995379294fb381ff2d27e7fb22e8a5e248",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f8dd343150236ee1468b478b6dc927f78e5ff44975a38b08aa85a3689b00b98e",
+        "44630f39c6d5719a35b2ca5d1693a20662b2e8d0f8abe638350449f91838ba57",
+        "6c98c6fa4155ddc7e3508f780138263dc5b2ba4770d11d6f10554c6848f24920"
+      ]
+    },
+    {
+      "patch_date": "2000-04-10",
+      "content_hash": "78146cc24c48a44ede6c5b03a2830bb8a94705d32f8103c319bac607248f924c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "41326efa35b7cf9b58f738677b19ea4d7e0a60d51958d3066043dcda9b556071",
+        "e07a31bcfdddd9bcbff1d0fcaae366f6603727995763b14238d1ffb314a78278",
+        "eebef797b2c8ad0e7908b4b84c40fb3f1d152a43823c02faf1d495017a40ee89"
+      ]
+    },
+    {
+      "patch_date": "2000-04-17",
+      "content_hash": "a570dcbf1d1f785321f0dbd9cf2fc1cad99e8c2df89a70c8a5cf1acae71370c4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3af16d4773e1f5d3f1936e6043f433abc45dd5abedf0e2d9cb75344aaed86b5d",
+        "114fa93e7469f1cff355003b8893fb9e7afec06695042ae84c9fa519d4487994",
+        "110a9a1e3b2243e6d4ada7c2251d5fea23934805029e81a52ff022fbdc4338eb"
+      ]
+    },
+    {
+      "patch_date": "2000-04-19",
+      "content_hash": "22f7616c5109691ab4ec8b9c2b5f08bbac2b476e64ea9e8fd0e546a069cad090",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "91d2aa95cf490992bd0c3596a35a4484b40ca671ce23a0d73c852884a510a492",
+        "9decb7ce0985841902e918f4bec83fba2b95061b7c2ee5230c1afe41f086306d",
+        "f27adf437fe07d4c1fb399b2425f08bdcc5d9ea3808dbb800d8da49193df5313"
+      ]
+    },
+    {
+      "patch_date": "2000-04-21",
+      "content_hash": "8d3f5e542be7abc1d645505d499b032d70860fff40869b75ca6d3ef88d687992",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0ec147f6db9790c26847640a5b2331210b5f15ba2818028c776e636326f029e7",
+        "1d65a598217da380e20f59ab08e6f89f77a9d2723998d65e0aad256fb99c3326",
+        "217ae3f9ee2776decb6314535132672d4fa84c1cb1d15a3acd82b1ba367d1951"
+      ]
+    },
+    {
+      "patch_date": "2000-04-24",
+      "content_hash": "259d2aa243335379840ee33d220d0e40c125a1dcb271cf6960a10a447bcaa0a8",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "67341d6ff7da1a58efedd25f36fb5157d37ceafb7aeba0ad93ffa14e5c663e19",
+        "024dab767f4e5cb89dc51cfa4f7addf7c0091bc4c4b76fb9d39d8d370b5c540c",
+        "8f63b51fe68c153dff6cf70ad3a2525a01beb0c884752bf6540b7357472d9b91"
+      ]
+    },
+    {
+      "patch_date": "2000-04-27",
+      "content_hash": "f366b37087c7e82980d47726839ff8bb408fe7c29296e154eb9e447c504a0573",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b2bcc3c620798856db39d6e21add21ba268cbe1120e6f7e8c21568718398d3a2",
+        "36a3ff26a08bc0f583f55157e3597daf1a1343abb5260f7298a608d0223b59e8",
+        "e055102d8683f67b909a3525ba8ba3f880f781c37a938a0ef9697be3a2577684"
+      ]
+    },
+    {
+      "patch_date": "2000-05-16",
+      "content_hash": "85a1c3e9b408f61d41c4f9964a3f2102370c6bb3cd27cc054e4b5e166d2f3e42",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5417ed8b30ff24cf146cb46815365e1f7c9b5b460d68b3a3fb846b368f15deb6",
+        "0060ea39eef94c64a94c793dc59ea35aad8306c0f0a7da51f63a97eaed4f8dfc",
+        "114d9fae48f3f478e7a1e2d2afb5184054d36f43bc70fb4619eda9b2d24b8cbe"
+      ]
+    },
+    {
+      "patch_date": "2000-05-25",
+      "content_hash": "418d38d830a4896d8ec2a15999c6ee04480a132f2081efc0f7bfb7394a0eaa02",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1225721cba70fc0df8ccf58089ad69ea4b3c0a6dbefb48679dc3cb2080439d10",
+        "3fae4f1997eb9dc7e5c7375b95b02f138a779e3c74f701c9f6a5b5b6efd02155",
+        "694ac592b15edb5bd5314002878abf09d1ba1c5ea1096ff892b9284cdb6ef8ea"
+      ]
+    },
+    {
+      "patch_date": "2000-06-06",
+      "content_hash": "882f99c85ab929f6106a3459f7a8fa51d61fb16791f97ea1f0f14a51ee544991",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "30937437ac02b33b2c6e614f4d2611602eb58fe00a1b5f3f1b267926bde1dd4d",
+        "6c3428707439dd3677bcab4a3b1484e51fac89b1d40161006e05326348b8df7d",
+        "10a41c21084d3aae5a5c3753ee91f88a7bd047656e6b4d49de76a40f627cd66c"
+      ]
+    },
+    {
+      "patch_date": "2000-06-15",
+      "content_hash": "27e4020e1ab72c6816ea909add5a3b2edb21c418452188b23001fb1f5f7cf267",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9ddaa3beb80d9cef89505dee78f4b2a07bf4ea5a3dcd7e16cc864c041fb2c03e",
+        "81b63fe9b154b694c62940bc91e70ce7cb652906360e780341145741e6906900",
+        "9590ad9c0e2dd32c21d1dee01d4d44992493cca1f7a40a092419e10b63cd01c1"
+      ]
+    },
+    {
+      "patch_date": "2000-06-22",
+      "content_hash": "fe5be2876163220fb956e23742d78ffad6b7688a6300fba9a5aa6ea676edf9c5",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "67604eb5abeee81fe29199a25115599bc7998b700805fb64e72134ba72b8b095",
+        "1750ec51f3dc99123e6c9e5995c0d5f66ea1e0fb1c660a85e379985f6de98016",
+        "824bc18d7401c9308c15d810b0446cc6aaa76a5aa27be92e49106235d33374c6"
+      ]
+    },
+    {
+      "patch_date": "2000-06-29",
+      "content_hash": "8eecd76403f400ad517c23ce77e083103c2ff09afe73b3ffe56b5b93f5a2a376",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "86cce56f08393d6a247379dd321ab3989317138659f81ee07139ddae0c1dabd2",
+        "589ae3c74e7379dde48eec1ae1e551d0d8f7962f5497e88f11243ec66552fa17",
+        "ff18042b9cb695715ff18f3e6a5deb1093adf94b173fdb3b7328ed65de9b06c7"
+      ]
+    },
+    {
+      "patch_date": "2000-07-12",
+      "content_hash": "56c8594911e9e5440aa6bfc16545c7dd7cf2593c5acdea54840323eb93b346ea",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7bad3ed02454cf80583a464a8f26296674205a46124695e9399a74c3b8445ca1",
+        "44c1244a4627a97c5ae31d87c15cb789db76dd96e0b9531c3d124958395020a6",
+        "02e58e4097ac28de285bf94fc6838e7452a3141ec52f6355468a4eb9162d93b2"
+      ]
+    },
+    {
+      "patch_date": "2000-07-19",
+      "content_hash": "4bc438afa8e96437f0241e0f7303239dd5d06e8266e3707986396b293202043d",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "48f804fedee93fe495269375bb01f76efdfd2ef51be37a32ee5e43b6de346b73",
+        "03b98b23a3b5c34d6856e6825110703fa279006c69c603f59fc0f149a6ac21fd",
+        "2eb841dd7dfce4318061d9f27d14557305d4d9fd3eb6ba05907ff1611bb35b21"
+      ]
+    },
+    {
+      "patch_date": "2000-07-26",
+      "content_hash": "65d522e298c4ec1dac64c25206d0fccd7ef6baf0595a60eecdb4ff35d2f3b228",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1fab5e732f240f9d9ba7cdc3e39a1590b57f02a073e5c56cbe5b6b591c1847e9",
+        "0b84ee8cf942a33aa7d13aa3abad2a04a0e079c176b4656200ff5b5ba3d7f603",
+        "f7605296631d936e02f132e233b0b825803daf14f4664d3075984b150c41dcb2"
+      ]
+    },
+    {
+      "patch_date": "2000-08-01",
+      "content_hash": "8ec3bd0f7b70286f72e2bceeeec5d9c3cc0280b61caddb5f86de4347b6fbd74e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c499de5d4f449f01460e7e16546a19dad380fa53fa0a6c4d17287c931d6f02e3",
+        "635730dd433851f1989292e85a340caf1d95fda68173754d6ee561aee97b3be0",
+        "9d3a37864027d7963a4fb8c3b7dcfe4c8702f7cc0eade471bccab43e24864338"
+      ]
+    },
+    {
+      "patch_date": "2000-08-09",
+      "content_hash": "2d2e10937eecded5cefbf3c7c74c5d4abb4aee212523a078c9271b9261bdace4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ce3c583d17a06e71795d3cc5b3bf79eaddf85c7b6539bac02fa332584c50372c",
+        "6c0d9d05511130d05cf174e28a8501a7625d981f029e31feaaf881c6e32e861f",
+        "5dd10b2030a5bcf2bd4a2702daa4ce21acc741ae170e885bce32885dfbb9db8c"
+      ]
+    },
+    {
+      "patch_date": "2000-08-09",
+      "content_hash": "83a885d8bed106771bfcb5615bbd8e3a62961843f83cff8bcaa49295e84e3657",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "faaab8d3dbfca23e625932a7e52bbcc55442ad18a85cc299f02764a57c6edbba",
+        "efca9e68fe918de5c46f6273a105f3ceffad14274274e450cebf7966a7ae8815",
+        "881d0d52648c73272615e87c45cc3c47ad69958b59089d3d81915867983626d3"
+      ]
+    },
+    {
+      "patch_date": "2000-08-16",
+      "content_hash": "f5a0aefaef5bbb864667f59398656fffaeb2c4e66cb8123dd872dabfa2596038",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "18d363ef35a21e350252c76e945e97c193b141d869b62b19119416c2545c5319",
+        "f5c8c5885f13e213f3ae463881daf388ab8f014ac2bf668d3c0ed17bb2493757",
+        "303a96993a0a405c66b726bf62b789244d878aae1f81ebec1a94695438b1e3ca"
+      ]
+    },
+    {
+      "patch_date": "2000-08-23",
+      "content_hash": "bbf9c2758e5f120d68fcb331a644a6ee0048f45969ce303c929d27e870dd294f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0624549d3e661f481913fae6b50ac6cf63568a1c1cab74b227cf4d377df43ef2",
+        "d7e89bad9de00622f0dad2c2b10c84661419ef13b426c13579d60549a472c852",
+        "264cdf8cadab3a6b72602733e503d10fb6907d5f7aa2dd5c3b4fbd872108fe24"
+      ]
+    },
+    {
+      "patch_date": "2000-08-30",
+      "content_hash": "0fe011306e2ee3037cf7e1f76467a0b863dd4f732c167f76f9b30228c4679ff0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "57d814ea205cf2fdc4462ecfb5e66f6d609a51845358b8e3b7fe4f31f8105d6a",
+        "61d239666e88117b9b67a235b02a4b0cb1f6f25adaf2783876a2ba072dfa4050",
+        "3094cc39ddb5ea920591056cf9505a9a274e1d5f6a41f8951354cb903cded426"
+      ]
+    },
+    {
+      "patch_date": "2000-09-12",
+      "content_hash": "83a8e2e19a1f93842ce5e80d70ff34a8f4c5d0c02fcbc6452146847c7e0dfb21",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6855b37db856792214c61a75aa99fdf6f9b58d8bf2afcf6fc105e2586deb0c98",
+        "e24eed3794a1755a2dda569a90fe6225d8094eab3ce89f6438d282df5b906b5d",
+        "8c0e72335b359c82266afc25ede21759e6cd13ae1f69eb446ef75c20cba785a8"
+      ]
+    },
+    {
+      "patch_date": "2000-09-19",
+      "content_hash": "7fee1c96ca64044ac52175acd44c36a1aac5ec0174ef6fdad2e2a4728b8dc40e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3226d1247d81f39e123e329cca4d5b4691b0c26019f84a25f83a3e6ac0316692",
+        "31d838d01f8b85634e73bc1efd2e3a7717f10f564fb0218ce490bc257e2f7f08",
+        "9a8ba53bc60b711c535d389b3b84ddc55e3242f0f378fdf7514e635260a4cf11"
+      ]
+    },
+    {
+      "patch_date": "2000-09-28",
+      "content_hash": "a3b2b6244e3b141ca86575523be469d0ed6a7793714b65b1cc50d6997a9efd07",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "559a30095d85241a5b6eedae58b897d9aef6c67bf67adb6b58ed6027db9fa81d",
+        "5deb879ac61e7575ff282822d89be5d250a0bbb250f1b8bc4b063d154fbbb191",
+        "b0270fef64251b7150ac4847b8b37052e60deeac19bc696f0f47fdfabaea940e"
+      ]
+    },
+    {
+      "patch_date": "2000-10-03",
+      "content_hash": "8e0495f09a112f6b916a49c25f6d96738d0076f383b700c77858ed10e6ac4690",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "84dca826223466fd546f5d7fa40da9899e56311824f00e9cd4fba4439d13ae86",
+        "bb04bd801fd20034efe9c52e6c3df030bebfb899ef047f58b7820dbeccdb35e1",
+        "8ba9214f055b664e1a504c6d84861c6da6b8dfc3c66815958a487cc2efc58b6b"
+      ]
+    },
+    {
+      "patch_date": "2000-10-13",
+      "content_hash": "9f7725f2b9af82a3a4e9c861931ac8af394a8f710a74d108d58d14a931e41090",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0befbf0c755318e04b88b96a22b7634f20f3b7c4e22add1bf555e29f7700504c",
+        "409df4c8b6fcd3b7e7e2b017a3f93b7a07e7adf2f1eba8c16fb6848d4b1211aa",
+        "c1ab1a14b2672361d999593804b01c143695c7ee4ce498203f2d4c9f39ff0d3d"
+      ]
+    },
+    {
+      "patch_date": "2000-11-15",
+      "content_hash": "ba00eaf874da8c1483023a6b5b04b89807643f078ef3048815a994ccab1cdded",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c7aba9445f9bff4a0981d8f6eec3c74237a733db4fee450a4839440d2cb77699",
+        "0bf45e4a31422b852de62d908f82d9251cb60ec483991b7899851b3dc8de4049",
+        "089b8023faf6941beb9328edcf516b2ec02b17391703a30934b1de3ab153bad9"
+      ]
+    },
+    {
+      "patch_date": "2000-11-16",
+      "content_hash": "fb6f4870d28563765ff1a3b926a8507db7d24693e8c4e3bbb68ed5b8363c0990",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e1ded94fa12c862bb0d87977c553e562073f1d24c0807a5a7e9c1a6d65ce9528",
+        "89caabf894b0b201b15aa5ebd3336278e20a05bd4114e616aea134b85af1b675",
+        "be9d0fddbd1f860d54402396c779ca974a201dab2dc50d4676dde29b62fad641"
+      ]
+    },
+    {
+      "patch_date": "2000-11-21",
+      "content_hash": "80527fa69e1b9e58b7b2301b87ff040b54265459c97b79a328d7d40ca3c86068",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8119af3e864c564c99c70053073e408ffc4bf52bc957655e3eb3b6b4079cc613",
+        "97dd2103e19c4c93cacaa077ebc3475e0462a9ee6788519d18f7aa681982c3ef",
+        "3d58dc1d81e26b8b4376550e19837dd37474d38483db4a839358fd364ecf3ebc"
+      ]
+    },
+    {
+      "patch_date": "2000-11-29",
+      "content_hash": "c05cfab79c149dd4fe22b0cc656845103bbb4595c74dbf60e0e807684f80fe33",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "517e8a558d4f191d9fd468f3645aaaf53942fc0a21c0b138e4c757b7fcff8736",
+        "e667732f70613ce46bf3e0210db3800ce0d3f4a5c630ea2f91ccdaec28e34e89",
+        "d5b06f2cbcc592cf8296e328bcb77107e34d84f85c47b668389274ee2210ed06"
+      ]
+    },
+    {
+      "patch_date": "2000-12-01",
+      "content_hash": "08a1b86ee7736c7274a9a55f8256f9d55cd9bbfb91009499b75cb7d3ac55797e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "21784a6616446257a4208d8b89125dc48af20114c31e355a35481811fe5e698c",
+        "4ac6fdd0010823add9464dc38e07acd06d563d7155afade1a7cb41dd66e349bc",
+        "39996a716029d9b49e065ebb0824dbc1b49861039512a0297280fb7ee7ecf061"
+      ]
+    },
+    {
+      "patch_date": "2000-12-06",
+      "content_hash": "2b1e38717b39dac447d7ca4a0eb7c93702c44eb3bedf314e8949709f78f3715c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "380cdca7e22364f6736ec40bcc3fce00509abbfd03a37805bc35dd9e55f89a4f",
+        "5d55714108de11ac7526cfac2df7394a41280798a7fd034fa0567e365c4dc9f7",
+        "76893951a746b92b91daa002a46c349f53557c2b9ba6def50c9dee498f75a7b5"
+      ]
+    },
+    {
+      "patch_date": "2000-12-07",
+      "content_hash": "56ae59d6b835337e40b13a0825e4c7f62dae24e509b58081a85fe5b05cac0c08",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3085979e53d5282a1793c09376d6b46a0b2ce8880335085dfbefec8f53040400",
+        "712ad3cef0b0c31632cea82617ad9fd1f2649ef54e913bee6b7c92b25f60c4a0",
+        "862b6d03623ebd94c10e8e01317893e2bf01df0c1ca3df2084a33b04595b7464"
+      ]
+    },
+    {
+      "patch_date": "2000-12-08",
+      "content_hash": "d3005809c44f2be2a56aa330fc6d856635f0e0c41d8f87d8cd8f9faa5ee9dfe9",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "047b550029e644227c286573811624e9c2386fd4e096b624bc1a49e97f9495f5",
+        "a8fbdc2f06c4c789a3e857312fd070ee1147027b630aa0b0bcc31026509deaa7",
+        "548eb58b9a3a2a234db42a1f8572c1a2f6f0eb60e4ed21697c07bd82420e3da0"
+      ]
+    },
+    {
+      "patch_date": "2000-12-12",
+      "content_hash": "741e3224e452587c5ca564777bc599d070f3d992955d2335cf448dffd5290535",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "76f0728b7b197e5f8c59631449acb87681d525ec0b52f2ee1301f0698e622bb3",
+        "ebd7668f2517fac5abd79ac41bb357ed8234b0445c09458fa50fee241dd4a4b8",
+        "265647b334bc89b78fcb4d3fc893a0ab0a7b51bdd063fcddd62e87b58fb65e50"
+      ]
+    },
+    {
+      "patch_date": "2000-12-16",
+      "content_hash": "e9f6b905c48a5ee020c7c7f79cf8253a16215f15f783a47803baab97cb3dd8cd",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e485f40c6053280c5378c22c8e9165a78eb42207bcdf73acc45c5bfed33307a7",
+        "2f697c5587e303c4962c480e47beafe1afd34eb2939a115f09d6c0b9a015c568",
+        "5c412b6eb9e00f40d6d21ce4b2d49eb976a3085127363fe9300c9c04c50cbc4c"
+      ]
+    },
+    {
+      "patch_date": "2000-12-19",
+      "content_hash": "94388054c120281b484e17fcf96556e12576c3f7992b00787e985d10b7fba744",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "83ce417d86aef0d52e15e6becf1fa076b87d8c22b810445be5a27327976f27d1",
+        "65002e56b41ace9cb1cf4ea0cd0e39ea8ce0a6983f13efe10cfccbc7a247d7a6",
+        "d88f96a234a695a53fa0e40001d9e6d1541b08e27887863d53ba4dc528ff2a21"
+      ]
+    },
+    {
+      "patch_date": "2001-01-09",
+      "content_hash": "2d5ec3478d8b4028787269e369274687f9f70378c6ddaaddb3e30de2bf258b09",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0a9df7a489e25f3c14ddfded366d18b1f52e814fd0faadbda2b0cdecefad34a9",
+        "4e33007fabd7da742ea4fbb41668cb0d07529989d5460e03c7818302fefa3b41",
+        "e30e396a0fbbb55d0dfcbf30a0c41773b8758c5f7538f9a5f6bf88e4e5765e0c"
+      ]
+    },
+    {
+      "patch_date": "2001-01-17",
+      "content_hash": "ebf3f9a99edb4186be9e8cecd08612891a1d80b3c0971722937f5e96002a49b1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f5b8dbadd5df54649b9672165623ad1e370226d2e94ff57833a63e156d6bb82f",
+        "9e79683d436c2065c14cfb04e4b543d8ba6270edca2c73fb017fb6adf97143e6",
+        "6fe65ec6d69459acd3ea7a396920b8a241e095e099f081333ab210dd785bcf41"
+      ]
+    },
+    {
+      "patch_date": "2001-01-24",
+      "content_hash": "25a5cc28c5cba01d6ec03dfb917279bc236c4f58bb55b2ed348dd5d279605618",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "46adc51234d2809a9fa109752a98a579eebde0b8558ea8b72a9ad4736c30282f",
+        "40da8b0ceb2a262ac038220a365c6710d7c8fbbecd0e1de49ed0c19a87371158",
+        "77b67dc3bfecdc18ffaa2b240f6b843583f5967aafc44688ba9025fd1958ff60"
+      ]
+    },
+    {
+      "patch_date": "2001-01-31",
+      "content_hash": "26f1cc7ef48db31cd2b7bb2b5fbb3c0d29a6fac06a97bf18c27847b866f0ba0e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2b9401c3979f4a1ba20fd6d11c8bfe7b13c0d6f6aecd6ea6b0660f1508ab0662",
+        "0cd06a2093889d671a33ea79234a8829e1adc023b021b01c1b781c88c58ae4f9",
+        "6bc4ff4955e6fa48dc9c15a29d6c8a58bcedea1e106b4db19ab5f4346a07ff1b"
+      ]
+    },
+    {
+      "patch_date": "2001-02-21",
+      "content_hash": "ef65d9b679a4d99eb5fa33d4228a636adf6fcb1a588618c6f84ec783e7dee5e9",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "67f17767bd4ff6721404e09ccf48ee3a8c4d4c3db9aa08b49b4db7b372d32efb",
+        "fb66da13fe6e64299a6e02b7963735b0c1c341bd60e0a7d6eea070549b30e1ff",
+        "8c81fb4682872f591287684c835364798c97592371b57fdb79ba4b6968ec3f17"
+      ]
+    },
+    {
+      "patch_date": "2001-03-06",
+      "content_hash": "0fb8576bd217960f041ab4c729e4ad441bea859fc87f5ef8fe88ff35e6fac0b7",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e7d9443855e5cd760fddc541cea06401ba7972298cabef3a037b94dacaa23e5f",
+        "68f90d90b9ca24728e062da29ca57aee42a081d28faac1554c341be42aae254e",
+        "fda9fb2082e1f89b634e774f7383bce841e201c56b5167ad14e697a9e4f7b016"
+      ]
+    },
+    {
+      "patch_date": "2001-03-09",
+      "content_hash": "050d3b585d8731beb1a23c2e5716a3935fa55279c7592466df76d29f059d7acc",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d7eac9e749c6e3ce08df3062be4398bf34ea8ce38d02f3ecc8a9368e86feb6fd",
+        "31a910935cc7d6fd73298cee2e7b9f1525880f09c60472672c8063612a979965",
+        "5d85d152c5fa9b74d860f04b413d0ec8478759d9630a02204414c109d718f883"
+      ]
+    },
+    {
+      "patch_date": "2001-03-14",
+      "content_hash": "947603b7e3c7d1204191651d04e5fee9b04afdc2400913150b588da325440fe3",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2f85018cf293b4e6d98893d371d653ac48e06307da5ea25972599f2c3ece0d11",
+        "72232f7a06d4912e653ce311b6687e39fc93406d2f06d241870d8f7e3fbac0c7",
+        "5e757bdbf98698d11bf807b89b78ee44ef2a65b4019df55105f66e2efa44d502"
+      ]
+    },
+    {
+      "patch_date": "2001-03-27",
+      "content_hash": "9aed02e93ea0efebaa89e9138e6c8875284b1ff22b807c7287ea348d20ac66af",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "478d59ba2a27abc04309344e89246ffe44c5159d7af6bec208dc6bcfe6320c54",
+        "ea0821cc7f0e9614b344ffb457b6bee145e7d0e4d3d78e49b7175b4527f49c62",
+        "3a0fc49a26e8647f340ef322a746584b469e0cecd88496e3936c49a28c457cf2"
+      ]
+    },
+    {
+      "patch_date": "2001-04-04",
+      "content_hash": "35946da965218b2a80f1ed8d926fabc30b93c45a984bb02670087f8e74f91019",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5902498b6e6ad3089a9c043101816ed95a532ff5524b3b48b86e491f82dc38cc",
+        "06b1f44390ba23976cc09fd29f761f212eabb255c3e105301c6e2626eeeeb1eb",
+        "389da1f8b11ba021f1b1d2f813661d82765e6832719512a284dbd2e19b20340e"
+      ]
+    },
+    {
+      "patch_date": "2001-04-04",
+      "content_hash": "bdf39fa17e118b677146a7a13c806ca38b3887981eebe9a942d3e94d5a66ef95",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4df3d0ad30c6284a6cc0c06e490a13094828137a25c37965efc94116e54d0a84",
+        "af40112c51b69f779de2d8907c735d97996d2802fc93613cd951f360416668bb",
+        "2af0d387ef3a703091334fa01fdbbf0fb866aec43cd2853f6d7bbc19cb83e343"
+      ]
+    },
+    {
+      "patch_date": "2001-04-17",
+      "content_hash": "3a988dfa5f1e064a0c8888ed6fbc733c1739a775c4d56639c321c78818040da0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2c1ca2c13beacc7b0d471a64bbebc14dff3e04f034830d80584bf4aba741715c",
+        "cf6bfb1fd3b0baa7b24fef88bd236e3c8be76bd6702371281555d6f41f4ef849",
+        "af212faecf36971d112d9cf06335352c9e0633d9bbd7c546372a66cea513e5b1"
+      ]
+    },
+    {
+      "patch_date": "2001-04-18",
+      "content_hash": "17cf78b734bd63eca4cbe7007b5b8cdb928df037cb88337fe6e51447589be2f0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d768562517213b299d4e8836d0089d10e7d027aadfcb35fa52092573561ffd16",
+        "ac59d70b847bcac093be99bed09cf7678989471032f3836acec042afbc285f70",
+        "ec47fccd2567050cee76c7c595994decd1ff60dd799cd91133c9a85cd1482727"
+      ]
+    },
+    {
+      "patch_date": "2001-05-08",
+      "content_hash": "1b005cc20944cba49c2f38baf0a3f3a660154539a5ec978222a44a423b9a8f40",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d91d89b6fc6c715edce8151dd78fdcfc1b4e5f2b8f2eb4e786f1c9ecdc862d95",
+        "12a6f90a679014b3dfbd02f2c9fddfac6d33c59929acfee08253d26987db7f12",
+        "ca471da13d1b5cfa162bee4b31c01c6a3f96ba506628d9fe865aa831905e1b2e"
+      ]
+    },
+    {
+      "patch_date": "2001-05-08",
+      "content_hash": "b2ef35be5eb479c6633240d61c19a30b46033940ae90043e495e0b13f7dacf6b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "195151cd69a7502fa6e8f27ab64b598a1091fbbdcfcd32fb2e38589e84823f88",
+        "33c1fdfda2ad25b9abd722293e1ca6c94c540725fc05b1e7dc8e19095993b9f7",
+        "f31e35af253645c6cfb470995726a370fb19ce069807619ff2c667e3966d6e4e"
+      ]
+    },
+    {
+      "patch_date": "2001-05-14",
+      "content_hash": "9bcda7aca7ab277ef59724543684cb26c426bf400d967ad57b65fcbda06be205",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1abcdbc00ccb55196aa74fc79fa5861a5fe948f4192f6617510e3c0715b45f67",
+        "9cdec505de081e99fdc66b9324f9a16b0286c599de8f9ad9cb1832aeb1423c36",
+        "b4a09bfe01b21dcdcc05ce7f21d1e5603584a86d6a34490ddcca3fc28f3f6d86"
+      ]
+    },
+    {
+      "patch_date": "2001-05-22",
+      "content_hash": "ed70c1d83ebb54d3f31e8cd15af78522e3ddd6bd72bcf8a6a1f4e9776504260e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b753519fd342f8da56dcd29655b9a8ea336aedbbcc7a67af64d6ed695381421c",
+        "535d1c34f769d8686561f806f5422a3b17de6c802cbe139e8992415aba995e11",
+        "b69e72cff0ecf0eb43e1c3e9689bbd07756a4ac54e2df91c1b67cb061c53e3c1"
+      ]
+    },
+    {
+      "patch_date": "2001-05-30",
+      "content_hash": "e0a4468516ace3a8a71def3eb5165e0377e979c6521ea641ff2a4ffb6a2ce724",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6d7db02c65506de433f9d36bdcc1d406374a596ccd7fd925cf8515e00428bd60",
+        "32ce6d96d0ff8ca04c3f301776e03236b0823d7305583c650c720c295ba9cc70",
+        "00e79d52e4e979ae8f01e06d18649751e03aee4e6b3acc6a1871d6d7f47278b6"
+      ]
+    },
+    {
+      "patch_date": "2001-05-31",
+      "content_hash": "55eb634db7e6326c652fcc2a55936592838651047ceae4e724d3b671f7ca8f35",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8b5e13d828c63abb8eb807235ea18e3905c3a06fbd9406310409d5959356757d",
+        "c6bc872f5cc5682d11e90193fe5695a99711d82ab26c0396710c799dc046d351",
+        "d16e79b596a2fa41f1c7ab66f5c180838cd5fee212b9da209e7e8960f300de46"
+      ]
+    },
+    {
+      "patch_date": "2001-06-04",
+      "content_hash": "d02da2d12bac92a5b776ad1b7ca9ad9c46e1cfcdc60793236d4fbe8bd88c80c1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c4a4c277957afa9b46304b09a916cba73adb0b11d5ac798d67b11a693939b186",
+        "2fff643287410f130a75764eeccf020534e5841005da1499eea1eb43ed9f6b84",
+        "786fcb15eb27d1a7f829250068fb1ac8673ddf98fa911029182785582f1e2787"
+      ]
+    },
+    {
+      "patch_date": "2001-06-27",
+      "content_hash": "b6fd9d88071f3ff4da6286e3657c4fcd19bdd6cdec049379c5139dce98cff65f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "96fcf200b15c0e46a18a8519c9a0ef0fc4acf7264700705fce6e1958d59bedfe",
+        "183a51f8f756978716a24af8c3b76d907bd7d88a2950ba3e38606b4a37535066",
+        "b65881d5c4fb2fce78891f4a7b610c80a56fdee7c1a2d9058eecc58bd4205d37"
+      ]
+    },
+    {
+      "patch_date": "2001-07-10",
+      "content_hash": "7bd0868dabbe9b5dc7b2313344a1de0028f529f1c787396d8b3be63d471e7031",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "190ade576e6edbf9e30274cc401f695e110c249e4654aef38ed04107eb0a89e4",
+        "6d66aaf2bfdbff1fec8f7fd3177cc8e8991174d9827e530f3fb6a1a42574f117",
+        "27d140e62bd6839fef85ed98eae775f65e912b90e8ef1fb2d6fc4f31f263002c"
+      ]
+    },
+    {
+      "patch_date": "2001-07-24",
+      "content_hash": "a238bf118d622046ea337413974f09836f1d887e9a2ff4e12e1096f061e71ab0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8807021cba91aef61667480b9a692869630ec63806dd00782e866ad633c7a0f8",
+        "a64e24d7be607253be5e0ace1d7641a461855dd6c7a4031f6502ab44a0b7ea53",
+        "6a09ac358f350cbc2aa947996cbe4e45c4bb2d4f4df75c6bedbf96e3dea8a955"
+      ]
+    },
+    {
+      "patch_date": "2001-08-15",
+      "content_hash": "9e927e2faab113c071fa0012a1ee5ecd604ee2af22f327ea1c592fca3a780d55",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "475d09ba91c9a211f182650a193a4e83a5a0c0af7bfdc447843374ca6d1d24cd",
+        "7fdbc640a3454fbd45e19a6ba1ae15a544ec0e26399bcf3b7207d584ef10384b",
+        "2216f6390c8a309e3c8de078bd388fb6b339575c730a0a720b65c5d3cb402818"
+      ]
+    },
+    {
+      "patch_date": "2001-08-22",
+      "content_hash": "97dea2f10a0ee48ff8bfbb0c985a8320206f3648abf849325ddc8a8e904580dc",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6b686fe7fc7e67935209881de040996a6b09a436c24adbb6e4ef909661c2b2a6",
+        "b25326edab4ae53d99c2f67da087a418493dd738a26960e6a1584a52004c86d1",
+        "9b5b9bb98cb8fa71ad8822e948b0627d84fcb240fd3bb44375d243b48509cb41"
+      ]
+    },
+    {
+      "patch_date": "2001-08-29",
+      "content_hash": "e2f4af11a6749bb53aacfead91c40b419376df87de27eba922c55a95f051552c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b50760cd2875f357bb477027c865bb4a3b94161af1b3a99fc2adfe3ebc6bfd77",
+        "e267ce56bc59683724c1b926e5b3779a972a1e1776bb9aa1c8258875324431c6",
+        "fba0992ab1beb0fad643f89bc709ef42fda5423b7662b34c7c06bb6d2df6f279"
+      ]
+    },
+    {
+      "patch_date": "2001-09-11",
+      "content_hash": "8834cd59f42946e0394cc63323bf67b82b555ed5715795749639541b1f6e13a4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9a2e94eb0d00d93624887a38b822ddcc0836f54411d8dce7515dda41724f581b",
+        "729c1c0119289ca51c5f8ca04270796a3bda155e2a2a38a9c6e0f739e36b8f56",
+        "0be8a354fb0c02a33143abaa9f66d97aeef5e1f3076f182279c85276bfca1346"
+      ]
+    },
+    {
+      "patch_date": "2001-09-11",
+      "content_hash": "ee1104154eec925b3cbd5d8d34d127411744462fb7b013c48d02619748837434",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "69f5bda55270536523c7a288657bf68e9282a7c5ba60e63812eafd0f407b1aab",
+        "4244288026110b0dcc5a68d4f45e702adcb3ac9c96f195c78d20fcaa15092705"
+      ]
+    },
+    {
+      "patch_date": "2001-09-13",
+      "content_hash": "f75dedf3498110caa201b7ccb02faad89f3868f412b0c2ecd16fbaa46f882d78",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6b4b89618805703aae98b52acbe55fbc6747793b56bfe6bcf3a3b2a4b2b68a43",
+        "1d8ab0c2c6231717345c10c8b3fa6de9d61be14500014ca6a73962b33e65a4a0",
+        "1f97f55a099008ae094495f82252bc2423e2bb682623821508b5fefb696e1ee0"
+      ]
+    },
+    {
+      "patch_date": "2001-09-25",
+      "content_hash": "c7231918343cdaa673430cadf8b1d96f60faad0e398c6206b1fa94190a4e2e25",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d81cc3ece40c4aa63ec35ba8a31fd34174f78bafbd33c4d5e3eac21b926f6b49",
+        "f0552821a3517c7bec7ae7d256a019f2ea85a391f7e873118081c9fd8303332a",
+        "39b8165cbb875552c407bcf16e80a106f3ca30d85644cea29fa13fe48b0ed8c9"
+      ]
+    },
+    {
+      "patch_date": "2001-09-30",
+      "content_hash": "0676237df3896435707086385ef7ab5af5f95fbe38435d49d4f7c338b8fee32e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "63be408ea5537310442fef579503cbd7947af37f0b366027530f4d7b729cca6b",
+        "7d49fc133538b426d77c2b9126b5c961f241903b74f757eecc6bda8a0b89df65",
+        "1607eeb76356e94da89f5bab8ed861225032ecfdbdb01eaf1b96137fad0cf2e1"
+      ]
+    },
+    {
+      "patch_date": "2001-10-05",
+      "content_hash": "394dbfed327b4fc91056c560d5c96447d946efd9a9ee2350384cb55531fd7711",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "26c738ce2a8f059f7483936228c71e927780ef3a01b34b346ada7135bbd818c6",
+        "9acbd723cec78d2af4f0891232e7649d102db2ad488355aec86bb0020b870553"
+      ]
+    },
+    {
+      "patch_date": "2001-10-08",
+      "content_hash": "ca02c5ae0d4a156ef2827154ed9037603838d5f6c3f79c8db0790dad8179e1cd",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5150c12109f5fc721ea8b02bc1151ed7a2d7a285dea6ed4557d4111811b3ba2e",
+        "d099698d2914f6f0fec855aac63b35527a610ca8a6b9af59ffb7cac6a96b5c70",
+        "a571c66932196eadd94b289bd15bf5977053782a2e0443febfb05429fe8e7c2d"
+      ]
+    },
+    {
+      "patch_date": "2001-10-31",
+      "content_hash": "6c880d82c68a87b07b46bd68746ebfa2a1b1f0d2dcff1b2615ff2ed1c298b828",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f901922cb37490623ffc32f6ce783b3cb7d5487525acf9ce23e669b3ab8bc940",
+        "eb79546535ce8907b0f034330e59712505ca57d9879ab349140ccf63c82d990c",
+        "403588955f25f6f7d4ba8b1f19c592231e5a13d719430f4c2455e32ce28e69e2"
+      ]
+    },
+    {
+      "patch_date": "2001-11-07",
+      "content_hash": "89abadf7fc5fcaed654c729b88268e071d9ba7aa17497abc5e2fb2534dc00402",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d25826ab3d22331bd67825f56fe1bd1c8220793f83dabe0f2ddf6f47159a750e",
+        "530a0d7bda2174733a5642205375e8328a13533954d3f0adfe919fbab3ca0a43",
+        "4939ba045cb25033dda8d711c55a17a09559c9219f4c1ab0fc6e48f5b7ccb007"
+      ]
+    },
+    {
+      "patch_date": "2001-11-08",
+      "content_hash": "f949d6e4ff24a73c056a0609bf43f40dbe4225d6fe0424962f93671eebbdcada",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "bac526b173bb2a120a1f7934e25e9cc79e0737c1f03c48a3384d61716c056e4c",
+        "a6905f31cd91498e0c76f34be0f6b0ec7fa3fde41b9e5b9206d36c05538cfc4d",
+        "da99253f21eb129af5ccdf8240da9a1cc67739cd9a6ec4c87889892e378193b2"
+      ]
+    },
+    {
+      "patch_date": "2001-11-28",
+      "content_hash": "51161e6f45723cf5cd3c8190bf477310aa5fb5b3caa5bd1385065c27841c85b9",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0546b3c201d50544c70dd60456f445da4d02fcdca07e91afedc305aeba5fed8e",
+        "52a8524ee125f3b600f9d9cb6ed8dfc7b69c8fed8ca6d5e60f5e33c08c74ab4a",
+        "8042c0fd0ce9c77fa10fbc6d87c39c65f7adc80f96ce483a4c2073ba237a1f89"
+      ]
+    },
+    {
+      "patch_date": "2001-12-03",
+      "content_hash": "6ce3ae50bda184e69ae86549b92e4afe1830fd3d1f6fdd6b1332d806771547b1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "11aad5863b4ca06fe3241fdb394179113dad4d489fc46431a0b81c1b0d8a580e",
+        "03a20df7cd4e68cae6c75ca0f8d6a8f66137e6d428a4a1a57137484fa7e897ef",
+        "9cff223a92a83b419a5b0031f0119b82fee393230e5a69bf09a862422e9b2e61"
+      ]
+    },
+    {
+      "patch_date": "2001-12-04",
+      "content_hash": "d420a5786affeb7ffda9aeed627b7d68aa383cea2371d7fdcd8da6bf2b208f3d",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "68e4addaac61eca337f712591563175c7e7c6f18c24b61bc73d24b5fb20b3958",
+        "35825f242c19df9acb5727dfdc271a90b5d778ed0e5198134f0b9a69ff0ccf80",
+        "7589879d2ed1debb836c30621f5a7aa19e2832beee670d2246a7451a46eb6a23"
+      ]
+    },
+    {
+      "patch_date": "2001-12-06",
+      "content_hash": "5c36010b9f062e849b4659a75bd414b7b6f5597c893ae9d6f983ca6725e0d824",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b90536f5b9d597c81ca7bd1e856cc20e7f8c92481ee0e3a0249949a2c1f9c8ea",
+        "63dff987626af340fa364c91a3011cc913b91af4296ce7cd3a5b69bea567f57f",
+        "3a092e06006baa69a09e42fd4485062dc1086066e9cebe49a0bab714116bf963"
+      ]
+    },
+    {
+      "patch_date": "2001-12-07",
+      "content_hash": "2def93d04754c09ae1f4861dbbdaef65044defbb8734353e70fc1f439e78d22a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c86a15f263870e3af6ab4d385f62119c9fd62efcdcc909a2f9dcba4cf4a01ade",
+        "7999382bb29273b19e00eb6d0069c14fce98f4f723f603d0a6f0e80206d09307",
+        "6c45c159769687ddf45069657b4a77a663e0807dba359784d2cdd00f91e5dc73"
+      ]
+    },
+    {
+      "patch_date": "2001-12-10",
+      "content_hash": "ca89bf480a82b26bcbd9b8218d8fbec6c61cb24b8f0fc53599e607b24604dace",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0230c03f750a3570f35ec7244b11f097a797c1cc7bf54e5f78571c8a0643d0c3",
+        "b324af7346807adfe6dcb015a05be6f09277a9f8fb89bb2ac1a215f5c9823589",
+        "ff446fea69f0ab64959686f299f240dc89e3da4defb3eac0942cc554e5b31012"
+      ]
+    },
+    {
+      "patch_date": "2001-12-11",
+      "content_hash": "5d2675f642b08b66f861f4fef02aeaa5cd04b439ff4818e1345ffb4f1d5ccfab",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "33f901811739387229ae35b888bc7eb60fef50f7f93850315e7d83677b674aeb",
+        "d2e2fa54218d9ed0b1cb0ce0e5d374dba23d1fbe1ba5918e5864d805adf1564b",
+        "35e71012c6de93f1866b23cbe9adec39b4413827b0c83a947deb30a2d0abab05"
+      ]
+    },
+    {
+      "patch_date": "2001-12-12",
+      "content_hash": "dff5727368d192ec1e11b8935fe0b072f1b63c712d189da131164030806fb25b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1665fa0a5e5c4c2af36740d25fc7a133b540ea84f69833b3d01b1c2cc39ab893",
+        "aef514c7d90efd23c8104f6c8466303adf8ef2f90772ae26711fab4bb98494f3",
+        "94485f21936867709a5c66b9547dd6c4ff480b6d5ed964cbefcf8dcc17862d68"
+      ]
+    },
+    {
+      "patch_date": "2001-12-13",
+      "content_hash": "0c3b0f73dba885521aec08173ec442a46f8c50cb1ea576eb5d306ce09acb94e3",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "13a64aa7759e224f518b4aa8ddaa22f87a9d70606202ce320bc00d03f210e29c",
+        "458f2b170fbafe639c0a1371b0358cf8e38a8224ad6dfe378a2926bab025c1cf",
+        "21af52729f97bc7bec3c4bd13102b3d7b8d0507e9b536ad4b0b31ad7c968d564"
+      ]
+    },
+    {
+      "patch_date": "2001-12-14",
+      "content_hash": "f8f7eea1024591817cb1fb3cd2519915fb5188812b8294ac42623d775da29730",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "39f1a50aa795a12a38d4f0e79b3218078ee21a1d4ae3cd8894efa0b84c7bc23b",
+        "df09c74b9b8f2ffef9ef380558e37a9742054cade8f611421ca1489d1dc08e12",
+        "6e9e7183fcba69058d22b8f94c6cf4fcc63034110d366e2e7fcb5603285d5919"
+      ]
+    },
+    {
+      "patch_date": "2001-12-18",
+      "content_hash": "15bcd4ac0aaa281151918195e88847f63dda81b4f1dbf5d62474bc2b5981f6c0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7cad2a1b6096b5cb9e8ea1cd1ae22725515a94a817a6ab5ba4660d89f32c690c",
+        "516fe4529e3d4f30afbb1adc407e2a71fcdcfd763cb0b9dfde6bfdbb1bb6fb9d",
+        "9d2dc72ab5f61fbdb716af526623ff7518853f8a1a63157cc059831a74229c25"
+      ]
+    },
+    {
+      "patch_date": "2001-12-20",
+      "content_hash": "f2426522fa211c7facd6c1c32c2b73f7634d59171f1822beb4dc78272eaf69e8",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "50f721318b1c36c8f9eceece7bfa6467c27b34c9de7fa197a65266576f0fbdf6",
+        "6d47166bf247199fdc17c1adc6bbedd11703591c51424336412488c580d0a9fc",
+        "861b70cf669954e71076407cc026010a1c3c068c13821b7fedbaca20f662db82"
+      ]
+    },
+    {
+      "patch_date": "2001-12-28",
+      "content_hash": "b8bbb0c447e759f801d5b72c7ab0e979ae7eb62f1d95e885df06b3cb2ce69f92",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d5d7b43c5c00deff3ce60fb333630ac8f908c7d4d4c624269ca982159182ebd8",
+        "b9b6b4aac61009c26cecffdda7bcdbed87c016156f907b22b0b41c7a8fea499a",
+        "33bd271dfc0c33f4a8c2e3f4689d51c43cac697f7e359ecda36cfa911a74b439"
+      ]
+    },
+    {
+      "patch_date": "2002-01-08",
+      "content_hash": "2728ba949ddf9d05331e2fd4a0cb6958611f47f5341e8577c79e453acbbc0f5f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e493537697824d87a8619f5c93e9c624c9c0fcb1c798d5ae79236d9bf69e5872",
+        "2a93afd2cae0583226b74dda927a183039e3ed96ea8e279d5653bbf54c3ed308",
+        "ca8ac873631b18099c3abf214104fc495726820015faa2c6f57a64242c4d961f"
+      ]
+    },
+    {
+      "patch_date": "2002-01-17",
+      "content_hash": "894bfcdd71ab81102123db32c4286884f0c53551194dfa12013fa276a1281b91",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3cf1637013ca27a882be1eefda7c760ca85ffc05bc193278bd114e0f88e0cb9c",
+        "c48a94b8d9c8254fd6bc7d37bc00d2d96378fc1a5bd46d81293baa452cbb023d",
+        "a1fa7b0ce94a2e907d47365afea113164109b541a5dd42433453041eee2009a1"
+      ]
+    },
+    {
+      "patch_date": "2002-01-23",
+      "content_hash": "444a1d64d8dab5699d39941e84b0ef62db9b81580b75424107666b910600c89f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fe6b00082c2ac37f57cfb84b9c87ea801e2692fd478ad8fcafaad600b06c2e55",
+        "6a30792716a181f4b28433512302275ad13799c05a83a018c4803635f9a5e2b5",
+        "30f37ca294756b7819e1694580390efd56bfd38150a37a940c6bdbe1daf3c30c"
+      ]
+    },
+    {
+      "patch_date": "2002-02-01",
+      "content_hash": "30fd9c1803542c47455c044b071309235a21b8614c6abdcba4ec9bf6e43077d4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c533a7a3fdc380cf3b622e72ac44ba2a099a64e9763bd8fd2b3761ef11b7db08",
+        "8e86f617483bf9e6d94c42a9e88b837cb1e9f4030cd4da80e54ada7348e04f08",
+        "69bb67c0c4367406f4ec79dacd2fdb410db9c3361e3b21f9369f8e97d2513435"
+      ]
+    },
+    {
+      "patch_date": "2002-02-13",
+      "content_hash": "7271ade2d9716797ac28d345a2ba55e19d7b0ba754165668ea51276c15be1828",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f80d3a2c750242a7e4866f2c97cf2c676c236ef35921522aa658f80080310b72",
+        "03d401ea30154f3037905c54baacdbc9f34a008194e9a9fdc1d33e58e179204c",
+        "1594ab2382f4c745a55f06c6832a6c721a87d717f3b842f59293b789aba868d8"
+      ]
+    },
+    {
+      "patch_date": "2002-02-17",
+      "content_hash": "b8d507a5e64b3b938eba75a98b85c7dee3dafeec5bc763bd3c9146892dcc9eff",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4f07f1bc19de36448c19a095ce8a0aeed2876f04aba5203916549da38025f294",
+        "db8f88a67fd68b6484ab81f26cbf2b8bdc7c4d16dbf515f967ae9b0e1e867db7",
+        "e405acd507ecf62e49517552d397856b4b2750f02c56b827b45262fd02e745ac"
+      ]
+    },
+    {
+      "patch_date": "2002-02-25",
+      "content_hash": "188dc8c9b576c4b3915626b640c1f3a125ebebb57fca51acef8556956b00bd49",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "628cebfac4c1a7a633812cf1d3f38629a489c723e425be91ede3a6f96ab7b7ff",
+        "29bdbeedf5abcba17e9e70f74dfe7857c1f7d81cdd84e7ed3dd055822d0a315a",
+        "a8c95bd4aab0c43824806c09918d794aff0922baa4cf4d41c47076673abac3b8"
+      ]
+    },
+    {
+      "patch_date": "2002-03-07",
+      "content_hash": "2277263158a9774a5da63af8b149da92905800b3f187cf1559b2193044de3520",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c1aa5affe5264a67f217fb9b62d5687ff2c2265edcaeed8903029ffaf315a368",
+        "bde98972927115874180c2d72bfd536b16a2f4da3a4634337022c448e239e536",
+        "9218c9440e9e427dc4eb2c5411393d3d7647a259f2ec6cc16609b7e7d2935b78"
+      ]
+    },
+    {
+      "patch_date": "2002-03-19",
+      "content_hash": "18ddbfc9011bf93e70d2ff7d6d604c30a29d7fd30b6f67a09c5db0f0cd286450",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "57ee0499f2dff7cd8cf4f4353ae35e0e006ba15cf7bf5096cc2dd29e3ccd25da",
+        "5116cdd9d73309ba069ca8c59705ebeb33d653b243b3ab687e4e910f3b1b64b3",
+        "ec72135a7857ada18c68106c374e23d9f6c1dc32032a4f4c9302081833e46f61"
+      ]
+    },
+    {
+      "patch_date": "2002-03-21",
+      "content_hash": "c1b6baec4f1c71326940328a406b30d401e4f2bc0552ecbe1b8be77e4d073d6d",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d4ef5c135bc990a133d2b9de4b2de8bc1e19836ad0d3cc89954ae98430c17cd8",
+        "3b8a20f80721c7c0d6b31599f3d98e2b676632936c2260a3d48229456ab51681",
+        "753fc4954780b9e42efcbb8845e01f54c03be757c8be95f42c8965497a196005"
+      ]
+    },
+    {
+      "patch_date": "2002-04-05",
+      "content_hash": "a173348e3ac6aecb169cef4fb96a648cc32248a110bba7b17a7e6741331c6c6e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ba86f9a66f86faeb4b27d55227a2870d0f8314ca22ca4b0266a3b52b8143a7de",
+        "f8aaa56e8a202974af29cfaad838892891682ce07ce06e27485db36e9e8c9cda",
+        "c9d61bf506ec68aeed9e1093e7cf1ca50ca6764c11a17d67815259666b423214"
+      ]
+    },
+    {
+      "patch_date": "2002-04-09",
+      "content_hash": "95f5263d71b0155b75be13c3ca55a839798f92543213bed2bccf62b694e18d6a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4e6742ca8acf41f6441cea9a88bf1449c61fbf3ad7c973bebf39ca1c16b052a2",
+        "287dffc44db14d46c417066d9dd0b557405bb3d58d769ccf9f4488e1a7f7c36a",
+        "17ba605c89691058ef152227e0b68301837f32a4c91f2104dc6c0c0fc3eb033b"
+      ]
+    },
+    {
+      "patch_date": "2002-04-23",
+      "content_hash": "2824fb1293581e2577c32ec544b858f2df9eef1980d116114da783f6292cdcdc",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4ef55f6aa62720de7f73c9ace8969a3839860c2b3731f698a4d10b9ddb98a9a8",
+        "27d4a29e83a82f0307c939b452ba53ae4974bda6071765162a2baf543e2e9a19",
+        "0a94d288350184dba85602bd25395ae85f16c76d33461a3ba8298e5c51f0659e"
+      ]
+    },
+    {
+      "patch_date": "2002-05-08",
+      "content_hash": "2f5c68b00512a5d734b3cd638b10e93048c44eed64198d875ae129917be08729",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "14bacc856c88ec78606eee4dd73684e76247fb85bdfc6335d44df8ea36e0ffdd",
+        "e776b30e558ee6c5345d26cbc4378a5aec9b5dfaebad0fe4352f03de8226b6db",
+        "3a18771cd8596ae1f631ac04eceb54e35bf74d648e046340a653af79314666fb"
+      ]
+    },
+    {
+      "patch_date": "2002-05-10",
+      "content_hash": "be9c82d7539ca27c82b1de4367496da9df7bf8f2fb14b4763ddd61fbb294d4b1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "23cb2ea6f12b48de7d29c100b620af93f39aa632df8c66fa332891e72d263044",
+        "538e9a2d5be0baa6bc0cbe8dc173a6e4298c24bd74eada62bef5b0511441751c",
+        "7fa9f6a2eca131f5c494041cc1371b6dabeafd477c8b2d17b65c4357e27faedc"
+      ]
+    },
+    {
+      "patch_date": "2002-06-06",
+      "content_hash": "f8244226a58d95b7cbe6a0841dd2e55649372999940fbc972cdd543d415ae0af",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "18e7ae75886550320c2b1b41540fb8ad1f437afbc3f440ccca607199c9e08c6a",
+        "aacb2bc46865171b79d12534404ca029891ee67a030c5513a05d49d20a66cc04",
+        "4dc283eec5c13f6ce60003b0187beaf99714b6dcfd4a7ab7567c9079ddc01156"
+      ]
+    },
+    {
+      "patch_date": "2002-06-12",
+      "content_hash": "575348ac36a4999bf1b2452292cdd356761b2a4d54559fbf40cdb3fd90a08322",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "26100f39ad59a7883fec12222a3a9cd876e7c0802761043041ccc1dfd71c9495",
+        "abb356383ffd55cc2d799f99b37e253671bed844cabf9d7a6fe9b2b41b69982f"
+      ]
+    },
+    {
+      "patch_date": "2002-06-12",
+      "content_hash": "d3b088343cd2ba55e8134bf85ab041e86066420f3a5faf14794e3e70d48c0f71",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "807d06112e8adf60a558420e87fda08a096f6e6ea0534f025185623f0019a48e",
+        "628ac4702908aa667868f4fad00d244ca1c89a89c54b6b75ed20563d8abf93d7",
+        "f4e9ff432de1f266f5533ee476d500b91bfcfeb4b34c25aa82a3daae110ca84c"
+      ]
+    },
+    {
+      "patch_date": "2002-07-24",
+      "content_hash": "15130324e89cd35ed6523ab7ba72a1364ac2e5fc188f926071903d02e4e00fcf",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "af0291837d3da0a39d502e0d28652f201cabbb0ca4a0d9e827b642fd156225d2",
+        "3d6b430b503668a159699000031d9da20c8c05b6f3c338abf2879316040982c6"
+      ]
+    },
+    {
+      "patch_date": "2002-07-27",
+      "content_hash": "e1725fe36c3f2a6ef14d9a229d5483f6a45e281900dd6cf085ff2e4151cfcf80",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8622b78cbe7ec36165e2bed12b61b0f61928af49703ea7da1f849faba86cdce7",
+        "1137cd119ceab566bf202dc2f6677f3dbec190b088f249ed0b7366ebd820e51b",
+        "f59ffcbcb240a6fd737d8f219c11375d5fbb675a7d836d1793c77eb91b20460b"
+      ]
+    },
+    {
+      "patch_date": "2002-08-14",
+      "content_hash": "4c590195d9f74e48b2be1ac679a1204fe26a80853cdf2b5c6c3b5f71507b7155",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4be25712fdca35f5d5e5345e51e9dbf41d443c38eebb691adde45d4986f0abc6",
+        "7163bbf5389f2ccd0f4859c588e0ac6b29f09d27cdad74e63cce89c02be4c816",
+        "084b70873eaa59430b91feec2221d02f2c503a1eb04dcd9fb24ec5921fa10e3f"
+      ]
+    },
+    {
+      "patch_date": "2002-09-04",
+      "content_hash": "528aefcabc5506cfaebc723b66663fdd96d102e0e2152382b69d4047cf9bcf06",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b605cf01d72fd38905604031ee2356fba1fd91049a40ffeb1167f8dcc77ce3fd",
+        "1f07945cddeb27a1c534de41c24895a974a8cfa7d9953f26ee87e2cfa2266c1e",
+        "2fb35ed2198361e2b59653c080b7c22e84c9595873d12b6efb97d2000fd524fe"
+      ]
+    },
+    {
+      "patch_date": "2002-09-26",
+      "content_hash": "0a8d6a612a5e7f4d8e6f45524ef9339ae39c98ebb04f7761d9ee5e1d9fc91dc6",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "cf085de6b24fdd0637999f7825ca0e7faf914899d82839fe171f7f99cbeb856e",
+        "fca077ade65cd6822e418954cf4e13a810810ad628698d57cc0ed2aa10376f7b",
+        "51edb6b73cee22e95f874567a4ef623414cdb5b69fe628777a31bc58497f2e61"
+      ]
+    },
+    {
+      "patch_date": "2002-09-27",
+      "content_hash": "9e7a99b8a170183e491f77655fbc1ac1b98b6a8afcbe06a46a7566e691121ea6",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4979b6a7cff8d00cd9e0ad016c12506a156dcabc0f9b1569e6096594d90770ce",
+        "933a73fd18a08ab3dc0edac6ce0a7be3ce5a4a04aa4af92b6c7ecc67e4112b0e",
+        "b4a26994e8fbdd20bcafbfc16fc7dfb164cba2205713c222bbd380d21abb720d"
+      ]
+    },
+    {
+      "patch_date": "2002-10-16",
+      "content_hash": "1b5fbdabcfda438715d7d7e91d3d0aa483423835be4b140670137098f82fd0ab",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "096d471609806fc5db4a871acd11c39f25a43eaee4740f16187738b91942bd81",
+        "614627625ef0d45d406878a0d6c9e92a9101266b6498310ec74f64dbb1da347c",
+        "7e4bc10a3fe380ee31ffc0b2420a32be1e208aa67d75dfd7fb2aa1cc9079a8d5"
+      ]
+    },
+    {
+      "patch_date": "2002-10-17",
+      "content_hash": "0d9ba445013b4621e010df2c7ce57a0be726dc5be3c81bfc4b21c0d3279aa42a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "51c2dc8ad6f8d66a373416eeef51610cb030cc54c2d2d1253238c5a821145b8c",
+        "9b3bf65c3a18bfe0c96b2581a52a6895d6487d5f74d4f8e909c015ad8cf96c7d",
+        "6f1e7b76759f3e2770701bd70bebceb0bdb41ce6f8f9717d91f2d07b4fe13242"
+      ]
+    },
+    {
+      "patch_date": "2002-10-21",
+      "content_hash": "6d08c3663040b6e1dec8e62142848f3ab4d01b27ac878b976d9f8617545463cb",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "53928a9a14c656feb7d078d18b3f45085fe9225199dcb6c4cea90823aeb3ca5e",
+        "0fc6ef166884fbc932272b3cf3ed056d5a4d2f9b2e8eab3ce1ebb5a40864896f"
+      ]
+    },
+    {
+      "patch_date": "2002-10-23",
+      "content_hash": "0eb0601b587f86c10110d199807ef7d9fb572f271c32ea6a126d40fca271c649",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a3b52bb557802c046cb7ea2128724047afcb82a1f5f09e1d6f5ea16c54cbc016",
+        "2d0a3fdf6cb2ad187f4ef986d1bc1bc6780c10ef1579a3e6da8f5c4bb03288ac",
+        "947fc0940f56b2fe00baf39bb343bc014b92406febe0726cd20c4425cdaad1b4"
+      ]
+    },
+    {
+      "patch_date": "2002-10-25",
+      "content_hash": "8ab21ada4cbb48052590b760d63bfb42c5237557d6bd1039ac5365f7ceb80872",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5aa1bd092293220e3d0381ab1599d0543cfaf0314d1cdc0c21b580fc7954ef34",
+        "72138322087a4efceb3c3b3d4dc6d265eff127d1afe192a78fcc7a86deee23fe",
+        "6629b93f5f756d23a77bf50097e4e65e526127e701f05bb87951fa6b1505d502"
+      ]
+    },
+    {
+      "patch_date": "2002-11-05",
+      "content_hash": "80653ce071792db6c859f7da67e5eb0c50bc9e7c22ebc12a51b5dfe6e7cfb692",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "aee7c5106fabefa5fbb1fbf83305c68e40aaa30667653a420815603c61a01787",
+        "76486823b78ba665cd6867d42f1cc0e4cc0519ce85e01764276f21266b83fde0",
+        "9ad805bf7f0d28cc06441fd67e73343db3f059b1a079b2db86c36fe961e51f04"
+      ]
+    },
+    {
+      "patch_date": "2002-11-14",
+      "content_hash": "40ad424c104c054f03d7d8203bc0edb0a34ecf598ea6d121e324b86204e70e73",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "782e78a23171e030da9c951a60ef9381f30374d93d918d9ddd1ae764817ac19f",
+        "c221a84929b43689bd2fa6c834359eed20ab709b53eb79722995d8db4f03524a",
+        "f283be1b17b992d47276566f62e91872454d6bc58dec77ecd5c8b5ee37001cce"
+      ]
+    },
+    {
+      "patch_date": "2002-12-19",
+      "content_hash": "c60b47f6dbd6b4fb93a48a105fd0b6889a6bd230a055eab96e5b39d92d8daf2b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5ce2ddb4d420c8f6242fac7e0bc2e4c0954ef60f373584c83d0c1f21505e7c39",
+        "e88323dd00ace9736967ac2790c59ca76876f8c80acaa066278ef792c150ce2f",
+        "f551a05ce9ee39586710203943af922b09cb0658c0d4d621e2aef253b3f5d7c8"
+      ]
+    },
+    {
+      "patch_date": "2003-01-09",
+      "content_hash": "ab456e785821c7f67d684b58f36f7c1845ec101eaf1b3a59e20e86b9523d02ac",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "80f9852fc2d0ce7de60cab725702a9d1115723ae0d4972b457793ac67d27090c",
+        "8f6b5ab44860262c97cdd14fbe498848eb02f4616b3441b3725b12a65a573af4",
+        "a7c52f9aaa1fb67ed7b97837af01fd2014b9e1e3ae3171719c33b79be0c270f0"
+      ]
+    },
+    {
+      "patch_date": "2003-01-15",
+      "content_hash": "d4fbbb9f36552e8c1a24e07220b66f5d11dc6dbd941a32f7116f1d59400f38da",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "99421b3246d14a4d6259386d70bd4a20bae0d3eee973e96b21ef8ef09fd0cf65",
+        "c974bc17127a021de35bf36829e7208b2b199a1fcc3f8b800f5306e7e696d856",
+        "5b3af8a97846d86d80397b28615659e2cf79e777a4d6b73ea95f356dafc41cb8"
+      ]
+    },
+    {
+      "patch_date": "2003-01-28",
+      "content_hash": "a760d87b803a3e329a9898ec239668078733fbca5d8db0a758ce4f2cecda1a6a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fe2f553e06a9ad607a43f0f3a4c08b42b51613cbe2dc5fea7d02861df1af16e4",
+        "a6b8f5cf5bd59ccb73893c7fd287c3d7a154dd3f3ebff191b4fd0fc199b227eb",
+        "144a72033ce4f01b860219c1dda7d7aa32ada1ba8965a007b2f1ff60f61ef91c"
+      ]
+    },
+    {
+      "patch_date": "2003-01-29",
+      "content_hash": "1fb8b061948e420b314a937c4811288c9dc2130bc5cb6b7847c6633c16f49d8e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1ee9f9f216e43067b9f1e9c03eed3d769c7e855d2e7b698e693dd4cc0357bad2",
+        "171bd3ba98afd7036157bfd74de7366b61b49242aebb2f92cc26812e560b7f9f",
+        "6835c52097eb724ba643a12d6d8a3d92c97ce0ab4fbd7d09c0c50f2008b5ceb3"
+      ]
+    },
+    {
+      "patch_date": "2003-02-04",
+      "content_hash": "e1b3fe39992a7470ee5df652cf61973f27ee6913df40a5e975c07049f5a040cd",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "214105ceeca9dd6606ca213abd39c12c74ec380a0484cb2aea0dba19a581fabe",
+        "a827c664d4ec724f0f66b52d60ae32deff82bc3515a4f7b38f952a5d891681d2",
+        "6bcdab020cc1915f7a7da91bedfad7b12db7f84046a6ef33e271f2fae4ea0896"
+      ]
+    },
+    {
+      "patch_date": "2003-02-06",
+      "content_hash": "1dfdf5035c6f214ede5c402e2868f21ab0077fe7b38d90dcbca4fcf5a4a30213",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7e5f521078ef8b5b785e04f158dd88cbda177b445f369481527d77c956a5eaba",
+        "871ce066c88b5f50187184fd4982241aad9cac3cef2e9d91eca5e6fd6a90ea76",
+        "e4aa25c099e4f240e83724d99011c45166a867a936b850638ae55a0a57f2ffc4"
+      ]
+    },
+    {
+      "patch_date": "2003-02-24",
+      "content_hash": "e790ef1b68e44b18cbfa51c25f67314c7e8a6c69a32b5ce26988f10665c8c723",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ca71a7618a36c09dbaff914f54d17daafaa5ed9daeb1fc13f5d181895be7457a",
+        "c64cd5d333e5e4d11d7a6aa6be7c756cfedfed5d3d139c0d39257682be9a443c",
+        "aad746c7a77bd8d0ad8f8bcee677b5f2e2fce7c808adff36255965acf10a6963"
+      ]
+    },
+    {
+      "patch_date": "2003-02-26",
+      "content_hash": "63310160f8154b9d2b8c5b1a812bc77fb944f7b683ca0e076a6c68ab4e37ebd8",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4208800aaa28241dd26b6c96231ef9cd85bd1852bd7dbcfc516c156f86952224",
+        "e5298607a55b04247441ee8c4e54dc75ee3ea824470a8fd6d4f8b12b2b674ec5",
+        "37ebdd97eaa4fb9a95718af8e44e02fa0839fb3f047767925e28640fe1d628e1"
+      ]
+    },
+    {
+      "patch_date": "2003-03-13",
+      "content_hash": "236554cdb3a86ce6133ddba26e3c9ac5c90b6cababcabc17e32a34c01187182f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "980cb3010b757e95e72747dff82c1550553081535fb7b8b0316674229cce853c",
+        "d985c0e32aceb8cb0c80a09caaee520598f5f2fac52fdf8b69da218288f664ec",
+        "e6d0f7ddf51407e95cbc692bcf222777ef3915ea5b590bef488af07a58e4a1bf"
+      ]
+    },
+    {
+      "patch_date": "2003-04-08",
+      "content_hash": "8f11ddf62bc93e36f29415c9635959436de0092718c93584556f67d907c60555",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "554964459a4eac8e3a0900b59e1b71e4b9009934908901fe190364d4657c3979",
+        "e9cf7bfb991846c06ca80e6f74dec53d0e2f5f45c2d5b20e3e6b63e35bc68e51",
+        "14ba22df3cc34cefba3c12bc7842e2c2e9510cc54394f1c66a91edf5ad4713a3"
+      ]
+    },
+    {
+      "patch_date": "2003-04-11",
+      "content_hash": "1ec7285800ad84b650416e1c8accc9e436dd8115b22f277d72ab452ac7a133e6",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a9472120570c8e9da349d18f3fe763813f1047ed444b0de378817e554de36162",
+        "a23bfe3123f5ba7d87c3858bd5f64c54da1f6b771d49e65dfc8ef40e844b8cba",
+        "62dc6e8db56c6fc413742c9e21c2d900c096cbbeecc5ef68615b051655b6e461"
+      ]
+    },
+    {
+      "patch_date": "2003-04-14",
+      "content_hash": "e360918b4d982bad5863a44870356ac9b588a80ef8ff48de648e4fb30153f0dd",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0c613fcf2260a6ed17d7f074f3ecc2caeac8991e5c42b42e00c0383747a63dd9",
+        "3d78da43085add3ae4d79a0c68e32964abb6b49f377da60d9d594fa114ac5e07",
+        "26c71afe14c3572c71a8b2958758a137ed3fe6505ccebacecc320a202eba020f"
+      ]
+    },
+    {
+      "patch_date": "2003-04-23",
+      "content_hash": "59648a443670e773738dde5b75a27ef460ea80cf419014279f518fe71b7a6285",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "31c997f81e7b6b086e235ab89f1fef298f44535dc48f568651ef49ef45e53114",
+        "d08f5863500ef68af63dffdc8c3c7a063bf6cef784ec62c3354ac1a71cd21c32",
+        "895114f692554b832210c6c878c7025109ddf29fb53f2fd224d909a0a8487850"
+      ]
+    },
+    {
+      "patch_date": "2003-04-30",
+      "content_hash": "fa63b8eadcc18f7d9494736f41c49b82825023a9415b8f3be19e41d41be7a245",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ac416622bb3148bc0aa57a3ed810876b2df59ce865ee3db8d4bd410e4960340d",
+        "becf7d48d972e3a40089b437e39b8180e0eef3bac53898a5db5d6596cd4b812a",
+        "2d87738788b5d530c5484a2fa5b12a927d9fac89f6bcaa913621053aebc3a213"
+      ]
+    },
+    {
+      "patch_date": "2003-05-14",
+      "content_hash": "b8ad9b438430cc0a1e7b132bfc498b681d6fa34aa7b7d690e0b0c69f958e2afa",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "afeaeeb48e2389284260b76316e4f3dc599f837769609d45a5f4dba3936bc786",
+        "97dab07a994ab854b3cd82d98d1ec730e4be15443b102f4d1b871a326dfe97a2",
+        "062798d0905604689ed4ff789da32eaddb93bf07dcd88bd2278eb84ac9162e13"
+      ]
+    },
+    {
+      "patch_date": "2003-05-22",
+      "content_hash": "0f11d018ed85c1c5c07b39c75a16baaedf01c93f78868c918ff8b9f86aa69a40",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a6744ae328683b458098c39f66e2826482aea472cd4aba12e3a3a928df9db4fc",
+        "b2c30d8bbc19ae5d8e6c69c529ecde31dc89e220d72cb63329d35dc67ff09255",
+        "11ea957047b3ae8a83982f7f24e979bbf5a3202ab8bc40a3606a324fe766f32a"
+      ]
+    },
+    {
+      "patch_date": "2003-05-27",
+      "content_hash": "842fd7fe3d33a9026e21c52f8997360ba4bcf3f16283f8e2c7f2b73ec8f3afda",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4ce0291f0d4541fa7f7467406a4116e8bd7aa84dbebd9db4b99d4fa6a06951bc",
+        "1acf78a9982a70bae93dec0f556d515d5076634a2c80915eb3270e714844efbb",
+        "f88af3b9fc0f0a3e6a9367c8bd5d5c4a3186e2d0a70586e87547ffb99883f86c"
+      ]
+    },
+    {
+      "patch_date": "2003-06-02",
+      "content_hash": "70c4fcad32665b9b7beb4787b7272053af574cad4d62bad314dedfd354e54838",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e15f32ff29ed2c39b93e4280eca998c7f6f79e832e04b27e79a94d19722d2dcb",
+        "8e13d8d0450d20a86478480d0e85705d91bae6ae175ae8f9496acb7d18e0ab5b",
+        "ccea856d5bc3b42232f9c32e40d7db2815ccd2b3edc34c6dff21918f90b14004"
+      ]
+    },
+    {
+      "patch_date": "2003-06-11",
+      "content_hash": "e86042e47beddb28f80434efb1425997fd5b4c07a348f257f9b147cc5e4b2e56",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "044f3bc70c21eab7458e052658a4884ff2fef3adf986551b10f8036331093e42",
+        "785d56b282a6b454779c29de0d9a44f0a18a3c8a8be9efcc507d5d8bc12a8401",
+        "7c5ec79071830ab00e0f6415dfc019fda13d8a998d500de4f92cd6dce66665f9"
+      ]
+    },
+    {
+      "patch_date": "2003-06-17",
+      "content_hash": "8820676930c86804e5cf86717c0e7e1344995d7758284f5ad946b8858a9c2c9b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "39a467cc94d633bcb5477d5f288179a088db9ad412ab06243bf5ff3bfd9ff73e",
+        "5938791335ecd5036898da0c789b3f9b44bf44d322a0de290f063781b0838608",
+        "aedc6fec2cc22e8c836e1b40aca733737a1c76606660d0499183253e870f8c52"
+      ]
+    },
+    {
+      "patch_date": "2003-06-24",
+      "content_hash": "f8e3e7777c1f3284c325ed62d64038824078e795d9218b436490a334606c3757",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "322701b3f0af65ca908c3843505769b650b2eff32bf9b071ddcec43f6ff107d0",
+        "40fdd0016f6e7069a267036a4560e12f7bc96d46ab6f3247d62b5d67746f40c4",
+        "3972eac2b72827f6aa74ea8ea67a7edf31c0ba256a963c23a3e319af85b008c6"
+      ]
+    },
+    {
+      "patch_date": "2003-07-01",
+      "content_hash": "008266133ea2f5b9e357f90e1f9c15a41506f8226eebb9fefe0c4f4336da3d27",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "61d547c4b5172ad176f927df2e9a4c1091f6f263369c49309c3fbc1a9a418e77",
+        "c0a6720abdb61d18764bc6464d30c28dd778ba1e267c0a73caefd49469dd6bcd",
+        "d06420dcae26e7b329006b02d39bf484ab52a0926ded69dedd5e96003375cdec"
+      ]
+    },
+    {
+      "patch_date": "2003-07-10",
+      "content_hash": "85bb488d73aa0267bd4310c3ab34249082685497fac8bbfb95875897e01a5c19",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a4331cc926160ba9a6f3bf3fcf7d99fd8da34452520b7deb61470389492bb71b",
+        "3b409984e17af4f294935b53c17b5b726475785353c4537c948bf565a6474f3f",
+        "2f1a54ba498007926cddf2299ac3fdfd97c34ca5d5e4297a1344a096fc7e028f"
+      ]
+    },
+    {
+      "patch_date": "2003-08-06",
+      "content_hash": "3a78f8de514a5268d8162f155916d6baebb92ad637ba6bb656e01d81f6cbd5a1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0663541e74e112aa0f0a5bba74c9ef6d305121fc228b1b0ef5faee4108c4cc01",
+        "d0b2f03ea2dd6634b076b155b0a30948d8a45d28a6a3327dcb6b62db9bf05cfc",
+        "f5c317161fa22bc1b2fc5ccf05b651cfc75e48aa22d9ae44026bacf3680b9d73"
+      ]
+    },
+    {
+      "patch_date": "2003-08-06",
+      "content_hash": "43430add3f4d25d91abccc8a478b5b586c86afe109342705a6016217e79d15c6",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9e828d59b748d97be68f31ca44bea7d0c9f629749d1d00a9f74d6821ad476134",
+        "2bbb723db717c6498adb4deeb28dc5ef65a4f093fbbc573e4dd6af78cc41d2d4",
+        "1dd97747eb7300a69bc922e70dcbb38c7c5daca593d77b93a9b781062690b9d3"
+      ]
+    },
+    {
+      "patch_date": "2003-08-07",
+      "content_hash": "6cc696151a56bca3e06e6ae852c676ad3603fc808ebc849dbc3ae997158021f3",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9ef1077ca042b5cab03d99e51efed27c9e39409f3ad048357da15d9e8dc1efe5",
+        "e291c791ee49a0ee5d3a76ec34927890b201723ae1740b6f0b27266ba478201b",
+        "a3becf49f10b2da8aea8a8db170ef92b17ba86746db6cd0d5917c193d9b47de4"
+      ]
+    },
+    {
+      "patch_date": "2003-08-07",
+      "content_hash": "ebdc22365b350f76b0cd171deca582732a1e1f92fa95449b4f3f051449069ff0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "177027ff0631e20e363df4bf16a2c31c0ced83b657bcd1db58698a39e3b10c77",
+        "b3dac96bca31eff3ee447652edc6a7325eb48c97d44bce2ebd60f062612dc384",
+        "22f24f616ce7707e1d0680bf891050199117ae8e1986be1a04a41f47b8334ad3"
+      ]
+    },
+    {
+      "patch_date": "2003-08-19",
+      "content_hash": "e92045683fb93ed849a82aec835e50fc66bd38f55f2d213d3cce95b02237f2c0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "dca131ee2f4efd04f983d2f9cad00c1dfbf2e93f36faf41fe918960ece9cbbbc",
+        "2c83167a002a9da37d25e9f0cf4ffec83b83ac36402d905840f69d13024efbb7",
+        "4e5e75af29baa8b1a143bb7191438270b44cb1d0a39b036e6bd28bc4f08a01a4"
+      ]
+    },
+    {
+      "patch_date": "2003-08-26",
+      "content_hash": "f561c8b2bf09bde27ed9f0dba082f99ffd0ab724f7684939b23bbcda3d6faead",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8ffc0fe84009e649bd07ed5ceaf0558a8f0fae3fa49307f01dbee98beb83e687",
+        "d75e30a74267ff0feb624d1c18352dce28ab8c8a9aacda2c5cf148747f24a895",
+        "6c110efffbf22ffb9235169311dd4355066446f24fb7840e7161089b93881c4a"
+      ]
+    },
+    {
+      "patch_date": "2003-08-28",
+      "content_hash": "1694e2887fd934d5c1933039d82c2472707f337246cd20d4f2e65a99f679ca28",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2f0fc81dc690d64e8ab81f4a1acc050f478b294cd6b0e7a41cc311567902292e",
+        "921fd1cb329e702cdf503f9a99deed23cf2736f8ac61117ee5a6502a6306c70e",
+        "58a4bc6d8422a0eb3e831fe30f9b9d4e9c2a8d50af3481350afe8cabc16a5bab"
+      ]
+    },
+    {
+      "patch_date": "2003-09-09",
+      "content_hash": "78fd2f75189a11d486f56510d36f3072ef87447645aa8bd9cf5f777f4febd7ff",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3b4480aa4603a2f99ed225e10e05d5a2aba12cf40a87ca8c0b22857886c9eb85",
+        "895d7107fef233d072567629a4fa9ea99239995134d444092cbceab95bd09efe"
+      ]
+    },
+    {
+      "patch_date": "2003-10-09",
+      "content_hash": "2abee9d036b3a96d05b281b289048c5873e0a63510187ceeb46efc29cb74ddc1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3d38085760648e91aab94102021cb06b39d231f4f98c4742b8684d8da0a33a82",
+        "894e9c9fe0030f7205f1e7a7c9c442bd453466664681a3a724d65c7a33cad255",
+        "9900e94678b954ccbd7157da78cd02cf054d5df6f076a4d23028270ac4ac2756"
+      ]
+    },
+    {
+      "patch_date": "2003-11-05",
+      "content_hash": "4041f4cb736de41d0120ac9eb77a8a3187be8399ddcba3c5b2d09d5842578124",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "240c75ddd6f4ed557cbccf029ef573ad968391f0f60895cd9408dbbcbfc1cfae",
+        "e375e7107f32e817ae7487e52819593c771fb35bfa8b32bd1496c7eb02c05872",
+        "23b28002aa0a2ca5bb05966dce148d2a328c540f89029791a8ed86b3fa8ed50e"
+      ]
+    },
+    {
+      "patch_date": "2003-12-18",
+      "content_hash": "6eed3745fbddc4d3b85a1ec3f3a7477c34415c60e9215ba0690f4c23aafb00a8",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5dc50592a922d09abf8232fd6b22f9a565e0a41f0e7a620087e6840a7cb6bc0d",
+        "e1905740878b574503cb450d865c64aa0deb27f4501c5148507b0ba4be71d584",
+        "9908f4b9d002dfed0614548b08eb07b73ec0517c37e52439ca6e5ae0e8426cfe"
+      ]
+    },
+    {
+      "patch_date": "2003-12-19",
+      "content_hash": "f7eff10ae8980069ac679f9c22ae9637eabbb360fa161a69c4a3c6be2411a6be",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b402d6cc65ddb9c55942d62dc667183e6a663a7588d4a7852ba770448fcdf593",
+        "fd39494e63b218cfffc3e11979239e71a78ffed39f8bbb09dbdc0c8a000606c6",
+        "14575f2954e8c845c068f527425ff96d39e5327693a81c0dfe38cef3da04ac93"
+      ]
+    },
+    {
+      "patch_date": "2003-12-23",
+      "content_hash": "17710c9147f0b5ad142d3398ad6c55e8393c012957b147466f8090ea59da9288",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4a684f95a0f5f83f88181fa55ecec7ab96934cb5243d3140a9ab3dc62b8039f7",
+        "c9770223387e7b30eb22f13afc689425ffef726e4711d5edd8ad6ca60a890799",
+        "672340d0e45d7e1845d3f81335f86a65c6cdb7a84b46534c5cc2e8db57081379"
+      ]
+    },
+    {
+      "patch_date": "2004-01-22",
+      "content_hash": "0afbeadc583b7d4192641bf2129e859f3a3a41f069abc0078664c42cfb54e3ef",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "662e145f29c2597a68ee5011be4088096f6294a126ef3a1d13a0e1b2b8f5a989",
+        "4ff68480fa2e0f622acd9268ba5468e24d047cacb3fbec299efd2e6ac4b94fa7",
+        "aa077312991fe2eadffd18f9c37d74c9e137a14157596d28b15e01212db6ad4f"
+      ]
+    },
+    {
+      "patch_date": "2004-01-30",
+      "content_hash": "530977ce31854d9502d9fa745ea295efcbde4db9881937aa56b8f5bf731d2182",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e6e999dc3447021de6479d941219db46090bd247ddb8fe47e5766bac234e8276",
+        "eb484303761216e4205529698ce98f406624dc492fa812a147cad74200ba142c",
+        "25f7de3b244055a1935b6eacf606f602c49a4fb718d8fb48633b0276731b7d7d"
+      ]
+    },
+    {
+      "patch_date": "2004-02-03",
+      "content_hash": "f6dc4ff8433796706a5794532deb52b61e848c8f717ec9db246a08e3324924de",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7044954018d5252f43ddfa26a763384a7689137455080881a0c7a7de1f90c08b",
+        "941a27408eefeb64eafc8e689445c1006cefa15f03e753004f25e198b81378d0",
+        "77f8d66bac806b6574cd9177e29f6f61c1cb7f779b79efde44a7184ef7834165"
+      ]
+    },
+    {
+      "patch_date": "2004-02-10",
+      "content_hash": "a84c857732e1fbec83ced3a679002929b55d7e72e72158f49054e21dda3758d9",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a118c964e495ef08a1a3a4b41e7e3421f0f33612d26d3af91094b3ba0a9eb654",
+        "312ba9a014f63442f9f2ac18baf52a5ad84a2bbb50bbd5bcffb631307bc3b48d",
+        "375d3bccb7d3916c3c34d06989bf5b41e966f5e4e90a3030e862d69485c3fd4a"
+      ]
+    },
+    {
+      "patch_date": "2004-02-11",
+      "content_hash": "3405b2fb2d9f7dced117eea13679b4ac614ba4041e9a51bf2b6c24a9fdd71f83",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "aba43d12d511c751d9c577838c4385aaf2f8c25b14a49a861d0a4652fc2088ad",
+        "9f64017e660fb3bccf43cf339ea1ef23df86e74a1e6963c3bd8141d2203c38c1",
+        "0d98554e9266eac031c21f8034cba54f287782974d30d6915ac8a4c798b92838"
+      ]
+    },
+    {
+      "patch_date": "2004-02-12",
+      "content_hash": "57a4be7649fcb6fb0407e63e2b7662d203ab3bd5c9271898c11c7fd02f5cb3b5",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "253e488d239a3c46d48d33c7084769020734577840e195929774c9d7161c4af1",
+        "4ed8761feb4ee0fb2c4a74658729e8197b3187a8b82a18f95a2fc77956d053e0",
+        "073acfa54317290d1c2ed703de80963694c38ead99e5276b1e06be8ff18b90a4"
+      ]
+    },
+    {
+      "patch_date": "2004-02-18",
+      "content_hash": "4d625df9dabe640f893423404b3a750d2cb039b8f1666d61b169e10a0ce61f46",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "04a3f08e27e6e2396193cb23f0c72306597116582b8c05ec18c4e5ba64d2c04c",
+        "499e23eae80a391c3fbf02a1c217f949c5e8b410be0c473358402cb26e33d519",
+        "69570953f9a5ab90c5d287f9214713df6ead21f647007cf2842b489e8ebbe33d"
+      ]
+    },
+    {
+      "patch_date": "2004-03-10",
+      "content_hash": "d359b272e499d9db3d6a222a5edec7a67d42f96d42853f8b58e81b659eda22d7",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "bc897e708078d7d1abdb55900de7b8a5c35cd3094898b35349a971dc0d61accb",
+        "b94daac66b84d098952b406e01816eea9a020d8eabbb86658170c5814d38d293",
+        "16534b4e18bc0a962c1677d3e01f9ad6213bbe575e66a96b1cf7f47e7ca44897"
+      ]
+    },
+    {
+      "patch_date": "2004-03-16",
+      "content_hash": "a08898dcac1814210c10a7c6997ae13da1a30ff35ce336853bde4bba451907aa",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "216a85f99e25f459d469e6dcdf653bbb037dd5795bfe6a3a75b095e65d1d3a4e",
+        "5db41815e6e5570ccfb2dcaf383a92bddca2a67131abdb32fcc83f1359032e3e",
+        "cb791767098639bf8b5d78705958b7cea3f7d142021bd4fad41e1182e3b2840a"
+      ]
+    },
+    {
+      "patch_date": "2004-03-23",
+      "content_hash": "d02457da822aaed8ff199c45bc6733a7cc880de985ae23b2c28d805ce4d808ff",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "39ba8e5cea0b1aab0f607352fbd55df3634a231bd806102a212aa3d740eceeaf",
+        "211a94a101431d8411d4b735a66ef6fbb4a3d75534b8a0d48964eb1453a02877",
+        "b81751b5305c9324e9256f0a7a3dc73f87752bafd5881e0d4e059ade5b264b84"
+      ]
+    },
+    {
+      "patch_date": "2004-03-25",
+      "content_hash": "465dc2d33fb7ea197f8358944174b3449c818b02416a9ad5b31b75adc5e80ac6",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2f9ecb8b5f9e798fdf8ba02110f1c6916313f4e1130c0e42317cf632f1650e30",
+        "1638225033be407d78393a777579dde2948ee5027e74af2dc73aecdb1bcb5686"
+      ]
+    },
+    {
+      "patch_date": "2004-04-13",
+      "content_hash": "b00ed5ff44f2ef4156fa2727339a0f8229556d588779c982496c781ce4aad396",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "40f47e2bceca6e1eecbc3f1d22d40b240c2f5af2b201deb505bb9b107ee94426",
+        "a7318e3e75c16f4636c0ccfec048b2af6bebc5d573f927fb7ffb77bb2474503b",
+        "af4163ea3e5092634fd612e84dd2d08432d587a6fb87aa9c4b7d133dba54c799"
+      ]
+    },
+    {
+      "patch_date": "2004-04-14",
+      "content_hash": "c4aff3500f2418545346efb6b2d69f1073fb2230a8aa2406c9aec10def1c6ed9",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "947bace6f6ba5b9e71270de33e68c7b4eee9e57daf242fedd40fc056faf87e40",
+        "7e003e0227eeb12c67d9425db8ddedeeccdc826ee6ac8c4e81143f3b0b09ee4b",
+        "b824237bbf93dcc7e07c441c34be23dc1f49146a21ed89e70b120b7288f223ce"
+      ]
+    },
+    {
+      "patch_date": "2004-04-21",
+      "content_hash": "59695c8f4355a48474413e85487f51b357a5d8eae3f261587fee8a0bbba7bd35",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2fb5940c7107a78d348facd4dcba7de19c96040b34cb0b09082e9535a3a084bd",
+        "eb043cd99832295ad69c2976bbc73b45b5ecad64fb8b1c75d23ed6ef4a77119b",
+        "18883213cd8d75beefb566d525151ecc8b7feba655e7918ca197380bc9885ee9"
+      ]
+    },
+    {
+      "patch_date": "2004-04-28",
+      "content_hash": "f724341e7b7fce2c1fee3397c2f33501a9dcee6d25450a3e06d0948eca5918b4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c612fef64f037049d362954e14db14b11b6e9f5a2f2c21eb2fec4e6438beb75b",
+        "cf28c803c3e34108e4cece71e20fb4a299214f907e8f370d35ae3e19642f0c50",
+        "98a3756542142766411a6807b22d7afcc280c9b2111d19f371928dd2f1dd0780"
+      ]
+    },
+    {
+      "patch_date": "2004-05-05",
+      "content_hash": "4fe6156a3c7a2a1082cb05b77e39d9b63f68ea1cf0559511ffadda0ffcf32383",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8903d73f77af2505088b7f540a2d13b229e61b491774c946517b3d9b8bba27db",
+        "3bb47d3d9d955d0a7cea6ae3392c57856ac86579b90b9b94e3bd162d0b96ca13",
+        "8034c7e52e91c3f3fe944956452fdd161a6f76cc6ffa20d58ba6fbf8e7e92ab0"
+      ]
+    },
+    {
+      "patch_date": "2004-05-12",
+      "content_hash": "d8914bd8ce039dcb6a3cf6a342920abd976c0b53ac6b907d24b8ba6c62e58e38",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "05bb97826b0f441d62a38f2133f109acdf8552c2f516dd51a8c3fcb1b34e5765",
+        "46a88991d43216c605a57844fd283be2a0a6bf1dc7741fd79e293f736b47bd23",
+        "322f4a4565a0154fbd592a525bc0857d283df2b5b746455ac49a0ccdbcfaf44f"
+      ]
+    },
+    {
+      "patch_date": "2004-05-27",
+      "content_hash": "211525b78d1c537cd0a72ff265038c6711f88e80be2519bce239765fb35e7f8f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5f729eb58f211557bcda1a8df737179c27e9c76e5153f8b09d6fb4830d7af337",
+        "17f499a5243b6fcbb969ec728b7cc2f0ba2ee78988342856c9c8f2c7cd0788cd",
+        "cd91f64d5553c4dd9e3e5c810e115c6274dd5f0c1be8f2fd16075c4c2e8066b1"
+      ]
+    },
+    {
+      "patch_date": "2004-06-02",
+      "content_hash": "9f7232d1c9dec10ac946205c6dc379f8611931a7120b36d2edd14db282a6dacd",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8c2a9cc418917d14547ada59d4e474735fa0b206ff3c23c9d977f10917e16f12",
+        "28c4003a305e4d58acd10e91338b8486beeaf90abfddc905c06ff0ec1608c424",
+        "5d78231f9236c4ee00d0b6fcedbacdfc7f6b389f43d4afbe6f9a24e6ad48b584"
+      ]
+    },
+    {
+      "patch_date": "2004-06-16",
+      "content_hash": "8280fc9f0ab0d9291f2aff01f1629161eb398e90ee4a828a57dee17f8fe7193b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "cf95cd24557955123bba4f651c5e3c0a58c3b1659631698121ba24275e2b2586",
+        "7860c66d6a56d65def2b85ca8296716704d6381fbdde3a60f5f4b689589f4ae0",
+        "281f96d85941dd222fd264f5dee29251e9b596d1a944b69d872bf48dc660cf5d"
+      ]
+    },
+    {
+      "patch_date": "2004-06-30",
+      "content_hash": "5a17cbd46435e0b167a26525649cc8531b04002e00993cb244b00277b3f7ee84",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "69a9101e1c9ab3704e7d17812c70b79c538b70df798e9735f1b6bfda6cf0a076",
+        "2ff5543fc463992715b0246778c61b307483070a2d6cb6b900c85f3cb0739eab",
+        "17557d2b539dc89a23410b71b45033b0526d2e3ebd7c927ae5d66d4dfbee8a99"
+      ]
+    },
+    {
+      "patch_date": "2004-07-14",
+      "content_hash": "7d9eefee19b4448db13bfc95b794d639f8e9b901e8025ec4548be594b1dd909c",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "93d12edbe1ef0cdc1650abfa53f791bc58df5f0b4ac33877ed1b73de4bdf8dc0",
+        "79c92c3f8f8115a69fef04e4e77ef136209a11e657cfccc93dab83b45c63ab07"
+      ]
+    },
+    {
+      "patch_date": "2004-07-15",
+      "content_hash": "150e8c69339ae0ed3554181ceb0de64ceb5b2c5c5eae86da5e04f468fd345b72",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "75cb1c52159a6a09a032024c4e3924a6b3af1cf4bb82b5adebd9eaf89d1f46aa",
+        "807c0a9a27bc761e56871118d8b515facabcde27067c454cf8ad4a1715362f5f",
+        "0c8ab9d4f602e8c288c392279de2403f4e1bcb33e1f857e8f26c3cabb154ade5"
+      ]
+    },
+    {
+      "patch_date": "2004-08-11",
+      "content_hash": "006cacfe19b9d322ee4683fbda82c4816affcbb2539eb22b35a685f553098ee6",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b299338bdfbb109113ce18285df80853719bb2c61f721d9a22746dfa4155388b",
+        "f33b579ee3027ebbdf8ca01769b746ee3dab2e96d9d502d48b79227fa919aec5"
+      ]
+    },
+    {
+      "patch_date": "2004-09-14",
+      "content_hash": "ffb92096f9c6a3becef382bfd63e175cb43b0d91e2661597ca9b973ae443b58c",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e0c334943c47a2e6a38d6530c51f4d0d0b9f9cf804c8397c4a3fecbce191f85e",
+        "03c682a2fdd4d4bd848a35ea440f30a5d97caeeec9dd149d5ac63c8b17a5a406"
+      ]
+    },
+    {
+      "patch_date": "2004-09-23",
+      "content_hash": "6cdd077f8865bc9c0fcffc5852bb6db845e64ee96c867e2a54fe07c2fc4df819",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fbc515956e35719aa9f2348029df04c3aeb96fcacaa148caca863b66b78b0ca5",
+        "22c875070d622cb9ce4374674be9250a54fd3c43c6e9dc11f3fbf900866b0abd",
+        "6ae35afd21699aab67ab5c6ab582268ac5d56e6f4d0b916d62a3e91831963309"
+      ]
+    },
+    {
+      "patch_date": "2004-10-13",
+      "content_hash": "44549f6cc377b84c0ab03cfeb68bc6113a2f04a61231014f39ea1fb4bfc92fad",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "673c28c5e0a8f0eedb39348222fa0f23d49ec4d42b2639c3bc6fdee56c733747",
+        "06a39dd21b1b238c7e96583dd55388e4325b86025ad3286ad25e3f40beacf5de"
+      ]
+    },
+    {
+      "patch_date": "2004-10-25",
+      "content_hash": "99f22b938da758e9eb04c4ba6b6e99d8ede5e6cb0d35c243f4240b32f88aa1f3",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "662a2d5dca0b6ec3f2b0e34b5f8b5ea30e81e3acb51805d979b4b00ede355604",
+        "7be118f3999bc8ab161c6f321aa88c1ae357d4492746ca852a116190eaa7c1db",
+        "ebae2dcd1f71efc47e3675b2c249de849b19d0a5c6582f37e30b026529811785"
+      ]
+    },
+    {
+      "patch_date": "2004-12-15",
+      "content_hash": "cdbbb0b82e23f74b4fef7afc138b4fadea7be9899bbb10b8db0a0980ac51dc0c",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "30e6ce390015754869b381f8204bf8b3bf2fb9bb0a6e02623bef462135480bb6",
+        "ab3c8b9aaf1083410c9f3715cd6961138c8bf90e115ae7fd5a4a78a362c32817"
+      ]
+    },
+    {
+      "patch_date": "2004-12-17",
+      "content_hash": "c2faa45f34a1072809bc1cb9ad7d45b1760db20b2a2c3adabe5cf75e7703f7f5",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "02d9283886fa963b6bd381d536fc293bf1b09a5adbcac5c27b1d7c5d2ac046bc",
+        "4184cf3a76c1c3740bc1e9c113484dae670084867eccda6bae9bbd890b67f1b3",
+        "ffe1ce5f002da8096a88817386ce8600bcdba47e023460b640d69aea555ea9e0"
+      ]
+    },
+    {
+      "patch_date": "2005-01-26",
+      "content_hash": "68e0f15832e7eac0ca11be9630b5cdf04ac4edb747144d97810366399e3fd6c1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "71f74950da189b09c0d440159b37155dd2aec45bccfe8799c5847b49d3663776",
+        "9e9a12157ab809bd6ea8d4f289a302a2453ea0d462ecc87e524dbd8af4e73053",
+        "0f244ee53a424cd54d11df7cb28f075a89ebca871acf1d5a6000ade2a3f28616"
+      ]
+    },
+    {
+      "patch_date": "2005-02-15",
+      "content_hash": "bc8ac4d4baf79be3331d2dcd2bcd5a25984093e9deb0681270e3d140a1bc54de",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "de22972532e4df0e31ba39834e419f1fc2838e59583560068a435227e213a09f",
+        "36f2987f5593122c5d91dc12bf2fdc3a61d02c30a4b32ae7a71685c6de2ed367",
+        "3bc190c18b10967bddaf646800c02c2d9f9d9ead3d35ab9ea567d3396f833648"
+      ]
+    },
+    {
+      "patch_date": "2005-03-03",
+      "content_hash": "9ca90786a3deeeca6080b807b55b5c9bd6e809a54a532139ea283d2d84cae96e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "787e1563a28f8319f56e5a1973795f1a3dc4df995ea56e2bd6357d989d233105",
+        "3503eabefc1e14681f7510f4ceb5815f511668502c8dea749e33ad37cfff25c6",
+        "ff9be1e7760aae7e2e7d73749587c02930c0d2d25824cf653cd79cd87857183b"
+      ]
+    },
+    {
+      "patch_date": "2005-03-16",
+      "content_hash": "d49af771f8ad0faf185673c0cfe1514ddf79f117b391edb29c723207b172b42b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f2c2b6bad137874352e5a9baf6986b5cca901b5b8cbb5272a4c32dba298cfef3",
+        "311069715f5dc5877b4a0fd9f409f5d87a2436c7688ae0a18ca3fd4f3e0844ec",
+        "fb9c7801cd63d5914763272bf23a70c98c48634c8dc6cef07b73c14b2d5ff80c"
+      ]
+    },
+    {
+      "patch_date": "2005-03-17",
+      "content_hash": "48d9bab655369ab38fbc2835b016a8baf9328bca3dc6ecd08ea2c169bdfb9917",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "63d53932d0925a89c421d765f038300faa8b99cdf1416239211606d482b448f7",
+        "aca7f979e6bafafa14452b8672a2f1d68490ac70b5e3eb6acac7c39ae1da0a76",
+        "d4dc414d476d5100d76997a95bb33871037aa035cd9100565ab1a7a7c76d1e3c"
+      ]
+    },
+    {
+      "patch_date": "2005-04-12",
+      "content_hash": "8207f7ae4ded569506f6d2688a97347b49c28989e1aac242c71f23e0b133b23c",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "48db1ed0a1e87aa28327757ea205ec8ad33621b91b0741bbf1da30498e52e95a",
+        "f33508c7d9c6172aa52d283708f0031a8c1e79e79cc979ff0425a267458a5a43"
+      ]
+    },
+    {
+      "patch_date": "2005-04-20",
+      "content_hash": "eb68ef56e323a950c78b3aedabd386c7c8a30872866b8ac0cbaa2df77e1bc1f8",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "bf3ba6aa22bf9e91565d01d14a4b9d893c8b49b540594fc1e950a7664f52ebae",
+        "d6cad17db6342297abad3cc8c60f308056f692fc131a9f34e0fdff177fe7283e",
+        "eecd9811069435d7f095240bd530743c3580930b86cf856493626e95182fe0ae"
+      ]
+    },
+    {
+      "patch_date": "2005-05-11",
+      "content_hash": "cab23e799bf2d80cb2c127ce4193740837688d8f2c7ce5cea848a19f6d44a666",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c83e152140f3e18c4d72ef424b175f0fb5e49c5d8d824c18a5b3f58243b7d8e8",
+        "e6f75dee7dda40b3cac98092e1b557d373846db3ead36bdb1dfbf41c5852b8bf",
+        "1ab46fc2ec5d2a1a15662a8a6be40182e7e9d913a2316078e5edc437a47bcb86"
+      ]
+    },
+    {
+      "patch_date": "2005-05-18",
+      "content_hash": "1f6b9b3299b3148715d5e7558f880be3b6275c0fe611a858896c5882b69a5f49",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "940425c808fa01c9437dbd0b21a7dbb7949e9c8ae3682369426ba093441d9dd8",
+        "f24dfdeff616dfb39704654a74e889b314f6d9f3327dbaf76b8b62b8600e6f66",
+        "2c1c906aced1c8f818af74c6c06ee8b6bde0b708486ccc3f39a5093281cc9ddf"
+      ]
+    },
+    {
+      "patch_date": "2005-06-29",
+      "content_hash": "07be3b13603846c67c64f88c32edf429f43462aa6f9823feb11962b89f4a8036",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "69803ad4f9e97b97ec58b6ff56c24d470d4d56bf8625488b8eb97e7164d6aa33",
+        "f6cb7a9f92efd1bad7b09d7608c211dc987be4ad9995ed2ee03bba5e9d0cd315",
+        "3a72ea06826efd856f0e4b28ff23a625bd240269b664d222aed3051be2693c49"
+      ]
+    },
+    {
+      "patch_date": "2005-07-13",
+      "content_hash": "eda916ca6bcced8d3b6b9518f44568b3a11a1feceb2204fb26f068b1bba8bfae",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d2d081ce27538bd5dbd642217431275e0c73c2255863152e810829e62efb8b3e",
+        "0ded079d6ffca36decf0d3dd7ac1aab996fe7bd7784792cefd51cc3f73b7dd0d",
+        "d325ac29914144fbd31950494a4137d5b537a324d82ad14782b30f2cd0d6addc"
+      ]
+    },
+    {
+      "patch_date": "2005-08-11",
+      "content_hash": "f3bca61f4a6521f7b4ee48c389910b4659e46d4d22ad943511dbb7d13ca4465c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "986ce31b0fa81f9a9206114bf9e88f4ce88d404dfa8074802271c6d5a043206a",
+        "a04a56aca6a57b90f4e4277dfff68c740edf7e73b6ba8ce773d28ccee9104066",
+        "57c53dfcd79d038a9f4772c9bc0abbb09400c4ed3ba798534a681d6f2d0e29b8"
+      ]
+    },
+    {
+      "patch_date": "2005-09-07",
+      "content_hash": "33b7fd068b3187d42a29e7fce1e50aa83df73c5ce5b4ea38cb6a0b39683bfba4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c02277680708f568daac3e15b3e9399eb2dcf883d76f09ce8b461ab83df09724",
+        "3c3802fbfb232d556b6883bbbe143ae32a9ccd64bdfd75c5e88993a0b12ec226",
+        "76068a083cdc52db4fa0ff242122ecee2135f9b78886c2058d09a35d81e63965"
+      ]
+    },
+    {
+      "patch_date": "2005-09-13",
+      "content_hash": "0f7c71efc46fb3bb6b2db08b3b24f0cb09d286228a24ec7a76011a912aca55b6",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c15781214cef1153febb35ff044757507fe576a1d560797915a8102a428e51a7",
+        "65c1c11de94094a5b2996f5c601e73c2cfcc61179a00cc2961ae6202e47a5802",
+        "fd41ef1138c5d8dbdb41e59f35d1522daf23a5716ecd8a393bebb7e15f4c1707"
+      ]
+    },
+    {
+      "patch_date": "2005-09-15",
+      "content_hash": "7cddc2b26f5b2f8a819f9c9c1db9db6f839f0c64d659914d66013c8ef6042604",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "e688a3456c8c49e0ab11b081d74acd258118b97783c9f1492ae0160ea2e053e5",
+        "3511b423d2e3e7a0fa062973d5048a4264a5256d32e6de59f497998ca5c66607",
+        "169b1b9b922883c60d5f2bcc4303fa73614b43a686bfe00b5134fe503a734d06"
+      ]
+    },
+    {
+      "patch_date": "2005-09-16",
+      "content_hash": "26771308460e642be301ab3792e97c436b8fe000b93c3fd99330c368ec6d4da6",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9ac1a70c52b197966b52125e735027aa0e2e8c7a2da7139acaca6b7091a03c21",
+        "91266b6eac30559c1a34dd3ddc97dbfdf3edd5865521c2dd38245a10d740bdc3",
+        "35c255af9ba003955613349bfe21349ebf6a3fb7b7e3d4c992204301b2cbb20a"
+      ]
+    },
+    {
+      "patch_date": "2005-09-21",
+      "content_hash": "abd28a376b66f09d2cb620a088c1074de6e4fe61b8bdf49ff8c17ca08b4b1561",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f0702b6d04c403ecc89a2aad2060872c51f4bf370b89d52785e739b8cd6e069f",
+        "f114a17b08d1752130066b5f14df8c15daad4a835be99af3823f624145a38af6",
+        "9761fd7c861867442068fccedd69476318b51501ed2bbe72ccad269ba6d2fce7"
+      ]
+    },
+    {
+      "patch_date": "2005-10-12",
+      "content_hash": "5d9be03c231ab1dde7c494b956edfeeb5c688357e71808297412d2c0e7a685ea",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "65eefb54b8ac430a320b5daf1b4e4830f4f3bfc7aa2c48c4513c28ef70401664",
+        "16dcf9921e85c9b864e813c06f67d1f739aabb18461fd4147b41da27787b07d1",
+        "c0f63a03deed8a6503aba07952bc476f993694e8e423088e316f2a20dc7eff2a"
+      ]
+    },
+    {
+      "patch_date": "2005-10-27",
+      "content_hash": "94ff0b179099f7cdf4df04825f6e93a608f0d162782b8617d58e798b0f2d036d",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f26102ee2a78b105584871d2c1f7962c7f728635d712ec84a497f04179d8b75c",
+        "30537855575ca4bbeba2e81010162053fd339c521609186a50713bc2ab330169",
+        "10a687f902188f28414cf5ecf4d61258acd10ee6daf6eb031e47bcfec949e7f9"
+      ]
+    },
+    {
+      "patch_date": "2005-11-01",
+      "content_hash": "af00c86b36c88181de388464298c668d660b681fe1671c7ede78c86774d5028f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1ddd6bad53e0a4897590d456c83c864ebcab5249e4513e026400c7864d0c54c1",
+        "3924d5736f92007e2bb7e656092daa696212f10bde1d25c66a28473f94f4587b",
+        "02eed95565193a8eb6aa42fd336068a535c20c4bdd990304f3d33c9bc7c6519d"
+      ]
+    },
+    {
+      "patch_date": "2005-11-16",
+      "content_hash": "2a5e379e46b9f611f37685e9a08f58da039bdf5c3933dd9ba80e54726383eb1f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "02bb3f87cdb1dfd811be6dde4610acb684915aa6cd9ab12cf0529edebf453d27",
+        "652379ffd22dab01835e90278a7136f868b66c0c50377374f49e7df4851a5ac1",
+        "42b5deadf1eb3a80a4c3ced6c7018129071ac4d6ecf2024bfe09709b0beb4b86"
+      ]
+    },
+    {
+      "patch_date": "2005-12-21",
+      "content_hash": "e009f1dae245f8d3f580254ca9d76302284f66bed7bfcfb89de5008fc55adbe8",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "84ee31283badcbe4e489068d4248fdd1e8b2eb4f6c9f5f1be5ac6e3ad6d56790",
+        "c5bf10631b456ad5ed96e58a3d6e79d4df96736b140e2df7242ecf4f89c7c2e9",
+        "409280c790fb02501193864b542bfed971258b3e81240bffac24a5d9bb5a8d0b"
+      ]
+    },
+    {
+      "patch_date": "2006-01-18",
+      "content_hash": "3481aea43fdf8c0a3a885bd699bff1d49d708cf4432f29db69bebea8cea31759",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "bbe7b005c422b2ceb5b18f6a3c377849d67eec84670a81b2377e72119eae6e2b",
+        "2f6b41b5a99fd940af97127c2c98622a36a98c588bc26ef17e0d9e9d628aed12",
+        "b15874a3dbb2b25260ebc85a8bdc75e4951029f2bbcd6f7d2d84ed25d3451cb1"
+      ]
+    },
+    {
+      "patch_date": "2006-01-18",
+      "content_hash": "5774fa08a7139ed7de0c3e4d091740c45b04c415e22da7900d0885b1cbb83025",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8e9cb285eb45a3f328743161a7a368f0189ac4805b5ede2cde843e3bcd63b8e1",
+        "1ed9439d52536bf40144c4f5e5ac517ba1a7bc11b6ade89fc9f78a16455a9af3",
+        "2688feeac5ff34c7dfa28b710049c761f15383b8d3b70bc01310b509bec94216"
+      ]
+    },
+    {
+      "patch_date": "2006-02-21",
+      "content_hash": "c7a9bb9d6b522b3403cf4d18f7e9f41f7799194610985d4b25f1245e5abd37e3",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5b964c05df110f717f0195ee261fb9efd0f7a131a1c68e0a837091c1cf0598e4",
+        "db59612b6941a8b5960e88ecd45e5c8f8d08b29ec3c3d93795e7316e6cec0752",
+        "cf1bc24ac2d79c91368221d89c6526867d80fc913f4b375ada211cc31a0fd15a"
+      ]
+    },
+    {
+      "patch_date": "2006-02-22",
+      "content_hash": "aa867f637d5827f3c14c53d99c7c311519be5b8d1d5865e75d940e9a481219d0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "553f616c874cc9baf26bf86386d507845461aa317a30467f06af2b555988b3ef",
+        "b52f482edbe87a37fedabd1686cbf2813f019a8e5e2a6a2e588c342f4412bf1b",
+        "e381b51c0d64fac69b96b35800640fa62a1e960d41c44a28bd70a661e7ee2f85"
+      ]
+    },
+    {
+      "patch_date": "2006-02-23",
+      "content_hash": "161badf641f3baee200534dd0c03f5333a2df5199fe168cc0a0c350723125061",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a507b4d6f62dda7ee2629ff6bc972acd8d3644849dd01d3c25b02fc74469743e",
+        "1f5f62e590fb4abad027f57269d19f522f26bf7b6c4a8cf078e1266a2952474f",
+        "196c3cb39097b8c31c9fcb595c345ce8c0f23e86811c603d9604916b3ff3cb27"
+      ]
+    },
+    {
+      "patch_date": "2006-02-24",
+      "content_hash": "45c9681aeb6fe636b1ce6b49dcd85ad4e663c86e39e8aae479f438c817e56bb4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9e27adf6a0adbe2ba7eec0329befa9004fd04d1e9436e481c50eb01366492927",
+        "e67991399621987a889109ad6ebd784b332b10d70ba7b341165e08d87537bad7",
+        "aea2055d9ab0a6071f37b41cb96f0371079132f9bce4ab2e2980ea9e4ae30e16"
+      ]
+    },
+    {
+      "patch_date": "2006-03-15",
+      "content_hash": "2b0100d4b2ab7c837724999ba9e8187b0cd0678da2a857fe524220ba896a40e2",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8a5f2e61e684c482b40caa117e59b8379c87bf32f7365a9b1e6beacdca8c287d",
+        "44f43029289de0afb2d00f21100c6a640e2371c806fb2f76a5936d2c5c8c94f5",
+        "b68c95e2026de62e926afea614aebd26daadb986c1df65782c187eaf0cede235"
+      ]
+    },
+    {
+      "patch_date": "2006-03-15",
+      "content_hash": "7f88ecb733661936896ed5058c5455b4b02b9b31952c77491bd41f6b802557d0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c214482ed5073334fea4e3502c6e761c249aa0ab3e5e6ae8484f2a3686bd32df",
+        "f9a7f0b2417aa02ebab30e506882943a7894edf9371fbe7de1636dca2d1a43c2",
+        "280b20a15bb9eacc19df103476ea0560fc9b453a380694f132e0e69d4cc76c13"
+      ]
+    },
+    {
+      "patch_date": "2006-03-17",
+      "content_hash": "d47d3897d1bdd6cda5c9a2ca68735d2733512699559a549b62043cf937629857",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f563feef8fc76550a5aff6f760f39bbf7af93a9a213bee0959b23c1cff9b4fa3",
+        "99d783fa43a2619c94b58c8c908fecd6888e12aa7b1df1d61ffc6d7236a769d4",
+        "7e85517dd433593baf48398360b2560d78d30710800ed8089df0576094423da4"
+      ]
+    },
+    {
+      "patch_date": "2006-04-19",
+      "content_hash": "c1cc059a4096bda0551f81d84f924df7460f7be903d499742897f724a3069e20",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "567a6edc1361310a93852aa5290484c09f7fb7c6d7c6ba5a378cf633868d94b8",
+        "630d41062f57fc743455d11a2ee2e8f05d9940e7bdbe7d486fe58250e3191989"
+      ]
+    },
+    {
+      "patch_date": "2006-04-21",
+      "content_hash": "9b662d6662ee7f3e694615907633e1ebd7f620da8bdb17295a5be91b471e7963",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9dc787cecd0586e54114a443d05b5da0570f59f55cf0a47b819eddb5286511fc",
+        "4a9e393ef357aa468f6ce91437b0d00547d5b247a02d3044680ec7608da205c3",
+        "19e513e27167542b9280caaadb03113135cd990f5f368d8b4d9418ac06c87b4f"
+      ]
+    },
+    {
+      "patch_date": "2006-06-13",
+      "content_hash": "2c4e48b3a9afe0dd1fe0f158ce9ae9ef44be4aa67fd2b239125f139b23c8a52b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6d8e5ad9104e6d5f53fa976ff7f26c16cd6d8cf994f0a10536a4cdaac5df1ff8",
+        "e182825c84d73559477729596de41f0afae86e204a4cd07e6c610a2ed09df295",
+        "f091e7cc29436edc2759cb0f0958cc6774a79de57abe3df5b6f4aa25c4cdd71e"
+      ]
+    },
+    {
+      "patch_date": "2006-06-16",
+      "content_hash": "ecb1893ea4a30df61bc1dea66657591247b34f1311a17fbf0cadfa1527cc4c86",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "40447f65d57e6608c866ad828735b4ad76b2f8e7d49ee6891478dcf64976ac24",
+        "ea24b5d88f82fdaa6d281e011fc268eeaec0edc8fb0dd40675434a6414064dd0"
+      ]
+    },
+    {
+      "patch_date": "2006-07-18",
+      "content_hash": "feef2bdfc230e3a5f75dd0570a9b33550871917790c17af69e3d32e75d18a7e2",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b743e10f9153a984a6aae96c269d398c6241db11d7451f7479a99fc6dceccfb7",
+        "6eeaf11728ef01bb8c427d8f472e34399fdb7b19e7ffb84ff1e66a35485b8551",
+        "7216074c7553e6b556b1b8f56eb0ac4fe50cd0a4ea60f3e864ed98d0389a99d9"
+      ]
+    },
+    {
+      "patch_date": "2006-09-19",
+      "content_hash": "2c06633ec08cd8a79be0c45aab86eed8169ea6b6d4c0e1fde15366ed48251d31",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fe441a935f4052e4146d6010699b64dd8ea9adbfec902284e090c77edaeb15b0",
+        "2ca464b71ed071cc3e5b39382d76fe539ad9d966cc1961d6064c7e785a2f10f2",
+        "3444a338b326c352d320a3c5b327919defdc7a0f721521300cafc3380c718b75"
+      ]
+    },
+    {
+      "patch_date": "2006-09-19",
+      "content_hash": "421314897ec03a08cc842feeb910424db6ee10277f58e3b47618b5855ae76535",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "25fc16a999e84360e9a8176d4d622503c295b952d1de9a774eff547bbb237e9d",
+        "dcc92378bac217eb5a038a76f8c4d83916213668ced134e6b648ff944d1cc789"
+      ]
+    },
+    {
+      "patch_date": "2006-09-27",
+      "content_hash": "5876078a4a8a389df97ae74b23444220e262a9bbfb036aab82f2f198832d1c5d",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0e5b6c1bb4265f57cd84fe5e126c002234dc6e2e746f7b0e05b1135207b2253c",
+        "f6657aac2aadc566f092838b2bcd7c69d22bc060907ea1663b827172b45920bb"
+      ]
+    },
+    {
+      "patch_date": "2006-10-04",
+      "content_hash": "81dca2c0243be49c3a8f24ab96753c7b976d926068418873a1c6b387a43aba32",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6a4946e8b385254ade7b28fe205828569c690ceb9ce5a2da00060144733203ee",
+        "d224a436dab47b6b0e2bb841af85ebb3a0a1c3e78d29f70fbc14cf57f8fece20",
+        "3968a5b299ff6d5e3e46183a1fd1b606d1c011dbb19cd756a9829a4c611d7683"
+      ]
+    },
+    {
+      "patch_date": "2006-10-05",
+      "content_hash": "35cea0a2d6280549e5ffde15b1d93caccc967bd11df95aaf741c9ae5db625f22",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9b9754c4f2df272e6d47636ee6c53f4376b0b44640f993c1401876d6efeb5a10",
+        "a16484c62333ea7a5f208c93cc37ca2359985f1f70738220f2d99c5e920258f4",
+        "876e6575a0e13acbee3fa03b5968f3a61cb39b74977c28f1dde14921149d3bf9"
+      ]
+    },
+    {
+      "patch_date": "2006-10-25",
+      "content_hash": "6c95c736be4af7483772fd3ca0b56828032c88a9092a6fc7f192cdbf21e17c35",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ffa2c59a8678bfbc13c6c51b05eceb67a865719262245809bc3b7eedafb26ab0",
+        "72917550ab1e9df0e7ddfe1e13e7be0f80bdf27872ba086f251b22ddd80e5399",
+        "79cd11e7c3c7d32a4760f8a09b22dbab9f02236c6939c6ea88793e7dfc7a279f"
+      ]
+    },
+    {
+      "patch_date": "2006-10-30",
+      "content_hash": "81c4fe23226803a4566b1abda262e5480e971ca01f609b6144e99c3e5a805d5e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9362e89cc52b33bed6051c86f489e9826f7a36ee24da32b1736d7c160badecd0",
+        "252a7d6ccdd4776c2e9263d42aac5a7c19edfb13eac20bc6be4dff17b55bb43e",
+        "8cb85c53cc42552db43d899e046211f7992480f5f6f3730eea9bcea7add40038"
+      ]
+    },
+    {
+      "patch_date": "2006-12-05",
+      "content_hash": "f24012a83593450bc724e24262eceb9fdaf72c97772f308700b5d6eb106ad893",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5ed4dd9bce047667ce87bafb93a796ba78a8727f0125ef7e28338ae197611ad3",
+        "0c4a2caf5e7fb4cb2bcd5d4b7ce0c7e6428922b8c9e722fcb5711915d6d8f19c",
+        "c9dce296160909f4e071b369359af983a37442d8a140eb693bc766ae926cf334"
+      ]
+    },
+    {
+      "patch_date": "2006-12-13",
+      "content_hash": "635cf63dbd3d989f929c5b23ffab739537a71211c93c87fe5e1f197076fe15e9",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "bac3810022a5b43ab49c476bd5b1b0e2887986a1613c0d7d5689797068b67d5e",
+        "fd0a7549a70ca804f183d798edea9ae1eda963ded3b1c9c3ab5ad315c972cedc",
+        "e909d34234030ab6389f87f36a3a2ddb235dd6a222431d59994855e4f29f50e8"
+      ]
+    },
+    {
+      "patch_date": "2006-12-14",
+      "content_hash": "f2f83bb9e3dfdf4c2c80400d05bf66824031a0c2601a49b4e5e9089896a45bfe",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "08e62e2ff3da8a1c80bf6a39f3b2e7accb139cd67fc871a6ddf5f0f887c161ea",
+        "721d8d307f5a9859a3b2665d270c1d08a08af675d7f33135bf0b56379afaf192"
+      ]
+    },
+    {
+      "patch_date": "2007-01-17",
+      "content_hash": "39c69b74e90bff43cd3821401062e04f3cc4ba6837056ece12e0c395b155321a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "0ee4f0a63c285ba2f41470151f28dbd79c087691597af018cbe856b00a97d9d8",
+        "59b8f92d109234984f375d1e27a59d50fd5f87cfaea79ab9efeb10a07902b975",
+        "697e1e973def1a57be8ef9a185f98350c64b615725fe401f88a7829e590cc906"
+      ]
+    },
+    {
+      "patch_date": "2007-01-18",
+      "content_hash": "f811e854793afe9c147a908dbd8b669e1bff8fb277963441485e360ccaac2ee0",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "02c7e26c993775b7051770c6502be423bc2f36c2b0189019fcdc97ec9f6fe0a1",
+        "47eebba0370259274bf3ddff673bc762f82e4ff98e8afb305454251711a50c42",
+        "b011d72fae0311a948e1ac21dd57835eb49172fc2f667845d65ed1309d72c598"
+      ]
+    },
+    {
+      "patch_date": "2007-02-13",
+      "content_hash": "9fee4e9347de52ea0ef997e4b2c04435ff241474e17757a4b761616afb66938f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "904b725056c8ed4f3c10005cde2ce94e395af4d7f07ca8352e88d6c1f2e9a8e1",
+        "bb11478743d8290c49a0e02f37c5e438639e9b05f586c8de8073e8de5100deb6",
+        "86056ad563345a333d247f3df3777040dd783bf443d35352e80aa7dfa613988a"
+      ]
+    },
+    {
+      "patch_date": "2007-02-21",
+      "content_hash": "63bfbbf7605d7a204bd5016ca3be4dc03a409cea3778871be25426ed936d4c62",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "47a8e160f2acf47407577b28ae97ea312c11d78899fb15edb66e62e87b900db5",
+        "b2439a1e3cc1a4ea3ff0fbcc8cf354047e2a1f946f8d6c4374ac779de07bdfb7",
+        "64525fa340b7d54b83794a6163b3289ff10f162197529401c5baadb456c0edf9"
+      ]
+    },
+    {
+      "patch_date": "2007-03-14",
+      "content_hash": "bf4a9f73282cf0c1ca56031b49664050d580f5d7d8afaba9e9b1482e5a0c08e5",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2c19e04b8506546ecdfa5b102c898f8c9eff738896657ca9aa0df15d0c6ca73c",
+        "0422806878b2ec3cf63b12935acbfb223682a79ce8793ca3ed924f79c14a2065",
+        "1ae429894e957602e768f5de5e47c15da94fd0917fc25086ef2973de89f5b9e2"
+      ]
+    },
+    {
+      "patch_date": "2007-03-29",
+      "content_hash": "a68fe558cf4f441d16c4cf9e3c455fbe059c19126b563f09a53f1ef9a5f6387b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d52b752f9e86aafce110e01e76516a2ca19608f6011a1acf2d1fa48c7c399c80",
+        "dfb5ee48cbb7f2324a1df96670be21666c9d038748a695530c955bd7f7614f2c",
+        "1765e42e75846b3420049048b6f9c901949512667f0f864e3d6c7851d07c5dcd"
+      ]
+    },
+    {
+      "patch_date": "2007-04-05",
+      "content_hash": "235617dc9344204ecb2ff1a95889ea88b26187d0b4a7b94beaa058a000924b9a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a85a71af4249205dd469b8665ea4b49ae1ac8a7fffc43e265ad2e73fd2c44343",
+        "8360570bb5df8112c1ec48e5719b4da4b54b9594b3ce9a03ee5c46c40cdb010b",
+        "16558c8de3ed274559022b1843d021be189691283ab8fc2e2751580ac0ae2094"
+      ]
+    },
+    {
+      "patch_date": "2007-04-18",
+      "content_hash": "b83972f6190191d27d63e6d354ea93f2755072b970f92a171923c59dc3e7a857",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9f9872c2092c48e28f9aba64af6622dcee166e806daa6b9ff3effd7d28439158",
+        "5322739d82e66436a9ee60bc1c9eac538b67d1eaec2195f3207bd699d8103463",
+        "caf67661440701c042acb4c94c9f5c77069be8060c4beb40d92ff70f4a52c133"
+      ]
+    },
+    {
+      "patch_date": "2007-04-20",
+      "content_hash": "8559b2fd0bf14ea37f92bc92d36438aeb8e9ac8831a646f299513d0ed9b545ba",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ebcfa25904acacbb4678f91a5a93dcbab830f0446803ace5e9599c1a26bc87ce",
+        "109ba908d8305d15dadc3a858e35a6d564e62b36c967cd2cc3f983c3566013fa",
+        "2bf9804e63f57455ad9b7aff1ffa1adaf165c9db3b829ce6400da795d13284c0"
+      ]
+    },
+    {
+      "patch_date": "2007-05-16",
+      "content_hash": "70c114bfb6387c84451d0200d48d886b882f58096767537a91399f76735ec21e",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c8bacd4aa47744bd225e59cca2619a50f38981e4778d0628536a2ab45fa32b83",
+        "763464f379d2afcb1c020d509d120d3418218ddb1b4e554fe864a28a31389095",
+        "ee27f5487f1aaf0ed5f169de984b8da4b88834884dda2ec10c3ff58da53deb35"
+      ]
+    },
+    {
+      "patch_date": "2007-06-06",
+      "content_hash": "41bf41cfcf83a7191196a84db3771783aecef269f1dcadafbea581122012ad76",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8aa8a1185e9c9945a3d521aa0a560a57b983d2642cde9878cf240d6f1f4a8292",
+        "c7e4d9fe61f7141495e88611835484fa231c67b8876880eeee65b95664876658"
+      ]
+    },
+    {
+      "patch_date": "2007-07-05",
+      "content_hash": "dea722dd2a862ead6edc2632993374d745efdea9ceb5a6bcc8c15afd8a65ecac",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1c0674bb241f9d117a715df11d1832204246534030176da456248b3af8722307",
+        "cbebda6f2cff7a7364c83483e76ef2af48991fd500f2b1be510be1cac59a58ac",
+        "26fa43fac677ef055d7e07a206927dfec80d5ff7e5dd52c21cc2b06c628100de"
+      ]
+    },
+    {
+      "patch_date": "2007-07-12",
+      "content_hash": "4ad082151296bf39be971044cc3c6198e0cbbe7ba7f92f5afbcb91d3b2c9fdc2",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "860f226d3f831cd2c21eaf2a2c090a99a8b9ada9cce19a0ab3201e76e9477140",
+        "a01a32905cbacf40859ad8f245f98b573dd10ffa8766ef4739cbbcf935df1cf4",
+        "d4c2894821f15ab679aa5dc2c5e3f23f6d017762a2b0070da064f69a65c75528"
+      ]
+    },
+    {
+      "patch_date": "2007-07-25",
+      "content_hash": "eeecb3a98b67c6013beb582ae09b4141405e5c39c106cc3c19bf6b464f50bb8c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "54b9b47a2cfa43c6eaf518bddbb1cc2d8bbce966b8f02cf51e1406d37179bfa3",
+        "ab2b64b194564090ca3c0701c248608f3717c2239519638b2ae35ea0e914c524",
+        "f536cc5468fff6da807714c07a234865ec85ee01c55921763428c7c5f1b81608"
+      ]
+    },
+    {
+      "patch_date": "2007-09-05",
+      "content_hash": "d48cbeecc18988b52e0373c227aa7f19032212fbc8771d81c902b919091b18fc",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "3d9cff68f49353288df2bf6881a6bc6f005a3ba97b40760691e15d3a7a0a3581",
+        "35dbede0978fd7d41cc79dbd383b8fe3aa017cfc2124bf38208551d431552c65",
+        "da32e32abfa956c09ebd2742f060a9f7c76eec91ba15f98144325e19c4bfc22b"
+      ]
+    },
+    {
+      "patch_date": "2007-09-06",
+      "content_hash": "d605836cdb6f0f4ece9e9b08ba0b3332d397ec55f2320f18593d974d255928d3",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d73c9e3881fc1f33d9681d0f2d0cad5c95585ffa38fddccbf541232c29af7385",
+        "1d26dab249efef3e7b77d5fd799be37c67c0e571cb2c39c2eac4b69df6935016"
+      ]
+    },
+    {
+      "patch_date": "2007-10-30",
+      "content_hash": "36d707a1e15390d8f4ff74887e2c3a9a6ff6e0957c6eefa79fe88766aaffc74b",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ebb9b6784f132998f64767aeabf101898f867641df5f0316fda6adb64be071ae",
+        "f33b92ff3d21f710c5fe0a3fb119e1b9687e95e622a035c986b92231a6f1bd27",
+        "24f8feca5c2acfff882303cfb9077b57bdd14e0461b0222c7e6a2ce75d1e6708"
+      ]
+    },
+    {
+      "patch_date": "2007-11-13",
+      "content_hash": "c9ae78d5049bff878068d59f10d56759987a750d26ef9a28cab500474b213886",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d6bed7c8751b95985f35a9f79d0c986b98cd30f9c4e5eb8944d567046512c783",
+        "ea67676abe3b17b08e6c154fa8513cde0751f203ce1d44a9c0e26a99fd57a637",
+        "c97c3effd3b4ffb07caaced84a2c08c597cdea0b1084da30916f431263ae0399"
+      ]
+    },
+    {
+      "patch_date": "2007-11-20",
+      "content_hash": "90c2b49801d141c3ce62a904390d71df87cf0f838bc2fe8f3aa41839a5029487",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "77f421ef03cca856b61360e0007e50e1b1600bb82c2c0419f659954da4bd763d",
+        "cf29e442f9d294a927c053f71a10ada285a910390eeb137e6ea549f2a7c0f9d7",
+        "e5da3a45b7f2bf98866c485678aa8caa49b2e8c63ea404e953b60acd4a10058b"
+      ]
+    },
+    {
+      "patch_date": "2007-12-05",
+      "content_hash": "b0fbfcea0f61a53651851f5bdea2b55b6b7eea9229410bda6692e6f58ea7249f",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "89de4a0256922407b75a9c914d01569c9d4b93bf90a1eaa0916f0f68447b55b4",
+        "572f67db0d62b56a2490922cb5d1fbf9d281b1d8c92c202229137442e89aa2e8",
+        "2b2e538d27759ef1121e6e25c66c19868896b9b04210aff187870bc7d745ce00"
+      ]
+    },
+    {
+      "patch_date": "2007-12-12",
+      "content_hash": "542e732c4bbebe91f4922d5dec9f702fcd86beaa57dbd3dfed56ff43f5983535",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "28424df5e17d1b9277d1a5f7915f7ae783f1e5cb1c3484f03b6716f3e3c5dd36",
+        "2c834e7e22c8c573739e2a2d436433dfb8ba6696fd76dae815b68a7586b169d8"
+      ]
+    },
+    {
+      "patch_date": "2008-01-16",
+      "content_hash": "12dcdec4bcc4c7bec1b00bbfd99b6c6e5c2f82053cb38ca34212734209d8bbff",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "92768c2fb509c87cc0b6c50d935f88b9be0eee5aed4b5f8a724c07ee94523d52",
+        "0b7bcd7ec2a768ee6c2adf8c7ee3ef0b6de7ce4150c00af7617ef22ef7258545",
+        "c6ab3c3a348f7ea57cae72c5142e2e5278dc2705c89583319b02c007f095d187"
+      ]
+    },
+    {
+      "patch_date": "2008-02-06",
+      "content_hash": "cec7f68b92e4ad2cb431e96ba5b7b88ac01ebc43d0fdfb606069d36cfb75fb67",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4977fc16025fdf70a0032deae275bdf7ac17915ffb14a045413697f3fc4f0028",
+        "268eee3ef1ff87118ee92f32922a56c7cefc304d9b04d72a6d6503ce016de315",
+        "90ae94e2dfa40b5598b401d5449d3e6cc10f5ee6ab3705aa709f3edc51075912"
+      ]
+    },
+    {
+      "patch_date": "2008-02-28",
+      "content_hash": "84fff7638329eab5152bb87e94a067627e4f6268270c2cb979656ff31632784d",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "55c85681bed883edd6e0d136b2055939fdaf40b5ea782f9d8ca25ea7f5613256",
+        "a90b0dcd1d45e3aa8df24e1825d6fa5ef63cbfaca7b581495686c25677f65512",
+        "8849c1b1b3b4693488841f4c44412b88996fff767585b6257d0d0ee38207ed54"
+      ]
+    },
+    {
+      "patch_date": "2008-03-13",
+      "content_hash": "06cfec605dc54ae148661279e42d4fc1df1d708b40814f9ba1c1e94fec776e11",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "dcf9b22be6cf232aef954d773779db37e459412d952819fdcaac93d4d57df7e4",
+        "6760bff78f5489bbc85e5e5a2af8f70d01817cd2540e7aaf0b10b40ecdcbb606",
+        "ce864e12973e9de6d4b0f4150c5e1ee5964c152be1e9b32a45c475610f00c504"
+      ]
+    },
+    {
+      "patch_date": "2008-03-26",
+      "content_hash": "206c825cd5cf4ad2c0356070c94816e1acec4f46506f3cb60aa7afba884b1922",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d10b515db98a98b2fb1f10c1f5e80dd7c6a00b2e2a2ec198008514c2ec2ec249",
+        "c4bb543f63f43145b28d78f38a07933046e231ea08065af11e5fe4042bcbe5f8"
+      ]
+    },
+    {
+      "patch_date": "2008-04-01",
+      "content_hash": "0de87393a91983bab4a9605cb803ba8b13277f2137dc4512e03642c8e3566009",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "aa8529647e529ae65f166272de229ae7e4071ff66e4e01db5929885da099d7ea",
+        "00142b5699c5423a04a9680fb2c346e875ca604ed6ba0dc6d3e54da879a85054"
+      ]
+    },
+    {
+      "patch_date": "2008-04-17",
+      "content_hash": "02ad7766e0862f5222f26b57b99eb407429946234d8be42a89e18138c08538d1",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c76319604cd3ee001e697b14f0aea7ac95440a6beb3ea26f87ed44205bc850ca",
+        "a17d5b396b6db845a4deb41a27b226508c8527e23f12aed890104be494ef7598",
+        "e0c94cecbb0b5e692f539748ee0db32d33c80324372b5885c5acfa25a6898a1c"
+      ]
+    },
+    {
+      "patch_date": "2008-04-24",
+      "content_hash": "01ea35af69f904c8689649d6cb44efc5a1c7dd57d6134572ff782b2bd35aaddc",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9de18f4d7f96d0cb11b1f51cc64f568c2d9dc8590e23896f37b8ec4871aec49e",
+        "83a55f19db4d51a8671f19beac1896024f78e479cd468022584df52693be3be7",
+        "4726cf5b5e7109d4f3ef16a92e2d767219f5adf0b0068c60b818880bf1048389"
+      ]
+    },
+    {
+      "patch_date": "2008-05-07",
+      "content_hash": "4c6517cb974ad36e725692e9a34f684ab13287c8ed25d858bf8da5c2d9a35cc7",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7173fea5efeb3eacc6396abce113766007e6b0d6ab1164184aaddbb6fef2fe7b",
+        "1ca26e0fb9ac08ca942727550f5e16353362004584ad184d890bdcd651357ab5",
+        "5583f409725c1d9320b0db4f50a84e68a5cb43486569fe0593ea45b71b72820c"
+      ]
+    },
+    {
+      "patch_date": "2008-05-15",
+      "content_hash": "c2f946929c6c5f5f116f7217a3a14872d0c5ae69628c76db3ce35dfd8cde5359",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b3ef2f49ec19f53c45ae2b95c120f3ce4bfdd124b58b8ac48539698291211146",
+        "d19958c6040b3f017b4aa32da2974366b15a459fb5d4c12eb6ace8aadd031528",
+        "fe80829683373b46b7e11b8bc654055a676683bf9065a1b34c04c0a81bc04f43"
+      ]
+    },
+    {
+      "patch_date": "2008-05-22",
+      "content_hash": "69fa1320c2e97972cb3edcb6c18a5f32176be5ad3446d4f6b20e8e5f081da497",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "42774c9be386adaa5e58b6ce7245711d5af2f9a6da6296a3d1b19004318bbb03",
+        "f088744554959bf6571982114d3cb7110c7f99b4c8f48d95c2d999a20e6f33b7",
+        "7dd632071ea7a8e7705b63b654db1daff7a743699cc0fde6e6497b084017577a"
+      ]
+    },
+    {
+      "patch_date": "2008-05-29",
+      "content_hash": "aa6bbe924073842947d6b4c2c09c2517798297610c75ac9b5f78001b5b896db4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "dcf625c2a5f0cd48a4f009cc4fae8348905a5b7292279fd71b0ecfebc755cddf",
+        "614b27facaa22fce897d5f62f089d40e99642b916de718e3821f361e0b9199bb",
+        "b23f161e2814e58bb90463e5c22f6029e74bca8164ff3112ce7ceb1c0da9db6b"
+      ]
+    },
+    {
+      "patch_date": "2008-06-03",
+      "content_hash": "1e3e30a76fbac44d729bb70480c66441ca6f0327e3784514f6df3ecf94c7880e",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c8ac410916793cc9eedac43ba470248c0237e255d7842988de83ea1271c7d6ec",
+        "cf9286e9e3d12a56742ccb07102151398dbb1e74a4f8b5f2edd20dd02479e73f"
+      ]
+    },
+    {
+      "patch_date": "2008-06-11",
+      "content_hash": "a6502af24d456638184a4b871d1dc2074273f1ade0adbeb6e8a659602c67c2b7",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b89ec34606b02ecd7bbb097ebaa0b12ee9ed54828b478113507dbd693d5ed888",
+        "9466f295efefebc30fb650a8920544ac442038f4a683ab227e0ae08b788eb4de",
+        "a49ede852ffc95d196c34db337913be37fac207b42e51c5808e1fd82b9a01267"
+      ]
+    },
+    {
+      "patch_date": "2008-06-19",
+      "content_hash": "a9c3fa11d6d6b748f8b97585e030f4529ccfee3a414330405e2d815d66ae24a1",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6b0be2dcfffa3c7ccd37bfe2cd81c9f3da11fec8d4d5621b66af0f7e4fbac7d0",
+        "ddebe53fb433ea161fd146891684bb8341feead2ac6c236a631f0b428a670d41"
+      ]
+    },
+    {
+      "patch_date": "2008-07-09",
+      "content_hash": "c4c2d0ee188d4324fa047914ed6d6493e5a107faba4a44a0d379c9d2f56a0640",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "71a591bff0071245275ad0284d1517c65438942d42d3e81fcb08f358d5ed1a95",
+        "511b77ef7d9a70d2c21733f5c3f6b15444a6e1e2b90f1335c28f456a01152c81",
+        "eae736d688c433cb2821bcaed9dd2e874b37cc2edc625cf6d723aba50efe1286"
+      ]
+    },
+    {
+      "patch_date": "2008-07-17",
+      "content_hash": "cbb60fb208ace1974187586c1429055b6fcdeb689010c23d59d92a6891973ca4",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7ff172a17e2cc37e783787b20d9ea115afdc4c98bf2a2e54dbe20df975fd0fcb",
+        "5167ffd1d03dc1ad99c9d84aa6487b902323aad2d6a7d2f4a43736cf55e56049",
+        "198915ebb3504dafa6cd5332510bad564f064396d1e3d1a8eaf6d33a3d67eae6"
+      ]
+    },
+    {
+      "patch_date": "2008-08-20",
+      "content_hash": "fd43739f223b9280af525ddd0a7371fc142e2009b4bfc2a4c3b92e8d575a1a57",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "826405c700b159300f8bc785639997539534a601aa680e3c936acf8d11a505ba",
+        "bb610c29e40138b58a2f6876abd53f5dc38ce7467ddd608034dfd1264e330d37",
+        "bf27e9e4ef90cdb1ee20c84dcf96fe245f4f3ccae7e5820ced5fd133af959ef8"
+      ]
+    },
+    {
+      "patch_date": "2008-09-03",
+      "content_hash": "54b11bc89f66338ebd56db7cc7531898a4b5604bbbb969d7f440f2f894030c28",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "be1a1db450f15f70d539c765c4c89e8f0cb92d8f5064aaeb8afe4f4f9429dd3a",
+        "ec5cf8aa90c3c1cc785e8153cf6664adc5fdefb070951767ebd7d35c3152f073",
+        "8e6c29676f8128e3ea8c0a74fd14756f238ceed8e9cdfd467f0657e122337f64"
+      ]
+    },
+    {
+      "patch_date": "2008-09-30",
+      "content_hash": "b349698d568cb4a73d8735b011bd72d54c22bbceb6f1f63bbfb14fd953a6215c",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "843b62a34273d046eac67e8582f557d867b291c95826e64b59956d1790ec998b",
+        "3f11c2f1fb6833bd1801f1228e7099c1b43c2b989006a9df3af82ae7b6bc8aab",
+        "112df45f590aa3143a41d631ebffa99ab74c143f7e04b141e9d99f7cdb41a979"
+      ]
+    },
+    {
+      "patch_date": "2008-10-07",
+      "content_hash": "27ade6288903da8300c2d7fb60f4cb6c37ee1ccd25fd4905943555ef06d3e396",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "f4a307eba191366d68f14cbc1fd1c41409ba6846d85e82a9e9cf33bccd08147f",
+        "844cfc3beb8851d4b4b75da2ddeac7956394d88e895bbc19ed14d8df8f0686d8",
+        "4958f9108a5dc968b799b68561a5d1a50449faa268cdcf7a44e1cc85c58eccad"
+      ]
+    },
+    {
+      "patch_date": "2008-10-21",
+      "content_hash": "faee69ef9fc132416c3ef5103b45e55a0ad57c0a58201183e9fed22368ee9c6a",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c5b196115a6dbb2a228fb6063e4df856d777e2e8707e395b39b17a27d9b64d03",
+        "6b4314a355455a6a56239b88d777b67ba50e860f70c1c168b5ebafea213cf417",
+        "65037ac19f0585aa53183b7898f478fe637d4d494ee82ec1444ad556f87ee93c"
+      ]
+    },
+    {
+      "patch_date": "2008-10-29",
+      "content_hash": "e6465fa7c22c059034415aafd9b70d7ea4fce9ccb603a1a81b89f47055952cdf",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "75108734abfc5ebb0f2ac2c5c3423443864dd1a828e27c181f65c6bec2d11e40",
+        "7576ee119b0d49fabe7d35574b2b3f4b1ee7d9b057be38cf538e528c5eec01e4"
+      ]
+    },
+    {
+      "patch_date": "2008-11-14",
+      "content_hash": "6242d76584390369e7081d10d9b90829672857bf65cafbf0dd5aabb3b1f04173",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "caa7b56baf1b3b0a9cf3d88db287fe33b8db3f2aca64da8e4ad21f8e56cd9e6e",
+        "dd22bacdcdc060585ad2757af57dcc57738dca192a27a77c627f6b1b3963ba5d"
+      ]
+    },
+    {
+      "patch_date": "2008-11-21",
+      "content_hash": "aa89225868a30e810630a0e03347860f7be6d26de90c2a2126ba4af2a5846207",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ae7dcf10a118216712e1d8b7a2b427a28decc2ad338cbe18e3bfd1ed5b760575",
+        "3384bd538adc5bc2caa35bbf28ef6b7e6556d85ce3cca2a46bc3d31e4298d059"
+      ]
+    },
+    {
+      "patch_date": "2008-12-09",
+      "content_hash": "2525eec0d1feaf9cdd06e248f2634fb41ffae532787e006318914d03053401bc",
+      "occurrence_count": 3,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fa783c2003a7d2510d1d502dfbae3d9bcf25fed7452ae70f91ecda00a595ca13",
+        "21341fa1093c46999a42077323ca5f489bb7f0ac0b4e42c8cb6bd44759cd4fd9",
+        "814aac0a902fd31171c8dca8b6ae86fcabd4b2e02a19b0d8791c9e3377ad5145"
+      ]
+    },
+    {
+      "patch_date": "2008-12-23",
+      "content_hash": "966e3b207137e8474bf6892a77ef2c31b29ee15b63ac60b2c14f2f4af0414d9e",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "33a87538827957faf32229f405a69395ecfc497836adfdfab26ecb5fc6f52a6a",
+        "6c28e9ffc8504aba97d8406f1d188c55c3d4174e47b280b2ca88e188d7e9d786"
+      ]
+    },
+    {
+      "patch_date": "2009-01-20",
+      "content_hash": "aa4f4ce33a8f7c2ce9dfbf9bf3d1868b049fdf9592c2b14477f7226a1bdf9e2e",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9d799fc1e6077c69ec0c534a489b9a2709a16472b035a4aefd1ad0c65af07e38",
+        "a21e9c2e193b82deb7bba8c943013c40bf541195d40a0d2ca6fbd97f5a5ae4c1"
+      ]
+    },
+    {
+      "patch_date": "2009-02-11",
+      "content_hash": "8355baddcfb12548c4bf9d85b0db5a0ba191236ee6031d5b7791c85b7512a230",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a6a2152e08e45a2b1f70872525c3554dc5395d637d0ea894650abd2166ad8f32",
+        "e653b2f9c7bf378a8c2c0084d612d783014f5cf68f5e22eda57a5809e007387e"
+      ]
+    },
+    {
+      "patch_date": "2009-02-26",
+      "content_hash": "d2cf4ce3365e1173ac9ea5285708bd3ba3263eeb74c333bba70e02bc82bbf6da",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a4bb083aaa40bac8040b1e4345918ba908c36c29b888df0c5b0d509ad8487910",
+        "130eba4a333570becbc609950caa20193d66896128874d1248733280c8365031"
+      ]
+    },
+    {
+      "patch_date": "2009-03-12",
+      "content_hash": "8eb51ee6df363732662032d5a160007117e208f1adb317f9e7378c626830962a",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "94ac7002da258fc88dcf1c1bf5c427af5b873b1a29cb626c56bb1d1b137c7219",
+        "a7c9a18211677f441de7dd8717bc849f07c22f3e91ee717515cf6f3ed017a3d2"
+      ]
+    },
+    {
+      "patch_date": "2009-03-19",
+      "content_hash": "1592f3958be21f2442891c9bf51ec0657c2f4254887c4fdad9c07de60856fa0e",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d21fc4bbac399245c9b4d8f8e8d2fadeb77eafc17a3a95cfb69201e2f666750c",
+        "0255bbf0a4ad1394166233127356ae2c1dca88fc19742ea9b4de13fe33538cd8"
+      ]
+    },
+    {
+      "patch_date": "2009-04-07",
+      "content_hash": "838ec0445254b8195949f2ea297e3edfc776dae518e25b49a272ac15691e3bec",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a4fc4d496a93a8988c51887c04aea8d9fc0a5521c0149b11bd6e1eee086f3024",
+        "b2e54fa4c796bd121b62c6e4fca3762f3b7b11d3a7b0a67f3d43271514087245"
+      ]
+    },
+    {
+      "patch_date": "2009-04-23",
+      "content_hash": "628b80e640e07dc3e3bc40e5da37683cdb10f771148fef21904c0cc94c1cfe19",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c01ce734d4c3a8616960ba2862054d18f15e70e7e8a14ba810a8302452fd6292",
+        "50fa0d11069b7cbd9e2e675ee76b5f2ca7ac448bd7933ffc3a92d2c4680abfbe"
+      ]
+    },
+    {
+      "patch_date": "2009-05-14",
+      "content_hash": "c86d6cc6d1cc7c73600d1c9f358dbd36dba80d9a14c3d4cf2ad1dd11eeacfca0",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "33784ce36bd2e0b918b3766c11f584570456ff513ba07dc819dcf56ca854f63f",
+        "255577a073b6f946ae1990cdbc15862e788e64400174eb93f114ad8f085a5609"
+      ]
+    },
+    {
+      "patch_date": "2009-05-21",
+      "content_hash": "a4c687ae6744067d7aecf9855c41d24a6059b3008657551daa64e61359f782fa",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6aefcb4c38d6cc8e7be630c678ccab1e55177833412dd609574596e2cbcf000d",
+        "3689781f4884f2fc0cd233104ff1dfe9cfbbde12c6caa613a33dc3fcf8c69df4"
+      ]
+    },
+    {
+      "patch_date": "2009-06-10",
+      "content_hash": "c5b78710c9f1aa02cd72712aad2c41363c7ab7a19208675ed81f4850eedecad2",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a0e8cbb6ec566ab2492c01ba1c403fee6a8e48f959b7f3eefb86ca329fc717db",
+        "9de6bf5b3b1617187512774e8d7ddcccdcbe71f4af3b5445f68afe11d2615aed"
+      ]
+    },
+    {
+      "patch_date": "2009-06-18",
+      "content_hash": "f0a9eb4784a2dcebdcd55ce941235bf27d9867cbbdcac58cd18e5bf1002cd5f8",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "cf4973fd593c1f919f7ff604d95ed218b4d2ba2685cc9f7197eaaac7db344af4",
+        "d92bb7cc9b2682fd792db4025e7b6c59130bb0a5c401b1335730b0e3adaa8bc3"
+      ]
+    },
+    {
+      "patch_date": "2009-06-24",
+      "content_hash": "9e5ea42657fb968b2827b1594943c5735a0a0ef0e06b0f5c275e37deeb629933",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "70872cf6c2f1213ae81af77f18f890decd2a21cbddc28481004c2b9ed01bd279",
+        "51e0424105e88433f0ebc9db45e2a098999429b8f427659b7e5f0baca2306f99"
+      ]
+    },
+    {
+      "patch_date": "2009-07-15",
+      "content_hash": "efb51f8272f196c1b6fdb3282d86c572d5065afe7811549661f1d3f7a4bda7d2",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6b07c315ed752979386a6c120edcf606ef052790e0449521bdb363239712ac4c",
+        "d4b661e9f5eb93b8937b49c573cbe5a346cb2449f27391b799a1ad5717f390b9"
+      ]
+    },
+    {
+      "patch_date": "2009-08-12",
+      "content_hash": "dfdccc32c9e336fc437731081516501fa23d2e1bfbf9889aef615180a0561b7a",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6573739f1e8da587ed5780be58c476887ba8ddaec5b48846806cac77656c6c9f",
+        "bb0414a0020d12dd8faf5eae245687f5e2689c4e93bccb6340a5d5fcc0fdf88e"
+      ]
+    },
+    {
+      "patch_date": "2009-08-19",
+      "content_hash": "19610f01df1ebdb68b082301997a5d0027c205f213a73c738b53721c02207d12",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "b8b815964d5ef28938dfab28427dd8a7b5b786261698be7393874c9a1a72fcab",
+        "8744ef4fa62ddb8fa42fcd24e0674605bbc53f64e67cf9e9b438f51bdf42c8bb"
+      ]
+    },
+    {
+      "patch_date": "2009-09-15",
+      "content_hash": "dace3a11065684530f9a25312f1a651675d0806698b3a0c7a3118660cfa0d990",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c8b3fae41c2f7350b6477e9c69c828fa34bada70e638574a39252e7a237d7690",
+        "0462b50b29cb76a83caa94a85272038677413bc2e892f6cf22d40d4c59521729"
+      ]
+    },
+    {
+      "patch_date": "2009-09-25",
+      "content_hash": "417e72e9bcf10098db3888ac9a0879bbc6ad50e740bf2b26a66c6d9e28c2c13c",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "11655aad4efcd6a36bea6d2f247ff2c4306d3370078d0efc71955a9e736abf13",
+        "bc589d37daefcc4aeb490509cd267de3a543bbd1f27ea484e9fdf15221b5f5c4"
+      ]
+    },
+    {
+      "patch_date": "2009-10-08",
+      "content_hash": "8b4c099d41571b0b984c4bc4404f7acb4efdb2ac9207e9dab4fd3cce1c348ff6",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d8b8a0d576e2ceb151fdf5b7e10a024361f7df03080541ce201e099d8f51852f",
+        "2db02941ff8e59aa3e784acf54125ee3a25b1f87c6d58d399b959a3eac876227"
+      ]
+    },
+    {
+      "patch_date": "2009-10-21",
+      "content_hash": "c98d276180d014bf5db467c0ead469c1132cf120dcd0ec129cfc91ba1e562a36",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c5be5ba92f895355429fe31cb6d3750297d1d86a62b5a9fd2516344bd2d06d3d",
+        "d5c203933b2020f1929f7f99582d0bc93b07ca939b8531277efb3cb48c09f755"
+      ]
+    },
+    {
+      "patch_date": "2009-11-11",
+      "content_hash": "fe77244863accf4400221f36eb53e71ade78c6c97338dce69905c59dfea0c795",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "d2be4e4cdba4433b7f1c865fd9fd14b2576bd11cc67487a41a845f91c82efcfb",
+        "6a2a1bf74e5852a9920a600a111a7a2419d68d17d6287220c196e00a82445359"
+      ]
+    },
+    {
+      "patch_date": "2009-11-19",
+      "content_hash": "009798fa2af0e6be253f0f0f9bbd42ce0e6ac6fa6246fea4947bf4b67d717c54",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a58de940229b6620a4f58d81d49d4df847ceb840e61331b4f67d5cec055a01e4",
+        "05a6e33ed54382b36ff387b4b1aba109af87d4b843b3c0125280e0d0a22b2613"
+      ]
+    },
+    {
+      "patch_date": "2009-12-15",
+      "content_hash": "d1b30fb2d6ee5bb4a2aa92bf2a99dfcd6622e78e101d73188e27d1268e852916",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "4dc3c837f61886222cb9737269383599572247b25695cd95151a69e942c5e280",
+        "54c16e29deb3347dad31c0167b8b23530f268f32e0157645fa2c4de1242f4eb0"
+      ]
+    },
+    {
+      "patch_date": "2010-01-13",
+      "content_hash": "41b848359e5bb13c520032a3f2857212c931083c623c495e03bb0226ce136047",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9ac16c847ab641ddeec75d47bea901e17d59d4c5a3cbc963b84666083eea62b0",
+        "af0fcc6b5fe9f749cb0bf5169f33c7fb45da093b44db5b661195534b56afa5f4"
+      ]
+    },
+    {
+      "patch_date": "2010-02-10",
+      "content_hash": "44f4207be0467044b9b9f24bec6ed0525d6142c17c0c97bf9fdec392b2363a9a",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "7e4e840ef6ae6937335a03189e6a286c2bb9a37620716ccee95e3f5b8dac212b",
+        "76d05650ca5fc761faf153f15631717025166a7b5e9a4facbb37abe6743df5ea"
+      ]
+    },
+    {
+      "patch_date": "2010-02-22",
+      "content_hash": "84c418bd0f9ffa2f4f579f1039512631a37ad7dad75505b78ac93e2f355ba443",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8122545aa3c489d98a9a8b84589971cf3ea61d57d4a17dd92fbc533e35597ce7",
+        "0ae5890c8b53e4b85b2b7d8579afe87f8a02b4a1eb10f82b6cf7f64ac3605af8"
+      ]
+    },
+    {
+      "patch_date": "2010-03-10",
+      "content_hash": "2a351be34bd33857022050a72161f41e67026cc7bb7cf6fa58890be30994e9fd",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "bfbfcf0f4a39c702c0769ca21118d36af7290a885c2287d7028ecfaf7e64ff15",
+        "706b9fd2595dc342e0db85182e1e40e4bc1c8df7f1926921b474593c2bc683c5"
+      ]
+    },
+    {
+      "patch_date": "2010-03-12",
+      "content_hash": "d2ca33b36e24b9664eedc89045af82a28a5ccfa37e19dc0d981ceb3b99274f33",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a6e37e13e38c2297854184181baf557d21b38e9562b044fd1c585424456a83a6",
+        "8ff656259dff6155aaf23b63a87845f527cbd0c7ff2a65e03199ceb33dc29cf1"
+      ]
+    },
+    {
+      "patch_date": "2010-03-16",
+      "content_hash": "ebc1fc85f86448d9268ddaa3c364667172979ac52ddd82f45a9b4ecdc96927d6",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a7876919fe3a35e344e01c12362d6a510a09c62248ce07312f1656bcdc198186",
+        "b66b8ad63aa082628b50f69a7f3a2d11a8b997f9cc34c430755669efaeb6a5c3"
+      ]
+    },
+    {
+      "patch_date": "2010-03-18",
+      "content_hash": "e2b0d6a015a2d6ec69b308ce824b3049a4bbb1aec18ecbefbd827abf9c715a2b",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1424aa9160c293036fe2744515ee2ec27624e717a7a79bcfc2a416c2f35fe20d",
+        "0c5c9d04351fb76ce7e0df7ee97f9d00ec41530dc99e249885ae9cf9d9b38f8d"
+      ]
+    },
+    {
+      "patch_date": "2010-03-25",
+      "content_hash": "8730c1694dc64df51d1a2110d63c15a49d9601dc2ccbac5dcdca3bbcd904e3da",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "c66affffbefffc56e00535cb48d883fe31f7c8d84e73033664e48029620aaefd",
+        "3363dddcc28e478c7f248eed5230ffe639bdc8e28be4339fd9c80d024ce7ff2b"
+      ]
+    },
+    {
+      "patch_date": "2010-04-14",
+      "content_hash": "eb6609335905fa6ab0623d379f4eaa44c46d37ba2bd7b27fe2d4f0d2f78f01df",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "883d200f36dc2015d176557bca4a3122c4d5785acfa5f97c6b371fc9719e9af8",
+        "40014925ae198f0fe357c9a2fd571f9a28d6b3a4e2ec9c7a0818a3a4756b0668"
+      ]
+    },
+    {
+      "patch_date": "2010-04-15",
+      "content_hash": "3f304ae4922d4775de9bc895e99a236d2bf3bd199f043dca0ac4b1e228aeb871",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6a9fb0acc23ae2b50d6c6b6bfb1ed0321a1cc053a6958d04ce6601fe97f5d6ed",
+        "a68dc40d2505e32d4cbf72d9143caf41ea63e4870963b7766c682367e312378b"
+      ]
+    },
+    {
+      "patch_date": "2010-04-17",
+      "content_hash": "39dca96a25d9b8dc4ff3ed9102b19c0768720fd323939d439beee542cc9b3988",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "2b33897789f0b85fa1af6ace557a59e7bd36af1eba00b2b8b0ea6b2804d07852",
+        "2ec395e503d363914c04443ca887c094a7da9c45225b29c8c0b114a6a3c27e0b"
+      ]
+    },
+    {
+      "patch_date": "2010-05-12",
+      "content_hash": "d503e7d489caa37b9bc9a8df352067db1546b30d80f48b8697bff483e8163cb0",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "84e45c1cde4e7b1140d3bb23b798595d20bdd0f8bbbc7c4dcacc15e05e72f757",
+        "fa3288dd056007178e9bc39a0ab6c206a4c02d5052cff0da6a116001974539a8"
+      ]
+    },
+    {
+      "patch_date": "2010-05-15",
+      "content_hash": "8482317b5dd834eff46212cfbec0e7096d3ce186dfa1f717f70bb986bc669470",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "dc58634ffd32ed65c7b16cf0e334798c93c6f9231e6e1fe5f8423e9bfceaafd6",
+        "5d1923939139c7c6811ea265fb802abb031e4463f39b9573f2b85a392253faa6"
+      ]
+    },
+    {
+      "patch_date": "2010-05-21",
+      "content_hash": "235d84a5c766251cc55f5f6ffb69e85e069054265d513801b15fe2cfdd38d99a",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1e4a310705aaaa38e9c1aaf50526d28d2743b853bd97469f040c392eba3e2236",
+        "5db43cf40853f4b2bf95d176aff9d24461f3d61620597c1dee129ddbfaba78a6"
+      ]
+    },
+    {
+      "patch_date": "2010-06-09",
+      "content_hash": "38e74f3b03ed1c79eb81992eb3a1185f3ec370ac1095b6a191d77b016c220be5",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "9bf6333bc0ae6a47299e6dfa990953e22358a7adde75d5996fe11e1e619fd077",
+        "f3f1f98fc16f70f92579b6fe5a078bb9355eab8e1746eb432be20a53a387973f"
+      ]
+    },
+    {
+      "patch_date": "2010-07-08",
+      "content_hash": "d1e7841426f27f178797a83f3e11902bed40cc5945e49ffc14ca0be64b2ed4bc",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "87d8b66e667b853feef8a1a9f48de1769c3a05b6c2fbf10128a31ff582001e24",
+        "41a5bf68aef609be069fa4b453b5f20b94e1a76b4f46832f55edc5f0d422787f"
+      ]
+    },
+    {
+      "patch_date": "2010-07-14",
+      "content_hash": "4a4876bbc77c369f3b6433a48086376e7f526be026f50dfc7462fde73ed8850c",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fea815b65dee73282bffdbddb7de80e956cc7ec0b48ebdc08897326a253a903d",
+        "f71deaee06dd096a0cdccd621c6b4baa133b58754a4153eb3716178eeb1de128"
+      ]
+    },
+    {
+      "patch_date": "2010-07-28",
+      "content_hash": "7159cd694e7ee2bfc96e4b9e9312f188d1f575655fb0444546ccac3cf0c76a73",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "1751fa541fd56db8b8bde920c76859f6a1c823d20b2c233fb9b3efe4bb7765d8",
+        "fbc7177086535576ee6315cd5e1e231ce430213cb6efd767b3566014ca1db2c2"
+      ]
+    },
+    {
+      "patch_date": "2010-08-18",
+      "content_hash": "4fc4121f58c63608dc63a81cef7bd9c089ee73448422928b40fc36c67dde0bc5",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "06a9ce8d4dc1469ff436f132bd07deeb4cdcf93ca4a450675522369b973f5940",
+        "dc045ef122edcff54995db47201eb2855b1d20b6cee54e8b2f63daee2ad47522"
+      ]
+    },
+    {
+      "patch_date": "2010-08-23",
+      "content_hash": "8670188048e2d27395f392719a997cda9bfdcd615f3702e037614cd331f99608",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "70049759ac31c61755277389ecf187a7c1c5f30d6477eb697722e06c72ea995f",
+        "95d4e996264ffa72185d20cf062dae33bcf05fc65b24ff4fb13fb92f7f06a850"
+      ]
+    },
+    {
+      "patch_date": "2010-09-08",
+      "content_hash": "28bc7b7ee5326c80b3c34b522565b63b22a6710e696cec65a020910fa58d322a",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "a1f098b4f900aeefd856a699a49f340bc2d5ace784ae1f962e3138e64aa415b0",
+        "77ad8ae9a4a56911d285bac66b12e364d185836dc7e205176416fbfffc83092d"
+      ]
+    },
+    {
+      "patch_date": "2010-09-15",
+      "content_hash": "d4959d917ca0e996e68f4b639375e26a9700da6dfafe836512d36dc5a2542d86",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "fe594edb5a02cb252ed80961e9039e4200d3b7689cad335c3c150969231acd7b",
+        "327f5cf003de0ee5004ada411ea959a6a8e2d72658663595faadcb99a063885b"
+      ]
+    },
+    {
+      "patch_date": "2010-10-21",
+      "content_hash": "e4a8afdbd55f806860d57c13f6070ba26e40318f7d6e94c2de326f5db6efc04f",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "040f336135c560c54a7a66e250534c27a2a76dfef2bdcaef0ad21831973ff97e",
+        "4fc3f30f338532b048ba2e36361084ad0b82c99c62bac3d8329bbb592592e097"
+      ]
+    },
+    {
+      "patch_date": "2010-11-10",
+      "content_hash": "4e34f49182d7fd2cb41ef9112c39d1fc056d014215565f71125b40916e8dea12",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "6820f0065967b9568b5af264c403ca3e007e0972fc6f20e48a383029acf597f3",
+        "bc1a21835efc31fa1999d2b9fe6466f3a83ef582044d9d75a1b826ad6df36c3a"
+      ]
+    },
+    {
+      "patch_date": "2010-11-16",
+      "content_hash": "ac8d7b0ff180d7639da68466ca0b3921af79f2a12ee55915a21bda9490b0e62f",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "8ec391e5be03b17ec7a1f309676861247025c56fcae7037ef875a8c02b4392de",
+        "07905febcc4a653b900792d690706dd54f92f6f325d1048a6f699a35c91e17cb"
+      ]
+    },
+    {
+      "patch_date": "2010-11-20",
+      "content_hash": "5cb703050288cb88a03faf7e4e437daa7163c7bc0e9fa2af46e0ec27b4287ba2",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "ed02cf03f5e8dc0254c3615fdd6b1c2ca887125727d8c2b350d21152d395cdaf",
+        "2bd38d0dd416e0a914319b087443943500c4832de177dc3fb626698231e55400"
+      ]
+    },
+    {
+      "patch_date": "2010-12-08",
+      "content_hash": "09b07725cf58f86aebfbe4eb45dd22ce0dba50807eed798eb653570b3a3e4bd6",
+      "occurrence_count": 2,
+      "reasons": [
+        "normalized_content"
+      ],
+      "occurrences": [
+        "5248dd1d174913fbe7d31cba58d81e5ae42bb7305fb38c3255c3a632f9ca7fb3",
+        "9546061b32025524e83968aca96d867b26494c3166b0ca991479ed4115c7cb5a"
+      ]
+    }
+  ],
+  "rejections": [],
+  "warnings": [
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "code": "feed_excerpt",
+      "message": "12 feed item(s) are excerpts ending in “Read more”; canonical thread HTML is preferred when available."
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 0,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - August 19, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 708,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - July 15, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 1747,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - June 17, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 2918,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Hotfix Notes - May 21, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 4216,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - May 20, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 5275,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - April 15, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 5990,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - March 11, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 6708,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - February 11, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 7422,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Emergency Downtime Notes - January 23, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 8157,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - January 21, 2026"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 10948,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Hotfix Notes - December 4, 2025"
+    },
+    {
+      "path": "official-game-update-notes-live.rss",
+      "adapter": "rss",
+      "source_offset": 11656,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Game Update Notes - December 2, 2025"
+    },
+    {
+      "path": "official-game-update-notes-live.rss.http-cache.json",
+      "code": "file_excluded",
+      "message": "File was excluded by importer discovery globs."
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 12894,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: November 1, 1999"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 211728,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: September 11, 2001 Terrorist Attack Response"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 218861,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: October 5, 2001 Press Release - Graphics Upgrades"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 335766,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: June 12, 2002"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 388393,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: October 21, 2002 Press Release - Planes of Power Live"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 530590,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: September 9, 2003"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 586038,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: March 25, 2004"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 609689,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: July 14, 2004"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 616511,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: August 11, 2004"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 630596,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: September 14, 2004"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 641070,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: October 13, 2004"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 646746,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: December 15, 2004"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 699673,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: April 12, 2005"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 819326,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: April 19, 2006"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 843926,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: June 16, 2006"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 845461,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: September 19, 2006"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 858592,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: September 27, 2006"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 875146,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: December 14, 2006"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 916807,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: June 6, 2007"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 943181,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: September 6, 2007"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 967515,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: December 12, 2007"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 990449,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: Hot Fix Notes - March 26, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 991919,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: April 1, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 1012980,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: June 3, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 1015989,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: June 19, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 1061075,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: October 29, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 1067393,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: November 14, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 1068444,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: November 21, 2008"
+    },
+    {
+      "path": "patches_1999-2008_combined.md",
+      "adapter": "markdown",
+      "source_offset": 1092773,
+      "code": "corroborating_record_unmatched",
+      "message": "Corroborating-only record did not match an admitted record: December 23, 2008"
+    },
+    {
+      "path": "patches_1999-2010_combined.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 135 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-1999.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 3 embedded Windows-1252 control codes."
+    },
+    {
+      "path": "patches-2001-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 9 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2002-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 23 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2003-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 2 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2004-1.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 4 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2004-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 39 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2005-1.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 8 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2006-1.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 4 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2006-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 2 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2007-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 2 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2008-1.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 18 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2008-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 16 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2017-1.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 9 Windows-1252 singleton bytes from mixed historical text."
+    },
+    {
+      "path": "patches-2019-2.txt",
+      "adapter": "text",
+      "code": "encoding_recovery",
+      "message": "Recovered 1 Windows-1252 singleton byte from mixed historical text."
+    }
+  ]
+}

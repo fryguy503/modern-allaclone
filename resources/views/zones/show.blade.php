@@ -80,6 +80,7 @@
             </div>
         </div>
         <div class="tabs tabs-lift">
+            @include('zones.partials.show.tab-map')
             @if ($npcs->isNotEmpty())
                 @include('zones.partials.show.tab-npcs')
             @endif
