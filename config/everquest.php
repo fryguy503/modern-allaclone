@@ -56,6 +56,20 @@ return [
         'max_page'      => 500,
     ],
 
+    /**
+     * Historical Lucy item data
+     *
+     * Crawler workers publish one complete JSON artifact per item beneath the
+     * private artifact root. History web requests read only those files and do
+     * not query either application database.
+     */
+    'item_history' => [
+        'enable'        => filter_var(env('ITEM_HISTORY_ENABLED', false), FILTER_VALIDATE_BOOL),
+        'artifact_path' => env('ITEM_HISTORY_ARTIFACT_PATH', storage_path('app/private/item-history')),
+        'page_size'     => max(1, min(100, (int) env('ITEM_HISTORY_PAGE_SIZE', 25))),
+        'max_page'      => 500,
+    ],
+
     'discovered_items' => [
         'enable'                    => true,   // If TRUE, only Discovered Items will be displayed
         'link_character_to_magelo'  => true,    // link character who discovered to magelo (if enabled)

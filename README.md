@@ -6,7 +6,7 @@ You can see this in use on [Project Lazarus](https://www.lazaruseq.com/alla/)
 
 ## Requirements
 
-- PHP >= 8.2, Composer, Mysql/MariaDB, and an EQemu DB.
+- PHP >= 8.2, Composer, Node.js >= 20, Mysql/MariaDB, and an EQemu DB.
 
 ## Installation
 
@@ -166,6 +166,124 @@ freshness window and, where supported, the one-minute stale window. Purging a
 reverse-proxy/CDN removes shared copies but cannot remove copies already stored
 in players' browsers. Custom EQEmu spells that are absent from the Lucy archive
 have no historical route and return 404.
+
+### Historical item revisions
+
+Item pages can use the same file-only serving model without adding an item
+history database. The authorized crawler writes one bounded JSON artifact per
+item beneath a SHA-256 shard, for example item `20542` is published as
+`items/dc/20542.json`. A history request opens only that item file. The UI offers
+shareable Cards and compact Lucy-style Table modes through
+`?view=cards|table`, and neither mode queries an application database.
+
+The crawler is intentionally conservative and must only be initialized when
+Lucy/ZAM has authorized the crawl. Record a monitored contact and the supplied
+authorization or ticket reference in its private configuration:
+
+```bash
+node scripts/lucy-item-history-crawler.mjs init \
+    --contact=operator@example.com \
+    --authorization-ref=ZAM-TICKET-OR-WRITTEN-REFERENCE
+```
+
+Initialization is local-only and makes no request. By default, the crawl uses
+one worker, a 30-second start-to-start interval plus 0-5 seconds of jitter, and
+a 2,000-request UTC daily cap. The non-loopback hard floor is 20 seconds. These
+limits are persisted before each request, so restarting the process cannot
+accidentally burst or reset the daily budget. `Retry-After` is honored and
+transient network, 429, and server failures back off durably rather than moving
+rapidly to another item.
+
+Start it as a hidden detached process, then inspect or control it without making
+any Lucy request:
+
+```bash
+node scripts/lucy-item-history-crawler.mjs start
+node scripts/lucy-item-history-crawler.mjs status
+node scripts/lucy-item-history-crawler.mjs status --json
+node scripts/lucy-item-history-crawler.mjs pause --reason="maintenance"
+node scripts/lucy-item-history-crawler.mjs resume
+node scripts/lucy-item-history-crawler.mjs stop --reason="planned shutdown"
+node scripts/lucy-item-history-crawler.mjs retry-failures
+node scripts/lucy-item-history-crawler.mjs sweep
+```
+
+The foreground equivalent is `run`. Progress is checkpointed after every
+capture, so an interrupted item resumes from its saved responses. The crawler
+automatically pauses on authorization failures, challenge/error bodies, or an
+unrecognized Lucy layout. An item with a permanent missing page is recorded
+under the private error tree and is not published as complete; after reviewing
+the problem, use `retry-failures` followed by `start` to revisit unresolved
+items. An explicit retry invalidates the specific missing response checkpoint
+before requesting it again. To resume automatically after a machine reboot,
+run the `start` command from the host's normal service manager or task scheduler.
+
+After a completed backfill, `sweep` prepares another generation without making
+a request. Its next `start` refreshes the item list, rechecks every item's
+history page at the same durable rate, fetches only newly discovered immutable
+entry IDs, refreshes current raw source records, and atomically republishes
+changed item JSON. This captures items and revisions added during a long prior
+pass without redownloading every historical detail. Previously observed entry
+IDs are retained monotonically if a later Lucy history page omits them; a
+conflicting reuse of an entry ID pauses publication for operator review.
+Schedule `sweep` followed by `start` at the cadence covered by the authorization;
+do not overlap sweeps.
+
+The private crawl workspace defaults to
+`storage/app/private/lucy-item-history-crawl`. It contains the queue, durable
+rate/control/status state, per-item checkpoints, errors, and content-addressed
+gzip copies of every response. Keep it private. The separate site artifact root
+defaults to `storage/app/private/item-history` and receives only complete item
+files through atomic replacement. You can override both locations during
+initialization:
+
+```bash
+node scripts/lucy-item-history-crawler.mjs init \
+    --workspace=/private/crawl-work \
+    --artifact-root=/private/item-history \
+    --contact=operator@example.com \
+    --authorization-ref=ZAM-TICKET-OR-WRITTEN-REFERENCE
+```
+
+The workspace, artifact root, and their parent path components must be real
+directories rather than symlinks or junctions. Raw captures are checksummed
+before reuse and published from a synced temporary file through a same-directory
+hard link; use a filesystem with hard-link support (such as NTFS or ext4). A
+truncated prior capture is quarantined and rebuilt, while unsupported filesystems
+fail safely without publishing it. Non-loopback runs are pinned to exactly
+`https://lucy.allakhazam.com/`.
+
+An already downloaded Lucy item list can be supplied with `--item-list-file`
+to avoid the one seed download. History pages discover the Live/Test revision
+entry IDs; each historical entry page is captured in sequence, followed by the
+current raw record for every represented source. Lucy does not expose a raw
+record for an old `entryid`, so historical JSON retains the rendered snapshot
+and the Lucy change descriptions, while exact raw fields are available only for
+the current source records. Observation timestamps must not be presented as
+exact patch times.
+
+After artifacts exist, enable the site reader and clear Laravel's cached
+configuration:
+
+```dotenv
+ITEM_HISTORY_ENABLED=true
+ITEM_HISTORY_PAGE_SIZE=25
+# ITEM_HISTORY_ARTIFACT_PATH=/private/item-history
+```
+
+The page size is a maximum. A text-heavy revision page may split earlier to stay
+within the reader's conservative response-render budget, without dropping a
+revision.
+
+```bash
+php artisan optimize:clear
+```
+
+The crawler/parser tests use local HTML fixtures and make zero Lucy requests:
+
+```bash
+npm run test:js
+```
 
 Always install this outside your publically accessible web directory. Symlink the /public folder to your public accessible web directory.
 

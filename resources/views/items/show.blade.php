@@ -7,6 +7,13 @@
     @endsection
 
     @section('content')
+    @if (config('everquest.item_history.enable', false))
+        @include('items.partials.history-tabs', [
+            'itemId' => $item->id,
+            'activeTab' => 'details',
+        ])
+    @endif
+
     <div class="flex flex-col lg:flex-row lg:items-start gap-4 min-h-screen">
         <div class="sm:basis-1/3 md:basis-1/2 xl:basis-1/3 w-full lg:min-h-screen">
             <div class="sticky top-[100px]">

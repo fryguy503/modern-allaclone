@@ -4,9 +4,11 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
+        "items:crawl": "node scripts/lucy-item-history-crawler.mjs",
+        "items:crawl:status": "node scripts/lucy-item-history-crawler.mjs status",
         "maps:build": "node scripts/build-eq-maps.mjs",
         "maps:check": "node scripts/build-eq-maps.mjs --check",
-        "test:js": "node --test tests/JavaScript/eq-map-format.test.js"
+        "test:js": "node --test --test-isolation=none tests/JavaScript/*.test.js"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.21",
