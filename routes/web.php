@@ -10,10 +10,15 @@ use App\Http\Controllers\PetController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SpellController;
+use App\Http\Controllers\SpellHistoryController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ZoneController;
+use App\Http\Middleware\SpellHistoryEnabled;
 use App\Http\Middleware\TasksEnabled;
+use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -44,6 +49,17 @@ Route::get('/zones/{zone}', [ZoneController::class, 'show'])->name('zones.show')
 // spells
 Route::get('/spells/other', [SpellController::class, 'extra'])->name('spells.extra');
 Route::get('/spells', [SpellController::class, 'index'])->name('spells.index');
+Route::get('/spells/{spell}/history', [SpellHistoryController::class, 'show'])
+    ->name('spells.history')
+    ->whereNumber('spell')
+    ->middleware(SpellHistoryEnabled::class)
+    // This read-only, publicly cacheable endpoint must not open a database-backed
+    // session or emit a session cookie.
+    ->withoutMiddleware([
+        StartSession::class,
+        ShareErrorsFromSession::class,
+        ValidateCsrfToken::class,
+    ]);
 Route::get('/spells/{spell}', [SpellController::class, 'show'])->name('spells.show');
 Route::get('/spells/popup/{spell}', [SpellController::class, 'popup'])->name('spells.popup');
 
