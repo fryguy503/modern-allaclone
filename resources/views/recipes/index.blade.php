@@ -2,6 +2,16 @@
 @section('title', 'Recipes')
 
 @section('content')
+    @if (config('everquest.tradeskill_planner.enable', true))
+        <nav aria-label="Recipe navigation" class="mb-5">
+            <div class="tabs tabs-border">
+                <a href="{{ route('recipes.index') }}" aria-current="page"
+                    class="tab tab-active">Recipes</a>
+                <a href="{{ route('recipes.plans') }}" class="tab">Saved plans</a>
+            </div>
+        </nav>
+    @endif
+
     @include('recipes.partials.search')
 
     @if ($recipes->isNotEmpty())

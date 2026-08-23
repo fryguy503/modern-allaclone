@@ -49,6 +49,19 @@ class TradeskillPlannerTest extends TestCase
             ->assertSee('stored only in this browser');
     }
 
+    public function test_saved_plans_navigation_is_contextual_to_recipes(): void
+    {
+        config()->set('everquest.tradeskill_planner.enable', true);
+
+        $this->get('/')
+            ->assertOk()
+            ->assertDontSee('Saved plans');
+
+        $this->get('/recipes')
+            ->assertOk()
+            ->assertSee('Saved plans');
+    }
+
     public function test_recipe_plan_page_embeds_a_recursive_graph(): void
     {
         config()->set('everquest.tradeskill_planner.enable', true);
