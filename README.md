@@ -195,7 +195,12 @@ limits are persisted before each request, so restarting the process cannot
 accidentally burst or reset the daily budget. `Retry-After` is honored and
 transient network, 429, and server failures back off durably rather than moving
 rapidly to another item. A 429 waits at least one hour, and a repeated 429
-pauses the crawler for operator review.
+pauses the crawler for operator review. An isolated HTTP 403 also waits at least
+twenty minutes, honors a longer `Retry-After`, and retries the same request through the
+persisted rate gate. A second 403 before a valid response is captured pauses for
+operator review. HTTP 401, explicit challenge pages, and system-error response
+bodies continue to pause immediately; a generic access-denied HTTP 403 follows
+the cooldown policy above.
 
 The default `direct-detail` capture strategy archives every historical detail
 page. For a substantially lower-request structured history, initialize with

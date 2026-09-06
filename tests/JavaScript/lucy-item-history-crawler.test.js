@@ -17,6 +17,7 @@ import { CrawlWorkspace, atomicWriteJson, readAtomicJson } from '../../scripts/l
 import { sha256Hex } from '../../scripts/lib/lucy-item-history-parser.mjs';
 import {
     assertAcceptableLucyHtml,
+    assertNoLucyChallengeOrErrorPage,
     buildLucyCookieHeader,
     calculateCrawlerRetryBackoff,
     cookieBootstrapTarget,
@@ -226,6 +227,37 @@ test('init rejects a non-Lucy production origin and an artifact junction without
     );
 });
 
+test('local retry and sweep preparation preserve an operator pause', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'lucy-item-crawler-preserve-pause-'));
+    temporaryDirectories.push(root);
+    const workspace = join(root, 'work');
+    await runCrawler([
+        'init',
+        `--workspace=${workspace}`,
+        `--artifact-root=${join(root, 'artifacts')}`,
+        '--contact=test@example.invalid',
+        '--authorization-ref=fixture-authorization',
+    ]);
+    await runCrawler([
+        'pause',
+        `--workspace=${workspace}`,
+        '--reason=operator review',
+    ]);
+
+    await runCrawler(['retry-failures', `--workspace=${workspace}`]);
+    assert.equal(
+        (await readAtomicJson(join(workspace, 'state', 'control.json'))).command,
+        'pause',
+    );
+
+    await runCrawler(['sweep', `--workspace=${workspace}`]);
+    const control = await readAtomicJson(join(workspace, 'state', 'control.json'));
+    const status = await readAtomicJson(join(workspace, 'state', 'status.json'));
+    assert.equal(control.command, 'pause');
+    assert.equal(status.state, 'paused');
+    assert.equal(status.phase, 'sweep-prepared');
+});
+
 test('challenge and Lucy server-error pages are rejected before capture', () => {
     const phrases = [
         'Checking your browser before accessing Lucy',
@@ -249,6 +281,20 @@ test('challenge and Lucy server-error pages are rejected before capture', () => 
             phrase,
         );
     }
+
+    assert.throws(
+        () => assertNoLucyChallengeOrErrorPage(
+            Buffer.from('<html><title>Attention Required</title><body>Cloudflare challenge</body></html>'),
+            'text/html',
+            { allowAccessDenied: true },
+        ),
+        (error) => error.code === 'challenge_or_error_page',
+    );
+    assert.doesNotThrow(() => assertNoLucyChallengeOrErrorPage(
+        Buffer.from('<html><title>Access Denied</title><body>Forbidden</body></html>'),
+        'text/html',
+        { allowAccessDenied: true },
+    ));
 
     assert.throws(
         () => assertAcceptableLucyHtml(Buffer.from('short non-HTML response'), 'text/plain'),
@@ -316,8 +362,23 @@ test('challenge and Lucy server-error pages are rejected before capture', () => 
     );
 });
 
-test('HTTP 429 backoff is at least one hour and honors a longer Retry-After', () => {
+test('HTTP 403 waits at least twenty minutes while HTTP 429 waits at least one hour', () => {
     const nowMs = Date.parse('2026-08-23T12:00:00.000Z');
+    assert.equal(calculateCrawlerRetryBackoff({
+        statusCode: 403,
+        attempt: 1,
+        jitterMs: 0,
+        nowMs,
+        random: () => 0,
+    }), 20 * 60 * 1_000);
+    assert.equal(calculateCrawlerRetryBackoff({
+        statusCode: 403,
+        attempt: 1,
+        retryAfter: '7200',
+        jitterMs: 0,
+        nowMs,
+        random: () => 0,
+    }), 2 * 60 * 60 * 1_000);
     assert.equal(calculateCrawlerRetryBackoff({
         statusCode: 429,
         attempt: 1,
@@ -340,6 +401,159 @@ test('HTTP 429 backoff is at least one hour and honors a longer Retry-After', ()
         nowMs,
         random: () => 0,
     }), 60_000);
+});
+
+test('an isolated HTTP 403 enters a durable cooldown without triggering a safety pause', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'lucy-item-crawler-403-cooldown-'));
+    temporaryDirectories.push(root);
+    const workspace = join(root, 'work');
+    const artifactRoot = join(root, 'artifacts');
+    const itemListPath = join(root, 'itemlist.csv');
+    await writeFile(
+        itemListPath,
+        'id,name,lucylink\n20542,Singing Short Sword,https://lucy.allakhazam.com/item.html?id=20542\n',
+        'utf8',
+    );
+
+    const requests = [];
+    let controlWorkspace = null;
+    const server = createServer((request, response) => {
+        requests.push(request.url);
+        void controlWorkspace.setControl('stop', {
+            reason: 'fixture stop after isolated 403',
+            requestedBy: 'offline test',
+        }).then(() => {
+            response.writeHead(403, { 'Content-Type': 'text/html' });
+            response.end('<!doctype html><html><title>Temporarily forbidden</title></html>');
+        });
+    });
+    await new Promise((resolvePromise) => server.listen(0, '127.0.0.1', resolvePromise));
+
+    try {
+        const address = server.address();
+        await runCrawler([
+            'init',
+            `--workspace=${workspace}`,
+            `--artifact-root=${artifactRoot}`,
+            `--base-url=http://127.0.0.1:${address.port}/`,
+            `--item-list-file=${itemListPath}`,
+            '--contact=test@example.invalid',
+            '--authorization-ref=fixture-authorization',
+            '--min-interval-ms=0',
+            '--jitter-ms=0',
+            '--daily-cap=10',
+        ]);
+        controlWorkspace = new CrawlWorkspace(workspace, {
+            minIntervalMs: 0,
+            jitterMs: 0,
+            dailyCap: 10,
+        });
+        await runCrawler(['run', `--workspace=${workspace}`]);
+    } finally {
+        await new Promise((resolvePromise, rejectPromise) => server.close((error) => {
+            if (error) rejectPromise(error);
+            else resolvePromise();
+        }));
+    }
+
+    assert.deepEqual(requests, ['/itemhistory.html?id=20542']);
+    const status = await readAtomicJson(join(workspace, 'state', 'status.json'));
+    const control = await readAtomicJson(join(workspace, 'state', 'control.json'));
+    const rate = await readAtomicJson(join(workspace, 'state', 'rate.json'));
+    assert.equal(status.state, 'stopped');
+    assert.equal(control.command, 'stop');
+    assert.equal(rate.deferReason, 'retry-temporary_access_denied');
+    assert.equal(rate.consecutiveAccessDenials, 1);
+    assert.ok(
+        Date.parse(rate.nextRequestNotBefore) - Date.parse(rate.lastResult.finishedAt)
+            >= 20 * 60 * 1_000,
+    );
+});
+
+test('a repeated HTTP 403 across crawler restarts still safety-pauses for operator review', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'lucy-item-crawler-repeated-403-'));
+    temporaryDirectories.push(root);
+    const workspace = join(root, 'work');
+    const artifactRoot = join(root, 'artifacts');
+    const itemListPath = join(root, 'itemlist.csv');
+    await writeFile(
+        itemListPath,
+        'id,name,lucylink\n20542,Singing Short Sword,https://lucy.allakhazam.com/item.html?id=20542\n',
+        'utf8',
+    );
+
+    const requests = [];
+    let pausedStatus = null;
+    let pausedControl = null;
+    const server = createServer((request, response) => {
+        requests.push(request.url);
+        response.writeHead(403, { 'Content-Type': 'text/html' });
+        response.end('<!doctype html><html><title>Still forbidden</title></html>');
+    });
+    await new Promise((resolvePromise) => server.listen(0, '127.0.0.1', resolvePromise));
+
+    try {
+        const address = server.address();
+        await runCrawler([
+            'init',
+            `--workspace=${workspace}`,
+            `--artifact-root=${artifactRoot}`,
+            `--base-url=http://127.0.0.1:${address.port}/`,
+            `--item-list-file=${itemListPath}`,
+            '--contact=test@example.invalid',
+            '--authorization-ref=fixture-authorization',
+            '--min-interval-ms=0',
+            '--jitter-ms=0',
+            '--daily-cap=10',
+        ]);
+
+        const seedWorkspace = new CrawlWorkspace(workspace, {
+            minIntervalMs: 0,
+            jitterMs: 0,
+            dailyCap: 10,
+        });
+        await seedWorkspace.acquireLock({ runId: 'seed-first-403' });
+        await seedWorkspace.waitForRateSlot();
+        await seedWorkspace.recordRequest({
+            statusCode: 403,
+            success: false,
+            durationMs: 10,
+            bytes: 100,
+            url: `http://127.0.0.1:${address.port}/itemhistory.html?id=20542`,
+        });
+        await seedWorkspace.releaseLock();
+
+        const runPromise = runCrawler(['run', `--workspace=${workspace}`]);
+        try {
+            for (let attempt = 0; attempt < 100; attempt += 1) {
+                const candidate = await readAtomicJson(join(workspace, 'state', 'status.json'));
+                if (candidate.lastError?.code === 'repeated_access_denied') {
+                    pausedStatus = candidate;
+                    pausedControl = await readAtomicJson(join(workspace, 'state', 'control.json'));
+                    break;
+                }
+                await new Promise((resolvePromise) => setTimeout(resolvePromise, 20));
+            }
+        } finally {
+            await seedWorkspace.setControl('stop', {
+                reason: 'fixture cleanup after repeated 403 pause',
+                requestedBy: 'offline test',
+            });
+            await runPromise;
+        }
+    } finally {
+        await new Promise((resolvePromise, rejectPromise) => server.close((error) => {
+            if (error) rejectPromise(error);
+            else resolvePromise();
+        }));
+    }
+
+    assert.deepEqual(requests, ['/itemhistory.html?id=20542']);
+    const rate = await readAtomicJson(join(workspace, 'state', 'rate.json'));
+    assert.equal(pausedStatus?.state, 'paused');
+    assert.equal(pausedControl?.command, 'pause');
+    assert.equal(pausedStatus?.lastError.code, 'repeated_access_denied');
+    assert.equal(rate.consecutiveAccessDenials, 2);
 });
 
 test('the Lucy cookie bootstrap stays same-origin, consumes a normal request slot, and carries its cookie', async () => {

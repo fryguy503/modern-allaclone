@@ -62,7 +62,7 @@ const PROGRESS_SCHEMA = 'modern-allaclone.lucy-item-crawl-progress';
 const ITEM_WORK_SCHEMA = 'modern-allaclone.lucy-item-crawl-item-work';
 const ERROR_SCHEMA = 'modern-allaclone.lucy-item-crawl-error';
 const VERSION = 1;
-const CRAWLER_VERSION = '1.1.0';
+const CRAWLER_VERSION = '1.2.0';
 const DEFAULT_BASE_URL = 'https://lucy.allakhazam.com/';
 const DEFAULT_MIN_INTERVAL_MS = 30_000;
 const ABSOLUTE_MIN_INTERVAL_MS = 2_000;
@@ -76,6 +76,7 @@ const CAPTURE_STRATEGIES = new Set([
     REVERSIBLE_DELTA_CONFIG_STRATEGY,
 ]);
 const RATE_LIMIT_MINIMUM_BACKOFF_MS = 60 * 60 * 1_000;
+const ACCESS_DENIED_MINIMUM_BACKOFF_MS = 20 * 60 * 1_000;
 const MAXIMUM_RETRY_BACKOFF_MS = 6 * 60 * 60 * 1_000;
 const DEFAULT_REQUEST_TIMEOUT_MS = 30_000;
 const DEFAULT_MAX_HTML_BYTES = 8 * 1024 * 1024;
@@ -367,7 +368,7 @@ export function buildLucyCookieHeader(cookies) {
     return header;
 }
 
-export function assertAcceptableLucyHtml(bytes, contentType = '') {
+function decodeLucyResponse(bytes, contentType) {
     const html = decodeLucyHtml(bytes, declaredCharset(contentType) ?? 'windows-1252');
     const digestBytes = bytes instanceof ArrayBuffer ? new Uint8Array(bytes) : bytes;
     const diagnostic = {
@@ -379,13 +380,13 @@ export function assertAcceptableLucyHtml(bytes, contentType = '') {
             .replace(/\s+/g, ' ')
             .trim(),
     };
-    if (!/<(?:!doctype\s+html|html|title|table)\b/i.test(html)) {
-        throw new PauseRequested('Lucy returned a body that does not look like an HTML item page.', {
-            code: 'unexpected_body',
-            context: diagnostic,
-        });
-    }
-    if (/\b(?:captcha|cloudflare|access denied|verify you are human|checking your browser|attention required|too many requests|just a moment|system error)\b/i.test(html)
+
+    return { html, diagnostic };
+}
+
+function assertNoLucyChallengeOrError(html, diagnostic, { allowAccessDenied = false } = {}) {
+    if (/\b(?:captcha|cloudflare|verify you are human|checking your browser|attention required|too many requests|just a moment|system error)\b/i.test(html)
+        || (!allowAccessDenied && /\baccess denied\b/i.test(html))
         || /no value sent for required parameter/i.test(html)
         || /trace begun at\s+\/home\/lucy/i.test(html)) {
         throw new PauseRequested('Lucy returned a challenge, access-denied, or system-error page.', {
@@ -393,6 +394,28 @@ export function assertAcceptableLucyHtml(bytes, contentType = '') {
             context: diagnostic,
         });
     }
+}
+
+export function assertNoLucyChallengeOrErrorPage(
+    bytes,
+    contentType = '',
+    { allowAccessDenied = false } = {},
+) {
+    const { html, diagnostic } = decodeLucyResponse(bytes, contentType);
+    assertNoLucyChallengeOrError(html, diagnostic, { allowAccessDenied });
+
+    return html;
+}
+
+export function assertAcceptableLucyHtml(bytes, contentType = '') {
+    const { html, diagnostic } = decodeLucyResponse(bytes, contentType);
+    if (!/<(?:!doctype\s+html|html|title|table)\b/i.test(html)) {
+        throw new PauseRequested('Lucy returned a body that does not look like an HTML item page.', {
+            code: 'unexpected_body',
+            context: diagnostic,
+        });
+    }
+    assertNoLucyChallengeOrError(html, diagnostic);
 
     return html;
 }
@@ -405,11 +428,11 @@ export function calculateCrawlerRetryBackoff({
     nowMs = Date.now(),
     random = Math.random,
 } = {}) {
-    const rateLimited = statusCode === 429;
-
     return calculateBackoff({
         attempt,
-        baseMs: rateLimited ? RATE_LIMIT_MINIMUM_BACKOFF_MS : 60_000,
+        baseMs: statusCode === 403
+            ? ACCESS_DENIED_MINIMUM_BACKOFF_MS
+            : (statusCode === 429 ? RATE_LIMIT_MINIMUM_BACKOFF_MS : 60_000),
         maxMs: MAXIMUM_RETRY_BACKOFF_MS,
         jitterMs,
         retryAfter,
@@ -575,6 +598,7 @@ function createWorkspace(root, config = {}) {
         minIntervalMs: config.min_interval_ms ?? DEFAULT_MIN_INTERVAL_MS,
         jitterMs: config.jitter_ms ?? DEFAULT_JITTER_MS,
         dailyCap: config.daily_cap ?? DEFAULT_DAILY_CAP,
+        accessDeniedCooldownMs: ACCESS_DENIED_MINIMUM_BACKOFF_MS,
     });
 }
 
@@ -832,13 +856,10 @@ async function retryFailuresCommand(root) {
     progress.retry_cursor = 0;
     progress.updated_at = new Date().toISOString();
     await writeProgress(root, progress);
-    await workspace.setControl('run', {
-        reason: 'Retry queue prepared.',
-        requestedBy: 'retry-failures command',
-    });
-
     console.log(`Prepared ${uniqueIds.length} unresolved item failures for retry. No network request was made.`);
-    if (uniqueIds.length > 0) console.log('Use start to run the retry queue after the primary queue is complete.');
+    if (uniqueIds.length > 0) {
+        console.log('Use resume or start to run the retry queue after the primary queue is complete.');
+    }
 }
 
 async function sweepCommand(root) {
@@ -865,15 +886,15 @@ async function sweepCommand(root) {
     progress.current_item_id = null;
     progress.refresh_item_list = true;
     await writeProgress(root, progress);
-    await workspace.setControl('run', {
-        reason: `Item-history sweep ${progress.sweep_generation} prepared.`,
-        requestedBy: 'sweep command',
-    });
+    const control = await workspace.readControl();
     await workspace.updateStatus({
-        state: 'ready',
+        state: control.command === 'run'
+            ? 'ready'
+            : (control.command === 'pause' ? 'paused' : 'stopped'),
         phase: 'sweep-prepared',
         sweepGeneration: progress.sweep_generation,
         lastError: null,
+        control,
     });
 
     console.log(`Prepared item-history sweep ${progress.sweep_generation}. No network request was made.`);
@@ -1757,6 +1778,8 @@ class AuthorizedLucyCrawler {
             let response;
             let bytes = null;
             let requestFailure = null;
+            let recordedResult = null;
+            let retryWaitMs = null;
             try {
                 const headers = {
                     Accept: kind === 'item-list'
@@ -1772,19 +1795,31 @@ class AuthorizedLucyCrawler {
                     headers,
                 });
                 bytes = await readResponseBytes(response, maxBytes);
-                await this.workspace.recordRequest({
+                if (response.status === 403) {
+                    retryWaitMs = calculateCrawlerRetryBackoff({
+                        statusCode: response.status,
+                        attempt,
+                        jitterMs: this.config.jitter_ms,
+                        retryAfter: response.headers.get('retry-after') ?? null,
+                    });
+                }
+                recordedResult = await this.workspace.recordRequest({
                     statusCode: response.status,
                     success: response.ok,
                     durationMs: Date.now() - started,
                     bytes: bytes.byteLength,
                     url: requestUrl.href,
+                    deferForMs: retryWaitMs,
+                    deferReason: retryWaitMs === null
+                        ? undefined
+                        : 'retry-temporary_access_denied',
                 });
             } catch (error) {
                 if (this.stopRequested && error?.name === 'AbortError') {
                     throw new StopRequested('Crawler received a process stop signal.');
                 }
                 requestFailure = error;
-                await this.workspace.recordRequest({
+                recordedResult = await this.workspace.recordRequest({
                     statusCode: null,
                     success: false,
                     durationMs: Date.now() - started,
@@ -1806,6 +1841,14 @@ class AuthorizedLucyCrawler {
                     code: 'response_too_large',
                     cause: requestFailure,
                 });
+            }
+
+            if (response?.status === 403 && bytes !== null) {
+                assertNoLucyChallengeOrErrorPage(
+                    bytes,
+                    response.headers.get('content-type') ?? '',
+                    { allowAccessDenied: true },
+                );
             }
 
             if (response?.ok && bytes !== null) {
@@ -1836,14 +1879,44 @@ class AuthorizedLucyCrawler {
                     this.assertLooksLikeLucyHtml(bytes, response);
                 }
                 const capture = await this.storeCapture(requestUrl, response, bytes, kind);
+                if ((recordedResult?.consecutiveAccessDenials ?? 0) > 0) {
+                    await this.workspace.clearAccessDenials();
+                }
                 this.consecutiveRateLimits = 0;
                 return { bytes, capture, response };
             }
 
-            if (response !== undefined && [401, 403].includes(response.status)) {
-                throw new PauseRequested(`Lucy returned HTTP ${response.status}; authorization/access must be checked.`, {
+            if (response?.status === 401) {
+                throw new PauseRequested('Lucy returned HTTP 401; authorization/access must be checked.', {
                     code: 'access_denied',
                 });
+            }
+            if (response?.status === 403) {
+                const consecutiveAccessDenials = recordedResult?.consecutiveAccessDenials ?? 1;
+                if (consecutiveAccessDenials >= 2) {
+                    throw new PauseRequested(
+                        'Lucy repeatedly returned HTTP 403 after a durable cooldown; operator review is required before resuming.',
+                        {
+                            code: 'repeated_access_denied',
+                            context: {
+                                status: 403,
+                                url: requestUrl.href,
+                                consecutive_access_denials: consecutiveAccessDenials,
+                            },
+                        },
+                    );
+                }
+                lastError = new CrawlerError(
+                    'Lucy returned HTTP 403; applying a durable cooldown before retry.',
+                    {
+                        code: 'temporary_access_denied',
+                        context: {
+                            status: 403,
+                            url: requestUrl.href,
+                            consecutive_access_denials: consecutiveAccessDenials,
+                        },
+                    },
+                );
             }
             if (response !== undefined && response.status === 404) {
                 throw new CrawlerError(`Lucy returned HTTP 404 for ${requestUrl.href}.`, {
@@ -1870,7 +1943,7 @@ class AuthorizedLucyCrawler {
 
             const retryable = requestFailure !== null
                 || response === undefined
-                || [408, 425, 429].includes(response.status)
+                || [403, 408, 425, 429].includes(response.status)
                 || response.status >= 500;
             if (!retryable) {
                 throw new CrawlerError(`Lucy returned unexpected HTTP ${response.status} for ${requestUrl.href}.`, {
@@ -1878,21 +1951,23 @@ class AuthorizedLucyCrawler {
                     context: { status: response.status, url: requestUrl.href },
                 });
             }
-            if (response !== undefined) {
+            if (response !== undefined && response.status !== 403) {
                 lastError = new CrawlerError(`Lucy returned retryable HTTP ${response.status}.`, {
                     code: 'retryable_http_status',
                     context: { status: response.status, url: requestUrl.href },
                 });
             }
-            const waitMs = calculateCrawlerRetryBackoff({
+            const waitMs = retryWaitMs ?? calculateCrawlerRetryBackoff({
                 statusCode: response?.status ?? null,
                 attempt,
                 jitterMs: this.config.jitter_ms,
                 retryAfter: response?.headers.get('retry-after') ?? null,
             });
-            await this.workspace.deferRequestsUntil(Date.now() + waitMs, {
-                reason: `retry-${lastError?.code ?? 'request'}`,
-            });
+            if (retryWaitMs === null) {
+                await this.workspace.deferRequestsUntil(Date.now() + waitMs, {
+                    reason: `retry-${lastError?.code ?? 'request'}`,
+                });
+            }
             await appendLog(this.root, 'warning', 'Request deferred before retry.', {
                 url: requestUrl.href,
                 attempt,

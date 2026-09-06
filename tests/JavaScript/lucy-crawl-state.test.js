@@ -269,6 +269,65 @@ test('the start-to-start rate reservation and daily count survive a restart', as
     });
 });
 
+test('consecutive HTTP 403 responses persist across restarts until a capture is accepted', async () => {
+    await temporaryWorkspace(async (root) => {
+        const time = fakeTime();
+        const options = workspaceOptions(time, {
+            minIntervalMs: 0,
+            jitterMs: 0,
+            accessDeniedCooldownMs: HOUR,
+        });
+        const first = new CrawlWorkspace(root, options);
+        await first.acquireLock({ runId: 'first-access-denial' });
+        await first.waitForRateSlot();
+        const firstResult = await first.recordRequest({
+            statusCode: 403,
+            durationMs: 10,
+            bytes: 100,
+            url: 'https://lucy.allakhazam.com/itemhistory.html?id=20542',
+            deferForMs: HOUR,
+            deferReason: 'http-403-cooldown',
+        });
+        assert.equal(firstResult.consecutiveAccessDenials, 1);
+        await first.releaseLock();
+
+        const legacyRate = await readAtomicJson(join(root, 'state', 'rate.json'), { root });
+        delete legacyRate.consecutiveAccessDenials;
+        legacyRate.nextRequestNotBefore = legacyRate.lastRequestStartedAt;
+        legacyRate.deferReason = null;
+        await atomicWriteJson(join(root, 'state', 'rate.json'), legacyRate, { root });
+
+        const second = new CrawlWorkspace(root, options);
+        await second.acquireLock({ runId: 'second-access-denial' });
+        const blocked = await second.waitForRateSlot({ maxWaitMs: 0 });
+        assert.equal(blocked.granted, false);
+        assert.equal(blocked.blockedBy, 'rate-limit');
+        assert.equal(blocked.nextRequestNotBefore, new Date(time.value() + HOUR).toISOString());
+        time.advance(HOUR);
+        await second.waitForRateSlot();
+        const secondResult = await second.recordRequest({
+            statusCode: 403,
+            durationMs: 10,
+            bytes: 100,
+            url: 'https://lucy.allakhazam.com/itemhistory.html?id=20542',
+        });
+        assert.equal(secondResult.consecutiveAccessDenials, 2);
+        assert.equal((await second.readStatus()).rate.consecutiveAccessDenials, 2);
+
+        await second.waitForRateSlot();
+        const recovered = await second.recordRequest({
+            statusCode: 200,
+            durationMs: 10,
+            bytes: 100,
+            url: 'https://lucy.allakhazam.com/itemhistory.html?id=20542',
+        });
+        assert.equal(recovered.consecutiveAccessDenials, 2);
+        assert.equal(await second.clearAccessDenials(), 0);
+        assert.equal((await second.readStatus()).rate.consecutiveAccessDenials, 0);
+        await second.releaseLock();
+    });
+});
+
 test('the daily request cap blocks until the next UTC day and then resets', async () => {
     await temporaryWorkspace(async (root) => {
         const time = fakeTime(Date.UTC(2026, 7, 23, 23, 59, 0));

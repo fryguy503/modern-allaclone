@@ -324,6 +324,7 @@ export class CrawlWorkspace {
         minIntervalMs = DEFAULT_MIN_INTERVAL_MS,
         jitterMs = DEFAULT_JITTER_MS,
         dailyCap = DEFAULT_DAILY_CAP,
+        accessDeniedCooldownMs = 0,
         lockStaleMs = DEFAULT_LOCK_STALE_MS,
         heartbeatIntervalMs = DEFAULT_HEARTBEAT_INTERVAL_MS,
         waitPollMs = DEFAULT_WAIT_POLL_MS,
@@ -340,6 +341,7 @@ export class CrawlWorkspace {
         }
         assertNonNegativeInteger(minIntervalMs, 'minIntervalMs');
         assertNonNegativeInteger(jitterMs, 'jitterMs');
+        assertNonNegativeInteger(accessDeniedCooldownMs, 'accessDeniedCooldownMs');
         assertPositiveInteger(dailyCap, 'dailyCap');
         assertPositiveInteger(lockStaleMs, 'lockStaleMs');
         assertPositiveInteger(heartbeatIntervalMs, 'heartbeatIntervalMs');
@@ -360,6 +362,7 @@ export class CrawlWorkspace {
         this.minIntervalMs = minIntervalMs;
         this.jitterMs = jitterMs;
         this.dailyCap = dailyCap;
+        this.accessDeniedCooldownMs = accessDeniedCooldownMs;
         this.lockStaleMs = lockStaleMs;
         this.heartbeatIntervalMs = heartbeatIntervalMs;
         this.waitPollMs = waitPollMs;
@@ -835,6 +838,11 @@ export class CrawlWorkspace {
         const bytes = result.bytes ?? null;
         if (durationMs !== null) assertNonNegativeInteger(durationMs, 'durationMs');
         if (bytes !== null) assertNonNegativeInteger(bytes, 'bytes');
+        const deferForMs = result.deferForMs ?? null;
+        if (deferForMs !== null) assertNonNegativeInteger(deferForMs, 'deferForMs');
+        if (deferForMs !== null && result.notBefore !== undefined && result.notBefore !== null) {
+            throw new TypeError('deferForMs and notBefore cannot both be provided');
+        }
         const error = normalizeError(result.error);
         const success = result.success ?? (
             error === null && statusCode !== null && statusCode >= 200 && statusCode < 400
@@ -860,8 +868,14 @@ export class CrawlWorkspace {
             state.consecutiveFailures = success
                 ? 0
                 : (state.consecutiveFailures ?? 0) + 1;
-            if (result.notBefore !== undefined && result.notBefore !== null) {
-                const requested = normalizeTimestamp(result.notBefore, 'notBefore');
+            if (statusCode === 403) {
+                state.consecutiveAccessDenials = (state.consecutiveAccessDenials ?? 0) + 1;
+            }
+            if (deferForMs !== null
+                || (result.notBefore !== undefined && result.notBefore !== null)) {
+                const requested = deferForMs === null
+                    ? normalizeTimestamp(result.notBefore, 'notBefore')
+                    : now + deferForMs;
                 const current = parseOptionalIso(state.nextRequestNotBefore) ?? 0;
                 if (requested > current) {
                     state.nextRequestNotBefore = toIso(requested);
@@ -888,7 +902,36 @@ export class CrawlWorkspace {
             lastRequest: lastResult,
         });
 
-        return { ...lastResult, consecutiveFailures: rate.consecutiveFailures };
+        return {
+            ...lastResult,
+            consecutiveFailures: rate.consecutiveFailures,
+            consecutiveAccessDenials: rate.consecutiveAccessDenials,
+        };
+    }
+
+    /**
+     * Clear the durable HTTP 403 streak only after the caller has accepted and
+     * stored a valid destination response.
+     */
+    async clearAccessDenials() {
+        this.#assertLockHealthy();
+        const now = this.#now();
+        const state = await this.#enqueueRate(async () => {
+            const current = await this.#readRateState(now);
+            if (current.consecutiveAccessDenials !== 0) {
+                current.consecutiveAccessDenials = 0;
+                current.updatedAt = toIso(now);
+                await this.#writeRateState(current);
+            }
+
+            return current;
+        });
+        await this.updateStatus({
+            heartbeatAt: toIso(now),
+            rate: rateStatus(state, this),
+        });
+
+        return state.consecutiveAccessDenials;
     }
 
     async deferRequestsUntil(timestamp, { reason = 'backoff' } = {}) {
@@ -924,6 +967,20 @@ export class CrawlWorkspace {
             root: this.root,
             label: 'crawl rate state',
         }) ?? defaultRateState(now, this.dailyCap);
+        const legacyAccessDenial = state.consecutiveAccessDenials === undefined
+            && state.lastResult?.statusCode === 403;
+        state.consecutiveAccessDenials ??= legacyAccessDenial ? 1 : 0;
+        if (legacyAccessDenial && this.accessDeniedCooldownMs > 0) {
+            const finishedAt = parseOptionalIso(state.lastResult.finishedAt);
+            const currentGate = parseOptionalIso(state.nextRequestNotBefore) ?? 0;
+            const migratedGate = finishedAt === null
+                ? 0
+                : finishedAt + this.accessDeniedCooldownMs;
+            if (migratedGate > currentGate) {
+                state.nextRequestNotBefore = toIso(migratedGate);
+                state.deferReason = 'migrated-http-403-cooldown';
+            }
+        }
         validateRateState(state);
 
         return state;
@@ -1081,6 +1138,7 @@ function defaultRateState(now, dailyCap) {
         nextRequestNotBefore: null,
         deferReason: null,
         consecutiveFailures: 0,
+        consecutiveAccessDenials: 0,
         lastResult: null,
         updatedAt: toIso(now),
     };
@@ -1135,6 +1193,7 @@ function rateStatus(state, workspace, allowedAt = undefined) {
             : toIso(allowedAt),
         deferReason: state.deferReason,
         consecutiveFailures: state.consecutiveFailures,
+        consecutiveAccessDenials: state.consecutiveAccessDenials,
     };
 }
 
@@ -1158,7 +1217,9 @@ function validateRateState(state) {
     if (typeof state.day !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(state.day)
         || !Number.isSafeInteger(state.requestsToday) || state.requestsToday < 0
         || !Number.isSafeInteger(state.dailyCap) || state.dailyCap < 1
-        || !Number.isSafeInteger(state.consecutiveFailures) || state.consecutiveFailures < 0) {
+        || !Number.isSafeInteger(state.consecutiveFailures) || state.consecutiveFailures < 0
+        || !Number.isSafeInteger(state.consecutiveAccessDenials)
+        || state.consecutiveAccessDenials < 0) {
         throw new CrawlStateError('Invalid crawl rate counters');
     }
     for (const field of [
