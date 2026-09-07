@@ -7,7 +7,7 @@
 @endphp
 
 <div x-data="zoneAtlasMap(@js($mapConfig))" class="space-y-3">
-    <div class="alert alert-warning" role="status"
+    <div class="alert alert-soft alert-warning" role="status"
         x-show="typeof ensureDatasetLoaded !== 'function'">
         <span>
             The interactive atlas is unavailable. The location lists on this page still work.
@@ -268,7 +268,7 @@
         <p class="sr-only" role="status" aria-live="polite" x-text="statusMessage"></p>
         <div class="toast toast-end z-50" role="status" aria-live="polite"
             x-show="copyMessage" x-transition x-cloak>
-            <div class="alert alert-success py-2 text-sm"><span x-text="copyMessage"></span></div>
+            <div class="alert alert-soft alert-success py-2 text-sm"><span x-text="copyMessage"></span></div>
         </div>
     </section>
 

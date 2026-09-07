@@ -6,7 +6,39 @@ You can see this in use on [Project Lazarus](https://www.lazaruseq.com/alla/)
 
 ## Requirements
 
-- PHP >= 8.2, Composer, Node.js >= 20, Mysql/MariaDB, and an EQemu DB.
+- PHP >= 8.2, Composer, Mysql/MariaDB, and an EQemu DB.
+- Rebuilding the historical corpus also requires Node.js >= 20 and Python 3. Install the
+  optional document adapters with `pip install -r scripts/requirements-patch-import.txt`.
+
+## Historical patch archive
+
+The read-only archive at `/patches` currently contains 682 distinct EverQuest beta, Live, hotfix, and news records from July 1998 through June 2026. It supports phrase search, composable date/topic/type/expansion/source filters, cards/compact/expansion/timeline layouts, formatted and plain-text detail views, provenance, adjacent/related history, RSS, and full or filtered JSON/CSV exports. Coverage reflects the supplied corpus and complete official-feed entries; it does not claim that every intervening forum thread is present.
+
+The generated artifacts live in `database/data`, so serving the archive never reads the external source directory or writes to either the application or EQEmu database. Imported text is treated as untrusted and escaped before structural formatting. CSV exports are UTF-8, RFC 4180-compatible, and neutralize spreadsheet formulas.
+
+Set `PATCH_HISTORY_ENABLED=false` to remove every patch route, navigation link,
+RSS advertisement, and patch suggestion. Run `php artisan optimize:clear` after
+changing the value on a server that caches configuration.
+
+To check and then rebuild from a supplied `patcheq` corpus:
+
+```sh
+npm run patches:import:check -- /path/to/patcheq database/data --report database/data/everquest-patch-import-report.json
+npm run patches:import -- /path/to/patcheq database/data
+npm run patches:validate -- /path/to/patcheq database/data
+```
+
+Documents can be placed anywhere below the source directory. TXT, Markdown,
+saved HTML/XenForo pages, RSS/Atom/XML, JSON, CSV, TSV, text-layer PDF, and DOCX
+files are discovered recursively. The importer inventories every supplied
+artifact by hash, recovers historical encodings, keeps stable public URLs,
+deduplicates records while retaining occurrence-level provenance, and refuses
+unexplained record removals. The validator then checks the JSON, CSV,
+suggestion index, and deterministic import report as one publication set.
+
+See [docs/patch-history-importing.md](docs/patch-history-importing.md) for source
+format examples, configuration overrides, OCR guidance, official-feed syncing,
+saved forum-page imports, and recovery steps.
 
 ## Installation
 
@@ -80,36 +112,101 @@ Spell pages can optionally show a read-only history compiled from Lucy Live
 spelldata snapshots. Compilation is an offline deployment step: web requests
 never scan the raw CSV archive and do not query the EQEmu database for history.
 
-Build the immutable, content-addressed artifact outside the public web root:
+Players can switch each history page between the default structured Diff table,
+collapsible Cards, and a compact Lucy-style Date/Change list. Each view
+has its own canonical, publicly cacheable URL and renders only the selected
+representation; all three read the same bounded artifact page and execute no
+database queries.
+
+Place the Lucy snapshots in the standard private source directory,
+`storage/app/private/lucy-spelldata`, then build the immutable,
+content-addressed artifact:
+
+```bash
+php artisan spell-history:build
+```
+
+The compiled artifact is written to the standard private artifact directory,
+`storage/app/private/spell-history`. The command-line `--source` and `--output`
+options remain available for one-off builds using non-standard locations:
 
 ```bash
 php artisan spell-history:build \
-    --source=/path/to/lucy_spelldata_live_2002-2025
+    --source=/path/to/lucy_spelldata_live_2002-2025 \
+    --output=/path/to/artifacts
 ```
 
-Use `--output=/path/to/artifacts` when the default
-`storage/app/private/spell-history` location is not appropriate. Copy that
-artifact directory when deploying to another server, then configure and enable
-the feature:
+For a deployment that does not have the raw Lucy snapshots, install the
+published dataset directly from its pinned GitHub release. PHP's `zip`
+extension is required for package and install commands:
 
-```dotenv
-SPELL_HISTORY_ENABLED=true
-SPELL_HISTORY_BASELINE_DATE=2006-01-01
-SPELL_HISTORY_PAGE_SIZE=25
-# SPELL_HISTORY_SOURCE_PATH=/path/to/lucy_spelldata_live_2002-2025
-# SPELL_HISTORY_ARTIFACT_PATH=/path/to/artifacts
+```bash
+php artisan spell-history:install --release=spell-history-data-v4-2025-12-03
+```
+
+The command downloads the release descriptor and ZIP without loading either
+database, verifies GitHub's SHA-256 asset digests, the descriptor checksum, and
+the independently pinned release checksum in configuration, rejects unsafe
+archive paths and links, validates every artifact in a private
+staging directory, and only then atomically switches `CURRENT`. The previously
+active dataset remains available for rollback. For an offline deployment,
+download the ZIP and its checksum sidecar and run:
+
+```bash
+php artisan spell-history:install \
+    --file=/path/to/modern-allaclone-spell-history.zip \
+    --sha256=<64-character-sha256>
+```
+
+Installation does not enable the player-facing feature or change its cutoff.
+After a successful build or install, edit the `spell_history` section in
+`config/everquest.php` to enable the feature and select the server's spell-data
+cutoff:
+
+```php
+'spell_history' => [
+    'enable'             => true,
+    'baseline_date'      => '2006-01-01',
+    'source_path'        => storage_path('app/private/lucy-spelldata'),
+    'artifact_path'      => storage_path('app/private/spell-history'),
+    'release_repository' => 'fryguy503/modern-allaclone',
+    'release_checksums'  => [
+        'spell-history-data-v4-2025-12-03' => 'a9679f4896bdf65f7920c34c95e454a13c09867ef9a09e4c32c36a4fd621c1e9',
+    ],
+    'max_download_bytes' => 1_610_612_736,
+    'max_unpacked_bytes' => 1_610_612_736,
+    'max_files'          => 100_000,
+    'connect_timeout'    => 15,
+    'download_timeout'   => 1_800,
+    'page_size'          => 25,
+    'max_page'           => 500,
+],
 ```
 
 After changing these values, refresh Laravel's cached configuration with
 `php artisan optimize:clear` (or the equivalent configuration-cache step in
 your normal deployment).
 
-`SPELL_HISTORY_SOURCE_PATH` lets the build command run without `--source`; it is
-never read by a web request. Keep both the Lucy source archive and generated
-artifacts outside the public document root. The build streams bounded records,
-stages a complete replacement, re-verifies every source checksum, then switches
-the `CURRENT` pointer under a lock. An identical rebuild validates and reuses
-the existing content-addressed dataset.
+The configured `source_path` is read only by the build command, never by a web
+request. Keep both the Lucy source archive and generated artifacts outside the
+public document root. The build streams bounded records, stages a complete
+replacement, re-verifies every source checksum, then switches the `CURRENT`
+pointer under a lock. An identical rebuild validates and reuses the existing
+content-addressed dataset.
+
+To publish a refreshed dataset, run the maintainer command on the trusted host
+that holds the completed artifacts:
+
+```bash
+php artisan spell-history:package
+```
+
+It packages only the dataset selected by `CURRENT`, never inactive or partial
+siblings. The default output directory is
+`storage/app/private/spell-history/releases`, containing the ZIP, its
+`.sha256` sidecar, and `spell-history-package.json`. Upload those three files to
+one GitHub release. The packager validates every spell before writing the ZIP
+and re-reads every archived entry before producing its checksum.
 
 Completed datasets are retained for rollback and can be pruned explicitly. The
 prune command is a dry run unless `--apply` is supplied:
@@ -133,8 +230,8 @@ two rollback datasets retained, allow at least four dataset equivalents (about
 2.4 GiB and 296,000 file entries) so a replacement can be staged before the old
 copies are pruned, plus normal filesystem headroom.
 
-`SPELL_HISTORY_BASELINE_DATE` accepts `YYYY-MM-DD` (the end of that calendar
-day) or `YYYY-MM-DDTHH:MM:SS`. Snapshot timestamps are intentionally treated as
+`baseline_date` accepts `YYYY-MM-DD` (the end of that calendar day) or
+`YYYY-MM-DDTHH:MM:SS`. Snapshot timestamps are intentionally treated as
 timezone-naive Lucy capture times. The latest capture at or before the cutoff is
 resolved first. If the spell is present there, its most recent recorded revision
 represents the state at that cutoff and is highlighted; unchanged captures are
@@ -143,8 +240,8 @@ confirmed absent, or has uncertain availability at the resolved capture. This
 setting is independent of `current_expansion`; for example, a Dragons of Norrath
 server can use a 2006 spell-data cutoff.
 
-Keep `SPELL_HISTORY_ENABLED=false` until a successful build is deployed. A
-rebuild stages and validates a new dataset before atomically switching the
+Keep `spell_history.enable` set to `false` until a successful build is deployed.
+A rebuild stages and validates a new dataset before atomically switching the
 `CURRENT` pointer, so live requests continue reading the previous immutable
 dataset during compilation. Lucy captures indicate when a value was observed,
 not necessarily the exact time it changed on Live. The compiler reports net
@@ -378,6 +475,22 @@ npm run test:js
 ```
 
 Always install this outside your publically accessible web directory. Symlink the /public folder to your public accessible web directory.
+
+### Optional tradeskill planner
+
+The recursive tradeskill planner can be disabled without changing application code:
+
+```env
+TRADESKILL_PLANNER_ENABLED=false
+```
+
+When disabled, planner links are hidden and planner routes return `404`. When enabled, plans are saved only in the visitor's browser. Share links keep their plan state in the URL fragment, so Modern Allaclone does not need user accounts or a server-side plans table.
+
+After changing the setting on a production installation, refresh Laravel's cached configuration:
+
+```bash
+php artisan optimize:clear
+```
 
 ## Screenshots
 

@@ -60,6 +60,88 @@
     }
 }
 
+.patch-hero,
+.patch-detail-header {
+    isolation: isolate;
+    position: relative;
+    background-image:
+        radial-gradient(circle at 85% 15%, color-mix(in oklab, var(--color-info) 18%, transparent) 0, transparent 30%),
+        linear-gradient(135deg, color-mix(in oklab, var(--color-base-100) 94%, var(--color-info)) 0%, var(--color-base-100) 65%);
+}
+
+.patch-hero::before,
+.patch-detail-header::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: '';
+    pointer-events: none;
+    opacity: 0.16;
+    background-image:
+        linear-gradient(30deg, transparent 24%, currentColor 25%, currentColor 26%, transparent 27%, transparent 74%, currentColor 75%, currentColor 76%, transparent 77%),
+        linear-gradient(150deg, transparent 24%, currentColor 25%, currentColor 26%, transparent 27%, transparent 74%, currentColor 75%, currentColor 76%, transparent 77%);
+    background-position: 0 0, 12px 21px;
+    background-size: 24px 42px;
+    mask-image: linear-gradient(to left, black, transparent 70%);
+}
+
+.patch-stat {
+    backdrop-filter: blur(6px);
+}
+
+.patch-filter-chip input:checked + span {
+    border-color: var(--color-info);
+    color: var(--color-info-content);
+    background-color: color-mix(in oklab, var(--color-info) 70%, var(--color-base-100));
+}
+
+.patch-filter-chip input:focus-visible + span {
+    outline: 2px solid var(--color-info);
+    outline-offset: 2px;
+}
+
+.patch-highlight {
+    padding: 0 0.12em;
+    color: inherit;
+    background: color-mix(in oklab, var(--color-warning) 45%, transparent);
+    border-radius: 0.2rem;
+}
+
+.patch-bullet {
+    position: relative;
+    padding-left: 1.45rem;
+}
+
+.patch-bullet::before {
+    position: absolute;
+    top: 0.72em;
+    left: 0.25rem;
+    width: 0.42rem;
+    height: 0.42rem;
+    content: '';
+    background: var(--color-info);
+    transform: rotate(45deg);
+}
+
+.patch-prose p,
+.patch-prose li {
+    text-wrap: pretty;
+}
+
+.patch-results:has(.patch-year-marker) .patch-card {
+    margin-left: 1rem;
+}
+
+.patch-results:has(.patch-year-marker) .patch-card::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1rem;
+    width: 1px;
+    content: '';
+    background: color-mix(in oklab, var(--color-info) 25%, transparent);
+}
+
 .sort-ascending,
 .sort-descending {
     display: inline-block;
@@ -258,4 +340,32 @@
 .sort-descending {
     -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l9 0" /><path d="M4 12l7 0" /><path d="M4 18l7 0" /><path d="M15 15l3 3l3 -3" /><path d="M18 6l0 12" /></svg>');
     mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l9 0" /><path d="M4 12l7 0" /><path d="M4 18l7 0" /><path d="M15 15l3 3l3 -3" /><path d="M18 6l0 12" /></svg>');
+}
+
+.planner-tree-row {
+    position: relative;
+}
+
+.planner-tree-row::before {
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: 0.15rem;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+    content: '';
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+
+.planner-tree-row:hover::before,
+.planner-tree-row:focus-within::before {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .planner-tree-row::before,
+    .planner-tree-row .transition-transform {
+        transition: none;
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /*
 ** Some of these variables/arrays come from peqphpeditor and allaclone
 */
@@ -28,6 +29,13 @@ return [
     ],
 
     /**
+     * Patch history
+     */
+    'patch_history' => [
+        'enable'          => (bool) env('PATCH_HISTORY_ENABLED', true),
+    ],
+
+    /**
      * Tasks
      */
     'tasks' => [
@@ -36,6 +44,27 @@ return [
             'activities'  => true,      // show task activities
             'rewards'     => true,      // show task rewards
         ],
+    ],
+
+    /**
+     * Recursive tradeskill planner
+     *
+     * Saved plans live in the visitor's browser. These limits bound both the
+     * server-built graph and the client-side state accepted by the UI.
+     */
+    'tradeskill_planner' => [
+        'enable'                   => env('TRADESKILL_PLANNER_ENABLED', true),
+        'max_quantity'             => 1_000,
+        'max_inventory_per_item'   => 1_000_000,
+        'max_saved_plans'          => 50,
+        'max_share_length'         => 8_000,
+        'max_total_quantity'       => 10_000_000,
+        'max_depth'                => 12,
+        'max_nodes'                => 500,
+        'max_alternatives_per_item' => 10,
+        'max_sources_per_type'     => 5,
+        'max_source_rows'          => 10_000,
+        'cache_ttl_minutes'        => 60,
     ],
 
     /**
@@ -48,12 +77,21 @@ return [
      * cut-off dates.
      */
     'spell_history' => [
-        'enable'        => filter_var(env('SPELL_HISTORY_ENABLED', false), FILTER_VALIDATE_BOOL),
-        'baseline_date' => env('SPELL_HISTORY_BASELINE_DATE'),
-        'source_path'   => env('SPELL_HISTORY_SOURCE_PATH'),
-        'artifact_path' => env('SPELL_HISTORY_ARTIFACT_PATH', storage_path('app/private/spell-history')),
-        'page_size'     => max(1, min(100, (int) env('SPELL_HISTORY_PAGE_SIZE', 25))),
-        'max_page'      => 500,
+        'enable'             => false,
+        'baseline_date'      => null,
+        'source_path'        => storage_path('app/private/lucy-spelldata'),
+        'artifact_path'      => storage_path('app/private/spell-history'),
+        'release_repository' => 'fryguy503/modern-allaclone',
+        'release_checksums'  => [
+            'spell-history-data-v4-2025-12-03' => 'a9679f4896bdf65f7920c34c95e454a13c09867ef9a09e4c32c36a4fd621c1e9',
+        ],
+        'max_download_bytes' => 1_610_612_736,
+        'max_unpacked_bytes' => 1_610_612_736,
+        'max_files'          => 100_000,
+        'connect_timeout'    => 15,
+        'download_timeout'   => 1_800,
+        'page_size'          => 25,
+        'max_page'           => 500,
     ],
 
     /**

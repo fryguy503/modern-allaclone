@@ -10,12 +10,19 @@ final class SpellHistoryCompiler
 {
     private const MAX_LOGICAL_RECORD_BYTES = 8_388_608;
 
-    private const ACTIVATION_BACKUP_FILENAME = '.CURRENT.bak';
+    private readonly SpellHistoryActivator $activator;
+
+    private readonly SpellHistoryMutationLock $mutationLock;
 
     public function __construct(
         private readonly SnapshotLocator $snapshotLocator,
         private readonly SpellCanonicalizer $canonicalizer,
-    ) {}
+        ?SpellHistoryActivator $activator = null,
+        ?SpellHistoryMutationLock $mutationLock = null,
+    ) {
+        $this->activator = $activator ?? new SpellHistoryActivator;
+        $this->mutationLock = $mutationLock ?? new SpellHistoryMutationLock;
+    }
 
     /**
      * @param  callable(string, array<string, mixed>): void|null  $progress
@@ -45,25 +52,35 @@ final class SpellHistoryCompiler
         $datasetKey = $this->datasetKey($snapshots, $sourceMetadata, $ignoredTextFiles);
         $finalDirectory = $datasetsRoot.'/'.$datasetKey;
 
-        if (is_link($finalDirectory)) {
-            throw new RuntimeException('Spell history dataset targets cannot be symbolic links.');
-        }
-        if (file_exists($finalDirectory)) {
-            $this->validateExistingDataset(
-                $finalDirectory,
-                $datasetsRoot,
-                $datasetKey,
-                $snapshots,
-                $sourceMetadata,
-            );
-            $this->activate($outputRoot, $datasetKey);
-            $manifest = $this->decodeJsonFile(
-                $finalDirectory.'/manifest.json',
-                SpellHistoryArtifact::MAX_MANIFEST_BYTES,
-                'existing spell history manifest',
-            );
+        $existingResult = $this->mutationLock->exclusive(
+            $outputRoot,
+            function () use ($finalDirectory, $datasetsRoot, $datasetKey, $snapshots, $sourceMetadata, $outputRoot): ?array {
+                if (is_link($finalDirectory)) {
+                    throw new RuntimeException('Spell history dataset targets cannot be symbolic links.');
+                }
+                if (! file_exists($finalDirectory)) {
+                    return null;
+                }
 
-            return $this->resultFromManifest($manifest, $finalDirectory, true);
+                $this->validateExistingDataset(
+                    $finalDirectory,
+                    $datasetsRoot,
+                    $datasetKey,
+                    $snapshots,
+                    $sourceMetadata,
+                );
+                $this->activator->activate($outputRoot, $datasetKey);
+                $manifest = $this->decodeJsonFile(
+                    $finalDirectory.'/manifest.json',
+                    SpellHistoryArtifact::MAX_MANIFEST_BYTES,
+                    'existing spell history manifest',
+                );
+
+                return $this->resultFromManifest($manifest, $finalDirectory, true);
+            },
+        );
+        if ($existingResult !== null) {
+            return $existingResult;
         }
 
         $stageDirectory = $outputRoot.'/.staging-'.bin2hex(random_bytes(16));
@@ -214,11 +231,16 @@ final class SpellHistoryCompiler
             );
             $this->writeCompletionMarker($stageDirectory, $manifest, $manifestBytes);
 
-            if (! rename($stageDirectory, $finalDirectory)) {
-                throw new RuntimeException("Unable to promote staged dataset {$datasetKey}.");
-            }
+            $this->mutationLock->exclusive($outputRoot, function () use ($stageDirectory, $finalDirectory, $datasetKey, $outputRoot): void {
+                if (file_exists($finalDirectory) || is_link($finalDirectory)) {
+                    throw new RuntimeException("Unable to promote staged dataset {$datasetKey}: the target already exists.");
+                }
+                if (! rename($stageDirectory, $finalDirectory)) {
+                    throw new RuntimeException("Unable to promote staged dataset {$datasetKey}.");
+                }
 
-            $this->activate($outputRoot, $datasetKey);
+                $this->activator->activate($outputRoot, $datasetKey);
+            });
             if ($progress !== null) {
                 $progress('complete', ['dataset' => $datasetKey, 'spells' => $spellCount, 'revisions' => $revisionCount]);
             }
@@ -889,141 +911,6 @@ final class SpellHistoryCompiler
             || ($artifact['canonical_format_version'] ?? null) !== SpellCanonicalizer::FORMAT_VERSION
             || ($artifact['dataset'] ?? null) !== $datasetKey) {
             throw new RuntimeException("Existing {$type} artifact has an incompatible format.");
-        }
-    }
-
-    private function activate(string $outputRoot, string $datasetKey): void
-    {
-        if (preg_match(SpellHistoryArtifact::DATASET_KEY_PATTERN, $datasetKey) !== 1) {
-            throw new RuntimeException('Refusing to activate an invalid dataset key.');
-        }
-
-        $lockPath = $outputRoot.'/.activation.lock';
-        if (is_link($lockPath)) {
-            throw new RuntimeException('Spell history activation lock cannot be a symbolic link.');
-        }
-        $lock = fopen($lockPath, 'c+b');
-        if ($lock === false || ! flock($lock, LOCK_EX)) {
-            if (is_resource($lock)) {
-                fclose($lock);
-            }
-            throw new RuntimeException('Unable to lock spell history activation.');
-        }
-
-        $temporary = $outputRoot.'/.CURRENT-'.bin2hex(random_bytes(8)).'.tmp';
-        $current = $outputRoot.'/CURRENT';
-        $backup = $outputRoot.'/'.self::ACTIVATION_BACKUP_FILENAME;
-
-        try {
-            $this->recoverInterruptedActivation($current, $backup);
-            $pointer = $datasetKey."\n";
-            $this->writeActivationPointer($temporary, $pointer);
-
-            if (@rename($temporary, $current)) {
-                return;
-            }
-
-            // Windows cannot rename over an existing file. The activation lock keeps
-            // cooperating readers out while the old pointer is moved and replaced.
-            if (! is_file($current) || ! rename($current, $backup)) {
-                throw new RuntimeException('Unable to replace the spell history activation pointer.');
-            }
-            if (! rename($temporary, $current)) {
-                if (! @rename($backup, $current)) {
-                    throw new RuntimeException(
-                        'Unable to install or restore the spell history activation pointer; the previous pointer remains recoverable in CURRENT.bak.'
-                    );
-                }
-                throw new RuntimeException('Unable to install the spell history activation pointer.');
-            }
-            @unlink($backup);
-        } finally {
-            if (is_file($temporary)) {
-                @unlink($temporary);
-            }
-            flock($lock, LOCK_UN);
-            fclose($lock);
-        }
-    }
-
-    private function recoverInterruptedActivation(string $current, string $backup): void
-    {
-        if (is_link($current)) {
-            throw new RuntimeException('Spell history CURRENT cannot be a symbolic link.');
-        }
-        if (is_link($backup)) {
-            throw new RuntimeException('Spell history CURRENT backup cannot be a symbolic link.');
-        }
-
-        $hasCurrent = file_exists($current);
-        $hasBackup = file_exists($backup);
-        if ($hasCurrent && ! is_file($current)) {
-            throw new RuntimeException('Spell history CURRENT must be a regular file.');
-        }
-        if ($hasBackup && ! is_file($backup)) {
-            throw new RuntimeException('Spell history CURRENT backup must be a regular file.');
-        }
-
-        if ($hasCurrent) {
-            $this->readActivationPointer($current, 'CURRENT');
-            if ($hasBackup) {
-                $this->readActivationPointer($backup, 'CURRENT backup');
-                if (! unlink($backup)) {
-                    throw new RuntimeException('Unable to remove the stale spell history CURRENT backup.');
-                }
-            }
-
-            return;
-        }
-        if (! $hasBackup) {
-            return;
-        }
-
-        $this->readActivationPointer($backup, 'CURRENT backup');
-        if (! rename($backup, $current)) {
-            throw new RuntimeException('Unable to recover the interrupted spell history activation pointer.');
-        }
-    }
-
-    private function readActivationPointer(string $path, string $label): string
-    {
-        $bytes = filesize($path);
-        $raw = file_get_contents($path);
-        if ($bytes === false || $bytes < 64 || $bytes > 66 || $raw === false) {
-            throw new RuntimeException("Spell history {$label} has an invalid size.");
-        }
-
-        $key = rtrim($raw, "\r\n");
-        if (($raw !== $key && $raw !== $key."\n" && $raw !== $key."\r\n")
-            || preg_match(SpellHistoryArtifact::DATASET_KEY_PATTERN, $key) !== 1) {
-            throw new RuntimeException("Spell history {$label} contains an invalid dataset key.");
-        }
-
-        return $key;
-    }
-
-    private function writeActivationPointer(string $path, string $pointer): void
-    {
-        $handle = fopen($path, 'x+b');
-        if ($handle === false) {
-            throw new RuntimeException('Unable to create the spell history activation pointer.');
-        }
-
-        try {
-            $offset = 0;
-            $length = strlen($pointer);
-            while ($offset < $length) {
-                $written = fwrite($handle, substr($pointer, $offset));
-                if ($written === false || $written === 0) {
-                    throw new RuntimeException('Unable to write the spell history activation pointer.');
-                }
-                $offset += $written;
-            }
-            if (! fflush($handle) || (function_exists('fsync') && ! fsync($handle))) {
-                throw new RuntimeException('Unable to flush the spell history activation pointer.');
-            }
-        } finally {
-            fclose($handle);
         }
     }
 

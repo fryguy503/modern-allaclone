@@ -9,17 +9,24 @@
     </div>
 
     <div class="card bg-base-300 shadow-sm mb-4">
-        <div class="card-body">
-            <h2 class="card-title">{{ ucRomanNumeral($recipe->name) }}</h2>
-            <p>
-                {{ config('everquest.skills.tradeskill')[$recipe->tradeskill] ?? 'Non-Tradeskill' }} -
-                <span class="{{ $recipe->trivial >= 300 ? 'text-error font-semibold' : 'text-accent font-semibold' }}">
-                    {{ $recipe->trivial }}
-                </span> trivial
-                @if ($recipe->enabled === 0)
-                 / <span class="text-error font-semibold">Not Enabled</span>
-                @endif
-            </p>
+        <div class="card-body flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h2 class="card-title">{{ ucRomanNumeral($recipe->name) }}</h2>
+                <p>
+                    {{ config('everquest.skills.tradeskill')[$recipe->tradeskill] ?? 'Non-Tradeskill' }} -
+                    <span class="{{ $recipe->trivial >= 300 ? 'text-error font-semibold' : 'text-accent font-semibold' }}">
+                        {{ $recipe->trivial }}
+                    </span> trivial
+                    @if ($recipe->enabled === 0)
+                     / <span class="text-error font-semibold">Not Enabled</span>
+                    @endif
+                </p>
+            </div>
+            @if (config('everquest.tradeskill_planner.enable', true))
+                <a href="{{ route('recipes.plan', $recipe) }}" class="btn btn-sm btn-primary shrink-0">
+                    Plan this recipe
+                </a>
+            @endif
         </div>
     </div>
 

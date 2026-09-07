@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "documentation": {
+    "discovery": "Paths are matched relative to the source root with / separators. ** crosses directories; * and ? do not.",
+    "admit_new_records": "False means parsed occurrences may corroborate an existing record but cannot create a public record by themselves.",
+    "pdf_ocr": "PDFs without an extractable text layer are reported as ocr_required. The importer never performs OCR automatically.",
+    "feeds": "RSS/XML files are local inputs. Use sync-patch-feed.py for the allowlisted official RSS endpoint; excerpts are provenance-only unless admit_excerpts is explicitly enabled, and no forum crawler is provided.",
+    "expansions": "Update this timeline before importing newer eras. Dates after the final explicit end are labeled Unmapped Expansion."
+  },
+  "discovery": {
+    "include_globs": ["**/*"],
+    "exclude_globs": [
+      "**/*.http-cache.json",
+      "**/everquest-patch-history.json",
+      "**/everquest-patch-history.csv",
+      "**/everquest-patch-suggestions.json",
+      "**/everquest-patch-import-report.json"
+    ],
+    "exclude_directories": [".git", ".svn", "node_modules", "vendor"],
+    "max_file_bytes": 52428800
+  },
+  "adapters": {
+    "text": {
+      "enabled": true,
+      "extensions": [".txt", ".log", ".notes"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 30
+    },
+    "markdown": {
+      "enabled": true,
+      "extensions": [".md", ".markdown"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 25
+    },
+    "html": {
+      "enabled": true,
+      "extensions": [".html", ".htm"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 35,
+      "helper": "patch_document_adapter.py",
+      "max_text_characters": 5000000
+    },
+    "rss": {
+      "enabled": true,
+      "extensions": [".rss", ".xml", ".atom"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "admit_excerpts": false,
+      "priority": 15,
+      "helper": "patch_document_adapter.py",
+      "max_items": 500,
+      "max_xml_bytes": 10485760,
+      "max_text_characters": 5000000
+    },
+    "pdf": {
+      "enabled": true,
+      "extensions": [".pdf"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 20,
+      "helper": "patch_document_adapter.py",
+      "minimum_text_characters": 32,
+      "max_pages": 1000,
+      "max_text_characters": 5000000
+    },
+    "docx": {
+      "enabled": true,
+      "extensions": [".docx"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 25,
+      "helper": "patch_document_adapter.py",
+      "minimum_text_characters": 12,
+      "max_archive_entries": 2048,
+      "max_docx_compressed_bytes": 52428800,
+      "max_uncompressed_bytes": 209715200,
+      "max_docx_entry_compressed_bytes": 26214400,
+      "max_docx_entry_uncompressed_bytes": 52428800,
+      "max_docx_paragraphs": 100000,
+      "max_compression_ratio": 200,
+      "max_text_characters": 5000000
+    },
+    "json": {
+      "enabled": true,
+      "extensions": [".json"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 25,
+      "helper": "patch_document_adapter.py",
+      "max_items": 10000,
+      "max_text_characters": 5000000
+    },
+    "csv": {
+      "enabled": true,
+      "extensions": [".csv"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 25,
+      "helper": "patch_document_adapter.py",
+      "max_items": 10000,
+      "max_text_characters": 5000000
+    },
+    "tsv": {
+      "enabled": true,
+      "extensions": [".tsv"],
+      "parse_records": true,
+      "admit_new_records": true,
+      "priority": 25,
+      "helper": "patch_document_adapter.py",
+      "max_items": 10000,
+      "max_text_characters": 5000000
+    }
+  },
+  "source_overrides": [
+    {
+      "pattern": "(?:^|/)(?:README|last)\\.md$",
+      "parse_records": false,
+      "role": "supporting archive material"
+    },
+    {
+      "pattern": "(?:^|/)patch\\.txt$",
+      "parse_records": false,
+      "role": "supporting archive material"
+    },
+    {
+      "pattern": "(?:^|/).*combined.*\\.(?:md|markdown)$",
+      "role": "corroborating patch source",
+      "priority": 10,
+      "admit_new_records": false
+    },
+    {
+      "pattern": "(?:^|/).*combined.*\\.(?:txt|log|notes)$",
+      "role": "corroborating patch source",
+      "priority": 20,
+      "admit_new_records": true
+    },
+    {
+      "pattern": "beta",
+      "role": "canonical patch source",
+      "priority": 40
+    },
+    {
+      "pattern": "(?:^|/)Patch_Summaries\\.pdf$",
+      "role": "curated historical highlights",
+      "priority": 5,
+      "admit_new_records": false
+    },
+    {
+      "pattern": "\\.(?:rss|atom|xml)$",
+      "role": "official recent update-notes feed",
+      "priority": 15
+    }
+  ],
+  "stable_slugs": {
+    "enabled": true,
+    "reuse_by_content_hash_and_date": true,
+    "reuse_by_canonical_url_and_date": true
+  },
+  "safety": {
+    "allow_empty": false,
+    "maximum_removal_percent": 0,
+    "adapter_timeout_seconds": 60,
+    "maximum_adapter_output_bytes": 67108864
+  },
+  "unmapped_expansion_name": "Unmapped Expansion",
+  "expansion_timeline": [
+    {"start": "1998-01-01", "name": "EverQuest Beta"},
+    {"start": "1999-03-16", "name": "Original EverQuest"},
+    {"start": "2000-04-24", "name": "The Ruins of Kunark"},
+    {"start": "2000-12-05", "name": "The Scars of Velious"},
+    {"start": "2001-12-04", "name": "The Shadows of Luclin"},
+    {"start": "2002-10-29", "name": "The Planes of Power"},
+    {"start": "2003-02-25", "name": "The Legacy of Ykesha"},
+    {"start": "2003-09-09", "name": "Lost Dungeons of Norrath"},
+    {"start": "2004-02-10", "name": "Gates of Discord"},
+    {"start": "2004-09-14", "name": "Omens of War"},
+    {"start": "2005-02-15", "name": "Dragons of Norrath"},
+    {"start": "2005-09-13", "name": "Depths of Darkhollow"},
+    {"start": "2006-02-21", "name": "Prophecy of Ro"},
+    {"start": "2006-09-19", "name": "The Serpent's Spine"},
+    {"start": "2007-02-13", "name": "The Buried Sea"},
+    {"start": "2007-11-13", "name": "Secrets of Faydwer"},
+    {"start": "2008-10-21", "name": "Seeds of Destruction"},
+    {"start": "2009-12-15", "name": "Underfoot"},
+    {"start": "2010-10-12", "name": "House of Thule"},
+    {"start": "2011-11-15", "name": "Veil of Alaris"},
+    {"start": "2012-11-28", "name": "Rain of Fear"},
+    {"start": "2013-10-08", "name": "Call of the Forsaken"},
+    {"start": "2014-10-28", "name": "The Darkened Sea"},
+    {"start": "2015-11-18", "name": "The Broken Mirror"},
+    {"start": "2016-11-16", "name": "Empires of Kunark"},
+    {"start": "2017-12-12", "name": "Ring of Scale"},
+    {"start": "2018-12-11", "name": "The Burning Lands"},
+    {"start": "2019-12-18", "name": "Torment of Velious"},
+    {"start": "2020-12-08", "name": "Claws of Veeshan"},
+    {"start": "2021-12-07", "end": "2022-12-05", "name": "Terror of Luclin"},
+    {"start": "2022-12-06", "end": "2023-12-04", "name": "Night of Shadows"},
+    {"start": "2023-12-05", "end": "2024-12-02", "name": "Laurion's Song"},
+    {"start": "2024-12-03", "end": "2025-12-01", "name": "The Outer Brood"},
+    {"start": "2025-12-02", "name": "Shattering of Ro"}
+  ],
+  "category_rules": [
+    {"slug": "bug-fixes", "label": "Bug Fixes", "pattern": "\\b(?:bug fixes?|fixed|corrected an issue|crash(?:es|ing)?|exploit)\\b", "flags": "i"},
+    {"slug": "classes", "label": "Classes", "pattern": "\\b(?:class changes?|warrior|cleric|paladin|ranger|shadowknight|druid|monk|bard|rogue|shaman|necromancer|wizard|magician|enchanter|beastlord|berserker)\\b", "flags": "i"},
+    {"slug": "spells-aa", "label": "Spells & AA", "pattern": "\\b(?:spells?|alternate advancement|AA|abilities)\\b", "flags": "i"},
+    {"slug": "items", "label": "Items", "pattern": "\\b(?:items?|weapons?|armor|augmentations?|loot)\\b", "flags": "i"},
+    {"slug": "zones-npcs", "label": "Zones & NPCs", "pattern": "\\b(?:zones?|NPCs?|encounters?|mobs?|creatures?)\\b", "flags": "i"},
+    {"slug": "quests-events", "label": "Quests & Events", "pattern": "\\b(?:quests?|missions?|raids?|events?|anniversary)\\b", "flags": "i"},
+    {"slug": "tradeskills", "label": "Tradeskills", "pattern": "\\b(?:tradeskills?|recipes?|crafting|forage|fishing)\\b", "flags": "i"},
+    {"slug": "ui", "label": "UI", "pattern": "\\b(?:interface|UI files?|windows?|hotbuttons?|display)\\b", "flags": "i"},
+    {"slug": "pvp", "label": "PvP", "pattern": "\\b(?:PvP|player.?versus.?player|player kill)\\b", "flags": "i"},
+    {"slug": "servers", "label": "Servers", "pattern": "\\b(?:servers?|stability|infrastructure|network|login)\\b", "flags": "i"},
+    {"slug": "audio-graphics", "label": "Audio & Graphics", "pattern": "\\b(?:audio|sound|music|graphics?|models?|DirectX|render)\\b", "flags": "i"},
+    {"slug": "expansions", "label": "Expansions", "pattern": "\\b(?:expansion|launches|pre.?order|Kunark|Velious|Luclin|Planes of Power|Ykesha|Dungeons of Norrath|Gates of Discord|Omens of War|Depths of Darkhollow|Prophecy of Ro|Serpent's Spine|Buried Sea|Faydwer|Seeds of Destruction|Underfoot|House of Thule|Veil of Alaris|Rain of Fear|Call of the Forsaken|Darkened Sea|Broken Mirror|Empires of Kunark|Ring of Scale|Burning Lands|Torment of Velious|Claws of Veeshan|Terror of Luclin|Night of Shadows|Laurion's Song|Outer Brood|Shattering of Ro)\\b", "flags": "i"}
+  ]
+}

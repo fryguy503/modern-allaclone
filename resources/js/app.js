@@ -1,11 +1,14 @@
 import './bootstrap';
 import Alpine from 'alpinejs'
 import npcLocationMap from './components/npc-location-map';
+import { savedTradeskillPlans, tradeskillPlanner } from './tradeskill-planner';
 
 const baseUrl = document.querySelector('base')?.getAttribute('href') || '/';
 
 Alpine.data('npcLocationMap', npcLocationMap);
 Alpine.data('zoneAtlasMap', npcLocationMap);
+Alpine.data('tradeskillPlanner', tradeskillPlanner);
+Alpine.data('savedTradeskillPlans', savedTradeskillPlans);
 
 Alpine.data('eqsearch', (initialQuery = '') => ({
     query: initialQuery,
@@ -239,6 +242,30 @@ document.addEventListener("DOMContentLoaded", function () {
             const value = e.target.value;
             if (value) {
                 window.location.href = `${baseUrl}factions/${value}`;
+            }
+        });
+    }
+
+    // AA ability and class filters (kept out of inline handlers for CSP compatibility)
+    const aaFilters = document.getElementById('aa-filters');
+    if (aaFilters) {
+        const aaBaseUrl = aaFilters.dataset.aaBaseUrl;
+        const abilityFilter = document.getElementById('ability-filter');
+        const classFilter = document.getElementById('aa-class-filter');
+
+        abilityFilter?.addEventListener('change', (event) => {
+            if (event.target.value) {
+                window.location.href = `${aaBaseUrl}/${encodeURIComponent(event.target.value)}`;
+            }
+        });
+
+        classFilter?.addEventListener('change', (event) => {
+            if (aaFilters.dataset.abilitySelected === '1') {
+                const destination = new URL(aaBaseUrl, window.location.origin);
+                if (event.target.value) destination.searchParams.set('classes', event.target.value);
+                window.location.href = destination.toString();
+            } else {
+                aaFilters.submit();
             }
         });
     }
