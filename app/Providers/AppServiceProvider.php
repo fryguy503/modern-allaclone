@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\ItemHistory\ItemHistoryRepository;
 use App\Services\PatchArchive;
 use App\Services\SpellHistory\SpellHistoryRepository;
 use Illuminate\Pagination\Paginator;
@@ -17,6 +18,12 @@ class AppServiceProvider extends ServiceProvider
         if (config('everquest.patch_history.enable', true)) {
             $this->app->singleton(PatchArchive::class);
         }
+
+        $this->app->singleton(ItemHistoryRepository::class, function (): ItemHistoryRepository {
+            return new ItemHistoryRepository(
+                (string) config('everquest.item_history.artifact_path'),
+            );
+        });
 
         $this->app->singleton(SpellHistoryRepository::class, function (): SpellHistoryRepository {
             return new SpellHistoryRepository(

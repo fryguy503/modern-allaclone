@@ -5,6 +5,7 @@ use App\Http\Controllers\DiscoveredItemController;
 use App\Http\Controllers\FactionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemHistoryController;
 use App\Http\Controllers\NpcController;
 use App\Http\Controllers\PatchController;
 use App\Http\Controllers\PatchExportController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\SpellHistoryController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TradeskillPlannerController;
 use App\Http\Controllers\ZoneController;
+use App\Http\Middleware\ItemHistoryEnabled;
 use App\Http\Middleware\SpellHistoryEnabled;
 use App\Http\Middleware\TasksEnabled;
 use Illuminate\Foundation\Http\Middleware\ValidateCsrfToken;
@@ -69,6 +71,17 @@ Route::get('/aa/{ability}', [AaAbilityController::class, 'show'])->name('aa.show
 
 // items
 Route::get('/items', [ItemController::class, 'index'])->name('items.index');
+Route::get('/items/{item}/history', [ItemHistoryController::class, 'show'])
+    ->name('items.history')
+    ->whereNumber('item')
+    ->middleware(ItemHistoryEnabled::class)
+    // This read-only, publicly cacheable endpoint must not open a database-backed
+    // session or emit a session cookie.
+    ->withoutMiddleware([
+        StartSession::class,
+        ShareErrorsFromSession::class,
+        ValidateCsrfToken::class,
+    ]);
 Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
 Route::get('/items/popup/{item}', [ItemController::class, 'popup'])->name('items.popup');
 Route::get('/items/drops_by_zone/{item}', [ItemController::class, 'drops_by_zone'])->name('items.drops_by_zone');

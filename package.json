@@ -4,13 +4,15 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
+        "items:crawl": "node scripts/lucy-item-history-crawler.mjs",
+        "items:crawl:status": "node scripts/lucy-item-history-crawler.mjs status",
         "maps:build": "node scripts/build-eq-maps.mjs",
         "maps:check": "node scripts/build-eq-maps.mjs --check",
         "patches:import": "node scripts/build-patch-history.mjs --strict",
         "patches:import:check": "node scripts/build-patch-history.mjs --strict --dry-run",
         "patches:sync-feed": "python scripts/sync-patch-feed.py",
         "patches:validate": "python scripts/validate-patch-history.py",
-        "test:js": "node --test tests/JavaScript/eq-map-format.test.js",
+        "test:js": "node --test tests/JavaScript/eq-map-format.test.js tests/JavaScript/lucy-crawl-state.test.js tests/JavaScript/lucy-item-history-crawler.test.js tests/JavaScript/lucy-item-history-parser.test.js",
         "test:patch-importer": "node --test tests/patch-importer.test.mjs",
         "test:patch-tools": "python -m unittest discover -s tests -p test_*.py"
     },
