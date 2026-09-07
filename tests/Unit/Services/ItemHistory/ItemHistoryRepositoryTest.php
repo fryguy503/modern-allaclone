@@ -44,6 +44,108 @@ class ItemHistoryRepositoryTest extends TestCase
         $this->assertNull($repository->forItem(999_999));
     }
 
+    public function test_it_keeps_reading_the_legacy_flat_layout_when_no_activation_pointer_exists(): void
+    {
+        $legacy = $this->artifact();
+        $legacy['latest_name'] = 'Legacy flat artifact';
+        $this->writeArtifact(20_542, $legacy);
+
+        $repository = new ItemHistoryRepository($this->temporaryDirectory);
+
+        $this->assertSame('Legacy flat artifact', $repository->item(20_542)['latest_name']);
+    }
+
+    public function test_it_observes_the_dataset_selected_by_current_and_future_pointer_changes(): void
+    {
+        $legacy = $this->artifact();
+        $legacy['latest_name'] = 'Legacy flat artifact';
+        $this->writeArtifact(20_542, $legacy);
+
+        $firstKey = str_repeat('a', 64);
+        $first = $this->artifact();
+        $first['latest_name'] = 'First immutable dataset';
+        $this->createDataset($firstKey, $first);
+
+        $secondKey = str_repeat('b', 64);
+        $second = $this->artifact();
+        $second['latest_name'] = 'Second immutable dataset';
+        $this->createDataset($secondKey, $second);
+
+        file_put_contents($this->temporaryDirectory.'/CURRENT', $firstKey."\n");
+        $repository = new ItemHistoryRepository($this->temporaryDirectory);
+        $this->assertSame('First immutable dataset', $repository->item(20_542)['latest_name']);
+
+        file_put_contents($this->temporaryDirectory.'/CURRENT', $secondKey."\n");
+        $this->assertSame('Second immutable dataset', $repository->item(20_542)['latest_name']);
+    }
+
+    public function test_it_uses_the_activation_backup_only_when_current_is_absent(): void
+    {
+        $datasetKey = str_repeat('a', 64);
+        $artifact = $this->artifact();
+        $artifact['latest_name'] = 'Recovered immutable dataset';
+        $this->createDataset($datasetKey, $artifact);
+        file_put_contents($this->temporaryDirectory.'/.CURRENT.bak', $datasetKey."\n");
+
+        $repository = new ItemHistoryRepository($this->temporaryDirectory);
+        $this->assertSame('Recovered immutable dataset', $repository->item(20_542)['latest_name']);
+
+        file_put_contents($this->temporaryDirectory.'/CURRENT', "invalid\n");
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('CURRENT has an invalid size');
+        $repository->item(20_542);
+    }
+
+    public function test_it_does_not_fall_back_to_legacy_data_for_a_missing_active_dataset(): void
+    {
+        $this->writeArtifact(20_542, $this->artifact());
+        file_put_contents($this->temporaryDirectory.'/CURRENT', str_repeat('a', 64)."\n");
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('active item history dataset is missing or unsafe');
+        (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
+    }
+
+    public function test_it_rejects_an_incomplete_active_dataset(): void
+    {
+        $datasetKey = str_repeat('a', 64);
+        $datasetRoot = $this->temporaryDirectory.'/datasets/'.$datasetKey;
+        mkdir($datasetRoot.'/items', 0755, true);
+        file_put_contents($datasetRoot.'/manifest.json', '{}');
+        file_put_contents($this->temporaryDirectory.'/CURRENT', $datasetKey."\n");
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('missing or unsafe COMPLETE.json');
+        (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
+    }
+
+    public function test_it_does_not_read_legacy_item_backups_from_an_immutable_dataset(): void
+    {
+        $datasetKey = str_repeat('a', 64);
+        $this->createDataset($datasetKey, $this->artifact());
+        $datasetRoot = $this->temporaryDirectory.'/datasets/'.$datasetKey;
+        $artifactPath = $datasetRoot.'/'.ItemHistoryArtifact::itemRelativePath(20_542);
+        rename($artifactPath, $artifactPath.'.bak');
+        file_put_contents($this->temporaryDirectory.'/CURRENT', $datasetKey."\n");
+
+        $this->assertNull((new ItemHistoryRepository($this->temporaryDirectory))->item(20_542));
+    }
+
+    public function test_it_rejects_a_completion_marker_for_a_different_dataset(): void
+    {
+        $datasetKey = str_repeat('a', 64);
+        $this->createDataset($datasetKey, $this->artifact());
+        file_put_contents(
+            $this->temporaryDirectory.'/datasets/'.$datasetKey.'/COMPLETE.json',
+            json_encode(['dataset' => str_repeat('b', 64)], JSON_THROW_ON_ERROR),
+        );
+        file_put_contents($this->temporaryDirectory.'/CURRENT', $datasetKey."\n");
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('completion marker does not match CURRENT');
+        (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
+    }
+
     public function test_it_normalizes_compatible_crawler_aliases_without_weakening_the_core_schema(): void
     {
         $artifact = $this->artifact();
@@ -66,6 +168,27 @@ class ItemHistoryRepositoryTest extends TestCase
         $this->assertSame('AC changed from 10 to 12', $revision['changes'][0]['display']);
         $this->assertSame(['AC: 12'], $revision['detail']['snapshot_lines']);
         $this->assertSame(str_repeat('a', 64), $revision['capture_sha256']);
+    }
+
+    public function test_direct_detail_artifacts_allow_only_an_absent_or_version_one_parser(): void
+    {
+        $artifact = $this->artifact();
+        $artifact['parser_format_version'] = ItemHistoryArtifact::DIRECT_DETAIL_PARSER_FORMAT_VERSION;
+        $this->writeArtifact(20_542, $artifact);
+
+        $loaded = (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
+
+        $this->assertSame(ItemHistoryArtifact::DIRECT_DETAIL_PARSER_FORMAT_VERSION, $loaded['parser_format_version']);
+
+        $invalidRoot = $this->temporaryDirectory.'/invalid-direct-parser';
+        mkdir($invalidRoot);
+        $artifact['parser_format_version'] = ItemHistoryArtifact::REVERSIBLE_DELTA_PARSER_FORMAT_VERSION;
+        $this->writeArtifact(20_542, $artifact, $invalidRoot);
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('is inconsistent');
+
+        (new ItemHistoryRepository($invalidRoot))->item(20_542);
     }
 
     public function test_it_observes_an_independently_atomically_replaced_item_file(): void
@@ -342,8 +465,8 @@ class ItemHistoryRepositoryTest extends TestCase
     public function test_it_rejects_nested_structures_and_render_values_over_safe_limits(): void
     {
         $tooManyRevisions = $this->artifact();
-        $tooManyRevisions['revisions'] = array_fill(0, 5_001, []);
-        $tooManyRevisions['revision_count'] = 5_001;
+        $tooManyRevisions['revisions'] = array_fill(0, 20_001, []);
+        $tooManyRevisions['revision_count'] = 20_001;
 
         $tooManyChanges = $this->artifact();
         $tooManyChanges['revisions'][0]['changes'] = array_fill(
@@ -399,6 +522,55 @@ class ItemHistoryRepositoryTest extends TestCase
                 $this->addToAssertionCount(1);
             }
         }
+    }
+
+    public function test_it_accepts_a_measured_high_revision_corpus_within_the_reader_limits(): void
+    {
+        $artifact = $this->artifact();
+        $revision = $artifact['revisions'][0];
+        $artifact['revisions'] = array_fill(0, 13_590, $revision);
+        foreach ($artifact['revisions'] as $index => &$entry) {
+            $entry['entry_id'] = $index + 1;
+        }
+        unset($entry);
+        $artifact['revision_count'] = 13_590;
+        $artifact['first_observed_at'] = $revision['observed_at'];
+        $artifact['last_observed_at'] = $revision['observed_at'];
+        $this->writeArtifact(20_542, $artifact);
+
+        $json = file_get_contents($this->artifactPath(20_542));
+        $this->assertIsString($json);
+        $this->assertGreaterThan(
+            100_000,
+            substr_count($json, '{') + substr_count($json, '[') + substr_count($json, ','),
+        );
+        $this->assertGreaterThan(200_000, $this->decodedValueCount($artifact));
+
+        $loaded = (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
+
+        $this->assertSame(13_590, $loaded['revision_count']);
+        $this->assertCount(13_590, $loaded['revisions']);
+    }
+
+    public function test_it_keeps_rejecting_aggregate_render_estimates_above_128_mib(): void
+    {
+        $artifact = $this->artifact();
+        $revision = $artifact['revisions'][0];
+        $revision['changes'][0]['display'] = str_repeat('x', 800);
+        $artifact['revisions'] = array_fill(0, 12_000, $revision);
+        foreach ($artifact['revisions'] as $index => &$entry) {
+            $entry['entry_id'] = $index + 1;
+        }
+        unset($entry);
+        $artifact['revision_count'] = 12_000;
+        $artifact['first_observed_at'] = $revision['observed_at'];
+        $artifact['last_observed_at'] = $revision['observed_at'];
+        $this->writeArtifact(20_542, $artifact);
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('too large to render safely');
+
+        (new ItemHistoryRepository($this->temporaryDirectory))->item(20_542);
     }
 
     public function test_pagination_also_obeys_the_estimated_page_render_budget(): void
@@ -568,9 +740,35 @@ class ItemHistoryRepositoryTest extends TestCase
         file_put_contents($path, json_encode($artifact, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES));
     }
 
+    /** @param array<string, mixed> $artifact */
+    private function createDataset(string $datasetKey, array $artifact): void
+    {
+        $root = $this->temporaryDirectory.'/datasets/'.$datasetKey;
+        mkdir($root.'/items', 0755, true);
+        file_put_contents($root.'/manifest.json', '{}');
+        file_put_contents($root.'/COMPLETE.json', json_encode([
+            'dataset' => $datasetKey,
+        ], JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES));
+        $this->writeArtifact(20_542, $artifact, $root);
+    }
+
     private function artifactPath(int $itemId): string
     {
         return $this->temporaryDirectory.'/'.ItemHistoryArtifact::itemRelativePath($itemId);
+    }
+
+    private function decodedValueCount(mixed $value): int
+    {
+        if (! is_array($value)) {
+            return 1;
+        }
+
+        $count = 1;
+        foreach ($value as $nestedValue) {
+            $count += $this->decodedValueCount($nestedValue);
+        }
+
+        return $count;
     }
 
     private function removeTree(string $path): void

@@ -13,7 +13,9 @@ final class ItemHistoryRepository
 {
     private const MAX_PAGE_SIZE = 100;
 
-    private const MAX_REVISIONS = 5_000;
+    private const ACTIVATION_BACKUP_FILENAME = '.CURRENT.bak';
+
+    private const MAX_REVISIONS = 20_000;
 
     private const MAX_CHANGES_PER_REVISION = 512;
 
@@ -33,9 +35,9 @@ final class ItemHistoryRepository
 
     private const MAX_CURRENT_RAW_FIELDS = 4_096;
 
-    private const MAX_JSON_STRUCTURAL_MARKERS = 100_000;
+    private const MAX_JSON_STRUCTURAL_MARKERS = 300_000;
 
-    private const MAX_JSON_VALUES = 200_000;
+    private const MAX_JSON_VALUES = 300_000;
 
     private const MAX_JSON_CONTAINER_ENTRIES = 20_000;
 
@@ -61,7 +63,7 @@ final class ItemHistoryRepository
 
     private const MAX_LINK_HREF_BYTES = 8_192;
 
-    private const MAX_ARTIFACT_ESTIMATED_RENDER_BYTES = 67_108_864;
+    private const MAX_ARTIFACT_ESTIMATED_RENDER_BYTES = 134_217_728;
 
     private const MAX_PAGE_ESTIMATED_RENDER_BYTES = 2_097_152;
 
@@ -87,6 +89,12 @@ final class ItemHistoryRepository
 
     private string $artifactRoot;
 
+    private ?string $activeDatasetKey = null;
+
+    private ?string $activeDatasetRoot = null;
+
+    private int $stableReadDepth = 0;
+
     public function __construct(string $artifactRoot)
     {
         $this->artifactRoot = SafePath::prospectiveDirectory($artifactRoot, 'Item history artifact root');
@@ -102,11 +110,17 @@ final class ItemHistoryRepository
     {
         $this->assertItemId($itemId);
 
-        if (! is_dir($this->artifactRoot)) {
+        return $this->stableRead(fn (): ?array => $this->readItem($itemId));
+    }
+
+    /** @return array<string, mixed>|null */
+    private function readItem(int $itemId): ?array
+    {
+        if (! $this->refreshActiveDataset()) {
             return null;
         }
 
-        $root = SafePath::existingDirectory($this->artifactRoot, 'Item history artifact root');
+        $root = $this->activeDatasetRoot;
         $primaryPath = $root.'/'.ItemHistoryArtifact::itemRelativePath($itemId);
 
         if (is_link($primaryPath)) {
@@ -115,6 +129,10 @@ final class ItemHistoryRepository
         $path = $primaryPath;
         $label = "Item history for item {$itemId}";
         if (! file_exists($primaryPath)) {
+            if ($this->activeDatasetKey !== null) {
+                return null;
+            }
+
             $backupPath = $primaryPath.'.bak';
             if (is_link($backupPath)) {
                 throw new RuntimeException("The item history backup for item {$itemId} cannot be a symbolic link.");
@@ -136,6 +154,182 @@ final class ItemHistoryRepository
         $this->validateArtifact($artifact, $itemId);
 
         return $this->normalizeArtifact($artifact);
+    }
+
+    private function refreshActiveDataset(): bool
+    {
+        if ($this->stableReadDepth > 0) {
+            return $this->activeDatasetRoot !== null;
+        }
+
+        if (! is_dir($this->artifactRoot)) {
+            $this->clearActiveDataset();
+
+            return false;
+        }
+
+        $root = SafePath::existingDirectory($this->artifactRoot, 'Item history artifact root');
+        $lock = $this->sharedActivationLock($root);
+        try {
+            $pointerPath = $root.'/CURRENT';
+            if (is_link($pointerPath)) {
+                throw new RuntimeException('Item history CURRENT must be a regular file.');
+            }
+            if (file_exists($pointerPath)) {
+                if (! is_file($pointerPath)) {
+                    throw new RuntimeException('Item history CURRENT must be a regular file.');
+                }
+                $key = $this->readActivationPointer($pointerPath, 'CURRENT', $root);
+            } else {
+                $pointerPath = $root.'/'.self::ACTIVATION_BACKUP_FILENAME;
+                if (! file_exists($pointerPath) && ! is_link($pointerPath)) {
+                    $this->activeDatasetKey = null;
+                    $this->activeDatasetRoot = $root;
+
+                    return true;
+                }
+                if (is_link($pointerPath) || ! is_file($pointerPath)) {
+                    throw new RuntimeException('Item history .CURRENT.bak must be a regular file.');
+                }
+                $key = $this->readActivationPointer($pointerPath, self::ACTIVATION_BACKUP_FILENAME, $root);
+            }
+
+            if ($key === $this->activeDatasetKey && $this->activeDatasetRoot !== null) {
+                return true;
+            }
+
+            $datasetsPath = $root.'/datasets';
+            if (is_link($datasetsPath) || ! is_dir($datasetsPath)) {
+                throw new RuntimeException('The active item history dataset is missing or unsafe.');
+            }
+            $datasetsRoot = SafePath::existingDirectory($datasetsPath, 'Item history datasets directory');
+            SafePath::assertContained($datasetsRoot, $root, 'Item history datasets directory');
+
+            $datasetPath = $datasetsRoot.'/'.$key;
+            if (is_link($datasetPath) || ! is_dir($datasetPath)) {
+                throw new RuntimeException('The active item history dataset is missing or unsafe.');
+            }
+
+            $datasetRoot = SafePath::assertContained($datasetPath, $datasetsRoot, 'Active item history dataset');
+            $this->assertInstalledDatasetStructure($datasetRoot, $key);
+            $this->activeDatasetKey = $key;
+            $this->activeDatasetRoot = $datasetRoot;
+
+            return true;
+        } finally {
+            if (is_resource($lock)) {
+                flock($lock, LOCK_UN);
+                fclose($lock);
+            }
+        }
+    }
+
+    private function assertInstalledDatasetStructure(string $datasetRoot, string $datasetKey): void
+    {
+        $completionPath = null;
+        foreach (['manifest.json', 'COMPLETE.json'] as $requiredFile) {
+            $path = $datasetRoot.'/'.$requiredFile;
+            if (is_link($path) || ! is_file($path)) {
+                throw new RuntimeException("The active item history dataset has a missing or unsafe {$requiredFile} file.");
+            }
+            $resolved = SafePath::assertContained($path, $datasetRoot, "Item history {$requiredFile}");
+            if ($requiredFile === 'COMPLETE.json') {
+                $completionPath = $resolved;
+            }
+        }
+
+        $itemsPath = $datasetRoot.'/items';
+        if (is_link($itemsPath) || ! is_dir($itemsPath)) {
+            throw new RuntimeException('The active item history dataset has a missing or unsafe items directory.');
+        }
+        SafePath::assertContained($itemsPath, $datasetRoot, 'Item history items directory');
+
+        $this->assertCompletionDatasetKey($completionPath, $datasetKey);
+    }
+
+    private function assertCompletionDatasetKey(string $path, string $datasetKey): void
+    {
+        $bytes = filesize($path);
+        if ($bytes === false || $bytes < 2 || $bytes > ItemHistoryDataset::MAX_COMPLETION_BYTES) {
+            throw new RuntimeException('The active item history completion marker has an invalid size.');
+        }
+        $json = file_get_contents($path);
+        if ($json === false || strlen($json) !== $bytes) {
+            throw new RuntimeException('Unable to read the active item history completion marker.');
+        }
+
+        try {
+            $completion = json_decode($json, true, 64, JSON_THROW_ON_ERROR);
+        } catch (JsonException $exception) {
+            throw new RuntimeException('The active item history completion marker is not valid JSON.', 0, $exception);
+        }
+
+        if (! is_array($completion) || ($completion['dataset'] ?? null) !== $datasetKey) {
+            throw new RuntimeException('The active item history completion marker does not match CURRENT.');
+        }
+    }
+
+    private function readActivationPointer(string $path, string $label, string $root): string
+    {
+        $resolved = SafePath::assertContained($path, $root, "Item history {$label}");
+        $size = filesize($resolved);
+        if ($size === false || $size < 64 || $size > 66) {
+            throw new RuntimeException("Item history {$label} has an invalid size.");
+        }
+        $raw = file_get_contents($resolved);
+        if ($raw === false) {
+            throw new RuntimeException("Unable to read item history {$label}.");
+        }
+
+        $key = rtrim($raw, "\r\n");
+        if (($raw !== $key && $raw !== $key."\n" && $raw !== $key."\r\n")
+            || preg_match(ItemHistoryDataset::DATASET_KEY_PATTERN, $key) !== 1) {
+            throw new RuntimeException("Item history {$label} contains an invalid dataset key.");
+        }
+
+        return $key;
+    }
+
+    private function stableRead(callable $read): mixed
+    {
+        if ($this->stableReadDepth === 0) {
+            $this->refreshActiveDataset();
+        }
+
+        $this->stableReadDepth++;
+        try {
+            return $read();
+        } finally {
+            $this->stableReadDepth--;
+        }
+    }
+
+    /** @return resource|null */
+    private function sharedActivationLock(string $root)
+    {
+        $lockPath = $root.'/.activation.lock';
+        if (! file_exists($lockPath)) {
+            return null;
+        }
+        if (is_link($lockPath) || ! is_file($lockPath)) {
+            throw new RuntimeException('Item history activation lock is unsafe.');
+        }
+
+        $lock = fopen($lockPath, 'rb');
+        if ($lock === false || ! flock($lock, LOCK_SH)) {
+            if (is_resource($lock)) {
+                fclose($lock);
+            }
+            throw new RuntimeException('Unable to acquire the item history activation lock.');
+        }
+
+        return $lock;
+    }
+
+    private function clearActiveDataset(): void
+    {
+        $this->activeDatasetKey = null;
+        $this->activeDatasetRoot = null;
     }
 
     /** @return array<string, mixed>|null */
@@ -268,10 +462,16 @@ final class ItemHistoryRepository
         $formatVersion = $artifact['format_version'] ?? null;
         $isDirectDetail = $formatVersion === ItemHistoryArtifact::FORMAT_VERSION;
         $isReversibleDelta = $formatVersion === ItemHistoryArtifact::REVERSIBLE_DELTA_FORMAT_VERSION;
+        $hasParserVersion = array_key_exists('parser_format_version', $artifact);
+        $parserVersion = $artifact['parser_format_version'] ?? null;
+        $validVersionPair = ($isDirectDetail && (! $hasParserVersion
+                || $parserVersion === ItemHistoryArtifact::DIRECT_DETAIL_PARSER_FORMAT_VERSION))
+            || ($isReversibleDelta
+                && $parserVersion === ItemHistoryArtifact::REVERSIBLE_DELTA_PARSER_FORMAT_VERSION);
 
         if (($artifact['schema'] ?? null) !== ItemHistoryArtifact::SCHEMA
             || ($artifact['artifact_type'] ?? null) !== 'item'
-            || (! $isDirectDetail && ! $isReversibleDelta)
+            || ! $validVersionPair
             || ($artifact['item_id'] ?? null) !== $itemId
             || ! $this->validGeneratedAt($artifact['generated_at'] ?? null)
             || ! array_key_exists('latest_name', $artifact)

@@ -64,10 +64,19 @@ return [
      * not query either application database.
      */
     'item_history' => [
-        'enable'        => filter_var(env('ITEM_HISTORY_ENABLED', false), FILTER_VALIDATE_BOOL),
-        'artifact_path' => env('ITEM_HISTORY_ARTIFACT_PATH', storage_path('app/private/item-history')),
-        'page_size'     => max(1, min(100, (int) env('ITEM_HISTORY_PAGE_SIZE', 25))),
-        'max_page'      => 500,
+        'enable'               => filter_var(env('ITEM_HISTORY_ENABLED', false), FILTER_VALIDATE_BOOL),
+        'artifact_path'        => env('ITEM_HISTORY_ARTIFACT_PATH', storage_path('app/private/item-history')),
+        'release_repository'   => env('ITEM_HISTORY_RELEASE_REPOSITORY', 'fryguy503/modern-allaclone'),
+        'release_checksums'    => [
+            'item-history-data-v2-2026-09-06' => 'b21209b4cb6ff2f52eca90de588f7f4366b5aef9f55644824034fe2c40b123cf',
+        ],
+        'max_download_bytes'   => 1_073_741_824,
+        'max_unpacked_bytes'   => 3_221_225_472,
+        'max_files'            => 200_000,
+        'connect_timeout'      => 15,
+        'download_timeout'     => 1_800,
+        'page_size'            => max(1, min(100, (int) env('ITEM_HISTORY_PAGE_SIZE', 25))),
+        'max_page'             => 500,
     ],
 
     'discovered_items' => [

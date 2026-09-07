@@ -8,6 +8,8 @@ final class ItemHistoryArtifact
 
     public const FORMAT_VERSION = 1;
 
+    public const DIRECT_DETAIL_PARSER_FORMAT_VERSION = 1;
+
     public const REVERSIBLE_DELTA_FORMAT_VERSION = 2;
 
     public const REVERSIBLE_DELTA_PARSER_FORMAT_VERSION = 2;

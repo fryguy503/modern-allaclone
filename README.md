@@ -287,6 +287,73 @@ the checkpoint. Lucy does not expose a raw record for an old `entryid`, so a
 reconstructed state must not be described as a byte-for-byte historical Lucy
 page. Observation timestamps must not be presented as exact patch times.
 
+For a deployment that does not hold the private crawl workspace, install a
+published immutable dataset from an exact GitHub release tag. PHP's `zip`
+extension is required. The archive checksum is pinned independently in
+`everquest.item_history.release_checksums`:
+
+```bash
+php artisan item-history:install \
+    --release=item-history-data-v2-2026-09-06
+```
+
+Maintainers can use `--sha256=<64-character-sha256>` to override the configured
+pin when testing a different exact release tag.
+
+The installer verifies GitHub's asset digests, the external release descriptor,
+the independently pinned ZIP checksum, every archive path and size, and every
+item artifact before switching the small `CURRENT` pointer. It does not contact
+Lucy or either application database. An offline copy can be installed with:
+
+```bash
+php artisan item-history:install \
+    --file=/path/to/modern-allaclone-item-history.zip \
+    --sha256=<64-character-sha256>
+```
+
+Maintainers can turn a completed local artifact root into the three release
+assets (ZIP, `.sha256`, and `item-history-package.json`) with:
+
+```bash
+php artisan item-history:package \
+    --workspace=/private/crawl-work
+```
+
+For a legacy flat artifact root, the packager requires the private crawler
+workspace (the conventional sibling `lucy-item-history-crawl` is used when
+`--workspace` is omitted). Its bound config, queue, progress, and status must
+prove a complete, gap-free crawl, and the queue IDs must exactly equal the
+published item IDs. The packager owns the crawler's `state/crawler.lock` for the
+entire validation and archive publication, so stop the crawler first. If a PHP
+process or container is killed while packaging, verify that neither crawler nor
+packager is running before removing a stale `state/crawler.lock` and retrying.
+An already activated immutable dataset instead proves completeness through its
+hash-verified manifest and completion marker.
+
+When Docker mounts the same trusted Windows workspace at a different Linux path,
+the path mismatch is accepted only with both explicit identities from the
+crawler's `config.json`:
+
+```bash
+php artisan item-history:package \
+    --path=/app/storage/app/private/item-history \
+    --workspace=/app/storage/app/private/lucy-item-history-crawl \
+    --crawler-artifact-root-identity='F:\release-host\private\item-history' \
+    --crawler-workspace-identity='F:\release-host\private\lucy-item-history-crawl'
+```
+
+The packager validates and hashes every item, uses a content-addressed dataset
+key, and refuses to overwrite an existing release asset. Upload all three files
+to the same GitHub release. Installed datasets remain immutable and reusable
+beneath `datasets/<sha256>`, but every re-install still obtains, extracts, and
+validates the package before recognizing an existing dataset. Use `--no-activate`
+to stage and verify a package without changing the live dataset. The current full
+archive contains more than 134,000 files; use a PHP CLI memory limit of at least
+1 GiB for packaging and installation (for example,
+`php -d memory_limit=1G artisan item-history:package`) and retain enough free
+space for the compressed download, a complete staged dataset, and the configured
+256 MiB safety reserve.
+
 After artifacts exist, enable the site reader and clear Laravel's cached
 configuration:
 
