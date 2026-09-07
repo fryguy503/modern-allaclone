@@ -17,7 +17,7 @@ class ItemHistoryTest extends TestCase
         config()->set('app.key', 'base64:'.base64_encode(str_repeat('i', 32)));
         config()->set('everquest.item_history.enable', true);
         config()->set('everquest.item_history.page_size', 2);
-        config()->set('everquest.item_history.max_page', 500);
+        config()->set('everquest.item_history.max_page', 5_000);
 
         $this->artifactRoot = sys_get_temp_dir().DIRECTORY_SEPARATOR
             .'modern-allaclone-item-history-tests-'.bin2hex(random_bytes(8));
@@ -89,9 +89,9 @@ class ItemHistoryTest extends TestCase
             ->assertHeaderMissing('Set-Cookie');
     }
 
-    public function test_table_mode_is_compact_and_pagination_preserves_the_selected_view(): void
+    public function test_table_mode_is_the_server_rendered_default_and_pagination_preserves_the_selected_view(): void
     {
-        $firstPage = $this->get('/items/20542/history?view=table');
+        $firstPage = $this->get('/items/20542/history');
         $firstPage->assertOk()
             ->assertSee('Lucy-style compact item revision table')
             ->assertSeeText('Recorded')
@@ -105,22 +105,104 @@ class ItemHistoryTest extends TestCase
             ->assertSeeText('Lore text added')
             ->assertSeeText('AC changed from 10 to 12')
             ->assertSeeText('Entry 2022')
+            ->assertSeeText('Page 1')
+            ->assertSeeText('Older revisions')
             ->assertSee('?view=table&amp;page=2', false);
 
         $secondPage = $this->get('/items/20542/history?view=table&page=2');
         $secondPage->assertOk()
             ->assertSeeText('Initial entry')
-            ->assertSee('?view=table', false)
+            ->assertSeeText('Page 2')
+            ->assertSeeText('Newer revisions')
             ->assertDontSee('?view=table&amp;page=1', false);
+        $this->assertMatchesRegularExpression(
+            '/href="'.preg_quote(route('items.history', ['item' => 20_542]), '/').'"\s+rel="prev"/',
+            (string) $secondPage->getContent(),
+        );
+    }
+
+    public function test_card_mode_remains_safely_paginated_and_preserves_the_selected_view(): void
+    {
+        $firstPage = $this->get('/items/20542/history?view=cards');
+        $firstPage->assertOk()
+            ->assertSeeText('Entry 2022')
+            ->assertSeeText('Entry 2020')
+            ->assertDontSeeText('Entry 2019')
+            ->assertSeeText('Older revisions')
+            ->assertSee('?view=cards&amp;page=2', false);
+
+        $secondPage = $this->get('/items/20542/history?view=cards&page=2');
+        $secondPage->assertOk()
+            ->assertSeeText('Initial entry')
+            ->assertSeeText('Newer revisions')
+            ->assertDontSee('?view=cards&amp;page=1', false);
+        $this->assertMatchesRegularExpression(
+            '/href="'.preg_quote(route('items.history', ['item' => 20_542, 'view' => 'cards']), '/').'"\s+rel="prev"/',
+            (string) $secondPage->getContent(),
+        );
+
+        $this->get('/items/20542/history?page=2')
+            ->assertOk()
+            ->assertSeeText('Initial entry')
+            ->assertSeeText('Cards');
+    }
+
+    public function test_table_pagination_reaches_pages_beyond_the_previous_cap(): void
+    {
+        config()->set('everquest.item_history.page_size', 1);
+        config()->set('everquest.item_history.max_page', 5_000);
+
+        $path = $this->artifactRoot.'/'.ItemHistoryArtifact::itemRelativePath(20_542);
+        $artifact = json_decode((string) file_get_contents($path), true, 64, JSON_THROW_ON_ERROR);
+        $oldestRevision = $artifact['revisions'][0];
+        $middleRevision = $artifact['revisions'][1];
+        $newestRevision = $artifact['revisions'][2];
+        $revisions = [$oldestRevision, $middleRevision];
+
+        for ($index = 0; $index < 498; $index++) {
+            $revision = $middleRevision;
+            $revision['entry_id'] = 10_000 + $index;
+            $revisions[] = $revision;
+        }
+        $revisions[] = $newestRevision;
+
+        $artifact['revisions'] = $revisions;
+        $artifact['revision_count'] = count($revisions);
+        file_put_contents($path, json_encode($artifact, JSON_THROW_ON_ERROR | JSON_UNESCAPED_SLASHES));
+
+        foreach ([10, 100] as $page) {
+            $this->get("/items/20542/history?view=table&page={$page}")
+                ->assertOk()
+                ->assertSeeText("Page {$page}");
+        }
+
+        $this->get('/items/20542/history?page=10')
+            ->assertOk()
+            ->assertSeeText('Page 10')
+            ->assertSeeText('Captured item snapshot');
+
+        $this->get('/items/20542/history?view=table&page=501')
+            ->assertOk()
+            ->assertSeeText('Page 501')
+            ->assertSeeText('Entry 2019')
+            ->assertSeeText('Initial entry')
+            ->assertSeeText('Newer revisions')
+            ->assertDontSeeText('Older revisions');
+
+        $this->get('/items/20542/history?view=table&page=5001')->assertNotFound();
     }
 
     public function test_history_rejects_noncanonical_or_unrecognized_query_strings(): void
     {
         foreach ([
             'view=grid',
+            'page=0',
             'page=1',
+            'page=01',
+            'page=-2',
             'view=cards&page=1',
             'page=2&view=table',
+            'view=table&page=01',
             'view=table&extra=1',
             'view=table&view=cards',
         ] as $queryString) {
@@ -157,7 +239,7 @@ class ItemHistoryTest extends TestCase
             ->assertHeaderMissing('Set-Cookie');
     }
 
-    public function test_large_valid_revisions_are_split_before_the_response_render_budget_is_exceeded(): void
+    public function test_large_valid_revisions_are_split_in_both_views_before_the_render_budget_is_exceeded(): void
     {
         config()->set('everquest.item_history.page_size', 100);
         $path = $this->artifactRoot.'/'.ItemHistoryArtifact::itemRelativePath(20_542);
@@ -176,6 +258,13 @@ class ItemHistoryTest extends TestCase
             ->assertDontSeeText('Entry 2020')
             ->assertSee('?view=cards&amp;page=2', false);
         $this->assertLessThan(2_097_152, strlen((string) $response->getContent()));
+
+        $table = $this->get('/items/20542/history');
+        $table->assertOk()
+            ->assertSeeText('Entry 2022')
+            ->assertDontSeeText('Entry 2020')
+            ->assertSee('?view=table&amp;page=2', false);
+        $this->assertLessThan(2_097_152, strlen((string) $table->getContent()));
     }
 
     private function writeArtifact(): void

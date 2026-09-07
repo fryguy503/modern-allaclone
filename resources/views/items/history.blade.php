@@ -36,7 +36,10 @@
             return (string) $value !== '' ? (string) $value : '(empty)';
         };
         $historyUrl = static function (string $view, int $page = 1) use ($itemSummary): string {
-            $parameters = ['item' => $itemSummary['id'], 'view' => $view];
+            $parameters = ['item' => $itemSummary['id']];
+            if ($view !== 'table' || $page > 1) {
+                $parameters['view'] = $view;
+            }
             if ($page > 1) {
                 $parameters['page'] = $page;
             }

@@ -114,7 +114,7 @@ return [
         'connect_timeout'      => 15,
         'download_timeout'     => 1_800,
         'page_size'            => max(1, min(100, (int) env('ITEM_HISTORY_PAGE_SIZE', 25))),
-        'max_page'             => 500,
+        'max_page'             => 5_000,
     ],
 
     'discovered_items' => [

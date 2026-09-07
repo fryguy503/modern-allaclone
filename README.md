@@ -460,9 +460,10 @@ ITEM_HISTORY_PAGE_SIZE=25
 # ITEM_HISTORY_ARTIFACT_PATH=/private/item-history
 ```
 
-The page size is a maximum. A text-heavy revision page may split earlier to stay
-within the reader's conservative response-render budget, without dropping a
-revision.
+The compact table is the default. Both Table and Cards are paginated because
+captured revisions and snapshots can be large. The page size is a maximum; a
+text-heavy page may split earlier to stay within the reader's conservative
+response-render budget, without dropping a revision.
 
 ```bash
 php artisan optimize:clear

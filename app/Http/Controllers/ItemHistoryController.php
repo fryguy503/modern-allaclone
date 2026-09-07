@@ -21,7 +21,7 @@ class ItemHistoryController extends Controller
 
         [$view, $page] = $this->canonicalOptions($request);
         $maximumPage = max(1, min(
-            (int) config('everquest.item_history.max_page', 500),
+            (int) config('everquest.item_history.max_page', self::SAFE_MAXIMUM_PAGE),
             self::SAFE_MAXIMUM_PAGE,
         ));
         abort_unless($page <= $maximumPage, 404);
@@ -86,13 +86,13 @@ class ItemHistoryController extends Controller
         if ($queryString === '') {
             abort_unless($request->query() === [], 404);
 
-            return ['cards', 1];
+            return ['table', 1];
         }
 
         $patterns = [
             '/^view=(cards|table)$/D' => static fn (array $matches): array => [$matches[1], 1],
-            '/^page=([2-9][0-9]*)$/D' => static fn (array $matches): array => ['cards', (int) $matches[1]],
-            '/^view=(cards|table)&page=([2-9][0-9]*)$/D' => static fn (array $matches): array => [$matches[1], (int) $matches[2]],
+            '/^page=([2-9]|[1-9][0-9]+)$/D' => static fn (array $matches): array => ['cards', (int) $matches[1]],
+            '/^view=(cards|table)&page=([2-9]|[1-9][0-9]+)$/D' => static fn (array $matches): array => [$matches[1], (int) $matches[2]],
         ];
 
         foreach ($patterns as $pattern => $result) {
