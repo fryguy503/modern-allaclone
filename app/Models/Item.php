@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\QueryException;
 use Kyslik\ColumnSortable\Sortable;
 
 class Item extends Model
@@ -132,6 +133,30 @@ class Item extends Model
         return $this->relationLoaded('discovery')
             ? $this->discovery !== null
             : $this->discovery()->exists();
+    }
+
+    public function isKinbound(): bool
+    {
+        // Static item designation: 0 is unlisted, 1 is Always, 2 is Never.
+        // Runtime rules and character attunement are enforced by the game server.
+        if ((int) ($this->kinbound ?? 0) !== 1
+            || $this->nodrop === null
+            || (int) $this->nodrop !== 0
+            || (int) ($this->notransfer ?? 0) !== 0) {
+            return false;
+        }
+
+        try {
+            // Known epic exclusions veto the flag; expansion and legacy
+            // catalog overrides never grant Kinbound eligibility.
+            return !$this->getConnection()->table('item_kinbound_policy')
+                ->where('item_id', $this->id)
+                ->where('epic', 1)
+                ->exists();
+        } catch (QueryException) {
+            // Match the server's fail-closed behavior if the catalog is unavailable.
+            return false;
+        }
     }
 
     public function canDisplay(): bool

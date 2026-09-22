@@ -67,6 +67,12 @@ class ItemController extends Controller
         });
 
         $cachedItem = $itemCache['item'];
+        // Route binding already fetched the current item. Keep binding flags fresh
+        // even when the rest of the item details are cached for a month.
+        foreach (['kinbound', 'nodrop', 'notransfer', 'attuneable'] as $attribute) {
+            $cachedItem->setAttribute($attribute, $item->getAttribute($attribute));
+        }
+
         $groundSpawns = $cachedItem->canDisplay()
             ? collect($groundSpawnLocations->forItem((int) $cachedItem->id))
             : collect();

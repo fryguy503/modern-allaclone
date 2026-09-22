@@ -17,6 +17,7 @@
 @endswitch
 
 @php
+    $isKinbound = $item->isKinbound();
     $tags = [];
     if ($item->itemtype == 54) {
         $tags[] = 'Augment';
@@ -27,7 +28,9 @@
     if ($item->loregroup == -1) {
         $tags[] = 'Lore';
     }
-    if ($item->nodrop == 0) {
+    if ($isKinbound) {
+        $tags[] = 'Kinbound';
+    } elseif ($item->nodrop == 0) {
         $tags[] = 'No Trade';
     }
     if ($item->norent == 0) {
@@ -36,7 +39,7 @@
     if ($item->questitemflag == 1) {
         $tags[] = 'Quest';
     }
-    if ($item->attuneable == 1) {
+    if ($item->attuneable == 1 && !$isKinbound) {
         $tags[] = 'Attuneable';
     }
 
@@ -53,6 +56,9 @@
 
     <div class="mt-2 space-y-1 text-sm text-gray-300">
         <div>{{ implode(', ', $tags) }}</div>
+        @if ($isKinbound)
+            <div>Shareable within the same forum account until attuned. Attuning permanently binds it to a character. Click effects require attunement.</div>
+        @endif
         @if ($item->classes > 0)
             <div><strong>Class:</strong> {{ get_class_usable_string($item->classes) }}</div>
         @endif
