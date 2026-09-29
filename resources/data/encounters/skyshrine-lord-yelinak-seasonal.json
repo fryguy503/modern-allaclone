@@ -10,7 +10,7 @@
     "version": 200
   },
   "npc_ids": [],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Read Yelinak's storm warnings, shelter during his shield and survive increasingly fast ground mechanics.",
   "overview": [
@@ -58,7 +58,7 @@
     ],
     "notes": [
       "Approval E290. Source review only; deployment, database spell lists and live balance have not been verified.",
-      "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“249. Confirm the deployed version.",
+      "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200 to 249. Confirm the deployed version.",
       "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
     ]
   }

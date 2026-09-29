@@ -15,7 +15,7 @@
     120141,
     120142
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Answer Klandicar's movement warnings and shatter the ice that protects and strengthens him.",
   "overview": [
@@ -67,8 +67,8 @@
         "Ice Fracture marks a fixed impact point: move everyone at least 32 feet away during the eight-second warning.",
         "Whiteout marks a fixed safe center: gather within 65 feet before the eight-second warning ends.",
         "Destroy a Glacial Tomb to free its prisoner; only one tomb can stand at a time.",
-        "At75%, clear the scaled guardian wave within 75 seconds or Klandicar regains 8% health.",
-        "At45%, destroy the Priority Glacial Shard to remove its 35% mechanic-damage increase. At20%, mechanics accelerate and gain another 25% damage.",
+        "At 75%, clear the scaled guardian wave within 75 seconds or Klandicar regains 8% health.",
+        "At 45%, destroy the Priority Glacial Shard to remove its 35% mechanic-damage increase. At 20%, mechanics accelerate and gain another 25% damage.",
         "A wipe clears adds and roots and restores the boss."
       ],
       "items": []
@@ -95,7 +95,7 @@
     ],
     "notes": [
       "Approval E407. Source review only; deployment, database spell lists and live balance have not been verified.",
-      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200 to 249. Confirm the active expedition version and matching support-NPC provisioning before publication."
     ]
   }
 }

@@ -10,7 +10,7 @@
     "version": 0
   },
   "npc_ids": [],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Keep the group recovered through the Huntmaster's late-fight arrow volleys.",
   "overview": [
@@ -34,7 +34,7 @@
       "paragraphs": [],
       "bullets": [
         "The Huntmaster takes reduced archery damage from the start.",
-        "At45% health, a twenty-second timer begins checking for a volley of random-target arrows.",
+        "At 45% health, a twenty-second timer begins checking for a volley of random-target arrows.",
         "Healing back through 45% or leaving combat stops that timer."
       ],
       "items": []

@@ -11,12 +11,25 @@ Use the same `group` value for encounters that belong to the same expedition.
 Link every participating boss through `npc_ids`; use a separate document when
 the encounter has a different version or materially different mechanics.
 
-The approved repository-wide draft batch is indexed in
+The approved repository-wide encounter batch is indexed in
 [the generation report](encounter-audit/generation-report.md). It maps saved
-approval IDs to documents and records source questions to resolve before
-publication. The editable workbook remains the decision record;
+approval IDs to documents and records publication status and source questions.
+The initial publication review released 423 new guides and kept eight drafts
+with unresolved encounter identity or entry logic. The editable workbook remains the decision record;
 `encounter-audit/saved-decisions.json` is its imported snapshot. Recheck the
 snapshot and source hashes with `node docs/encounter-audit/verify_generation.mjs`.
+The verifier uses the sibling `../quests` checkout by default; set
+`EQEMU_QUEST_ROOT` to use another location. Explicit publication decisions are
+recorded in `encounter-audit/publication-review.json`, including why each held
+entry is still a draft. The batch generation scripts are historical authoring
+tools; use the document workflow below for subsequent edits rather than
+regenerating the published collection from those snapshots.
+
+Readers reach the journal through **More -> Encounter Journal** or
+`/encounters`. Deployment must include `resources/data/encounters`; publication
+is a document status change and does not need a database migration. The journal
+catalog reads these files per request. The initial feature also requires the
+normal frontend asset build described in the project README.
 
 ## Configuration and draft preview
 

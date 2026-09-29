@@ -1,0 +1,2163 @@
+{
+  "reviewed_at": "2026-09-29",
+  "authorization": "User requested publication of the approved new journals.",
+  "verification": "source-reviewed",
+  "scope": "The 431 approved generated documents; original Mistmoore entries and Mayong spoiler settings are unchanged.",
+  "entries": [
+    {
+      "slug": "acrylia-archmage-gorraferg-ring",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "acrylia-high-priest-gakkernog-ring",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "acrylia-khati-sha-the-twisted",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "acrylia-ring-of-fire",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "acrylia-trondol-shir-escort",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "akheva-shei-vinitras",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "akheva-the-insanity-crawler",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "akheva-time-corrupted-insanity-crawler",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "anguish-arch-magus-vangl",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "anguish-jelvan",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "anguish-keldovan-the-harrier",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "anguish-overlord-mata-muram",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "anguish-ture",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "anguish-warden-hanvar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "arena2-heigan-the-unclean-the-safety-dance",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "arena2-living-legacy-battle-prowess",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-difficult",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-insane",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-moderate",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-simple",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "barindu-ixvet-pox-colossus-of-war",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "barindu-kyv-rux-vhedt",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-discordling-dark-animist",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-elite-dragorn-jekisia",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-gazz-the-gargantuan",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-kragsmash",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-marshal-histent-grinbik-the-fertile-rescue",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-reclusive-girplan-chain-rolthee-and-myrhee",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-the-keeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bloodfields-war-caller-kaavi",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "bothunder-agnarr-event",
+      "status": "draft",
+      "reason": "The normal expedition uses version 0, but Agnarr removes himself from nonzero instances unless version 200. Seasonal Agnarr is published separately."
+    },
+    {
+      "slug": "bothunder-agnarr-event-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "cauldron-praklion-of-the-cauldron",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-alpha-feran",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-bazu-smasher",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-bazu-terror",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-essence-of-kreljnok",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-magician1-5-elemental-mastery-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-oshiruk",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-siflu",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-slavedriver-menlo",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-stone-thrower",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "causeway-withering-murkglider",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "cazicthule-gimlik-cogboggle-escort",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "cazicthule-ring-of-fear",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "cazicthule-sickly-mosquito",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersa-mastery-of-fear",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersa-mastery-of-hate",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersb-mastery-of-endurance",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersb-mastery-of-weaponry",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersc-mastery-of-foresight",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersc-mastery-of-subversion",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersd-mastery-of-efficiency",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersd-mastery-of-specialization",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chamberse-mastery-of-adaptation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chamberse-mastery-of-ingenuity",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersf-mastery-of-corruption",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chambersf-mastery-of-destruction",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chardokb-korucust",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "chardokb-leprous-chokidai",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "citymist-black-reaver-lord-ghiosk-lord-rak-ashiir-chain",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "cobaltscar-gnashing-killer-shark-and-companions",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "codecay-bertoxxulous",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "codecay-carprin-deatharn-cycle",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "codecay-overlord-banord-paffa",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "corathus-taskmaster",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "corathusb-find-fibblebrap-5",
+      "status": "draft",
+      "reason": "The mission-5 loader selects a file containing mission-1 task tables and objectives; mission identity and core instructions remain unresolved."
+    },
+    {
+      "slug": "corathusb-find-fibblebrap1-the-mines",
+      "status": "published",
+      "reason": "Published after replacing the broken peaceful exchange recommendation with the verified hostile dialogue route and quest loot objective."
+    },
+    {
+      "slug": "dawnshroud-hunter-s-pike-beast-challenge",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delvea-a-halfling-s-greed",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delvea-lavaspinner-hunting",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delvea-stonemaw",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delvea-the-drake-menace-drake-matriarch",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delvea-volkara-s-bite",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delveb-a-goblin-s-escort",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delveb-emoush-the-destroyer",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delveb-have-note-will-travel",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "delveb-tirranun-fanning-the-flames",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "drachnidhive-drithnak-the-exiled",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "drachnidhive-the-lost-notebook",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "drachnidhivea-find-fibblebrap3-the-hive",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "drachnidhivea-the-lost-gnomes",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "drachnidhivec-sendaii-the-hive-queen",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dragonscalea-living-legacy-marathon",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dragonscalea-living-legacy-sprint",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-battlemaster-rhorious",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-bloated-girplan",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-discord-fluctuation-trio",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-discordling-dark-animist",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-kyv-sharpshooters-jaeth-mihl-and-nass",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-lhranc-and-his-minions",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-lirah-the-bridgekeeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-lirah-the-bridgekeeper-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-murkglider-breeder",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-sverins-uisima-rescue",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-tiorpat-tornwing",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-wren-simsy",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dranik-zun-muram-volklana",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "draniksscar-girplan-spiritleech",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dreadlands-gorenaire-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dreadspire-redfang",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dreadspire-zi-thuuli-of-the-granite-claw",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "dulak-quigli",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastkarana-althele-s-druid-gathering-defense",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastkorlach-general-veronhar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastkorlacha-bloodeye",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-boridain-glacierbane-escort-coldain-ring2",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-corbin-blackwell-rescue-coldain-ring7",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-icefang-poxbreath-pursuit-coldain-ring6",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-peffin-ambersnow-berradin-confrontation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-ry-gorr-assault-chief-ry-gorr-coldain-ring8",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-scarbrow-ga-hruk-assault-coldain-ring5",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "eastwastes-tain-hammerfrost-defense-coldain-ring4",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "emeraldjungle-severilous-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fearplane-cazic-thule",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fearplane-cazic-thule-static-mode",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fearplane-dracoliche-static-mode",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fearplane-fear-golems-dread-fright-and-terror",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fearplane-fear-touched-dracolich-ambush",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fearplane-ireblind-imp",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "feerrott-swamp-terror",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ferubi-hexxt-pzik-shziaak",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ferubi-packmaster-skoiat-pizak",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ferubi-pxet-elite-ambushes",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ferubi-smith-rondo-weapon-master",
+      "status": "published",
+      "reason": "Published with an explicit raid-group requirement for the component hand-in; the broken group-only branch is excluded."
+    },
+    {
+      "slug": "ferubi-smith-rondo-weapon-master-seasonal",
+      "status": "published",
+      "reason": "Published with an explicit raid-group requirement for the component hand-in; the broken group-only branch is excluded."
+    },
+    {
+      "slug": "ferubi-zun-muram-votal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fieldofbone-berserkers-image",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "freportw-sir-lucan-dlere",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "frontiermtns-goblin-king-dronan-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fungusgrove-calling-beasties-murkin-groo-and-torgal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "fungusgrove-draz-nurakk",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gfaydark-seana-and-stefan-marsinger",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "greatdivide-high-priest-maltan-assault",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "greatdivide-tenth-coldain-ring-war-narandi",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "grimling-captain-necins-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "grimling-final-grimling-war-general-staginars-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "grimling-scout-danarins-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "grimling-scout-derrins-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "grimling-scout-husmans-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "grimling-veteran-vadrels-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "growthplane-tunare",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "guke-deepest-guk-raid-executioner-gimdk-first-witness",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gukg-gragna-the-cursed",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gukg-leklos-the-bonekeeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gukg-the-cavern-creeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gukg-the-cursed-keeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gukg-the-cursed-spore",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gunthak-dimaal-the-spiritmaster-s-waves",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "gunthak-lairyn-debeian-defense-krill-the-backbleeder",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "harbingers-attendant-of-light",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "harbingers-azibelle-spavin-and-glenfire-telzir",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "harbingers-windrush",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hateplaneb-innoruuk",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hateplaneb-lanys-t-vyl-teir-dal-guardian-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hateplaneb-maestro-of-rancor",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hatesfury-broken-skull-armsmaster",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hatesfury-captain-krasnok",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hohonora-alekson-garn-s-trial",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hohonora-rhaliq-trell-s-trial",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hohonora-rydda-dar-trydan-faye-s-trial",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hohonorb-lord-mithaniel-marr",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hole-master-yael",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "hollowshade-hollowshade-moor-war",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "iceclad-general-bragmur-escort-coldain-shawl-finale",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "iceclad-noble-oldencamp-and-the-necromancer-delegation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-destruction-keeper-of-the-altar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-glorification",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-righteousness",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-singular-might",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-the-tri-fates",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-transcendence",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ikkinz-chambers-of-twin-struggles",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "illsalin-ritesmaster-verok",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "illsalinb-find-fibblebrap-4-the-korlach",
+      "status": "draft",
+      "reason": "The encounter still contains placeholder NPC templates and conflicting task IDs."
+    },
+    {
+      "slug": "illsalinb-the-council-of-nine",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "illsalinc-deserting-the-ranks",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "illsalinc-emperor-draygun-the-lich-king",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "inktuta-kelekdrix-herald-of-trushar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "inktuta-noqufiel-true-and-mirror-images",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "inktuta-the-cursecallers",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "inktuta-the-exiles-stonemite-trial",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "jaggedpine-dire-kodiak-forest-dragon-transformation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kael-fabled-king-tormax",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kael-fabled-statue-idol-and-avatar-of-war",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kael-kael-armor-plate-cycle",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kael-king-tormax",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kael-statue-idol-and-avatar-of-war",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "katta-rakshasa-skull-ritual",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "katta-vampyre-troubles-autarkic-lord-sfarosh",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kedge-seasons-watery-death",
+      "status": "draft",
+      "reason": "Only the access launcher was identified; opponents, mechanics and completion remain unidentified."
+    },
+    {
+      "slug": "kerraridge-tissa-sovereign-of-terror-and-the-nine-lives-of-kerra",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kithicor-blackened-treant-and-blackened-dryad",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kithicor-cloaked-figure-shadow-thief",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kodtaz-pixtt-grand-summoner-ring",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "kodtaz-temple-of-the-damned",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "lakeofillomen-scorpion-hatchling-ambush",
+      "status": "draft",
+      "reason": "The prone NPC that triggers the ambush is unidentified, so a player cannot reliably follow the starting instructions."
+    },
+    {
+      "slug": "lakeofillomen-vorash-deep-and-xenevorash",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "lakerathe-kazen-fecae-undead-trial",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "lakerathe-man-eating-freshwater-shark",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "lavastorm-high-priestess-shima-ambush",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "lfaydark-taskmaster-mirot-and-the-reanimated-minions",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mirb-frozen-nightmare-chromatic-bonewalkers",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mirb-frozen-nightmare-frostfoot-goblins",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mirb-frozen-nightmare-laskuth-the-colossus",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mirb-frozen-nightmare-marrow-the-broken",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mirb-frozen-nightmare-sharalla",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mirb-frozen-nightmare-sundering-sludge",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mischiefplane-bristlebane-the-king-of-thieves-2-0",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mistmoore-the-archivist-s-midnight-vigil",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "mmcc-struggles-within-the-progeny-valdoon-kel-novar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "nadox-the-luggald-broodmother",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "natimbi-cragbeast-queen-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "natimbi-ritual-conduit",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "natimbi-spiritbinder-trenzar-and-senvial-of-the-mist",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "natimbi-tybone-biggums",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "necropolis-garzicor-s-corpse-and-wraith",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "necropolis-vesthon-marijakin-and-the-dracoliche-of-hsagra",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "necropolis-vesthon-marijakin-first-confrontation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "necropolis-zlandicar-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "nightmareb-terris-thule",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "northkarana-dire-griffon-plains-dragon-transformation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "oasis-remal-the-black",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "overthere-glowing-cliff-golem-and-watch-sergeant-grolj",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "permafrost-lady-vox-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poair-chamberlain-escalardian",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poair-elemental-masterpiece",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poair-melernil-faal-armanna",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poair-sigismond-windwalker",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poair-stormrider-island",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poair-xegony-queen-of-air",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poeartha-dust-ring-perfected-warder-of-earth",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poeartha-mud-ring-monstrous-mudwalker",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poeartha-mystical-arbitor-of-earth",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poeartha-stone-ring-peregrin-rockskull",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poeartha-vine-ring-derugoak-bloodwalker",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poearthb-rathe-council-and-avatar-of-earth",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poearthb-warlord-gintolaken",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pofire-fennin-ro-tyrant-of-fire",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poinnovation-manaetic-behemoth",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poinnovation-nitram-anizok-xanamech-nezmirthafen",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-the-seventh-hammer",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-trial-of-execution",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-trial-of-flame",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-trial-of-hanging",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-trial-of-lashing",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-trial-of-stoning",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "pojustice-trial-of-torture",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "poknowledge-bonded-hunts-companion-challenges-36-targets",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ponightmare-aid-eino-escort-dreamkeeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ponightmare-deyid-the-twisted",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ponightmare-mujaki-the-devourer",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ponightmare-terror-matriarch",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "postorms-drornok-tok-vo-lok",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "postorms-falto-lord-of-thunder",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "postorms-ston-ruak-ancient-of-trees",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potactics-rallos-zek-the-warlord",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potactics-tallon-zek",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potactics-vallon-zek",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potimeb-plane-of-time-phase-4-gods",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potimeb-plane-of-time-phase-5-gods",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potimeb-plane-of-time-phases-1-3",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potimeb-quarm",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potorment-baraguj-szuul-mouth-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potorment-keeper-of-sorrows-tylis-torment",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potorment-maareq-the-prophet",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potorment-salczek-the-fleshgrinder",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "potorment-saryrn",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "povalor-aerin-dar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "powater-coirnav-avatar-of-water",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "provinggrounds-lightning-warrior-spiritseeker",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qey2hh1-yuanda-werewolf-ambush",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qeynos2-enchanted-rat-experiment",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qinimi-execution-rescue-kreshin-silentcog",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qinimi-mastruq-commander-gorlakt-and-the-spiritlords",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qinimi-thunderdome",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qvic-cynosure-kvanjji",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qvic-hexxt-ilk-klokk",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qvic-hexxt-jkak-miq",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qvic-hexxt-pvin-nki",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "qvic-iqthinxa-karnkvi-zoo-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "rathemtn-warrior-spirit-chalex-captain-krignok",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riftseekers-chailak",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riftseekers-craftmaster-tieranu",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riftseekers-king-gelaqua-and-the-princes",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riftseekers-queen-pyrilonis-and-the-princesses",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riwwi-arena-turlini-and-the-enslaved-yunjo",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riwwi-taskmistress-krisz",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "riwwi-viqu-the-blindeye",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ruja-rujarkian-hills-adventures-shared-rules",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "rujd-prison-break-warden-neyremal-and-high-shaman-yenner",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "rujg-flawless-experimental-battlelord",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "scarlet-disciple-of-sun",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "scarlet-high-priest-valon-and-the-plasmatic-followers",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sebilis-sebilite-protector",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sebilis-trakanon-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sirens-a-twitching-swordfish",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "skyfire-rithnok-the-tormented",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "skyfire-talendor-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "skyshrine-lord-yelinak-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sleeper-awakening-the-sleeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sleeper-master-of-the-guard",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sleeper-sleep-walking-expedition",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sleeper-the-fabled-kerafyrm-the-awakened",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sleeper-the-fabled-master-of-the-guard",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sncrematory-gzifa-the-pure-one",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "snlair-sewers-of-nihilia-lair-tool-recovery",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "snplant-ancient-kayserops-sewers-stonemite-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "snpool-sewers-of-nihilia-slime-cube",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "soldungb-lord-nagafen-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "soldungc-culthor-the-gatekeeper",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "soldungc-fireback-queen",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "soldungc-protector-of-fire-pure-flame-elemental",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-arlyxir",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-galremos",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-jiva",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-protector-of-dresolik",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-rizlona",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-solusek-ro",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "solrotower-xuzl",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "sseru-lord-inquisitor-seru",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ssratemple-emperor-ssraeshza-and-the-blood",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ssratemple-emperor-ssraeshza-and-the-blood-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ssratemple-rhag-cycle-arch-lich",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "ssratemple-vyzh-dra-cycle",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "steamfont-cargo-clockwork-ambush",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "steamfont-yama-tolk-and-the-inactive-clockwork",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-animated-statue-plans",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-best-laid-plans",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-guardian-of-the-sands-shogurei",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-keepers-of-strength-and-wisdom",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-scales-of-justice",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-sickness-of-the-spirit",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-tea-for-thy-master",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-tracking-the-kirin",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoona-trial-of-perseverance",
+      "status": "published",
+      "reason": "The documented bell timers are armed after combat ends; the duplicate spawn callback affects a separate idle timer that the guide does not promise."
+    },
+    {
+      "slug": "stillmoonb-death-comes-swiftly-lair-mistress",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoonb-drake-eggs",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoonb-kessdona-s-perch",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoonb-rikkukin-the-defender",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoonb-storm-dragon-scales-the-storm-caller",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stillmoonb-sudden-tremors-ancient-golem",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "stonebrunt-mountain-dragon-transformation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "swampofnohope-swamp-dragon-transformation",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-pixtt-kretv-krakxt",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-pixtt-riel-tavas",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-pixtt-xxeric-kex",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-tunat-muram-cuu-vauax",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-zun-muram-kvxe-pirik",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-zun-muram-mordl-delt",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-zun-muram-shaldn-boc",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tacvi-zun-muram-yihst-vor",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "taka-takish-hiz-adventures-shared-rules",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "takc-quintessence-of-sand-and-ritana",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "takishruinsa-living-legacy-sandkeep-endurance-raid",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "templeveeshan-aaryonar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "templeveeshan-lady-mirenilla",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "templeveeshan-lord-feshlak",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "templeveeshan-lord-kreizenn",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "templeveeshan-lord-vyemm",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "templeveeshan-vulak-aerr-ring-event",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tenebrous-disciple-of-focus",
+      "status": "published",
+      "reason": "The guide omits the broken recurring spell timer and documents only the verified pursuit and quest event behavior."
+    },
+    {
+      "slug": "tenebrous-hoober",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tenebrous-johanius-barleou",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thedeep-deklean-korgad-invisible-bridge",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thedeep-the-burrower-beast",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thedeep-thought-horror-overfiend-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-a-failed-expedition-shargone",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-circle-of-drakes",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-in-the-shadows-vishimtar",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-rampaging-monolith",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-rivals",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-t-shara",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-the-curse-of-jurek",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thenest-web-of-lies",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-a-simple-task",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-an-end-to-the-storms-yar-lir",
+      "status": "draft",
+      "reason": "The loader selects version 3 while the module removes the boss unless version 200; no version-200 loader was found."
+    },
+    {
+      "slug": "thundercrest-behind-closed-doors",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-four-corners",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-holy-hour",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-house-of-the-autumn-rose",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-lair-unguarded",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-lore-warden",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-plunder-the-hoard",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-scions-of-thundercrest",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-splitting-the-storm",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-storm-chasers-raging-thunderhead",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-stormreach-challenge-goblin-dojo",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "thundercrest-the-creator",
+      "status": "published",
+      "reason": "Published for the level 68+ mission configuration only; unfinished lower-difficulty templates are outside this guide."
+    },
+    {
+      "slug": "thundercrest-throes-of-contagion",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "timorous-draz-nurakk-and-his-images",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "timorous-gefaari-drokaz",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "tipt-tipt-mountain-trials-kyv-heartstriker-jhiru",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "torgiran-overseer-wrank-and-the-captains",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "torgiran-taskmaster-lugald-brokenskull",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "txevu-ancient-cragbeast-matriarch",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "txevu-high-priest-nkosi-bakari",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "txevu-ikaav-nysf-lleiv",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "txevu-mastruq-champion-ixt-hsek-syat",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "txevu-ukun-bloodfeaster",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "txevu-zun-muram-tkarish-zyk",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "uqua-tqiv-araxt-the-enraged-and-tqiv-qukret-the-furious",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "uqua-uqua-gas-chambers",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "uqua-vrex-barxt-qurat-and-guardian-of-destruction",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "veeshan-phara-dar-and-the-ring-of-scale",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "veksar-decaying-lord-galuk-drek",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "veksar-raging-bloodgill",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "vexthal-aten-ha-ra-progression-akhevan-warders",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "vexthal-npc-158006-teleport-hunt",
+      "status": "draft",
+      "reason": "The document still has a numeric placeholder instead of a verified encounter identity, and the spawn version is unresolved."
+    },
+    {
+      "slug": "vxed-vxed-trial-stonespiritist-ekikoa",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wakening-cristoc-bonethug",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wakening-dark-disciple-master",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wakening-wuoshi-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-discordling-spiritcaller",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-durunal-the-cursebearer",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-lightning-lord",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-murkglider-hivequeen",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-pyrique-redwing",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-tarn-icewind",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "wallofslaughter-tarn-icewind-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "warslikswood-raving-goblinmaster",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "westkorlach-grokui-the-slumbering-basilisk",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "westkorlacha-matriarch-shyra",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "westkorlachb-find-fibblebrap-2-lost-caverns",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "westwastes-disciple-of-moon",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "westwastes-klandicar-seasonal",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "westwastes-scout-charisa-kromzek-captain",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "yxtta-hexxt-huntmaster",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "yxtta-pixtt-suir-mindrider",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    },
+    {
+      "slug": "yxtta-primal-door-riddle",
+      "status": "draft",
+      "reason": "Broken entry initialization and status logic leave the documented door-access sequence unverified."
+    },
+    {
+      "slug": "yxtta-xounii-shifter-tqiv-trusik-fanatic",
+      "status": "published",
+      "reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers."
+    }
+  ]
+}

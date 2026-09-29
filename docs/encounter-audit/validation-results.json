@@ -11,5 +11,21 @@
     "passed": 24,
     "assertions": 146
   },
-  "source_freshness": "Checked separately on the Windows host by verify_generation.mjs for every new draft; the PHP container does not mount the quest checkout."
+  "source_freshness": "Checked separately on the Windows host by verify_generation.mjs for every new draft; the PHP container does not mount the quest checkout.",
+  "publication": {
+    "date": "2026-09-29",
+    "new_published": 423,
+    "held_drafts": 8,
+    "total_public": 428,
+    "schema_documents": 436,
+    "source_files": 717,
+    "http_checks": [
+      "Public index returns 200 and lists 428 entries without a draft preview banner.",
+      "Held Watery Death is absent from public search.",
+      "Published Sleep Walking returns 200 and renders corrected participant range.",
+      "Held normal Agnarr guide returns 404.",
+      "Mayong remains concealed behind the spoiler reveal."
+    ],
+    "environment": "Existing local preview at http://127.0.0.1:53189; production deployment not performed."
+  }
 }

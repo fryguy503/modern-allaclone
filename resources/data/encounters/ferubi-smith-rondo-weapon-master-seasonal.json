@@ -13,7 +13,7 @@
     284074,
     284092
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Defeat the Weapon Master and his apprentices, then face Smith Rondo.",
   "overview": [
@@ -47,7 +47,7 @@
       "id": "components",
       "title": "Starting components",
       "paragraphs": [
-        "Turn in all four required weapon components to Rondo together."
+        "Have a character who belongs to a raid turn in all four required weapon components to Rondo together."
       ],
       "bullets": [],
       "items": [
@@ -130,7 +130,7 @@
     "notes": [
       "Approved row E122. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
       "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
-      "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+      "The group-only hand-in calls nonexistent group:RaidCount(). The published guide requires the hand-in character to belong to a raid and uses the reviewed raid branch.",
       "The normal draft describes the static-zone branch. Rondo removes himself from nonzero instances other than version 200.",
       "Agnarr and Rondo use explicit version 200 checks; Theta Sigma reads Custom:SeasonalInstanceVersion with fallback 200. Confirm the deployed seasonal rule matches."
     ]

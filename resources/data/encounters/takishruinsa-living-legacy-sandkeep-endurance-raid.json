@@ -15,7 +15,7 @@
     35185,
     35186
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Survive Sandkeep's endlessly replenished enemy field and earn enduring checkpoints through sustained pressure.",
   "overview": [
@@ -58,7 +58,7 @@
       "title": "Encounter plan",
       "paragraphs": [],
       "bullets": [
-        "The captured raid contains 6ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“54 players. Eothar anchors a 27-enemy field with 26 killable enemies; defeated adds return after 12 seconds.",
+        "The captured raid contains 6 to 54 players. Eothar anchors a 27-enemy field with 26 killable enemies; defeated adds return after 12 seconds.",
         "After a 30-second warmup, damage must satisfy repeated 12-second pressure windows. Five qualified windows advance the earned minute checkpoint.",
         "A missed quota enters a 24-second recovery period; failing recovery ends the attempt.",
         "Difficulty keeps increasing while earned reward checkpoints cap at model LXX. There is no conventional boss-kill victory.",

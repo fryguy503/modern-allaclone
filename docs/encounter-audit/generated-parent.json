@@ -16,7 +16,7 @@
     "slug": "ferubi-smith-rondo-weapon-master",
     "issues": [
       "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
-      "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+      "The group-only hand-in calls nonexistent group:RaidCount(). The published guide requires the hand-in character to belong to a raid and uses the reviewed raid branch.",
       "The normal draft describes the static-zone branch. Rondo removes himself from nonzero instances other than version 200."
     ]
   },
@@ -25,7 +25,7 @@
     "slug": "ferubi-smith-rondo-weapon-master-seasonal",
     "issues": [
       "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
-      "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+      "The group-only hand-in calls nonexistent group:RaidCount(). The published guide requires the hand-in character to belong to a raid and uses the reviewed raid branch.",
       "Confirm Custom:SeasonalInstanceVersion is 200 for the explicit Rondo gate."
     ]
   },

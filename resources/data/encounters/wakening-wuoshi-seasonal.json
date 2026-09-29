@@ -15,7 +15,7 @@
     119191,
     119192
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Respond to Wuoshi's eight-second warnings and break the grove's protective and healing bonds.",
   "overview": [
@@ -52,7 +52,7 @@
     },
     {
       "id": "phase-4",
-      "label": "Tunareâ€™s wrath",
+      "label": "Tunare's wrath",
       "trigger": "20% health",
       "description": "Survive faster, stronger mechanics through the finish."
     }
@@ -94,7 +94,7 @@
     ],
     "notes": [
       "Approval E395. Source review only; deployment, database spell lists and live balance have not been verified.",
-      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200 to 249. Confirm the active expedition version and matching support-NPC provisioning before publication."
     ]
   }
 }

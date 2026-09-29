@@ -12,7 +12,7 @@
   "npc_ids": [
     291123
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Recognize the roaming creature's disguises and reveal the Xounii Shifter.",
   "overview": [
@@ -36,8 +36,8 @@
       "paragraphs": [],
       "bullets": [
         "The roaming fanatic changes between cragbeast, lifesipper and beetle appearances at set waypoints.",
-        "At50% health it reveals the Tqiv Trusik Fanatic form.",
-        "At15% it changes again to Xounii Shifter.",
+        "At 50% health it reveals the Tqiv Trusik Fanatic form.",
+        "At 15% it changes again to Xounii Shifter.",
         "The reviewed script changes name and appearance but does not define additional timed attacks for those forms."
       ],
       "items": []

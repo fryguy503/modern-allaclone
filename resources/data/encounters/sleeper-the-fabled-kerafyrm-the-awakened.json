@@ -12,7 +12,7 @@
   "npc_ids": [
     128010
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "The fabled awakened dragon alternates a leading-target attack with a slower area attack.",
   "overview": [
@@ -35,8 +35,8 @@
       "title": "Encounter plan",
       "paragraphs": [],
       "bullets": [
-        "Single-target casting begins 12ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“18 seconds after spawn and then repeats every 35 seconds.",
-        "The area spell begins 20ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“28 seconds after spawn and then repeats every 60 seconds.",
+        "Single-target casting begins 12 to 18 seconds after spawn and then repeats every 35 seconds.",
+        "The area spell begins 20 to 28 seconds after spawn and then repeats every 60 seconds.",
         "Death signals the Sleep Walking controller to record the finale lockout."
       ],
       "items": []

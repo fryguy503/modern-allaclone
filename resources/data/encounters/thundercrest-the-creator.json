@@ -15,10 +15,11 @@
     340003,
     340521
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Reveal the Creator through the sentries and an Identify interaction with the quest crystal.",
   "overview": [
+    "This guide covers the level 68+ mission configuration.",
     "Reveal the Creator through the sentries and an Identify interaction with the quest crystal."
   ],
   "roles": [
@@ -67,7 +68,7 @@
     ],
     "notes": [
       "Approval R021. Source review only; deployment, database spell lists and live balance have not been verified.",
-      "Publication blocker for lower difficulties: the source hardcodes level 68+ NPC templates and explicitly states that lower-difficulty mappings still need work. Confirm the selected task difficulty before publication."
+      "This guide is limited to the level 68+ mission configuration. The source hardcodes those NPC templates; lower-difficulty mappings remain unfinished."
     ]
   }
 }

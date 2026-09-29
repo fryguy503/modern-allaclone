@@ -20,7 +20,7 @@
     128009,
     128010
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Sleep Walking is a fabled Sleeper's Tomb expedition whose boss availability follows saved lockouts.",
   "overview": [
@@ -43,7 +43,7 @@
       "title": "Encounter plan",
       "paragraphs": [],
       "bullets": [
-        "The expedition configuration allows 6ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“96 players and a six-hour instance.",
+        "The expedition configuration allows 6 to 96 players and a six-hour instance.",
         "The gatekeeper replaces the normal named population with fabled bosses whose lockouts have not been earned.",
         "Each named completion records a five-day lockout. The finale includes the fabled awakened dragon."
       ],

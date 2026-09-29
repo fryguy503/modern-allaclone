@@ -82,7 +82,7 @@
     "id": "E290",
     "slug": "skyshrine-lord-yelinak-seasonal",
     "issues": [
-      "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200\u00c3\u0192\u00c6\u2019\u00c3\u2020\u00e2\u20ac\u2122\u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00a2\u00c3\u0192\u00c6\u2019\u00c3\u201a\u00c2\u00a2\u00c3\u0192\u00c2\u00a2\u00c3\u00a2\u00e2\u20ac\u0161\u00c2\u00ac\u00c3\u2026\u00c2\u00a1\u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00ac\u00c3\u0192\u00c6\u2019\u00c3\u201a\u00c2\u00a2\u00c3\u0192\u00c2\u00a2\u00c3\u00a2\u00e2\u201a\u00ac\u00c5\u00a1\u00c3\u201a\u00c2\u00ac\u00c3\u0192\u00e2\u20ac\u00a6\u00c3\u00a2\u00e2\u201a\u00ac\u00c5\u201c249. Confirm the deployed version.",
+      "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200 to 249. Confirm the deployed version.",
       "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
     ]
   },
@@ -715,7 +715,7 @@
     "id": "E395",
     "slug": "wakening-wuoshi-seasonal",
     "issues": [
-      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200\u00e2\u20ac\u201c249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200 to 249. Confirm the active expedition version and matching support-NPC provisioning before publication."
     ]
   },
   {
@@ -789,7 +789,7 @@
     "id": "E407",
     "slug": "westwastes-klandicar-seasonal",
     "issues": [
-      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200\u00e2\u20ac\u201c249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200 to 249. Confirm the active expedition version and matching support-NPC provisioning before publication."
     ]
   },
   {
@@ -857,7 +857,7 @@
     "id": "R021",
     "slug": "thundercrest-the-creator",
     "issues": [
-      "Publication blocker for lower difficulties: the source hardcodes level 68+ NPC templates and explicitly states that lower-difficulty mappings still need work. Confirm the selected task difficulty before publication."
+      "This guide is limited to the level 68+ mission configuration. The source hardcodes those NPC templates; lower-difficulty mappings remain unfinished."
     ]
   },
   {

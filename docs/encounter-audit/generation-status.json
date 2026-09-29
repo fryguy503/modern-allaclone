@@ -5,7 +5,9 @@
   "disapproved_rows": 14,
   "pending_rows": 0,
   "encounter_groups": 420,
-  "draft_documents": 431,
+  "generated_documents": 431,
+  "published_documents": 423,
+  "draft_documents": 8,
   "existing_documents": 5,
   "reviewed_source_files": 717,
   "merged_approval_ids": [
@@ -23,6 +25,8 @@
         "name": "Acrylia Caverns",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E001"
       ],
@@ -36,6 +40,8 @@
         "name": "Acrylia Caverns",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E003"
       ],
@@ -49,6 +55,8 @@
         "name": "Acrylia Caverns",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E004"
       ],
@@ -62,6 +70,8 @@
         "name": "Acrylia Caverns",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E005"
       ],
@@ -75,6 +85,8 @@
         "name": "Acrylia Caverns",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E006"
       ],
@@ -90,6 +102,8 @@
         "name": "Akheva Ruins",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E009"
       ],
@@ -103,6 +117,8 @@
         "name": "Akheva Ruins",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E010"
       ],
@@ -116,6 +132,8 @@
         "name": "Akheva Ruins",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E010"
       ],
@@ -129,6 +147,8 @@
         "name": "Anguish, the Fallen Palace",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E011"
       ],
@@ -142,6 +162,8 @@
         "name": "Anguish, the Fallen Palace",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E012"
       ],
@@ -155,6 +177,8 @@
         "name": "Anguish, the Fallen Palace",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E013"
       ],
@@ -168,6 +192,8 @@
         "name": "Anguish, the Fallen Palace",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E014"
       ],
@@ -181,6 +207,8 @@
         "name": "Anguish, the Fallen Palace",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E015"
       ],
@@ -194,6 +222,8 @@
         "name": "Anguish, the Fallen Palace",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E016"
       ],
@@ -207,6 +237,8 @@
         "name": "The Arena",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E017"
       ],
@@ -220,6 +252,8 @@
         "name": "The Arena",
         "version": 7
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E018"
       ],
@@ -233,6 +267,8 @@
         "name": "The Arena",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E019"
       ],
@@ -246,6 +282,8 @@
         "name": "The Arena",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E019"
       ],
@@ -259,6 +297,8 @@
         "name": "The Arena",
         "version": 3
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E019"
       ],
@@ -272,6 +312,8 @@
         "name": "The Arena",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E019"
       ],
@@ -285,6 +327,8 @@
         "name": "Barindu, Hanging Gardens",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E020"
       ],
@@ -298,6 +342,8 @@
         "name": "Barindu, Hanging Gardens",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E021"
       ],
@@ -313,6 +359,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E022"
       ],
@@ -326,6 +374,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E023"
       ],
@@ -341,6 +391,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E024"
       ],
@@ -354,6 +406,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E025"
       ],
@@ -369,6 +423,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E026"
       ],
@@ -382,6 +438,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E027"
       ],
@@ -395,6 +453,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E028"
       ],
@@ -410,6 +470,8 @@
         "name": "The Bloodfields",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E029"
       ],
@@ -425,6 +487,8 @@
         "name": "Bastion of Thunder",
         "version": 0
       },
+      "status": "draft",
+      "publication_reason": "The normal expedition uses version 0, but Agnarr removes himself from nonzero instances unless version 200. Seasonal Agnarr is published separately.",
       "approved_ids": [
         "E030",
         "E031",
@@ -442,6 +506,8 @@
         "name": "Bastion of Thunder",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E030",
         "E031",
@@ -459,6 +525,8 @@
         "name": "Dagnor's Cauldron",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E033"
       ],
@@ -474,6 +542,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E034"
       ],
@@ -489,6 +559,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E035"
       ],
@@ -502,6 +574,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E036"
       ],
@@ -515,6 +589,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E037"
       ],
@@ -528,6 +604,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E038"
       ],
@@ -541,6 +619,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E039"
       ],
@@ -554,6 +634,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E040"
       ],
@@ -567,6 +649,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E041"
       ],
@@ -582,6 +666,8 @@
         "name": "Nobles' Causeway",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E042"
       ],
@@ -599,6 +685,8 @@
         "name": "Nobles' Causeway",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E043"
       ],
@@ -614,6 +702,8 @@
         "name": "Temple of Cazic-Thule",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E044"
       ],
@@ -629,6 +719,8 @@
         "name": "Temple of Cazic-Thule",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E045"
       ],
@@ -642,6 +734,8 @@
         "name": "Temple of Cazic-Thule",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E046"
       ],
@@ -657,6 +751,8 @@
         "name": "Muramite Proving Grounds",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E047"
       ],
@@ -670,6 +766,8 @@
         "name": "Muramite Proving Grounds",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E048"
       ],
@@ -683,6 +781,8 @@
         "name": "Muramite Proving Grounds",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E049"
       ],
@@ -696,6 +796,8 @@
         "name": "Muramite Proving Grounds",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E050"
       ],
@@ -709,6 +811,8 @@
         "name": "Muramite Proving Grounds",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E051"
       ],
@@ -722,6 +826,8 @@
         "name": "Muramite Proving Grounds",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E052"
       ],
@@ -735,6 +841,8 @@
         "name": "Muramite Proving Grounds",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E053"
       ],
@@ -748,6 +856,8 @@
         "name": "Muramite Proving Grounds",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E054"
       ],
@@ -761,6 +871,8 @@
         "name": "Muramite Proving Grounds",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E055"
       ],
@@ -774,6 +886,8 @@
         "name": "Muramite Proving Grounds",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E056"
       ],
@@ -787,6 +901,8 @@
         "name": "Muramite Proving Grounds",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E057"
       ],
@@ -802,6 +918,8 @@
         "name": "Muramite Proving Grounds",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E058"
       ],
@@ -815,6 +933,8 @@
         "name": "Chardok: Halls of Betrayal",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E059"
       ],
@@ -830,6 +950,8 @@
         "name": "Chardok: Halls of Betrayal",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E060"
       ],
@@ -845,6 +967,8 @@
         "name": "City of Mist",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E061"
       ],
@@ -858,6 +982,8 @@
         "name": "Cobalt Scar",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E062"
       ],
@@ -871,6 +997,8 @@
         "name": "Ruins of Lxanvom",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E063"
       ],
@@ -884,6 +1012,8 @@
         "name": "Ruins of Lxanvom",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E064"
       ],
@@ -897,6 +1027,8 @@
         "name": "Ruins of Lxanvom",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E065"
       ],
@@ -910,6 +1042,8 @@
         "name": "Corathus Creep",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E066"
       ],
@@ -923,6 +1057,8 @@
         "name": "Corathus Lair",
         "version": 2
       },
+      "status": "draft",
+      "publication_reason": "The mission-5 loader selects a file containing mission-1 task tables and objectives; mission identity and core instructions remain unresolved.",
       "approved_ids": [
         "R003"
       ],
@@ -932,16 +1068,20 @@
     },
     {
       "slug": "corathusb-find-fibblebrap1-the-mines",
-      "title": "Find Fibblebrap1: The Mines",
+      "title": "Find Fibblebrap 1: The Mines",
       "zone": {
         "short_name": "corathusb",
         "name": "Corathus Lair",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Published after replacing the broken peaceful exchange recommendation with the verified hostile dialogue route and quest loot objective.",
       "approved_ids": [
         "E067"
       ],
-      "issues": []
+      "issues": [
+        "The peaceful meat-exchange reward branch tests .valid on PLAYER_STARTING_RP, which holds a name string. The published guide covers the hostile dialogue route and gem loot objective instead."
+      ]
     },
     {
       "slug": "dawnshroud-hunter-s-pike-beast-challenge",
@@ -951,6 +1091,8 @@
         "name": "Dawnshroud Peaks",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E068"
       ],
@@ -964,6 +1106,8 @@
         "name": "Lavaspinner's Lair",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E069"
       ],
@@ -977,6 +1121,8 @@
         "name": "Lavaspinner's Lair",
         "version": 8
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E070"
       ],
@@ -990,6 +1136,8 @@
         "name": "Lavaspinner's Lair",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E071"
       ],
@@ -1005,6 +1153,8 @@
         "name": "Lavaspinner's Lair",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E072"
       ],
@@ -1018,6 +1168,8 @@
         "name": "Lavaspinner's Lair",
         "version": 9
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E073"
       ],
@@ -1031,6 +1183,8 @@
         "name": "Tirranun's Delve",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E074"
       ],
@@ -1044,6 +1198,8 @@
         "name": "Tirranun's Delve",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E075"
       ],
@@ -1057,6 +1213,8 @@
         "name": "Tirranun's Delve",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E076"
       ],
@@ -1070,6 +1228,8 @@
         "name": "Tirranun's Delve",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E077"
       ],
@@ -1083,6 +1243,8 @@
         "name": "The Hive",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E078"
       ],
@@ -1099,6 +1261,8 @@
         "name": "The Hive",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E079"
       ],
@@ -1106,12 +1270,14 @@
     },
     {
       "slug": "drachnidhivea-find-fibblebrap3-the-hive",
-      "title": "Find Fibblebrap3: The Hive",
+      "title": "Find Fibblebrap 3: The Hive",
       "zone": {
         "short_name": "drachnidhivea",
         "name": "The Hatchery",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E080"
       ],
@@ -1125,6 +1291,8 @@
         "name": "The Hatchery",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E081"
       ],
@@ -1138,6 +1306,8 @@
         "name": "Queen Sendaii's Lair",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E082"
       ],
@@ -1151,6 +1321,8 @@
         "name": "Dragonscale Hills",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E083"
       ],
@@ -1164,6 +1336,8 @@
         "name": "Dragonscale Hills",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E084"
       ],
@@ -1177,6 +1351,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E085"
       ],
@@ -1190,6 +1366,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E086"
       ],
@@ -1205,6 +1383,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E087"
       ],
@@ -1218,6 +1398,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E088"
       ],
@@ -1231,6 +1413,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E089"
       ],
@@ -1244,6 +1428,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E090"
       ],
@@ -1257,6 +1443,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E091"
       ],
@@ -1273,6 +1461,8 @@
         "name": "Ruined City of Dranik",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E091"
       ],
@@ -1289,6 +1479,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E092"
       ],
@@ -1304,6 +1496,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E093"
       ],
@@ -1317,6 +1511,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E094"
       ],
@@ -1330,6 +1526,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E095"
       ],
@@ -1343,6 +1541,8 @@
         "name": "Ruined City of Dranik",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E096"
       ],
@@ -1356,6 +1556,8 @@
         "name": "Dranik's Scar",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E097"
       ],
@@ -1369,6 +1571,8 @@
         "name": "Dreadlands",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E098"
       ],
@@ -1384,6 +1588,8 @@
         "name": "Dreadspire Keep",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E099"
       ],
@@ -1397,6 +1603,8 @@
         "name": "Dreadspire Keep",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E100"
       ],
@@ -1410,6 +1618,8 @@
         "name": "Dulak's Harbor",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E101"
       ],
@@ -1425,6 +1635,8 @@
         "name": "Eastern Plains of Karana",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E102"
       ],
@@ -1438,6 +1650,8 @@
         "name": "The Undershore",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E103"
       ],
@@ -1451,6 +1665,8 @@
         "name": "Snarlstone Dens",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E104"
       ],
@@ -1464,6 +1680,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E105"
       ],
@@ -1477,6 +1695,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E106"
       ],
@@ -1490,6 +1710,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E107"
       ],
@@ -1503,6 +1725,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E108"
       ],
@@ -1516,6 +1740,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E109"
       ],
@@ -1531,6 +1757,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E110"
       ],
@@ -1544,6 +1772,8 @@
         "name": "Eastern Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E111"
       ],
@@ -1557,6 +1787,8 @@
         "name": "The Emerald Jungle",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E112"
       ],
@@ -1572,6 +1804,8 @@
         "name": "Plane of Fear",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E113"
       ],
@@ -1587,6 +1821,8 @@
         "name": "Plane of Fear",
         "version": 255
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E113"
       ],
@@ -1602,6 +1838,8 @@
         "name": "Plane of Fear",
         "version": 255
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E114"
       ],
@@ -1618,6 +1856,8 @@
         "name": "Plane of Fear",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E115"
       ],
@@ -1633,6 +1873,8 @@
         "name": "Plane of Fear",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E116"
       ],
@@ -1646,6 +1888,8 @@
         "name": "Plane of Fear",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E117"
       ],
@@ -1659,6 +1903,8 @@
         "name": "The Feerrott",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E118"
       ],
@@ -1672,6 +1918,8 @@
         "name": "Ferubi, Forgotten Temple of Taelosia",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E119"
       ],
@@ -1687,6 +1935,8 @@
         "name": "Ferubi",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E120"
       ],
@@ -1700,6 +1950,8 @@
         "name": "Ferubi",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E121"
       ],
@@ -1715,12 +1967,14 @@
         "name": "Ferubi",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Published with an explicit raid-group requirement for the component hand-in; the broken group-only branch is excluded.",
       "approved_ids": [
         "E122"
       ],
       "issues": [
         "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
-        "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+        "The group-only hand-in calls nonexistent group:RaidCount(). The published guide requires the hand-in character to belong to a raid and uses the reviewed raid branch.",
         "The normal draft describes the static-zone branch. Rondo removes himself from nonzero instances other than version 200."
       ]
     },
@@ -1732,12 +1986,14 @@
         "name": "Ferubi",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Published with an explicit raid-group requirement for the component hand-in; the broken group-only branch is excluded.",
       "approved_ids": [
         "E122"
       ],
       "issues": [
         "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
-        "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+        "The group-only hand-in calls nonexistent group:RaidCount(). The published guide requires the hand-in character to belong to a raid and uses the reviewed raid branch.",
         "Confirm Custom:SeasonalInstanceVersion is 200 for the explicit Rondo gate."
       ]
     },
@@ -1749,6 +2005,8 @@
         "name": "Ferubi",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E123"
       ],
@@ -1762,6 +2020,8 @@
         "name": "The Field of Bone",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E124"
       ],
@@ -1777,6 +2037,8 @@
         "name": "West Freeport",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E125"
       ],
@@ -1792,6 +2054,8 @@
         "name": "Frontier Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E126"
       ],
@@ -1807,6 +2071,8 @@
         "name": "Fungus Grove",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E127"
       ],
@@ -1820,6 +2086,8 @@
         "name": "Fungus Grove",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E128"
       ],
@@ -1835,6 +2103,8 @@
         "name": "Greater Faydark",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E129"
       ],
@@ -1848,6 +2118,8 @@
         "name": "The Great Divide",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E130"
       ],
@@ -1863,6 +2135,8 @@
         "name": "The Great Divide",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E131"
       ],
@@ -1879,6 +2153,8 @@
         "name": "Grimling Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E132"
       ],
@@ -1892,6 +2168,8 @@
         "name": "Grimling Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E133"
       ],
@@ -1907,6 +2185,8 @@
         "name": "Grimling Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E134"
       ],
@@ -1920,6 +2200,8 @@
         "name": "Grimling Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E135"
       ],
@@ -1933,6 +2215,8 @@
         "name": "Grimling Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E136"
       ],
@@ -1946,6 +2230,8 @@
         "name": "Grimling Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E137"
       ],
@@ -1959,6 +2245,8 @@
         "name": "Plane of Growth",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E138"
       ],
@@ -1975,6 +2263,8 @@
         "name": "Deepest Guk: The Foreboding Prison",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E139"
       ],
@@ -1990,6 +2280,8 @@
         "name": "Deepest Guk: The Root Garden",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E140"
       ],
@@ -2005,6 +2297,8 @@
         "name": "The Accursed Sanctuary",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E141"
       ],
@@ -2018,6 +2312,8 @@
         "name": "Deepest Guk: The Root Garden",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "R006"
       ],
@@ -2033,6 +2329,8 @@
         "name": "The Accursed Sanctuary",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E142"
       ],
@@ -2046,6 +2344,8 @@
         "name": "The Accursed Sanctuary",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E143"
       ],
@@ -2059,6 +2359,8 @@
         "name": "The Gulf of Gunthak",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E144"
       ],
@@ -2072,6 +2374,8 @@
         "name": "The Gulf of Gunthak",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E145"
       ],
@@ -2085,6 +2389,8 @@
         "name": "Harbinger's Spire",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E146"
       ],
@@ -2098,6 +2404,8 @@
         "name": "Harbinger's Spire",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E147"
       ],
@@ -2111,6 +2419,8 @@
         "name": "Harbinger's Spire",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E148"
       ],
@@ -2126,6 +2436,8 @@
         "name": "The Plane of Hate",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E149"
       ],
@@ -2139,6 +2451,8 @@
         "name": "The Plane of Hate",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E150"
       ],
@@ -2152,6 +2466,8 @@
         "name": "The Plane of Hate",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E151"
       ],
@@ -2165,6 +2481,8 @@
         "name": "Hate’s Fury",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E152"
       ],
@@ -2180,6 +2498,8 @@
         "name": "Hate’s Fury",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E153"
       ],
@@ -2193,6 +2513,8 @@
         "name": "Halls of Honor",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E155"
       ],
@@ -2206,6 +2528,8 @@
         "name": "Halls of Honor",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E156"
       ],
@@ -2219,6 +2543,8 @@
         "name": "Halls of Honor",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E157"
       ],
@@ -2232,6 +2558,8 @@
         "name": "Temple of Marr",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E158"
       ],
@@ -2245,6 +2573,8 @@
         "name": "The Hole",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E159"
       ],
@@ -2260,6 +2590,8 @@
         "name": "Hollowshade Moor",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E160"
       ],
@@ -2273,6 +2605,8 @@
         "name": "Iceclad Ocean",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E161"
       ],
@@ -2286,6 +2620,8 @@
         "name": "Iceclad Ocean",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E162"
       ],
@@ -2299,6 +2635,8 @@
         "name": "Ikkinz",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E163"
       ],
@@ -2312,6 +2650,8 @@
         "name": "Ikkinz",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E164"
       ],
@@ -2325,6 +2665,8 @@
         "name": "Ikkinz",
         "version": 3
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E165"
       ],
@@ -2340,6 +2682,8 @@
         "name": "Ikkinz",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "R007"
       ],
@@ -2355,6 +2699,8 @@
         "name": "Ikkinz",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E166"
       ],
@@ -2368,6 +2714,8 @@
         "name": "Ikkinz",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E167"
       ],
@@ -2381,6 +2729,8 @@
         "name": "Ikkinz",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E168"
       ],
@@ -2394,6 +2744,8 @@
         "name": "Ruins of Illsalin",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E169"
       ],
@@ -2409,6 +2761,8 @@
         "name": "Temple of the Korlach",
         "version": 2
       },
+      "status": "draft",
+      "publication_reason": "The encounter still contains placeholder NPC templates and conflicting task IDs.",
       "approved_ids": [
         "R008"
       ],
@@ -2426,6 +2780,8 @@
         "name": "Temple of the Korlach",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E170"
       ],
@@ -2439,6 +2795,8 @@
         "name": "The Nargilor Pits",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E171"
       ],
@@ -2452,6 +2810,8 @@
         "name": "The Nargilor Pits",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E172"
       ],
@@ -2467,6 +2827,8 @@
         "name": "Inktu’ta",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E173"
       ],
@@ -2480,6 +2842,8 @@
         "name": "Inktu’ta",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E174"
       ],
@@ -2493,6 +2857,8 @@
         "name": "Inktu’ta",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E175"
       ],
@@ -2506,6 +2872,8 @@
         "name": "Inktu’ta",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E176"
       ],
@@ -2519,6 +2887,8 @@
         "name": "Jaggedpine Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E177"
       ],
@@ -2532,6 +2902,8 @@
         "name": "Kael Drakkel",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E178"
       ],
@@ -2545,6 +2917,8 @@
         "name": "Kael Drakkel",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E179"
       ],
@@ -2558,6 +2932,8 @@
         "name": "Kael Drakkel",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E180"
       ],
@@ -2571,6 +2947,8 @@
         "name": "Kael Drakkel",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E181"
       ],
@@ -2584,6 +2962,8 @@
         "name": "Kael Drakkel",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E182"
       ],
@@ -2597,6 +2977,8 @@
         "name": "Katta Castellum",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E183"
       ],
@@ -2610,6 +2992,8 @@
         "name": "Katta Castellum",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E184"
       ],
@@ -2623,6 +3007,8 @@
         "name": "Kedge Keep",
         "version": 200
       },
+      "status": "draft",
+      "publication_reason": "Only the access launcher was identified; opponents, mechanics and completion remain unidentified.",
       "approved_ids": [
         "R010"
       ],
@@ -2640,6 +3026,8 @@
         "name": "Kerra Isle",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E185"
       ],
@@ -2653,6 +3041,8 @@
         "name": "Kithicor Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E186"
       ],
@@ -2666,6 +3056,8 @@
         "name": "Kithicor Forest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E187"
       ],
@@ -2679,6 +3071,8 @@
         "name": "Kod’Taz",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E188"
       ],
@@ -2692,6 +3086,8 @@
         "name": "Kod’Taz",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E189"
       ],
@@ -2705,6 +3101,8 @@
         "name": "Lake of Ill Omen",
         "version": 0
       },
+      "status": "draft",
+      "publication_reason": "The prone NPC that triggers the ambush is unidentified, so a player cannot reliably follow the starting instructions.",
       "approved_ids": [
         "R012"
       ],
@@ -2720,6 +3118,8 @@
         "name": "Lake of Ill Omen",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E190"
       ],
@@ -2735,6 +3135,8 @@
         "name": "Lake Rathetear",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E191"
       ],
@@ -2748,6 +3150,8 @@
         "name": "Lake Rathetear",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E192"
       ],
@@ -2763,6 +3167,8 @@
         "name": "Lavastorm Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E193"
       ],
@@ -2776,6 +3182,8 @@
         "name": "Lesser Faydark",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E194"
       ],
@@ -2789,6 +3197,8 @@
         "name": "The Frozen Nightmare",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E195"
       ],
@@ -2802,6 +3212,8 @@
         "name": "The Frozen Nightmare",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E196"
       ],
@@ -2815,6 +3227,8 @@
         "name": "The Frozen Nightmare",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E197"
       ],
@@ -2828,6 +3242,8 @@
         "name": "The Frozen Nightmare",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E198"
       ],
@@ -2843,6 +3259,8 @@
         "name": "The Frozen Nightmare",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E199"
       ],
@@ -2856,6 +3274,8 @@
         "name": "The Frozen Nightmare",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E200"
       ],
@@ -2869,6 +3289,8 @@
         "name": "Plane of Mischief",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E201"
       ],
@@ -2882,6 +3304,8 @@
         "name": "Castle Mistmoore",
         "version": 11
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E202"
       ],
@@ -2895,6 +3319,8 @@
         "name": "The Asylum of Invoked Stone",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E203"
       ],
@@ -2908,6 +3334,8 @@
         "name": "Crypt of Nadox",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E205"
       ],
@@ -2921,6 +3349,8 @@
         "name": "Natimbi, the Broken Shores",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E206"
       ],
@@ -2936,6 +3366,8 @@
         "name": "Natimbi, the Broken Shores",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E207"
       ],
@@ -2949,6 +3381,8 @@
         "name": "Natimbi, the Broken Shores",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E208"
       ],
@@ -2962,6 +3396,8 @@
         "name": "Natimbi, the Broken Shores",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E209"
       ],
@@ -2977,6 +3413,8 @@
         "name": "Dragon Necropolis",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E210"
       ],
@@ -2990,6 +3428,8 @@
         "name": "Dragon Necropolis",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E211"
       ],
@@ -3003,6 +3443,8 @@
         "name": "Dragon Necropolis",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E212"
       ],
@@ -3016,6 +3458,8 @@
         "name": "Dragon Necropolis",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E213"
       ],
@@ -3031,6 +3475,8 @@
         "name": "Lair of Terris Thule",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E214"
       ],
@@ -3044,6 +3490,8 @@
         "name": "North Karana",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E215"
       ],
@@ -3057,6 +3505,8 @@
         "name": "Oasis of Marr",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E216"
       ],
@@ -3070,6 +3520,8 @@
         "name": "The Overthere",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E217"
       ],
@@ -3083,6 +3535,8 @@
         "name": "Permafrost Keep",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E218"
       ],
@@ -3098,6 +3552,8 @@
         "name": "Eryslai, the Kingdom of Wind",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E219"
       ],
@@ -3111,6 +3567,8 @@
         "name": "Eryslai, the Kingdom of Wind",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E220"
       ],
@@ -3124,6 +3582,8 @@
         "name": "Eryslai, the Kingdom of Wind",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E221"
       ],
@@ -3137,6 +3597,8 @@
         "name": "Eryslai, the Kingdom of Wind",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E222"
       ],
@@ -3150,6 +3612,8 @@
         "name": "Eryslai, the Kingdom of Wind",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E223"
       ],
@@ -3163,6 +3627,8 @@
         "name": "Eryslai, the Kingdom of Wind",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E224"
       ],
@@ -3176,6 +3642,8 @@
         "name": "Vegarlson, the Earthen Badlands",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E225"
       ],
@@ -3189,6 +3657,8 @@
         "name": "Vegarlson, the Earthen Badlands",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E226"
       ],
@@ -3202,6 +3672,8 @@
         "name": "Vegarlson, the Earthen Badlands",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E227"
       ],
@@ -3215,6 +3687,8 @@
         "name": "Vegarlson, the Earthen Badlands",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E228"
       ],
@@ -3228,6 +3702,8 @@
         "name": "Vegarlson, the Earthen Badlands",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E229"
       ],
@@ -3241,6 +3717,8 @@
         "name": "Ragrax, Stronghold of the Twelve",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E230"
       ],
@@ -3254,6 +3732,8 @@
         "name": "Ragrax, Stronghold of the Twelve",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E231"
       ],
@@ -3267,6 +3747,8 @@
         "name": "Doomfire, the Burning Lands",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E232"
       ],
@@ -3280,6 +3762,8 @@
         "name": "Plane of Innovation",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E233"
       ],
@@ -3295,6 +3779,8 @@
         "name": "Plane of Innovation",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E234"
       ],
@@ -3308,6 +3794,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E235"
       ],
@@ -3323,6 +3811,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E236"
       ],
@@ -3336,6 +3826,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E237"
       ],
@@ -3349,6 +3841,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E238"
       ],
@@ -3362,6 +3856,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E239"
       ],
@@ -3375,6 +3871,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E240"
       ],
@@ -3388,6 +3886,8 @@
         "name": "Plane of Justice",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E241"
       ],
@@ -3401,6 +3901,8 @@
         "name": "Plane of Knowledge",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E204"
       ],
@@ -3416,6 +3918,8 @@
         "name": "Plane of Nightmare",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E242"
       ],
@@ -3429,6 +3933,8 @@
         "name": "Plane of Nightmare",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E243"
       ],
@@ -3444,6 +3950,8 @@
         "name": "Plane of Nightmare",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E244"
       ],
@@ -3457,6 +3965,8 @@
         "name": "Plane of Nightmare",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E245"
       ],
@@ -3470,6 +3980,8 @@
         "name": "Plane of Storms",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E246"
       ],
@@ -3483,6 +3995,8 @@
         "name": "Plane of Storms",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E247"
       ],
@@ -3496,6 +4010,8 @@
         "name": "Plane of Storms",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E248"
       ],
@@ -3509,6 +4025,8 @@
         "name": "Drunder, the Fortress of Zek",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E249"
       ],
@@ -3522,6 +4040,8 @@
         "name": "Drunder, the Fortress of Zek",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E250"
       ],
@@ -3535,6 +4055,8 @@
         "name": "Drunder, the Fortress of Zek",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E251"
       ],
@@ -3550,6 +4072,8 @@
         "name": "Plane of Time",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E252"
       ],
@@ -3563,6 +4087,8 @@
         "name": "Plane of Time",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E253"
       ],
@@ -3576,6 +4102,8 @@
         "name": "Plane of Time",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E254"
       ],
@@ -3589,6 +4117,8 @@
         "name": "Plane of Time",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E255"
       ],
@@ -3602,6 +4132,8 @@
         "name": "Plane of Torment",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "R014"
       ],
@@ -3617,6 +4149,8 @@
         "name": "Plane of Torment",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "R015"
       ],
@@ -3632,6 +4166,8 @@
         "name": "Plane of Torment",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E256"
       ],
@@ -3645,6 +4181,8 @@
         "name": "Plane of Torment",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E257"
       ],
@@ -3658,6 +4196,8 @@
         "name": "Plane of Torment",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E258"
       ],
@@ -3671,6 +4211,8 @@
         "name": "Plane of Valor",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E259"
       ],
@@ -3684,6 +4226,8 @@
         "name": "Reef of Coirnav",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E260"
       ],
@@ -3697,6 +4241,8 @@
         "name": "Muramite Proving Grounds",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E261"
       ],
@@ -3712,6 +4258,8 @@
         "name": "West Karana",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E262"
       ],
@@ -3725,6 +4273,8 @@
         "name": "North Qeynos",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E263"
       ],
@@ -3740,6 +4290,8 @@
         "name": "Qinimi, Court of Nihilia",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E264"
       ],
@@ -3753,6 +4305,8 @@
         "name": "Qinimi, Court of Nihilia",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E265"
       ],
@@ -3768,6 +4322,8 @@
         "name": "Qinimi, Court of Nihilia",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E266"
       ],
@@ -3785,6 +4341,8 @@
         "name": "Qvic, Prayer Grounds of Calling",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E267"
       ],
@@ -3802,6 +4360,8 @@
         "name": "Qvic, Prayer Grounds of Calling",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E268"
       ],
@@ -3818,6 +4378,8 @@
         "name": "Qvic, Prayer Grounds of Calling",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E269"
       ],
@@ -3834,6 +4396,8 @@
         "name": "Qvic, Prayer Grounds of Calling",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E270"
       ],
@@ -3850,6 +4414,8 @@
         "name": "Qvic, Prayer Grounds of Calling",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E271"
       ],
@@ -3867,6 +4433,8 @@
         "name": "The Rathe Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E272"
       ],
@@ -3883,6 +4451,8 @@
         "name": "Riftseekers' Sanctum",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E273"
       ],
@@ -3896,6 +4466,8 @@
         "name": "Riftseekers' Sanctum",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E274"
       ],
@@ -3911,6 +4483,8 @@
         "name": "Riftseekers' Sanctum",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E275"
       ],
@@ -3927,6 +4501,8 @@
         "name": "Riftseekers' Sanctum",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E276"
       ],
@@ -3942,6 +4518,8 @@
         "name": "Riwwi, Coliseum of Games",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E277"
       ],
@@ -3957,6 +4535,8 @@
         "name": "Riwwi, Coliseum of Games",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E278"
       ],
@@ -3972,6 +4552,8 @@
         "name": "Riwwi, Coliseum of Games",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E279"
       ],
@@ -3988,6 +4570,8 @@
         "name": "Rujarkian Hills",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E280"
       ],
@@ -4005,6 +4589,8 @@
         "name": "Rujarkian Hills: Prison Break",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E281"
       ],
@@ -4018,6 +4604,8 @@
         "name": "Rujarkian Hills: The Drudge Hollows",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E282"
       ],
@@ -4033,6 +4621,8 @@
         "name": "The Scarlet Desert",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E283"
       ],
@@ -4048,6 +4638,8 @@
         "name": "The Scarlet Desert",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E284"
       ],
@@ -4061,6 +4653,8 @@
         "name": "Old Sebilis",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E285"
       ],
@@ -4074,6 +4668,8 @@
         "name": "Old Sebilis",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E286"
       ],
@@ -4089,6 +4685,8 @@
         "name": "Siren's Grotto",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E287"
       ],
@@ -4104,6 +4702,8 @@
         "name": "Skyfire Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E288"
       ],
@@ -4117,6 +4717,8 @@
         "name": "Skyfire Mountains",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E289"
       ],
@@ -4132,11 +4734,13 @@
         "name": "Skyshrine",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E290"
       ],
       "issues": [
-        "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“249. Confirm the deployed version.",
+        "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200 to 249. Confirm the deployed version.",
         "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
       ]
     },
@@ -4148,6 +4752,8 @@
         "name": "Sleeper's Tomb",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "R017"
       ],
@@ -4163,6 +4769,8 @@
         "name": "Sleeper's Tomb",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E291"
       ],
@@ -4176,6 +4784,8 @@
         "name": "Sleeper's Tomb",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E292"
       ],
@@ -4189,6 +4799,8 @@
         "name": "Sleeper's Tomb",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E293"
       ],
@@ -4204,6 +4816,8 @@
         "name": "Sleeper's Tomb",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E291"
       ],
@@ -4217,6 +4831,8 @@
         "name": "Sewers of Nihilia: Crematory",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E294"
       ],
@@ -4232,6 +4848,8 @@
         "name": "Sewers of Nihilia: Lair of Trapped Ones",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E295"
       ],
@@ -4247,6 +4865,8 @@
         "name": "Sewers of Nihilia: Purifying Plant",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E296"
       ],
@@ -4260,6 +4880,8 @@
         "name": "Sewers of Nihilia: Pool of Sludge",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E297"
       ],
@@ -4273,6 +4895,8 @@
         "name": "Nagafen's Lair",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E298"
       ],
@@ -4288,6 +4912,8 @@
         "name": "The Caverns of Exile",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E299"
       ],
@@ -4301,6 +4927,8 @@
         "name": "The Caverns of Exile",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E300"
       ],
@@ -4314,6 +4942,8 @@
         "name": "The Caverns of Exile",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E301"
       ],
@@ -4327,6 +4957,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E302"
       ],
@@ -4340,6 +4972,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E303"
       ],
@@ -4353,6 +4987,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E304"
       ],
@@ -4366,6 +5002,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E305"
       ],
@@ -4379,6 +5017,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E306"
       ],
@@ -4394,6 +5034,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E307"
       ],
@@ -4407,6 +5049,8 @@
         "name": "Tower of Solusek Ro",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E308"
       ],
@@ -4420,6 +5064,8 @@
         "name": "Sanctus Seru",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E309"
       ],
@@ -4436,6 +5082,8 @@
         "name": "Ssraeshza Temple",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E310"
       ],
@@ -4451,6 +5099,8 @@
         "name": "Ssraeshza Temple",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E310"
       ],
@@ -4464,6 +5114,8 @@
         "name": "Ssraeshza Temple",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E311"
       ],
@@ -4477,6 +5129,8 @@
         "name": "Ssraeshza Temple",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E312"
       ],
@@ -4492,6 +5146,8 @@
         "name": "Steamfont Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E313"
       ],
@@ -4505,6 +5161,8 @@
         "name": "Steamfont Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E314"
       ],
@@ -4520,6 +5178,8 @@
         "name": "Stillmoon Temple",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E315"
       ],
@@ -4533,6 +5193,8 @@
         "name": "Stillmoon Temple",
         "version": 3
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E316"
       ],
@@ -4546,6 +5208,8 @@
         "name": "Stillmoon Temple",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E317"
       ],
@@ -4559,6 +5223,8 @@
         "name": "Stillmoon Temple",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E318"
       ],
@@ -4574,6 +5240,8 @@
         "name": "Stillmoon Temple",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E319"
       ],
@@ -4587,6 +5255,8 @@
         "name": "Stillmoon Temple",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E320"
       ],
@@ -4600,6 +5270,8 @@
         "name": "Stillmoon Temple",
         "version": 7
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E321"
       ],
@@ -4613,6 +5285,8 @@
         "name": "Stillmoon Temple",
         "version": 8
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E322"
       ],
@@ -4626,6 +5300,8 @@
         "name": "Stillmoon Temple",
         "version": 9
       },
+      "status": "published",
+      "publication_reason": "The documented bell timers are armed after combat ends; the duplicate spawn callback affects a separate idle timer that the guide does not promise.",
       "approved_ids": [
         "R018"
       ],
@@ -4641,6 +5317,8 @@
         "name": "The Ascent",
         "version": 3
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E323"
       ],
@@ -4654,6 +5332,8 @@
         "name": "The Ascent",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E324"
       ],
@@ -4667,6 +5347,8 @@
         "name": "The Ascent",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E325"
       ],
@@ -4680,6 +5362,8 @@
         "name": "The Ascent",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E326"
       ],
@@ -4696,6 +5380,8 @@
         "name": "The Ascent",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E327"
       ],
@@ -4709,6 +5395,8 @@
         "name": "The Ascent",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "R019"
       ],
@@ -4724,6 +5412,8 @@
         "name": "Stonebrunt Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E328"
       ],
@@ -4737,6 +5427,8 @@
         "name": "Swamp of No Hope",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E329"
       ],
@@ -4750,6 +5442,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E330"
       ],
@@ -4763,6 +5457,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E331"
       ],
@@ -4776,6 +5472,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E332"
       ],
@@ -4789,6 +5487,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E333"
       ],
@@ -4802,6 +5502,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E334"
       ],
@@ -4815,6 +5517,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E335"
       ],
@@ -4828,6 +5532,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E336"
       ],
@@ -4841,6 +5547,8 @@
         "name": "Tacvi, Seat of the Slaver",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E337"
       ],
@@ -4854,6 +5562,8 @@
         "name": "Takish-Hiz",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E338"
       ],
@@ -4871,6 +5581,8 @@
         "name": "Takish-Hiz: Sunken Library",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E339"
       ],
@@ -4886,6 +5598,8 @@
         "name": "The Sandkeep",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E340"
       ],
@@ -4901,6 +5615,8 @@
         "name": "Temple of Veeshan",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E341"
       ],
@@ -4916,6 +5632,8 @@
         "name": "Temple of Veeshan",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E342"
       ],
@@ -4931,6 +5649,8 @@
         "name": "Temple of Veeshan",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E343"
       ],
@@ -4946,6 +5666,8 @@
         "name": "Temple of Veeshan",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E344"
       ],
@@ -4961,6 +5683,8 @@
         "name": "Temple of Veeshan",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E345"
       ],
@@ -4976,6 +5700,8 @@
         "name": "Temple of Veeshan",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E346"
       ],
@@ -4991,6 +5717,8 @@
         "name": "Tenebrous Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "The guide omits the broken recurring spell timer and documents only the verified pursuit and quest event behavior.",
       "approved_ids": [
         "R020"
       ],
@@ -5007,6 +5735,8 @@
         "name": "Tenebrous Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E347"
       ],
@@ -5022,6 +5752,8 @@
         "name": "Tenebrous Mountains",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E348"
       ],
@@ -5037,6 +5769,8 @@
         "name": "The Deep",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E349"
       ],
@@ -5052,6 +5786,8 @@
         "name": "The Deep",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E350"
       ],
@@ -5067,6 +5803,8 @@
         "name": "The Deep",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E351"
       ],
@@ -5083,6 +5821,8 @@
         "name": "The Accursed Nest",
         "version": 8
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E352"
       ],
@@ -5096,6 +5836,8 @@
         "name": "The Accursed Nest",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E353"
       ],
@@ -5109,6 +5851,8 @@
         "name": "The Accursed Nest",
         "version": 3
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E354"
       ],
@@ -5122,6 +5866,8 @@
         "name": "The Accursed Nest",
         "version": 14
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E355"
       ],
@@ -5138,6 +5884,8 @@
         "name": "The Accursed Nest",
         "version": 11
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E356"
       ],
@@ -5153,6 +5901,8 @@
         "name": "The Accursed Nest",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E357"
       ],
@@ -5166,6 +5916,8 @@
         "name": "The Accursed Nest",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E358"
       ],
@@ -5179,6 +5931,8 @@
         "name": "The Accursed Nest",
         "version": 15
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E359"
       ],
@@ -5192,6 +5946,8 @@
         "name": "Thundercrest Isles",
         "version": 8
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E360"
       ],
@@ -5205,6 +5961,8 @@
         "name": "Thundercrest Isles",
         "version": 200
       },
+      "status": "draft",
+      "publication_reason": "The loader selects version 3 while the module removes the boss unless version 200; no version-200 loader was found.",
       "approved_ids": [
         "E361"
       ],
@@ -5220,6 +5978,8 @@
         "name": "Thundercrest Isles",
         "version": 4
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E362"
       ],
@@ -5233,6 +5993,8 @@
         "name": "Thundercrest Isles",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E363"
       ],
@@ -5246,6 +6008,8 @@
         "name": "Thundercrest Isles",
         "version": 2
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E364"
       ],
@@ -5261,6 +6025,8 @@
         "name": "Thundercrest Isles",
         "version": 5
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E365"
       ],
@@ -5274,6 +6040,8 @@
         "name": "Thundercrest Isles",
         "version": 6
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E366"
       ],
@@ -5289,6 +6057,8 @@
         "name": "Thundercrest Isles",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E367"
       ],
@@ -5302,6 +6072,8 @@
         "name": "Thundercrest Isles",
         "version": 13
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E368"
       ],
@@ -5315,6 +6087,8 @@
         "name": "Thundercrest Isles",
         "version": 7
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E369"
       ],
@@ -5330,6 +6104,8 @@
         "name": "Thundercrest Isles",
         "version": 9
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E370"
       ],
@@ -5343,6 +6119,8 @@
         "name": "Thundercrest Isles",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E371"
       ],
@@ -5358,6 +6136,8 @@
         "name": "Thundercrest Isles",
         "version": 10
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E372"
       ],
@@ -5373,11 +6153,13 @@
         "name": "Thundercrest Isles",
         "version": 11
       },
+      "status": "published",
+      "publication_reason": "Published for the level 68+ mission configuration only; unfinished lower-difficulty templates are outside this guide.",
       "approved_ids": [
         "R021"
       ],
       "issues": [
-        "Publication blocker for lower difficulties: the source hardcodes level 68+ NPC templates and explicitly states that lower-difficulty mappings still need work. Confirm the selected task difficulty before publication."
+        "This guide is limited to the level 68+ mission configuration. The source hardcodes those NPC templates; lower-difficulty mappings remain unfinished."
       ]
     },
     {
@@ -5388,6 +6170,8 @@
         "name": "Thundercrest Isles",
         "version": 12
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E373"
       ],
@@ -5403,6 +6187,8 @@
         "name": "Timorous Deep",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E374"
       ],
@@ -5418,6 +6204,8 @@
         "name": "Timorous Deep",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E375"
       ],
@@ -5431,6 +6219,8 @@
         "name": "Tipt, Treacherous Crags",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E376"
       ],
@@ -5444,6 +6234,8 @@
         "name": "Torgiran Mines",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E377"
       ],
@@ -5459,6 +6251,8 @@
         "name": "Torgiran Mines",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E378"
       ],
@@ -5474,6 +6268,8 @@
         "name": "Txevu, Lair of the Elite",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E379"
       ],
@@ -5489,6 +6285,8 @@
         "name": "Txevu, Lair of the Elite",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E380"
       ],
@@ -5502,6 +6300,8 @@
         "name": "Txevu, Lair of the Elite",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E381"
       ],
@@ -5515,6 +6315,8 @@
         "name": "Txevu, Lair of the Elite",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E382"
       ],
@@ -5528,6 +6330,8 @@
         "name": "Txevu, Lair of the Elite",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E383"
       ],
@@ -5541,6 +6345,8 @@
         "name": "Txevu, Lair of the Elite",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E384"
       ],
@@ -5554,6 +6360,8 @@
         "name": "Uqua, The Ocean God Chantry",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E385"
       ],
@@ -5567,6 +6375,8 @@
         "name": "Uqua, The Ocean God Chantry",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E386"
       ],
@@ -5580,6 +6390,8 @@
         "name": "Uqua, The Ocean God Chantry",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E387"
       ],
@@ -5595,6 +6407,8 @@
         "name": "Veeshan's Peak",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E388"
       ],
@@ -5610,6 +6424,8 @@
         "name": "Veksar",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E389"
       ],
@@ -5626,6 +6442,8 @@
         "name": "Veksar",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E390"
       ],
@@ -5639,6 +6457,8 @@
         "name": "Vex Thal",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E391"
       ],
@@ -5654,6 +6474,8 @@
         "name": "Vex Thal",
         "version": 0
       },
+      "status": "draft",
+      "publication_reason": "The document still has a numeric placeholder instead of a verified encounter identity, and the spawn version is unresolved.",
       "approved_ids": [
         "R024"
       ],
@@ -5669,6 +6491,8 @@
         "name": "Vxed, The Crumbling Caverns",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E392"
       ],
@@ -5684,6 +6508,8 @@
         "name": "The Wakening Land",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E393"
       ],
@@ -5699,6 +6525,8 @@
         "name": "The Wakening Land",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E394"
       ],
@@ -5712,11 +6540,13 @@
         "name": "The Wakening Land",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E395"
       ],
       "issues": [
-        "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+        "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200 to 249. Confirm the active expedition version and matching support-NPC provisioning before publication."
       ]
     },
     {
@@ -5727,6 +6557,8 @@
         "name": "Wall of Slaughter",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E396"
       ],
@@ -5740,6 +6572,8 @@
         "name": "Wall of Slaughter",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E397"
       ],
@@ -5753,6 +6587,8 @@
         "name": "Wall of Slaughter",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E398"
       ],
@@ -5766,6 +6602,8 @@
         "name": "Wall of Slaughter",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E399"
       ],
@@ -5781,6 +6619,8 @@
         "name": "Wall of Slaughter",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E400"
       ],
@@ -5796,6 +6636,8 @@
         "name": "Wall of Slaughter",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E401"
       ],
@@ -5809,6 +6651,8 @@
         "name": "Wall of Slaughter",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E401"
       ],
@@ -5822,6 +6666,8 @@
         "name": "Warsliks Woods",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E402"
       ],
@@ -5835,6 +6681,8 @@
         "name": "Stoneroot Falls",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E403"
       ],
@@ -5851,6 +6699,8 @@
         "name": "The Lodge of the Fang",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E404"
       ],
@@ -5864,6 +6714,8 @@
         "name": "Caverns of the Lost",
         "version": 1
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E405"
       ],
@@ -5877,6 +6729,8 @@
         "name": "Western Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E406"
       ],
@@ -5890,11 +6744,13 @@
         "name": "Western Wastes",
         "version": 200
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E407"
       ],
       "issues": [
-        "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+        "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200 to 249. Confirm the active expedition version and matching support-NPC provisioning before publication."
       ]
     },
     {
@@ -5905,6 +6761,8 @@
         "name": "Western Wastes",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E408"
       ],
@@ -5918,6 +6776,8 @@
         "name": "Yxtta, Pulpit of Exiles",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E409"
       ],
@@ -5934,6 +6794,8 @@
         "name": "Yxtta, Pulpit of Exiles",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E410"
       ],
@@ -5949,6 +6811,8 @@
         "name": "Yxtta, Pulpit of Exiles",
         "version": 0
       },
+      "status": "draft",
+      "publication_reason": "Broken entry initialization and status logic leave the documented door-access sequence unverified.",
       "approved_ids": [
         "E411"
       ],
@@ -5964,6 +6828,8 @@
         "name": "Yxtta, Pulpit of Exiles",
         "version": 0
       },
+      "status": "published",
+      "publication_reason": "Source-reviewed player guidance is ready. Missing optional links, database-only detail and unverified deployment are not publication blockers.",
       "approved_ids": [
         "E412"
       ],

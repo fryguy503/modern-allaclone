@@ -10,7 +10,7 @@
     "version": 200
   },
   "npc_ids": [],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Seasonal Lady Vox calls ice creatures and adds spell attacks at key health thresholds.",
   "overview": [

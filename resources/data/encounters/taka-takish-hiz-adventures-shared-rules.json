@@ -10,7 +10,7 @@
     "version": 1
   },
   "npc_ids": [],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Complete the selected Takish-Hiz adventure while managing its timer and scaled enemies.",
   "overview": [

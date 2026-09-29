@@ -356,7 +356,9 @@
   {
     "id": "E067",
     "slug": "corathusb-find-fibblebrap1-the-mines",
-    "issues": []
+    "issues": [
+      "The peaceful meat-exchange reward branch tests .valid on PLAYER_STARTING_RP, which holds a name string. The published guide covers the hostile dialogue route and gem loot objective instead."
+    ]
   },
   {
     "id": "E068",

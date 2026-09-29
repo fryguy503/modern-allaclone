@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "slug": "corathusb-find-fibblebrap1-the-mines",
-  "title": "Find Fibblebrap1: The Mines",
+  "title": "Find Fibblebrap 1: The Mines",
   "group": "Find Fibblebrap",
   "type": "group",
   "zone": {
@@ -12,7 +12,7 @@
   "npc_ids": [
     367051
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Search the mines for Fibblebrap's gem and deal with Creeper Clicktok.",
   "overview": [
@@ -27,9 +27,9 @@
       "title": "Encounter strategy",
       "paragraphs": [],
       "bullets": [
-        "Follow the mission objectives through the mine and collect the required quest material.",
-        "Bring the requested larva material before hailing Clicktok to use the peaceful route.",
-        "Hailing Clicktok without the material starts a delayed hostile response.",
+        "Follow the mine objectives and recover the required memory fragment.",
+        "For the combat route, hail Creeper Clicktok without carrying the requested larva meat. He becomes attackable after two five-second dialogue delays.",
+        "Defeat Clicktok and loot the gem to advance its mission objective.",
         "Complete the pickup and loot objectives before returning through the mission route."
       ],
       "items": []
@@ -56,7 +56,8 @@
     ],
     "notes": [
       "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
-      "This document applies to instance version 1."
+      "This document applies to instance version 1.",
+      "The peaceful meat-exchange reward branch tests .valid on PLAYER_STARTING_RP, which holds a name string. The published guide covers the hostile dialogue route and gem loot objective instead."
     ]
   }
 }

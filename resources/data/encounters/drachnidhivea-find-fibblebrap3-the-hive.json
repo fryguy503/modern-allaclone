@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "slug": "drachnidhivea-find-fibblebrap3-the-hive",
-  "title": "Find Fibblebrap3: The Hive",
+  "title": "Find Fibblebrap 3: The Hive",
   "group": "Find Fibblebrap",
   "type": "group",
   "zone": {
@@ -12,7 +12,7 @@
   "npc_ids": [
     355073
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Complete the Hive objectives to confront Foreman Zlixtil.",
   "overview": [

@@ -10,7 +10,7 @@
     "version": 0
   },
   "npc_ids": [],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Survive repeated multi-target curse bursts while holding Mindrider inside her room.",
   "overview": [
@@ -33,7 +33,7 @@
       "title": "Encounter plan",
       "paragraphs": [],
       "bullets": [
-        "At80%,60%,40%,20% and 10% health, Mindrider casts Curse of the Ikaav four times on randomly selected hated targets.",
+        "At 80%, 60%, 40%, 20% and 10% health, Mindrider casts Curse of the Ikaav four times on randomly selected hated targets.",
         "Her scripted modifiers reduce slashing damage and increase archery damage.",
         "Crossing the room boundary returns her and clears hate; thirty seconds out of combat restores full health and rearms the thresholds."
       ],

@@ -15,7 +15,7 @@
     300102,
     300103
   ],
-  "status": "draft",
+  "status": "published",
   "spoiler": false,
   "summary": "Find Pyrique's true shadow in repeated forty-second damage windows.",
   "overview": [
@@ -34,7 +34,7 @@
     {
       "id": "phase-1",
       "label": "Opening",
-      "trigger": "Above80%",
+      "trigger": "Above 80%",
       "description": "Engage Pyrique and prepare target identification."
     },
     {
