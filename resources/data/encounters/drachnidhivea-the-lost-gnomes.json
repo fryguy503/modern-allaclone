@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "drachnidhivea-the-lost-gnomes",
+  "title": "The Lost Gnomes",
+  "group": "Depths of Darkhollow",
+  "type": "group",
+  "zone": {
+    "short_name": "drachnidhivea",
+    "name": "The Hatchery",
+    "version": 2
+  },
+  "npc_ids": [
+    355097,
+    355124,
+    355125,
+    355126,
+    355127
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break cocoons and lead the rescued gnomes to safety.",
+  "overview": [
+    "Break cocoons and lead the rescued gnomes to safety."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear a safe route before opening more cocoons.",
+        "Tell a freed gnome to follow and remain close while escorting it to the rescue area.",
+        "Use the stop dialogue when the group needs to clear ahead.",
+        "Some rescued gnomes develop a dangerous infestation; be ready for a hostile burst along the route."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "drachnidhivea/encounters/the_lost_gnomes.lua",
+        "sha256": "db4547085be7cc0e26e170bb97e88067cce9785bbc6712eb10a98d62ff263ef7"
+      },
+      {
+        "path": "drachnidhivea/script_init.lua",
+        "sha256": "08179feb528f0f6d8a781e1ab0f88306c65834375e453dfe8dbcac82c993021b"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

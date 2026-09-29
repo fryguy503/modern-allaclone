@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "dreadspire-zi-thuuli-of-the-granite-claw",
+  "title": "Zi-Thuuli of the Granite Claw",
+  "group": "Demi-Plane of Blood",
+  "type": "raid",
+  "zone": {
+    "short_name": "dreadspire",
+    "name": "Dreadspire Keep",
+    "version": 1
+  },
+  "npc_ids": [
+    351190
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Drive Zi-Thuuli away through three encounters before the final confrontation.",
+  "overview": [
+    "Drive Zi-Thuuli away through three encounters before the final confrontation."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Engage promptly when Zi-Thuuli appears; an idle appearance ends after fifteen seconds.",
+        "His first three encounters end at 55%, 50% and 45% health respectively.",
+        "Prepare for the recurring stone spell during longer engagements.",
+        "The next appearance after the third retreat is the killable finale."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dreadspire/encounters/thuuli.lua",
+        "sha256": "d1ba496cde70082e763ef62840cf9384d56d9ddea8bccee3a8d0f96675c222b2"
+      },
+      {
+        "path": "dreadspire/script_init.lua",
+        "sha256": "21bc907be35f4feb4e057459e9feebcf06e02c1d432c42b31b92094abf2b2276"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1.",
+      "The script marks the ninety-second stone interval as an estimate. Full database spell behavior remains unverified."
+    ]
+  }
+}

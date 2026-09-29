@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "lakeofillomen-vorash-deep-and-xenevorash",
+  "title": "Vorash, Deep and Xenevorash",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "lakeofillomen",
+    "name": "Lake of Ill Omen",
+    "version": 0
+  },
+  "npc_ids": [
+    85396
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Confront Vorash and Deep, then prepare for Xenevorash to appear as Vorash falls.",
+  "overview": [
+    "Confront Vorash and Deep, then prepare for Xenevorash to appear as Vorash falls."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Vorash and Deep automatically attack monks who approach within their proximity area. Bring support before entering that space.",
+        "Vorash’s death directly summons Xenevorash. Prepare a tank and healing for the new arrival before delivering the finishing blow.",
+        "Control Deep while completing the sequence; the active Vorash handler does not wait for Deep to die before summoning Xenevorash."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lakeofillomen/Vorash.lua",
+        "sha256": "c87e0b8ae212c9d12d28dd968d64d4a319c8bdef31aaa334e85b5eb9ab7956d5"
+      },
+      {
+        "path": "lakeofillomen/monk_trigger.lua",
+        "sha256": "12ac93b2f03bf98ce0ed947e2c0f0cb4053fe65563df4fa3041c1868683fb25a"
+      },
+      {
+        "path": "lakeofillomen/Deep.lua",
+        "sha256": "b33b1782e341ca1f4815cde485c2bda4285d5eb0d631690a5cdd8c977e5bdcac"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The auxiliary monk_trigger counter is local to each signal call and does not establish a working two-kill gate. The guide follows the direct Xenevorash spawn in Vorash.lua.",
+      "Confirm Vorash and Deep template IDs for additional NPC links; only the directly spawned Xenevorash ID is linked."
+    ]
+  }
+}

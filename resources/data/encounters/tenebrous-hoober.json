@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "tenebrous-hoober",
+  "title": "Hoober",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "tenebrous",
+    "name": "Tenebrous Mountains",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Subdue Hoober so he can safely receive the quest elixir.",
+  "overview": [
+    "Subdue Hoober so he can safely receive the quest elixir."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Stop attacks at the surrender and have the quest turn-in ready."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Reduce Hoober to 20% health. He becomes invulnerable, falls down and clears his hate list.",
+        "That creates a five-minute window to give the required elixir.",
+        "Giving it before he is subdued returns the item and provokes him instead."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tenebrous/Hoober.lua",
+        "sha256": "c4fc2eb4b290203ebf9a6e705f0934b3f88c223932176a2f7b6b9be468638c42"
+      }
+    ],
+    "notes": [
+      "Approval E347. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

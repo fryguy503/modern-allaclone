@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "bloodfields-marshal-histent-grinbik-the-fertile-rescue",
+  "title": "Marshal Histent / Grinbik the Fertile rescue",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "bloodfields",
+    "name": "The Bloodfields",
+    "version": 0
+  },
+  "npc_ids": [
+    301065,
+    301066
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Marshal Histent and subdue Grinbik to free him from control.",
+  "overview": [
+    "Defeat Marshal Histent and subdue Grinbik to free him from control."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Handle the marshal and his supporting enemies without losing control of Grinbik.",
+        "Lower Grinbik to 10% and allow the surrender check to complete.",
+        "The eligible ranger should hail the freed Grinbik to finish the rescue."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "bloodfields/encounters/ranger_1_5.lua",
+        "sha256": "12908537a7b4ab1218c5eb3dc91970bd4b774dfa542fe3aa795a231ea16a0941"
+      },
+      {
+        "path": "bloodfields/marshall_trap.lua",
+        "sha256": "22b9fbd192ad0327c20be47b5baabc9fba59233d17adbd5e7ca132c443aa7097"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Grinbik arms a timer named Depop but checks depop in its handler; reliable cleanup timing needs a live check."
+    ]
+  }
+}

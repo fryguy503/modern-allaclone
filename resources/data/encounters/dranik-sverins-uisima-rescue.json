@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-sverins-uisima-rescue",
+  "title": "Sverins / Uisima rescue",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336002,
+    336001,
+    336230
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break Sverins' control and subdue Uisima for the ranger rescue.",
+  "overview": [
+    "Break Sverins' control and subdue Uisima for the ranger rescue."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for linked acolytes and golem-bound spirits alongside the named enemies.",
+        "Keep healing ready for Sverins' recurring Matter Dispersal.",
+        "Lower Uisima to 10% and allow the surrender condition to complete after the other threats are handled.",
+        "The eligible ranger should finish the conversation and quest hand-in after Uisima is freed."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/encounters/ranger_1_5.lua",
+        "sha256": "53619de3fab06901d3667c6fc9a644bec7f603bd1088c8b0d0bfd1c4efed3f94"
+      },
+      {
+        "path": "dranik/script_init.lua",
+        "sha256": "3aa8bf11ae3bdb3b2f1b576fe234a8014f719fad485277355fe1f60a91fc5367"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

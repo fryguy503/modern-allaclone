@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "poair-xegony-queen-of-air",
+  "title": "Xegony, Queen of Air",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poair",
+    "name": "Eryslai, the Kingdom of Wind",
+    "version": 0
+  },
+  "npc_ids": [
+    215056,
+    215416,
+    215414,
+    215421,
+    215399,
+    215422,
+    215418
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Xegony’s six guard formations before attempting to finish the Queen of Air.",
+  "overview": [
+    "Defeat Xegony’s six guard formations before attempting to finish the Queen of Air."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 99%, 85%, 70%, 55%, 40% and 25% health, Xegony activates one previously unused guard family and its named leader.",
+        "The family order is randomized. Watch the active formation and assign tanks before pushing the next threshold.",
+        "Guard leaders can clear their hate lists, and idle guards are called back into the fight. Maintain control rather than leaving loose adds unattended.",
+        "At 13%, Xegony returns to 25% health if any of the six named leaders remain alive. Kill every leader before the final push.",
+        "After an extended break from combat, the event resets. Victory produces the Essence of Air."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poair/encounters/Xegony_Event.lua",
+        "sha256": "e86b10489a7ec740f9ac2a1bcfc8a1a6928a7443a2934150d010028dcf7ead8c"
+      },
+      {
+        "path": "poair/#event_control_Xegony.lua",
+        "sha256": "5ef87c1b7c7c33abc51495ad78a9870757cb194a9227ddc99503b8002188d353"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

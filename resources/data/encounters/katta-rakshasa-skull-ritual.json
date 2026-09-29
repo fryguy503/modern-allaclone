@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "katta-rakshasa-skull-ritual",
+  "title": "Rakshasa skull ritual",
+  "group": "Quest battles",
+  "type": "event",
+  "zone": {
+    "short_name": "katta",
+    "name": "Katta Castellum",
+    "version": 0
+  },
+  "npc_ids": [
+    160477,
+    160476
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Roshawna’s skull ritual summons a courier and a group of reanimated Vah Shir.",
+  "overview": [
+    "Roshawna’s skull ritual summons a courier and a group of reanimated Vah Shir."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the ritual hand-in only when your group is prepared. The sequence creates a courier and eight reanimated Vah Shir.",
+        "Control the supporting undead while completing the ritual’s combat objective.",
+        "Return to the quest giver after the fight to finish the requested collection and hand-in steps."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "katta/Roshawna_Rhorer.lua",
+        "sha256": "e45a4ab6fe8fd0a985e5b1f21925da46754b3c5c659b7273eb8bf4aa77b9ceca"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

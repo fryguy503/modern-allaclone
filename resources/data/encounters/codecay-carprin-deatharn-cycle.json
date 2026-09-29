@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "codecay-carprin-deatharn-cycle",
+  "title": "Carprin Deatharn cycle",
+  "group": "Crypt of Decay",
+  "type": "raid",
+  "zone": {
+    "short_name": "codecay",
+    "name": "Ruins of Lxanvom",
+    "version": 0
+  },
+  "npc_ids": [
+    200007,
+    200264,
+    200225,
+    200228,
+    200227,
+    200226
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break Carprin's guard protection and follow the named sequence deeper into the crypt.",
+  "overview": [
+    "Break Carprin's guard protection and follow the named sequence deeper into the crypt."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat all three guards before killing Carprin; killing him first brings out a replacement with another guard set.",
+        "Rebuild threat after Carprin's recurring hate wipes.",
+        "Prevent deaths during Avhi Escron: fallen players cause more reanimated reavers to appear.",
+        "Prepare for each named successor and its accompanying enemies before advancing."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "codecay/#_Carprin_Deatharn.lua",
+        "sha256": "8472fd6ee52229780ca1f39b535b2790dcfcbef9dc62a5de68479ecce255fefa"
+      },
+      {
+        "path": "codecay/Avhi_Escron.lua",
+        "sha256": "bd762841b9c4435cc3e12bfd389117891e5a8bb865a7440c42c020aeb64ffcdd"
+      },
+      {
+        "path": "codecay/Bishop_Toluwon.lua",
+        "sha256": "c3cf06a5d968a87993d55470d506ff37ebe8c7c24c8f928c7d176973fe19c7a7"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The draft covers the linked stages present in the reviewed Carprin, Avhi and Bishop scripts; database combat spell lists were not reviewed."
+    ]
+  }
+}

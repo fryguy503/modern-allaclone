@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "inktuta-noqufiel-true-and-mirror-images",
+  "title": "Noqufiel: true and mirror images",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "inktuta",
+    "name": "Inktu’ta",
+    "version": 0
+  },
+  "npc_ids": [
+    296065,
+    296066
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Identify Noqufiel’s true image, halt attacks on the revealed mirror and repeat the deception cycle until the true image falls.",
+  "overview": [
+    "Identify Noqufiel’s true image, halt attacks on the revealed mirror and repeat the deception cycle until the true image falls."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Both images initially use the name Noqufiel. Removing five percent health reveals an image’s identity.",
+        "Attack the True Image once revealed. Stop all attacks, pets and damage-over-time effects on the Mirror Image; after a two-second grace period, further health loss can detonate it.",
+        "Another five-percent push on the true image resets the pair to hidden forms. Re-identify the target at each cycle instead of assuming the same visible position is safe.",
+        "Hidden forms banish their highest-hate player and can spawn cursebearers. Keep backup tanks ready and avoid dragging either image beyond the room boundary.",
+        "Out-of-combat regeneration can reverse progress to an earlier stage. Maintain controlled pressure on the correct image."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "inktuta/encounters/noqufiel.lua",
+        "sha256": "96df47663fae664f608c71e0090e1ff726e7b006a9875a38308a3453edc1dccf"
+      },
+      {
+        "path": "inktuta/script_init.lua",
+        "sha256": "fb13a7cc8246c8167b7a844c27403e212a2e2ad9e8d43bdbc3bc8256d61844ee"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

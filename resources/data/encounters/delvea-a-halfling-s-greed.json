@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "delvea-a-halfling-s-greed",
+  "title": "A Halfling's Greed",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "delvea",
+    "name": "Lavaspinner's Lair",
+    "version": 2
+  },
+  "npc_ids": [
+    341103,
+    341102,
+    341101,
+    341100
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the chest guards and open the treasures in the correct order.",
+  "overview": [
+    "Clear the chest guards and open the treasures in the correct order."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Inspect the chests and clear their guards before committing to an opening.",
+        "The required opening order is gold, cracked, gilded, then silver.",
+        "Opening a later chest while an earlier one remains triggers Meddler's Misfortune and ends the mission."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delvea/encounters/a_halflings_greed.lua",
+        "sha256": "6e52b02d355e0483583d8dc5dcf699bf21ca81ef7d77ae3a70033b5d4f08ad08"
+      },
+      {
+        "path": "delvea/script_init.lua",
+        "sha256": "209dd27c078503cc17b9db026e48d70ebb185d65aaa4840f70ba098b5ec76ab8"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

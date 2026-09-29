@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "harbingers-azibelle-spavin-and-glenfire-telzir",
+  "title": "Azibelle Spavin and Glenfire Telzir",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "harbingers",
+    "name": "Harbinger's Spire",
+    "version": 0
+  },
+  "npc_ids": [
+    335064,
+    335065
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A druid epic ambush brings Azibelle Spavin and Glenfire Telzir into Harbinger’s Spire.",
+  "overview": [
+    "A druid epic ambush brings Azibelle Spavin and Glenfire Telzir into Harbinger’s Spire."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The hidden proximity trigger checks the druid’s quest state before summoning both opponents.",
+        "Prepare for a two-enemy engagement rather than approaching the trigger alone. Establish separate control of the pair before focusing one down.",
+        "The summoned enemies have a fifteen-minute cleanup window. Finish the encounter while both are available."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "harbingers/#druid_epic_trap.lua",
+        "sha256": "584519c73f066b3735bc05bf734e71a6122066a3833f57975fd68e439d0e0083"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

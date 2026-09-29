@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "vexthal-npc-158006-teleport-hunt",
+  "title": "NPC 158006: teleport hunt",
+  "group": "Custom events",
+  "type": "event",
+  "zone": {
+    "short_name": "vexthal",
+    "name": "Vex Thal",
+    "version": 0
+  },
+  "npc_ids": [
+    158006
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Pursue a hidden Vex Thal opponent through two timed relocations.",
+  "overview": [
+    "Pursue a hidden Vex Thal opponent through two timed relocations."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Expect fresh health bars after both relocations and organize the search immediately."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "First hunt",
+      "trigger": "40% health",
+      "description": "Find the healed boss at the first random destination."
+    },
+    {
+      "id": "phase-2",
+      "label": "Second hunt",
+      "trigger": "Next20% threshold",
+      "description": "Find it again at the second random destination and finish before the new one-hour deadline."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At40% health in the first phase, the boss heals fully, clears hate and buffs, becomes protected for thirty seconds and moves to one of two locations.",
+        "The next 20% threshold repeats the transition using a second pair of possible destinations.",
+        "Each relocation starts a new one-hour deadline to find and kill the boss.",
+        "Missing the deadline removes the boss and starts its spawn timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "vexthal/158006.lua",
+        "sha256": "c016fe5a748b95b474d53aa7509457bf26edc08c987e0e7d6ed3a349efc6bdef"
+      }
+    ],
+    "notes": [
+      "Approval R024. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Publication blocker: NPC 158006 has no display name or verified spawn-version mapping in the reviewed script. The numeric identity is preserved; resolve its database name and deployed version before publication."
+    ]
+  }
+}

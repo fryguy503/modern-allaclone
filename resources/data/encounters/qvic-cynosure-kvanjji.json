@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "slug": "qvic-cynosure-kvanjji",
+  "title": "Cynosure Kvanjji",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "qvic",
+    "name": "Qvic, Prayer Grounds of Calling",
+    "version": 0
+  },
+  "npc_ids": [
+    295140,
+    295149,
+    295145,
+    295146,
+    295147,
+    295148
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Cynosure while managing four arbiters that heal him and copy his spells.",
+  "overview": [
+    "Defeating the first Cynosure brings out his true form and four arbiters. Assign tanks to the arbiters before engaging the new boss; he calls them onto raid members shortly after combat begins.",
+    "Each surviving arbiter can heal Cynosure for 10% of his maximum health and periodically copy his next spell. Killing all four causes the complete arbiter set to return. Plan which arbiters to defeat and which to control while the raid finishes Cynosure."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep separate control of Cynosure and the arbiters. Be ready for four replacements if the entire arbiter set dies."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Expect bursts when the surviving arbiters mimic the same spell. Keep their tanks covered while the raid damages Cynosure."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Coordinate arbiter kills; clearing all four restarts their full set. A healing announcement starts a ten-second delay, but killing its arbiter does not cancel an already queued heal in this script."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "first-form",
+      "label": "First form",
+      "trigger": "Initial encounter",
+      "description": "Defeat the initial Cynosure. His death creates the true boss, who immediately summons all four arbiters."
+    },
+    {
+      "id": "arbiters",
+      "label": "Cynosure and the arbiters",
+      "trigger": "True form appears",
+      "description": "Control the arbiters while damaging Cynosure. Their independent healing schedules begin 20 to 60 seconds after they appear and then repeat every two and a half minutes."
+    },
+    {
+      "id": "replacement",
+      "label": "Arbiter replacement",
+      "trigger": "All four arbiters die",
+      "description": "A repeating five-second check replaces the entire set and begins new healing schedules. Cynosure remains the kill objective."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "arbiter-healing",
+      "name": "Arbiter healing",
+      "summary": "Each announced heal restores 10% of Cynosure’s maximum health after ten seconds.",
+      "description": [
+        "The heal is capped at full health. Once announced, the delayed heal does not check whether its arbiter is still alive."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    },
+    {
+      "id": "mimicked-spells",
+      "name": "Mimicked spells",
+      "summary": "Surviving arbiters periodically copy Cynosure’s next spell.",
+      "description": [
+        "Cynosure selects a spell every ten seconds during combat. Every 30 seconds the script readies surviving arbiters to copy the next selection, each against a random target on its own hate list."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        4121,
+        4722,
+        4723,
+        4734,
+        4749
+      ]
+    },
+    {
+      "id": "portal-energy",
+      "name": "Portal energy",
+      "summary": "A portal-energy announcement accompanies an additional spell every 90 seconds in combat.",
+      "description": [],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        4748
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "completion",
+      "title": "Completion",
+      "paragraphs": [
+        "Defeating the true Cynosure removes all four arbiter types and records a 72-hour encounter lockout in the Qvic expedition."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qvic/#Cynosure_Kvanjji.lua",
+        "sha256": "ffe371d0e0dc523e3bd9a8260536bf1b73a5075b0ec802eb903e7d5ccd7e3806"
+      },
+      {
+        "path": "qvic/##Cynosure_Kvanjji.lua",
+        "sha256": "cf9ee362b2ce413ab494fd48d5b867d6b157c87c4c69495a8b8eb05d64bd7569"
+      },
+      {
+        "path": "qvic/#Vishai_the_First_Arbitor.lua",
+        "sha256": "b486d4654737d588cbee5ca4603f289db1e37e4d416cccee89c243c824d42785"
+      },
+      {
+        "path": "qvic/#Svi-pral_the_Second_Arbitor.lua",
+        "sha256": "5c48630ba297b81da17e8f93051f47209673d0f5e8290add696ca2076dacba9f"
+      },
+      {
+        "path": "qvic/#Ytvagi_the_Third_Arbitor.lua",
+        "sha256": "2a99fea8937485b049641b260e1164f9718ef53455a5e3ffbb3246d7e52b7f52"
+      },
+      {
+        "path": "qvic/#Qkav-d_the_Fourth_Arbitor.lua",
+        "sha256": "979b41fd45337d6560743397bb85ed961ad8ff626b64ef8fb7e0680362e25a2b"
+      },
+      {
+        "path": "qvic/zone_status.lua",
+        "sha256": "3a31ce77cd712ec9057d231d60bfd917c800ba76ccc074557f7bcf3b8fd577b6"
+      },
+      {
+        "path": "qvic/#Gozer_The_Gatekeeper.lua",
+        "sha256": "f3311f933865c181ada71005cb423cd687b0611882d9b9496ccd12bf4808bb1e"
+      }
+    ],
+    "notes": [
+      "Approved row E267. Source reviewed; live behavior, loaded database spell effects and loot have not been verified.",
+      "Qvic version 0 is explicit in the Gozer expedition launcher. Zone status supplies the encounter spawns and lockouts.",
+      "The reset timer is started as reset but handled as Reset. The intended one-minute reset is not reliable as written; healing and mimic timers also remain active after combat ends. Verify recovery before publication.",
+      "Queued arbiter heals are unconditional when delivered, even if the matching arbiter died during the ten-second delay. This draft intentionally does not advise killing an arbiter to interrupt a queued heal.",
+      "Spell 4748 is cast by the 90-second portal-energy timer, but its loaded effect has not been verified. The draft does not infer an effect from the emote."
+    ]
+  }
+}

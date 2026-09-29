@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "qinimi-mastruq-commander-gorlakt-and-the-spiritlords",
+  "title": "Mastruq Commander Gorlakt and the Spiritlords",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "qinimi",
+    "name": "Qinimi, Court of Nihilia",
+    "version": 0
+  },
+  "npc_ids": [
+    281089,
+    281090,
+    281091
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Choose which Spiritlord to defeat first, then handle Gorlakt's inherited spell.",
+  "overview": [
+    "An eligible druid approaching the trigger at the required epic stage summons Gorlakt and the two Spiritlords. This sets a two-hour event cooldown and a 30-minute cleanup timer.",
+    "Gorlakt starts protected. The first Spiritlord death removes his protection and determines the spell he inherits: Mind Warp from Mind or Body Warp from Body.",
+    "The first inherited spell choice persists. Killing the other Spiritlord does not grant him a second spell timer."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "mind",
+      "name": "Mind Warp",
+      "summary": "Mind and a Mind-empowered Gorlakt cast on their current target.",
+      "description": [
+        "The first cast follows a random five-to-fifteen-second delay, then repeats every thirty seconds."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        5808
+      ]
+    },
+    {
+      "id": "body",
+      "name": "Body Warp",
+      "summary": "Body and a Body-empowered Gorlakt cast on their current target.",
+      "description": [
+        "The first cast follows a random five-to-twenty-second delay, then repeats every forty-five seconds."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        5809
+      ]
+    }
+  ],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qinimi/#Mastruq_Commander_Gorlakt.lua",
+        "sha256": "ba2013725fb6a99e02e974ee026d397afdd593c1b535b904a6010d08ab1a53d0"
+      },
+      {
+        "path": "qinimi/#Spiritlord_Mind.lua",
+        "sha256": "081879da398518c677b3a70239c4d0695a5be5326d97224e1eee4c478c63f141"
+      },
+      {
+        "path": "qinimi/#Spiritlord_Body.lua",
+        "sha256": "5c4c62c314e3f2cbde0fd5f96bf4228c51300887e2bd67c4f067c40dd2e5d7cf"
+      },
+      {
+        "path": "qinimi/#druid_trap.lua",
+        "sha256": "4088067629ebb462e8b0dafaf1518f7921220940ad1078c1a1404ed5fc7b712c"
+      }
+    ],
+    "notes": [
+      "Approved row E265. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "Gorlakt stops both spell timers when combat ends but keeps spell_active set. The reviewed script does not restart those timers on re-engagement; verify recovery before publication."
+    ]
+  }
+}

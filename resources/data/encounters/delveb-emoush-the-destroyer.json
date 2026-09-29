@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "delveb-emoush-the-destroyer",
+  "title": "Emoush the Destroyer",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "delveb",
+    "name": "Tirranun's Delve",
+    "version": 4
+  },
+  "npc_ids": [
+    342052,
+    342053,
+    342054,
+    342055
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Knock out all three mystics together to expose Emoush.",
+  "overview": [
+    "Knock out all three mystics together to expose Emoush."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Coordinate the mystic kills so their unconscious periods overlap.",
+        "Damage Emoush while all three mystics are down.",
+        "The mystics revive after three minutes and can restore his protection while increasing his power.",
+        "Keep healing available for recurring Rumbling Stone casts."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delveb/encounters/emoush.lua",
+        "sha256": "b20bdaeb6e662a7b90e682874c277797ab6b9279a182903d738dd3ef48d0c624"
+      },
+      {
+        "path": "delveb/script_init.lua",
+        "sha256": "6f292e1cb86d73e20d15cbb7394fa780e7cf10e9175dd4b72dd7f6176b66e39a"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 4."
+    ]
+  }
+}

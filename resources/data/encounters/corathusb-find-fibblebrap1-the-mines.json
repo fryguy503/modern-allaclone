@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "corathusb-find-fibblebrap1-the-mines",
+  "title": "Find Fibblebrap1: The Mines",
+  "group": "Find Fibblebrap",
+  "type": "group",
+  "zone": {
+    "short_name": "corathusb",
+    "name": "Corathus Lair",
+    "version": 1
+  },
+  "npc_ids": [
+    367051
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Search the mines for Fibblebrap's gem and deal with Creeper Clicktok.",
+  "overview": [
+    "Search the mines for Fibblebrap's gem and deal with Creeper Clicktok."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Follow the mission objectives through the mine and collect the required quest material.",
+        "Bring the requested larva material before hailing Clicktok to use the peaceful route.",
+        "Hailing Clicktok without the material starts a delayed hostile response.",
+        "Complete the pickup and loot objectives before returning through the mission route."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "corathusb/encounters/find_fibblebrap_one.lua",
+        "sha256": "973f5c8f716c01d5c2c8cbafde1a177d48fae51c22d32b23fe70f3aa8a45f24b"
+      },
+      {
+        "path": "corathusb/script_init.lua",
+        "sha256": "439e8bd76de0fd4a4539a02e7a882c7bf52cea0ddde62f9b161e8ceb83544cac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

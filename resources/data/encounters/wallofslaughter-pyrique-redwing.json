@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "wallofslaughter-pyrique-redwing",
+  "title": "Pyrique Redwing",
+  "group": "Omens of War",
+  "type": "raid",
+  "zone": {
+    "short_name": "wallofslaughter",
+    "name": "Wall of Slaughter",
+    "version": 0
+  },
+  "npc_ids": [
+    300043,
+    300101,
+    300102,
+    300103
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Find Pyrique's true shadow in repeated forty-second damage windows.",
+  "overview": [
+    "Find Pyrique's true shadow in repeated forty-second damage windows."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Identify the real shadow quickly, focus enough damage for the current window, and reassess after every shuffle."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Opening",
+      "trigger": "Above80%",
+      "description": "Engage Pyrique and prepare target identification."
+    },
+    {
+      "id": "phase-2",
+      "label": "Shadows",
+      "trigger": "80% health",
+      "description": "Win six forty-second checks by reducing the real shadow to 90% or lower."
+    },
+    {
+      "id": "phase-3",
+      "label": "Final body",
+      "trigger": "Shadow sequence complete",
+      "description": "Defeat the revealed Pyrique."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 80% health, Pyrique disappears and creates six shadows, only one of which is real.",
+        "Every forty seconds the shadows are replaced and their positions reshuffled.",
+        "Bring the real shadow to 90% health or lower before each check. Six successful checks reveal the final killable Pyrique.",
+        "Directly killing the real shadow also creates the final body in this implementation.",
+        "An idle final body has a five-minute cleanup check."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wallofslaughter/encounters/redwing.lua",
+        "sha256": "0de2ff5b12727876736051db1c60ef90aaf8f4b6719e9bc4b5ecce8835f83faa"
+      }
+    ],
+    "notes": [
+      "Approval E400. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The source explicitly treats killing the real shadow as an uncertain historical behavior; that alternate transition needs live validation."
+    ]
+  }
+}

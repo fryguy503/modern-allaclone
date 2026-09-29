@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "txevu-ancient-cragbeast-matriarch",
+  "title": "Ancient Cragbeast Matriarch",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "txevu",
+    "name": "Txevu, Lair of the Elite",
+    "version": 0
+  },
+  "npc_ids": [
+    297056,
+    297210
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken the Ancient Cragbeast Matriarch by removing the bearers that sustain her abilities.",
+  "overview": [
+    "Weaken the Ancient Cragbeast Matriarch by removing the bearers that sustain her abilities."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear the bearers that support the most dangerous abilities before committing to the matriarch."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Living bearers grant separate benefits including rampage, flurry, regeneration, stronger attacks, resistance and mitigation.",
+        "One bearer enables three hatchlings every thirty-five seconds; another enables a randomly timed conflagration attack.",
+        "Killing each bearer removes its matching benefit from the matriarch.",
+        "The hatchlings have their own area boundary, so keep add control inside the encounter space."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "txevu/encounters/acm.lua",
+        "sha256": "060dcff046820a5cf8692232adf597fdaa5a8377003d1424512496472b6287f5"
+      }
+    ],
+    "notes": [
+      "Approval E379. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The audit described generic HP phases, but the reviewed controller actually ties these benefits to living bearer NPCs."
+    ]
+  }
+}

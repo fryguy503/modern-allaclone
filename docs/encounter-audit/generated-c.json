@@ -1,0 +1,870 @@
+[
+  {
+    "id": "E278",
+    "slug": "riwwi-taskmistress-krisz",
+    "issues": [
+      "The initial audit described prerequisite Pixtt kills; the current trigger is dialogue with Pixtt Kekken and an 18-member raid check."
+    ]
+  },
+  {
+    "id": "E279",
+    "slug": "riwwi-viqu-the-blindeye",
+    "issues": [
+      "Volley code has no branch for hate-list sizes above six; confirm intended raid behavior before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E280",
+    "slug": "ruja-rujarkian-hills-adventures-shared-rules",
+    "issues": [
+      "This theme overview is linked to ruja version 1; identical controllers serve the other Rujarkian maps. Confirm the deployed ruja version before publication.",
+      "Rescue is listed as a type, but the reviewed controller implements explicit completion branches only for assassination, kills and collection.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E281",
+    "slug": "rujd-prison-break-warden-neyremal-and-high-shaman-yenner",
+    "issues": []
+  },
+  {
+    "id": "E282",
+    "slug": "rujg-flawless-experimental-battlelord",
+    "issues": [
+      "Raid version 2 requires confirmation against the expedition launcher/database before publication."
+    ]
+  },
+  {
+    "id": "E283",
+    "slug": "scarlet-disciple-of-sun",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E284",
+    "slug": "scarlet-high-priest-valon-and-the-plasmatic-followers",
+    "issues": []
+  },
+  {
+    "id": "E285",
+    "slug": "sebilis-sebilite-protector",
+    "issues": []
+  },
+  {
+    "id": "E286",
+    "slug": "sebilis-trakanon-seasonal",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E287",
+    "slug": "sirens-a-twitching-swordfish",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E288",
+    "slug": "skyfire-rithnok-the-tormented",
+    "issues": []
+  },
+  {
+    "id": "E289",
+    "slug": "skyfire-talendor-seasonal",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E290",
+    "slug": "skyshrine-lord-yelinak-seasonal",
+    "issues": [
+      "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200\u00c3\u0192\u00c6\u2019\u00c3\u2020\u00e2\u20ac\u2122\u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00a2\u00c3\u0192\u00c6\u2019\u00c3\u201a\u00c2\u00a2\u00c3\u0192\u00c2\u00a2\u00c3\u00a2\u00e2\u20ac\u0161\u00c2\u00ac\u00c3\u2026\u00c2\u00a1\u00c3\u0192\u00e2\u20ac\u0161\u00c3\u201a\u00c2\u00ac\u00c3\u0192\u00c6\u2019\u00c3\u201a\u00c2\u00a2\u00c3\u0192\u00c2\u00a2\u00c3\u00a2\u00e2\u201a\u00ac\u00c5\u00a1\u00c3\u201a\u00c2\u00ac\u00c3\u0192\u00e2\u20ac\u00a6\u00c3\u00a2\u00e2\u201a\u00ac\u00c5\u201c249. Confirm the deployed version.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E291",
+    "slug": "sleeper-master-of-the-guard",
+    "issues": []
+  },
+  {
+    "id": "E291",
+    "slug": "sleeper-the-fabled-master-of-the-guard",
+    "issues": []
+  },
+  {
+    "id": "E292",
+    "slug": "sleeper-sleep-walking-expedition",
+    "issues": []
+  },
+  {
+    "id": "E293",
+    "slug": "sleeper-the-fabled-kerafyrm-the-awakened",
+    "issues": [
+      "Timers start on spawn, not engagement. Live spell data must be checked before assigning effect names or avoidance advice."
+    ]
+  },
+  {
+    "id": "E294",
+    "slug": "sncrematory-gzifa-the-pure-one",
+    "issues": [
+      "The trigger comment mentions a progression flag, but the current active condition checks the carried remains only."
+    ]
+  },
+  {
+    "id": "E295",
+    "slug": "snlair-sewers-of-nihilia-lair-tool-recovery",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E296",
+    "slug": "snplant-ancient-kayserops-sewers-stonemite-event",
+    "issues": []
+  },
+  {
+    "id": "E297",
+    "slug": "snpool-sewers-of-nihilia-slime-cube",
+    "issues": []
+  },
+  {
+    "id": "E298",
+    "slug": "soldungb-lord-nagafen-seasonal",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E299",
+    "slug": "soldungc-culthor-the-gatekeeper",
+    "issues": []
+  },
+  {
+    "id": "E300",
+    "slug": "soldungc-fireback-queen",
+    "issues": []
+  },
+  {
+    "id": "E301",
+    "slug": "soldungc-protector-of-fire-pure-flame-elemental",
+    "issues": []
+  },
+  {
+    "id": "E302",
+    "slug": "solrotower-arlyxir",
+    "issues": []
+  },
+  {
+    "id": "E303",
+    "slug": "solrotower-galremos",
+    "issues": []
+  },
+  {
+    "id": "E304",
+    "slug": "solrotower-jiva",
+    "issues": []
+  },
+  {
+    "id": "E305",
+    "slug": "solrotower-protector-of-dresolik",
+    "issues": []
+  },
+  {
+    "id": "E306",
+    "slug": "solrotower-rizlona",
+    "issues": [
+      "The first-form NPC ID needs a database lookup before linking both forms."
+    ]
+  },
+  {
+    "id": "E307",
+    "slug": "solrotower-solusek-ro",
+    "issues": []
+  },
+  {
+    "id": "E308",
+    "slug": "solrotower-xuzl",
+    "issues": []
+  },
+  {
+    "id": "E309",
+    "slug": "sseru-lord-inquisitor-seru",
+    "issues": [
+      "Native spell lists and special defenses reside in database data and are not established by the tether script.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E310",
+    "slug": "ssratemple-emperor-ssraeshza-and-the-blood",
+    "issues": [
+      "This entry is for the open-world version 0; the boss explicitly depops from nonseasonal instances."
+    ]
+  },
+  {
+    "id": "E310",
+    "slug": "ssratemple-emperor-ssraeshza-and-the-blood-seasonal",
+    "issues": []
+  },
+  {
+    "id": "E311",
+    "slug": "ssratemple-rhag-cycle-arch-lich",
+    "issues": []
+  },
+  {
+    "id": "E312",
+    "slug": "ssratemple-vyzh-dra-cycle",
+    "issues": [
+      "Full Exiled and serpent branch details still require a dedicated publication pass; this draft documents the reviewed controller and Banished path."
+    ]
+  },
+  {
+    "id": "E313",
+    "slug": "steamfont-cargo-clockwork-ambush",
+    "issues": []
+  },
+  {
+    "id": "E314",
+    "slug": "steamfont-yama-tolk-and-the-inactive-clockwork",
+    "issues": [
+      "The callback comment claims same-player enforcement, but the cast callback should be audited before relying on that restriction."
+    ]
+  },
+  {
+    "id": "E315",
+    "slug": "stillmoona-animated-statue-plans",
+    "issues": []
+  },
+  {
+    "id": "E316",
+    "slug": "stillmoona-best-laid-plans",
+    "issues": []
+  },
+  {
+    "id": "E317",
+    "slug": "stillmoona-guardian-of-the-sands-shogurei",
+    "issues": []
+  },
+  {
+    "id": "E318",
+    "slug": "stillmoona-keepers-of-strength-and-wisdom",
+    "issues": [
+      "The separate Sung Li Wisdom sequence needs a deeper publication review; this draft establishes both activation branches."
+    ]
+  },
+  {
+    "id": "E319",
+    "slug": "stillmoona-scales-of-justice",
+    "issues": []
+  },
+  {
+    "id": "E320",
+    "slug": "stillmoona-sickness-of-the-spirit",
+    "issues": []
+  },
+  {
+    "id": "E321",
+    "slug": "stillmoona-tea-for-thy-master",
+    "issues": []
+  },
+  {
+    "id": "E322",
+    "slug": "stillmoona-tracking-the-kirin",
+    "issues": []
+  },
+  {
+    "id": "E323",
+    "slug": "stillmoonb-death-comes-swiftly-lair-mistress",
+    "issues": []
+  },
+  {
+    "id": "E324",
+    "slug": "stillmoonb-drake-eggs",
+    "issues": []
+  },
+  {
+    "id": "E325",
+    "slug": "stillmoonb-kessdona-s-perch",
+    "issues": []
+  },
+  {
+    "id": "E326",
+    "slug": "stillmoonb-rikkukin-the-defender",
+    "issues": [
+      "Version 2 is the Reflections of Silver mission constant; confirm this NPC is bound to that mission in the database before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E327",
+    "slug": "stillmoonb-storm-dragon-scales-the-storm-caller",
+    "issues": []
+  },
+  {
+    "id": "E328",
+    "slug": "stonebrunt-mountain-dragon-transformation",
+    "issues": []
+  },
+  {
+    "id": "E329",
+    "slug": "swampofnohope-swamp-dragon-transformation",
+    "issues": []
+  },
+  {
+    "id": "E330",
+    "slug": "tacvi-pixtt-kretv-krakxt",
+    "issues": []
+  },
+  {
+    "id": "E331",
+    "slug": "tacvi-pixtt-riel-tavas",
+    "issues": []
+  },
+  {
+    "id": "E332",
+    "slug": "tacvi-pixtt-xxeric-kex",
+    "issues": []
+  },
+  {
+    "id": "E333",
+    "slug": "tacvi-tunat-muram-cuu-vauax",
+    "issues": []
+  },
+  {
+    "id": "E334",
+    "slug": "tacvi-zun-muram-kvxe-pirik",
+    "issues": []
+  },
+  {
+    "id": "E335",
+    "slug": "tacvi-zun-muram-mordl-delt",
+    "issues": []
+  },
+  {
+    "id": "E336",
+    "slug": "tacvi-zun-muram-shaldn-boc",
+    "issues": []
+  },
+  {
+    "id": "E337",
+    "slug": "tacvi-zun-muram-yihst-vor",
+    "issues": []
+  },
+  {
+    "id": "E338",
+    "slug": "taka-takish-hiz-adventures-shared-rules",
+    "issues": [
+      "Version 1 is the standard adventure mapping and needs confirmation against the deployed taka launcher.",
+      "Rescue is listed as a type but lacks an explicit completion path in the reviewed theme controller.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E339",
+    "slug": "takc-quintessence-of-sand-and-ritana",
+    "issues": [
+      "Corrected the approval-list label Queen of Sand to the Quintessence wording used by the encounter script."
+    ]
+  },
+  {
+    "id": "E340",
+    "slug": "takishruinsa-living-legacy-sandkeep-endurance-raid",
+    "issues": [
+      "Encounter header and tuning comments require matching deployed SQL and level-60 live validation before publication."
+    ]
+  },
+  {
+    "id": "E341",
+    "slug": "templeveeshan-aaryonar",
+    "issues": [
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  },
+  {
+    "id": "E342",
+    "slug": "templeveeshan-lady-mirenilla",
+    "issues": [
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  },
+  {
+    "id": "E343",
+    "slug": "templeveeshan-lord-feshlak",
+    "issues": [
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  },
+  {
+    "id": "E344",
+    "slug": "templeveeshan-lord-kreizenn",
+    "issues": [
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  },
+  {
+    "id": "E345",
+    "slug": "templeveeshan-lord-vyemm",
+    "issues": [
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  },
+  {
+    "id": "E346",
+    "slug": "templeveeshan-vulak-aerr-ring-event",
+    "issues": [
+      "This entry covers the scripted ring, not the separate fabled lockout-only variant."
+    ]
+  },
+  {
+    "id": "E347",
+    "slug": "tenebrous-hoober",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E348",
+    "slug": "tenebrous-johanius-barleou",
+    "issues": [
+      "Johanius dialogue, transformation and later Slayer follow-up require a fuller publication review beyond the camp controller."
+    ]
+  },
+  {
+    "id": "E349",
+    "slug": "thedeep-deklean-korgad-invisible-bridge",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E350",
+    "slug": "thedeep-the-burrower-beast",
+    "issues": [
+      "Corrected the initial audit: the current event starts by proximity, not by killing the Burrower Beast. The orphan Burrower.lua controller is excluded."
+    ]
+  },
+  {
+    "id": "E351",
+    "slug": "thedeep-thought-horror-overfiend-seasonal",
+    "issues": [
+      "The final-stage skill modifiers are labeled as magic vulnerability in comments, but their actual spell-damage effect requires server/database validation.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E352",
+    "slug": "thenest-a-failed-expedition-shargone",
+    "issues": []
+  },
+  {
+    "id": "E353",
+    "slug": "thenest-circle-of-drakes",
+    "issues": []
+  },
+  {
+    "id": "E354",
+    "slug": "thenest-in-the-shadows-vishimtar",
+    "issues": []
+  },
+  {
+    "id": "E355",
+    "slug": "thenest-rampaging-monolith",
+    "issues": [
+      "Version14 is the named Toppling of the Monolith mission constant; verify the standalone Rampaging_Monolith NPC mapping against the deployed database before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E356",
+    "slug": "thenest-rivals",
+    "issues": [
+      "The alternate tooth-return ending updates a task stage while announcing failure and suppressing in-zone rewards; verify intended reward behavior before publication."
+    ]
+  },
+  {
+    "id": "E357",
+    "slug": "thenest-t-shara",
+    "issues": []
+  },
+  {
+    "id": "E358",
+    "slug": "thenest-the-curse-of-jurek",
+    "issues": []
+  },
+  {
+    "id": "E359",
+    "slug": "thenest-web-of-lies",
+    "issues": []
+  },
+  {
+    "id": "E360",
+    "slug": "thundercrest-a-simple-task",
+    "issues": []
+  },
+  {
+    "id": "E361",
+    "slug": "thundercrest-an-end-to-the-storms-yar-lir",
+    "issues": [
+      "Publication blocker: script_init loads this encounter for version 3, but the module removes the boss from nonzero instances unless version 200. No version 200 loader was confirmed. This draft describes the intended version 200 branch, not a verified playable expedition."
+    ]
+  },
+  {
+    "id": "E362",
+    "slug": "thundercrest-behind-closed-doors",
+    "issues": []
+  },
+  {
+    "id": "E363",
+    "slug": "thundercrest-four-corners",
+    "issues": []
+  },
+  {
+    "id": "E364",
+    "slug": "thundercrest-holy-hour",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E365",
+    "slug": "thundercrest-house-of-the-autumn-rose",
+    "issues": []
+  },
+  {
+    "id": "E366",
+    "slug": "thundercrest-lair-unguarded",
+    "issues": [
+      "The source labels the guardian location list possibly incomplete and notes the statue timer needs a quest reload after repop. Verify deployed spawns/reset behavior."
+    ]
+  },
+  {
+    "id": "E367",
+    "slug": "thundercrest-lore-warden",
+    "issues": []
+  },
+  {
+    "id": "E368",
+    "slug": "thundercrest-plunder-the-hoard",
+    "issues": []
+  },
+  {
+    "id": "E369",
+    "slug": "thundercrest-scions-of-thundercrest",
+    "issues": [
+      "The source marks the chest location list possibly incomplete; verify against deployed mission spawns."
+    ]
+  },
+  {
+    "id": "E370",
+    "slug": "thundercrest-splitting-the-storm",
+    "issues": []
+  },
+  {
+    "id": "E371",
+    "slug": "thundercrest-storm-chasers-raging-thunderhead",
+    "issues": [
+      "The growth emote is verified; exact Raging Thunderhead stat scaling is not defined in these reviewed scripts."
+    ]
+  },
+  {
+    "id": "E372",
+    "slug": "thundercrest-stormreach-challenge-goblin-dojo",
+    "issues": [
+      "The controller intentionally enables a historical retry bug after early-wave failure; later reset behavior must be verified before documenting guaranteed retries."
+    ]
+  },
+  {
+    "id": "E373",
+    "slug": "thundercrest-throes-of-contagion",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E374",
+    "slug": "timorous-draz-nurakk-and-his-images",
+    "issues": [
+      "Image template IDs are verified by spawn calls; the initial Draz Nurakk template requires database confirmation."
+    ]
+  },
+  {
+    "id": "E375",
+    "slug": "timorous-gefaari-drokaz",
+    "issues": []
+  },
+  {
+    "id": "E376",
+    "slug": "tipt-tipt-mountain-trials-kyv-heartstriker-jhiru",
+    "issues": []
+  },
+  {
+    "id": "E377",
+    "slug": "torgiran-overseer-wrank-and-the-captains",
+    "issues": [
+      "The controller tests exactly twenty accumulated key credits; verify the upstream turn-in handling prevents overshooting that value."
+    ]
+  },
+  {
+    "id": "E378",
+    "slug": "torgiran-taskmaster-lugald-brokenskull",
+    "issues": [
+      "The exact set of enemies supplying the twenty-three signals should be checked against the deployed spawn population before publication."
+    ]
+  },
+  {
+    "id": "E379",
+    "slug": "txevu-ancient-cragbeast-matriarch",
+    "issues": [
+      "The audit described generic HP phases, but the reviewed controller actually ties these benefits to living bearer NPCs."
+    ]
+  },
+  {
+    "id": "E380",
+    "slug": "txevu-high-priest-nkosi-bakari",
+    "issues": []
+  },
+  {
+    "id": "E381",
+    "slug": "txevu-ikaav-nysf-lleiv",
+    "issues": []
+  },
+  {
+    "id": "E382",
+    "slug": "txevu-mastruq-champion-ixt-hsek-syat",
+    "issues": []
+  },
+  {
+    "id": "E383",
+    "slug": "txevu-ukun-bloodfeaster",
+    "issues": []
+  },
+  {
+    "id": "E384",
+    "slug": "txevu-zun-muram-tkarish-zyk",
+    "issues": []
+  },
+  {
+    "id": "E385",
+    "slug": "uqua-tqiv-araxt-the-enraged-and-tqiv-qukret-the-furious",
+    "issues": []
+  },
+  {
+    "id": "E386",
+    "slug": "uqua-uqua-gas-chambers",
+    "issues": []
+  },
+  {
+    "id": "E387",
+    "slug": "uqua-vrex-barxt-qurat-and-guardian-of-destruction",
+    "issues": [
+      "Barxt starts a tether_check timer but the handler tests tether; his own leash requires verification. The Guardian and channeler boundary checks are present."
+    ]
+  },
+  {
+    "id": "E388",
+    "slug": "veeshan-phara-dar-and-the-ring-of-scale",
+    "issues": [
+      "The source calls this Phara Dar 2.0 but does not specify an instance version. Version0 represents the unversioned zone script; confirm the deployed spawn version before publication."
+    ]
+  },
+  {
+    "id": "E389",
+    "slug": "veksar-decaying-lord-galuk-drek",
+    "issues": [
+      "The combat handler does not stop the spell timer on disengagement; verify wipe behavior and database spell effects before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E390",
+    "slug": "veksar-raging-bloodgill",
+    "issues": []
+  },
+  {
+    "id": "E391",
+    "slug": "vexthal-aten-ha-ra-progression-akhevan-warders",
+    "issues": [
+      "This draft documents warder progression and variant selection; it does not claim distinct Aten combat mechanics absent from the reviewed trigger."
+    ]
+  },
+  {
+    "id": "E392",
+    "slug": "vxed-vxed-trial-stonespiritist-ekikoa",
+    "issues": [
+      "Final dialogue and progression credit need a separate review of Ekikoa before publication."
+    ]
+  },
+  {
+    "id": "E393",
+    "slug": "wakening-cristoc-bonethug",
+    "issues": [
+      "The audit described linked aggression, but these reviewed scripts only verify the spawns and despawn timers; database social aggro remains unverified."
+    ]
+  },
+  {
+    "id": "E394",
+    "slug": "wakening-dark-disciple-master",
+    "issues": []
+  },
+  {
+    "id": "E395",
+    "slug": "wakening-wuoshi-seasonal",
+    "issues": [
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200\u00e2\u20ac\u201c249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+    ]
+  },
+  {
+    "id": "E396",
+    "slug": "wallofslaughter-discordling-spiritcaller",
+    "issues": []
+  },
+  {
+    "id": "E397",
+    "slug": "wallofslaughter-durunal-the-cursebearer",
+    "issues": []
+  },
+  {
+    "id": "E398",
+    "slug": "wallofslaughter-lightning-lord",
+    "issues": []
+  },
+  {
+    "id": "E399",
+    "slug": "wallofslaughter-murkglider-hivequeen",
+    "issues": [
+      "Egg and hatchling template IDs are verified; the Hivequeen template still needs database confirmation."
+    ]
+  },
+  {
+    "id": "E400",
+    "slug": "wallofslaughter-pyrique-redwing",
+    "issues": [
+      "The source explicitly treats killing the real shadow as an uncertain historical behavior; that alternate transition needs live validation."
+    ]
+  },
+  {
+    "id": "E401",
+    "slug": "wallofslaughter-tarn-icewind",
+    "issues": []
+  },
+  {
+    "id": "E401",
+    "slug": "wallofslaughter-tarn-icewind-seasonal",
+    "issues": []
+  },
+  {
+    "id": "E402",
+    "slug": "warslikswood-raving-goblinmaster",
+    "issues": []
+  },
+  {
+    "id": "E403",
+    "slug": "westkorlach-grokui-the-slumbering-basilisk",
+    "issues": [
+      "The script sets 430,000 current HP rather than using GetMaxHP; compare the deployed NPC max health before describing each transition as a full heal.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E404",
+    "slug": "westkorlacha-matriarch-shyra",
+    "issues": []
+  },
+  {
+    "id": "E405",
+    "slug": "westkorlachb-find-fibblebrap-2-lost-caverns",
+    "issues": []
+  },
+  {
+    "id": "E406",
+    "slug": "westwastes-disciple-of-moon",
+    "issues": []
+  },
+  {
+    "id": "E407",
+    "slug": "westwastes-klandicar-seasonal",
+    "issues": [
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200\u00e2\u20ac\u201c249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+    ]
+  },
+  {
+    "id": "E408",
+    "slug": "westwastes-scout-charisa-kromzek-captain",
+    "issues": []
+  },
+  {
+    "id": "E409",
+    "slug": "yxtta-hexxt-huntmaster",
+    "issues": [
+      "The volley handler only covers hate-list sizes one through six; behavior above six targets needs verification.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E410",
+    "slug": "yxtta-pixtt-suir-mindrider",
+    "issues": [
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "E411",
+    "slug": "yxtta-primal-door-riddle",
+    "issues": [
+      "Publication blocker: enterzone is not named event_enter_zone and its numeric status check uses Lua truthiness; verify door initialization. The initial question increment also skips an index, so no exact answer count is claimed."
+    ]
+  },
+  {
+    "id": "E412",
+    "slug": "yxtta-xounii-shifter-tqiv-trusik-fanatic",
+    "issues": []
+  },
+  {
+    "id": "R017",
+    "slug": "sleeper-awakening-the-sleeper",
+    "issues": [
+      "Legacy unversioned event only. Confirm deployed wardstone/warder spawn availability versus seasonal and Fabled content; this draft does not describe the separate Fabled Kerafyrm encounter."
+    ]
+  },
+  {
+    "id": "R018",
+    "slug": "stillmoona-trial-of-perseverance",
+    "issues": [
+      "Publication blocker: Goblin_Spawn is defined twice; the second definition overwrites the initial timer setup. Exact idle-start/failure timing must be fixed or live-verified before publication."
+    ]
+  },
+  {
+    "id": "R019",
+    "slug": "stillmoonb-sudden-tremors-ancient-golem",
+    "issues": [
+      "Task-database gates and completion behavior are not present in this short controller. Confirm the chest-first path and verify recovery from an early golem kill before publication."
+    ]
+  },
+  {
+    "id": "R020",
+    "slug": "tenebrous-disciple-of-focus",
+    "issues": [
+      "Publication blocker: combat starts timer cast, but the spell handler checks startcast. The intended recurring Quivering Nightmares cast does not follow from the current timer path and is intentionally not claimed as a working mechanic.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  },
+  {
+    "id": "R021",
+    "slug": "thundercrest-the-creator",
+    "issues": [
+      "Publication blocker for lower difficulties: the source hardcodes level 68+ NPC templates and explicitly states that lower-difficulty mappings still need work. Confirm the selected task difficulty before publication."
+    ]
+  },
+  {
+    "id": "R024",
+    "slug": "vexthal-npc-158006-teleport-hunt",
+    "issues": [
+      "Publication blocker: NPC 158006 has no display name or verified spawn-version mapping in the reviewed script. The numeric identity is preserved; resolve its database name and deployed version before publication."
+    ]
+  }
+]

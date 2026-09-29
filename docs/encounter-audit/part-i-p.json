@@ -1,0 +1,3260 @@
+{
+  "shard": "i-p",
+  "coverage": {
+    "zone_directories": 91,
+    "lua_perl_files": 2518,
+    "signal_files": 1112,
+    "scope": "Recursive scan of every Lua/Perl file in i-p zones; excludes support lua_modules/plugins. All files read for signal inventory; substantive candidate bodies and wiring inspected. No live/DB availability verification.",
+    "zones": [
+      {
+        "zone": "iceclad",
+        "files": 44,
+        "rows": 2
+      },
+      {
+        "zone": "ikkinz",
+        "files": 82,
+        "rows": 7
+      },
+      {
+        "zone": "illsalin",
+        "files": 4,
+        "rows": 1
+      },
+      {
+        "zone": "illsalinb",
+        "files": 3,
+        "rows": 2
+      },
+      {
+        "zone": "illsalinc",
+        "files": 3,
+        "rows": 2
+      },
+      {
+        "zone": "inktuta",
+        "files": 48,
+        "rows": 5
+      },
+      {
+        "zone": "innothule",
+        "files": 6,
+        "rows": 0
+      },
+      {
+        "zone": "jaggedpine",
+        "files": 27,
+        "rows": 1
+      },
+      {
+        "zone": "kael",
+        "files": 70,
+        "rows": 5
+      },
+      {
+        "zone": "kaesora",
+        "files": 6,
+        "rows": 0
+      },
+      {
+        "zone": "kaladima",
+        "files": 20,
+        "rows": 0
+      },
+      {
+        "zone": "kaladimb",
+        "files": 33,
+        "rows": 0
+      },
+      {
+        "zone": "karnor",
+        "files": 7,
+        "rows": 0
+      },
+      {
+        "zone": "katta",
+        "files": 133,
+        "rows": 2
+      },
+      {
+        "zone": "kedge",
+        "files": 5,
+        "rows": 0
+      },
+      {
+        "zone": "kerraridge",
+        "files": 33,
+        "rows": 1
+      },
+      {
+        "zone": "kithicor",
+        "files": 32,
+        "rows": 2
+      },
+      {
+        "zone": "kodtaz",
+        "files": 51,
+        "rows": 3
+      },
+      {
+        "zone": "kurn",
+        "files": 2,
+        "rows": 0
+      },
+      {
+        "zone": "lakeofillomen",
+        "files": 30,
+        "rows": 2
+      },
+      {
+        "zone": "lakerathe",
+        "files": 36,
+        "rows": 2
+      },
+      {
+        "zone": "lavastorm",
+        "files": 37,
+        "rows": 1
+      },
+      {
+        "zone": "letalis",
+        "files": 5,
+        "rows": 0
+      },
+      {
+        "zone": "lfaydark",
+        "files": 20,
+        "rows": 1
+      },
+      {
+        "zone": "maiden",
+        "files": 9,
+        "rows": 0
+      },
+      {
+        "zone": "mira",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mirb",
+        "files": 11,
+        "rows": 6
+      },
+      {
+        "zone": "mirc",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mird",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mire",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mirf",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mirg",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mirh",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "miri",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mirj",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mischiefplane",
+        "files": 63,
+        "rows": 2
+      },
+      {
+        "zone": "mistmoore",
+        "files": 12,
+        "rows": 6
+      },
+      {
+        "zone": "misty",
+        "files": 25,
+        "rows": 0
+      },
+      {
+        "zone": "mmca",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmcb",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmcc",
+        "files": 7,
+        "rows": 1
+      },
+      {
+        "zone": "mmcd",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmce",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmcf",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmcg",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmch",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmci",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mmcj",
+        "files": 3,
+        "rows": 0
+      },
+      {
+        "zone": "mseru",
+        "files": 4,
+        "rows": 0
+      },
+      {
+        "zone": "nadox",
+        "files": 42,
+        "rows": 1
+      },
+      {
+        "zone": "najena",
+        "files": 7,
+        "rows": 0
+      },
+      {
+        "zone": "natimbi",
+        "files": 31,
+        "rows": 4
+      },
+      {
+        "zone": "necropolis",
+        "files": 29,
+        "rows": 4
+      },
+      {
+        "zone": "nedaria",
+        "files": 57,
+        "rows": 0
+      },
+      {
+        "zone": "nektulos",
+        "files": 8,
+        "rows": 0
+      },
+      {
+        "zone": "neriaka",
+        "files": 14,
+        "rows": 0
+      },
+      {
+        "zone": "neriakb",
+        "files": 34,
+        "rows": 0
+      },
+      {
+        "zone": "neriakc",
+        "files": 33,
+        "rows": 0
+      },
+      {
+        "zone": "netherbian",
+        "files": 5,
+        "rows": 0
+      },
+      {
+        "zone": "nexus",
+        "files": 26,
+        "rows": 0
+      },
+      {
+        "zone": "nightmareb",
+        "files": 4,
+        "rows": 1
+      },
+      {
+        "zone": "northkarana",
+        "files": 21,
+        "rows": 1
+      },
+      {
+        "zone": "nro",
+        "files": 19,
+        "rows": 0
+      },
+      {
+        "zone": "nurga",
+        "files": 5,
+        "rows": 0
+      },
+      {
+        "zone": "oasis",
+        "files": 9,
+        "rows": 1
+      },
+      {
+        "zone": "oggok",
+        "files": 34,
+        "rows": 0
+      },
+      {
+        "zone": "oot",
+        "files": 27,
+        "rows": 0
+      },
+      {
+        "zone": "overthere",
+        "files": 46,
+        "rows": 1
+      },
+      {
+        "zone": "paineel",
+        "files": 69,
+        "rows": 0
+      },
+      {
+        "zone": "paludal",
+        "files": 9,
+        "rows": 0
+      },
+      {
+        "zone": "paw",
+        "files": 1,
+        "rows": 0
+      },
+      {
+        "zone": "permafrost",
+        "files": 5,
+        "rows": 1
+      },
+      {
+        "zone": "poair",
+        "files": 50,
+        "rows": 6
+      },
+      {
+        "zone": "podisease",
+        "files": 11,
+        "rows": 0
+      },
+      {
+        "zone": "poeartha",
+        "files": 58,
+        "rows": 5
+      },
+      {
+        "zone": "poearthb",
+        "files": 12,
+        "rows": 2
+      },
+      {
+        "zone": "pofire",
+        "files": 17,
+        "rows": 1
+      },
+      {
+        "zone": "poinnovation",
+        "files": 27,
+        "rows": 2
+      },
+      {
+        "zone": "pojustice",
+        "files": 189,
+        "rows": 7
+      },
+      {
+        "zone": "poknowledge",
+        "files": 283,
+        "rows": 0
+      },
+      {
+        "zone": "ponightmare",
+        "files": 39,
+        "rows": 4
+      },
+      {
+        "zone": "postorms",
+        "files": 62,
+        "rows": 3
+      },
+      {
+        "zone": "potactics",
+        "files": 27,
+        "rows": 3
+      },
+      {
+        "zone": "potimea",
+        "files": 10,
+        "rows": 0
+      },
+      {
+        "zone": "potimeb",
+        "files": 141,
+        "rows": 4
+      },
+      {
+        "zone": "potorment",
+        "files": 31,
+        "rows": 5
+      },
+      {
+        "zone": "potranquility",
+        "files": 42,
+        "rows": 0
+      },
+      {
+        "zone": "povalor",
+        "files": 28,
+        "rows": 1
+      },
+      {
+        "zone": "powar",
+        "files": 2,
+        "rows": 1
+      },
+      {
+        "zone": "powater",
+        "files": 20,
+        "rows": 1
+      },
+      {
+        "zone": "provinggrounds",
+        "files": 12,
+        "rows": 1
+      }
+    ]
+  },
+  "rows": [
+    {
+      "zone": "iceclad",
+      "title": "Noble Oldencamp and the necromancer delegation",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Bard pre-epic spawns a necromancer delegation and frost giant escort with timed cleanup.",
+      "sources": [
+        {
+          "path": "iceclad/#Vas_Thorel.lua",
+          "line": 27
+        },
+        {
+          "path": "iceclad/#Noble_Oldencamp.lua",
+          "line": 3
+        }
+      ],
+      "notes": "Includes Amilia, Puella, Xeegarn and Locis as one event.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "jaggedpine",
+      "title": "Dire kodiak / forest dragon transformation",
+      "kind": "epic encounter",
+      "confidence": "clear",
+      "reason": "At its health threshold the dire kodiak becomes a forest dragon; combat exit controls persistence.",
+      "sources": [
+        {
+          "path": "jaggedpine/a_dire_kodiak.lua",
+          "line": 10
+        },
+        {
+          "path": "jaggedpine/#a_forest_dragon.lua",
+          "line": 6
+        }
+      ],
+      "notes": "Bard 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "kithicor",
+      "title": "Cloaked figure / shadow thief",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Hail starts malignant-shadow respawns; kill count reveals a shadow thief with an HP mechanic.",
+      "sources": [
+        {
+          "path": "kithicor/encounters/cloaked.lua",
+          "line": 21
+        },
+        {
+          "path": "kithicor/encounters/cloaked.lua",
+          "line": 64
+        }
+      ],
+      "notes": "Bard 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "kithicor",
+      "title": "Blackened Treant and Blackened Dryad",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Treant splits into limbs; clearing limbs summons a Dryad with timed Withering Glare.",
+      "sources": [
+        {
+          "path": "kithicor/#Blackened_Treant.lua",
+          "line": 1
+        },
+        {
+          "path": "kithicor/#Blackened_Tree_Limb.lua",
+          "line": 1
+        },
+        {
+          "path": "kithicor/#Blackened_Dryad.lua",
+          "line": 9
+        }
+      ],
+      "notes": "",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "lakeofillomen",
+      "title": "Vorash, Deep and Xenevorash",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Triggered opponents and death signals coordinate the final monk-epic boss activation.",
+      "sources": [
+        {
+          "path": "lakeofillomen/Vorash.lua",
+          "line": 18
+        },
+        {
+          "path": "lakeofillomen/monk_trigger.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "lakeofillomen",
+      "title": "Scorpion hatchling ambush",
+      "kind": "epic event",
+      "confidence": "needs-review",
+      "reason": "Quest-qualified death trigger spawns a large scorpion ring.",
+      "sources": [
+        {
+          "path": "lakeofillomen/#_.lua",
+          "line": 12
+        }
+      ],
+      "notes": "Unusual trigger name needs an NPC identity check before a player-facing title is chosen.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "lakerathe",
+      "title": "Man-eating Freshwater Shark",
+      "kind": "epic boss",
+      "confidence": "clear",
+      "reason": "Necromancer pre-epic shark has successive HP stages.",
+      "sources": [
+        {
+          "path": "lakerathe/#Man-eating_Freshwater_Shark.lua",
+          "line": 12
+        }
+      ],
+      "notes": "",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "lakerathe",
+      "title": "Kazen Fecae undead trial",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Quest-started bone golem death continues a chain of undead opponents.",
+      "sources": [
+        {
+          "path": "lakerathe/Kazen_Fecae.lua",
+          "line": 86
+        },
+        {
+          "path": "lakerathe/a_bone_golem.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Necromancer 1.0.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "lavastorm",
+      "title": "High Priestess Shima ambush",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Quest dialogue or turn-in creates Shima and five priests/priestesses at the fight location.",
+      "sources": [
+        {
+          "path": "lavastorm/Laura_Rako.lua",
+          "line": 19
+        }
+      ],
+      "notes": "Cleric pre-1.5. Short event without extensive phase logic.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "lfaydark",
+      "title": "Taskmaster Mirot and the reanimated minions",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Wayfarer scene becomes hostile Mirot plus six minions with linked aggro and range checks.",
+      "sources": [
+        {
+          "path": "lfaydark/Taskmaster_Mirot.lua",
+          "line": 46
+        },
+        {
+          "path": "lfaydark/#Taskmaster_Mirot.lua",
+          "line": 34
+        },
+        {
+          "path": "lfaydark/Reanimated_Minion.lua",
+          "line": 13
+        }
+      ],
+      "notes": "Cleric 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "natimbi",
+      "title": "Ritual Conduit",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Conduit/Reborn setup leads to HP-triggered Juggernauts and timed encounter limits.",
+      "sources": [
+        {
+          "path": "natimbi/encounters/druid_1_5.lua",
+          "line": 16
+        },
+        {
+          "path": "natimbi/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Druid 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "natimbi",
+      "title": "Spiritbinder Trenzar and Senvial of the Mist",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Timed elemental adds and flame waves combine with Senvial HP and state changes.",
+      "sources": [
+        {
+          "path": "natimbi/encounters/ranger_1_5.lua",
+          "line": 18
+        },
+        {
+          "path": "natimbi/encounters/ranger_1_5.lua",
+          "line": 85
+        }
+      ],
+      "notes": "Ranger 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "necropolis",
+      "title": "Vesthon Marijakin: first confrontation",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Hsagra turn-in spawns Vesthon and guards; a timed scene and HP escape control the encounter.",
+      "sources": [
+        {
+          "path": "necropolis/#Hsagra-s_Shade.lua",
+          "line": 62
+        },
+        {
+          "path": "necropolis/123167.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Bard 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "necropolis",
+      "title": "Vesthon Marijakin and the Dracoliche of Hsagra",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Masters and respawning minions gate Vesthon; his defeat activates a dracoliche finale.",
+      "sources": [
+        {
+          "path": "necropolis/encounters/vesthon.lua",
+          "line": 60
+        }
+      ],
+      "notes": "Bard 1.5 second fight.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "northkarana",
+      "title": "Dire griffon / plains dragon transformation",
+      "kind": "epic encounter",
+      "confidence": "clear",
+      "reason": "Dire griffon becomes a plains dragon at its scripted HP trigger.",
+      "sources": [
+        {
+          "path": "northkarana/a_dire_griffon.lua",
+          "line": 10
+        },
+        {
+          "path": "northkarana/#a_plains_dragon.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Bard 1.5.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "oasis",
+      "title": "Remal the Black",
+      "kind": "epic event",
+      "confidence": "clear",
+      "reason": "Keelee starts repeating orc waves and banishment checks before the final Remal fight.",
+      "sources": [
+        {
+          "path": "oasis/encounters/paladin_epic.lua",
+          "line": 43
+        },
+        {
+          "path": "oasis/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Paladin 2.0.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "provinggrounds",
+      "title": "Lightning Warrior Spiritseeker",
+      "kind": "epic encounter",
+      "confidence": "clear",
+      "reason": "Quest proximity spawns Spiritseeker; combat summons two spiritsappers and a cleanup timer.",
+      "sources": [
+        {
+          "path": "provinggrounds/#Stilled_Lightning_Warrior.lua",
+          "line": 9
+        },
+        {
+          "path": "provinggrounds/#Lightning_Warrior_Spiritseeker.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Shaman 2.0.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "iceclad",
+      "title": "General Bragmur escort (Coldain shawl finale)",
+      "kind": "escort",
+      "confidence": "clear",
+      "reason": "Waypoint-driven escort has repeated wolf and giant ambushes, commanders and a final ritual.",
+      "sources": [
+        {
+          "path": "iceclad/110227.lua",
+          "line": 25
+        },
+        {
+          "path": "iceclad/General_Bragmur.lua",
+          "line": 7
+        }
+      ],
+      "notes": "Escort uses numeric NPC script 110227; database grid must be checked for detailed guide.",
+      "group": "Quest battles"
+    },
+    {
+      "zone": "katta",
+      "title": "Rakshasa skull ritual",
+      "kind": "quest event",
+      "confidence": "clear",
+      "reason": "Courier and ritual signals trigger an eight-spawn undead ambush.",
+      "sources": [
+        {
+          "path": "katta/Roshawna_Rhorer.lua",
+          "line": 51
+        }
+      ],
+      "notes": "Optional short quest-event guide.",
+      "group": "Quest battles"
+    },
+    {
+      "zone": "overthere",
+      "title": "Glowing cliff golem and Watch Sergeant Grolj",
+      "kind": "quest event",
+      "confidence": "clear",
+      "reason": "Granika creates a golem encounter and a coordinated undead guard group.",
+      "sources": [
+        {
+          "path": "overthere/Alchemist_Granika.lua",
+          "line": 19
+        }
+      ],
+      "notes": "Greenmist final quest; little phase logic.",
+      "group": "Quest battles"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of Singular Might",
+      "kind": "group trial",
+      "confidence": "needs-review",
+      "reason": "Named trial completion and instance-specific access are present.",
+      "sources": [
+        {
+          "path": "ikkinz/Pixtt_Annihilator.lua",
+          "line": 1
+        },
+        {
+          "path": "ikkinz/player.lua",
+          "line": 17
+        }
+      ],
+      "notes": "Combat details are thin in Lua; confirm database abilities before a detailed guide.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of Twin Struggles",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Malevolent priests and constrained servitors have linked progression and combat scripts.",
+      "sources": [
+        {
+          "path": "ikkinz/#Malevolent_Priest.lua",
+          "line": 1
+        },
+        {
+          "path": "ikkinz/294086.lua",
+          "line": 1
+        },
+        {
+          "path": "ikkinz/player.lua",
+          "line": 18
+        }
+      ],
+      "notes": "Duplicate NPC-name variants consolidated; numeric version not inferred.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of the Tri-Fates",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Flesh hunters and a trigger coordinate kill success, failure and trial progression.",
+      "sources": [
+        {
+          "path": "ikkinz/#Trigger_Ikkinz_2.lua",
+          "line": 1
+        },
+        {
+          "path": "ikkinz/#Flesh_Hunter.lua",
+          "line": 1
+        },
+        {
+          "path": "ikkinz/Pixtt_Annuller.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of Righteousness",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Priest/custodian HP phases, defender/guardian progression and door gates form a raid sequence.",
+      "sources": [
+        {
+          "path": "ikkinz/Priest_of_Righteousness.lua",
+          "line": 6
+        },
+        {
+          "path": "ikkinz/Custodian_of_Righteousness.lua",
+          "line": 7
+        },
+        {
+          "path": "ikkinz/#Trigger_Ikkinz_1.lua",
+          "line": 31
+        }
+      ],
+      "notes": "Can be one guide with separate boss sections.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of Glorification",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Visionaries change at HP stages; guardian stages split while supporting kills weaken their stats.",
+      "sources": [
+        {
+          "path": "ikkinz/#Visionary_of_Glory.lua",
+          "line": 6
+        },
+        {
+          "path": "ikkinz/##Guardian_of_Glorification.lua",
+          "line": 10
+        },
+        {
+          "path": "ikkinz/294474.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of Transcendence",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Acolyte HP stages and class-related final blows lead to Guardian and Vrex progression.",
+      "sources": [
+        {
+          "path": "ikkinz/##Transcendent_Acolyte.lua",
+          "line": 16
+        },
+        {
+          "path": "ikkinz/294593.lua",
+          "line": 32
+        },
+        {
+          "path": "ikkinz/#Vrex_Xalkak_Nixki.lua",
+          "line": 12
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ikkinz",
+      "title": "Chambers of Destruction / Keeper of the Altar",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Altar progression, class-specific adherents, sentry HP stages and Keeper timers define the raid.",
+      "sources": [
+        {
+          "path": "ikkinz/#Altar_Sentry.lua",
+          "line": 47
+        },
+        {
+          "path": "ikkinz/#Altar_Adherent.lua",
+          "line": 1
+        },
+        {
+          "path": "ikkinz/encounters/keeper.lua",
+          "line": 18
+        },
+        {
+          "path": "ikkinz/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Keeper and altar helpers are consolidated under the trial.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "inktuta",
+      "title": "Kelekdrix, Herald of Trushar",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Boss activation and add deaths coordinate with reset and timer behavior.",
+      "sources": [
+        {
+          "path": "inktuta/encounters/kelekdrix.lua",
+          "line": 37
+        },
+        {
+          "path": "inktuta/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Part of Inktuta; includes watchers/ushers.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "inktuta",
+      "title": "The Exiles / Stonemite trial",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Four exiles require coordinated phrases in a timed window with explicit success/failure.",
+      "sources": [
+        {
+          "path": "inktuta/zone_status.lua",
+          "line": 209
+        },
+        {
+          "path": "inktuta/zone_status.lua",
+          "line": 271
+        }
+      ],
+      "notes": "Part of Inktuta.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "inktuta",
+      "title": "The Cursecallers",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Noqufiel summons six cursecallers; a trigger spawns pursuit cursebearers and detects completion.",
+      "sources": [
+        {
+          "path": "inktuta/#Noqufiel.lua",
+          "line": 52
+        },
+        {
+          "path": "inktuta/#curse_trigger.lua",
+          "line": 39
+        }
+      ],
+      "notes": "Consolidates six callers and pursuit helpers.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "inktuta",
+      "title": "Noqufiel: true and mirror images",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Coordinated images swap/reveal through HP events, combat timers and final death transition.",
+      "sources": [
+        {
+          "path": "inktuta/encounters/noqufiel.lua",
+          "line": 100
+        },
+        {
+          "path": "inktuta/encounters/noqufiel.lua",
+          "line": 132
+        },
+        {
+          "path": "inktuta/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "inktuta",
+      "title": "Mimezpo the Oracle",
+      "kind": "raid boss",
+      "confidence": "needs-review",
+      "reason": "Named spawns a guard group and has a raid death transition.",
+      "sources": [
+        {
+          "path": "inktuta/#Mimezpo_the_Oracle.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Limited combat logic in Lua; inspect database abilities before a detailed guide.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "kodtaz",
+      "title": "Pixtt Grand Summoner ring",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Priest deaths activate the summoner and golem stages, with combat/leash/timer handlers.",
+      "sources": [
+        {
+          "path": "kodtaz/encounters/summoners.lua",
+          "line": 62
+        },
+        {
+          "path": "kodtaz/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "kodtaz",
+      "title": "Temple of the Damned",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Destroying remains triggers ambushers and Dire Summoner activation through kill signals.",
+      "sources": [
+        {
+          "path": "kodtaz/encounters/totd.lua",
+          "line": 16
+        },
+        {
+          "path": "kodtaz/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "illsalin",
+      "title": "Ritesmaster Verok",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Locks room doors and spawns/activates eggs at HP thresholds with leash/reset behavior.",
+      "sources": [
+        {
+          "path": "illsalin/#Ritesmaster_Verok.lua",
+          "line": 6
+        },
+        {
+          "path": "illsalin/a_spider_egg.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "illsalinb",
+      "title": "The Council of Nine",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Avatar changes form/stats by HP stage and has combat timers.",
+      "sources": [
+        {
+          "path": "illsalinb/encounters/council_of_nine.lua",
+          "line": 52
+        },
+        {
+          "path": "illsalinb/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Version selected by instance_version constant; no literal version asserted.",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "illsalinb",
+      "title": "Find Fibblebrap 4: The Korlach",
+      "kind": "mission",
+      "confidence": "needs-review",
+      "reason": "Open-world cocoon rescue and instance scaling, death progress and exit hooks are present.",
+      "sources": [
+        {
+          "path": "illsalin/encounters/find_fibblebrap_four.lua",
+          "line": 37
+        },
+        {
+          "path": "illsalinb/encounters/find_fribblebrap_four.lua",
+          "line": 14
+        },
+        {
+          "path": "illsalinb/script_init.lua",
+          "line": 4
+        }
+      ],
+      "notes": "Instance script has TODO Create NPC for Bilitan (349999); verify completeness.",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "illsalinc",
+      "title": "Deserting the Ranks",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Triggered second phase, Draygun movement/timers and captain death advance the mission.",
+      "sources": [
+        {
+          "path": "illsalinc/encounters/Deserting_the_Ranks.lua",
+          "line": 111
+        },
+        {
+          "path": "illsalinc/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "Normal/hard task identifiers declared; runtime version uses a named constant.",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "illsalinc",
+      "title": "Emperor Draygun, the Lich King",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "HP-driven forms, soul adds and cast-on-target handling implement a healing/damage phase.",
+      "sources": [
+        {
+          "path": "illsalinc/encounters/Emperor_Draygun.lua",
+          "line": 85
+        },
+        {
+          "path": "illsalinc/encounters/Emperor_Draygun.lua",
+          "line": 110
+        },
+        {
+          "path": "illsalinc/script_init.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "kael",
+      "title": "King Tormax",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Combat timer recruits surviving named guards into the fight.",
+      "sources": [
+        {
+          "path": "kael/King_Tormax.lua",
+          "line": 43
+        },
+        {
+          "path": "kael/King_Tormax.lua",
+          "line": 61
+        }
+      ],
+      "notes": "Normal encounter, distinct from Fabled variant.",
+      "group": "Velious"
+    },
+    {
+      "zone": "kael",
+      "title": "Statue, Idol and Avatar of War",
+      "kind": "raid sequence",
+      "confidence": "clear",
+      "reason": "Statue death spawns Idol, followed by Avatar with timed presence and cycle state.",
+      "sources": [
+        {
+          "path": "kael/The_Statue_of_Rallos_Zek.lua",
+          "line": 4
+        },
+        {
+          "path": "kael/#The_Idol_of_Rallos_Zek.lua",
+          "line": 1
+        },
+        {
+          "path": "kael/The_Avatar_of_War.lua",
+          "line": 3
+        }
+      ],
+      "notes": "One three-stage raid sequence.",
+      "group": "Velious"
+    },
+    {
+      "zone": "kael",
+      "title": "Kael armor / plate cycle",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Proximity phrase starts Doldigun and successive giant waves.",
+      "sources": [
+        {
+          "path": "kael/Plate_Cycle_Trigger.lua",
+          "line": 9
+        },
+        {
+          "path": "kael/Doldigun_Steinwielder.lua",
+          "line": 5
+        },
+        {
+          "path": "kael/Grondon_Zekkin.lua",
+          "line": 5
+        }
+      ],
+      "notes": "Named giant helpers consolidated.",
+      "group": "Velious"
+    },
+    {
+      "zone": "kael",
+      "title": "Fabled King Tormax",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Fabled controller registers Tormax combat, guard assistance, timers and death behavior.",
+      "sources": [
+        {
+          "path": "kael/encounters/fabled_kael_encounter.lua",
+          "line": 78
+        },
+        {
+          "path": "kael/zone_status.lua",
+          "line": 41
+        }
+      ],
+      "notes": "Do not assume this equals central seasonal registry version.",
+      "group": "Fabled expeditions"
+    },
+    {
+      "zone": "kael",
+      "title": "Fabled Statue, Idol and Avatar of War",
+      "kind": "raid sequence",
+      "confidence": "clear",
+      "reason": "Fabled three-boss sequence has death transitions, timers and expedition lockouts.",
+      "sources": [
+        {
+          "path": "kael/encounters/fabled_kael_encounter.lua",
+          "line": 16
+        },
+        {
+          "path": "kael/encounters/fabled_kael_encounter.lua",
+          "line": 34
+        },
+        {
+          "path": "kael/zone_status.lua",
+          "line": 41
+        }
+      ],
+      "notes": "",
+      "group": "Fabled expeditions"
+    },
+    {
+      "zone": "kerraridge",
+      "title": "Tissa, Sovereign of Terror and the nine lives of Kerra",
+      "kind": "custom raid",
+      "confidence": "clear",
+      "reason": "Eight generals weaken Tissa when killed; full-power Tissa offers a bonus reward.",
+      "sources": [
+        {
+          "path": "kerraridge/event_controller.lua",
+          "line": 25
+        },
+        {
+          "path": "kerraridge/#Tissa,_Sovereign_of_Terror.lua",
+          "line": 28
+        }
+      ],
+      "notes": "Requires GM-Kerra content flag and nonzero instance. Includes Ahed split, Dou linked kittens, Siete physical resistance, Ath healer final blow, Tin, Ano, Piat, Exi. Generals can become separate entries.",
+      "group": "Custom events"
+    },
+    {
+      "zone": "natimbi",
+      "title": "Tybone Biggums",
+      "kind": "custom event",
+      "confidence": "clear",
+      "reason": "Boss changes golem/mastruq/skeleton forms with untargetable add intermissions.",
+      "sources": [
+        {
+          "path": "natimbi/Tybone_Biggums.lua",
+          "line": 49
+        },
+        {
+          "path": "natimbi/#Tybone_Biggums.lua",
+          "line": 17
+        }
+      ],
+      "notes": "Gathering Event 2022; current availability requires content-gate confirmation.",
+      "group": "Custom events"
+    },
+    {
+      "zone": "mirb",
+      "title": "Frozen Nightmare: Frostfoot goblins",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Scout escape spawns Raid Leader Sig Chol and Taskmaster Suttalp, who summon ongoing henchmen.",
+      "sources": [
+        {
+          "path": "mirb/encounters/goblins.lua",
+          "line": 58
+        },
+        {
+          "path": "mirb/zone_status.lua",
+          "line": 9
+        }
+      ],
+      "notes": "Raider module is shared trash behavior.",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mirb",
+      "title": "Frozen Nightmare: sundering sludge",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Sundering sludge splits into severing then slippery sludges; completion signals the raid controller.",
+      "sources": [
+        {
+          "path": "mirb/encounters/sludge.lua",
+          "line": 31
+        },
+        {
+          "path": "mirb/Durgin_Skell.lua",
+          "line": 39
+        }
+      ],
+      "notes": "",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mirb",
+      "title": "Frozen Nightmare: chromatic bonewalkers",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Bonewalkers cycle through colored forms with a coordinated icy-form completion condition.",
+      "sources": [
+        {
+          "path": "mirb/encounters/skeletons.lua",
+          "line": 4
+        },
+        {
+          "path": "mirb/Durgin_Skell.lua",
+          "line": 41
+        }
+      ],
+      "notes": "",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mirb",
+      "title": "Frozen Nightmare: Sharalla",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Defend Sharalla's corpse from animals; accumulated bites trigger failure.",
+      "sources": [
+        {
+          "path": "mirb/encounters/sharalla.lua",
+          "line": 54
+        },
+        {
+          "path": "mirb/encounters/sharalla.lua",
+          "line": 37
+        }
+      ],
+      "notes": "",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mirb",
+      "title": "Frozen Nightmare: Marrow the Broken",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Successive HP thresholds shrink the golem and create splinterbone skeleton adds.",
+      "sources": [
+        {
+          "path": "mirb/Marrow_the_Broken.lua",
+          "line": 12
+        },
+        {
+          "path": "mirb/Durgin_Skell.lua",
+          "line": 43
+        }
+      ],
+      "notes": "Script notes missing splinterbone dervish alternative in the database.",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mirb",
+      "title": "Frozen Nightmare: Laskuth the Colossus",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Durgin unlocks the finale after prior events, spawning Laskuth and sleet flurries.",
+      "sources": [
+        {
+          "path": "mirb/Durgin_Skell.lua",
+          "line": 121
+        },
+        {
+          "path": "mirb/#Laskuth_the_Colossus.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Six subevents may instead be one Frozen Nightmare raid document.",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mmcc",
+      "title": "Struggles within the Progeny / Valdoon Kel'Novar",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Real/fake Valdoon, guardian deaths, lookout adds, powerdown windows and raid completion are scripted.",
+      "sources": [
+        {
+          "path": "mmcc/encounters/mmccraid.lua",
+          "line": 134
+        },
+        {
+          "path": "mmcc/zone_status.lua",
+          "line": 9
+        }
+      ],
+      "notes": "",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "mischiefplane",
+      "title": "Bristlebane the King of Thieves (2.0)",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "HP stages summon changing jester groups and update boss phases with reset handling.",
+      "sources": [
+        {
+          "path": "mischiefplane/encounters/Bristlebane_the_King_of_Thieves.lua",
+          "line": 49
+        },
+        {
+          "path": "mischiefplane/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "2.0 is script encounter label, not an asserted instance version.",
+      "group": "Legacy events"
+    },
+    {
+      "zone": "nadox",
+      "title": "The Luggald Broodmother",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Waypoint sequence escalates defender/archseeker waves before spawning the combat Broodmother.",
+      "sources": [
+        {
+          "path": "nadox/The_Luggald_Broodmother.lua",
+          "line": 3
+        },
+        {
+          "path": "nadox/#The_Luggald_Broodmother.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Legacy events"
+    },
+    {
+      "zone": "natimbi",
+      "title": "Cragbeast Queen (seasonal)",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Seasonal boss has periodic abilities and recruits nearby NPCs into combat.",
+      "sources": [
+        {
+          "path": "natimbi/#Cragbeast_Queen.lua",
+          "line": 12
+        },
+        {
+          "path": "natimbi/#Cragbeast_Queen.lua",
+          "line": 43
+        }
+      ],
+      "notes": "Version 200 checked explicitly; deduplicate central seasonal registry.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "necropolis",
+      "title": "Zlandicar (seasonal)",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Telegraphed incision, septic and lobotomy mechanics plus operating-table and burn phases are implemented.",
+      "sources": [
+        {
+          "path": "necropolis/Zlandicar.lua",
+          "line": 201
+        },
+        {
+          "path": "necropolis/Zlandicar.lua",
+          "line": 418
+        }
+      ],
+      "notes": "Deduplicate central seasonal registry; native variant differs.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "permafrost",
+      "title": "Lady Vox (seasonal)",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Seasonal branch adds successive HP abilities and add waves with reset/leash handling.",
+      "sources": [
+        {
+          "path": "permafrost/Lady_Vox.lua",
+          "line": 118
+        },
+        {
+          "path": "permafrost/Lady_Vox.lua",
+          "line": 209
+        }
+      ],
+      "notes": "Version 200 checked explicitly; deduplicate central registry.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "kodtaz",
+      "title": "Ba'Zrath, the Bound Lich",
+      "kind": "prototype",
+      "confidence": "needs-review",
+      "reason": "Proposed weakness/challenge boss exists as an encounter file.",
+      "sources": [
+        {
+          "path": "kodtaz/encounters/lich.lua",
+          "line": 31
+        },
+        {
+          "path": "kodtaz/encounters/lich.lua",
+          "line": 91
+        }
+      ],
+      "notes": "No loader/registration found; placeholder NPC IDs and undefined npc references. Not ready for player guide.",
+      "group": "Unfinished content"
+    },
+    {
+      "zone": "mischiefplane",
+      "title": "Chess event",
+      "kind": "prototype",
+      "confidence": "needs-review",
+      "reason": "Chess wave design and partial registration skeleton exist.",
+      "sources": [
+        {
+          "path": "mischiefplane/encounters/Chess_Event.lua",
+          "line": 3
+        },
+        {
+          "path": "mischiefplane/encounters/Chess_Event.lua",
+          "line": 49
+        }
+      ],
+      "notes": "Empty mob lists, TODO king and loot, no current loader found.",
+      "group": "Unfinished content"
+    },
+    {
+      "zone": "powar",
+      "title": "Turkey Zek the Gobble Lord",
+      "kind": "prototype",
+      "confidence": "needs-review",
+      "reason": "Holiday raid design and partial directional attacks, collection barrier and HP handlers exist.",
+      "sources": [
+        {
+          "path": "powar/encounters/turkey.lua",
+          "line": 31
+        },
+        {
+          "path": "powar/encounters/turkey.lua",
+          "line": 63
+        }
+      ],
+      "notes": "NPC IDs all placeholder 123456, reward TBD and loader not established.",
+      "group": "Unfinished content"
+    },
+    {
+      "zone": "nightmareb",
+      "title": "Terris Thule",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "HP-triggered defiler waves, dream disruption and gargoyle activation combine with a lair leash.",
+      "sources": [
+        {
+          "path": "nightmareb/Terris_Thule.lua",
+          "line": 33
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poair",
+      "title": "Chamberlain Escalardian",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Castellan/constable kills unlock Chamberlain, whose combat uses timed memblur.",
+      "sources": [
+        {
+          "path": "poair/encounters/Chamberlain_Event.lua",
+          "line": 12
+        },
+        {
+          "path": "poair/#isle_one_controller.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poair",
+      "title": "Stormrider island",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Clearing stormriders starts successive add/priest stages and island completion.",
+      "sources": [
+        {
+          "path": "poair/encounters/Stormrider_Event.lua",
+          "line": 27
+        },
+        {
+          "path": "poair/#isle_two_controller.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poair",
+      "title": "Elemental Masterpiece",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Trash kills activate four elemental champions followed by the masterpiece.",
+      "sources": [
+        {
+          "path": "poair/encounters/Masterpiece_Event.lua",
+          "line": 18
+        },
+        {
+          "path": "poair/#isle_three_controller.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poair",
+      "title": "Melernil Faal'Armanna",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Phoenix island clear leads through firesurger/windsurger stages to the boss.",
+      "sources": [
+        {
+          "path": "poair/encounters/Melernil_Event.lua",
+          "line": 23
+        },
+        {
+          "path": "poair/#isle_four_controller.lua",
+          "line": 15
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poair",
+      "title": "Sigismond Windwalker",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Spider kills progress the event, activating archwalker and timed adds.",
+      "sources": [
+        {
+          "path": "poair/encounters/Sigismond_Event.lua",
+          "line": 26
+        },
+        {
+          "path": "poair/#isle_five_controller.lua",
+          "line": 14
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poair",
+      "title": "Xegony, Queen of Air",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Dedicated controller coordinates the boss, waves of adds and resets.",
+      "sources": [
+        {
+          "path": "poair/encounters/Xegony_Event.lua",
+          "line": 1
+        },
+        {
+          "path": "poair/#event_control_Xegony.lua",
+          "line": 16
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poeartha",
+      "title": "Dust ring / Perfected Warder of Earth",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Devotees and Triumvirate of Soil progression unlock the Warder.",
+      "sources": [
+        {
+          "path": "poeartha/encounters/Dust_Event.lua",
+          "line": 20
+        },
+        {
+          "path": "poeartha/#dust_controller.lua",
+          "line": 14
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poeartha",
+      "title": "Mud ring / Monstrous Mudwalker",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Sludge lurker HP stages produce add waves before the final mudwalker.",
+      "sources": [
+        {
+          "path": "poeartha/encounters/Mud_Event.lua",
+          "line": 24
+        },
+        {
+          "path": "poeartha/#mud_controller.lua",
+          "line": 14
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poeartha",
+      "title": "Stone ring / Peregrin Rockskull",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Multiple stone types, waves and counters drive a staged ring event.",
+      "sources": [
+        {
+          "path": "poeartha/encounters/Stone_Event.lua",
+          "line": 35
+        },
+        {
+          "path": "poeartha/#stone_controller.lua",
+          "line": 14
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poeartha",
+      "title": "Vine ring / Derugoak Bloodwalker",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Tainted-beast deaths create vegerogs; clearing them activates the boss.",
+      "sources": [
+        {
+          "path": "poeartha/encounters/Vine_Event.lua",
+          "line": 21
+        },
+        {
+          "path": "poeartha/#vine_controller.lua",
+          "line": 14
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poeartha",
+      "title": "Mystical Arbitor of Earth",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Ring completion leads to Arbitor, with timed memblur and final progression.",
+      "sources": [
+        {
+          "path": "poeartha/#A_Mystical_Arbitor_of_Earth.lua",
+          "line": 10
+        },
+        {
+          "path": "poeartha/zone_status.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Old arbitor controller is commented out; zone_status now owns progression.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poearthb",
+      "title": "Warlord Gintolaken",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Three clan/chieftain kill chains unlock Warlord with failure/reset timers.",
+      "sources": [
+        {
+          "path": "poearthb/encounters/Warlord_Event.lua",
+          "line": 43
+        },
+        {
+          "path": "poearthb/#warlord_controller.lua",
+          "line": 21
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poearthb",
+      "title": "Rathe Council and Avatar of Earth",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Mezzable/non-mezzable council handling, HP-based damage, death timing and Avatar finale.",
+      "sources": [
+        {
+          "path": "poearthb/encounters/Rathe_Event.lua",
+          "line": 55
+        },
+        {
+          "path": "poearthb/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pofire",
+      "title": "Fennin Ro, Tyrant of Fire",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Four explicit phases progress from trash to bridge, council and Fennin.",
+      "sources": [
+        {
+          "path": "pofire/encounters/Fennin_Event.lua",
+          "line": 28
+        },
+        {
+          "path": "pofire/script_init.lua",
+          "line": 4
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poinnovation",
+      "title": "Manaetic Behemoth",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Bomb/device control activates the targetable boss with leash, failure and success signals.",
+      "sources": [
+        {
+          "path": "poinnovation/Manaetic_Behemoth.lua",
+          "line": 24
+        },
+        {
+          "path": "poinnovation/#Manaetic_Behemoth.lua",
+          "line": 25
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "poinnovation",
+      "title": "Nitram Anizok / Xanamech Nezmirthafen",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Quest event replaces fake dragon with the real combat NPC and monitors win/fail timers.",
+      "sources": [
+        {
+          "path": "poinnovation/Nitram_Anizok.lua",
+          "line": 109
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "Trial of Execution",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Protect a prisoner through waves before Prime Executioner Vathoch.",
+      "sources": [
+        {
+          "path": "pojustice/#Event_Execution_Control.lua",
+          "line": 25
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "Trial of Flame",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Timed flame waves and AE punishment lead to Punisher of Flame.",
+      "sources": [
+        {
+          "path": "pojustice/#Event_Flame_Control.lua",
+          "line": 26
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "Trial of Hanging",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Protect prisoners from suffocation spirits before Gallows Master Teion.",
+      "sources": [
+        {
+          "path": "pojustice/#Event_Hanging_Control.lua",
+          "line": 30
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "Trial of Lashing",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Manage prisoners/spirits and waves before Lashman Azakal.",
+      "sources": [
+        {
+          "path": "pojustice/#Event_Lashing_Control.lua",
+          "line": 26
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "Trial of Stoning",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Incoming waves and prisoner defense culminate in Yurae Zhaleem.",
+      "sources": [
+        {
+          "path": "pojustice/#Event_Stoning_Control.lua",
+          "line": 27
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "Trial of Torture",
+      "kind": "group trial",
+      "confidence": "clear",
+      "reason": "Tormentor waves, healing wraith and failure checks lead to Punisher Veshtaq.",
+      "sources": [
+        {
+          "path": "pojustice/#Event_Torture_Control.lua",
+          "line": 47
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "pojustice",
+      "title": "The Seventh Hammer",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Timed Tribunal signals cast Verdict of Eternity or Tremor of Judgment.",
+      "sources": [
+        {
+          "path": "pojustice/The_Seventh_Hammer.lua",
+          "line": 36
+        }
+      ],
+      "notes": "Distinct from monk epic NPC sharing its name.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "ponightmare",
+      "title": "Mujaki the Devourer",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Servant waves, guardian checks and timers control Mujaki activation.",
+      "sources": [
+        {
+          "path": "ponightmare/encounters/Mujaki_1.lua",
+          "line": 67
+        },
+        {
+          "path": "ponightmare/Mujaki_the_Devourer.lua",
+          "line": 27
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "ponightmare",
+      "title": "Deyid the Twisted",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Trees spawn, close in at successive HP stages and become hostile adds.",
+      "sources": [
+        {
+          "path": "ponightmare/Deyid_the_Twisted.lua",
+          "line": 16
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "ponightmare",
+      "title": "Terror Matriarch",
+      "kind": "boss",
+      "confidence": "clear",
+      "reason": "HP trigger starts repeating hatchling spawns during combat.",
+      "sources": [
+        {
+          "path": "ponightmare/#Terror_Matriarch.lua",
+          "line": 19
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "ponightmare",
+      "title": "Aid Eino escort / Dreamkeeper",
+      "kind": "escort",
+      "confidence": "clear",
+      "reason": "Waypoint ambushes attack Eino; Dreamkeeper death finishes the event.",
+      "sources": [
+        {
+          "path": "ponightmare/#Aid_Eino.lua",
+          "line": 13
+        },
+        {
+          "path": "ponightmare/#The_Dreamkeeper.lua",
+          "line": 23
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "postorms",
+      "title": "Drornok Tok Vo'Lok",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Clearing pond enemies triggers Drornok; his HP thresholds spawn more adds.",
+      "sources": [
+        {
+          "path": "postorms/#Drornok_trigger.lua",
+          "line": 5
+        },
+        {
+          "path": "postorms/#Drornok_Tok_Vo-Lok.lua",
+          "line": 21
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "postorms",
+      "title": "Ston'Ruak, Ancient of Trees",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Tree clears trigger extra waves then the Ancient, with reset signals.",
+      "sources": [
+        {
+          "path": "postorms/#Ston_trigger.lua",
+          "line": 11
+        },
+        {
+          "path": "postorms/#Ston_trigger.lua",
+          "line": 49
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "postorms",
+      "title": "Falto, Lord of Thunder",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Area clears and mephit progression summon Falto; controller supports reset.",
+      "sources": [
+        {
+          "path": "postorms/#Falto_trigger.lua",
+          "line": 11
+        },
+        {
+          "path": "postorms/#Falto_trigger.lua",
+          "line": 33
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potactics",
+      "title": "Tallon Zek",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Combat timers execute targeted attacks and aggro bouncing with completion flagging.",
+      "sources": [
+        {
+          "path": "potactics/encounters/tallon_event.lua",
+          "line": 18
+        },
+        {
+          "path": "potactics/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potactics",
+      "title": "Vallon Zek",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "HP-triggered splits/waves and a dedicated controller govern progression.",
+      "sources": [
+        {
+          "path": "potactics/encounters/vallon_event.lua",
+          "line": 26
+        },
+        {
+          "path": "potactics/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potactics",
+      "title": "Rallos Zek the Warlord",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Three stages cover Tallon/Vallon, fake Rallos and the Warlord with pit adds.",
+      "sources": [
+        {
+          "path": "potactics/encounters/rztw_event.lua",
+          "line": 27
+        },
+        {
+          "path": "potactics/encounters/rztw_event.lua",
+          "line": 170
+        },
+        {
+          "path": "potactics/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potorment",
+      "title": "Maareq the Prophet",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "HP combat changes and recurring minions lead into Tylis/Keeper progression.",
+      "sources": [
+        {
+          "path": "potorment/Maareq_the_Prophet.lua",
+          "line": 8
+        },
+        {
+          "path": "potorment/Maareq_the_Prophet.lua",
+          "line": 38
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potorment",
+      "title": "Keeper of Sorrows / Tylis' torment",
+      "kind": "raid event",
+      "confidence": "needs-review",
+      "reason": "Tylis activates a sequence ending in Keeper, whose death frees Tylis.",
+      "sources": [
+        {
+          "path": "potorment/Tylis_Newleaf.lua",
+          "line": 10
+        },
+        {
+          "path": "potorment/The_Keeper_of_Sorrows.lua",
+          "line": 5
+        }
+      ],
+      "notes": "Associated chamber NPC wiring needs review before a full guide.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potorment",
+      "title": "Salczek the Fleshgrinder",
+      "kind": "boss",
+      "confidence": "clear",
+      "reason": "Combat changes at 40 and 20 percent with reset handling.",
+      "sources": [
+        {
+          "path": "potorment/Salczek_the_Fleshgrinder.lua",
+          "line": 17
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potorment",
+      "title": "Saryrn",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Ravens appear at successive HP thresholds; Sorrowsong activates late in combat.",
+      "sources": [
+        {
+          "path": "potorment/Saryrn.lua",
+          "line": 33
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potorment",
+      "title": "Baraguj Szuul mouth event",
+      "kind": "event",
+      "confidence": "needs-review",
+      "reason": "Mouth trigger populates a multi-level gauntlet and final Baraguj state.",
+      "sources": [
+        {
+          "path": "potorment/mouth_trigger.pl",
+          "line": 1
+        },
+        {
+          "path": "potorment/Baraguj_Szuul.lua",
+          "line": 5
+        }
+      ],
+      "notes": "Legacy Perl trigger coexists with Lua NPCs; entry/completion wiring needs review.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "povalor",
+      "title": "Aerin'Dar",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "HP stages activate golem adds and reset them when the boss recovers.",
+      "sources": [
+        {
+          "path": "povalor/#Aerin-Dar.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "powater",
+      "title": "Coirnav, Avatar of Water",
+      "kind": "raid event",
+      "confidence": "clear",
+      "reason": "Timed waves and intermediate bosses activate final Coirnav stage.",
+      "sources": [
+        {
+          "path": "powater/encounters/Coirnav_Event.lua",
+          "line": 52
+        },
+        {
+          "path": "powater/Guardian_of_Coirnav.lua",
+          "line": 19
+        }
+      ],
+      "notes": "",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "potimeb",
+      "title": "Plane of Time: phases 1-3",
+      "kind": "raid sequence",
+      "confidence": "clear",
+      "reason": "Elemental trial triggers, phase-two waves and phase-three progression are scripted.",
+      "sources": [
+        {
+          "path": "potimeb/zone_status.lua",
+          "line": 160
+        },
+        {
+          "path": "potimeb/phase_two_controller.lua",
+          "line": 98
+        }
+      ],
+      "notes": "Early trials can be sections of one guide.",
+      "group": "Plane of Time"
+    },
+    {
+      "zone": "potimeb",
+      "title": "Plane of Time: phase 4 gods",
+      "kind": "raid sequence",
+      "confidence": "clear",
+      "reason": "Terris/Saryrn summon threshold adds, Vallon splits and Tallon has tether/kill progression.",
+      "sources": [
+        {
+          "path": "potimeb/Terris_Thule.lua",
+          "line": 26
+        },
+        {
+          "path": "potimeb/Saryrn.lua",
+          "line": 45
+        },
+        {
+          "path": "potimeb/Vallon_Zek.lua",
+          "line": 53
+        },
+        {
+          "path": "potimeb/Tallon_Zek.lua",
+          "line": 20
+        }
+      ],
+      "notes": "May split into four god entries after approval.",
+      "group": "Plane of Time"
+    },
+    {
+      "zone": "potimeb",
+      "title": "Plane of Time: phase 5 gods",
+      "kind": "raid sequence",
+      "confidence": "clear",
+      "reason": "Bertoxxulous stats escalate, Innoruuk summons adds, Rallos gains rampage/flurry, Cazic completes the quartet.",
+      "sources": [
+        {
+          "path": "potimeb/#Bertoxxulous.lua",
+          "line": 35
+        },
+        {
+          "path": "potimeb/#Innoruuk.lua",
+          "line": 19
+        },
+        {
+          "path": "potimeb/#Rallos_Zek.lua",
+          "line": 40
+        },
+        {
+          "path": "potimeb/#Cazic_Thule.lua",
+          "line": 20
+        }
+      ],
+      "notes": "May split into four god entries after approval.",
+      "group": "Plane of Time"
+    },
+    {
+      "zone": "potimeb",
+      "title": "Quarm",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Losing heads changes AE sets; repeating adds and reset/finale progression are scripted.",
+      "sources": [
+        {
+          "path": "potimeb/Quarm.lua",
+          "line": 99
+        },
+        {
+          "path": "potimeb/Quarm.lua",
+          "line": 80
+        }
+      ],
+      "notes": "",
+      "group": "Plane of Time"
+    },
+    {
+      "zone": "mistmoore",
+      "title": "The Archivist's Midnight Vigil",
+      "kind": "group mission",
+      "confidence": "clear",
+      "reason": "Group expedition hunts respawning castle enemies, tracks verified kills and awards four relics needed to request the raid.",
+      "sources": [
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 31
+        },
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 2925
+        },
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 3123
+        }
+      ],
+      "notes": "Version 11 explicitly configured, group size 3-6 and level 50 minimum. New mission document distinct from the five existing version-10 raid boss journals.",
+      "group": "Mistmoore Eclipse"
+    },
+    {
+      "zone": "katta",
+      "title": "Vampyre Troubles: Autarkic Lord Sfarosh",
+      "kind": "quest event",
+      "confidence": "clear",
+      "reason": "Dialogue ritual and allies culminate in hostile Sfarosh and three shade adds with a time limit.",
+      "sources": [
+        {
+          "path": "katta/Autarkic_Lord_Sfarosh.lua",
+          "line": 13
+        },
+        {
+          "path": "katta/Autarkic_Lord_Sfarosh.lua",
+          "line": 32
+        },
+        {
+          "path": "katta/#Autarkic_Lord_Sfarosh.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Can include imprisoned shade as the earlier quest battle.",
+      "group": "Quest battles"
+    },
+    {
+      "zone": "necropolis",
+      "title": "Garzicor's Corpse and Wraith",
+      "kind": "quest event",
+      "confidence": "clear",
+      "reason": "Blood offering starts a corpse fight; its defeat spawns the final dragon wraith, followed by the reward shade.",
+      "sources": [
+        {
+          "path": "necropolis/#a_ghostly_presence.lua",
+          "line": 13
+        },
+        {
+          "path": "necropolis/#Garzicor-s_Corpse.lua",
+          "line": 13
+        },
+        {
+          "path": "necropolis/#Garzicor-s_Wraith.lua",
+          "line": 13
+        }
+      ],
+      "notes": "Consolidates ritual and two combat forms.",
+      "group": "Quest battles"
+    },
+    {
+      "zone": "mistmoore",
+      "title": "Gravekeeper Vhal",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Existing journal derived from current Mistmoore Eclipse scripts.",
+      "sources": [
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Already documented: gravekeeper-vhal",
+      "group": "Mistmoore Eclipse",
+      "already_documented": true
+    },
+    {
+      "zone": "mistmoore",
+      "title": "Castellan Veyr",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Existing journal derived from current Mistmoore Eclipse scripts.",
+      "sources": [
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Already documented: castellan-veyr",
+      "group": "Mistmoore Eclipse",
+      "already_documented": true
+    },
+    {
+      "zone": "mistmoore",
+      "title": "Huntmaster Draeven",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Existing journal derived from current Mistmoore Eclipse scripts.",
+      "sources": [
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Already documented: huntmaster-draeven",
+      "group": "Mistmoore Eclipse",
+      "already_documented": true
+    },
+    {
+      "zone": "mistmoore",
+      "title": "Cantor Selindra",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Existing journal derived from current Mistmoore Eclipse scripts.",
+      "sources": [
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Already documented: cantor-selindra",
+      "group": "Mistmoore Eclipse",
+      "already_documented": true
+    },
+    {
+      "zone": "mistmoore",
+      "title": "Mayong Mistmoore",
+      "kind": "raid boss",
+      "confidence": "clear",
+      "reason": "Existing journal derived from current Mistmoore Eclipse scripts.",
+      "sources": [
+        {
+          "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Already documented: last-eclipse-finale",
+      "group": "Mistmoore Eclipse",
+      "already_documented": true
+    }
+  ],
+  "excluded_notable_candidates": [
+    {
+      "zone": "mischiefplane",
+      "title": "Old theater and Bristlebane 1.0",
+      "reason": "Archived old/ behavior or blank encounter stub without current loader.",
+      "sources": [
+        {
+          "path": "mischiefplane/old/theatre_control.lua",
+          "line": 7
+        },
+        {
+          "path": "mischiefplane/encounters/Bristlebane.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "lakeofillomen",
+      "title": "Anniversary bread collection",
+      "reason": "Module gives chance-based bread quest credit on generic goblin kills, not a distinct battle.",
+      "sources": [
+        {
+          "path": "lakeofillomen/encounters/anniversary_event.lua",
+          "line": 14
+        }
+      ]
+    },
+    {
+      "zone": "poknowledge",
+      "title": "Baylan Thanksgiving collection / Storyteller Frank",
+      "reason": "Hub collection and dialogue scripts, not combat encounters.",
+      "sources": [
+        {
+          "path": "poknowledge/#Baylan_the_Gobblegourd.lua",
+          "line": 203
+        },
+        {
+          "path": "poknowledge/Storyteller_Frank.lua",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "zone": "potactics",
+      "title": "Boar stampede",
+      "reason": "Ambient repeated waves lack a discrete objective/boss/win condition; suitable for zone hazard note.",
+      "sources": [
+        {
+          "path": "potactics/#stampede_control.lua",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "zone": "mirb",
+      "title": "Raider helpers",
+      "reason": "Reusable goblin fleeing/aggro behavior belongs within Frozen Nightmare, not its own event.",
+      "sources": [
+        {
+          "path": "mirb/encounters/raiders.lua",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "zone": "podisease",
+      "title": "Grummus",
+      "reason": "Local script primarily death flagging; central seasonal registry reviewed separately.",
+      "sources": [
+        {
+          "path": "podisease/#Grummus.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "karnor",
+      "title": "Venril Sathir variants",
+      "reason": "Local scripts mainly death/respawn/quest setup without substantive distinct combat phases.",
+      "sources": [
+        {
+          "path": "karnor/Venril_Sathir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "paludal",
+      "title": "Yelloweyes",
+      "reason": "Anniversary proximity/illusion behavior is commented out.",
+      "sources": [
+        {
+          "path": "paludal/Yelloweyes.lua",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "zone": "kedge",
+      "title": "Seahorse epic spawn chain / timed quest NPCs",
+      "reason": "Only simple death-spawn, chance-spawn and despawn handlers found; no substantive self-contained encounter mechanics. Seasonal launcher is audited centrally.",
+      "sources": [
+        {
+          "path": "kedge/tainted_seahorse.lua",
+          "line": 1
+        },
+        {
+          "path": "kedge/a_swirlspine_seahorse.lua",
+          "line": 1
+        },
+        {
+          "path": "kedge/Swirlspine_Guardian.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "provinggrounds",
+      "title": "Elite kyv hunter",
+      "reason": "Generic trash combat ability with a health-triggered arrow volley; not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "provinggrounds/an_elite_kyv_hunter.lua",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "zone": "kithicor",
+      "title": "General V'ghera request",
+      "reason": "Seven rogue-epic requester NPCs only spawn NPC20205 on item turn-in; no local boss combat script to support a substantive journal.",
+      "sources": [
+        {
+          "path": "kithicor/#Coercer_Q-ioul.lua",
+          "line": 6
+        },
+        {
+          "path": "kithicor/#Brigadier_G-tav.lua",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "zone": "mira",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mira/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mirb",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mirb/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mirc",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mirc/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mird",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mird/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mire",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mire/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mirf",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mirf/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mirg",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mirg/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mirh",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mirh/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "miri",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "miri/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mirj",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mirj/encounters/mir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmca",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmca/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmcb",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmcb/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmcc",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmcc/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmcd",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmcd/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmce",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmce/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmcf",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmcf/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmcg",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmcg/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmch",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmch/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmci",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmci/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "mmcj",
+      "title": "Generic LDoN adventure helper",
+      "reason": "Shared adventure/scaling registration, not a distinct named encounter.",
+      "sources": [
+        {
+          "path": "mmcj/encounters/mmc.lua",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "module_accounting": [
+    {
+      "path": "ikkinz/encounters/keeper.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "illsalin/encounters/find_fibblebrap_four.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "illsalinb/encounters/council_of_nine.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "illsalinb/encounters/find_fribblebrap_four.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "illsalinc/encounters/Deserting_the_Ranks.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "illsalinc/encounters/Emperor_Draygun.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "inktuta/encounters/kelekdrix.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "inktuta/encounters/noqufiel.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "kael/encounters/fabled_kael_encounter.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "kithicor/encounters/cloaked.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "kodtaz/encounters/lich.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "kodtaz/encounters/summoners.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "kodtaz/encounters/totd.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "lakeofillomen/encounters/anniversary_event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mira/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mirb/encounters/goblins.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mirb/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mirb/encounters/raiders.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mirb/encounters/sharalla.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mirb/encounters/skeletons.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mirb/encounters/sludge.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mirc/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mird/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mire/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mirf/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mirg/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mirh/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "miri/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mirj/encounters/mir.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mischiefplane/encounters/Bristlebane.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mischiefplane/encounters/Bristlebane_the_King_of_Thieves.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mischiefplane/encounters/Chess_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mmca/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmcb/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmcc/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmcc/encounters/mmccraid.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "mmcd/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmce/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmcf/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmcg/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmch/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmci/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "mmcj/encounters/mmc.lua",
+      "disposition": "generic-adventure-helper"
+    },
+    {
+      "path": "natimbi/encounters/druid_1_5.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "natimbi/encounters/ranger_1_5.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "necropolis/encounters/vesthon.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "oasis/encounters/paladin_epic.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poair/encounters/Chamberlain_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poair/encounters/Masterpiece_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poair/encounters/Melernil_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poair/encounters/Sigismond_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poair/encounters/Stormrider_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poair/encounters/Xegony_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poeartha/encounters/Dust_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poeartha/encounters/Mud_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poeartha/encounters/Stone_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poeartha/encounters/Vine_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poearthb/encounters/Rathe_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "poearthb/encounters/Warlord_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "pofire/encounters/Fennin_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "ponightmare/encounters/Mujaki_1.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "potactics/encounters/rztw_event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "potactics/encounters/tallon_event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "potactics/encounters/vallon_event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "powar/encounters/turkey.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    },
+    {
+      "path": "powater/encounters/Coirnav_Event.lua",
+      "disposition": "candidate-or-explicit-exclusion"
+    }
+  ]
+}

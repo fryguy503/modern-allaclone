@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "gukg-gragna-the-cursed",
+  "title": "Gragna the Cursed",
+  "group": "LDoN: Ritualist of Hate",
+  "type": "raid",
+  "zone": {
+    "short_name": "gukg",
+    "name": "Deepest Guk: The Root Garden",
+    "version": 2
+  },
+  "npc_ids": [
+    259251
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Aid the Gukta rescue force against Gragna while staying inside the battle area.",
+  "overview": [
+    "Gragna appears after the Cursed Spore stage. Follow the Knight of Gukta's call toward the next chamber and keep Gragna inside that encounter area.",
+    "Every 65 seconds while engaged, the script announces the four healers and casts Mithaniel's Blessing at Gragna's current hate leader."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "blessing",
+      "name": "Mithaniel's Blessing",
+      "summary": "A repeating 65-second spell targets the current hate leader.",
+      "description": [],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        4458
+      ]
+    },
+    {
+      "id": "boundary",
+      "name": "Encounter boundary",
+      "summary": "Pulling Gragna west of X -380 resets the fight.",
+      "description": [
+        "A six-second check casts Balance of the Nameless on Gragna, removes buffs, returns Gragna home and clears the hate list."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        3230
+      ]
+    }
+  ],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gukg/encounters/gukgraid.lua",
+        "sha256": "c09b1f92d1fa17699d54e60cd8a16d164e447ea1e35a41b481b61ee6a8463ab0"
+      },
+      {
+        "path": "gukg/zone_status.lua",
+        "sha256": "5bbb0f05ccf0032612f6f3f86b75d7720c9f3189105f3d2f3a2f87e3ccbd1eeb"
+      }
+    ],
+    "notes": [
+      "Approved row E140. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "Verify spell 4458 and its target against the loaded database before describing its effect as healing or assigning a response. The emote alone does not establish the actual effect."
+    ]
+  }
+}

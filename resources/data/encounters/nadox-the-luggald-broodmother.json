@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "nadox-the-luggald-broodmother",
+  "title": "The Luggald Broodmother",
+  "group": "Legacy events",
+  "type": "event",
+  "zone": {
+    "short_name": "nadox",
+    "name": "Crypt of Nadox",
+    "version": 0
+  },
+  "npc_ids": [
+    227321,
+    227003,
+    227002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow the Luggald Broodmother’s procession and defeat the defenders it leaves along the route.",
+  "overview": [
+    "Follow the Luggald Broodmother’s procession and defeat the defenders it leaves along the route."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The procession creates increasingly large groups of defenders and archseekers at successive waypoints.",
+        "Clear the waves while following its route; the final stop replaces the moving NPC with the hostile Broodmother.",
+        "The final encounter has a one-hour depop timer that pauses during combat. Its cleanup also removes remaining procession defenders."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "nadox/The_Luggald_Broodmother.lua",
+        "sha256": "a70fe2720e20d2c813d09333b6c95879d5d4cfc40d417cb9d9927c520b7f758a"
+      },
+      {
+        "path": "nadox/#The_Luggald_Broodmother.lua",
+        "sha256": "bcae5fd7a916640c4fd96d3b0e68e93dc020de491e8d3e20d0f6b533731ab721"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

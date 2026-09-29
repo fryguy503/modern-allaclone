@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "ssratemple-rhag-cycle-arch-lich",
+  "title": "Rhag cycle / Arch Lich",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "ssratemple",
+    "name": "Ssraeshza Temple",
+    "version": 0
+  },
+  "npc_ids": [
+    162178,
+    162192,
+    162517
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Advance through the Rhag cycle to reveal the Arch Lich.",
+  "overview": [
+    "Advance through the Rhag cycle to reveal the Arch Lich."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Regroup before each boss death because the next guarded encounter spawns immediately."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Rhag`Zhezum's death spawns Rhag`Mozdezh with four guards.",
+        "Rhag`Mozdezh's death spawns the Arch Lich and another guard group.",
+        "The cycle stores its current stage per instance so progression can be restored after a zone restart."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ssratemple/162178.lua",
+        "sha256": "48f69c372db581220b0f4280a8fa72d54b0b21b83a934c455ebb40e4f7584c0c"
+      },
+      {
+        "path": "ssratemple/162192.lua",
+        "sha256": "6f64ab4e7195ee43d30254dcfe1995cdf84f3af8a099ea64b55d6cfa580f6c78"
+      }
+    ],
+    "notes": [
+      "Approval E311. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

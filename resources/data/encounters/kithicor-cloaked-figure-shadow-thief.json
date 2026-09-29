@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "kithicor-cloaked-figure-shadow-thief",
+  "title": "Cloaked figure / shadow thief",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "kithicor",
+    "name": "Kithicor Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    20290,
+    20292
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A cloaked figure draws a bard into a shadow ambush that ends only when the shadow thief is defeated.",
+  "overview": [
+    "A cloaked figure draws a bard into a shadow ambush that ends only when the shadow thief is defeated."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "A bard at the appropriate epic stage hails the cloaked figure. Ten seconds later, four malignant shadows appear around the bard and attack.",
+        "Each shadow immediately replaces itself on death. After the tenth shadow kill, a shadow thief appears at the dead shadow’s location.",
+        "Switch to the thief when it arrives; repeatedly clearing shadows alone will not end the fight.",
+        "The thief casts an additional spell at 25% health. Its death removes every remaining shadow and begins the event cooldown."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kithicor/encounters/cloaked.lua",
+        "sha256": "91505b8384b01349376ed9e25959a4613b13caa8ad1bc7d36bf34a1760e0e901"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

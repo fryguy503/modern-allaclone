@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "poinnovation-nitram-anizok-xanamech-nezmirthafen",
+  "title": "Nitram Anizok / Xanamech Nezmirthafen",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poinnovation",
+    "name": "Plane of Innovation",
+    "version": 0
+  },
+  "npc_ids": [
+    206067
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Help Nitram Anizok activate Xanamech Nezmirthafen, then defeat the construct and return to Nitram.",
+  "overview": [
+    "Help Nitram Anizok activate Xanamech Nezmirthafen, then defeat the construct and return to Nitram."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete Nitram’s three-component hand-in and accompany him along his route to the inactive dragon.",
+        "At the activation point, the real Xanamech replaces the inactive model. Prepare the group before Nitram arrives.",
+        "The attempt has a two-hour failure timer. After Xanamech falls, return to Nitram promptly: the victory state resets after ten minutes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poinnovation/Nitram_Anizok.lua",
+        "sha256": "66a2c655c148a93415025d9d723ba86c9b7bbf022eb88d924bdc2868b55f38c5"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

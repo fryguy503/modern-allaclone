@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "kodtaz-pixtt-grand-summoner-ring",
+  "title": "Pixtt Grand Summoner ring",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "kodtaz",
+    "name": "Kod’Taz",
+    "version": 0
+  },
+  "npc_ids": [
+    293212,
+    293213,
+    293214,
+    293215,
+    293216,
+    293217
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the summoner ring through priests, stoneservants and a final Chaos Provoker sequence.",
+  "overview": [
+    "Break the summoner ring through priests, stoneservants and a final Chaos Provoker sequence."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Begin by defeating the nine Priest Summoners. Fighting the priests also brings Rav Priest Guardians into the ring.",
+        "Once the priests are gone, lesser and greater stoneservants appear. Their deaths reduce the Grand Summoner’s health and bring replacement golems until he is sufficiently weakened.",
+        "The golems take increased blunt-weapon damage and reduced slashing and archery damage. Choose weapons accordingly.",
+        "Keep the battle near the center of the ring. Pulling the linked opponents too far away clears hate and restores their health.",
+        "Defeat the exposed Grand Summoner to bring out the Hexxt Chaos Provoker. The Provoker’s death produces a final group of supreme stoneservants."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kodtaz/encounters/summoners.lua",
+        "sha256": "91a9a36006b8654c3a300ba35dd350d5a4098f60ef6475e88c85431133803106"
+      },
+      {
+        "path": "kodtaz/script_init.lua",
+        "sha256": "3ec52615b4dfb7eb4473d46d307e09b5dd3f4a6b2871e46e505e842d094e7727"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

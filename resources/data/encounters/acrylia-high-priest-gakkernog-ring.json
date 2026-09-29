@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "acrylia-high-priest-gakkernog-ring",
+  "title": "High Priest Gakkernog ring",
+  "group": "Acrylia",
+  "type": "event",
+  "zone": {
+    "short_name": "acrylia",
+    "name": "Acrylia Caverns",
+    "version": 0
+  },
+  "npc_ids": [
+    154390
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A sustained wave event ends with High Priest Gakkernog.",
+  "overview": [
+    "A sustained wave event ends with High Priest Gakkernog."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Remain near the event trigger while clearing the waves.",
+        "The wave sequence includes pauses and changes in the enemies summoned. Use those breaks to recover.",
+        "Engage the high priest promptly when he appears; his unengaged appearance is temporary."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "acrylia/#HP_shackles.lua",
+        "sha256": "cc8c68f42877da478e9b95d47203306b825e42d63f96acdf4286bf022be3f60a"
+      },
+      {
+        "path": "acrylia/#High_Priest_Gakkernog.lua",
+        "sha256": "be636f5e921a073e6f463e472684787b5668daf81f6aa53b725b33f2e9e8b18d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

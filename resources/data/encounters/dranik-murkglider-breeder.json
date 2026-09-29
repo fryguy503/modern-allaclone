@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-murkglider-breeder",
+  "title": "Murkglider Breeder",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Murkglider Breeder continually replenishes its spawn during combat.",
+  "overview": [
+    "The Murkglider Breeder continually replenishes its spawn during combat."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Collect the first murkglider as the breeder is engaged.",
+        "Further spawn checks occur every twenty seconds while the breeder fights.",
+        "Keep the adds under control while maintaining damage on the breeder."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/#Murkglider_Breeder.lua",
+        "sha256": "d43217425b38bedbd497867da92504d9056028283d90c7bbe8bdb012be595a70"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

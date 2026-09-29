@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-behind-closed-doors",
+  "title": "Behind Closed Doors",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 4
+  },
+  "npc_ids": [
+    340455,
+    340456
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Collect both keys and open the guarded eastern and western rooms.",
+  "overview": [
+    "Collect both keys and open the guarded eastern and western rooms."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare the group before opening either room and establish control of the guards immediately."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Looting the eastern and western keys enables their respective door pairs.",
+        "Opening a keyed room activates its general and associated guards.",
+        "The western room contains General Tro`Lir; the eastern room contains General Veth`Lir."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/behind_closed_doors.lua",
+        "sha256": "d877312658ede38da2c58b80f83c4a709e2d806ae84987b93ff28d92fdee3947"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E362. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

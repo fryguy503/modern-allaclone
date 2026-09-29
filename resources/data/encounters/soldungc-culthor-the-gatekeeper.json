@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "soldungc-culthor-the-gatekeeper",
+  "title": "Culthor the Gatekeeper",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "soldungc",
+    "name": "The Caverns of Exile",
+    "version": 0
+  },
+  "npc_ids": [
+    278005
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Culthor grows more dangerous as his linked guards are removed.",
+  "overview": [
+    "Culthor grows more dangerous as his linked guards are removed."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Choose the guard kill order deliberately and prepare tank cooldowns for the final guards."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The Firewatcher starts the encounter for a rogue at the required epic step after the four-part turn-in.",
+        "Culthor links to his guards when combat begins.",
+        "His maximum melee damage increases as the guard count falls from six to zero."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "soldungc/#Culthor_the_Gatekeeper.lua",
+        "sha256": "4e33aead0578acb1a7c80d242bc68a696cc5b9116b31b139d4cd29c61130d88b"
+      },
+      {
+        "path": "soldungc/the_Firewatcher.lua",
+        "sha256": "b2df0518376462bf91010466d475e0ed58a62d13405ac96de86cff9e83b1009c"
+      }
+    ],
+    "notes": [
+      "Approval E299. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

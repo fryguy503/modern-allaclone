@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "scarlet-high-priest-valon-and-the-plasmatic-followers",
+  "title": "High Priest Valon and the Plasmatic followers",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "scarlet",
+    "name": "The Scarlet Desert",
+    "version": 0
+  },
+  "npc_ids": [
+    175001,
+    27009,
+    27010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Jimmic Adle reveals High Priest Valon with five Plasmatic followers.",
+  "overview": [
+    "Jimmic Adle reveals High Priest Valon with five Plasmatic followers."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare to control several enemies immediately after the trigger."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A cleric at the required pre-epic step starts the event through Jimmic's turn-in; the next step also supports a hail trigger.",
+        "Valon appears with two priests and three priestesses around the same location.",
+        "Jimmic depops after creating the encounter."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "scarlet/Jimmic_Adle.lua",
+        "sha256": "a0c19f9ec16e17e1f203b8163e3c9d509381df45b1960abf4bcc882bf422bdd7"
+      }
+    ],
+    "notes": [
+      "Approval E284. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-trial-of-torture",
+  "title": "Trial of Torture",
+  "group": "Planes of Power",
+  "type": "group",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201496
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keep the tortured prisoners alive through four enemy waves, then defeat Punisher Veshtaq.",
+  "overview": [
+    "Keep the tortured prisoners alive through four enemy waves, then defeat Punisher Veshtaq."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Four-enemy waves arrive two minutes apart. Pick up every incoming enemy before it reaches the prisoners.",
+        "Clearing an early wave summons a Wraith of Agony. Defeat it to produce the relief effect for the trial.",
+        "After all sixteen wave enemies are defeated, Punisher Veshtaq appears. Finish the boss while maintaining protection of the prisoners."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/#Event_Torture_Control.lua",
+        "sha256": "7d433b9c417f6a31e0c7f33dd79f4a31b52f08ca3b44da780939e08f07f2061a"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

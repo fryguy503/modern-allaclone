@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "sebilis-sebilite-protector",
+  "title": "Sebilite Protector",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "sebilis",
+    "name": "Old Sebilis",
+    "version": 0
+  },
+  "npc_ids": [
+    89005,
+    89007
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Test the berserker's trial weapons against the Sebilite Protector while dealing with his guardians.",
+  "overview": [
+    "Test the berserker's trial weapons against the Sebilite Protector while dealing with his guardians."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Control the guardians and their healing while the questing berserker completes each weapon test."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The qualifying juggernaut kill checks the berserker's epic step and event cooldown before spawning the protector and two guardians.",
+        "At 75% health, the protector begins Death Shackles and signals the guardians into their spell cycle.",
+        "Guardians cast debuffs and repeatedly attempt Complete Heal on the protector.",
+        "The qualifying berserker must perform the weapon tests during combat; the encounter has a 30-minute despawn deadline."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sebilis/encounters/berserkerepic_1_5.lua",
+        "sha256": "4e29ffc4512932ae30737f748d67a562a3407ba1ef48075b5ed8b155359b99bb"
+      }
+    ],
+    "notes": [
+      "Approval E285. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

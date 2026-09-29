@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-storm-chasers-raging-thunderhead",
+  "title": "Storm Chasers / Raging Thunderhead",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 0
+  },
+  "npc_ids": [
+    340397,
+    340398,
+    340399
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Unleash the storm event and manage the lesser thunderheads' splitting adds.",
+  "overview": [
+    "Unleash the storm event and manage the lesser thunderheads' splitting adds."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Expect three adds from every lesser thunderhead and control the splitting targets deliberately."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "When the three checked Storm Chaser templates are absent and the controller remains, a chaser death summons three Thunderheads and a Raging Thunderhead.",
+        "Each lesser Thunderhead splits into three Stormfronts when killed.",
+        "The split announces that the raging storm grows stronger."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/Storm_Chaser.lua",
+        "sha256": "e0df8e2ed67c99e10cb37b11bbd1848f525e956744b09a7bb2f800424f0f1e35"
+      },
+      {
+        "path": "thundercrest/#Thunderhead.lua",
+        "sha256": "dbe2964ba10ebfb87318279e6b147fa2e8810cd4431673c24b81f04033503964"
+      }
+    ],
+    "notes": [
+      "Approval E371. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The growth emote is verified; exact Raging Thunderhead stat scaling is not defined in these reviewed scripts."
+    ]
+  }
+}

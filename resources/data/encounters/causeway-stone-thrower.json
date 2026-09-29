@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-stone-thrower",
+  "title": "Stone Thrower",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The seasonal Stone Thrower pressures both close and distant players.",
+  "overview": [
+    "The seasonal Stone Thrower pressures both close and distant players."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Watch personal warnings and reposition before their ten-second impact.",
+        "For the reviewed rock-blast logic, finish within 100 units of the boss; targets beyond that distance take the hit.",
+        "When targeted by the distant-player grip, move within 150 units before it resolves.",
+        "Keep the main tank covered for recurring boulder strikes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/#Stone_Thrower.lua",
+        "sha256": "b36bdad2a6a83b991f9caed6042971fcf0d4a10d4881ae8d6810337aa136e034"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 200.",
+      "The close-range warning tells players to get away, but the impact condition damages targets farther than 100 units. Guidance follows the implemented condition and needs live verification.",
+      "A final_fury timer is armed but no handler was found; no timed enrage is claimed.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "bloodfields-gazz-the-gargantuan",
+  "title": "Gazz the Gargantuan",
+  "group": "Omens of War",
+  "type": "raid",
+  "zone": {
+    "short_name": "bloodfields",
+    "name": "The Bloodfields",
+    "version": 0
+  },
+  "npc_ids": [
+    301031,
+    301062
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Wake Gazz by defeating the dreamwalkers, then adapt to his alternating combat modes.",
+  "overview": [
+    "Wake Gazz by defeating the dreamwalkers, then adapt to his alternating combat modes."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the three dreamwalkers and prepare for Gazz to awaken.",
+        "When Gazz slows and flails, keep vulnerable players clear of the area-rampage pressure.",
+        "His later roar leads into Reflective Sheen; watch the change before committing spells.",
+        "A prolonged disengagement starts the event reset sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "bloodfields/encounters/gaz.lua",
+        "sha256": "5de8dc6fe9e1bf1c844259984d319ec531628089b62c39da52cecea733a2eaa4"
+      },
+      {
+        "path": "bloodfields/script_init.lua",
+        "sha256": "65e3a5257e4c5641aed6268eac55d8956bc9dbc4ba6374f4ea255dab5cf091bb"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

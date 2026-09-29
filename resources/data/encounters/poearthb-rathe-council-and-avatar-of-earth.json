@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "poearthb-rathe-council-and-avatar-of-earth",
+  "title": "Rathe Council and Avatar of Earth",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poearthb",
+    "name": "Ragrax, Stronghold of the Twelve",
+    "version": 0
+  },
+  "npc_ids": [
+    222140,
+    222141,
+    222147
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Bring all twelve Rathe Council members down within one short kill window, then defeat the Avatar of Earth.",
+  "overview": [
+    "Bring all twelve Rathe Council members down within one short kill window, then defeat the Avatar of Earth."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Six council members use the mezzable template and six cannot be mezzed. Divide crowd control and tank assignments before engaging.",
+        "Council members become less accurate and deal less damage at 75%, 50%, 25% and 11% health. Lower them in a controlled order before beginning the final kills.",
+        "Banishment continues while a council member has at least 11% health and is not mezzed. Protect the tank rotation while preparing the council.",
+        "The first death starts a 345-second window. Kill all twelve before fallen members respawn.",
+        "The final council death summons the Avatar of Earth. Defeat it within fifty minutes and interact with the resulting essence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poearthb/encounters/Rathe_Event.lua",
+        "sha256": "862a1828290bb1169785384709aefb30cf48ad1fdc831b9e95ca03df5f489e64"
+      },
+      {
+        "path": "poearthb/script_init.lua",
+        "sha256": "44bd5acec7049781970ee06a576753e06d55f8d60e87f21f93c7987567ab4d46"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

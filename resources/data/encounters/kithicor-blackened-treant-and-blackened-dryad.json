@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "kithicor-blackened-treant-and-blackened-dryad",
+  "title": "Blackened Treant and Blackened Dryad",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "kithicor",
+    "name": "Kithicor Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    20299,
+    20300,
+    20301
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A blackened treant breaks apart into limbs before the dryad emerges.",
+  "overview": [
+    "A blackened treant breaks apart into limbs before the dryad emerges."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the Blackened Treant, then gather the Blackened Tree Limbs that replace it.",
+        "The limbs lead to the Blackened Dryad. Keep the group together through the successive spawns so the new target does not reach an unprepared player.",
+        "The dryad casts Withering Glare seven seconds after engagement and every twenty seconds thereafter. Keep healing ready for the top-hate target."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kithicor/#Blackened_Treant.lua",
+        "sha256": "baebbb348d13b0edca8430d039d5717784c5cd2c69947366763227458d6eb8b9"
+      },
+      {
+        "path": "kithicor/#Blackened_Tree_Limb.lua",
+        "sha256": "ecf9809b126e5d8fffe21eeb36b9c7624949ca01d58cc9d3615591d42a3bac94"
+      },
+      {
+        "path": "kithicor/#Blackened_Dryad.lua",
+        "sha256": "4837d92f46086f4b205b9e02cf76b8a3b27492e1f31e9d7b01a09c9aee604ca9"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

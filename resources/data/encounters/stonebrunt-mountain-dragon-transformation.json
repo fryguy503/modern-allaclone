@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "stonebrunt-mountain-dragon-transformation",
+  "title": "Mountain dragon transformation",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "stonebrunt",
+    "name": "Stonebrunt Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    100227
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A dire panda reveals a mountain dragon when wounded.",
+  "overview": [
+    "A dire panda reveals a mountain dragon when wounded."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Expect a fresh target at the panda's position and prepare before crossing 80%."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 80% health the panda attempts to spawn the mountain dragon at its current position.",
+        "If that dragon is already present, the transformation is deferred and the health trigger is rearmed.",
+        "A successful transformation removes the panda."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stonebrunt/a_dire_panda.lua",
+        "sha256": "9084de2dd9a3d061a0540a36f1eea043e8947c1dd2d29c0e7a17ea0a6322b926"
+      }
+    ],
+    "notes": [
+      "Approval E328. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

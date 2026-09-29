@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "slug": "riwwi-arena-turlini-and-the-enslaved-yunjo",
+  "title": "Arena: Turlini and the enslaved yunjo",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "riwwi",
+    "name": "Riwwi, Coliseum of Games",
+    "version": 0
+  },
+  "npc_ids": [
+    282097,
+    282098,
+    282099,
+    282100,
+    282101,
+    282102,
+    282103,
+    282104,
+    282075,
+    282071,
+    282083,
+    282086,
+    282078,
+    282085,
+    282082,
+    282074,
+    282076,
+    282087,
+    282084,
+    282070,
+    282072,
+    282077,
+    282080
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Win ten arena battles by returning proof between challenges.",
+  "overview": [
+    "At the required Riwwi task stage, tell the enslaved yunjo you will \"defy\" the Muramites to begin the first battle and receive its proof container.",
+    "After each battle, combine the required proof and return it to Turlini. Give the resulting challenge token to the enslaved yunjo to summon the next opponents and receive the next container.",
+    "Progress depends on those turn-ins rather than an automatic timer between waves. Turlini requires sufficient faction before accepting proof."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "early",
+      "label": "Battles one through four",
+      "trigger": "Initial challenge and successive token turn-ins",
+      "description": "Face Frothing Hynid, Gibbering Hynid, Handler Bvekh with Highest Hills Cragbeast, then Pfaaxle."
+    },
+    {
+      "id": "stone",
+      "label": "Battles five through seven",
+      "trigger": "Continue returning proof",
+      "description": "Face one stoneworker, then two stone servants, then Master Hviqu with Directed Destroyer and Dominated Bonecrusher."
+    },
+    {
+      "id": "final",
+      "label": "Battles eight through ten",
+      "trigger": "Continue returning proof",
+      "description": "Face Drax, Qiz and Xnoz together; then Kizki the Slayer; finally six Hexxt and Pixtt opponents."
+    },
+    {
+      "id": "proof",
+      "label": "Final proof",
+      "trigger": "Tenth battle completed",
+      "description": "Return the last proof container to Turlini to complete this part of the escape and receive the follow-up report."
+    }
+  ],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "riwwi/#an_officiator.lua",
+        "sha256": "de64f2bcd20301dc64cd7b5defa7e276a7d8a0ee1ea722a0520e2868ed521ca8"
+      },
+      {
+        "path": "riwwi/#an_enslaved_yunjo.lua",
+        "sha256": "5e637d08df9e9ddecd119d6936a45128538cb8d123a5104f2319d93729834fdf"
+      },
+      {
+        "path": "riwwi/#Turlini.lua",
+        "sha256": "5af8baeef19d7585bc43e689a3233c49f924c6db97610d4e23c7fd202ecf8999"
+      }
+    ],
+    "notes": [
+      "Approved row E277. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "The sequence and trade IDs are source-verified. Container recipe contents, enemy spell lists and equipment rewards require database review. No boss-specific abilities are invented for the wave roster."
+    ]
+  }
+}

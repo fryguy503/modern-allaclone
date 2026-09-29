@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "hole-master-yael",
+  "title": "Master Yael",
+  "group": "Classic raid encounters",
+  "type": "raid",
+  "zone": {
+    "short_name": "hole",
+    "name": "The Hole",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Master Yael repeatedly uses a lethal touch against the top of his hate list.",
+  "overview": [
+    "Master Yael repeatedly uses a lethal touch against the top of his hate list."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "lethal-touch",
+      "name": "Cazic Touch",
+      "summary": "A recurring attack against the highest-hate target.",
+      "description": [
+        "The first cast occurs within about two seconds of engagement, then repeats every thirty seconds while combat continues."
+      ],
+      "tags": [
+        "Tank"
+      ],
+      "roles": [],
+      "spell_ids": [
+        982
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Expect the first touch almost immediately after engagement, followed by a thirty-second cycle.",
+        "The touch selects the highest-hate target. If that target is a pet, the script redirects the attack to its owner.",
+        "The script removes several Divine Aura-style protections from the selected top-hate target before casting. Plan tank recovery and replacements around the touch cycle."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hole/Master_Yael.lua",
+        "sha256": "42099fe80eb1aabd5cfe1857a112d3fa216f841c6f6de7dad7e4d9e4af7c5e9a"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

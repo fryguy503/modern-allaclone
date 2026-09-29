@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "illsalinb-find-fibblebrap-4-the-korlach",
+  "title": "Find Fibblebrap 4: The Korlach",
+  "group": "Depths of Darkhollow",
+  "type": "group",
+  "zone": {
+    "short_name": "illsalinb",
+    "name": "Temple of the Korlach",
+    "version": 2
+  },
+  "npc_ids": [
+    349032
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Rescue Neran Sporestomp in Illsalin, then enter the Korlach mission and force Bilitan the Alchemist to appear.",
+  "overview": [
+    "Rescue Neran Sporestomp in Illsalin, then enter the Korlach mission and force Bilitan the Alchemist to appear."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The mission begins with the cocoon rescue in the open-world Ruins of Illsalin. Follow Neran’s rescue sequence toward the instance entrance.",
+        "Inside the Temple of the Korlach, the scripted objective counts thirty-five to forty-two enemy deaths before summoning Bilitan.",
+        "The mission includes a Laboratory Guardian and scales enemies to the selected task bracket.",
+        "The exit door returns the group to Illsalin. A chest is scheduled when the task completes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "illsalin/encounters/find_fibblebrap_four.lua",
+        "sha256": "3d437019d4771cfdd2ab20c2d2839e1acd148158e6db00ebc274e3592ef4a1ba"
+      },
+      {
+        "path": "illsalinb/encounters/find_fribblebrap_four.lua",
+        "sha256": "13768a92c3d34ea967f9de6cc29e11484bc89e3521037f727271b3bc139c9e76"
+      },
+      {
+        "path": "illsalinb/script_init.lua",
+        "sha256": "39a1fb873c3472ffc4624417837cae937ff1f3c49071e8be98d5e41e2f1019b4"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "This draft describes the intended objectives visible in unfinished source; it is not a verified playable mission. The journal uses the instance zone, while the opening rescue takes place in illsalin version 0.",
+      "Publication blocked pending completion review: Neran uses TODO template 111111 and Bilitan uses TODO template 349999; neither placeholder is linked as a confirmed encounter NPC.",
+      "Resolve the task mismatch: headers identify tasks 8135–8139, but instance level and reward tables use 8130–8134.",
+      "Review the open-world callback entity usage and instance rare-item assignment before live validation; several references use NPC event self as a client or pass a table where an item ID is expected."
+    ]
+  }
+}

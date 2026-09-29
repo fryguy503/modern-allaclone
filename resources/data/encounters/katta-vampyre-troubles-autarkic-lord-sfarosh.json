@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "katta-vampyre-troubles-autarkic-lord-sfarosh",
+  "title": "Vampyre Troubles: Autarkic Lord Sfarosh",
+  "group": "Quest battles",
+  "type": "event",
+  "zone": {
+    "short_name": "katta",
+    "name": "Katta Castellum",
+    "version": 0
+  },
+  "npc_ids": [
+    160481,
+    160486
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The questioning of Autarkic Lord Sfarosh ends with a fight against him and three shadow allies.",
+  "overview": [
+    "The questioning of Autarkic Lord Sfarosh ends with a fight against him and three shadow allies."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Allow the ritual dialogue to progress through the assembled spellcasters; the hostile encounter begins at its conclusion.",
+        "Sfarosh’s combat form appears with three shadow creatures. Have tanks ready for the simultaneous arrival.",
+        "The hostile Sfarosh immediately attacks the character recorded by the ritual. Complete the fight before his scripted cleanup, about twelve minutes after spawning."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "katta/Autarkic_Lord_Sfarosh.lua",
+        "sha256": "28e38e4cc64bb29782aa0b82144d4ca0a4be5890f6a528cdad687d696b2925df"
+      },
+      {
+        "path": "katta/#Autarkic_Lord_Sfarosh.lua",
+        "sha256": "04fe6b5daf980dd458646f7d97ca66a68785870efdd14822e18afff617b9a3bc"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

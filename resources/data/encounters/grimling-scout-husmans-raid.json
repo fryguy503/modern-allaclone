@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "slug": "grimling-scout-husmans-raid",
+  "title": "Scout Husman's raid",
+  "group": "Grimling war",
+  "type": "event",
+  "zone": {
+    "short_name": "grimling",
+    "name": "Grimling Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    167203,
+    167719
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Capture a camp with Husman, protect the scout and defeat the arriving officer.",
+  "overview": [
+    "Give Husman the requested sphere, follow the scout and clear the occupied camp. The event refreshes the camp population when it starts, so clearing it beforehand does not skip this objective.",
+    "After the camp is clear, reinforcements begin after a random 30 to 60 seconds and then arrive every 120 seconds. The officer can appear after the fifth wave, with the chance increasing as more waves pass."
+  ],
+  "roles": [
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep the scout alive throughout the assault."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Clear waves promptly and switch to the officer when it appears."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "capture",
+      "label": "Capture the camp",
+      "trigger": "Scout starts the assault",
+      "description": "Defeat the camp occupants while keeping the scout alive."
+    },
+    {
+      "id": "defend",
+      "label": "Hold the camp",
+      "trigger": "Camp cleared",
+      "description": "Intercept the timed reinforcement waves. New waves stop when the officer appears."
+    },
+    {
+      "id": "officer",
+      "label": "Defeat the officer",
+      "trigger": "Officer arrival",
+      "description": "Kill the officer and return its proof to the scout. Losing the scout fails the event."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Starting item",
+      "paragraphs": [
+        "Bring the requested sphere to the scout."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 3681,
+          "name": "Polished Acrylia Sphere",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "grimling/encounters/Husmans_Raid.lua",
+        "sha256": "b92d343a3b14c492f9357ca4a581401587cc6ad62f54f49274f36f8358c12a8e"
+      },
+      {
+        "path": "grimling/Scout_Husman.lua",
+        "sha256": "715268a151efa863f3c50ef94e3f8900405dc710d9007a380b7422d741ffb11a"
+      }
+    ],
+    "notes": [
+      "Approved row E136. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified."
+    ]
+  }
+}

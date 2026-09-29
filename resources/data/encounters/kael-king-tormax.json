@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "kael-king-tormax",
+  "title": "King Tormax",
+  "group": "Velious",
+  "type": "raid",
+  "zone": {
+    "short_name": "kael",
+    "name": "Kael Drakkel",
+    "version": 0
+  },
+  "npc_ids": [
+    113215
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "King Tormax relies on his surviving royal guards throughout the fight.",
+  "overview": [
+    "King Tormax relies on his surviving royal guards throughout the fight."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Kyenka, Yetarr, Irrek and Velden are directed onto Tormax’s top-hate target as combat begins.",
+        "Every five minutes, Tormax calls the surviving guards back into the battle. Do not leave uncontrolled guards idle elsewhere.",
+        "Assign guard tanks or clear the guards before committing the raid to Tormax."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kael/King_Tormax.lua",
+        "sha256": "19c7a48a6f85036f994e532408f31f5c3948c2d1efebbffebf182f0106f9cf3e"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

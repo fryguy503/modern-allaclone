@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "acrylia-trondol-shir-escort",
+  "title": "Trondol Shir escort",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "acrylia",
+    "name": "Acrylia Caverns",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort Trondol Shir through a guarded escape route.",
+  "overview": [
+    "Escort Trondol Shir through a guarded escape route."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Have the group ready before the quest hand-in starts the escort.",
+        "Clear the three guards and soulstealer promptly; the room-clear stage has a five-minute limit.",
+        "Stay with Trondol until his final stop and complete the follow-up hand-in promptly."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "acrylia/Trondol_Shir.lua",
+        "sha256": "bb7e794ad48c265576406c812808a57380d7f49877372736fcfc857ffe76eb0c"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

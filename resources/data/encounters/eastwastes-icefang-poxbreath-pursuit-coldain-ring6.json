@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-icefang-poxbreath-pursuit-coldain-ring6",
+  "title": "Icefang / Poxbreath pursuit (Coldain ring6)",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    116596,
+    116587
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow Icefang to Poxbreath and defeat the orc party.",
+  "overview": [
+    "Follow Icefang to Poxbreath and defeat the orc party."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep up when Icefang follows the scent.",
+        "Prepare for Poxbreath and nearby oracles at the destination.",
+        "Finish the confrontation promptly before Icefang's reset removes the event."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/Icefang.lua",
+        "sha256": "fb37542da2ec790a0629b78e07223fbc32305c5abb43d216bb7a018ee36dda8f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

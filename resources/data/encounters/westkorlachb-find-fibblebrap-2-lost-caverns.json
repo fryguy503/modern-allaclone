@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "westkorlachb-find-fibblebrap-2-lost-caverns",
+  "title": "Find Fibblebrap 2: Lost Caverns",
+  "group": "Depths of Darkhollow",
+  "type": "group",
+  "zone": {
+    "short_name": "westkorlachb",
+    "name": "Caverns of the Lost",
+    "version": 1
+  },
+  "npc_ids": [
+    360101,
+    360102
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Explore the Lost Caverns until Captain Therimel's confrontation opens the final fight.",
+  "overview": [
+    "Explore the Lost Caverns until Captain Therimel's confrontation opens the final fight."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Finish the exploration stage, let the dialogue complete, and prepare before the captain's protection drops."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The mission supports task brackets from level 50 through 68 and above, scaling the zone's enemies for the active task.",
+        "Completing task stage three moves the captain to his destination and starts the exchange with Therigal's Scholar.",
+        "After the scholar's scripted death, the captain becomes attackable.",
+        "Task completion creates a reward chest, and the exit door returns players to Stoneroot Falls."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "westkorlachb/encounters/find_fibblebrap_two.lua",
+        "sha256": "de19b18ccbdcce4e28a2d6221864794d19fb0f03860b06917d9a412045d51282"
+      }
+    ],
+    "notes": [
+      "Approval E405. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "lavastorm-high-priestess-shima-ambush",
+  "title": "High Priestess Shima ambush",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "lavastorm",
+    "name": "Lavastorm Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    27007,
+    27009,
+    27010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Laura Rako’s quest exchange brings High Priestess Shima and her priestly escort into Lavastorm.",
+  "overview": [
+    "Laura Rako’s quest exchange brings High Priestess Shima and her priestly escort into Lavastorm."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare before the triggering hand-in: Shima arrives with five priest adds.",
+        "Assign tanks or control to the escort before committing damage to the High Priestess.",
+        "Complete the quest’s requested follow-up after the ambush is defeated."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lavastorm/Laura_Rako.lua",
+        "sha256": "b6f52324a577ae1c5f394d8b78650960373251ea9264808fa7fdcb8f5525281c"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

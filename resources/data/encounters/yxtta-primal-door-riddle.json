@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "yxtta-primal-door-riddle",
+  "title": "Primal door riddle",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "yxtta",
+    "name": "Yxtta, Pulpit of Exiles",
+    "version": 0
+  },
+  "npc_ids": [
+    291138,
+    291133,
+    291131
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Read the current door riddle and select its matching symbol to open the Primal passage.",
+  "overview": [
+    "Read the current door riddle and select its matching symbol to open the Primal passage."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Use one designated solver and act on the current clue rather than a memorized sequence."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The first click starts a randomly selected answer sequence; there is no single fixed order.",
+        "Read each new clue and wait for the thirty-second click window before answering.",
+        "Three wrong answers summon seven stone attackers and reset the puzzle.",
+        "Completing the scripted sequence unlocks the passage and records a three-and-a-half-hour access marker."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "yxtta/player.lua",
+        "sha256": "afc3cdf151abf297334312de53294ff20a920d253af8324e4db984a211075a49"
+      }
+    ],
+    "notes": [
+      "Approval E411. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Publication blocker: enterzone is not named event_enter_zone and its numeric status check uses Lua truthiness; verify door initialization. The initial question increment also skips an index, so no exact answer count is claimed."
+    ]
+  }
+}

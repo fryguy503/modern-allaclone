@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "kerraridge-tissa-sovereign-of-terror-and-the-nine-lives-of-kerra",
+  "title": "Tissa, Sovereign of Terror and the nine lives of Kerra",
+  "group": "Custom events",
+  "type": "raid",
+  "zone": {
+    "short_name": "kerraridge",
+    "name": "Kerra Isle",
+    "version": 0
+  },
+  "npc_ids": [
+    74009,
+    74013,
+    74011,
+    74015,
+    74016,
+    74017,
+    74018,
+    74020,
+    74010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken Tissa by defeating her eight generals, or face the Sovereign of Terror at full strength.",
+  "overview": [
+    "Weaken Tissa by defeating her eight generals, or face the Sovereign of Terror at full strength."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Enter A Fur-midable Cat-ch through Multiverse MacBeth after completing the introductory dialogue. The event requires the Kerra content flag and a nonzero instance.",
+        "Each general defeated reduces Tissa’s maximum health, melee damage and resistances. Clearing more generals makes the final confrontation easier.",
+        "Ahed splits at half health. Dou brings kittens into the fight. Siete progressively resists physical attacks, requiring the group to adapt its damage.",
+        "Ath must be finished by a cleric, druid or shaman; an incorrect finishing class causes the encounter to repeat.",
+        "Milestones for defeated generals provide additional chests. Defeating Tissa without weakening her creates a separate full-strength bonus.",
+        "Tissa’s death clears her remaining forces. Return the requested proof to MacBeth to complete the adventure."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kerraridge/event_controller.lua",
+        "sha256": "7434acceda78ab24be1dacc95462052a6aeb1c6f97c4790769c97e133b261264"
+      },
+      {
+        "path": "kerraridge/#Tissa,_Sovereign_of_Terror.lua",
+        "sha256": "c9af4af3d50cfb70eb2dd2b97b43f4806e91b9768ee226f9bd2d6574efa843ee"
+      },
+      {
+        "path": "kerraridge/#Multiverse_MacBeth.lua",
+        "sha256": "027640322c4993b6d24b5dee43f06522f57e4ba11c7fa03e3398ff9462ad9cde"
+      },
+      {
+        "path": "kerraridge/#Ahed,_Abbot_of_Kerra.lua",
+        "sha256": "46d4880f15dc123f120d4c12e5d5aa52ec6975fd332d44e733e7282a26f7065a"
+      },
+      {
+        "path": "kerraridge/#Dou,_Bulwark_of_Kerra.lua",
+        "sha256": "e88e4b565817939c7474ec22eed6057ea43bf0a2f3826ac970c847c6c1e710e0"
+      },
+      {
+        "path": "kerraridge/#Siete,_Summoner_of_Kerra.lua",
+        "sha256": "f1a8a3542ab48a74b2186df1bae530212431fb4e33cdbbfeadc40a305b0a0f70"
+      },
+      {
+        "path": "kerraridge/#Ath,_Physician_of_Kerra.lua",
+        "sha256": "a1ab869f007f1b7554aadb5998b48e9e9bafce1b626619adbca9d5a311e995e7"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The launcher explicitly creates version 0. This is a gated GM event; confirm its content flag and live availability before publishing."
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-lore-warden",
+  "title": "Lore Warden",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 0
+  },
+  "npc_ids": [
+    340395,
+    340412,
+    340413
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Challenge the Lore Warden's servants, then defeat the enraged warden.",
+  "overview": [
+    "Challenge the Lore Warden's servants, then defeat the enraged warden."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear all three guardians and keep the fight within the hall."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The warden summons messenger drakes shortly after spawning and has a two-hour event lifetime.",
+        "Defiant dialogue summons two Guardians of the Past and a Sentinel of Antiquity.",
+        "Defeating all three removes the warden's protection and enlarges him for combat.",
+        "Leaving the permitted hall area causes a return and hate reset."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/#Lore_Warden.lua",
+        "sha256": "d0ac6502ee4b3b33ca1820db54f7b8546ff68930e26ce8542987079574e9ffd1"
+      },
+      {
+        "path": "thundercrest/Guardian_of_the_Past.lua",
+        "sha256": "7da4834bb2c52e24bde195cb4618e38f5d4706c47673f98fd04400532e726d2b"
+      },
+      {
+        "path": "thundercrest/Sentinel_of_Antiquity.lua",
+        "sha256": "fcf0ddaf3eb2fa5ca6bf61fa57b9eb247d0465feb2bc06ed8181d6ae06aa631c"
+      }
+    ],
+    "notes": [
+      "Approval E367. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

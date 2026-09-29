@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "delvea-lavaspinner-hunting",
+  "title": "Lavaspinner Hunting",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "delvea",
+    "name": "Lavaspinner's Lair",
+    "version": 8
+  },
+  "npc_ids": [
+    341068,
+    341069
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Hunt lavaspinners until the mission eggs appear.",
+  "overview": [
+    "Hunt lavaspinners until the mission eggs appear."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Kill lavaspinners to advance the egg-spawn checks.",
+        "Watch for the ground-shaking announcement and search for each new egg.",
+        "Continue through the cracked eggs to the pristine egg and complete the mission's collection objectives."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delvea/encounters/lavaspinner_hunting.lua",
+        "sha256": "bfd37eba6c3fb7dfda7ca12947a16c2e9d39f3a056f932d08ec41fe09a990b67"
+      },
+      {
+        "path": "delvea/script_init.lua",
+        "sha256": "209dd27c078503cc17b9db026e48d70ebb185d65aaa4840f70ba098b5ec76ab8"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 8."
+    ]
+  }
+}

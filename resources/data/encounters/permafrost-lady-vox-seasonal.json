@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "permafrost-lady-vox-seasonal",
+  "title": "Lady Vox (seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "permafrost",
+    "name": "Permafrost Keep",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Seasonal Lady Vox calls ice creatures and adds spell attacks at key health thresholds.",
+  "overview": [
+    "Seasonal Lady Vox calls ice creatures and adds spell attacks at key health thresholds."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Two ice adds appear at 70% health and three more at 40%. Reserve tanks and control for both waves.",
+        "Vox casts additional scripted spells at 60%, 30% and 10%. Prepare tank support before crossing those thresholds.",
+        "Keep Vox near her lair’s spawn area. Her combat routine checks the leash continuously.",
+        "The seasonal version uses a different appearance and permits the expedition’s higher-level participants; the ordinary version’s level-based banishment is not used here."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "permafrost/Lady_Vox.lua",
+        "sha256": "35a5856aaf48bb9c5dba01a75f1079b66b165165fdae2b215e98d4c0ec6ed718"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "This guide targets the explicit version 200 seasonal branch. The 50%, 20% and 5% messages are flavor-only in the reviewed configuration, so no additional damage mechanic is claimed at those thresholds.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "sleeper-master-of-the-guard",
+  "title": "Master of the Guard",
+  "group": "Sleeper's Tomb",
+  "type": "raid",
+  "zone": {
+    "short_name": "sleeper",
+    "name": "Sleeper's Tomb",
+    "version": 0
+  },
+  "npc_ids": [
+    128345
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Master of the Guard activates paired sentries during combat.",
+  "overview": [
+    "The Master of the Guard activates paired sentries during combat."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Pick up each sentry pair before it reaches the rest of the raid."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The first pair activates three seconds after combat begins.",
+        "Three further pairs activate at 50-second intervals.",
+        "Five minutes out of combat removes active sentries and restores the dormant formation."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sleeper/encounters/motg.lua",
+        "sha256": "f3be426ebeeb25bd9a4299a80a180094fb346d2cf87929fc8a57f1f3a394b29a"
+      },
+      {
+        "path": "sleeper/#Gozer_The_Gatekeeper.lua",
+        "sha256": "5caa84f27a0e41926c33760d960f1d3978ce924862f3a853fcd781e7af9fd5ea"
+      }
+    ],
+    "notes": [
+      "Approval E291. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-zun-muram-yihst-vor",
+  "title": "Zun`Muram Yihst Vor",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298023
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Yihst Vor escalates his melee pressure and finishes with area rampage.",
+  "overview": [
+    "Yihst Vor escalates his melee pressure and finishes with area rampage."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Maintain charm recovery and keep the raid healed before the final area-rampage phase."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "His melee tuning changes at 90%, 75% and 50% health.",
+        "Allure runs on a 90-second combat timer and activates charm helpers.",
+        "At 20%, single-target rampage and flurry are replaced by area rampage.",
+        "The room seals at the initial health threshold and pulls escaping hate-list players back."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/zmyv.lua",
+        "sha256": "d494d8dc54e67fe78965302efdab53c583fd2b2a9cae29c5f349d983d72878a4"
+      }
+    ],
+    "notes": [
+      "Approval E337. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

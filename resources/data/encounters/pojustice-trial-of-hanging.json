@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-trial-of-hanging",
+  "title": "Trial of Hanging",
+  "group": "Planes of Power",
+  "type": "group",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201489
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prevent the prisoners from suffocating and defeat Gallows Master Teion.",
+  "overview": [
+    "Prevent the prisoners from suffocating and defeat Gallows Master Teion."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each round brings ordinary enemies and two suffocating spirits, with the second spirit arriving forty-five seconds after the first.",
+        "Spirits threaten different prisoners. Prioritize them as they appear; killing a spirit provides relief to its prisoner.",
+        "Every two spirit kills advances the next round. After eight spirits have been defeated, Gallows Master Teion appears.",
+        "Keep the prisoners alive through the final fight to finish the trial."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/#Event_Hanging_Control.lua",
+        "sha256": "b62c4a16e91e2d94ebdf6e608fdcaf75320aac5d2f8460c26f72771ec6375761"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

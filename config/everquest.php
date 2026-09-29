@@ -35,6 +35,14 @@ return [
         'enable'          => (bool) env('PATCH_HISTORY_ENABLED', true),
     ],
 
+    // Reviewed content documents, kept outside public/. No game database migration.
+    'encounter_journal' => [
+        'enable' => filter_var(env('ENCOUNTER_JOURNAL_ENABLED', true), FILTER_VALIDATE_BOOL),
+        'path' => resource_path('data/encounters'),
+        // Drafts can be previewed only in local/testing environments, never production.
+        'preview_drafts' => filter_var(env('ENCOUNTER_JOURNAL_PREVIEW_DRAFTS', false), FILTER_VALIDATE_BOOL),
+    ],
+
     /**
      * Tasks
      */

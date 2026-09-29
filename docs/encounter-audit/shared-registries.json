@@ -1,0 +1,270 @@
+{
+  "seasonal_expeditions": [
+    {
+      "zone": "soldungb",
+      "name": "Seasons: Inferno Unchained",
+      "line": 7,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "permafrost",
+      "name": "Seasons: Winter`s Requiem",
+      "line": 14,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "kedge",
+      "name": "Seasons: Watery Death",
+      "line": 21,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "sebilis",
+      "name": "Seasons: The Blight Below",
+      "line": 28,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "dreadlands",
+      "name": "Seasons: The Cold Maw",
+      "line": 35,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "emeraldjungle",
+      "name": "Seasons: Venom in the Veil",
+      "line": 42,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "skyfire",
+      "name": "Seasons: Ashes of the Wyrmblood",
+      "line": 49,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "skyshrine",
+      "name": "Seasons: Storm upon the Spine",
+      "line": 56,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "wakening",
+      "name": "Seasons: The Grove`s Last Breath",
+      "line": 63,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "westwastes",
+      "name": "Seasons: Echoes of Wyrmkind",
+      "line": 70,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "necropolis",
+      "name": "Seasons: The Devourer of Kin",
+      "line": 77,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "thedeep",
+      "name": "Seasons: Whispers from the Deep Mind",
+      "line": 84,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "akheva",
+      "name": "Seasons: The Maw Beneath Reason",
+      "line": 91,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "ssratemple",
+      "name": "Seasons: The Emperor Below the Eclipse",
+      "line": 98,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "bothunder",
+      "name": "Seasons: Lord of Shackled Storms",
+      "line": 105,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "ferubi",
+      "name": "Seasons: Rondo of Nightmare",
+      "line": 112,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "natimbi",
+      "name": "Seasons: Queen of the Shattered Tides",
+      "line": 119,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "dranik",
+      "name": "Seasons: Bridge four will never die",
+      "line": 126,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "wallofslaughter",
+      "name": "Seasons: The Tarn Accord",
+      "line": 133,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    },
+    {
+      "zone": "causeway",
+      "name": "Seasons: Fury Made Stone",
+      "line": 140,
+      "version": "Custom:SeasonalInstanceVersion (default 200)"
+    }
+  ],
+  "bonded_hunts": [
+    {
+      "zone": "hole",
+      "name": "Tzitzi the Crazed"
+    },
+    {
+      "zone": "gukbottom",
+      "name": "the ghoul lord"
+    },
+    {
+      "zone": "oot",
+      "name": "Allizewsaur"
+    },
+    {
+      "zone": "jaggedpine",
+      "name": "GoldenTalon"
+    },
+    {
+      "zone": "veksar",
+      "name": "an undead chef"
+    },
+    {
+      "zone": "droga",
+      "name": "Chief RokGus"
+    },
+    {
+      "zone": "sebilis",
+      "name": "crypt caretaker"
+    },
+    {
+      "zone": "chardok",
+      "name": "Korocust"
+    },
+    {
+      "zone": "cobaltscar",
+      "name": "Azureake"
+    },
+    {
+      "zone": "westwastes",
+      "name": "Icehackle"
+    },
+    {
+      "zone": "mischiefplane",
+      "name": "a forsaken hand"
+    },
+    {
+      "zone": "greatdivide",
+      "name": "Murdrick Tardok"
+    },
+    {
+      "zone": "paludal",
+      "name": "Ch'ktok"
+    },
+    {
+      "zone": "ssratemple",
+      "name": "Yasiz the Devourer"
+    },
+    {
+      "zone": "dawnshroud",
+      "name": "An Age Old Rockhopper"
+    },
+    {
+      "zone": "maiden",
+      "name": "Xi Thall"
+    },
+    {
+      "zone": "ponightmare",
+      "name": "Terror Matriarch"
+    },
+    {
+      "zone": "podisease",
+      "name": "Rallius Rattican"
+    },
+    {
+      "zone": "powater",
+      "name": "Fishlord Craiyk"
+    },
+    {
+      "zone": "pofire",
+      "name": "Flame Overlord"
+    },
+    {
+      "zone": "dulak",
+      "name": "Galikor Sevalin"
+    },
+    {
+      "zone": "torgiran",
+      "name": "Foreman Deslug"
+    },
+    {
+      "zone": "nadox",
+      "name": "Kdansol Borgir"
+    },
+    {
+      "zone": "hatesfury",
+      "name": "Cabin Gnome Fitzgerald"
+    },
+    {
+      "zone": "barindu",
+      "name": "Mastruq Utk Hykat"
+    },
+    {
+      "zone": "qvic",
+      "name": "Pixtt Ttinq Val"
+    },
+    {
+      "zone": "tipt",
+      "name": "Rikabi the Riddler"
+    },
+    {
+      "zone": "snplant",
+      "name": "Grimy Turepta"
+    },
+    {
+      "zone": "wallofslaughter",
+      "name": "Bazu Bonesmasher"
+    },
+    {
+      "zone": "causeway",
+      "name": "Grinbar the Ancient"
+    },
+    {
+      "zone": "dranik",
+      "name": "Souldrainer"
+    },
+    {
+      "zone": "riftseekers",
+      "name": "Mistwalker"
+    },
+    {
+      "zone": "broodlands",
+      "name": "Snowbrow"
+    },
+    {
+      "zone": "stillmoona",
+      "name": "Hong Lei"
+    },
+    {
+      "zone": "thundercrest",
+      "name": "Kodama the Voltaic"
+    },
+    {
+      "zone": "delvea",
+      "name": "Rysok the Vile"
+    }
+  ]
+}

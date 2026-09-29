@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "poair-chamberlain-escalardian",
+  "title": "Chamberlain Escalardian",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poair",
+    "name": "Eryslai, the Kingdom of Wind",
+    "version": 0
+  },
+  "npc_ids": [
+    215408,
+    215429,
+    215409,
+    215410,
+    215411
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the island’s castellans and constables to summon Chamberlain Escalardian.",
+  "overview": [
+    "Defeat the island’s castellans and constables to summon Chamberlain Escalardian."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The fifth, tenth and fifteenth qualifying castellan kills summon a constable. Defeat all three constables to reach the final opponent.",
+        "Escalardian periodically clears his hate list. Tanks should be ready to reclaim him while damage dealers avoid an uncontrolled burst.",
+        "If the main encounter is already on cooldown, an apprentice appears instead.",
+        "The island event has a three-hour failure timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poair/encounters/Chamberlain_Event.lua",
+        "sha256": "6584f6c18e3e37549da11514f90350ac7086b3332f2bcf0cfb1e267bbfe16576"
+      },
+      {
+        "path": "poair/#isle_one_controller.lua",
+        "sha256": "cb7a0bb9de440170c23ff04ef5bbdeda2c9bc4ffc7fa005498f87b71721fc64f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "codecay-overlord-banord-paffa",
+  "title": "Overlord Banord Paffa",
+  "group": "Crypt of Decay",
+  "type": "event",
+  "zone": {
+    "short_name": "codecay",
+    "name": "Ruins of Lxanvom",
+    "version": 0
+  },
+  "npc_ids": [
+    200259
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Banord's puslings and subsequent waves to draw out the overlord.",
+  "overview": [
+    "Defeat Banord's puslings and subsequent waves to draw out the overlord."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the initial puslings to start the timed wave progression.",
+        "Hold the room through the minion waves and prepare for Banord to become attackable.",
+        "Avoid leaving the final boss idle for an extended period, which can reset the event."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "codecay/encounters/Overlord_Banord_Paffa.lua",
+        "sha256": "f65eafead52fe79b90acfa4376ebcd380eab0d03f1112d01768838a2988ed265"
+      },
+      {
+        "path": "codecay/A_deep.lua",
+        "sha256": "8c5ffa250d5da0cffd5c8d103b7663787cb604fea4963816d2d41a8ec437c732"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

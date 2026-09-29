@@ -1,0 +1,686 @@
+[
+  {
+    "id": "E141",
+    "slug": "gukg-leklos-the-bonekeeper",
+    "issues": []
+  },
+  {
+    "id": "E142",
+    "slug": "gukg-the-cursed-keeper",
+    "issues": []
+  },
+  {
+    "id": "E143",
+    "slug": "gukg-the-cursed-spore",
+    "issues": []
+  },
+  {
+    "id": "E144",
+    "slug": "gunthak-dimaal-the-spiritmaster-s-waves",
+    "issues": []
+  },
+  {
+    "id": "E145",
+    "slug": "gunthak-lairyn-debeian-defense-krill-the-backbleeder",
+    "issues": []
+  },
+  {
+    "id": "E146",
+    "slug": "harbingers-attendant-of-light",
+    "issues": []
+  },
+  {
+    "id": "E147",
+    "slug": "harbingers-azibelle-spavin-and-glenfire-telzir",
+    "issues": []
+  },
+  {
+    "id": "E148",
+    "slug": "harbingers-windrush",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E149",
+    "slug": "hateplaneb-innoruuk",
+    "issues": []
+  },
+  {
+    "id": "E150",
+    "slug": "hateplaneb-lanys-t-vyl-teir-dal-guardian-event",
+    "issues": []
+  },
+  {
+    "id": "E151",
+    "slug": "hateplaneb-maestro-of-rancor",
+    "issues": []
+  },
+  {
+    "id": "E152",
+    "slug": "hatesfury-broken-skull-armsmaster",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E153",
+    "slug": "hatesfury-captain-krasnok",
+    "issues": []
+  },
+  {
+    "id": "E155",
+    "slug": "hohonora-alekson-garn-s-trial",
+    "issues": []
+  },
+  {
+    "id": "E156",
+    "slug": "hohonora-rhaliq-trell-s-trial",
+    "issues": []
+  },
+  {
+    "id": "E157",
+    "slug": "hohonora-rydda-dar-trydan-faye-s-trial",
+    "issues": []
+  },
+  {
+    "id": "E158",
+    "slug": "hohonorb-lord-mithaniel-marr",
+    "issues": []
+  },
+  {
+    "id": "E159",
+    "slug": "hole-master-yael",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E160",
+    "slug": "hollowshade-hollowshade-moor-war",
+    "issues": []
+  },
+  {
+    "id": "E161",
+    "slug": "iceclad-general-bragmur-escort-coldain-shawl-finale",
+    "issues": []
+  },
+  {
+    "id": "E162",
+    "slug": "iceclad-noble-oldencamp-and-the-necromancer-delegation",
+    "issues": []
+  },
+  {
+    "id": "E163",
+    "slug": "ikkinz-chambers-of-destruction-keeper-of-the-altar",
+    "issues": []
+  },
+  {
+    "id": "E164",
+    "slug": "ikkinz-chambers-of-glorification",
+    "issues": []
+  },
+  {
+    "id": "E165",
+    "slug": "ikkinz-chambers-of-righteousness",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E166",
+    "slug": "ikkinz-chambers-of-the-tri-fates",
+    "issues": []
+  },
+  {
+    "id": "E167",
+    "slug": "ikkinz-chambers-of-transcendence",
+    "issues": []
+  },
+  {
+    "id": "E168",
+    "slug": "ikkinz-chambers-of-twin-struggles",
+    "issues": []
+  },
+  {
+    "id": "E169",
+    "slug": "illsalin-ritesmaster-verok",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E170",
+    "slug": "illsalinb-the-council-of-nine",
+    "issues": []
+  },
+  {
+    "id": "E171",
+    "slug": "illsalinc-deserting-the-ranks",
+    "issues": []
+  },
+  {
+    "id": "E172",
+    "slug": "illsalinc-emperor-draygun-the-lich-king",
+    "issues": [
+      "Verify the end of the split-phase spell immunity in a live test: the reviewed module enables it but does not explicitly disable it when the living Emperor despawns."
+    ]
+  },
+  {
+    "id": "E173",
+    "slug": "inktuta-kelekdrix-herald-of-trushar",
+    "issues": []
+  },
+  {
+    "id": "E174",
+    "slug": "inktuta-noqufiel-true-and-mirror-images",
+    "issues": []
+  },
+  {
+    "id": "E175",
+    "slug": "inktuta-the-cursecallers",
+    "issues": []
+  },
+  {
+    "id": "E176",
+    "slug": "inktuta-the-exiles-stonemite-trial",
+    "issues": []
+  },
+  {
+    "id": "E177",
+    "slug": "jaggedpine-dire-kodiak-forest-dragon-transformation",
+    "issues": []
+  },
+  {
+    "id": "E178",
+    "slug": "kael-fabled-king-tormax",
+    "issues": []
+  },
+  {
+    "id": "E179",
+    "slug": "kael-fabled-statue-idol-and-avatar-of-war",
+    "issues": []
+  },
+  {
+    "id": "E180",
+    "slug": "kael-kael-armor-plate-cycle",
+    "issues": []
+  },
+  {
+    "id": "E181",
+    "slug": "kael-king-tormax",
+    "issues": []
+  },
+  {
+    "id": "E182",
+    "slug": "kael-statue-idol-and-avatar-of-war",
+    "issues": []
+  },
+  {
+    "id": "E183",
+    "slug": "katta-rakshasa-skull-ritual",
+    "issues": []
+  },
+  {
+    "id": "E184",
+    "slug": "katta-vampyre-troubles-autarkic-lord-sfarosh",
+    "issues": []
+  },
+  {
+    "id": "E185",
+    "slug": "kerraridge-tissa-sovereign-of-terror-and-the-nine-lives-of-kerra",
+    "issues": []
+  },
+  {
+    "id": "E186",
+    "slug": "kithicor-blackened-treant-and-blackened-dryad",
+    "issues": []
+  },
+  {
+    "id": "E187",
+    "slug": "kithicor-cloaked-figure-shadow-thief",
+    "issues": []
+  },
+  {
+    "id": "E188",
+    "slug": "kodtaz-pixtt-grand-summoner-ring",
+    "issues": []
+  },
+  {
+    "id": "E189",
+    "slug": "kodtaz-temple-of-the-damned",
+    "issues": []
+  },
+  {
+    "id": "E190",
+    "slug": "lakeofillomen-vorash-deep-and-xenevorash",
+    "issues": [
+      "Confirm Vorash and Deep template IDs for additional NPC links; only the directly spawned Xenevorash ID is linked."
+    ]
+  },
+  {
+    "id": "E191",
+    "slug": "lakerathe-kazen-fecae-undead-trial",
+    "issues": []
+  },
+  {
+    "id": "E192",
+    "slug": "lakerathe-man-eating-freshwater-shark",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E193",
+    "slug": "lavastorm-high-priestess-shima-ambush",
+    "issues": []
+  },
+  {
+    "id": "E194",
+    "slug": "lfaydark-taskmaster-mirot-and-the-reanimated-minions",
+    "issues": []
+  },
+  {
+    "id": "E195",
+    "slug": "mirb-frozen-nightmare-chromatic-bonewalkers",
+    "issues": []
+  },
+  {
+    "id": "E196",
+    "slug": "mirb-frozen-nightmare-frostfoot-goblins",
+    "issues": []
+  },
+  {
+    "id": "E197",
+    "slug": "mirb-frozen-nightmare-laskuth-the-colossus",
+    "issues": []
+  },
+  {
+    "id": "E198",
+    "slug": "mirb-frozen-nightmare-marrow-the-broken",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E199",
+    "slug": "mirb-frozen-nightmare-sharalla",
+    "issues": []
+  },
+  {
+    "id": "E200",
+    "slug": "mirb-frozen-nightmare-sundering-sludge",
+    "issues": []
+  },
+  {
+    "id": "E201",
+    "slug": "mischiefplane-bristlebane-the-king-of-thieves-2-0",
+    "issues": []
+  },
+  {
+    "id": "E202",
+    "slug": "mistmoore-the-archivist-s-midnight-vigil",
+    "issues": []
+  },
+  {
+    "id": "E203",
+    "slug": "mmcc-struggles-within-the-progeny-valdoon-kel-novar",
+    "issues": []
+  },
+  {
+    "id": "E204",
+    "slug": "poknowledge-bonded-hunts-companion-challenges-36-targets",
+    "issues": [
+      "Confirm deployment of the native Bonded Hunt combat audit before publication; the Lua reward transition depends on its audit result."
+    ]
+  },
+  {
+    "id": "E205",
+    "slug": "nadox-the-luggald-broodmother",
+    "issues": []
+  },
+  {
+    "id": "E206",
+    "slug": "natimbi-cragbeast-queen-seasonal",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E207",
+    "slug": "natimbi-ritual-conduit",
+    "issues": []
+  },
+  {
+    "id": "E208",
+    "slug": "natimbi-spiritbinder-trenzar-and-senvial-of-the-mist",
+    "issues": []
+  },
+  {
+    "id": "E209",
+    "slug": "natimbi-tybone-biggums",
+    "issues": [
+      "Confirm the gathering event flag and guild-specific tuning before publication."
+    ]
+  },
+  {
+    "id": "E210",
+    "slug": "necropolis-garzicor-s-corpse-and-wraith",
+    "issues": []
+  },
+  {
+    "id": "E211",
+    "slug": "necropolis-vesthon-marijakin-and-the-dracoliche-of-hsagra",
+    "issues": []
+  },
+  {
+    "id": "E212",
+    "slug": "necropolis-vesthon-marijakin-first-confrontation",
+    "issues": []
+  },
+  {
+    "id": "E213",
+    "slug": "necropolis-zlandicar-seasonal",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E214",
+    "slug": "nightmareb-terris-thule",
+    "issues": []
+  },
+  {
+    "id": "E215",
+    "slug": "northkarana-dire-griffon-plains-dragon-transformation",
+    "issues": []
+  },
+  {
+    "id": "E216",
+    "slug": "oasis-remal-the-black",
+    "issues": []
+  },
+  {
+    "id": "E217",
+    "slug": "overthere-glowing-cliff-golem-and-watch-sergeant-grolj",
+    "issues": []
+  },
+  {
+    "id": "E218",
+    "slug": "permafrost-lady-vox-seasonal",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E219",
+    "slug": "poair-chamberlain-escalardian",
+    "issues": []
+  },
+  {
+    "id": "E220",
+    "slug": "poair-elemental-masterpiece",
+    "issues": []
+  },
+  {
+    "id": "E221",
+    "slug": "poair-melernil-faal-armanna",
+    "issues": []
+  },
+  {
+    "id": "E222",
+    "slug": "poair-sigismond-windwalker",
+    "issues": []
+  },
+  {
+    "id": "E223",
+    "slug": "poair-stormrider-island",
+    "issues": []
+  },
+  {
+    "id": "E224",
+    "slug": "poair-xegony-queen-of-air",
+    "issues": []
+  },
+  {
+    "id": "E225",
+    "slug": "poeartha-dust-ring-perfected-warder-of-earth",
+    "issues": []
+  },
+  {
+    "id": "E226",
+    "slug": "poeartha-mud-ring-monstrous-mudwalker",
+    "issues": []
+  },
+  {
+    "id": "E227",
+    "slug": "poeartha-mystical-arbitor-of-earth",
+    "issues": []
+  },
+  {
+    "id": "E228",
+    "slug": "poeartha-stone-ring-peregrin-rockskull",
+    "issues": []
+  },
+  {
+    "id": "E229",
+    "slug": "poeartha-vine-ring-derugoak-bloodwalker",
+    "issues": []
+  },
+  {
+    "id": "E230",
+    "slug": "poearthb-rathe-council-and-avatar-of-earth",
+    "issues": []
+  },
+  {
+    "id": "E231",
+    "slug": "poearthb-warlord-gintolaken",
+    "issues": []
+  },
+  {
+    "id": "E232",
+    "slug": "pofire-fennin-ro-tyrant-of-fire",
+    "issues": []
+  },
+  {
+    "id": "E233",
+    "slug": "poinnovation-manaetic-behemoth",
+    "issues": [
+      "Verify the dormant activation sequence in game before publication: repeated device signals toggle first_signal and only alternate signals reset the counter, rather than consistently resetting it."
+    ]
+  },
+  {
+    "id": "E234",
+    "slug": "poinnovation-nitram-anizok-xanamech-nezmirthafen",
+    "issues": []
+  },
+  {
+    "id": "E235",
+    "slug": "pojustice-the-seventh-hammer",
+    "issues": [
+      "Confirm the intended Tribunal timer behavior before publication: the ready dialogue sets dialogue=true, while the combat handler starts the judgment timer only when dialogue is false. The dialogue-triggered fight may omit that cycle."
+    ]
+  },
+  {
+    "id": "E236",
+    "slug": "pojustice-trial-of-execution",
+    "issues": []
+  },
+  {
+    "id": "E237",
+    "slug": "pojustice-trial-of-flame",
+    "issues": []
+  },
+  {
+    "id": "E238",
+    "slug": "pojustice-trial-of-hanging",
+    "issues": []
+  },
+  {
+    "id": "E239",
+    "slug": "pojustice-trial-of-lashing",
+    "issues": []
+  },
+  {
+    "id": "E240",
+    "slug": "pojustice-trial-of-stoning",
+    "issues": []
+  },
+  {
+    "id": "E241",
+    "slug": "pojustice-trial-of-torture",
+    "issues": []
+  },
+  {
+    "id": "E242",
+    "slug": "ponightmare-aid-eino-escort-dreamkeeper",
+    "issues": []
+  },
+  {
+    "id": "E243",
+    "slug": "ponightmare-deyid-the-twisted",
+    "issues": [
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "E244",
+    "slug": "ponightmare-mujaki-the-devourer",
+    "issues": []
+  },
+  {
+    "id": "E245",
+    "slug": "ponightmare-terror-matriarch",
+    "issues": []
+  },
+  {
+    "id": "E246",
+    "slug": "postorms-drornok-tok-vo-lok",
+    "issues": []
+  },
+  {
+    "id": "E247",
+    "slug": "postorms-falto-lord-of-thunder",
+    "issues": []
+  },
+  {
+    "id": "E248",
+    "slug": "postorms-ston-ruak-ancient-of-trees",
+    "issues": []
+  },
+  {
+    "id": "E249",
+    "slug": "potactics-rallos-zek-the-warlord",
+    "issues": []
+  },
+  {
+    "id": "E250",
+    "slug": "potactics-tallon-zek",
+    "issues": []
+  },
+  {
+    "id": "E251",
+    "slug": "potactics-vallon-zek",
+    "issues": [
+      "Verify or repair the planar projection’s flag dialogue before publication: PP_Say defines vallon_bucket but tests the undefined tallon_bucket variable."
+    ]
+  },
+  {
+    "id": "E252",
+    "slug": "potimeb-plane-of-time-phase-4-gods",
+    "issues": []
+  },
+  {
+    "id": "E253",
+    "slug": "potimeb-plane-of-time-phase-5-gods",
+    "issues": []
+  },
+  {
+    "id": "E254",
+    "slug": "potimeb-plane-of-time-phases-1-3",
+    "issues": []
+  },
+  {
+    "id": "E255",
+    "slug": "potimeb-quarm",
+    "issues": []
+  },
+  {
+    "id": "E256",
+    "slug": "potorment-maareq-the-prophet",
+    "issues": []
+  },
+  {
+    "id": "E257",
+    "slug": "potorment-salczek-the-fleshgrinder",
+    "issues": []
+  },
+  {
+    "id": "E258",
+    "slug": "potorment-saryrn",
+    "issues": []
+  },
+  {
+    "id": "E259",
+    "slug": "povalor-aerin-dar",
+    "issues": []
+  },
+  {
+    "id": "E260",
+    "slug": "powater-coirnav-avatar-of-water",
+    "issues": []
+  },
+  {
+    "id": "E261",
+    "slug": "provinggrounds-lightning-warrior-spiritseeker",
+    "issues": [
+      "Check the Spiritseeker cleanup timer before publication: the combat handler starts it on disengagement but does not stop an existing timer when combat resumes."
+    ]
+  },
+  {
+    "id": "R007",
+    "slug": "ikkinz-chambers-of-singular-might",
+    "issues": [
+      "Review the Pixtt Annihilator’s database abilities and trial spawns before publishing a detailed combat guide; the quest handler supplies completion logic only."
+    ]
+  },
+  {
+    "id": "R008",
+    "slug": "illsalinb-find-fibblebrap-4-the-korlach",
+    "issues": [
+      "Publication blocked pending completion review: Neran uses TODO template 111111 and Bilitan uses TODO template 349999; neither placeholder is linked as a confirmed encounter NPC.",
+      "Resolve the task mismatch: headers identify tasks 8135–8139, but instance level and reward tables use 8130–8134.",
+      "Review the open-world callback entity usage and instance rare-item assignment before live validation; several references use NPC event self as a client or pass a table where an item ID is expected."
+    ]
+  },
+  {
+    "id": "R010",
+    "slug": "kedge-seasons-watery-death",
+    "issues": [
+      "Publication blocked: identify the seasonal Kedge boss, database spawn group, abilities and completion rules. The launcher alone does not establish a Phinigel or other boss encounter.",
+      "Confirm the deployed SeasonalInstanceVersion rule and Kedge entry/return coordinates before publication.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  },
+  {
+    "id": "R012",
+    "slug": "lakeofillomen-scorpion-hatchling-ambush",
+    "issues": [
+      "Identify the prone trigger NPC bound to lakeofillomen/#_.lua and verify the player kill-credit requirement before publication; the file name does not reveal its template."
+    ]
+  },
+  {
+    "id": "R014",
+    "slug": "potorment-baraguj-szuul-mouth-event",
+    "issues": [
+      "Confirm the entry trigger and spawn wiring for legacy mouth_trigger.pl before publication. The completion chain from the Horror to Baraguj is present, but no reviewed source caller starts that Perl gauntlet."
+    ]
+  },
+  {
+    "id": "R015",
+    "slug": "potorment-keeper-of-sorrows-tylis-torment",
+    "issues": [
+      "Review the chamber’s database spawns and Keeper abilities before publication; the quest files confirm access and completion, but do not establish the full intervening combat sequence."
+    ]
+  }
+]

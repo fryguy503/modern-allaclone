@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "chamberse-mastery-of-ingenuity",
+  "title": "Mastery of Ingenuity",
+  "group": "Muramite trials",
+  "type": "group",
+  "zone": {
+    "short_name": "chamberse",
+    "name": "Muramite Proving Grounds",
+    "version": 1
+  },
+  "npc_ids": [
+    308007
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Master of Ingenuity while reflection and pet pressure limit easy damage.",
+  "overview": [
+    "Defeat the Master of Ingenuity while reflection and pet pressure limit easy damage."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Watch for Reflective Sheen every forty-five seconds before casting into the master.",
+        "Damage shields are repeatedly removed from players on the hate list.",
+        "Pets on the hate list are hit by a heavy attack every three minutes.",
+        "Finish the master within the fifteen-minute trial."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chamberse/encounters/mpg_ingenuity.lua",
+        "sha256": "0279d8269528a3fbbcdd78569f8ae29259db11710808607dcfd442855eaaf4c4"
+      },
+      {
+        "path": "chamberse/script_init.lua",
+        "sha256": "7a07a7529387e0b15e7d368dbf47fd1304fa6b89f7d18db00ea5af980aff8301"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

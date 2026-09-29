@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-lirah-the-bridgekeeper",
+  "title": "Lirah the Bridgekeeper",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Lirah fights alongside protectors that can return during combat.",
+  "overview": [
+    "Lirah fights alongside protectors that can return during combat."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Assign add control before pulling the bridgekeeper.",
+        "Lirah repeatedly draws idle protectors into combat and checks for replacements.",
+        "Keep the boss tank stable while controlling renewed protectors.",
+        "A disengagement clears and rebuilds the supporting formation."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/Lirah_the_Bridgekeeper.lua",
+        "sha256": "61b6967ec024be584c9c63d9d8be174661bc548895a4ec6594b8fb8496f457a3"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The replacement check looks for template 336129 but spawns 336130. Actual replacement timing and population need live verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "kodtaz-temple-of-the-damned",
+  "title": "Temple of the Damned",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "kodtaz",
+    "name": "Kod’Taz",
+    "version": 0
+  },
+  "npc_ids": [
+    293220,
+    293153
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Disturb the Temple of the Damned’s bones, defeat four guardians and expose the summoner.",
+  "overview": [
+    "Disturb the Temple of the Damned’s bones, defeat four guardians and expose the summoner."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Destroying the bone pile summons four Priest Guardians and a protected summoner.",
+        "Kill all four guardians to make the summoner attackable.",
+        "The event has a fifteen-minute cleanup timer that pauses while the summoner is engaged.",
+        "The available summoner depends on the temple’s current respawn state. The alternate version follows the same combat sequence but does not carry the main loot pool."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kodtaz/encounters/totd.lua",
+        "sha256": "59e3333b5f7fb5ba059fb5615a1ee0bf8aaee84e92f9e62980255ca6823fb6be"
+      },
+      {
+        "path": "kodtaz/script_init.lua",
+        "sha256": "3ec52615b4dfb7eb4473d46d307e09b5dd3f4a6b2871e46e505e842d094e7727"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

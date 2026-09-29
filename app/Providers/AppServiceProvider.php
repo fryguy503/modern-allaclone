@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\ItemHistory\ItemHistoryRepository;
+use App\Services\EncounterJournal\EncounterCatalog;
 use App\Services\PatchArchive;
 use App\Services\SpellHistory\SpellHistoryRepository;
 use Illuminate\Pagination\Paginator;
@@ -15,6 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Request-scoped so document edits are picked up without a forever cache,
+        // including under long-lived workers.
+        $this->app->scoped(EncounterCatalog::class);
+
         if (config('everquest.patch_history.enable', true)) {
             $this->app->singleton(PatchArchive::class);
         }

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "potimeb-plane-of-time-phases-1-3",
+  "title": "Plane of Time: phases 1-3",
+  "group": "Plane of Time",
+  "type": "raid",
+  "zone": {
+    "short_name": "potimeb",
+    "name": "Plane of Time",
+    "version": 0
+  },
+  "npc_ids": [
+    223169,
+    223170,
+    223171,
+    223172,
+    223173,
+    223118,
+    223134,
+    223096,
+    223146,
+    223127,
+    223073,
+    223074
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the five opening trials, their second-stage armies, and eight further waves to reach the gods of Time.",
+  "overview": [
+    "Clear the five opening trials, their second-stage armies, and eight further waves to reach the gods of Time."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Five trials",
+      "trigger": "Expedition begins",
+      "description": "Complete earth, air, undead, water and fire."
+    },
+    {
+      "id": "phase-2",
+      "label": "Second formations",
+      "trigger": "All opening trials complete",
+      "description": "Clear the elemental armies and the undead sequence."
+    },
+    {
+      "id": "phase-3",
+      "label": "Eight waves",
+      "trigger": "Phase two complete",
+      "description": "Defeat ten required enemies in each wave, then both final guardians."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Phase one contains the earth, air, undead, water and fire trials. Complete all five before the next phase opens.",
+        "Phase two presents four elemental formations with their named leaders. The undead lane advances through groups of two, two and four guardians before Ralthos Enrok appears.",
+        "Phase two completes only when all forty elemental kills and nine undead kills have been credited.",
+        "Phase three runs eight waves, each advancing after ten required kills. The final pair is the Avatar of the Elements and the Supernatural Guardian.",
+        "The expedition tracks phase lockouts and can resume at a later stage. Follow the zone’s timer announcements and avoid leaving required enemies alive behind the raid."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potimeb/zone_status.lua",
+        "sha256": "75ea862b097cf3ce4b92752517d7f228a3ce9d849a05f093bf0f76ea94bb708d"
+      },
+      {
+        "path": "potimeb/phase_two_controller.lua",
+        "sha256": "7eb0b5c26b03e87ba89841ab2d664bf078e0e8645e858016b33456e9a10ab433"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

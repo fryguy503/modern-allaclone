@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-tiorpat-tornwing",
+  "title": "Tiorpat Tornwing",
+  "group": "Omens of War",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336061
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Tiorpat calls members of the surrounding crowd into combat.",
+  "overview": [
+    "Tiorpat calls members of the surrounding crowd into combat."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear space and identify the surrounding dragorn before starting the confrontation.",
+        "Expect repeated calls for help while Tiorpat fights.",
+        "Collect newly hostile supporters promptly and keep them away from healers.",
+        "A prolonged disengagement can reset the gathering."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/encounters/tiorpat.lua",
+        "sha256": "acbb70aae0602ede85d15220066a27c0b57eec2936692568ccf6ed2e261ca1e9"
+      },
+      {
+        "path": "dranik/script_init.lua",
+        "sha256": "3aa8bf11ae3bdb3b2f1b576fe234a8014f719fad485277355fe1f60a91fc5367"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

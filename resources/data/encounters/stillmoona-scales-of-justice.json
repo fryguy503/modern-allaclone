@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-scales-of-justice",
+  "title": "Scales of Justice",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 6
+  },
+  "npc_ids": [
+    338423,
+    338424
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover the koi master's stolen gift after a drake ambush.",
+  "overview": [
+    "Recover the koi master's stolen gift after a drake ambush."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Track the usurper's escape instead of assuming the encounter is finished at 75%."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The mission handoff spawns a drake usurper and two conspirators attacking the koi master.",
+        "At 75% health, the usurper casts its escape effects, teleports to a random listed position and clears hate.",
+        "Find the escaped usurper and return the recovered quest object to the koi master."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/scales_of_justice.lua",
+        "sha256": "28f33a47b1c08f00af379c0046f3e1a27b96d601591043fbffcbeccdfcdb9521"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E319. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

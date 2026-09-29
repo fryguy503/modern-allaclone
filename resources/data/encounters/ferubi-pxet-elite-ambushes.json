@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "ferubi-pxet-elite-ambushes",
+  "title": "Pxet elite ambushes",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "ferubi",
+    "name": "Ferubi",
+    "version": 0
+  },
+  "npc_ids": [
+    284039,
+    284091,
+    284090,
+    284088
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Build the four elite counters by defeating the designated Ferubi defenders.",
+  "overview": [
+    "Ferubi tracks separate counters for the elite Blademaster, Spearmaster, Hammermaster and Brawler. Each elite appears when its own counter reaches 100 qualifying death signals.",
+    "Only designated spawn points contribute. Killing an arbitrary creature of the same name does not necessarily advance a counter."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "counters",
+      "title": "Independent elite counters",
+      "paragraphs": [
+        "The counters persist between controller spawns. When an elite is triggered, its counter resets three seconds later; the other three counters continue independently."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ferubi/Event_Spawner.lua",
+        "sha256": "8d1549c43501beddecc3c0e8929a22ab75dbf15f066c978eab143ee6e96cf98a"
+      },
+      {
+        "path": "ferubi/a_noc_cadavor.lua",
+        "sha256": "acc956b4a120ac3f0afba253e2f6df82736b2776ab3e83433f4c835f9b2ee504"
+      },
+      {
+        "path": "ferubi/an_aneuk_darkarchon.lua",
+        "sha256": "884b7da1727625d963b6de743504a023b8be0a3c7520e68ea304e312d2372f42"
+      }
+    ],
+    "notes": [
+      "Approved row E121. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The source identifies eligible spawn-point IDs, but their current database placement and the elite NPC spell/loot data still need verification."
+    ]
+  }
+}

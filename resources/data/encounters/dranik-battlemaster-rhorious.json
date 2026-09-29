@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-battlemaster-rhorious",
+  "title": "Battlemaster Rhorious",
+  "group": "Omens of War",
+  "type": "raid",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336120,
+    336119,
+    336118,
+    336117
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Rhorious calls his lieutenants and groundpounders into the fight as his health drops.",
+  "overview": [
+    "Rhorious calls his lieutenants and groundpounders into the fight as his health drops."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "At 75%, prepare to collect the named lieutenants.",
+        "At 50%, prepare for the groundpounders to join.",
+        "Defeat the battlemaster and all required supporting enemies to complete the event.",
+        "Keep the event engaged so its recovery and reset timers do not undo progress."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/encounters/battlemaster.lua",
+        "sha256": "c30716f5bac5fcf0ac5d1b36125584618be599769182c74a5a2ba6a47fe68dbf"
+      },
+      {
+        "path": "dranik/script_init.lua",
+        "sha256": "3aa8bf11ae3bdb3b2f1b576fe234a8014f719fad485277355fe1f60a91fc5367"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

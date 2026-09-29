@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-lair-unguarded",
+  "title": "Lair Unguarded",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 6
+  },
+  "npc_ids": [
+    340508,
+    340509,
+    340510,
+    340513
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover three statues from Yar`Lir's guardians to open the northern gates.",
+  "overview": [
+    "Recover three statues from Yar`Lir's guardians to open the northern gates."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Consolidate the statues on one player and react promptly to the whirlwind warning."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The Claws, Wings and Breath guardians appear at different randomly selected locations.",
+        "The gate check runs once a minute and unlocks when one client holds all three required statues.",
+        "When Breath of Yar`Lir warns that the whirlwind is focusing on you, crouch during the following five seconds to avoid its knockback."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/lair_unguarded.lua",
+        "sha256": "d7a17d22d2c2859d59100093bd7426c4ebbc0865871ee919772aa5f2f8616b64"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E366. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The source labels the guardian location list possibly incomplete and notes the statue timer needs a quest reload after repop. Verify deployed spawns/reset behavior."
+    ]
+  }
+}

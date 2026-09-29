@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "grimling-captain-necins-raid",
+  "title": "Captain Necin's raid",
+  "group": "Grimling war",
+  "type": "event",
+  "zone": {
+    "short_name": "grimling",
+    "name": "Grimling Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    167200,
+    167515,
+    167724
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Capture and defend two camps with Captain Necin and Sergeant Cursah.",
+  "overview": [
+    "Show Necin the completed soldier's chest to receive a map, then return the map when the force is ready. Follow him and Cursah to the two camps.",
+    "Both camps must be clear before counterattacks begin. After an initial 30-to-60-second delay, waves arrive every minute: four grimlings at the smaller camp and six at the larger camp."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "capture",
+      "label": "Capture both camps",
+      "trigger": "Necin begins the assault",
+      "description": "The event resets camp spawns. Clear both positions rather than relying on a pre-clear."
+    },
+    {
+      "id": "hold",
+      "label": "Defend both leaders",
+      "trigger": "Both camps clear",
+      "description": "Protect Necin and Cursah while reinforcement waves arrive. Either leader's death fails the assault."
+    },
+    {
+      "id": "officer",
+      "label": "Find the officer",
+      "trigger": "Officer warning",
+      "description": "The officer may appear at either camp. Waves stop when it arrives; kill it and return proof to Necin."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Entry requirements",
+      "paragraphs": [
+        "The soldier's chest is exchanged for the map used to begin the raid."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 4397,
+          "name": "Soldier's Chest",
+          "quantity": 1
+        },
+        {
+          "id": 4398,
+          "name": "Map of Grimling Forest",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "grimling/encounters/Necins_Raid.lua",
+        "sha256": "ae92557024fd8746c0d5c81a4cd1f690b2b3573cbd24ca5b3b0c70c706610ec0"
+      },
+      {
+        "path": "grimling/Captain_Necin.lua",
+        "sha256": "717cce44c7cefb92d04d94a7167d97f04f0aa5167a8ee271474afcadc1d28a67"
+      }
+    ],
+    "notes": [
+      "Approved row E132. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified."
+    ]
+  }
+}

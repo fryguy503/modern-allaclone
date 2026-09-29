@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "fieldofbone-berserkers-image",
+  "title": "Berserker's Image",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "fieldofbone",
+    "name": "The Field of Bone",
+    "version": 0
+  },
+  "npc_ids": [
+    78212
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight the Berserker's Image through three short protected breaks.",
+  "overview": [
+    "Give Mardic the sealed note to enter the training area. The combat image appears 15 seconds later.",
+    "At 75%, 50% and 25% health, the image becomes protected and stops melee for 20 seconds. Wait for each break to finish before resuming damage."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "breaks",
+      "label": "Three pauses",
+      "trigger": "75%, 50% and 25% health",
+      "description": "Each threshold applies a 20-second break, then removes the protection and restores melee."
+    },
+    {
+      "id": "return",
+      "label": "Return from the trial",
+      "trigger": "Combat image defeated",
+      "description": "A noncombat image appears and the quest state advances. Follow the return instruction, then hail Mardic for the next step."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Trial entry",
+      "paragraphs": [
+        "The sealed note is the trigger for this trial."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 60195,
+          "name": "Sealed Note for Mardic",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fieldofbone/#Berserker-s_Image.lua",
+        "sha256": "1d19d2615276ac1ce68cea3b1ea639aa24054fa19f2422faafc813a150e4da9b"
+      },
+      {
+        "path": "fieldofbone/Mardic_Crimsonsteel.lua",
+        "sha256": "0683d7fa8ccf9f130e44690c274c784e0207baa8bf95ac542385c24dd5e3c9ae"
+      }
+    ],
+    "notes": [
+      "Approved row E124. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The death handler credits e.other as a client; pet or other final-hit attribution has not been verified."
+    ]
+  }
+}

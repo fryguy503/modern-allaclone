@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-trial-of-flame",
+  "title": "Trial of Flame",
+  "group": "Planes of Power",
+  "type": "group",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201495
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive four waves and the trial’s flame pressure, then defeat the Punisher of Flame.",
+  "overview": [
+    "Survive four waves and the trial’s flame pressure, then defeat the Punisher of Flame."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The first wave begins after twenty seconds. Four enemies arrive in each wave, with subsequent waves scheduled ninety seconds apart.",
+        "The flame controller activates during the trial. Keep the group healed while clearing enemies before the next timed wave.",
+        "Defeat every enemy from the fourth wave to summon the Punisher of Flame."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/#Event_Flame_Control.lua",
+        "sha256": "da186312309c2026eae8ac8d358dcb71f1fa4c625dca9df91e3e34b083fbae2f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

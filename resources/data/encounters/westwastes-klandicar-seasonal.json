@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "slug": "westwastes-klandicar-seasonal",
+  "title": "Klandicar (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "westwastes",
+    "name": "Western Wastes",
+    "version": 200
+  },
+  "npc_ids": [
+    120084,
+    120140,
+    120141,
+    120142
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Answer Klandicar's movement warnings and shatter the ice that protects and strengthens him.",
+  "overview": [
+    "Answer Klandicar's movement warnings and shatter the ice that protects and strengthens him."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Distinguish the danger ring from the safe ring and move to the marked location, not a moving boss.",
+        "Prioritize tombs and the 45% shard immediately."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Ice mechanics",
+      "trigger": "Opening",
+      "description": "Alternate fixed Fracture danger, fixed Whiteout safety and breakable tombs."
+    },
+    {
+      "id": "phase-2",
+      "label": "Glacial Barrier",
+      "trigger": "75% health",
+      "description": "Kill all guardians within 75 seconds."
+    },
+    {
+      "id": "phase-3",
+      "label": "Priority Shard",
+      "trigger": "45% health",
+      "description": "Remove the shard that amplifies mechanic damage."
+    },
+    {
+      "id": "phase-4",
+      "label": "Final blizzard",
+      "trigger": "20% health",
+      "description": "Survive faster and harder-hitting mechanics."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Ice Fracture marks a fixed impact point: move everyone at least 32 feet away during the eight-second warning.",
+        "Whiteout marks a fixed safe center: gather within 65 feet before the eight-second warning ends.",
+        "Destroy a Glacial Tomb to free its prisoner; only one tomb can stand at a time.",
+        "At75%, clear the scaled guardian wave within 75 seconds or Klandicar regains 8% health.",
+        "At45%, destroy the Priority Glacial Shard to remove its 35% mechanic-damage increase. At20%, mechanics accelerate and gain another 25% damage.",
+        "A wipe clears adds and roots and restores the boss."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "westwastes/Klandicar.lua",
+        "sha256": "cb56c69812b11ceeff8024c7c057e1d50001cdfe49b991e7982dc7c894fccfb2"
+      },
+      {
+        "path": "lua_modules/seasonal_velious.lua",
+        "sha256": "1d2f02b537ff32319f50cfcee7b25912a2ee591751ab8806f83744a0469ff0cd"
+      },
+      {
+        "path": "global/global_npc.lua",
+        "sha256": "059323caa06bc6f84541b242bb43e45afd89cb21eae1ea06947dfb1f2c6d4575"
+      }
+    ],
+    "notes": [
+      "Approval E407. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ponightmare-aid-eino-escort-dreamkeeper",
+  "title": "Aid Eino escort / Dreamkeeper",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "ponightmare",
+    "name": "Plane of Nightmare",
+    "version": 0
+  },
+  "npc_ids": [
+    204080
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort Aid Eino through successive nightmare ambushes and defeat the Dreamkeeper.",
+  "overview": [
+    "Escort Aid Eino through successive nightmare ambushes and defeat the Dreamkeeper."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Stay close to Eino and immediately intercept the attackers targeting him. The route includes banshees, nightstalkers, hobgoblins and bats.",
+        "The largest ambush combines three banshees with three bats. Preserve crowd control and healing for that stop.",
+        "After a brief rest, Eino reaches the Dreamkeeper. Protect Eino while killing the boss, which despawns after sixty seconds without combat.",
+        "Follow Eino to the return portal and complete the requested quest hand-in there."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ponightmare/#Aid_Eino.lua",
+        "sha256": "a360df6b689948a8129bc61f9ef659cf4acaca7d70d01943750243e4daebf321"
+      },
+      {
+        "path": "ponightmare/#The_Dreamkeeper.lua",
+        "sha256": "5593bde84a128e069374795ffaacaa33d5cfa9b906b724b15086fb0116ef0f96"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

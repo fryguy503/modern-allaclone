@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "ssratemple-vyzh-dra-cycle",
+  "title": "Vyzh`dra cycle",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "ssratemple",
+    "name": "Ssraeshza Temple",
+    "version": 0
+  },
+  "npc_ids": [
+    162505,
+    162508,
+    162510,
+    162507
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Advance the temple's serpent cycle and survive Vyzh`dra's leading-target death touch.",
+  "overview": [
+    "Advance the temple's serpent cycle and survive Vyzh`dra's leading-target death touch."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare a tank replacement for each death touch and keep track of the current cycle state."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The controller tracks the designated trigger kills and schedules the appropriate glyphed or runed serpent according to saved progression.",
+        "Vyzh`dra the Banished begins his death-touch timer within one to six seconds of engagement, then repeats it every two minutes.",
+        "The death touch chooses the leading target, substitutes a pet's owner, and removes listed divine-aura protections.",
+        "The Banished form despawns after 25 accumulated minutes out of combat; its death can unlock the Cursed form when the cycle is at the correct stage."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ssratemple/Vyzh-dra_the_Banished.lua",
+        "sha256": "d7cb364133368c35c5289130ef36727828a3a333953cdb62fbeb3f4f6f4aafd1"
+      },
+      {
+        "path": "ssratemple/EventInit.lua",
+        "sha256": "e04040d80b5089804e29ff3ea25436bc6859bf52bb5ea17c53d28f5e4630cccd"
+      }
+    ],
+    "notes": [
+      "Approval E312. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Full Exiled and serpent branch details still require a dedicated publication pass; this draft documents the reviewed controller and Banished path."
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-zun-muram-volklana",
+  "title": "Zun'Muram Volklana",
+  "group": "Omens of War",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336141
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Volklana begins rooted, casting terror until his health falls far enough.",
+  "overview": [
+    "Volklana begins rooted, casting terror until his health falls far enough."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "terror",
+      "name": "Zun'Muram's Terror",
+      "summary": "Repeated casts affect clients within 120 units during the rooted opening.",
+      "description": [],
+      "tags": [
+        "Opening phase"
+      ],
+      "roles": [],
+      "spell_ids": [
+        5821
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for immediate Terror and further casts every five seconds while the boss remains above 85%.",
+        "At 85%, the terror timer stops and Volklana becomes mobile.",
+        "Have the tank ready to reposition for the mobile fight.",
+        "If his health recovers to 87%, he returns to his initial rooted position."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/336141.lua",
+        "sha256": "d6997015ed4e2193f6b0d7792417e5cb6792392848f8f7972446d6d7c0e757e7"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

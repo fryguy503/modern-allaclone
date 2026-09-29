@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "chardokb-korucust",
+  "title": "Korucust",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "chardokb",
+    "name": "Chardok: Halls of Betrayal",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Korucust pairs recurring spell attacks with a transformation at 40% health.",
+  "overview": [
+    "Korucust pairs recurring spell attacks with a transformation at 40% health."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "cloud-sequence",
+      "name": "Cloud and Vengeance",
+      "summary": "Two linked casts pressure the current tank.",
+      "description": [],
+      "tags": [
+        "Tank pressure"
+      ],
+      "roles": [],
+      "spell_ids": [
+        3852,
+        4015
+      ]
+    },
+    {
+      "id": "shift",
+      "name": "Phantasmal Shift",
+      "summary": "Korucust transforms at 40% health.",
+      "description": [],
+      "tags": [
+        "Health phase"
+      ],
+      "roles": [],
+      "spell_ids": [
+        4013
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for Cloud of Oblivion ten seconds after the pull, then once each minute.",
+        "Korucust's Vengeance follows the cloud by two seconds.",
+        "At 40%, Korucust casts Phantasmal Shift. Keep tank control through the transition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chardokb/#Korucust.lua",
+        "sha256": "c42eefd181595f0de213fa602b26d36a2791bd0269b8f921cb2667e1af322bc9"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

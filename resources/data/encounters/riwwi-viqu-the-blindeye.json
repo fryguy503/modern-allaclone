@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "riwwi-viqu-the-blindeye",
+  "title": "Viqu the Blindeye",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "riwwi",
+    "name": "Riwwi, Coliseum of Games",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Viqu adds repeated arrow volleys during the lower half of the fight.",
+  "overview": [
+    "Viqu adds repeated arrow volleys during the lower half of the fight."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the group healthy before each potential volley."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 45% health, a 20-second timer begins checking for an arrow volley.",
+        "Successful checks fire at random hate-list targets; the script explicitly handles hate-list sizes from one through six.",
+        "Healing back through 45% or leaving combat stops the volley timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "riwwi/#Viqu_the_Blindeye.lua",
+        "sha256": "5b70a17eeb16435d09747c9294fb9242fbbb0f9c467e502bc8c35d43759fc4f7"
+      }
+    ],
+    "notes": [
+      "Approval E279. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Volley code has no branch for hate-list sizes above six; confirm intended raid behavior before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

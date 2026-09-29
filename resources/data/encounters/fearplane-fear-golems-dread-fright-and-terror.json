@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "fearplane-fear-golems-dread-fright-and-terror",
+  "title": "Fear golems: Dread, Fright and Terror",
+  "group": "Plane of Fear",
+  "type": "raid",
+  "zone": {
+    "short_name": "fearplane",
+    "name": "Plane of Fear",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Dread and Fright use recurring Death Touch; all three golems can leave a broodling behind.",
+  "overview": [
+    "Dread and Fright use recurring Death Touch; all three golems can leave a broodling behind."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Have the pull and recovery plan ready before engaging Dread or Fright: the first Death Touch can occur almost immediately.",
+        "Further Death Touch casts repeat every forty-five seconds against the top-threat target.",
+        "A pet at the top of the hate list redirects the cast to its owner; the script also removes listed divine-aura protections.",
+        "After any golem dies, check for the possible iksar broodling."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fearplane/Dread.lua",
+        "sha256": "f7fc3c0ac2290600f2c397df6298d3e607dd0e98dee6b1c1b31b3d5d0dcff6d5"
+      },
+      {
+        "path": "fearplane/Fright.lua",
+        "sha256": "f7fc3c0ac2290600f2c397df6298d3e607dd0e98dee6b1c1b31b3d5d0dcff6d5"
+      },
+      {
+        "path": "fearplane/Terror.lua",
+        "sha256": "bcbd1b7e54950ce04a7f54d5c8d4eaa4b195452c13198b1fd1f3eef77ad4beeb"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Terror's reviewed script has the broodling branch but no scripted Death Touch loop; database spells were not reviewed.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

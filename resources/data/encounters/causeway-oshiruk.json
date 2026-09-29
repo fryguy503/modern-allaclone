@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-oshiruk",
+  "title": "Oshiruk",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [
+    303125
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Oshiruk repeatedly casts Tendrils during the bard epic finale.",
+  "overview": [
+    "Oshiruk repeatedly casts Tendrils during the bard epic finale."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "tendrils",
+      "name": "Tendrils of Oshiruk",
+      "summary": "A recurring cast directed at the current target.",
+      "description": [],
+      "tags": [
+        "Recurring spell"
+      ],
+      "roles": [],
+      "spell_ids": [
+        5975
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep the tank and nearby group covered for a Tendrils cast every twelve seconds.",
+        "Recover between casts while maintaining steady damage."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/#Oshiruk.lua",
+        "sha256": "682eb6a6364b769a1e4adc1d8a67fb0d22bb3ea42ad12b7ee6ffaaf7a76e9c18"
+      },
+      {
+        "path": "causeway/#Alkron_Wyrmsong.lua",
+        "sha256": "7276551bd3f8a82b43f83ed59918bf2d6fbfe6402b7a0045446125ec9e69045a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

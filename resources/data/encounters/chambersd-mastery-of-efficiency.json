@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "chambersd-mastery-of-efficiency",
+  "title": "Mastery of Efficiency",
+  "group": "Muramite trials",
+  "type": "group",
+  "zone": {
+    "short_name": "chambersd",
+    "name": "Muramite Proving Grounds",
+    "version": 1
+  },
+  "npc_ids": [
+    307004
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear timed waves while fighting under the Test of Efficiency debuff.",
+  "overview": [
+    "Clear timed waves while fighting under the Test of Efficiency debuff."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Expect the trial debuff to be maintained throughout the encounter.",
+        "Use resources carefully and finish the active enemies before later waves arrive.",
+        "Complete the wave sequence within the fifteen-minute trial."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersd/encounters/mpg_efficiency.lua",
+        "sha256": "52fd313695a3501c3e75104cef58d11df3ebd0a3197dfb6c29641bac4dd9a480"
+      },
+      {
+        "path": "chambersd/script_init.lua",
+        "sha256": "e338d24f3918188b0363af77aa1b6bd82801b51a88a0f6857856b23284555250"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

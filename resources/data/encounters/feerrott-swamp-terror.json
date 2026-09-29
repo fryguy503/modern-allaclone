@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "feerrott-swamp-terror",
+  "title": "Swamp Terror",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "feerrott",
+    "name": "The Feerrott",
+    "version": 0
+  },
+  "npc_ids": [
+    47208
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A druid's charmed alligator reveals the Swamp Terror.",
+  "overview": [
+    "A druid's charmed alligator reveals the Swamp Terror."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Bring the required charmed alligator to the quest trigger with the group prepared.",
+        "The dialogue sequence ends with the Swamp Terror appearing nearby.",
+        "Have a tank ready to engage as soon as the creature emerges."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "feerrott/#druid_epic_trap.lua",
+        "sha256": "dc9a9a08668ee3445f863ded0ae24c35dee41e0235ec209daa2c769ebb93173a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

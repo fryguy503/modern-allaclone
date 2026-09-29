@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "tenebrous-johanius-barleou",
+  "title": "Johanius Barleou",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "tenebrous",
+    "name": "Tenebrous Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    172192,
+    172193
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the hostile camp to progress Johanius's family rescue.",
+  "overview": [
+    "Clear the hostile camp to progress Johanius's family rescue."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Defeat the camp's enemies rather than dragging them outside the area."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Loading the rescue encounter creates Aellana Barleou and Lyrra Rutledge.",
+        "The controller watches the designated enemy types whose original spawn points belong to the camp.",
+        "Once none remain, it signals Johanius to continue. Pulling them away does not count as clearing the camp."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tenebrous/encounters/Johanius.lua",
+        "sha256": "cfe07ae03b43d469383d4a97ab14278069daffd22f7532089b91fae8610d7d48"
+      }
+    ],
+    "notes": [
+      "Approval E348. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Johanius dialogue, transformation and later Slayer follow-up require a fuller publication review beyond the camp controller."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "hohonorb-lord-mithaniel-marr",
+  "title": "Lord Mithaniel Marr",
+  "group": "Temple of Marr",
+  "type": "raid",
+  "zone": {
+    "short_name": "hohonorb",
+    "name": "Temple of Marr",
+    "version": 0
+  },
+  "npc_ids": [
+    220020
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeating Ralthazor opens the confrontation with Lord Mithaniel Marr.",
+  "overview": [
+    "Defeating Ralthazor opens the confrontation with Lord Mithaniel Marr."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the preceding temple encounter with Ralthazor to activate Marr.",
+        "Marr’s activation lasts two hours. When that window expires, he returns to his inactive state once no longer engaged.",
+        "Defeat Marr and speak with the planar projection that appears for progression credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hohonorb/Lord_Mithaniel_Marr.lua",
+        "sha256": "9c46135062b903d146344be6b4695171ccd525eac3409b1b707ef604b9047e28"
+      },
+      {
+        "path": "hohonorb/zone_status.lua",
+        "sha256": "6c44517a0226f61a62ce0635ace59b794f3a9116339ff9bea2809b90d759d09d"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

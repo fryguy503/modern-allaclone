@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-circle-of-drakes",
+  "title": "Circle of Drakes",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 4
+  },
+  "npc_ids": [
+    343087,
+    343723,
+    343724,
+    343725,
+    343090
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defend the ritual circle against five advancing waves of drakes.",
+  "overview": [
+    "Defend the ritual circle against five advancing waves of drakes."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Intercept drakes early and be ready to reacquire them after their protected march."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Three clients in the circle start the event, unless a GM bypasses that requirement.",
+        "Five timed waves contain two, four, four, five and five drakes, with increasingly strong templates.",
+        "Engaged drakes resume their march after a 30-second combat interval and briefly resist new aggression.",
+        "Sixteen drake kills trigger the scripted objective update and focus spawn."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/circle_of_drakes.lua",
+        "sha256": "399c753c37f06dcb0d834bfbdd7838c013e6502c533034a0957c132d84ded6af"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E353. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

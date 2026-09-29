@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "sirens-a-twitching-swordfish",
+  "title": "A twitching swordfish",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "sirens",
+    "name": "Siren's Grotto",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken the twitching swordfish so the ranger can attempt a capture.",
+  "overview": [
+    "Weaken the twitching swordfish so the ranger can attempt a capture."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Stop excessive damage below 25% while the ranger maintains the required weapon."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Entering combat sets a 25% health trigger.",
+        "Below that trigger, a check every 15 seconds has a one-in-four chance to inspect damaging rangers with the required capture weapon in their primary slot.",
+        "A successful capture grants the quest result and depops the fish. Killing it instead casts Epidermal Rot."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sirens/a_twitching_swordfish.lua",
+        "sha256": "c134996546eafa756e3fe7ac816c086ea317cca688d00bac9769e549e4bc9a86"
+      }
+    ],
+    "notes": [
+      "Approval E287. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

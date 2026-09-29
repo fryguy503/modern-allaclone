@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "poair-elemental-masterpiece",
+  "title": "Elemental Masterpiece",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poair",
+    "name": "Eryslai, the Kingdom of Wind",
+    "version": 0
+  },
+  "npc_ids": [
+    215423,
+    215434,
+    215400
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the confused elementals, defeat four champions and confront the Elemental Masterpiece.",
+  "overview": [
+    "Clear the confused elementals, defeat four champions and confront the Elemental Masterpiece."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The sixth, eleventh, sixteenth and twenty-first qualifying elemental kills bring out champions. The last required elemental’s death activates the champions.",
+        "Defeat all four champions to summon the Masterpiece or its cooldown replacement, an Elemental Anomaly.",
+        "The Masterpiece has a chance to clear hate every twelve seconds. Keep a tank ready to re-establish control.",
+        "Victory can summon the Avatar of Smoke when that progression stage is available. The island sequence must finish within three hours."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poair/encounters/Masterpiece_Event.lua",
+        "sha256": "9e7b0f8d0133abbf6a5293ab61207b0ba171d720a4147261f81ddce6dec2f826"
+      },
+      {
+        "path": "poair/#isle_three_controller.lua",
+        "sha256": "d03bf3b7617a04a35660f113d687e3cc53c00f07a9c70db6f95f9357a0b865d4"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

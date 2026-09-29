@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-xuzl",
+  "title": "Xuzl",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212055
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Xuzl repeatedly summons animated swords to attack the raid.",
+  "overview": [
+    "Xuzl repeatedly summons animated swords to attack the raid."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare repeated add pickup and avoid pulling Xuzl beyond his room."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Eight swords arrive after 45 seconds; further groups arrive every 30 seconds.",
+        "Each sword begins attacking a random member of Xuzl's hate list.",
+        "Crossing his southern room boundary returns him to bind and clears hate.",
+        "Swords are removed on victory or after 30 seconds out of combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/Xuzl.lua",
+        "sha256": "19baf24a8c792a9dd1d5e4ebe735f1fef424417cc5fe5a3cfcaafc07f6c6f7d9"
+      }
+    ],
+    "notes": [
+      "Approval E308. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

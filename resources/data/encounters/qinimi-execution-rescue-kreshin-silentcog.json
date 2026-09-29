@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "qinimi-execution-rescue-kreshin-silentcog",
+  "title": "Execution: Rescue Kreshin Silentcog",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "qinimi",
+    "name": "Qinimi, Court of Nihilia",
+    "version": 0
+  },
+  "npc_ids": [
+    281123,
+    281119,
+    281124
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear timed waves, defeat the Pixtt, and stop Kreshin's execution.",
+  "overview": [
+    "Hold the entry stone on your cursor and say \"I wish to enter\" near the device. Nearby group members within 75 paces are transported with you.",
+    "Three waves activate on a fixed schedule. Kill them promptly so they do not overlap, then defeat Pixtt Tixxrt Kvrok to make the executioner vulnerable.",
+    "Kill the executioner within the final three-minute window. After the rescue, show Kreshin the entry stone before the group is ejected."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "waves",
+      "label": "Opening waves",
+      "trigger": "Ten seconds after staging",
+      "description": "The first wave has two spiritbrutes and one bloodhunter. Two minutes later the second matching wave activates; two minutes after that, one spiritbrute and two bloodhunters activate."
+    },
+    {
+      "id": "pixtt",
+      "label": "Pixtt and guards",
+      "trigger": "Two minutes after the third wave",
+      "description": "The Pixtt becomes active with two guards. The executioner begins moving and the three-minute failure timer starts."
+    },
+    {
+      "id": "executioner",
+      "label": "Stop the execution",
+      "trigger": "Pixtt defeated",
+      "description": "The executioner loses protection. Kill him to stop the failure timer."
+    },
+    {
+      "id": "rescue",
+      "label": "Speak to Kreshin",
+      "trigger": "Executioner defeated",
+      "description": "The party has seven minutes and thirty seconds before transport out, with a warning for the final twenty-five seconds."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Entry key",
+      "paragraphs": [
+        "The device checks the cursor slot rather than a trade. The same key is shown to Kreshin after success and returned."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 67415,
+          "name": "Stone of Entry",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qinimi/encounters/execution.lua",
+        "sha256": "c6370063a24112de09cb2eba02175fe81f334becfa65259ea0580643ce2153d7"
+      },
+      {
+        "path": "qinimi/script_init.lua",
+        "sha256": "4f86f4fc304971583cc0b5a30b420601d67566310f876bb8bd30403274e8c65b"
+      }
+    ],
+    "notes": [
+      "Approved row E264. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics."
+    ]
+  }
+}

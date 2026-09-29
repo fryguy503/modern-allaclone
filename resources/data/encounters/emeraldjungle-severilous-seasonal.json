@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "slug": "emeraldjungle-severilous-seasonal",
+  "title": "Severilous: Seasonal",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "emeraldjungle",
+    "name": "The Emerald Jungle",
+    "version": 200
+  },
+  "npc_ids": [
+    94237
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Seasonal Severilous combines nearby poison bursts with random toxic gazes.",
+  "overview": [
+    "Seasonal Severilous combines nearby poison bursts with random toxic gazes."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "toxic-gaze",
+      "name": "Toxic Secretion",
+      "summary": "A recurring gaze targets a random hated player.",
+      "description": [],
+      "tags": [
+        "Random target"
+      ],
+      "roles": [],
+      "spell_ids": [
+        1117
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Players within 70 units take the scripted poison burst every fifteen seconds.",
+        "Be ready to heal the random player selected for Toxic Secretion every thirty-two seconds.",
+        "At 25%, the scripted timers stop and Severilous becomes more vulnerable to archery and backstab."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "emeraldjungle/Severilous.lua",
+        "sha256": "01d6821f041ca5a696efbc034ecd30a8bd058c1406dcc2eb7a8d22974981bda2"
+      },
+      {
+        "path": "lua_modules/raid_luck_credit.lua",
+        "sha256": "d6013ca1a7bb61032cc789d5d3cd5920d4f4e559ea7251fcbfd85e8f2abf6e07"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 200.",
+      "Only the version-200 custom mechanics are documented. The standard open-zone spawn does not run these combat timers.",
+      "Health-phase comments say slashing, but the implemented skill IDs 7 and 8 are archery and backstab. Guidance follows the implementation."
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "acrylia-khati-sha-the-twisted",
+  "title": "Khati Sha the Twisted",
+  "group": "Acrylia",
+  "type": "raid",
+  "zone": {
+    "short_name": "acrylia",
+    "name": "Acrylia Caverns",
+    "version": 0
+  },
+  "npc_ids": [
+    154138
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the warder and arcanist defenses before facing Khati Sha.",
+  "overview": [
+    "Break the warder and arcanist defenses before facing Khati Sha."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the warder and chanting sequence; Khati Sha is the final stage of the event.",
+        "Clear the disruptive minions and distinguish the false arcanist from the true arcanists.",
+        "Defeat the death guards before progressing the arcanist stage.",
+        "Keep Khati Sha in his encounter area and be ready to control returning guards."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "acrylia/Khati_Sha_the_Twisted.lua",
+        "sha256": "f377972d7102612d5a1e78f8eeb371fde9ea5eac676a6baf8f0f533f8206d9d4"
+      },
+      {
+        "path": "acrylia/#arcanist_trigger.lua",
+        "sha256": "c223caff02b8b62b408a9949ea71cfc2103229f1f6733816e9d6857584eb6fea"
+      },
+      {
+        "path": "acrylia/WDTrpMn.lua",
+        "sha256": "fe3721d3393d971ca5f814243afbced59e0f1ff6d8bed6ea594b49c51855b0ae"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The prerequisite scripts contain timed failure conditions; live timing and spawn wiring remain unverified."
+    ]
+  }
+}

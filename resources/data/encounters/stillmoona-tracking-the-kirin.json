@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-tracking-the-kirin",
+  "title": "Tracking the Kirin",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 8
+  },
+  "npc_ids": [
+    338402,
+    338419
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow the ordered footprint trail until it reveals the Elusive Kirin.",
+  "overview": [
+    "Follow the ordered footprint trail until it reveals the Elusive Kirin."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Follow each newly revealed footprint instead of skipping directly to the final location."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Each footprint interaction advances the trail to its next scripted location.",
+        "The trail must be followed in sequence.",
+        "The final step reveals the Elusive Kirin near the temple."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/tracking_the_kirin.lua",
+        "sha256": "cde0bc486e223fdca951f0445817d8e6e4ce250553d764a1b08652624cc85680"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E322. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

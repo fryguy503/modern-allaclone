@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-four-corners",
+  "title": "Four Corners",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 0
+  },
+  "npc_ids": [
+    340386,
+    340387,
+    340388,
+    340389
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat all four linked guardians in the open-world Four Corners event.",
+  "overview": [
+    "Defeat all four linked guardians in the open-world Four Corners event."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign all four targets before pulling and avoid dropping aggression on a surviving guardian."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Engaging any named enemy places all four on the puller's hate list.",
+        "Keep each surviving guardian engaged: ten seconds out of combat resets the group.",
+        "Defeating all four spawns the event chest and removes the controller."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/four_corners.lua",
+        "sha256": "8bb80872e47d62ab3584436b386a52f685732c977a9ad80ec4a3e3c8c1c96bfc"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      }
+    ],
+    "notes": [
+      "Approval E363. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

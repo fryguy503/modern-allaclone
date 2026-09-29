@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "fearplane-cazic-thule-static-mode",
+  "title": "Cazic Thule: Static Mode",
+  "group": "Plane of Fear",
+  "type": "raid",
+  "zone": {
+    "short_name": "fearplane",
+    "name": "Plane of Fear",
+    "version": 255
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Static-mode Cazic Thule combines zone reinforcements, fear and growing physical vulnerability.",
+  "overview": [
+    "Static-mode Cazic Thule combines zone reinforcements, fear and growing physical vulnerability."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the zone before the pull; the initial call can bring surviving enemies to the main target.",
+        "Collect the nightmare minions summoned at 70% and 40%.",
+        "Prepare for fear casts at 60% and 30%.",
+        "Players within 60 units take a scripted terror pulse every forty seconds.",
+        "Slashing, two-handed blunt and one-handed piercing attacks gain increased effectiveness at 50%, with a larger vulnerability at 20%."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fearplane/Cazic_Thule.lua",
+        "sha256": "465db47eb223f907cc5d3914598f10a37757bcc23c2a1db3466e0560218f7abc"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 255.",
+      "Several other health thresholds emit flavor announcements only. Damage guidance follows implemented skill IDs rather than swapped comments for skills 2 and 3.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

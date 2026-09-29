@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "vexthal-aten-ha-ra-progression-akhevan-warders",
+  "title": "Aten Ha Ra progression / Akhevan Warders",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "vexthal",
+    "name": "Vex Thal",
+    "version": 0
+  },
+  "npc_ids": [
+    158436,
+    158465
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear Vex Thal's warder gates before attempting the proper Aten Ha Ra encounter.",
+  "overview": [
+    "Clear Vex Thal's warder gates before attempting the proper Aten Ha Ra encounter."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Complete the warder progression before approaching Aten's room."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Kaas Thox Xi Ans Dyek, Diabo Xi Xin Thall, Thall Va Kelun and Va Xi Aten Ha Ra each remove a required warder on death.",
+        "Diabo Xi Va Temariel and Thall Xundraux Diabo remove the shared fourth warder gate.",
+        "The trigger checks every fifteen seconds and summons the proper Aten only when all five required warders are absent.",
+        "While a required warder remains, the trigger selects the dangerous alternate Aten instead."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "vexthal/#aten_trigger.lua",
+        "sha256": "cd5225b04d824d5db416898835fe71b6493e0a149b76f78f55263b2fc64ffcd5"
+      },
+      {
+        "path": "vexthal/Kaas_Thox_Xi_Ans_Dyek.lua",
+        "sha256": "d233ca4ce2b8929b7323f8e26db802159e76cf467cd87aceaf37f05d8a94f9a5"
+      },
+      {
+        "path": "vexthal/Diabo_Xi_Xin_Thall.lua",
+        "sha256": "57fb5f27b40f8f72eabd00d87f257849534fd69c29daaf8cc10cb3f498ec3490"
+      },
+      {
+        "path": "vexthal/Thall_Va_Kelun.lua",
+        "sha256": "821169bba79fd8210d0e096bb265587b18e43bcb7ee787ac91fb687a05ec934d"
+      },
+      {
+        "path": "vexthal/Diabo_Xi_Va_Temariel.lua",
+        "sha256": "30047b9039a6e21fc349a810e9c1eb22c13ff628b57da3f3dad2d1e559708d40"
+      },
+      {
+        "path": "vexthal/Thall_Xundraux_Diabo.lua",
+        "sha256": "f30aa56e0c12d8c756330266ca4acd97bab28facb7b2c9ef63758a11b2cf1bae"
+      },
+      {
+        "path": "vexthal/Va_Xi_Aten_Ha_Ra.lua",
+        "sha256": "00afb98acfe55466ec56c87fe1126d7db84bf490f633db4089ddfc41bd1eb0cb"
+      }
+    ],
+    "notes": [
+      "Approval E391. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "This draft documents warder progression and variant selection; it does not claim distinct Aten combat mechanics absent from the reviewed trigger."
+    ]
+  }
+}

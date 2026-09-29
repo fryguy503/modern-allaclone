@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "overthere-glowing-cliff-golem-and-watch-sergeant-grolj",
+  "title": "Glowing cliff golem and Watch Sergeant Grolj",
+  "group": "Quest battles",
+  "type": "event",
+  "zone": {
+    "short_name": "overthere",
+    "name": "The Overthere",
+    "version": 0
+  },
+  "npc_ids": [
+    93308,
+    93311
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Granika reveals a glowing cliff golem guarded by undead watchmen and Watch Sergeant Grolj.",
+  "overview": [
+    "Granika reveals a glowing cliff golem guarded by undead watchmen and Watch Sergeant Grolj."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete Granika’s Greenmist quest hand-in only after preparing the group.",
+        "The reveal creates the glowing golem, four undead watchmen and Grolj together at the outpost.",
+        "Control the watchmen while the group defeats the principal targets and recovers the required quest objective."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "overthere/Alchemist_Granika.lua",
+        "sha256": "1a01f38f11ab7c5343a2619d920f7b5b24ca72bf1fa8d3690056f978b2f3e317"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

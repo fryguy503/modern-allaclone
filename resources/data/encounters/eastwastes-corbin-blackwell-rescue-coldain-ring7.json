@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-corbin-blackwell-rescue-coldain-ring7",
+  "title": "Corbin Blackwell rescue (Coldain ring7)",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    116569,
+    116591,
+    116129
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Free Corbin and escort him through the orc and giant ambushes.",
+  "overview": [
+    "Free Corbin and escort him through the orc and giant ambushes."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare before the rescue hand-in starts the moving escort.",
+        "The first ambush brings Ry'Gorr bashers directly onto the route.",
+        "The second brings Commander Bahreck and Kromrif soldiers. Stay close enough to protect Corbin.",
+        "Keep him alive until he reaches the final escape point."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/Corbin_Blackwell.lua",
+        "sha256": "0deef63af54b9ac4d41f017c93052eda66206fc01ed86cceef45b6266acf72d9"
+      },
+      {
+        "path": "eastwastes/Warden_Bruke.lua",
+        "sha256": "6bb49df0203eb35b9cec6fe271552033fda094fe3cb5cb3ea61c8ce8652cc85b"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

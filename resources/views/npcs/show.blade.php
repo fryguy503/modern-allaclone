@@ -221,6 +221,8 @@
             @endif
         </div>
 
+        @include('components.encounter-journal-links', ['journalEntries' => $journalEntries ?? []])
+
         <div class="tabs tabs-lift mt-6">
             @if ($npc->lootTable?->loottableEntries)
                 @include('npcs.partials.show.tab-drops')

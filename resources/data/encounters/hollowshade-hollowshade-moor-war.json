@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "hollowshade-hollowshade-moor-war",
+  "title": "Hollowshade Moor war",
+  "group": "Luclin events",
+  "type": "event",
+  "zone": {
+    "short_name": "hollowshade",
+    "name": "Hollowshade Moor",
+    "version": 0
+  },
+  "npc_ids": [
+    166257
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The owlbears, sonic wolves and grimlings battle for three camps across Hollowshade Moor.",
+  "overview": [
+    "The owlbears, sonic wolves and grimlings battle for three camps across Hollowshade Moor."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "A camp boss’s death opens an attack against that camp. The defending race and ownership of the north, east and south camps determine the attackers.",
+        "Attack waves have a fifteen-minute resolution window. Help a faction defeat the opposition to change control of a camp.",
+        "Continue the war until one race holds all three camps. The resulting occupation changes the creatures available across the moor.",
+        "Track camp ownership between attacks; the same boss kill can lead to different waves depending on the current war state."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hollowshade/War_Trigger.lua",
+        "sha256": "f2006219c47e4287791b3da16a590d3201d6e9d57f0bde482acb5fab5463a1e6"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The linked template is the war coordinator, not a combat boss. Camp creature placement and ordinary loot tables remain database-defined."
+    ]
+  }
+}

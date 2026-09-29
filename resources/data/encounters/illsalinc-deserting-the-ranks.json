@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "illsalinc-deserting-the-ranks",
+  "title": "Deserting the Ranks",
+  "group": "Depths of Darkhollow",
+  "type": "group",
+  "zone": {
+    "short_name": "illsalinc",
+    "name": "The Nargilor Pits",
+    "version": 1
+  },
+  "npc_ids": [
+    350101,
+    350037
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Enter Draygun’s sealed chamber, endure his reanimated soldiers and defeat the captain left behind.",
+  "overview": [
+    "Enter Draygun’s sealed chamber, endure his reanimated soldiers and defeat the captain left behind."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Find the mission key and gather the group before entering the chamber. The entry sequence consumes the key and closes the door after a short warning.",
+        "Draygun remains protected while he moves between corpses in a randomized order and raises attackers. Follow his movement and intercept each soldier.",
+        "At the last step, he leaves a captain with additional reanimated soldiers and departs. Defeat the captain to unlock the chamber.",
+        "Normal and hard task selections use this same event sequence but scale enemies and reward pools differently."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "illsalinc/encounters/Deserting_the_Ranks.lua",
+        "sha256": "ea84cd36943d2f5f48ae5897ca77f0ae377935c256b4271ab659d6679c4e7ceb"
+      },
+      {
+        "path": "illsalinc/script_init.lua",
+        "sha256": "f14ae3a8ac6fb88959872652e7edaac58e0c4f90d3be854f77a1d8d99ddc99cd"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Both task selections share version 1 and scripted objectives; they are documented together."
+    ]
+  }
+}

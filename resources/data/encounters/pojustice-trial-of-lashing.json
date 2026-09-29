@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-trial-of-lashing",
+  "title": "Trial of Lashing",
+  "group": "Planes of Power",
+  "type": "group",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201461
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the spirits sustaining the Scourge before it reaches the prisoners, then defeat Lashman Azakal.",
+  "overview": [
+    "Break the spirits sustaining the Scourge before it reaches the prisoners, then defeat Lashman Azakal."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each round begins with four enemies. Thirty seconds later, three Flickering Spirits appear and an invulnerable Scourge moves toward a prisoner.",
+        "Kill all three spirits to remove the Scourge. Spending damage on the invulnerable Scourge delays the rescue.",
+        "Complete four spirit rounds while controlling the other enemies, then defeat Lashman Azakal."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/#Event_Lashing_Control.lua",
+        "sha256": "430cc98ddb4361de4d8ac74f1995c928ba362fcf105cddce8810a2ad50046225"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

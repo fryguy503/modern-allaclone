@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "bloodfields-reclusive-girplan-chain-rolthee-and-myrhee",
+  "title": "Reclusive girplan chain / Rolthee and Myrhee",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "bloodfields",
+    "name": "The Bloodfields",
+    "version": 0
+  },
+  "npc_ids": [
+    301033,
+    301073,
+    301076,
+    301077,
+    301079
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A chain of reclusive girplans leads to a quest-dependent named opponent.",
+  "overview": [
+    "A chain of reclusive girplans leads to a quest-dependent named opponent."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat each emerging girplan to bring out the next one.",
+        "Tanks should regain threat after the recurring knockback and hate wipe.",
+        "Each stage has a 930-second appearance timer; keep the chain moving.",
+        "The final branch produces Rolthee or Myrhee according to quest state."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "bloodfields/301033.lua",
+        "sha256": "1c864c3fec118e49b2ca84e996ae1bd8ebc7917620231ea2442874a44e347072"
+      },
+      {
+        "path": "bloodfields/301076.lua",
+        "sha256": "78f405f94f15e50902f2f4e809375dd14f4ce9dbe13043bb7b7d68ea388e5e11"
+      },
+      {
+        "path": "bloodfields/#Rolthee_Roundbelly.lua",
+        "sha256": "d8df1a3e369fc06334c2e6638bb9e7c3c7a43c41be5412bf447e774bed318649"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

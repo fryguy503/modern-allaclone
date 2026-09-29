@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-trial-of-stoning",
+  "title": "Trial of Stoning",
+  "group": "Planes of Power",
+  "type": "group",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201508
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect the accused from their avengers through four waves and defeat Yurae Zhaleem.",
+  "overview": [
+    "Protect the accused from their avengers through four waves and defeat Yurae Zhaleem."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Four enemies arrive per wave on a ninety-second schedule. Avengers threaten the accused while enemies remain alive.",
+        "Clear the active wave quickly to remove the avengers and stop their pressure on the prisoners.",
+        "The sixteenth required wave kill summons Yurae Zhaleem. Establish the boss tank while protecting the survivors."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/#Event_Stoning_Control.lua",
+        "sha256": "927904c0486d7420424d747f1d4a97499d5e04cb271a35be0f774b5f42f06267"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "harbingers-windrush",
+  "title": "Windrush",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "harbingers",
+    "name": "Harbinger's Spire",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Windrush adds recurring spell attacks as the fight progresses.",
+  "overview": [
+    "Windrush adds recurring spell attacks as the fight progresses."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 70% health, Windrush begins using Stunning Strike, repeating every twenty seconds after the initial cast.",
+        "At 40% health, Mana Spectrum joins the rotation and repeats every fifteen seconds.",
+        "Allow for increasing pressure on the tank and the group in the final stages. The encounter has a thirty-minute depop timer once engaged."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "harbingers/Windrush.lua",
+        "sha256": "358b2c689f0a2c0637be14b2f6502992d515b95df4be6c000e624e1c20c97b29"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

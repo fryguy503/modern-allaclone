@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "bloodfields-discordling-dark-animist",
+  "title": "Discordling Dark Animist",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "bloodfields",
+    "name": "The Bloodfields",
+    "version": 0
+  },
+  "npc_ids": [
+    301069,
+    301070
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A beastlord epic encounter opens with six savage ferans.",
+  "overview": [
+    "A beastlord epic encounter opens with six savage ferans."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Assemble before the boss appears; its appearance lasts thirty minutes.",
+        "Assign control for the six ferans immediately on spawn.",
+        "Keep the boss tank covered while the group reduces the add pressure."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "bloodfields/#Discordling_Dark_Animist.lua",
+        "sha256": "73bb23b44bc8a1847a4fc2311379886cee6131d754e957303aa18aea3d6adc1d"
+      },
+      {
+        "path": "bloodfields/#Tormented_Scout.lua",
+        "sha256": "aa15815c3c044244ffe4fd1f22ea31f72f289fa02679f6a64709f90cc37e186f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

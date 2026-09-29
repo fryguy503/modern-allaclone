@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "fearplane-fear-touched-dracolich-ambush",
+  "title": "Fear-Touched Dracolich ambush",
+  "group": "Plane of Fear",
+  "type": "event",
+  "zone": {
+    "short_name": "fearplane",
+    "name": "Plane of Fear",
+    "version": 0
+  },
+  "npc_ids": [
+    72006
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Qualifying kills can trigger a Fear-Touched Dracolich ambush.",
+  "overview": [
+    "Qualifying kills can trigger a Fear-Touched Dracolich ambush."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "During the associated active task, keep the group ready after each kill.",
+        "The ambush can appear at the slain enemy's location and immediately attack the credited player.",
+        "A tank should collect the dracolich before the group moves on."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fearplane/encounters/fear_touched_dracolich.lua",
+        "sha256": "36d1fc0b204c82f92435d330c592626b4df5d7308e87cce4ed040093fa318a31"
+      },
+      {
+        "path": "fearplane/script_init.lua",
+        "sha256": "352cf8afe7e5e9c16d5dcd3b08c11fc3dc249cd6cf6a02be127d90363af64f3a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The loader is gated by the Rotten_Hand content flag; the spawn check requires task 17 and rolls a three-percent chance."
+    ]
+  }
+}

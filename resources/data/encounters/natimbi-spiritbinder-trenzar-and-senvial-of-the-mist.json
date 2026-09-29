@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "natimbi-spiritbinder-trenzar-and-senvial-of-the-mist",
+  "title": "Spiritbinder Trenzar and Senvial of the Mist",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "natimbi",
+    "name": "Natimbi, the Broken Shores",
+    "version": 0
+  },
+  "npc_ids": [
+    280084,
+    280089
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break Spiritbinder Trenzar’s hold over Senvial of the Mist.",
+  "overview": [
+    "Break Spiritbinder Trenzar’s hold over Senvial of the Mist."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Trenzar creates a bound elemental every ten seconds and brings the elementals onto the group’s hate list. Keep add control active throughout the fight.",
+        "Wave of Flame begins fourteen seconds after engagement and repeats every twenty seconds.",
+        "Senvial appears after a random delay of seventy-five to one hundred twenty seconds. Bring Senvial to 10% health and defeat Trenzar to release the spirit.",
+        "Once Senvial stops fighting, the eligible ranger should hail the freed spirit to advance the epic quest."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "natimbi/encounters/ranger_1_5.lua",
+        "sha256": "dc4220d5b90f894cb147cc589d5b8fb4b8ecdb27d8904389416239fbb2edf763"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

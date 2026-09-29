@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "hohonora-rhaliq-trell-s-trial",
+  "title": "Rhaliq Trell's trial",
+  "group": "Halls of Honor",
+  "type": "event",
+  "zone": {
+    "short_name": "hohonora",
+    "name": "Halls of Honor",
+    "version": 0
+  },
+  "npc_ids": [
+    211100,
+    211096,
+    211112,
+    211109,
+    211099,
+    211110,
+    211102,
+    211104,
+    211106,
+    211092,
+    211094,
+    211108
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defend Rhaliq Trell’s villagers and defeat the twelve named attackers.",
+  "overview": [
+    "Defend Rhaliq Trell’s villagers and defeat the twelve named attackers."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Speak to Rhaliq to reach the trial and kill its Custodian of Marr to begin.",
+        "The event places seven villagers and twelve named opponents in the trial area. Secure the attackers before they overwhelm the protected villagers.",
+        "The village gnome is a failure target. Keep defenders assigned to the villagers while the rest of the raid eliminates the named enemies.",
+        "After all twelve named opponents die, speak with Rhaliq’s projection for completion credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hohonora/encounters/Rhaliq_Trial.lua",
+        "sha256": "46b8698d1389c0214e9fb1653b472382235fb78688e7acd91b2f8766d34cf369"
+      },
+      {
+        "path": "hohonora/Rhaliq_Trell.lua",
+        "sha256": "e335020523027241d2a9efb2f2960172f3ef0c03a41b77d8a6e81d2d494ece87"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "ssratemple-emperor-ssraeshza-and-the-blood-seasonal",
+  "title": "Emperor Ssraeshza and the Blood (Seasonal)",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "ssratemple",
+    "name": "Ssraeshza Temple",
+    "version": 200
+  },
+  "npc_ids": [
+    162504,
+    162189
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The seasonal Emperor retains the Blood activation sequence and linked guard control.",
+  "overview": [
+    "The seasonal Emperor retains the Blood activation sequence and linked guard control."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Maintain guard control before and after the Emperor activates."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the Blood of Ssraeshza to start the Emperor's three-to-five-minute activation delay.",
+        "Both the Blood and Emperor continually bring their eight guards into combat.",
+        "The Emperor resets to his protected state on his one-hour reset timer.",
+        "Seasonal handling changes loot initialization and victory behavior; no extra health-gated mechanic is implemented here."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ssratemple/Emperor_Ssraeshza.lua",
+        "sha256": "540ffe15ecabeb15bf22d8f81c4bf779966a0e506c7fa70150a06e6fae33f0ff"
+      },
+      {
+        "path": "ssratemple/#Blood_of_Ssraeshza.lua",
+        "sha256": "e24abbd8cd0e5eb3b160ca02b416af4b6d8139436fcf1cc7ed5fba5024d3029f"
+      }
+    ],
+    "notes": [
+      "Approval E310. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

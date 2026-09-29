@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "chambersd-mastery-of-specialization",
+  "title": "Mastery of Specialization",
+  "group": "Muramite trials",
+  "type": "raid",
+  "zone": {
+    "short_name": "chambersd",
+    "name": "Muramite Proving Grounds",
+    "version": 2
+  },
+  "npc_ids": [
+    307007
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Master of Specialization cycles through spells that test the raid's adaptability.",
+  "overview": [
+    "The Master of Specialization cycles through spells that test the raid's adaptability."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "spell-cycle",
+      "name": "Specialization spell cycle",
+      "summary": "A repeating sequence of eight spells.",
+      "description": [
+        "Imprecision, Searing Pain, Rigidity, Chilling Agony, Curse of Misfortune, Glimmering Aura, Impurity and Toxic Blast are cast in order."
+      ],
+      "tags": [
+        "Adaptation"
+      ],
+      "roles": [],
+      "spell_ids": [
+        5700,
+        5723,
+        5701,
+        5724,
+        5702,
+        5725,
+        5703,
+        5726
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for a new spell in the scripted rotation every twenty-five seconds.",
+        "Adjust damage and support as each effect changes which tools are effective.",
+        "Maintain tank healing throughout the alternating weakening and damaging casts."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersd/encounters/mpg_specialization.lua",
+        "sha256": "034f2566989ec88e4b091bd191f58612d50193bda20a16a86bcc017ae60a93c0"
+      },
+      {
+        "path": "chambersd/script_init.lua",
+        "sha256": "e338d24f3918188b0363af77aa1b6bd82801b51a88a0f6857856b23284555250"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

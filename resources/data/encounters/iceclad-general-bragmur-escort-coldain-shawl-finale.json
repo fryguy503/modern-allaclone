@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "iceclad-general-bragmur-escort-coldain-shawl-finale",
+  "title": "General Bragmur escort (Coldain shawl finale)",
+  "group": "Quest battles",
+  "type": "event",
+  "zone": {
+    "short_name": "iceclad",
+    "name": "Iceclad Ocean",
+    "version": 0
+  },
+  "npc_ids": [
+    110227,
+    110219,
+    110109
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort General Bragmur across Iceclad and defend the Coldain shawl ceremony.",
+  "overview": [
+    "Escort General Bragmur across Iceclad and defend the Coldain shawl ceremony."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the general’s required preparations before beginning the march. Follow Bragmur through his route rather than racing ahead.",
+        "Wolves and giants ambush the escort at fixed waypoints. Pick them up quickly so they do not kill the general.",
+        "The later attacks include Kvarid and Vjorik. Hold a reserve for these named attackers while keeping the escort safe.",
+        "Remain through the final ceremony and follow the general’s dialogue to complete the quest sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "iceclad/110227.lua",
+        "sha256": "975e1aacb6cd8e4da373c3e9ca31ddd9b40f974c34fe4544185a941849e1791d"
+      },
+      {
+        "path": "iceclad/General_Bragmur.lua",
+        "sha256": "0b29db1d43575ea541c7a02d9cb372864194409a22a171d5e14660b73502ee50"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

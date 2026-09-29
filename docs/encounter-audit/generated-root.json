@@ -1,0 +1,44 @@
+[
+  {
+    "id": "E030",
+    "slug": "bothunder-agnarr-event",
+    "issues": [
+      "Publication blocker: Gozer creates version 0 and zone_status spawns Agnarr there, but Agnarr event_spawn depops him in every nonzero instance unless its version is 200. The static zone is allowed. Verify the intended normal expedition behavior before publishing this version."
+    ]
+  },
+  {
+    "id": "E031",
+    "slug": "bothunder-agnarr-event",
+    "issues": [
+      "Publication blocker: Gozer creates version 0 and zone_status spawns Agnarr there, but Agnarr event_spawn depops him in every nonzero instance unless its version is 200. The static zone is allowed. Verify the intended normal expedition behavior before publishing this version."
+    ]
+  },
+  {
+    "id": "E032",
+    "slug": "bothunder-agnarr-event",
+    "issues": [
+      "Publication blocker: Gozer creates version 0 and zone_status spawns Agnarr there, but Agnarr event_spawn depops him in every nonzero instance unless its version is 200. The static zone is allowed. Verify the intended normal expedition behavior before publishing this version."
+    ]
+  },
+  {
+    "id": "E030",
+    "slug": "bothunder-agnarr-event-seasonal",
+    "issues": [
+      "Version 200 is enforced directly in Agnarr event_spawn. Theta Sigma uses Custom:SeasonalInstanceVersion with fallback 200; verify the deployed rule also resolves to 200."
+    ]
+  },
+  {
+    "id": "E031",
+    "slug": "bothunder-agnarr-event-seasonal",
+    "issues": [
+      "Version 200 is enforced directly in Agnarr event_spawn. Theta Sigma uses Custom:SeasonalInstanceVersion with fallback 200; verify the deployed rule also resolves to 200."
+    ]
+  },
+  {
+    "id": "E032",
+    "slug": "bothunder-agnarr-event-seasonal",
+    "issues": [
+      "Version 200 is enforced directly in Agnarr event_spawn. Theta Sigma uses Custom:SeasonalInstanceVersion with fallback 200; verify the deployed rule also resolves to 200."
+    ]
+  }
+]

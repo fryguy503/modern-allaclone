@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "oasis-remal-the-black",
+  "title": "Remal the Black",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "oasis",
+    "name": "Oasis of Marr",
+    "version": 0
+  },
+  "npc_ids": [
+    37003,
+    37002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect Keelee through a personal paladin trial, then pursue Remal to the orc camp.",
+  "overview": [
+    "Protect Keelee through a personal paladin trial, then pursue Remal to the orc camp."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "An eligible paladin hails Keelee to start. During the initial ritual, other nearby characters are banished away; the initiator must handle the waves.",
+        "Four waves of four orcs arrive at two-minute intervals. All orcs must be dead when the final wave timer is checked or the event fails.",
+        "On success, Keelee and Remal move to another orc camp and Remal becomes attackable. Follow Keelee’s shout to the new location.",
+        "Defeat Remal within the final one-hour window, then the initiating paladin must hail Keelee for credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "oasis/encounters/paladin_epic.lua",
+        "sha256": "fa185a0b7472540c3c760b7d9709508c87970d7a3cd0cbffabd41a873496ae89"
+      },
+      {
+        "path": "oasis/script_init.lua",
+        "sha256": "846898b0faf5256441362954bcb3ba3bda559cb0a239799d45070b2d1e8d76e3"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

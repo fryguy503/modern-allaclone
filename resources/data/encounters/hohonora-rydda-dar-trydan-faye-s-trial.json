@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "hohonora-rydda-dar-trydan-faye-s-trial",
+  "title": "Rydda'Dar / Trydan Faye's trial",
+  "group": "Halls of Honor",
+  "type": "raid",
+  "zone": {
+    "short_name": "hohonora",
+    "name": "Halls of Honor",
+    "version": 0
+  },
+  "npc_ids": [
+    211105
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Trydan Faye’s trial culminates in a confrontation with Rydda’Dar.",
+  "overview": [
+    "Trydan Faye’s trial culminates in a confrontation with Rydda’Dar."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the trial’s Custodian of Marr to summon Rydda’Dar.",
+        "Gather and prepare before triggering the dragon; its availability is limited by a two-hour timer.",
+        "After Rydda’Dar falls, speak to Trydan Faye’s projection to complete the trial."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hohonora/#_A_Custodian_of_Marr.lua",
+        "sha256": "b958a8aabcade2e9ba8b044d0b5b30ff12dfcba87ffaa053fede1da579b469ef"
+      },
+      {
+        "path": "hohonora/#Rydda-Dar.lua",
+        "sha256": "d5cdf4ab8a239697c2823ace08c3eda3bfe3db393f7cc819db9e94538e2a088a"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

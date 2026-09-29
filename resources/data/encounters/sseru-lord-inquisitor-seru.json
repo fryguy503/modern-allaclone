@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "sseru-lord-inquisitor-seru",
+  "title": "Lord Inquisitor Seru",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "sseru",
+    "name": "Sanctus Seru",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Lord Inquisitor Seru remains bound to the time chamber.",
+  "overview": [
+    "Lord Inquisitor Seru remains bound to the time chamber."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Position the raid inside the chamber and maintain control when he returns to its center."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "During combat, the script checks the chamber boundary every second.",
+        "If he leaves the allowed rectangle, Seru moves back to the chamber center.",
+        "The script does not define a separate health-phase or wave sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sseru/Lord_Inquisitor_Seru.lua",
+        "sha256": "3b52b4602188159764430febb662af95502ff123df99ca59207080c8f67b68bb"
+      }
+    ],
+    "notes": [
+      "Approval E309. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Native spell lists and special defenses reside in database data and are not established by the tether script.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

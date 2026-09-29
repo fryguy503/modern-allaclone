@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "slug": "delveb-tirranun-fanning-the-flames",
+  "title": "Tirranun: Fanning the Flames",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "delveb",
+    "name": "Tirranun's Delve",
+    "version": 5
+  },
+  "npc_ids": [
+    342066,
+    342065
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Tirranun survives his first defeat and returns in a stronger form.",
+  "overview": [
+    "Tirranun survives his first defeat and returns in a stronger form."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "opening-fight",
+      "label": "Opening fight",
+      "trigger": "Initial engagement",
+      "description": "Handle recurring tank banishment."
+    },
+    {
+      "id": "recovery",
+      "label": "Recovery",
+      "trigger": "First apparent defeat",
+      "description": "Tirranun becomes protected and regenerates while ash adds appear."
+    },
+    {
+      "id": "renewed-assault",
+      "label": "Renewed assault",
+      "trigger": "Recovery reaches its final threshold",
+      "description": "Tirranun returns with increased health and damage, faster adds and further area attacks."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep a backup tank ready for banishment of the top-threat target in the opening fight.",
+        "The first apparent death begins a recovery period; continue controlling the ash adds.",
+        "As Tirranun regenerates, add spawns accelerate before he becomes attackable again.",
+        "Spread healing coverage for his recurring area attacks and respect the unstable bridge approach."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delveb/#Tirranun.lua",
+        "sha256": "01c6cf7590264abd441c36b328b60c7d1795e7d538ec5ed55bc535bc00c11511"
+      },
+      {
+        "path": "delveb/encounters/fanning_the_flames.lua",
+        "sha256": "9c57c97521818af83e110b6fdb79cc23fdf91a148e2447ba63a284d4384c3032"
+      },
+      {
+        "path": "delveb/script_init.lua",
+        "sha256": "6f292e1cb86d73e20d15cbb7394fa780e7cf10e9175dd4b72dd7f6176b66e39a"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 5."
+    ]
+  }
+}

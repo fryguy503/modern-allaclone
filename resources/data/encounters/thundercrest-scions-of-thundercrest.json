@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-scions-of-thundercrest",
+  "title": "Scions of Thundercrest",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 7
+  },
+  "npc_ids": [
+    340010,
+    340011,
+    340012
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Find the hidden tomes and use their words to challenge the three scions.",
+  "overview": [
+    "Find the hidden tomes and use their words to challenge the three scions."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Loot the matching tome before speaking its phrase and prepare before each challenge."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Three sealed chests appear at distinct random locations.",
+        "After satisfying the matching tome task objective, say 'Kor Lal Lir Toval' to the Wind, 'Vek Lal Lir Qualal' to the Storm, and 'Nil Lal Lir Keval' to the Sky.",
+        "A valid challenge removes that scion's protection and starts combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/scions_of_thundercrest.lua",
+        "sha256": "6363b2fdfb6b9c8c3879b93574857dbc57e16503dba44d05729571801015abd2"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E369. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The source marks the chest location list possibly incomplete; verify against deployed mission spawns."
+    ]
+  }
+}

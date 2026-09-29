@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "slug": "greatdivide-tenth-coldain-ring-war-narandi",
+  "title": "Tenth Coldain Ring War / Narandi",
+  "group": "Coldain rings",
+  "type": "raid",
+  "zone": {
+    "short_name": "greatdivide",
+    "name": "The Great Divide",
+    "version": 0
+  },
+  "npc_ids": [
+    118345,
+    118351,
+    118354
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defend the Coldain through three giant sieges and stop Narandi's escape.",
+  "overview": [
+    "Give Sentry Badain the ninth ring and declaration to begin the war briefing. Follow Aldikar's instructions and use Scout Zrelik to direct the allied forces.",
+    "The war advances through recruit, warrior and veteran sieges. Each siege advances after four of its designated leaders are defeated, then Narandi enters the battlefield."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Intercept advancing giants and keep pressure off Aldikar."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep the allied leadership alive while the raid covers the invasion routes."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Prioritize the designated siege leaders while stopping other giants from overrunning the defenders."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "siege-one",
+      "label": "First siege",
+      "trigger": "After the briefing",
+      "description": "Stop recruits and defeat four captains."
+    },
+    {
+      "id": "siege-two",
+      "label": "Second siege",
+      "trigger": "First siege completed",
+      "description": "Defeat warriors, their priest support and four generals."
+    },
+    {
+      "id": "siege-three",
+      "label": "Third siege",
+      "trigger": "Second siege completed",
+      "description": "Defeat veterans, high priests and four warlords."
+    },
+    {
+      "id": "narandi",
+      "label": "Narandi",
+      "trigger": "Two minutes after the final siege clears",
+      "description": "Intercept Narandi before he escapes. After killing him, follow Aldikar's instruction to return the head with the ring."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "failure",
+      "title": "Failure and recovery",
+      "paragraphs": [
+        "Aldikar's death before the victory stage ends the war in defeat. Narandi has both an escape route and a later timeout, so do not postpone engaging him."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "greatdivide/encounters/RingTen.lua",
+        "sha256": "2895a9a3cf0f53a30cdf86ae381aa26f67df1b37d106e9ea73551669f573b670"
+      },
+      {
+        "path": "greatdivide/Sentry_Badain.lua",
+        "sha256": "569458b6c09a9cb159579fda5b454d84accfa7b0f746c2bce6c5b1e3e4dcfd84"
+      }
+    ],
+    "notes": [
+      "Approved row E131. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "RingTen contains TODO testing and incomplete Thurgadin aftermath notes. Verify the complete war and reward turn-in in game before publication.",
+      "Narandi escape calls the simple-repopulation end branch despite a failure comment; this draft does not claim the defeat aftermath occurs on escape."
+    ]
+  }
+}

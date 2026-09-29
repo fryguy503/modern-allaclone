@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-twin-struggles",
+  "title": "Chambers of Twin Struggles",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 1
+  },
+  "npc_ids": [
+    294138,
+    294629
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Free the constrained servitors to weaken the two Malevolent Priests, then defeat the priests together.",
+  "overview": [
+    "Free the constrained servitors to weaken the two Malevolent Priests, then defeat the priests together."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each servitor death removes ten percent of a priest’s maximum health. Destroy all the constrained servitors to remove the priests’ protection.",
+        "The priests repeatedly attack nearby players with Malevolent Assault, Coordinated Strike or Malevolent Vex. Prepare for pressure before they become directly attackable.",
+        "Servitors can clear their hate list shortly after combat begins. Tanks should re-establish control rather than relying only on the initial pull.",
+        "Keep the priests inside their narrow encounter area. Both must die to complete the trial and close the expedition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/#Malevolent_Priest.lua",
+        "sha256": "9a1f11f10a70e805056afb94d1720d4aafe42367bafd5af315c4ce60fc56868e"
+      },
+      {
+        "path": "ikkinz/294086.lua",
+        "sha256": "3954de57f3ea323c56783427dcb9761d0e4d8a02ffa3adb9b4fb72e45242e7a9"
+      },
+      {
+        "path": "ikkinz/player.lua",
+        "sha256": "a3ba920abcba03ff3f0c73bab5a1f8466d3e0d48a06eb1b499e6b046ccd29317"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

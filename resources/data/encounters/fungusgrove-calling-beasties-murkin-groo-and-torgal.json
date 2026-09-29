@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "slug": "fungusgrove-calling-beasties-murkin-groo-and-torgal",
+  "title": "Calling Beasties (Murkin, Groo and Torgal)",
+  "group": "Luclin events",
+  "type": "event",
+  "zone": {
+    "short_name": "fungusgrove",
+    "name": "Fungus Grove",
+    "version": 0
+  },
+  "npc_ids": [
+    157004,
+    157006,
+    157003
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Choose a caller, survive repeating cavern waves, and return the contract to end the hunt.",
+  "overview": [
+    "Murkin, Groo and Torgal run variants of the same cavern hunt. Give the chosen caller a drink to begin, then follow after the one-minute preparation period.",
+    "Each wave brings three creatures. The caller pauses for five minutes after every five waves; larger drinks shorten the spacing within each set."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "start",
+      "title": "Choose the wave pace",
+      "paragraphs": [
+        "The small bottle sets three-minute spacing, the jug sets two-and-a-half-minute spacing, and the large keg sets two-minute spacing. The first wave begins ten seconds after the caller reaches the cavern position."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 28700,
+          "name": "Small Bottle of Blargrot",
+          "quantity": 1
+        },
+        {
+          "id": 28701,
+          "name": "Jug of Blargrot",
+          "quantity": 1
+        },
+        {
+          "id": 28702,
+          "name": "Huge Keg of Blargrot",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "finish",
+      "title": "End the hunt",
+      "paragraphs": [
+        "Return the contract to its caller when you want the waves to stop. The payout uses the number of waves called, not a verified kill counter, so do not assume every creature must die before cashing out."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 28703,
+          "name": "North Caller Contract",
+          "quantity": 1
+        },
+        {
+          "id": 28704,
+          "name": "South Caller Contract",
+          "quantity": 1
+        },
+        {
+          "id": 28705,
+          "name": "East Caller Contract",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fungusgrove/#Caller_Murkin.lua",
+        "sha256": "fec10afe60f7cf3bc4566b3ce4061f3dbe082f0d5608a5cbf442c8814fab9d91"
+      },
+      {
+        "path": "fungusgrove/#Caller_Groo.lua",
+        "sha256": "ff3678f82eed4dc46ae2fbaddd5fb17a3c223b58add36b55e5013aa47238256f"
+      },
+      {
+        "path": "fungusgrove/#Caller_Torgal.lua",
+        "sha256": "69171b349b6ff99cf70ac9c26548d5471cabf84f1fe569b1b16562d09e771dba"
+      }
+    ],
+    "notes": [
+      "Approved row E127. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "Shared timings and contract branches were checked in all three caller files. Rewards are described by their scripted rule without publishing unverified equipment loot."
+    ]
+  }
+}

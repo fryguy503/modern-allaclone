@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "lakeofillomen-scorpion-hatchling-ambush",
+  "title": "Scorpion hatchling ambush",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "lakeofillomen",
+    "name": "Lake of Ill Omen",
+    "version": 0
+  },
+  "npc_ids": [
+    85240
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A wizard’s preliminary epic challenge releases a ring of scorpion hatchlings.",
+  "overview": [
+    "A wizard’s preliminary epic challenge releases a ring of scorpion hatchlings."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The ambush is triggered when a qualifying wizard kills the prone quest target at the appropriate preliminary epic stage.",
+        "Twenty-seven hatchlings appear together around the target area. Assemble support and prepare to control a large simultaneous spawn.",
+        "One randomly selected hatchling carries the quest talisman. Check the defeated hatchlings to recover it."
+      ],
+      "items": [
+        {
+          "id": 16675,
+          "name": "Cursed Talisman",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lakeofillomen/#_.lua",
+        "sha256": "0ba60fa3c0ac4e61b16fd8c8aea890a1860b3777df4195b4e5f9d1f234392eb7"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Identify the prone trigger NPC bound to lakeofillomen/#_.lua and verify the player kill-credit requirement before publication; the file name does not reveal its template."
+    ]
+  }
+}

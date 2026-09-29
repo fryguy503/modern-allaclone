@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "poeartha-mystical-arbitor-of-earth",
+  "title": "Mystical Arbitor of Earth",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poeartha",
+    "name": "Vegarlson, the Earthen Badlands",
+    "version": 0
+  },
+  "npc_ids": [
+    218363
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Mystical Arbitor after progressing through the Earthen Badlands’ rings.",
+  "overview": [
+    "Defeat the Mystical Arbitor after progressing through the Earthen Badlands’ rings."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare before the Arbitor appears: it has a fifty-minute hard despawn timer.",
+        "Every twelve seconds in combat, it has a chance to wipe its hate list. Tanks should watch for a sudden target change and reclaim it quickly.",
+        "After the Arbitor dies, speak with the planar projection for progression credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poeartha/#A_Mystical_Arbitor_of_Earth.lua",
+        "sha256": "313316120b6528a0eff47a433ce7059a85272521e6cf9ae758cad56fa25572ed"
+      },
+      {
+        "path": "poeartha/zone_status.lua",
+        "sha256": "b6f03f4bfb2a78addac8a7c93d26116380efdaf5323110941c830b2853eeb81e"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

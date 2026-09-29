@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "illsalin-ritesmaster-verok",
+  "title": "Ritesmaster Verok",
+  "group": "Depths of Darkhollow",
+  "type": "raid",
+  "zone": {
+    "short_name": "illsalin",
+    "name": "Ruins of Illsalin",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Ritesmaster Verok seals his chamber and brings a growing spider threat into the battle.",
+  "overview": [
+    "Ritesmaster Verok seals his chamber and brings a growing spider threat into the battle."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Get the full group inside before pushing Verok below 95%, when the chamber doors lock.",
+        "Seven spider eggs appear at 90%. At 85%, the surrounding spider population is enabled and periodically joins Verok’s hate list.",
+        "At 20%, Verok signals the eggs again for the final stage. Keep add control available during the burn.",
+        "Pulling Verok out of his chamber resets him, clears the spiders and unlocks the doors. Leaving combat also schedules an eighteen-second reset.",
+        "His death clears the event’s eggs and spiders and opens both doors."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "illsalin/#Ritesmaster_Verok.lua",
+        "sha256": "51f5507905af2de2c04eb031dde66ce6fcf2059540b23e161c58fd755856fe37"
+      },
+      {
+        "path": "illsalin/a_spider_egg.lua",
+        "sha256": "76f395a911e260c96fdefb731ebe9472c4617efc17aef536061c3611beb481ed"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

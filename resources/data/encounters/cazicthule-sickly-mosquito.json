@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "cazicthule-sickly-mosquito",
+  "title": "Sickly mosquito",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "cazicthule",
+    "name": "Temple of Cazic-Thule",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken the sickly mosquito for the quest interaction and prepare for its final disease cast.",
+  "overview": [
+    "Weaken the sickly mosquito for the quest interaction and prepare for its final disease cast."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "At 25% health a capture check begins every fifteen seconds.",
+        "The ranger must have dealt damage and hold the required capture tool in the primary slot; keep the mosquito alive while waiting for the capture check.",
+        "If the mosquito dies, it casts Epidermal Rot on a random hated target."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "cazicthule/a_sickly_mosquito.lua",
+        "sha256": "49e931295b5182d02badccdb70b6ca42e9a3cbfbce2565a58dca706b8507e253"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

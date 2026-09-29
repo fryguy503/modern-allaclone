@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "thedeep-the-burrower-beast",
+  "title": "The Burrower Beast",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "thedeep",
+    "name": "The Deep",
+    "version": 0
+  },
+  "npc_ids": [
+    164098,
+    164134,
+    164127
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Enter the Burrower Beast's chamber to begin a prolonged sequence of burrowers and parasites.",
+  "overview": [
+    "Enter the Burrower Beast's chamber to begin a prolonged sequence of burrowers and parasites."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Plan for a long defense and keep at least one active player in the arena."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Entering the trigger area spawns a massive burrower and starts the first wave after 45 seconds.",
+        "The next wave ticks are five minutes apart: early waves contain twelve mixed burrowers, followed by six core burrowers and then parasite larvae.",
+        "A skipped wave creates a ten-minute gap before the final burrower parasite.",
+        "The controller resets when no non-feigned player remains in the encounter area."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thedeep/The_Burrower_Beast.lua",
+        "sha256": "b27cbeeb4da2544cb044ab9794155be70e61d7923e7149cf8eca4611d4df045e"
+      }
+    ],
+    "notes": [
+      "Approval E350. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Corrected the initial audit: the current event starts by proximity, not by killing the Burrower Beast. The orphan Burrower.lua controller is excluded."
+    ]
+  }
+}

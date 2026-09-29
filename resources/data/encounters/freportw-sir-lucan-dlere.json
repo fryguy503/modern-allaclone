@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "freportw-sir-lucan-dlere",
+  "title": "Sir Lucan D'Lere",
+  "group": "Classic quest encounters",
+  "type": "event",
+  "zone": {
+    "short_name": "freportw",
+    "name": "West Freeport",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prepare for a second form when the living Lucan falls.",
+  "overview": [
+    "Defeating Sir Lucan triggers a second NPC at his exact death position. Keep the group ready for another enemy instead of dispersing after the first kill."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "living-lucan",
+      "label": "Living Lucan",
+      "trigger": "Initial fight",
+      "description": "Defeat the living form."
+    },
+    {
+      "id": "second-form",
+      "label": "Second form",
+      "trigger": "Living Lucan defeated",
+      "description": "The death script spawns NPC template 9147 at the death location."
+    }
+  ],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "freportw/Sir_Lucan_D-Lere.lua",
+        "sha256": "932128a71ac17cf219165bb1afca48af8d0067c3b266bf8510736018ac500e24"
+      }
+    ],
+    "notes": [
+      "Approved row E125. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The living NPC template ID and identity/combat data for the spawned 9147 form require database verification. NPC links are intentionally empty."
+    ]
+  }
+}

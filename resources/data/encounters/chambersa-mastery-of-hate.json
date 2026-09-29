@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "slug": "chambersa-mastery-of-hate",
+  "title": "Mastery of Hate",
+  "group": "Muramite trials",
+  "type": "raid",
+  "zone": {
+    "short_name": "chambersa",
+    "name": "Muramite Proving Grounds",
+    "version": 2
+  },
+  "npc_ids": [
+    304017,
+    304019,
+    304023,
+    304024,
+    304025,
+    304026,
+    304027
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the ferans, then rotate tanks to control the Master of Hate's growing damage.",
+  "overview": [
+    "Clear the ferans, then rotate tanks to control the Master of Hate's growing damage."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "feran-mothers",
+      "label": "Feran mothers",
+      "trigger": "Opening",
+      "description": "Defeat the six mothers while controlling the direpups."
+    },
+    {
+      "id": "master-of-hate",
+      "label": "Master of Hate",
+      "trigger": "All mothers defeated",
+      "description": "Rotate the top-threat tank to reset the growing maximum hit."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Kill the feran mothers while controlling the direpups they produce.",
+        "When the master activates, rotate the top-threat tank deliberately.",
+        "His maximum hit rises while one tank remains on top; a detected tank change resets that escalation."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersa/encounters/mpg_hate.lua",
+        "sha256": "8cb1fdc1726cac237240a6bfb3d43bb032d5b7e9a9841b2f75f44fd9d934e8e5"
+      },
+      {
+        "path": "chambersa/script_init.lua",
+        "sha256": "d9d6d6c5af646e27814f85b9ba6e9a1f12a740691be37b6b9784ca0a4bd3924f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

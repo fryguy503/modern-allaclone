@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "yxtta-xounii-shifter-tqiv-trusik-fanatic",
+  "title": "Xounii Shifter / Tqiv Trusik Fanatic",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "yxtta",
+    "name": "Yxtta, Pulpit of Exiles",
+    "version": 0
+  },
+  "npc_ids": [
+    291123
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recognize the roaming creature's disguises and reveal the Xounii Shifter.",
+  "overview": [
+    "Recognize the roaming creature's disguises and reveal the Xounii Shifter."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep tracking the same enemy through its name and appearance changes."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The roaming fanatic changes between cragbeast, lifesipper and beetle appearances at set waypoints.",
+        "At50% health it reveals the Tqiv Trusik Fanatic form.",
+        "At15% it changes again to Xounii Shifter.",
+        "The reviewed script changes name and appearance but does not define additional timed attacks for those forms."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "yxtta/#Tqiv_Trusik_Fanatic.lua",
+        "sha256": "52372aefc201a523322af91dd5803b4535ffe541fbb667486c6d34fd7fe9932b"
+      }
+    ],
+    "notes": [
+      "Approval E412. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

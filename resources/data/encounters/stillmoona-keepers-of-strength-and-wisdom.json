@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-keepers-of-strength-and-wisdom",
+  "title": "Keepers of Strength and Wisdom",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 0
+  },
+  "npc_ids": [
+    338169,
+    338168,
+    338167
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Complete the Keepers' scroll challenges to release the Strength and Wisdom trials.",
+  "overview": [
+    "Complete the Keepers' scroll challenges to release the Strength and Wisdom trials."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare for all five Strength protectors before accepting that trial."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Give the Keeper of Strength the four required scrolls to reveal the Spirit Keeper.",
+        "Tell the Spirit Keeper you are worthy to summon five ancient protectors.",
+        "The Keeper of Wisdom accepts its separate four-scroll set and sends the party to Sung Li downstairs."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/#The_Keeper_of_Strength.lua",
+        "sha256": "81a174d22cddfa1970f411d432c7e37e91a2dcd0a1620e58e2afb67f498bc70b"
+      },
+      {
+        "path": "stillmoona/#The_Keeper_of_Wisdom.lua",
+        "sha256": "a3b386a0efbc7307108bb55859986fb87b3ce5b942df63897df2f47569b84e67"
+      },
+      {
+        "path": "stillmoona/#A_Spirit_Keeper.lua",
+        "sha256": "86735a04de6582a3cdbc03138f71251a3d26d50bb7370a41d1fdb1c8a67546da"
+      }
+    ],
+    "notes": [
+      "Approval E318. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The separate Sung Li Wisdom sequence needs a deeper publication review; this draft establishes both activation branches."
+    ]
+  }
+}

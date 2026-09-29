@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "slug": "riftseekers-craftmaster-tieranu",
+  "title": "Craftmaster Tieranu",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "riftseekers",
+    "name": "Riftseekers' Sanctum",
+    "version": 0
+  },
+  "npc_ids": [
+    334087,
+    334089,
+    334090,
+    334091,
+    334097,
+    334098,
+    334099,
+    334100,
+    334101
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Control Tieranu's summoned elementals and deny the final healing sacrifices.",
+  "overview": [
+    "A ranger at the required epic stage triggers Tieranu by entering the zone while the two-hour event cooldown is clear.",
+    "Tieranu summons Flamegore at 70%, Sizzle at 45% and Hotspot at 20%. Hotspot splits into five small elementals when killed.",
+    "At each 10% health crossing, Tieranu can sacrifice one remaining small elemental and recover 10% of maximum health. Clear those elementals before the final push."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "flamegore",
+      "label": "Flamegore",
+      "trigger": "70% health",
+      "description": "Pick up the first elemental."
+    },
+    {
+      "id": "sizzle",
+      "label": "Sizzle",
+      "trigger": "45% health",
+      "description": "Control the second elemental alongside any survivors."
+    },
+    {
+      "id": "hotspot",
+      "label": "Hotspot and fragments",
+      "trigger": "20% health",
+      "description": "Prepare for five small elementals when Hotspot dies."
+    },
+    {
+      "id": "sacrifice",
+      "label": "Deny the healing loop",
+      "trigger": "10% health",
+      "description": "Remove the small elementals so Tieranu cannot consume one to recover health."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "elementals",
+      "name": "Elemental spells",
+      "summary": "Elementals strip buffs and cast Heatwave at their current target.",
+      "description": [
+        "The buff-stripping action repeats every ten seconds after its initial random delay. Heatwave repeats every twenty seconds after its initial delay."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        3230,
+        5816
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "recovery",
+      "title": "Recovery",
+      "paragraphs": [
+        "Tieranu initially remains for thirty minutes. Combat pauses that timer; leaving combat starts a five-minute cleanup timer."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "riftseekers/encounters/ranger_2_0.lua",
+        "sha256": "4a433d86932d612454c222c70efdf354ac6ba90566017709f739985dc783fb30"
+      },
+      {
+        "path": "riftseekers/player.lua",
+        "sha256": "36245064429306fcd78ce32734061e83b5c014d74edea859ee721d6d48384773"
+      },
+      {
+        "path": "riftseekers/script_init.lua",
+        "sha256": "adab5178212a5fb0aa641773dfbd1a9ef4bf53c69cf4883b0188181ad05c9693"
+      }
+    ],
+    "notes": [
+      "Approved row E274. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "The cleanup function omits Sizzle (334090), although it removes the other elemental IDs. Verify leftover-add behavior before publication."
+    ]
+  }
+}

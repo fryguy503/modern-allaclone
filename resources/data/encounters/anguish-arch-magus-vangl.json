@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "slug": "anguish-arch-magus-vangl",
+  "title": "Arch Magus Vangl",
+  "group": "Anguish",
+  "type": "raid",
+  "zone": {
+    "short_name": "anguish",
+    "name": "Anguish, the Fallen Palace",
+    "version": 0
+  },
+  "npc_ids": [
+    317107,
+    317108
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Arch Magus Vangl combines shifting focus with dangerous recurring converts.",
+  "overview": [
+    "Defeat Vangl while killing the converts and removing Mark of Death before its delayed check. The scripted focus announcements do not themselves change his combat statistics."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Hold Vangl and collect each convert as it appears."
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Healers and support",
+      "tips": [
+        "Arrange reliable mark removal before the thirty-second check."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Prioritize growing converts before returning to Vangl."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "opening",
+      "label": "Opening",
+      "trigger": "Above 75%",
+      "description": "Control recurring converts and remove marks before they resolve."
+    },
+    {
+      "id": "faster-marks",
+      "label": "Faster marks",
+      "trigger": "Below 75%",
+      "description": "The next mark scheduling uses a sixty-second cycle instead of seventy-five seconds."
+    },
+    {
+      "id": "final-pressure",
+      "label": "Final pressure",
+      "trigger": "10%",
+      "description": "Vangl casts Feedback Dispersion. Finish while continuing the existing add and mark mechanics."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Remove Mark of Death before its thirty-second check; a remaining mark triggers Cazic Touch.",
+        "Kill languished converts quickly because their damage grows over time.",
+        "Below 75%, subsequent mark cycles are shorter. At 10%, prepare for Feedback Dispersion."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "anguish/encounters/amv.lua",
+        "sha256": "cd9da0e6f91b8abaca5774756556841fcd3c0d6404240afca5daabeefd5bf747"
+      },
+      {
+        "path": "anguish/script_init.lua",
+        "sha256": "01fa5cb9faa896b618877d74a33d7e46153f12bebab6daf61687db1e3bcd7a82"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The 75% and 50% health handlers otherwise provide dialogue and camera effects; no extra damage modifier is claimed."
+    ]
+  }
+}

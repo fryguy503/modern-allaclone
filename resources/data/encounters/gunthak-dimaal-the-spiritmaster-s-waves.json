@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "slug": "gunthak-dimaal-the-spiritmaster-s-waves",
+  "title": "Dimaal the Spiritmaster's waves",
+  "group": "Legacy of Ykesha",
+  "type": "event",
+  "zone": {
+    "short_name": "gunthak",
+    "name": "The Gulf of Gunthak",
+    "version": 0
+  },
+  "npc_ids": [
+    224115,
+    224444,
+    224448,
+    224439
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Choose a spirit challenge with Dimaal, then survive four waves in the Cave of the Damned.",
+  "overview": [
+    "Choose a spirit challenge with Dimaal, then survive four waves in the Cave of the Damned."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Give Dimaal four matching ritual bones while no challenge is running. Their condition selects the easy, medium or hard spirit set.",
+        "The first wave arrives after six seconds. Three further waves arrive at ten-minute intervals; waves are timed rather than gated by clearing every enemy.",
+        "The fourth wave includes the named spirit: Simati the Cursed, Tagai Darkheart or Phizan Crindo, depending on the chosen set.",
+        "Defeat casters alongside the fighters and clear each wave before the next timed arrival. A fleeing spirit can cause Dimaal to abandon the challenge."
+      ],
+      "items": [
+        {
+          "id": 56001,
+          "name": "Cracked Finger Bone",
+          "quantity": 4
+        },
+        {
+          "id": 56002,
+          "name": "Broken Finger Bone",
+          "quantity": 4
+        },
+        {
+          "id": 56003,
+          "name": "Pristine Finger Bone",
+          "quantity": 4
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gunthak/Dimaal_the_Spiritmaster.lua",
+        "sha256": "3dc3c1e0ae4b18165ea2a005d13322c7e6927f1b24097058b8eb00bfe60a6c4d"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "All three difficulty selections use the same zone version and wave controller; they are presented as selectable variants in one guide."
+    ]
+  }
+}

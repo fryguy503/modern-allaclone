@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "delveb-a-goblin-s-escort",
+  "title": "A Goblin's Escort",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "delveb",
+    "name": "Tirranun's Delve",
+    "version": 2
+  },
+  "npc_ids": [
+    342133,
+    342137,
+    342134,
+    342135,
+    342136,
+    342138
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort the goblins in order and confront the boss at the end of the route.",
+  "overview": [
+    "Escort the goblins in order and confront the boss at the end of the route."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Speak to Higglin and follow the mission dialogue stages in order.",
+        "Stay close to the currently moving goblin and clear enemies along its route.",
+        "Wait for each escort to arrive before trying the next conversation.",
+        "The final boss becomes hostile through dialogue, so regroup before speaking."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delveb/encounters/a_goblins_escort.lua",
+        "sha256": "2a60963fc1481fd9c93b64b10342a80ccd59a642c1b9f1e6b6bb3df6731947bd"
+      },
+      {
+        "path": "delveb/script_init.lua",
+        "sha256": "6f292e1cb86d73e20d15cbb7394fa780e7cf10e9175dd4b72dd7f6176b66e39a"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

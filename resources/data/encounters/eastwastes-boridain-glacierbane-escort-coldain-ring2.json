@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-boridain-glacierbane-escort-coldain-ring2",
+  "title": "Boridain Glacierbane escort (Coldain ring2)",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    116597
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect Boridain on his hunt and defeat the rabid kodiak at the end.",
+  "overview": [
+    "Protect Boridain on his hunt and defeat the rabid kodiak at the end."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The quest hand-in starts Boridain's route.",
+        "Stay with him through his food and rest stops.",
+        "At the final stop, defeat the rabid tundra kodiak and return the requested proof to Boridain."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/Boridain_Glacierbane.lua",
+        "sha256": "5361e11881607680cb2d442c7a4c9647de5be6f0626fdf3a4bd890147f122a2b"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The kodiak template is verified from its spawn call; Boridain's template ID is not independently resolved."
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "wakening-cristoc-bonethug",
+  "title": "Cristoc Bonethug",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "wakening",
+    "name": "The Wakening Land",
+    "version": 0
+  },
+  "npc_ids": [
+    119182,
+    119183
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Face Cristoc Bonethug and his five mercenaries during the bard prequest.",
+  "overview": [
+    "Face Cristoc Bonethug and his five mercenaries during the bard prequest."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare control for six opponents and finish the encounter before idle cleanup."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Lantaric Dar's quest interaction summons Cristoc.",
+        "Cristoc immediately creates five Bonethug mercenaries.",
+        "Cristoc and the mercenaries each have a thirty-minute out-of-combat despawn timer that stops while engaged."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wakening/Cristoc_Bonethug.lua",
+        "sha256": "b5b2042b4936e4f3b3647a675c0085473db8e66a57797751c28e08b5ee5645ca"
+      },
+      {
+        "path": "wakening/#Lantaric-Dar.lua",
+        "sha256": "19a7444e86ba1289b81441742895df77fea269b6a645884143c74497b23fc814"
+      },
+      {
+        "path": "wakening/a_Bonethug_mercenary.lua",
+        "sha256": "1981dcc6d79d77110606ee5bd764f40b2fa58afa803982b86ec0fd8b582bf734"
+      }
+    ],
+    "notes": [
+      "Approval E393. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The audit described linked aggression, but these reviewed scripts only verify the spawns and despawn timers; database social aggro remains unverified."
+    ]
+  }
+}

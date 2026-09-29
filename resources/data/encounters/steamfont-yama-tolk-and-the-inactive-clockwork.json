@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "steamfont-yama-tolk-and-the-inactive-clockwork",
+  "title": "Yama Tolk and the Inactive Clockwork",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "steamfont",
+    "name": "Steamfont Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    56189,
+    56190
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Help Yama recharge the inactive clockwork by casting precisely on his cues.",
+  "overview": [
+    "Help Yama recharge the inactive clockwork by casting precisely on his cues."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare the required spell before starting and wait for each charge prompt."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A qualifying wizard follows the battery dialogue and says ready to start the test.",
+        "Four charge stages provide five-second response windows; the script accepts spell 5596 while the charge window is active.",
+        "Missing a cue fails the trial and resets the setup.",
+        "After the fourth charge, the final stage advances the wizard's quest."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "steamfont/encounters/wizard_pre_15.lua",
+        "sha256": "0733f59212c9b909042c942d39ebdda895f2d088d7a84b5066c677958a96ccd1"
+      }
+    ],
+    "notes": [
+      "Approval E314. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The callback comment claims same-player enforcement, but the cast callback should be audited before relying on that restriction."
+    ]
+  }
+}

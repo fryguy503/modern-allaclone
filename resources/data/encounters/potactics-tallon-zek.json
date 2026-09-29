@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "potactics-tallon-zek",
+  "title": "Tallon Zek",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "potactics",
+    "name": "Drunder, the Fortress of Zek",
+    "version": 0
+  },
+  "npc_ids": [
+    214026
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Tallon Zek teleports around his chamber and repeatedly switches targets.",
+  "overview": [
+    "Tallon Zek teleports around his chamber and repeatedly switches targets."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Expect a shadowstep every six to eighteen seconds. Reposition without scattering the group outside the chamber.",
+        "His hate changes favor a player at 30% health or lower when one is available. Keep injured players topped up and tank pickups ready.",
+        "Players close to Tallon can trigger Avatar Power, an area knockback on a twenty-second cycle after the opening check.",
+        "After victory, hail the planar projection promptly; it remains for ten minutes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potactics/encounters/tallon_event.lua",
+        "sha256": "69925593a50b53001529e3e47a451b0f750a599c9786ce518cffb5bb4c07febd"
+      },
+      {
+        "path": "potactics/script_init.lua",
+        "sha256": "12ce61a2e2ee0298c1251e84237be7e97e46b70305e9492aa1bb6033968b6441"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

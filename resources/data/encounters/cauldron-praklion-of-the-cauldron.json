@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "cauldron-praklion-of-the-cauldron",
+  "title": "Praklion of the Cauldron",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "cauldron",
+    "name": "Dagnor's Cauldron",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Praklion retreats twice before the quest fight can be completed.",
+  "overview": [
+    "Praklion retreats twice before the quest fight can be completed."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "At 70% and 30%, Praklion wipes threat and moves to a new location.",
+        "Follow the retreat and wait for the brief immunity to end before rebuilding threat.",
+        "Allow both retreats to happen; the second stage enables the quest-specific drop."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "cauldron/Praklion_of_the_Cauldron.lua",
+        "sha256": "f338617bbc281aa314d6ac042c330d4eeb9c9ff4096b1c8bc4e0abbad216afe1"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

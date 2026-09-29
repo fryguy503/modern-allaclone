@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "skyfire-talendor-seasonal",
+  "title": "Talendor (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "skyfire",
+    "name": "Skyfire Mountains",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Talendor pressures nearby players with flame bursts and repeated random-target attacks.",
+  "overview": [
+    "Talendor pressures nearby players with flame bursts and repeated random-target attacks."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the raid stable through the timer phase, then use the final vulnerability window."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Flameburst pulses every 12 seconds within 60 range.",
+        "Every 25 seconds, Incinerate attempts attacks on three randomly chosen hate targets.",
+        "At 20% health the scripted timers stop and both one- and two-handed piercing and blunt attacks become more effective."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "skyfire/Talendor.lua",
+        "sha256": "496f5e3afa5612930f0321da902926fb4a26168b581e8f8a4c540324ba5f45eb"
+      }
+    ],
+    "notes": [
+      "Approval E289. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

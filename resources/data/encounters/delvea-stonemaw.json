@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "delvea-stonemaw",
+  "title": "Stonemaw",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "delvea",
+    "name": "Lavaspinner's Lair",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Stonemaw enters combat with three supporting enemies.",
+  "overview": [
+    "Stonemaw enters combat with three supporting enemies."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare to collect Magma, Molten and Smolder when Stonemaw is engaged.",
+        "Keep the boss tank covered while the group reduces the three-add pressure.",
+        "An out-of-combat timer removes the summoned support after an extended break."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delvea/Stonemaw.lua",
+        "sha256": "6854ed53d6c46d86e02e20394e7025e907f0dbc3baf1e77fe6c785a01c6e689a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

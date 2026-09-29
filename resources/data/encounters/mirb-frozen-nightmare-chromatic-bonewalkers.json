@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "mirb-frozen-nightmare-chromatic-bonewalkers",
+  "title": "Frozen Nightmare: chromatic bonewalkers",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "mirb",
+    "name": "The Frozen Nightmare",
+    "version": 2
+  },
+  "npc_ids": [
+    237756,
+    237791,
+    237757,
+    237789
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Turn all four chromatic bonewalkers into icy bonewalkers at the same time.",
+  "overview": [
+    "Turn all four chromatic bonewalkers into icy bonewalkers at the same time."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each bonewalker cycles through gray, brown, red and icy forms as it is defeated.",
+        "Stop attacking once a bonewalker becomes icy. Killing an icy form returns it to gray and removes it from the completion count.",
+        "Control completed icy forms while finishing the remaining color cycles. Four simultaneous icy bonewalkers complete the event."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mirb/encounters/skeletons.lua",
+        "sha256": "cb67984bdedbb20a65ff44528777495dab616fd18b02227d618bf25ab4730c19"
+      },
+      {
+        "path": "mirb/Durgin_Skell.lua",
+        "sha256": "99831efade55a74e132169508b07e06efabf0303eef46b72aeb221d51874ab53"
+      },
+      {
+        "path": "mirb/zone_status.lua",
+        "sha256": "96d9679db47451ca1aee2939a2031350082177f37096e12f1be94665fa99b540"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

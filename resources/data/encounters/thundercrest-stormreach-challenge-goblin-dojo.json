@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-stormreach-challenge-goblin-dojo",
+  "title": "Stormreach Challenge: Goblin Dojo",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 10
+  },
+  "npc_ids": [
+    340616,
+    340617,
+    340618
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prove your group against the dojo's successive schools and its final master.",
+  "overview": [
+    "Prove your group against the dojo's successive schools and its final master."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Stay inside the dojo and use the scripted pauses to recover before each new school."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Students",
+      "trigger": "Challenge begins",
+      "description": "Defeat the elemental, emotional and animal schools in order."
+    },
+    {
+      "id": "phase-2",
+      "label": "Silk and Steel",
+      "trigger": "Students defeated",
+      "description": "Control the paired masters together."
+    },
+    {
+      "id": "phase-3",
+      "label": "Sensei",
+      "trigger": "After the congratulatory dialogue",
+      "description": "Remain ready for the final master rather than leaving the dojo."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Six players in the dojo start the challenge.",
+        "Defeat five elemental disciples, four emotional disciples, three animal disciples, then Silk and Steel together.",
+        "After the apparent congratulations, the Sensei becomes the final opponent.",
+        "The dojo boundary leashes enemies back and an empty room can fail the current stage."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/goblin_dojo.lua",
+        "sha256": "85459be92b4cdc53a86be7c5d2ce7d5594ed49f90574c092d734b0b8f0d1c5b7"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E372. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The controller intentionally enables a historical retry bug after early-wave failure; later reset behavior must be verified before documenting guaranteed retries."
+    ]
+  }
+}

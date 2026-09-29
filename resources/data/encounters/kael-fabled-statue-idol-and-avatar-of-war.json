@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "kael-fabled-statue-idol-and-avatar-of-war",
+  "title": "Fabled Statue, Idol and Avatar of War",
+  "group": "Fabled expeditions",
+  "type": "raid",
+  "zone": {
+    "short_name": "kael",
+    "name": "Kael Drakkel",
+    "version": 0
+  },
+  "npc_ids": [
+    113006,
+    113005,
+    113000
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight through the Fabled Statue and Idol to summon the Fabled Avatar of War.",
+  "overview": [
+    "Fight through the Fabled Statue and Idol to summon the Fabled Avatar of War."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Engaging the Statue calls the Armor of Zek for assistance. Clear or control the defenders while finishing the Statue.",
+        "The Statue’s death summons the Idol; the Idol’s death summons the Avatar of War.",
+        "The Avatar has a one-hour availability timer that pauses while it is engaged and resumes outside combat.",
+        "Each defeated stage records its own fabled lockout, allowing expedition state to restore the appropriate remaining stage."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kael/encounters/fabled_kael_encounter.lua",
+        "sha256": "304c0b71fe5d369d7c3be6ccf80ec325cf2ad847a7aec112aa9b1297fc349fa7"
+      },
+      {
+        "path": "kael/zone_status.lua",
+        "sha256": "883e775bc9ef4e8b09a49af8df68bf9df3648802581937c5befd34de4cd0e869"
+      },
+      {
+        "path": "kael/#Gozer_The_Gatekeeper.lua",
+        "sha256": "3701d12fe92fab8c81bb2cdc91bd83bf1d41cc75236f00d0c5e963db8389148b"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The fabled expedition explicitly uses zone version 0; its NPC templates and expedition state distinguish it from ordinary Kael."
+    ]
+  }
+}

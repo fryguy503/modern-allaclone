@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "slug": "warslikswood-raving-goblinmaster",
+  "title": "Raving Goblinmaster",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "warslikswood",
+    "name": "Warsliks Woods",
+    "version": 0
+  },
+  "npc_ids": [
+    79127,
+    79126,
+    79129,
+    79128
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Chase the goblinmaster through timed goblin waves before challenging his final form.",
+  "overview": [
+    "Chase the goblinmaster through timed goblin waves before challenging his final form."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Finish each wave quickly and move together to the next stage."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At the required berserker quest stage, say 'ready' to begin the chase.",
+        "Defeat three waves of five frantic goblins, then three ferocious goblins. Each wave has a one-minute failure deadline.",
+        "The goblinmaster moves onward between waves, so keep track of his route while clearing the current group.",
+        "Completing the final wave spawns the hostile goblinmaster. His ten-minute idle timer pauses in combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "warslikswood/Raving_Goblinmaster.lua",
+        "sha256": "4b7251b12492d90a163583d5e70539a119b4628c535394e1376aaac054d7bb8e"
+      },
+      {
+        "path": "warslikswood/#Raving_Goblinmaster.lua",
+        "sha256": "57395410a3cd1e09f36c5c1b40a69828fd52d7a87ebb2505908911adde2b2b5a"
+      },
+      {
+        "path": "warslikswood/a_frantic_goblin.lua",
+        "sha256": "3e58ebd30af132fbd998f2d19f0ff080896066e946ebd9a10ab5cd911494c791"
+      }
+    ],
+    "notes": [
+      "Approval E402. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

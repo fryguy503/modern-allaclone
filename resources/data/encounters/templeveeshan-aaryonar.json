@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "templeveeshan-aaryonar",
+  "title": "Aaryonar",
+  "group": "Scars of Velious",
+  "type": "raid",
+  "zone": {
+    "short_name": "templeveeshan",
+    "name": "Temple of Veeshan",
+    "version": 0
+  },
+  "npc_ids": [
+    124010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Engaging Aaryonar also brings the linked named guards into combat.",
+  "overview": [
+    "Engaging Aaryonar also brings the linked named guards into combat."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare tanks or control for the linked guards before the pull."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "If still alive, Kal`Vunar and Nir`Tan immediately add the puller to their hate lists.",
+        "The quest script defines this linked pull but does not add a timed health-phase sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "templeveeshan/#Aaryonar.lua",
+        "sha256": "12400db37b65052bc2c52cd71e15c60327b9eff8a073c07e2692a13ad4f7e293"
+      }
+    ],
+    "notes": [
+      "Approval E341. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  }
+}

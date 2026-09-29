@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "yxtta-hexxt-huntmaster",
+  "title": "Hexxt Huntmaster",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "yxtta",
+    "name": "Yxtta, Pulpit of Exiles",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keep the group recovered through the Huntmaster's late-fight arrow volleys.",
+  "overview": [
+    "Keep the group recovered through the Huntmaster's late-fight arrow volleys."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Expect unpredictable bursts below 45% and maintain group healing."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The Huntmaster takes reduced archery damage from the start.",
+        "At45% health, a twenty-second timer begins checking for a volley of random-target arrows.",
+        "Healing back through 45% or leaving combat stops that timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "yxtta/#Hexxt_Huntmaster.lua",
+        "sha256": "5b70a17eeb16435d09747c9294fb9242fbbb0f9c467e502bc8c35d43759fc4f7"
+      }
+    ],
+    "notes": [
+      "Approval E409. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The volley handler only covers hate-list sizes one through six; behavior above six targets needs verification.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

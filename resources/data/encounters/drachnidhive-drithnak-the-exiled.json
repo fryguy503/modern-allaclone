@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "drachnidhive-drithnak-the-exiled",
+  "title": "Drithnak the Exiled",
+  "group": "Depths of Darkhollow",
+  "type": "group",
+  "zone": {
+    "short_name": "drachnidhive",
+    "name": "The Hive",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Drithnak creates egg sacs during a fight that must stay inside its area.",
+  "overview": [
+    "Drithnak creates egg sacs during a fight that must stay inside its area."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep the boss near its encounter position to avoid the out-of-bounds response.",
+        "Expect egg sacs on a recurring timer and have someone watch their locations.",
+        "Control the resulting pressure while maintaining steady boss damage."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "drachnidhive/#Drithnak_the_Exiled.lua",
+        "sha256": "978cdd8a6c58a246c1a2361a69f36242a3d0c173028dabb7f317b4b3c7fd466d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Combat starts a timer named agro but the handler checks aggro; the intended periodic hate-link behavior needs runtime verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

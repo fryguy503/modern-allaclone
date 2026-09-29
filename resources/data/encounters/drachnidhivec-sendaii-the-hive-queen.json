@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "drachnidhivec-sendaii-the-hive-queen",
+  "title": "Sendaii the Hive Queen",
+  "group": "Depths of Darkhollow",
+  "type": "raid",
+  "zone": {
+    "short_name": "drachnidhivec",
+    "name": "Queen Sendaii's Lair",
+    "version": 1
+  },
+  "npc_ids": [
+    357016,
+    357011
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive the Hive Queen's waves, destroy her reflections and finish the final swarm.",
+  "overview": [
+    "Survive the Hive Queen's waves, destroy her reflections and finish the final swarm."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the staged hive defenders before committing to the queen.",
+        "At 75%, Sendaii splits into reflections. Eliminate the false images before driving the real queen to 45%.",
+        "At 45%, remaining images are absorbed and strengthen the queen.",
+        "At 25%, prepare for the swarm and preserve enough healing to finish.",
+        "Keep the final phase engaged; a prolonged loss of combat can reset it."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "drachnidhivec/encounters/Sendaii.lua",
+        "sha256": "d95204bdff708a1bd105f2b058e7ca3b70e23929c8bfb8bf23ec603bb2062fa9"
+      },
+      {
+        "path": "drachnidhivec/script_init.lua",
+        "sha256": "1e0d780868e8b0093d4b4b096efd0d93275b065876f91e80d6a895f7c9e53387"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1.",
+      "Curse strength depends on the character's curse progression. Full spell effects and live swarm balance have not been independently verified."
+    ]
+  }
+}

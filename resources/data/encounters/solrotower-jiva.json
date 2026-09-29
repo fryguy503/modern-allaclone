@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-jiva",
+  "title": "Jiva",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212014
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Jiva calls a repeating sequence of eight efreeti helpers.",
+  "overview": [
+    "Jiva calls a repeating sequence of eight efreeti helpers."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign immediate pickup of each arriving efreeti."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "An efreeti arrives every 30 seconds during combat and attacks a random hate-list target.",
+        "The eight-helper sequence loops while the fight continues.",
+        "Ten minutes out of combat resets the counter and removes the helpers. Victory creates a planar projection."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/Jiva.lua",
+        "sha256": "2c41cdc1aa509f2f1ef0954b3edec113e4362b6e0b335799fd1a7e6512e9b547"
+      }
+    ],
+    "notes": [
+      "Approval E304. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

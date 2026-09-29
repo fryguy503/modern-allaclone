@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "taka-takish-hiz-adventures-shared-rules",
+  "title": "Takish-Hiz adventures (shared rules)",
+  "group": "Lost Dungeons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "taka",
+    "name": "Takish-Hiz",
+    "version": 1
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Complete the selected Takish-Hiz adventure while managing its timer and scaled enemies.",
+  "overview": [
+    "Complete the selected Takish-Hiz adventure while managing its timer and scaled enemies."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Check the active mission status and prioritize the required objective."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The adventure selects its objective, level and difficulty from the request data.",
+        "Assassination targets appear after the required kills; collection completion counts looted objective items.",
+        "Optional named enemies and traps vary the route, while success before or after the main timer determines full or partial credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "taka/encounters/tak.lua",
+        "sha256": "8a586bd0cd76068fcb8901b5b45e5c57f47447ce3a0730fcc0b38def721f0d72"
+      }
+    ],
+    "notes": [
+      "Approval E338. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Version 1 is the standard adventure mapping and needs confirmation against the deployed taka launcher.",
+      "Rescue is listed as a type but lacks an explicit completion path in the reviewed theme controller.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

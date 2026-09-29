@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-solusek-ro",
+  "title": "Solusek Ro",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212025
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Solusek Ro in his elevated chamber and claim the progression projection.",
+  "overview": [
+    "Defeat Solusek Ro in his elevated chamber and claim the progression projection."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the fight on the intended chamber floor."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Every six seconds of combat, Solusek checks whether he has been pulled below the chamber's allowed height.",
+        "If pulled below the height boundary, he returns to bind and clears his hate list.",
+        "Victory creates a planar projection and signals the tower's progression controller."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/Solusek_Ro.lua",
+        "sha256": "607b0d53e52028b0f7c056a89e2ae058d92c49652327964280c2b70243ff84e6"
+      }
+    ],
+    "notes": [
+      "Approval E307. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

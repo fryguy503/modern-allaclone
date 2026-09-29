@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-sickness-of-the-spirit",
+  "title": "Sickness of the Spirit",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 1
+  },
+  "npc_ids": [
+    338404,
+    338406,
+    338407
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Trace the temple sickness through Nethran, the stolen scroll and Wong Li's betrayal.",
+  "overview": [
+    "Trace the temple sickness through Nethran, the stolen scroll and Wong Li's betrayal."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare for new enemies at each dialogue and handoff, especially the final return to Wong Li."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The forest keeper's handoff reveals Wong Li, whose dialogue creates the bathhouse trigger.",
+        "Crossing that trigger brings Nethran and two goblin laborers.",
+        "Return the clue to unlock the librarian, then question the librarian to spawn the scroll thief and three underlings.",
+        "The final handoff makes Wong Li attackable."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/sickness_of_the_spirit.lua",
+        "sha256": "4f363187754d71235f595d3f9a8ec4e44ef86c2ef03449465273b42338722b08"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E320. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

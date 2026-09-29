@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "steamfont-cargo-clockwork-ambush",
+  "title": "Cargo Clockwork ambush",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "steamfont",
+    "name": "Steamfont Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    56178,
+    56179,
+    56180
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow the Cargo Clockwork to the ambush on its delivery route.",
+  "overview": [
+    "Follow the Cargo Clockwork to the ambush on its delivery route."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Stay with the clockwork and prepare for the three-enemy ambush."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The delivery trigger starts the clockwork's path and establishes a two-hour event lock.",
+        "At the ambush waypoint, Hector, Renaldo and Jerald appear around the stopped clockwork.",
+        "The route later returns the clockwork to its start; its death signals cleanup to the three ambushers."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "steamfont/Cargo_Clockwork.lua",
+        "sha256": "b717414be887961d2d7596d9fe6b6f5c3c29e6b699d203c090bf86fd39066701"
+      }
+    ],
+    "notes": [
+      "Approval E313. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "slug": "anguish-ture",
+  "title": "Ture",
+  "group": "Anguish",
+  "type": "raid",
+  "zone": {
+    "short_name": "anguish",
+    "name": "Anguish, the Fallen Palace",
+    "version": 0
+  },
+  "npc_ids": [
+    317003
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Ture alternates heavy attacks with a clearly announced area rampage.",
+  "overview": [
+    "Ture alternates ordinary combat with a short area-rampage window. Move the melee group out on the warning, keep the main tank covered, then return when the rampage ends."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "combat",
+      "label": "Combat",
+      "trigger": "Between rampages",
+      "description": "Maintain boss damage and heal through breath and destruction casts."
+    },
+    {
+      "id": "rampage-warning",
+      "label": "Rampage warning",
+      "trigger": "Six-second warning",
+      "description": "Move vulnerable melee players out of the area."
+    },
+    {
+      "id": "area-rampage",
+      "label": "Area rampage",
+      "trigger": "Ten seconds",
+      "description": "Keep healing on the tank and wait for the rampage to end before moving back in."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Melee should move out when the rampage warning begins.",
+        "The warning gives six seconds before a ten-second area-rampage window. Return after it ends.",
+        "Keep the tank covered through recurring breath and destruction casts."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "anguish/encounters/ture.lua",
+        "sha256": "b196fd0a8623a0bc77f34228c81d98973548e71cf5e74e72712cec27a6ebd4a0"
+      },
+      {
+        "path": "anguish/script_init.lua",
+        "sha256": "01fa5cb9faa896b618877d74a33d7e46153f12bebab6daf61687db1e3bcd7a82"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "iceclad-noble-oldencamp-and-the-necromancer-delegation",
+  "title": "Noble Oldencamp and the necromancer delegation",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "iceclad",
+    "name": "Iceclad Ocean",
+    "version": 0
+  },
+  "npc_ids": [
+    110123,
+    110128,
+    110127,
+    110126,
+    110125
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Noble Oldencamp arrives with an armed delegation after Vas Thorel’s quest exchange.",
+  "overview": [
+    "Noble Oldencamp arrives with an armed delegation after Vas Thorel’s quest exchange."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for the full delegation before the trigger: Oldencamp arrives with Amilia Verisue, Xeegarn, Puella Opalis, Locis Vera and six additional escorts or warriors.",
+        "Separate the supporting opponents from the principal target so the group can control the large initial pull.",
+        "The delegation has a one-hour cleanup timer. Complete the required kills and quest steps before the visit ends."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "iceclad/#Vas_Thorel.lua",
+        "sha256": "042122c9d2129be10e4bf4c27c47b34bb48bb5202fc81cc05456576b9d6288b3"
+      },
+      {
+        "path": "iceclad/#Noble_Oldencamp.lua",
+        "sha256": "d3a3493d0e13832405693b911cf9681114cf839e8233e818216b96a38651a199"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

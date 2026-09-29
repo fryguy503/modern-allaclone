@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-slavedriver-menlo",
+  "title": "Slavedriver Menlo",
+  "group": "Omens of War",
+  "type": "event",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Menlo repeatedly forces refugee groups into battle.",
+  "overview": [
+    "Menlo repeatedly forces refugee groups into battle."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep a tank available for refugees while the main tank holds Menlo.",
+        "A new refugee group is called every minute, cycling through five groups.",
+        "Idle refugees can be drawn into the fight between calls, so watch the whole area."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/#Slavedriver_Menlo.lua",
+        "sha256": "78a6add57f02652f213a56331c56d4806c989001a3fec4a69b8d535da75e808b"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

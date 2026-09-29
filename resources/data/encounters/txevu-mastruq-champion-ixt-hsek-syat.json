@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "slug": "txevu-mastruq-champion-ixt-hsek-syat",
+  "title": "Mastruq Champion / Ixt Hsek Syat",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "txevu",
+    "name": "Txevu, Lair of the Elite",
+    "version": 0
+  },
+  "npc_ids": [
+    297209,
+    297034,
+    297211
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Honor the arena's opening duel, then fight the champion and Ixt Hsek Syat inside the pit.",
+  "overview": [
+    "Honor the arena's opening duel, then fight the champion and Ixt Hsek Syat inside the pit."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Choose one duelist and avoid pets or outside healing that could join the Runt's hate list.",
+        "After the duel, assign both bosses and the remaining arena adds."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "The duel",
+      "trigger": "Runt appears",
+      "description": "A single combatant must defeat the Runt without assistance."
+    },
+    {
+      "id": "phase-2",
+      "label": "Arena finale",
+      "trigger": "Runt defeated",
+      "description": "Control both named opponents and the fighters they call."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Entering the arena starts the dialogue and summons the Runt for a solo challenge.",
+        "More than one entry on the Runt's hate list counts as cheating and activates the spectators and champion.",
+        "Killing the Runt summons Ixt and makes the champion vulnerable.",
+        "At 90%, Ixt calls the remaining arena fighters; at 20%, he calls the champion if free. The champion also calls Ixt at 20%.",
+        "The arena opponents return and reset hate when pulled outside the pit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "txevu/encounters/champ.lua",
+        "sha256": "00b40e580fc3363b66cb87288b90ae73e7b150e8f2d0209e3ff0305e1867221a"
+      }
+    ],
+    "notes": [
+      "Approval E382. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

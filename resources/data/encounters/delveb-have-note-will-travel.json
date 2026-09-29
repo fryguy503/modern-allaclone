@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "delveb-have-note-will-travel",
+  "title": "Have Note, Will Travel",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "delveb",
+    "name": "Tirranun's Delve",
+    "version": 6
+  },
+  "npc_ids": [
+    342046
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Draw out the Goblin Task Master, then survive his guards.",
+  "overview": [
+    "Draw out the Goblin Task Master, then survive his guards."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The first thirty qualifying kills advance the alarm sequence.",
+        "Find and defeat the Goblin Task Master when the alarm sounds.",
+        "His death summons more guards, so keep tanks and healers ready through the aftermath."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delveb/encounters/have_note_will_travel.lua",
+        "sha256": "2b6323f5ff5e3254d3a60a1ee29041100984d2391073b7239b650867ebf47ef8"
+      },
+      {
+        "path": "delveb/script_init.lua",
+        "sha256": "6f292e1cb86d73e20d15cbb7394fa780e7cf10e9175dd4b72dd7f6176b66e39a"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 6."
+    ]
+  }
+}

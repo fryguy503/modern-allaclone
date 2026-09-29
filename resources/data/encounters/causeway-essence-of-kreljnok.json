@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-essence-of-kreljnok",
+  "title": "Essence of Kreljnok",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [
+    303129,
+    303131,
+    303130
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Kreljnok calls adds that dramatically increase his regeneration while alive.",
+  "overview": [
+    "Kreljnok calls adds that dramatically increase his regeneration while alive."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Collect Kreljnok's Power and Kreljnok's Rage when they appear.",
+        "Prioritize those adds to return the boss's regeneration to its lower state.",
+        "A new pair is called every 150 seconds during combat; finish before the thirty-minute appearance ends."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/Essence_of_Kreljnok.lua",
+        "sha256": "87d3d9bbb18ce7148b8baa2098531886330f3ae4f40cae1aaed655dd3ae3664a"
+      },
+      {
+        "path": "causeway/Korbuk_Brimblade.lua",
+        "sha256": "add8f9529d4df45ffbc2e4758bb4d03db9e20335af415d79977d262c220680d0"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "arena2-heigan-the-unclean-the-safety-dance",
+  "title": "Heigan the Unclean: The Safety Dance",
+  "group": "Arena training",
+  "type": "event",
+  "zone": {
+    "short_name": "arena2",
+    "name": "The Arena",
+    "version": 6
+  },
+  "npc_ids": [
+    180002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow the safe floor wedges while managing fever and mana burn.",
+  "overview": [
+    "Follow the safe floor wedges while managing fever and mana burn."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "During combat, cure Decrepit Fever with disease cures.",
+        "Pure casters should leave the purple mana-burn radius and use the refuge when warned.",
+        "During the dance, follow the safe wedge as it travels across the floor and back. Warnings shorten on later dances.",
+        "Combat lasts 90 seconds and each dance lasts 45 seconds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "arena2/encounters/arena2_heigan_safety_dance.lua",
+        "sha256": "0f4fdbffa628392eaa2f43d0baf81d26319e72b7428bf7f8d13747fa4b7b9672"
+      },
+      {
+        "path": "arena2/script_init.lua",
+        "sha256": "a73d6e3228d745c806bae88a849fcf0be3404aefad75d883d1e1a2d5f3bb2ca5"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 6.",
+      "Ground markers require compatible telegraph support; geometry and client display have not been live-verified."
+    ]
+  }
+}

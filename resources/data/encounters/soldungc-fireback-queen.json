@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "soldungc-fireback-queen",
+  "title": "Fireback Queen",
+  "group": "Lair of the Blackwing",
+  "type": "group",
+  "zone": {
+    "short_name": "soldungc",
+    "name": "The Caverns of Exile",
+    "version": 0
+  },
+  "npc_ids": [
+    278118
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive successive fireback waves until the queen becomes the final target.",
+  "overview": [
+    "Survive successive fireback waves until the queen becomes the final target."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Control the arriving spiderlings and regroup before advancing the next stage."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The controller begins with an untargetable queen and a proximity trigger.",
+        "Spiderling deaths advance the counter through several replacement queen stages and additional waves.",
+        "The final counter threshold replaces the last protected stage with the attackable Fireback Queen."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "soldungc/#fireback_counter.lua",
+        "sha256": "4eed91b6dc580c79e93ba241ccf805678111a298f61ff6d6a1910e88672e9a6d"
+      }
+    ],
+    "notes": [
+      "Approval E300. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

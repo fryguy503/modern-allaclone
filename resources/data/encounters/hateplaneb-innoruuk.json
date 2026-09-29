@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "hateplaneb-innoruuk",
+  "title": "Innoruuk",
+  "group": "Plane of Hate",
+  "type": "raid",
+  "zone": {
+    "short_name": "hateplaneb",
+    "name": "The Plane of Hate",
+    "version": 0
+  },
+  "npc_ids": [
+    186196,
+    186107,
+    186197
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Innoruuk’s first form, survive the Evangelist’s reinforcements, and end the god’s renewed manifestation.",
+  "overview": [
+    "Defeat Innoruuk’s first form, survive the Evangelist’s reinforcements, and end the god’s renewed manifestation."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The first Innoruuk’s death summons the Evangelist of Hate. After the ritual dialogue, the true Innoruuk appears.",
+        "The Evangelist repeatedly replenishes imps, spite golems and clerics of hate. Assign add control while the main tank holds Innoruuk.",
+        "At 30% health, the Evangelist becomes attackable and joins combat. Kill it before trying to finish Innoruuk: at 5%, Innoruuk becomes immune while the Evangelist lives.",
+        "Remain within Innoruuk’s chamber. Pulling him too far north causes a return to his bind point.",
+        "Five minutes without combat clears the event; the controller schedules another attempt several hours later."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hateplaneb/encounters/inny.lua",
+        "sha256": "d433763abfed2fb31198585852b9e80f72d97902d71cda3ec36d7e6868264509"
+      },
+      {
+        "path": "hateplaneb/script_init.lua",
+        "sha256": "14dcf1c22330fbdb395190ebbd5ec24a8597c18af6c34e0d46af238150ad3c66"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "This guide covers the revamped encounter templates. The controller selects an older Innoruuk template while global expansion progression is below 2; that alternate fight is not described here."
+    ]
+  }
+}

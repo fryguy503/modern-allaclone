@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-bazu-smasher",
+  "title": "Bazu Smasher",
+  "group": "Omens of War",
+  "type": "event",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [
+    303081,
+    303106
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Bazu Smasher repeatedly calls pairs of hulks as its health falls.",
+  "overview": [
+    "Bazu Smasher repeatedly calls pairs of hulks as its health falls."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Plan for two hulks at each of 90%, 75%, 70%, 55%, 50%, 35%, 30%, 15% and 10%.",
+        "Control damage near adjacent thresholds so the group can collect each pair.",
+        "An extended disengagement clears the summoned hulks."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/Bazu_Smasher.lua",
+        "sha256": "20917402f06ea56994cb81fb474631527f00cc36ce16c04e63e158501f05ea34"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

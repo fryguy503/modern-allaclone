@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "bloodfields-the-keeper",
+  "title": "The Keeper",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "bloodfields",
+    "name": "The Bloodfields",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Keeper accepts a monk's epic challenge for a limited time.",
+  "overview": [
+    "The Keeper accepts a monk's epic challenge for a limited time."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The eligible monk must start the challenge through dialogue.",
+        "Defeat the Keeper within the thirty-minute combat window.",
+        "Maintain steady tanking and healing through his health-based taunts."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "bloodfields/The_Keeper.lua",
+        "sha256": "ea779cc05b09ac7df70bd069cd8dea363dc93034afa2450781476665cab4c92a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The 65% and 35% handlers contain dialogue only; no additional phase mechanics are claimed.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

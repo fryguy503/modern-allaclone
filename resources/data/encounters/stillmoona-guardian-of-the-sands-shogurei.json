@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-guardian-of-the-sands-shogurei",
+  "title": "Guardian of the Sands: Shogurei",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 5
+  },
+  "npc_ids": [
+    338171
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Disturbing the sacred sands brings servants and eventually Shogurei into the fight.",
+  "overview": [
+    "Disturbing the sacred sands brings servants and eventually Shogurei into the fight."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Control servants as the garden activates and keep the group together for the guardian."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Sand trigger regions can call Stillmoon servants to defend the garden.",
+        "Task progression activates Shogurei for the confrontation.",
+        "During combat he can cast Denial of Flight on his target."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/guardian_of_the_sands.lua",
+        "sha256": "ac55760787ef6ff9171afbb007df5d18d9b2524774389d90d5235b665c1b976e"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E317. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

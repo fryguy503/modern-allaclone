@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "postorms-falto-lord-of-thunder",
+  "title": "Falto, Lord of Thunder",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "postorms",
+    "name": "Plane of Storms",
+    "version": 0
+  },
+  "npc_ids": [
+    210468
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the burning and blazing mephits to summon Falto, Lord of Thunder.",
+  "overview": [
+    "Clear the burning and blazing mephits to summon Falto, Lord of Thunder."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The event stages a decrepit ent and a field of mephits. The boss trigger specifically checks that no burning or blazing mephits remain.",
+        "Sweep the whole event area for stragglers before expecting Falto to appear.",
+        "Once the final required mephit is gone, gather the group at the trigger location and engage Falto."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "postorms/#Falto_trigger.lua",
+        "sha256": "19c11e0a1fb2e6a16153f8dea71bd00c82350d5bbd5ae9fb24f150dee3bbfa5e"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The reviewed controller establishes Falto’s spawn objective but does not define additional boss health phases."
+    ]
+  }
+}

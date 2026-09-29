@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "mistmoore-the-archivist-s-midnight-vigil",
+  "title": "The Archivist's Midnight Vigil",
+  "group": "The Archivist’s Midnight Vigil",
+  "type": "group",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 11
+  },
+  "npc_ids": [
+    59205,
+    59206,
+    59207,
+    59208,
+    59209,
+    59308,
+    59309,
+    59310,
+    59311
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Explore Mistmoore with a small group, defeat its servants and recover forbidden relics during the Archivist’s Midnight Vigil.",
+  "overview": [
+    "Explore Mistmoore with a small group, defeat its servants and recover forbidden relics during the Archivist’s Midnight Vigil."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The Archivist admits a group of three to six characters of level 50 or higher. The expedition lasts eight hours.",
+        "Defeat eligible servants and named enemies throughout the castle. Each new relic requires a randomly chosen eighteen to thirty-three qualifying kills.",
+        "A relic appears on the corpse that completes the current kill requirement. Watch the lantern announcement and check that corpse before moving on.",
+        "Each set contains all four relic types in a shuffled order, then begins a new set. Ordinary respawns allow continued hunting during the expedition.",
+        "Named enemies provide one selection from their own two-item equipment pool. Only current expedition members may claim the spoils.",
+        "The Vigil uses its own group expedition, progression and admission rules. Keep the group together and maintain current membership when returning to the zone."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "df190b51b953379cb0f762da018a0f232c93f2f78bb2bff7f6d1902ed52531bd"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "This is version 11. The separate version 10 raid and its five existing journal entries are not modified. Legacy NPC aliases remain accepted by the source; current canonical named IDs are linked here."
+    ]
+  }
+}

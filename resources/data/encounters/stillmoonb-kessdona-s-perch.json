@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoonb-kessdona-s-perch",
+  "title": "Kessdona's Perch",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoonb",
+    "name": "The Ascent",
+    "version": 1
+  },
+  "npc_ids": [
+    339110,
+    339109,
+    339116,
+    339115
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Exhaust Kessdona's manashards, then identify the correct protector at each health lock.",
+  "overview": [
+    "Exhaust Kessdona's manashards, then identify the correct protector at each health lock."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign someone to identify the true protector and avoid indiscriminate area damage on protector groups."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "While manashards remain active, reaching 90% heals Kessdona and drains their resources. Defeat the depleted guardians to progress.",
+        "At 80%, 60%, 40% and 20%, protectors hold her health in place.",
+        "Find and defeat the true focus among each protector group. Killing a wrong protector restores health and restarts that stage.",
+        "She also uses a charm timer; leaving combat triggers failure cleanup after 30 seconds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoonb/encounters/kessdonas_perch.lua",
+        "sha256": "9e00da376fe200c7f8d148ce6b05304ff70b5083323fac7532a0c7a10f8d3fbb"
+      },
+      {
+        "path": "stillmoonb/script_init.lua",
+        "sha256": "1cf191f934ba1b41f918d44e34ddec8c25bb30c5a3906ce6f8f26621d49b83ac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E325. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

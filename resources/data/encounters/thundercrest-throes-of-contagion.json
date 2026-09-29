@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-throes-of-contagion",
+  "title": "Throes of Contagion",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 12
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prepare and plant three toxins, then escape before the poison fills Thundercrest.",
+  "overview": [
+    "Prepare and plant three toxins, then escape before the poison fills Thundercrest."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Check the next ingredient before advancing and begin the exit run as soon as the final toxin is placed."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Each placement requires its corresponding toxin on the interacting player and consumes it.",
+        "The first two placements create the next component corpse.",
+        "Planting the third starts a twenty-minute evacuation timer.",
+        "If time expires, the task ends and Poison Cloud repeatedly strikes clients and their pets."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/throes_of_contagion.lua",
+        "sha256": "12ecea21ed48869f9116786ef018aca06052771b60806f3e69fdd32f7e60836a"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E373. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

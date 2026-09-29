@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-destruction-keeper-of-the-altar",
+  "title": "Chambers of Destruction / Keeper of the Altar",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 6
+  },
+  "npc_ids": [
+    294620,
+    294615,
+    294622
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the altar’s defenses and confront a Keeper that combines throws, short-lived attackers and class-sensitive adherents.",
+  "overview": [
+    "Break the altar’s defenses and confront a Keeper that combines throws, short-lived attackers and class-sensitive adherents."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "During the approach, respect the altar defenders’ room boundaries and resolve the adherents’ class clues before delivering their finishing blows.",
+        "The Keeper repeatedly creates assailants, which exhaust themselves after fifteen seconds, and calls up to five adherents over the encounter.",
+        "Throw hits several hate-list targets and brings distant players back toward the Keeper. Recover positioning promptly; distance is not a reliable escape.",
+        "Earthen Shrapnel and Bury continue alongside the add cycle. Assign add tanks so the main tank can stay on the Keeper.",
+        "At 50% and 10% health, the Keeper enters a five-second rampage burst. Prepare healing before pushing either threshold.",
+        "After three minutes out of combat, the Keeper heals and clears its summoned enemies."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/#Altar_Sentry.lua",
+        "sha256": "4e6b716f5eb94449d4dbb9231f60c8c7b245b51948fae96c27cb359601106c39"
+      },
+      {
+        "path": "ikkinz/#Altar_Adherent.lua",
+        "sha256": "3dca808156987c5dce6b1fb47b35cd64638732de480084bb5586464a4fd66ee8"
+      },
+      {
+        "path": "ikkinz/encounters/keeper.lua",
+        "sha256": "9851f57580f623a527895690f0c032efef9d865526746905d9de29a897afc92a"
+      },
+      {
+        "path": "ikkinz/script_init.lua",
+        "sha256": "6ac8b6a6df8deb467c01969d0870bd4722e6e58106dfe9a9bf98961bf3fe34a1"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

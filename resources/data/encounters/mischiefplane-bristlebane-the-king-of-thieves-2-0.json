@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "mischiefplane-bristlebane-the-king-of-thieves-2-0",
+  "title": "Bristlebane the King of Thieves (2.0)",
+  "group": "Legacy events",
+  "type": "raid",
+  "zone": {
+    "short_name": "mischiefplane",
+    "name": "Plane of Mischief",
+    "version": 0
+  },
+  "npc_ids": [
+    126373,
+    126012
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Bristlebane changes his defenses and attacks at every health stage while calling increasingly large groups of jesters.",
+  "overview": [
+    "Bristlebane changes his defenses and attacks at every health stage while calling increasingly large groups of jesters."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the mischievous jester to summon the King of Thieves.",
+        "Every ten-percent health step changes a combination of armor, resistances, melee damage and attack speed. Watch the rock-skin, glowing-aura and strength emotes.",
+        "He summons two jesters at 80%, three at 50% and five at 20%. Prepare additional tanks and crowd control before these thresholds.",
+        "Five minutes out of combat restores his health and opening state and removes his adds.",
+        "His two-hour availability timer pauses while engaged and resumes outside combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mischiefplane/encounters/Bristlebane_the_King_of_Thieves.lua",
+        "sha256": "a2d42bc157fab5d5bc37d9cee2812c929515384df8922c09628f200d43a705ca"
+      },
+      {
+        "path": "mischiefplane/script_init.lua",
+        "sha256": "bd2fab75afbd8c47d8aafd6e6cdcc49be46f740a002ae6a400279ed8ce22a4b9"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The “2.0” label identifies this Bristlebane encounter implementation, not zone version 2. The reviewed script is unversioned and this draft targets the standard version 0 template."
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "greatdivide-high-priest-maltan-assault",
+  "title": "High Priest Maltan assault",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "greatdivide",
+    "name": "The Great Divide",
+    "version": 0
+  },
+  "npc_ids": [
+    118211,
+    27009,
+    27010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Face High Priest Maltan with five Plasmatic attendants.",
+  "overview": [
+    "At the relevant cleric pre-epic stage, give Gavon the talisman to start the assault. It summons Maltan, two priests and three priestesses together, then removes Gavon.",
+    "The talisman is returned and the cleric quest advances. At the following stage, hailing Gavon can start the same encounter again."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Prepare to control six enemies at the spawn point."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Quest requirement",
+      "paragraphs": [
+        "This trigger is restricted to clerics with the matching recorded quest stage."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 56010,
+          "name": "Talisman of the Plasmatic Priests",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "greatdivide/Gavon_Morant.lua",
+        "sha256": "5ee7b75423ee82543498b08a88eb2ae840c55ad97fedfe8d2f37c38aaebc4526"
+      }
+    ],
+    "notes": [
+      "Approved row E130. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The launcher provides the roster, but no boss-specific spell list or combat phases were found in the reviewed source."
+    ]
+  }
+}

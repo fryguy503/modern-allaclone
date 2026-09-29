@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "snlair-sewers-of-nihilia-lair-tool-recovery",
+  "title": "Sewers of Nihilia: Lair tool recovery",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "snlair",
+    "name": "Sewers of Nihilia: Lair of Trapped Ones",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover Alej Leraji's tools before his survival timer expires.",
+  "overview": [
+    "Recover Alej Leraji's tools before his survival timer expires."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear and search all three tool rooms, then return promptly to Alej."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Give Alej the qualifying seal to populate the tool rooms and start the rescue.",
+        "The entrance, cocoon and waterwheel rooms each place a tool on one randomly selected event enemy.",
+        "Alej warns after 50 minutes; ten minutes later the event fails if he has not been rescued."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "snlair/encounters/tools.lua",
+        "sha256": "3991a4484d04b97e3b3133cd71d57b8f065d45998be2d67b3e96315deb52d21d"
+      },
+      {
+        "path": "snlair/Alej_Leraji.lua",
+        "sha256": "8af291c152dbba0b60fc7153bd7a4f67fad57968bebe1eb75d7b839d52254c21"
+      }
+    ],
+    "notes": [
+      "Approval E295. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

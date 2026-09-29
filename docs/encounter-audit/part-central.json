@@ -1,0 +1,65 @@
+{
+  "rows": [
+    {
+      "zone": "takishruinsa",
+      "title": "Living Legacy: Sandkeep Endurance Raid",
+      "kind": "Survival raid",
+      "confidence": "clear",
+      "group": "Living Legacy",
+      "reason": "A staged survival field replaces defeated adds, measures pressure-window damage, enters recovery on a missed quota, and saves earned checkpoints until the raid fails.",
+      "sources": [
+        {"path": "takishruinsa/encounters/living_legacy_endurance.lua", "line": 1},
+        {"path": "takishruinsa/script_init.lua", "line": 2},
+        {"path": "lua_modules/living_legacy.lua", "line": 101},
+        {"path": "sro/35180.lua", "line": 1}
+      ],
+      "notes": "Verified instance version 1. Survival and sustained add control, with unkillable Eothar, rather than a conventional boss-kill victory."
+    },
+    {
+      "zone": "kedge",
+      "title": "Seasons: Watery Death (launcher only)",
+      "kind": "Seasonal expedition",
+      "confidence": "needs-review",
+      "group": "Seasonal",
+      "reason": "The seasonal launcher defines a Kedge expedition, but the zone's five quest scripts contain epic quest NPC handlers and no matching seasonal boss controller.",
+      "sources": [{"path": "global/Theta_Sigma.lua", "line": 22}],
+      "notes": "Check database spawn and ability definitions before documenting a boss. The launcher alone does not establish encounter identity or mechanics."
+    },
+    {
+      "zone": "multiple",
+      "title": "Bonded Hunts: companion challenges (36 targets)",
+      "kind": "Repeatable challenge system",
+      "confidence": "clear",
+      "group": "Bonded Hunts",
+      "reason": "An assigned owner summons a tuned echo with a reusable beacon, completes a companion kill audit, and unlocks or recharges a reward. The 36 targets share one encounter controller.",
+      "sources": [
+        {"path": "lua_modules/bonded_hunts_config.lua", "line": 77},
+        {"path": "lua_modules/bonded_hunt_echo.lua", "line": 54},
+        {"path": "lua_modules/bonded_hunts.lua", "line": 465},
+        {"path": "poknowledge/991136.lua", "line": 1},
+        {"path": "hole/991100.lua", "line": 1}
+      ],
+      "notes": "Approve as a shared activity guide if wanted. Do not manufacture 36 distinct boss mechanic guides: the target wrappers delegate to the same controller. Native audit rules require a later source review beyond quest Lua. Targets are listed in the supporting registry."
+    },
+    {
+      "zone": "unassigned",
+      "title": "Greater Rift system (unwired module)",
+      "kind": "Prototype / reusable module",
+      "confidence": "needs-review",
+      "group": "Greater Rift",
+      "reason": "The module implements timed kill goals, boss completion, scaling and rewards, but the repository scan found no external require, OfferRift or RegisterProfile call sites. Its Lower Guk example is commented out.",
+      "sources": [
+        {"path": "lua_modules/greater_rift.lua", "line": 1},
+        {"path": "lua_modules/greater_rift.lua", "line": 461},
+        {"path": "lua_modules/greater_rift.lua", "line": 757}
+      ],
+      "notes": "Needs an actual configured zone and launcher before a player-facing encounter document is useful. No active Greater Rift event is inferred from the example."
+    }
+  ],
+  "excluded": [
+    {"title": "Global NPC seasonal scaling, trophy and raid credit", "reason": "Shared behavior and achievement hooks, not additional standalone encounters.", "sources": [{"path": "global/global_npc.lua", "line": 1}]},
+    {"title": "Seasonal telegraph beacon", "reason": "Visual and damage-mechanic helper. Grouped into the seasonal bosses that use it.", "sources": [{"path": "lua_modules/seasonal_velious.lua", "line": 1}]},
+    {"title": "Global items, spells, plugins and support modules", "reason": "Item use, class quests, transports, tradeskills, progression, loot and shared quest infrastructure are not separately listed as combat encounters."},
+    {"title": "Test fixtures and review scripts", "reason": "Not live quest handlers. Used only to cross-check intended associations where needed."}
+  ]
+}

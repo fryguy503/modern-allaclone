@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "dragonscalea-living-legacy-sprint",
+  "title": "Living Legacy: Sprint",
+  "group": "Living Legacy",
+  "type": "raid",
+  "zone": {
+    "short_name": "dragonscalea",
+    "name": "Dragonscale Hills",
+    "version": 2
+  },
+  "npc_ids": [
+    450002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Push through I.R.A.'s escalating rounds in a focused damage race.",
+  "overview": [
+    "Push through I.R.A.'s escalating rounds in a focused damage race."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep I.R.A. facing away from the raid and attack from behind to avoid Flamethrower.",
+        "Commit damage efficiently while keeping the tank stable through each stronger round.",
+        "Use each respite to recover quickly and prepare for the next round."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dragonscalea/encounters/living_legacy_ira.lua",
+        "sha256": "93d91ec67618571cf0965dc9be7ffe336acab364d7f164c5232c2a62796e6796"
+      },
+      {
+        "path": "dragonscalea/script_init.lua",
+        "sha256": "f5587639702dfd6104e658f4ce923536f94cb63ab9a65f0d3eb6b30ec5d5d4ee"
+      },
+      {
+        "path": "lua_modules/living_legacy.lua",
+        "sha256": "53b1909d7c2552b7d3c42d28f198cab10aa5106617e695ce11af9c34fd916637"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2.",
+      "The current Sprint profile explicitly disables the clockwork add waves used in Marathon."
+    ]
+  }
+}

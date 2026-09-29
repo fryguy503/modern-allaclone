@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "takc-quintessence-of-sand-and-ritana",
+  "title": "Quintessence of Sand and Ritana",
+  "group": "Lost Dungeons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "takc",
+    "name": "Takish-Hiz: Sunken Library",
+    "version": 2
+  },
+  "npc_ids": [
+    241152,
+    241158
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the guardians' protection and handle Ritana's transfer of power to the Quintessence of Sand.",
+  "overview": [
+    "Break the guardians' protection and handle Ritana's transfer of power to the Quintessence of Sand."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Plan Ritana's kill timing deliberately and keep control as the Quintessence becomes mobile."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The linked guardians share aggression and split into additional enemies when defeated.",
+        "Keeping Ritana alive until the Quintessence reaches 20% sets the bonus chest condition.",
+        "At that threshold the Quintessence unroots and becomes protected, while Ritana heals and becomes vulnerable.",
+        "Defeating the remaining linked guardians removes the Quintessence's protection so it can be finished."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "takc/encounters/takcraid.lua",
+        "sha256": "c988e0b63a911fad9127b70d559bed4ab793e320d20fcb55e7f6ca8803437921"
+      },
+      {
+        "path": "takc/zone_status.lua",
+        "sha256": "8a7ab21af46f513af19063c38eb54c152d32107e362a49d7ba59e67bf7f4997d"
+      }
+    ],
+    "notes": [
+      "Approval E339. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Corrected the approval-list label Queen of Sand to the Quintessence wording used by the encounter script."
+    ]
+  }
+}

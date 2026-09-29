@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "veksar-decaying-lord-galuk-drek",
+  "title": "Decaying Lord Galuk Drek",
+  "group": "Legacy of Ykesha",
+  "type": "event",
+  "zone": {
+    "short_name": "veksar",
+    "name": "Veksar",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keep the group recovered through Galuk Drek's repeating Darkened Decay.",
+  "overview": [
+    "Keep the group recovered through Galuk Drek's repeating Darkened Decay."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare healing for the opening cast and recurring two-minute spell pressure."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The lord immediately casts Darkened Decay at a random hated target when combat begins.",
+        "The spell repeats on a two-minute timer.",
+        "The script adds no health-triggered phase changes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "veksar/Decaying_Lord_Galuk_Drek.lua",
+        "sha256": "eb980048912b8d7c9ed7ccd72401b0029716eb0cc285acf9fc1ce96057984523"
+      }
+    ],
+    "notes": [
+      "Approval E389. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The combat handler does not stop the spell timer on disengagement; verify wipe behavior and database spell effects before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

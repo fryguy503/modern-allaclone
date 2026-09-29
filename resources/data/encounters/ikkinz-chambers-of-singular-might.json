@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-singular-might",
+  "title": "Chambers of Singular Might",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 0
+  },
+  "npc_ids": [
+    294042
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Reach and defeat the Pixtt Annihilator in the Chambers of Singular Might.",
+  "overview": [
+    "Reach and defeat the Pixtt Annihilator in the Chambers of Singular Might."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Follow the accessible passage through the first group trial. The later sealed doors are not part of the route for Singular Might.",
+        "Defeat the Pixtt Annihilator to complete the named encounter. Its death grants a seven-hour replay lockout to the expedition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/Pixtt_Annihilator.lua",
+        "sha256": "77330bdaad3cc59e619e820fc073486835d38da0d9dfbfc57fe375e2b126da41"
+      },
+      {
+        "path": "ikkinz/player.lua",
+        "sha256": "a3ba920abcba03ff3f0c73bab5a1f8466d3e0d48a06eb1b499e6b046ccd29317"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Review the Pixtt Annihilator’s database abilities and trial spawns before publishing a detailed combat guide; the quest handler supplies completion logic only."
+    ]
+  }
+}

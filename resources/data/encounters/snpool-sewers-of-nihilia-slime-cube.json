@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "snpool-sewers-of-nihilia-slime-cube",
+  "title": "Sewers of Nihilia: Slime Cube",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "snpool",
+    "name": "Sewers of Nihilia: Pool of Sludge",
+    "version": 0
+  },
+  "npc_ids": [
+    285085,
+    285086,
+    285087,
+    285088,
+    285089,
+    285090,
+    285091
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Help Utandi recover his map by defeating a cube that divides into fragments.",
+  "overview": [
+    "Help Utandi recover his map by defeating a cube that divides into fragments."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep add control ready when the large cube dies."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "With the pool task active, follow Utandi's dialogue through 'find it' to spawn the Slime Cube.",
+        "Killing the cube creates six fragments at its death position.",
+        "Recover the four map pieces and return them to Utandi for the task progression."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "snpool/#Slime_Cube.lua",
+        "sha256": "fe1ec1420df45788b32704ae07f2944741782e9e64fac2ecd43e993f60b421bd"
+      },
+      {
+        "path": "snpool/#Utandi.lua",
+        "sha256": "425562b9d2df1e6033d99e212818ab2b99a314a94dcf8bada06f6385a21cbae9"
+      }
+    ],
+    "notes": [
+      "Approval E297. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

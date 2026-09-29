@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "codecay-bertoxxulous",
+  "title": "Bertoxxulous",
+  "group": "Crypt of Decay",
+  "type": "raid",
+  "zone": {
+    "short_name": "codecay",
+    "name": "Ruins of Lxanvom",
+    "version": 0
+  },
+  "npc_ids": [
+    200260,
+    200238,
+    200244,
+    200255,
+    200247,
+    200251,
+    200254,
+    200256,
+    200233,
+    200248,
+    200250,
+    200249,
+    200235
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the crypt's escalating defenders and kings to summon Bertoxxulous.",
+  "overview": [
+    "Clear the crypt's escalating defenders and kings to summon Bertoxxulous."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Assemble before triggering the Spectre of Corruption sequence.",
+        "After the opening delay, rooms activate in succession. Control incoming defenders and track the named kings.",
+        "Clear the required enemies to bring out Bertoxxulous, preserving resources for the final fight.",
+        "The full event has a two-hour failure timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "codecay/encounters/Bertoxx_Event.lua",
+        "sha256": "cd90a50f459df65804f94be5b718014ea5e2e4f083651ef4bd2d3daa1833bab8"
+      },
+      {
+        "path": "codecay/#Spectre_of_Corruption.lua",
+        "sha256": "cdb9a584c27e722e8c4380d3172542927fc53f80c090027a12d80da8091b71ec"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

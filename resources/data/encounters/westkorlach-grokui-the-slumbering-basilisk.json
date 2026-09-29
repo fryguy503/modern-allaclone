@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "westkorlach-grokui-the-slumbering-basilisk",
+  "title": "Grokui, the Slumbering Basilisk",
+  "group": "Depths of Darkhollow",
+  "type": "raid",
+  "zone": {
+    "short_name": "westkorlach",
+    "name": "Stoneroot Falls",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prepare for Grokui to replenish his health repeatedly while gaining melee strength.",
+  "overview": [
+    "Prepare for Grokui to replenish his health repeatedly while gaining melee strength."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Save healing resources and defensive coverage for the later, stronger cycles."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 80%, 60%, 40%, 20% and 10% health, Grokui sets his current health to 430,000 and raises his minimum and maximum melee hits.",
+        "The health resets make the fight longer than one health bar suggests.",
+        "Leaving combat returns him to full health and restores the opening melee tuning."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "westkorlach/Grokui,_the_Slumbering_Basilisk.lua",
+        "sha256": "b13649de07a2ce5afda18bed320eb537601cea7c3f12c5e15e0dfd75888072c2"
+      }
+    ],
+    "notes": [
+      "Approval E403. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The script sets 430,000 current HP rather than using GetMaxHP; compare the deployed NPC max health before describing each transition as a full heal.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-discordling-dark-animist",
+  "title": "Discordling Dark Animist",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336126,
+    336248,
+    336247,
+    336249,
+    336246,
+    336245
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The dark animist opens with five beasts and a recurring spell rotation.",
+  "overview": [
+    "The dark animist opens with five beasts and a recurring spell rotation."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Collect the five afflicted beasts immediately when the boss appears.",
+        "Prepare for Discordant Feedback and Corporeal Torment while controlling the animals.",
+        "Complete the fight within the thirty-minute combat window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/#Discordling_Dark_Animist.lua",
+        "sha256": "1f47fe3825262600e84da7eeede3a22fe4ecee155172184c2eced6074b65c0e6"
+      },
+      {
+        "path": "dranik/#Erana_Farrel.lua",
+        "sha256": "923186007800f09e11a01e486fafa6c59bbe1516c28c373a682f2d607622f695"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

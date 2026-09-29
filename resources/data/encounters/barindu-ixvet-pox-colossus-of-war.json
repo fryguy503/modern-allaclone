@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "barindu-ixvet-pox-colossus-of-war",
+  "title": "Ixvet Pox / Colossus of War",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "barindu",
+    "name": "Barindu, Hanging Gardens",
+    "version": 0
+  },
+  "npc_ids": [
+    283047,
+    283046,
+    283050
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the controllers' formation to face the Colossus of War and Ixvet Pox.",
+  "overview": [
+    "Break the controllers' formation to face the Colossus of War and Ixvet Pox."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Plan for the constructs to activate when their controllers enter combat.",
+        "The poison quest sequence can disrupt the controllers; complete its setup before starting combat if using that route.",
+        "Keep a tank ready for the colossus when controller deaths release it.",
+        "Stay within the encounter area and finish Ixvet to complete the linked sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "barindu/encounters/iip.lua",
+        "sha256": "d5a90e3f5d40ed4982580a84c47dbacf9e1453a8226aec93d8ce32e97a087385"
+      },
+      {
+        "path": "barindu/script_init.lua",
+        "sha256": "c1939c87d24da96238cc9cea550fc2e39bbfe84478046e78777eac871bec336f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The source explicitly marks the post-Ixvet Nihil uprising behavior as incompletely parsed."
+    ]
+  }
+}

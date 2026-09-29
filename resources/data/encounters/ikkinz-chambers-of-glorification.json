@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-glorification",
+  "title": "Chambers of Glorification",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 4
+  },
+  "npc_ids": [
+    294582,
+    294583,
+    294584
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken the stone guardians through their supporting creatures, then handle each guardian split.",
+  "overview": [
+    "Weaken the stone guardians through their supporting creatures, then handle each guardian split."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The Visionary of Glory uses rampage between 50% and 40% health and again below 10%. Keep the fight in its chamber.",
+        "Glorified supporting creatures strengthen the guardian’s health, regeneration or damage. Clearing them reduces the pressure during the guardian sequence.",
+        "The Guardian of Glorification splits into smaller forms. Its intermediate forms split again at 50% health, so prepare to tank additional targets rather than assuming a nearly defeated target is the end.",
+        "The stone forms can throw players, launch magical attacks and return players who leave their permitted area. Regroup inside the encounter space after displacement."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/#Visionary_of_Glory.lua",
+        "sha256": "569e7b6376dc71a98cab1c26d5b998c549603e25510db652470e78c5c4ed3299"
+      },
+      {
+        "path": "ikkinz/##Guardian_of_Glorification.lua",
+        "sha256": "acd4d8c33f3776d4aaa2dd64983a01d0040ada35d87caea289445e47c4d61c96"
+      },
+      {
+        "path": "ikkinz/294474.lua",
+        "sha256": "3a4c4f0c4771919ab6bfc86b747e6eca481923f8f864cdb94459632036fccf7c"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Support effects are documented qualitatively; no assumption is made that repeated same-type NPC bonuses stack beyond the assignments implemented by the script."
+    ]
+  }
+}

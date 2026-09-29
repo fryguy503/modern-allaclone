@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "akheva-shei-vinitras",
+  "title": "Shei Vinitras",
+  "group": "Akheva",
+  "type": "raid",
+  "zone": {
+    "short_name": "akheva",
+    "name": "Akheva Ruins",
+    "version": 0
+  },
+  "npc_ids": [
+    179349,
+    179032,
+    179357,
+    179358,
+    179359,
+    179360
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Shei Vinitras replaces his decoy with a raid encounter that punishes deaths.",
+  "overview": [
+    "Shei Vinitras replaces his decoy with a raid encounter that punishes deaths."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Expect the apparent Shei to give way to the real boss.",
+        "Assign a plan for Death Touch and keep the raid stable; player and pet deaths can generate more enemies.",
+        "Pick up the summoned adds quickly so one death does not become a chain of losses."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "akheva/encounters/Shei.lua",
+        "sha256": "2e06e93c720393b1aad70d86711da3a08a9938a897de61be433b5bf6015c792b"
+      },
+      {
+        "path": "akheva/Shei_Vinitras.lua",
+        "sha256": "aa11e96ad7bfeafa83b6f6cd1b1cb507d978f4c70a9293f558b1d57a568aa0d6"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

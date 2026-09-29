@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "inktuta-the-cursecallers",
+  "title": "The Cursecallers",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "inktuta",
+    "name": "Inktu’ta",
+    "version": 0
+  },
+  "npc_ids": [
+    296053,
+    296054,
+    296055,
+    296056,
+    296057,
+    296058
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat six Cursecallers while managing the cursebearers sustained by each caller.",
+  "overview": [
+    "Defeat six Cursecallers while managing the cursebearers sustained by each caller."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The event creates an initial set of six cursebearers after fifteen seconds.",
+        "Every fifteen seconds, the controller replaces a missing cursebearer if its corresponding Cursecaller still lives.",
+        "Focus the Cursecallers to permanently stop their paired reinforcements. Once a caller is dead, its remaining cursebearer is removed.",
+        "Defeating all six callers clears the remaining bearers and unlocks the next part of the expedition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "inktuta/#Noqufiel.lua",
+        "sha256": "4827f37879435253bf3335bd663e04d1648bd7841a2f34fe1cc4f12343b94bd6"
+      },
+      {
+        "path": "inktuta/#curse_trigger.lua",
+        "sha256": "0bd763dbd5227b273b252f703ea1a08ca579e59203b7e7913b8de46341413ea6"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoonb-rikkukin-the-defender",
+  "title": "Rikkukin the Defender",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "stillmoonb",
+    "name": "The Ascent",
+    "version": 2
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Respond to Rikkukin's directional warnings and wait out his frozen-aura stages.",
+  "overview": [
+    "Respond to Rikkukin's directional warnings and wait out his frozen-aura stages."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Move away from the announced attack side and conserve damage resources during Frozen Aura."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "His warning identifies a right-claw, left-claw, tail or frontal breath attack before the cast follows.",
+        "At 65% and 30%, Frozen Aura begins a 30-second health-lock window; trying to push past its lower threshold heals him back.",
+        "After the first frozen stage, periodic light-reflection warnings lead to a blind effect.",
+        "Thirty seconds out of combat resets the fight."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoonb/Rikkukin_the_Defender.lua",
+        "sha256": "4b60d2103d4b5abf0f7fa42e2ce59a3cb5e122832efb33719f9c18a4a807aa03"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E326. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Version 2 is the Reflections of Silver mission constant; confirm this NPC is bound to that mission in the database before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "arena2-trial-of-the-dreadscale-simple",
+  "title": "Trial of the Dreadscale: Simple",
+  "group": "Arena training",
+  "type": "group",
+  "zone": {
+    "short_name": "arena2",
+    "name": "The Arena",
+    "version": 2
+  },
+  "npc_ids": [
+    180002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A cooperative movement trial with four health locks and simple difficulty.",
+  "overview": [
+    "A cooperative movement trial with four health locks and simple difficulty."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Bring at least three players and respond to the floor markers together.",
+        "This difficulty gives 6.5 seconds for ordinary hazard warnings.",
+        "At 80%, occupy all three seals and hold them for 3 seconds.",
+        "At 60%, dodge the sweeping fields, then gather three players in the blue rally circle.",
+        "At 40%, divide the group between the two violet circles and keep both sides balanced.",
+        "At 20%, survive the final patterns. A failed trial causes a short empowered attack window before the trial repeats."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "arena2/encounters/arena2_kunark_trial.lua",
+        "sha256": "6d787564799308fc80f5952fb0f61e06677ea0d7d9636b06f8242c6e443307a8"
+      },
+      {
+        "path": "arena2/script_init.lua",
+        "sha256": "a73d6e3228d745c806bae88a849fcf0be3404aefad75d883d1e1a2d5f3bb2ca5"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2.",
+      "Training encounter grants no loot or replay lockout. Ground geometry and client marker presentation remain unverified in game."
+    ]
+  }
+}

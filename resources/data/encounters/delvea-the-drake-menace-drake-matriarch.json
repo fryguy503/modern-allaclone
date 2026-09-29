@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "delvea-the-drake-menace-drake-matriarch",
+  "title": "The Drake Menace / Drake Matriarch",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "delvea",
+    "name": "Lavaspinner's Lair",
+    "version": 5
+  },
+  "npc_ids": [
+    341149
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Destroy the drake eggs and prepare for the matriarch's retaliation.",
+  "overview": [
+    "Destroy the drake eggs and prepare for the matriarch's retaliation."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear drakes and keep watch for the mission's egg progression.",
+        "Expect additional drakes as eggs are destroyed.",
+        "Destroying the fifteenth egg calls the Drake Matriarch; prepare the group before breaking the last egg."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delvea/encounters/the_drake_menace.lua",
+        "sha256": "63cfd733c6bc07a00484bbd07d2b9a1d3d71fe9f4baff17ab4640739c6a2dcce"
+      },
+      {
+        "path": "delvea/script_init.lua",
+        "sha256": "209dd27c078503cc17b9db026e48d70ebb185d65aaa4840f70ba098b5ec76ab8"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 5."
+    ]
+  }
+}

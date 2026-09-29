@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "dawnshroud-hunter-s-pike-beast-challenge",
+  "title": "Hunter's Pike beast challenge",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "dawnshroud",
+    "name": "Dawnshroud Peaks",
+    "version": 0
+  },
+  "npc_ids": [
+    174322,
+    174323,
+    174324,
+    174325
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the summoned beasts and their successors for the Hunter's Pike quest.",
+  "overview": [
+    "Defeat the summoned beasts and their successors for the Hunter's Pike quest."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The quest hand-in to Carre Harger brings out two initial beasts.",
+        "Each initial beast produces a successor on death; keep the group ready for the next target.",
+        "Complete both branches before returning with the required quest proof."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dawnshroud/#Carre_Harger.lua",
+        "sha256": "857a0ba5a6ddd4776db62ed62df7345b3ec6f4898ed97256624b59685aa8ffd0"
+      },
+      {
+        "path": "dawnshroud/174322.lua",
+        "sha256": "b274c06f046ab9e5755204c8f39f51875ccdcff435380c006fcefe50ee1ed13a"
+      },
+      {
+        "path": "dawnshroud/174323.lua",
+        "sha256": "9aeb9adcff8430e100586341743a10c374fd7eddddd9882cdffdb995894e2e5d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

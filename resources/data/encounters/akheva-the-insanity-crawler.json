@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "akheva-the-insanity-crawler",
+  "title": "The Insanity Crawler",
+  "group": "Akheva",
+  "type": "raid",
+  "zone": {
+    "short_name": "akheva",
+    "name": "Akheva Ruins",
+    "version": 0
+  },
+  "npc_ids": [
+    179350
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Insanity Crawler summons mind worms when it kills a player or pet.",
+  "overview": [
+    "The Insanity Crawler summons mind worms when it kills a player or pet."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep players and pets alive to limit the number of mind worms.",
+        "Have an add tank ready to collect four worms when a kill triggers them.",
+        "The crawler has a limited appearance window, so assemble before engaging."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "akheva/The_Insanity_Crawler.lua",
+        "sha256": "33483486d47e392c778c777f98656ead5cbc047ee3bf481c196848f4b8f199d4"
+      },
+      {
+        "path": "akheva/insanity.lua",
+        "sha256": "f7b53135709a2299cb19585aeb106da9b5961e99aed6a3e8d181a8fa8478fe0d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "slug": "pofire-fennin-ro-tyrant-of-fire",
+  "title": "Fennin Ro, Tyrant of Fire",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "pofire",
+    "name": "Doomfire, the Burning Lands",
+    "version": 0
+  },
+  "npc_ids": [
+    217050,
+    217450,
+    217426,
+    217439,
+    217440,
+    217428,
+    217429,
+    217449,
+    217453,
+    217436
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Doomfire’s armies and Council of Fire to reach Fennin Ro.",
+  "overview": [
+    "Defeat Doomfire’s armies and Council of Fire to reach Fennin Ro."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Doomfire army",
+      "trigger": "Guardian of Doomfire defeated",
+      "description": "Clear all required first-stage formations."
+    },
+    {
+      "id": "phase-2",
+      "label": "Bridge",
+      "trigger": "First army cleared",
+      "description": "Defeat the bridge forces and their four leaders."
+    },
+    {
+      "id": "phase-3",
+      "label": "Council of Fire",
+      "trigger": "Bridge cleared",
+      "description": "Defeat all four council opponents."
+    },
+    {
+      "id": "phase-4",
+      "label": "Fennin Ro",
+      "trigger": "Council defeated",
+      "description": "Control the elite guardians and defeat the Tyrant of Fire."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeating the Guardian of Doomfire begins the timed sequence.",
+        "Clear the first army formations, then the bridge forces and four named leaders: Reaxnous, Azobian, Hebabbilys and Javonn.",
+        "Defeat Chancellor Kirtra, Chancellor Traxom, Omni Magus Crato and Warlord Prollaz to summon Fennin Ro.",
+        "The final phase also enables elite guardians. Keep the route controlled while establishing the main tank on Fennin.",
+        "A fresh event begins with a two-hour limit. Existing expedition phase lockouts can resume the encounter at a later stage with a shorter remaining allowance."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pofire/encounters/Fennin_Event.lua",
+        "sha256": "b0edea0258450cb35592815d036f7b257732040c8fa85b5d8d9512c17efee96f"
+      },
+      {
+        "path": "pofire/script_init.lua",
+        "sha256": "a773a9a25daeaa9829f620e9e97aed5c31f0e0e5bfb37fbe639a7b986d6a4138"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

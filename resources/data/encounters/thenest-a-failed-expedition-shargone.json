@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-a-failed-expedition-shargone",
+  "title": "A Failed Expedition: Shargone",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 8
+  },
+  "npc_ids": [
+    343000,
+    343488
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Investigate the lost expedition and awaken Shargone after clearing enough enemies.",
+  "overview": [
+    "Investigate the lost expedition and awaken Shargone after clearing enough enemies."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Speak to the survivor and stabilize the group before reaching twenty kills."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The twentieth non-pet kill in the zone summons Shargone once.",
+        "Kallendro offers a protective fireskin effect when hailed; the expedition corpses provide clues.",
+        "Prepare for the boss before the final qualifying kill."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/lost_comrades.lua",
+        "sha256": "5e2c9cc6947d8a9b9ecf3d0b3e8fc33590b52ab0c9eb3080f5212e5267e8cbea"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E352. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

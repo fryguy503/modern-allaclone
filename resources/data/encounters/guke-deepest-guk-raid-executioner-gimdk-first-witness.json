@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "slug": "guke-deepest-guk-raid-executioner-gimdk-first-witness",
+  "title": "Deepest Guk raid: Executioner Gimdk / First Witness",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "guke",
+    "name": "Deepest Guk: The Foreboding Prison",
+    "version": 2
+  },
+  "npc_ids": [
+    249200,
+    249201,
+    249278,
+    249283,
+    249277,
+    249279,
+    249282
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect both scouts, destroy the three foci, and defeat Gimdk and the First Witness.",
+  "overview": [
+    "Tell Scout Mainil you are ready. Split the raid to escort him while protecting Scout Granos at the entrance, then follow their routes deeper into the prison.",
+    "One force must stop the Executioner's Risen from becoming souls for the cauldron while the other destroys the Energy, Matter and Spirit foci. Destroying all three foci removes the protection from both the Executioner and the First Witness."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "scouts",
+      "label": "Protect the scouts",
+      "trigger": "Tell Mainil ready",
+      "description": "Keep both scouts alive as they separate. Mainil's route directs one force to the Executioner; Granos leads the other toward the foci."
+    },
+    {
+      "id": "split",
+      "label": "Souls and foci",
+      "trigger": "Both routes reach their objectives",
+      "description": "Kill Risen before their 30-second transformation and stop souls reaching the cauldron, which otherwise creates reinforcements near the First Witness. Destroy all three foci."
+    },
+    {
+      "id": "bosses",
+      "label": "Finish both bosses",
+      "trigger": "All foci destroyed",
+      "description": "Kill Gimdk before the First Witness if pursuing the additional Executioner chest. Both scouts must still be alive when the reward checks occur."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "focus-spells",
+      "name": "Focus spells",
+      "summary": "Each focus casts its own spells during combat.",
+      "description": [
+        "Energy uses Blurring Focus and Life Vortex; Matter uses Everlasting Essence and Swirling Matter; Spirit uses Infinite Mass. Their actual effects depend on the loaded spell data."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        4123,
+        4122,
+        4124,
+        4121,
+        4125
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "rewards",
+      "title": "Completion checks",
+      "paragraphs": [
+        "With both scouts alive, the First Witness death creates the foci and witness chests. The extra Gimdk chest additionally requires the Executioner death flag to have been earned first. Completion adds a four-and-a-half-day replay lockout to the expedition."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "guke/encounters/gukeraid.lua",
+        "sha256": "7068b3f3dfc629ad758f798a1a3579dffabbcf072b601591b1bd7fa8919fa71b"
+      },
+      {
+        "path": "guke/zone_status.lua",
+        "sha256": "3111cc73873400eda57527e27ad2ff4722577b2e575a18ce17c57bfb8939fbe5"
+      }
+    ],
+    "notes": [
+      "Approved row E139. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The scout auto-start check looks for a player more than 150 paces away rather than confirming raid readiness. The explicit ready dialogue is the documented start."
+    ]
+  }
+}

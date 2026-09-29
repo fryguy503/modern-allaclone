@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "yxtta-pixtt-suir-mindrider",
+  "title": "Pixtt Suir Mindrider",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "yxtta",
+    "name": "Yxtta, Pulpit of Exiles",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive repeated multi-target curse bursts while holding Mindrider inside her room.",
+  "overview": [
+    "Survive repeated multi-target curse bursts while holding Mindrider inside her room."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Call each health threshold so healers and support can respond to the curse burst."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At80%,60%,40%,20% and 10% health, Mindrider casts Curse of the Ikaav four times on randomly selected hated targets.",
+        "Her scripted modifiers reduce slashing damage and increase archery damage.",
+        "Crossing the room boundary returns her and clears hate; thirty seconds out of combat restores full health and rearms the thresholds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "yxtta/#Pixtt_Suir_Mindrider.lua",
+        "sha256": "85ac40115abef5c0992781d745638713d3ef7be68c8ab4e564df58f94f3a784f"
+      }
+    ],
+    "notes": [
+      "Approval E410. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

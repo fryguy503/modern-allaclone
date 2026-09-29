@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "barindu-kyv-rux-vhedt",
+  "title": "Kyv Rux Vhedt",
+  "group": "Named encounters",
+  "type": "group",
+  "zone": {
+    "short_name": "barindu",
+    "name": "Barindu, Hanging Gardens",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Kyv Rux Vhedt changes to a ranged attack pattern at low health.",
+  "overview": [
+    "Kyv Rux Vhedt changes to a ranged attack pattern at low health."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Expect the ranged behavior to begin at 45% health.",
+        "Keep the group ready for volleys as the casting timer repeats.",
+        "Maintain tank control while closing out the encounter."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "barindu/#Kyv_Rux_Vhedt.lua",
+        "sha256": "c0ec4e66ea387b72c018b9cde1869647f8ccb81b3baafdd891f94d8124525c13"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

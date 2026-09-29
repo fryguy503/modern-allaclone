@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "eastkarana-althele-s-druid-gathering-defense",
+  "title": "Althele's druid gathering defense",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "eastkarana",
+    "name": "Eastern Plains of Karana",
+    "version": 0
+  },
+  "npc_ids": [
+    15044,
+    15153,
+    15150
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect Althele's druid gathering from the incoming dark elves.",
+  "overview": [
+    "Protect Althele's druid gathering from the incoming dark elves."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the gathering sequence before preparing for the attack.",
+        "About a minute after the ritual starts, a corruptor and two reavers advance toward Althele.",
+        "Intercept the attackers before they reach the druids.",
+        "Complete the quest follow-up before the gathering resets."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastkarana/Althele.lua",
+        "sha256": "0e4142d7f70ad65ef0504a670c3a275050a78e8ba4494ee37e8571dcb54aa17d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

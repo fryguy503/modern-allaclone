@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "soldungb-lord-nagafen-seasonal",
+  "title": "Lord Nagafen (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "soldungb",
+    "name": "Nagafen's Lair",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Seasonal Nagafen adds health-gated reinforcements and spell attacks to his chamber fight.",
+  "overview": [
+    "Seasonal Nagafen adds health-gated reinforcements and spell attacks to his chamber fight."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Plan add pickup before crossing 70% and 40% and keep the current tank supported through spell thresholds."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Three random reinforcements appear at 70% health and again at 40%.",
+        "Additional targeted spells trigger at 60%, 30% and 10% health.",
+        "Keep the fight in his chamber; combat includes a boundary check and banishment handling."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "soldungb/Lord_Nagafen.lua",
+        "sha256": "8b060f1bced773e8f0e8d283b61d60f05f61fd80add8e605672f65a326be9f13"
+      }
+    ],
+    "notes": [
+      "Approval E298. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

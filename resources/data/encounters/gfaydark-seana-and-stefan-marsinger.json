@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "gfaydark-seana-and-stefan-marsinger",
+  "title": "Seana and Stefan Marsinger",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "gfaydark",
+    "name": "Greater Faydark",
+    "version": 0
+  },
+  "npc_ids": [
+    54102,
+    54101
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight the linked Marsinger twins and prepare for Seana's teleport mechanic.",
+  "overview": [
+    "The rogue quest notice, presented at the required quest stage, makes both twins attackable. Engaging either twin calls the other into combat.",
+    "Seana gives a stone to her current hate leader ten seconds after combat starts. Five seconds later she checks her current hate leader again and sends that player to the Nexus if they hold the stone. She then waits 20 seconds before the next stone."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "stone-and-port",
+      "name": "Stone and teleport",
+      "summary": "Seana can remove her current tank from the fight.",
+      "description": [
+        "The recipient of the stone and the target of the later teleport are selected separately. A tank swap may change who is checked; have another tank ready to take over."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "notice",
+      "title": "Starting the confrontation",
+      "paragraphs": [
+        "Present the rogue quest notice to one of the twins at the required stage."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 9590,
+          "name": "Notice to Cease and Desist",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gfaydark/Seana_Marsinger.lua",
+        "sha256": "82eee20a3318fa8c0f9bee01c0e66a9b31582f5340cc3c4f1535f4e04f86f3d2"
+      },
+      {
+        "path": "gfaydark/Stefan_Marsinger.lua",
+        "sha256": "78288a9dfe34fbb3f0bd3b38b0fd09fbffd58ec35a5bfe837f8bf8724239e5ba"
+      }
+    ],
+    "notes": [
+      "Approved row E129. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The one-second assist timers stop when they fire. The audited claim that both twins repeatedly assist each other was corrected to the actual single callback plus combat-entry assist."
+    ]
+  }
+}

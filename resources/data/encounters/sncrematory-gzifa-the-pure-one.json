@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "sncrematory-gzifa-the-pure-one",
+  "title": "Gzifa the Pure One",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "sncrematory",
+    "name": "Sewers of Nihilia: Crematory",
+    "version": 0
+  },
+  "npc_ids": [
+    288087,
+    288082,
+    288083,
+    288084,
+    288085
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Gather the four spirits and follow their essences to reveal Gzifa.",
+  "overview": [
+    "Gather the four spirits and follow their essences to reveal Gzifa."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the remains together and allow the traveling essences to complete their route."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "One character must carry all four required remains into the trigger area; the items cannot be divided between players.",
+        "Defeat Talakoi, Ngozi, Mabiki and Yogundi so their ghostly essences can travel to the crystal room.",
+        "Once all four essences arrive, Gzifa spawns after a ten-second delay."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sncrematory/#gzifa_trigger.lua",
+        "sha256": "be8e43a2284a33ea7600ce87decdb47f15fbbdf32b90006da0c14257a0a78d99"
+      }
+    ],
+    "notes": [
+      "Approval E294. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The trigger comment mentions a progression flag, but the current active condition checks the carried remains only."
+    ]
+  }
+}

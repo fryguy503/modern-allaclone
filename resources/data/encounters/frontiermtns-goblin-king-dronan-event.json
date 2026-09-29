@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "frontiermtns-goblin-king-dronan-event",
+  "title": "Goblin King Dronan event",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "frontiermtns",
+    "name": "Frontier Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    92004,
+    92007,
+    92008,
+    92009,
+    92010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow Dronan's timed goblin contest and find the hidden prize carrier.",
+  "overview": [
+    "Dronan's arrival begins a 30-minute contest. Goblin seekers spread through Frontier Mountains while announcements lead into the hiding stage.",
+    "Eight minutes after the King spawns, four goblin hiders appear across the zone. One receives the quest prize; search the hiders before the contest ends."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "seekers",
+      "label": "Seekers disperse",
+      "trigger": "King spawns",
+      "description": "Five seekers appear immediately, with further groups created on a 45-second timer."
+    },
+    {
+      "id": "hiders",
+      "label": "Find the hidden goblin",
+      "trigger": "Eight minutes after spawn",
+      "description": "Four hiders are created and one receives the prize."
+    },
+    {
+      "id": "timeout",
+      "label": "Contest ends",
+      "trigger": "Thirty minutes after spawn",
+      "description": "The King, seekers, hiders and associated named goblins are removed."
+    }
+  ],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frontiermtns/encounters/druid_1_5.lua",
+        "sha256": "d9873f4e4007f646fecfe805eefcc092487ad569b7d95afb4612522071dbb6e6"
+      },
+      {
+        "path": "frontiermtns/script_init.lua",
+        "sha256": "eeed17eb2e4b34b8f0a6d37d7e24f62ef72428ab9a73c7c68ed8bf420698f8e1"
+      }
+    ],
+    "notes": [
+      "Approved row E126. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The reviewed encounter registers behavior but does not establish how the King is initially made available; verify the current launcher or database spawn.",
+      "The seeker timer stops after its round counter passes ten but still executes the spawn block on that callback; no exact total wave count is promised."
+    ]
+  }
+}

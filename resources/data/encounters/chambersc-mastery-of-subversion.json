@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "chambersc-mastery-of-subversion",
+  "title": "Mastery of Subversion",
+  "group": "Muramite trials",
+  "type": "group",
+  "zone": {
+    "short_name": "chambersc",
+    "name": "Muramite Proving Grounds",
+    "version": 1
+  },
+  "npc_ids": [
+    306001
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover enough seals to challenge the Master of Subversion.",
+  "overview": [
+    "Recover enough seals to challenge the Master of Subversion."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "recover-seals",
+      "label": "Recover seals",
+      "trigger": "Below 300 points",
+      "description": "Gather copper, silver and gold seals to reach the required total."
+    },
+    {
+      "id": "the-master",
+      "label": "The master",
+      "trigger": "300 points reached",
+      "description": "Prepare to defeat the now-vulnerable Master of Subversion."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Collect seals until their combined value reaches 300 points.",
+        "Copper, silver and gold seals contribute 10, 20 and 30 points respectively.",
+        "Avoid unnecessary fighting while gathering, then prepare to defeat the master when the required total is reached."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersc/encounters/mpg_subversion.lua",
+        "sha256": "00e8491a8bd431e7e8ec4022f8549b297578b8b6c0d73e50a1cb6412cea37f71"
+      },
+      {
+        "path": "chambersc/script_init.lua",
+        "sha256": "e0a28efe541319d1ba4f5267074b344540a8e70e4ad9fca6a65880a65c6d9c6a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

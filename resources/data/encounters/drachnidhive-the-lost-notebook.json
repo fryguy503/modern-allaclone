@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "drachnidhive-the-lost-notebook",
+  "title": "The Lost Notebook",
+  "group": "Depths of Darkhollow",
+  "type": "group",
+  "zone": {
+    "short_name": "drachnidhive",
+    "name": "The Hive",
+    "version": 4
+  },
+  "npc_ids": [
+    354266,
+    354264,
+    354252,
+    354273,
+    354258,
+    354253
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover the lost notebook while dealing with the Hive's traps.",
+  "overview": [
+    "Recover the lost notebook while dealing with the Hive's traps."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Follow the mission's enemy and recovery objectives through the Hive.",
+        "When a trap engages, prepare for a group of additional drachnids.",
+        "Move as a group and recover before triggering another trapped area."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "drachnidhive/encounters/the_lost_notebook.lua",
+        "sha256": "341b75c0bf08ed81f96a2b2941c3d8883e9277801bdf84907a285d33c218ca41"
+      },
+      {
+        "path": "drachnidhive/script_init.lua",
+        "sha256": "5ba33907ba130af00e148e52d308599f46bf366d3614418f1619143ca810ec7a"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 4."
+    ]
+  }
+}

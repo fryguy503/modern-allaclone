@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "hatesfury-broken-skull-armsmaster",
+  "title": "Broken Skull Armsmaster",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "hatesfury",
+    "name": "Hate’s Fury",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken the Broken Skull Armsmaster as part of the berserker’s preliminary epic trial.",
+  "overview": [
+    "Weaken the Broken Skull Armsmaster as part of the berserker’s preliminary epic trial."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 20% health, the Armsmaster exposes a weakness and begins checking the initiating fighter for War Cry.",
+        "The special reaction requires a berserker at the correct preliminary epic stage with War Cry active. Coordinate the health push with that character.",
+        "The weakness state resets after five minutes out of combat. Eligible berserkers receive quest advancement when the Armsmaster dies."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hatesfury/Broken_Skull_Armsmaster.lua",
+        "sha256": "5dd554f563ab21fa344f08b5c898086d7f705f6851fc06c8082ec99e80baa0fe"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The War Cry reaction and the death-credit check are separate in the reviewed script; the death-credit check does not test whether the reaction occurred.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

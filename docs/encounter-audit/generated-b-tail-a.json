@@ -1,0 +1,20 @@
+[
+  {
+    "id": "E267",
+    "slug": "qvic-cynosure-kvanjji",
+    "issues": [
+      "The reset timer is started as reset but handled as Reset. The intended one-minute reset is not reliable as written; healing and mimic timers also remain active after combat ends. Verify recovery before publication.",
+      "Queued arbiter heals are unconditional when delivered, even if the matching arbiter died during the ten-second delay. This draft intentionally does not advise killing an arbiter to interrupt a queued heal.",
+      "Spell 4748 is cast by the 90-second portal-energy timer, but its loaded effect has not been verified. The draft does not infer an effect from the emote."
+    ]
+  },
+  {
+    "id": "E271",
+    "slug": "qvic-iqthinxa-karnkvi-zoo-event",
+    "issues": [
+      "The three-Rav lowest-health selection misses the case where rav1 is below rav2 but rav3 is below rav1. An imbalance may therefore fail to trigger frenzy in that arrangement. Guidance keeps the health spread below ten points rather than relying on the defect.",
+      "The Rav check begins at ten-second intervals and changes to one second after an imbalance. It does not restore the original interval when balance returns.",
+      "The reviewed boss script does not define an out-of-combat cleanup or rearming of the 75% transition. Verify recovery after a wipe before publication."
+    ]
+  }
+]

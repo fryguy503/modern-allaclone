@@ -1,0 +1,3334 @@
+{
+  "rows": [
+    {
+      "zone": "qey2hh1",
+      "title": "Yuanda: werewolf ambush",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Five werewolves, HP-triggered behavior, kill counter and Shady Bandit follow-up.",
+      "sources": [
+        {
+          "path": "qey2hh1/encounters/Necro_pre_15.lua",
+          "line": 9
+        }
+      ],
+      "notes": "Loaded by #Yuanda.lua:25.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "qeynos2",
+      "title": "Enchanted Rat Experiment",
+      "kind": "Puzzle event",
+      "confidence": "clear",
+      "reason": "Timed rat-board experiment with tile conversion and success/failure signals.",
+      "sources": [
+        {
+          "path": "qeynos2/#game_spawner.lua",
+          "line": 105
+        }
+      ],
+      "notes": "Noncombat event; optional journal scope.",
+      "group": "Quest events"
+    },
+    {
+      "zone": "qinimi",
+      "title": "Execution: Rescue Kreshin Silentcog",
+      "kind": "Wave event",
+      "confidence": "clear",
+      "reason": "Four timed combat waves, execution sequence, fail/ejection timers and win handling.",
+      "sources": [
+        {
+          "path": "qinimi/encounters/execution.lua",
+          "line": 67
+        }
+      ],
+      "notes": "Loaded by script_init.lua:1.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "qinimi",
+      "title": "Mastruq Commander Gorlakt and the Spiritlords",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Defeating Spiritlord Mind or Body releases the commander and selects his timed spell behavior.",
+      "sources": [
+        {
+          "path": "qinimi/#Mastruq_Commander_Gorlakt.lua",
+          "line": 34
+        }
+      ],
+      "notes": "Triggered by #druid_trap.lua:21.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "qinimi",
+      "title": "Thunderdome",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Five phases with timed waves, sacrifices, Mass of Stone and boss transformations.",
+      "sources": [
+        {
+          "path": "qinimi/encounters/thunder_dome_one.lua",
+          "line": 110
+        },
+        {
+          "path": "qinimi/#Councilman_Sislono_Nislan.lua",
+          "line": 45
+        }
+      ],
+      "notes": "Three parallel controller copies (one/two/three) represent concurrent arenas, consolidated as one event.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "qvic",
+      "title": "Cynosure Kvanjji",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Four arbiters heal the boss, mimic its spellcasts and respawn together if all four die.",
+      "sources": [
+        {
+          "path": "qvic/##Cynosure_Kvanjji.lua",
+          "line": 44
+        },
+        {
+          "path": "qvic/##Cynosure_Kvanjji.lua",
+          "line": 129
+        },
+        {
+          "path": "qvic/##Cynosure_Kvanjji.lua",
+          "line": 175
+        }
+      ],
+      "notes": "Related arbiters belong in this guide. Reset timer is started as reset but checked as Reset (lines 52 and 60); validate reset behavior before documenting it.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "qvic",
+      "title": "Hexxt Ilk Klokk",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "Below-45% HP arrow volley behavior is scripted. Other NPC stats/spells require database review.",
+      "sources": [
+        {
+          "path": "qvic/Hexxt_Ilk_Klokk.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Shares generic Kyv volley mechanic; lower priority than full raid events.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "qvic",
+      "title": "Hexxt Jkak Miq",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "Below-45% HP arrow volley behavior is scripted. Other NPC stats/spells require database review.",
+      "sources": [
+        {
+          "path": "qvic/Hexxt_Jkak_Miq.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Shares generic Kyv volley mechanic; lower priority than full raid events.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "qvic",
+      "title": "Hexxt Pvin Nki",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "Below-45% HP arrow volley behavior is scripted. Other NPC stats/spells require database review.",
+      "sources": [
+        {
+          "path": "qvic/#Hexxt_Pvin_Nki.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Shares generic Kyv volley mechanic; lower priority than full raid events.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "qvic",
+      "title": "Iqthinxa Karnkvi: Zoo Event",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss becomes inactive at 75%; three Rav adds must be kept within the scripted HP balance.",
+      "sources": [
+        {
+          "path": "qvic/Iqthinxa_Karnkvi.lua",
+          "line": 21
+        }
+      ],
+      "notes": "Rav helper scripts consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "rathemtn",
+      "title": "Warrior Spirit Chalex: Captain Krignok",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Chalex pathing brings Captain Krignok into combat; captain timers spawn successive undead troll waves.",
+      "sources": [
+        {
+          "path": "rathemtn/Warrior_Spirit_Chalex.lua",
+          "line": 19
+        }
+      ],
+      "notes": "Illusion: Guktan quest; include Troll_Captain_Krignok.lua rather than individual marauders.",
+      "group": "Quest events"
+    },
+    {
+      "zone": "riftseekers",
+      "title": "Chailak",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Linked aggression with an associated add and a five-minute out-of-combat reset.",
+      "sources": [
+        {
+          "path": "riftseekers/encounters/chailak.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Loaded by script_init.lua:4; include #Chailak.lua when drafting.",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "riftseekers",
+      "title": "Craftmaster Tieranu",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "HP phases spawn named elementals followed by additional elemental waves.",
+      "sources": [
+        {
+          "path": "riftseekers/encounters/ranger_2_0.lua",
+          "line": 16
+        }
+      ],
+      "notes": "Ranger epic 2.0; loaded by script_init.lua:3.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "riftseekers",
+      "title": "King Gelaqua and the Princes",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Princes gate the king; portal spawns, hate links and damaging ground effects structure the fight.",
+      "sources": [
+        {
+          "path": "riftseekers/encounters/king.lua",
+          "line": 121
+        }
+      ],
+      "notes": "Loaded by script_init.lua:1.",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "riftseekers",
+      "title": "Queen Pyrilonis and the Princesses",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Princess deaths remove immunity; portals, chimera adds and timed AE effects.",
+      "sources": [
+        {
+          "path": "riftseekers/encounters/queen.lua",
+          "line": 107
+        }
+      ],
+      "notes": "Loaded by script_init.lua:2.",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "riwwi",
+      "title": "Arena: Turlini and the enslaved yunjo",
+      "kind": "Wave event",
+      "confidence": "clear",
+      "reason": "Officiator spawns a succession of arena opponents; deaths signal the next challenge.",
+      "sources": [
+        {
+          "path": "riwwi/#an_officiator.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Consolidates numerous named arena wave scripts.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "riwwi",
+      "title": "Taskmistress Krisz",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Prerequisite Pixtt kills spawn her; multiple HP thresholds increase melee damage.",
+      "sources": [
+        {
+          "path": "riwwi/#Taskmistress_Krisz.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Includes #Pixtt_Kekken.lua and #Pixtt_Uxnikk.lua spawn wiring.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "riwwi",
+      "title": "Viqu the Blindeye",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "HP-triggered archery volley with combat timer and reset.",
+      "sources": [
+        {
+          "path": "riwwi/#Viqu_the_Blindeye.lua",
+          "line": 12
+        }
+      ],
+      "notes": "Generic Kyv-style mechanic; lower priority.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ruja",
+      "title": "Rujarkian Hills adventures (shared rules)",
+      "kind": "Adventure system",
+      "confidence": "clear",
+      "reason": "Shared scaled assassination/kill/collect/rescue mission controller, traps, minibosses and completion.",
+      "sources": [
+        {
+          "path": "ruja/encounters/ruj.lua",
+          "line": 164
+        }
+      ],
+      "notes": "Same system duplicated across ruja-rujj. Prefer one theme overview rather than 10 identical guides.",
+      "group": "Lost Dungeons of Norrath"
+    },
+    {
+      "zone": "rujd",
+      "title": "Prison Break: Warden Neyremal and High Shaman Yenner",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Prisoner rescues, taskmasters, cleared rooms, Prison Guard Talkor and final boss pair.",
+      "sources": [
+        {
+          "path": "rujd/encounters/rujdraid.lua",
+          "line": 129
+        },
+        {
+          "path": "rujd/#Raid_Timer.lua",
+          "line": 2
+        },
+        {
+          "path": "rujd/encounters/goblins.lua",
+          "line": 53
+        }
+      ],
+      "notes": "Version 2 controller in zone_status.lua:31; #Raid_Timer.lua loads raid and goblin helper.",
+      "group": "Lost Dungeons of Norrath"
+    },
+    {
+      "zone": "rujg",
+      "title": "Flawless Experimental Battlelord",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Researcher kills unlock mutations and the battlelord; timers control adds and reward conditions.",
+      "sources": [
+        {
+          "path": "rujg/encounters/rujgraid.lua",
+          "line": 137
+        },
+        {
+          "path": "rujg/Crispen_Koloff.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Crispen_Koloff.lua loads raid on spawn.",
+      "group": "Lost Dungeons of Norrath"
+    },
+    {
+      "zone": "scarlet",
+      "title": "Disciple of Sun",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Monk challenge removes immunity and starts a 15-minute fight deadline.",
+      "sources": [
+        {
+          "path": "scarlet/#Disciple_of_Sun.lua",
+          "line": 16
+        }
+      ],
+      "notes": "",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "scarlet",
+      "title": "High Priest Valon and the Plasmatic followers",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Jimmic Adle summons a priest and five followers at the encounter location.",
+      "sources": [
+        {
+          "path": "scarlet/Jimmic_Adle.lua",
+          "line": 19
+        }
+      ],
+      "notes": "Trigger/spawn event; no separate boss combat script in this zone.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "sebilis",
+      "title": "Sebilite Protector",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Juggernaut kill trigger, protector HP stages and Sebilite guardians.",
+      "sources": [
+        {
+          "path": "sebilis/encounters/berserkerepic_1_5.lua",
+          "line": 128
+        }
+      ],
+      "notes": "Berserker epic 1.5; loaded in script_init.lua.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "sebilis",
+      "title": "Trakanon (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Bile burst, random deathgaze, top-threat banishment and final vulnerability phase.",
+      "sources": [
+        {
+          "path": "sebilis/Trakanon.lua",
+          "line": 33
+        }
+      ],
+      "notes": "Instance version 200 explicitly required at line 18.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "sirens",
+      "title": "A twitching swordfish",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Combat state and 25% HP transition support a distinct epic encounter.",
+      "sources": [
+        {
+          "path": "sirens/a_twitching_swordfish.lua",
+          "line": 3
+        }
+      ],
+      "notes": "Review full epic eligibility while authoring.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "skyfire",
+      "title": "Rithnok the Tormented",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Dry Sapara spawns Rithnok; combat opens with Harm Touch and has a despawn deadline.",
+      "sources": [
+        {
+          "path": "skyfire/#Rithnok_the_Tormented.lua",
+          "line": 7
+        }
+      ],
+      "notes": "Full encounter mechanics are small; include Dry_Sapara.lua:22.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "skyfire",
+      "title": "Talendor (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Timed combat behavior and a 20% HP phase are implemented in the boss script.",
+      "sources": [
+        {
+          "path": "skyfire/Talendor.lua",
+          "line": 11
+        }
+      ],
+      "notes": "Resolve seasonal registry/version centrally.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "skyshrine",
+      "title": "Lord Yelinak (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Multi-phase dragon encounter with Skyborne, Judgment and Fury transitions.",
+      "sources": [
+        {
+          "path": "skyshrine/Lord_Yelinak.lua",
+          "line": 294
+        }
+      ],
+      "notes": "Resolve seasonal registry/version centrally.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "sleeper",
+      "title": "Awakening the Sleeper",
+      "kind": "Raid event",
+      "confidence": "needs-review",
+      "reason": "Wardstone controls the sleeper; sleeper swaps to Kerafyrm and scripted departure.",
+      "sources": [
+        {
+          "path": "sleeper/#The_Sleeper.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Legacy variant; confirm intended availability versus seasonal/Fabled variants.",
+      "group": "Sleeper's Tomb"
+    },
+    {
+      "zone": "sleeper",
+      "title": "Master of the Guard",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Timed sentry waves and out-of-combat reset, registered for normal and fabled NPC IDs.",
+      "sources": [
+        {
+          "path": "sleeper/encounters/motg.lua",
+          "line": 6
+        }
+      ],
+      "notes": "Loaded by script_init.lua. Separate variants only if desired.",
+      "group": "Sleeper's Tomb"
+    },
+    {
+      "zone": "sleeper",
+      "title": "Sleep Walking expedition",
+      "kind": "Raid sequence",
+      "confidence": "clear",
+      "reason": "Explicit nine-boss lockout/spawn table and Kerafyrm finale.",
+      "sources": [
+        {
+          "path": "sleeper/#Gozer_The_Gatekeeper.lua",
+          "line": 38
+        }
+      ],
+      "notes": "Other fabled bosses mostly have only death-lockout scripts; use one overview plus scripted Master of the Guard/Kerafyrm guides. Version 1 verified.",
+      "group": "Sleep Walking"
+    },
+    {
+      "zone": "sleeper",
+      "title": "The Fabled Kerafyrm the Awakened",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Repeating single-target and AE spell timers in the fabled finale.",
+      "sources": [
+        {
+          "path": "sleeper/#The_Fabled_Kerafrym_the_Awakened.lua",
+          "line": 5
+        }
+      ],
+      "notes": "Sleep Walking expedition is explicitly version 1 in #Gozer_The_Gatekeeper.lua:5.",
+      "group": "Sleep Walking"
+    },
+    {
+      "zone": "sncrematory",
+      "title": "Gzifa the Pure One",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Four named spirits produce ghostly essences and unlock Gzifa via the trigger.",
+      "sources": [
+        {
+          "path": "sncrematory/#gzifa_trigger.lua",
+          "line": 35
+        }
+      ],
+      "notes": "Includes #A_Ghostly_Essence.lua and four spirit scripts.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "snlair",
+      "title": "Sewers of Nihilia: Lair tool recovery",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Alej Leraji activates a dedicated tool-room population and event progression.",
+      "sources": [
+        {
+          "path": "snlair/encounters/tools.lua",
+          "line": 46
+        }
+      ],
+      "notes": "Loaded by script_init.lua and triggered by Alej_Leraji.lua:69.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "snplant",
+      "title": "Ancient Kayserops: Sewers stonemite event",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Nine aged stonemite kills unlock Ancient Kayserops and progression credit.",
+      "sources": [
+        {
+          "path": "snplant/encounters/stonemites.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Loaded by script_init.lua:1.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "snpool",
+      "title": "Sewers of Nihilia: Slime Cube",
+      "kind": "Group boss",
+      "confidence": "clear",
+      "reason": "Utandi spawns the Slime Cube; death splits it into six fragments.",
+      "sources": [
+        {
+          "path": "snpool/#Slime_Cube.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Include #Utandi.lua:22 as trigger.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "soldungb",
+      "title": "Lord Nagafen (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP gates, add waves and timed seasonal combat mechanics.",
+      "sources": [
+        {
+          "path": "soldungb/Lord_Nagafen.lua",
+          "line": 139
+        }
+      ],
+      "notes": "Resolve seasonal version centrally.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "soldungc",
+      "title": "Culthor the Gatekeeper",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Rogue epic trigger summons the boss; linked guards increase his maximum melee damage as their remaining count falls.",
+      "sources": [
+        {
+          "path": "soldungc/#Culthor_the_Gatekeeper.lua",
+          "line": 10
+        },
+        {
+          "path": "soldungc/#Culthor_the_Gatekeeper.lua",
+          "line": 24
+        },
+        {
+          "path": "soldungc/the_Firewatcher.lua",
+          "line": 23
+        }
+      ],
+      "notes": "Include the_Firewatcher.lua:25 trigger.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "soldungc",
+      "title": "Fireback Queen",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Counter and proximity trigger generate spiderling waves before the queen.",
+      "sources": [
+        {
+          "path": "soldungc/#fireback_counter.lua",
+          "line": 17
+        }
+      ],
+      "notes": "Includes #fireback_trigger.lua and a_fireback_spiderling.lua.",
+      "group": "Lair of the Blackwing"
+    },
+    {
+      "zone": "soldungc",
+      "title": "Protector of Fire / Pure Flame Elemental",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Sequential guardian and champion kills produce the final elemental encounter.",
+      "sources": [
+        {
+          "path": "soldungc/_.lua",
+          "line": 17
+        }
+      ],
+      "notes": "Final outcome branches; include Protector_of_Fire.lua reset.",
+      "group": "Lair of the Blackwing"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Arlyxir",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Room boundary reset and timed full heal with Searing Flames.",
+      "sources": [
+        {
+          "path": "solrotower/Arlyxir.lua",
+          "line": 14
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Galremos",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Multiple HP thresholds spawn growing magmite groups.",
+      "sources": [
+        {
+          "path": "solrotower/Galremos.lua",
+          "line": 20
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Jiva",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Efreeti adds and linked combat control.",
+      "sources": [
+        {
+          "path": "solrotower/Jiva.lua",
+          "line": 25
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Protector of Dresolik",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Guardian prerequisite spawns protector; combat leash and completion projection.",
+      "sources": [
+        {
+          "path": "solrotower/#The_Protector_of_Dresolik.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Rizlona",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "First form transforms into the second Rizlona, with tether and flag completion.",
+      "sources": [
+        {
+          "path": "solrotower/Rizlona.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Solusek Ro",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Room tether and progression flag/projection on completion.",
+      "sources": [
+        {
+          "path": "solrotower/Solusek_Ro.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "solrotower",
+      "title": "Xuzl",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Repeated animated sword summons and leash/reset.",
+      "sources": [
+        {
+          "path": "solrotower/Xuzl.lua",
+          "line": 16
+        }
+      ],
+      "notes": "Zone_status.lua tracks raid progression and respawns.",
+      "group": "Planes of Power"
+    },
+    {
+      "zone": "sseru",
+      "title": "Lord Inquisitor Seru",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Time-chamber boundary check moves the boss back into the room.",
+      "sources": [
+        {
+          "path": "sseru/Lord_Inquisitor_Seru.lua",
+          "line": 13
+        }
+      ],
+      "notes": "Script alone supplies tether, not full spell or damage database.",
+      "group": "Shadows of Luclin"
+    },
+    {
+      "zone": "ssratemple",
+      "title": "Emperor Ssraeshza and the Blood",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Blood prerequisite, emperor activation and timed combat/room control.",
+      "sources": [
+        {
+          "path": "ssratemple/Emperor_Ssraeshza.lua",
+          "line": 42
+        }
+      ],
+      "notes": "Include #Blood_of_Ssraeshza.lua and EmpInitSpawn.lua.",
+      "group": "Shadows of Luclin"
+    },
+    {
+      "zone": "ssratemple",
+      "title": "Rhag cycle / Arch Lich",
+      "kind": "Raid sequence",
+      "confidence": "clear",
+      "reason": "Rhag deaths spawn the next boss and guards, concluding with Arch Lich.",
+      "sources": [
+        {
+          "path": "ssratemple/162178.lua",
+          "line": 1
+        }
+      ],
+      "notes": "AL_Cycle.lua and 162192.lua contain later steps; source gives sequence more than combat mechanics.",
+      "group": "Shadows of Luclin"
+    },
+    {
+      "zone": "ssratemple",
+      "title": "Vyzh`dra cycle",
+      "kind": "Raid sequence",
+      "confidence": "clear",
+      "reason": "Glyph/runed serpent triggers Exiled/Banished/Cursed forms, with combat logic and respawn gates.",
+      "sources": [
+        {
+          "path": "ssratemple/Vyzh-dra_the_Banished.lua",
+          "line": 51
+        }
+      ],
+      "notes": "Consolidates EventInit.lua, both serpent forms and three Vyzh`dra scripts.",
+      "group": "Shadows of Luclin"
+    },
+    {
+      "zone": "steamfont",
+      "title": "Cargo Clockwork ambush",
+      "kind": "Escort event",
+      "confidence": "clear",
+      "reason": "Delivery route triggers Hector, Renaldo and Jerald; clockwork death signals cleanup.",
+      "sources": [
+        {
+          "path": "steamfont/Cargo_Clockwork.lua",
+          "line": 18
+        }
+      ],
+      "notes": "",
+      "group": "Quest events"
+    },
+    {
+      "zone": "steamfont",
+      "title": "Yama Tolk and the Inactive Clockwork",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Timed spell-type charging trial with staged prompts and short failure windows.",
+      "sources": [
+        {
+          "path": "steamfont/encounters/wizard_pre_15.lua",
+          "line": 93
+        }
+      ],
+      "notes": "Loaded by script_init.lua:1.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Animated Statue Plans",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Kill-count spawns warlord; workers, guards and statues respond to combat signals.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/animated_statue_plans.lua",
+          "line": 4
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 11
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 42
+        }
+      ],
+      "notes": " Script-selected instance version 2.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Best Laid Plans",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Temple-plan handoff unlocks the opposing contact and assistants.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/best_laid_plans.lua",
+          "line": 15
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 7
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 43
+        }
+      ],
+      "notes": " Script-selected instance version 3.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Guardian of the Sands: Shogurei",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Sand traps create servants; task stages activate guardian and Denial of Flight.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/guardian_of_the_sands.lua",
+          "line": 129
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 17
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 45
+        }
+      ],
+      "notes": " Script-selected instance version 5.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Keepers of Strength and Wisdom",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Death/interaction chain releases Spirit Keeper, Sung Li and animated/ancient guardians.",
+      "sources": [
+        {
+          "path": "stillmoona/#The_Keeper_of_Strength.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Consolidate both keeper branches and associated protectors; validate intended grouping.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Scales of Justice",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Drake attack sequence and HP-triggered behavior.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/scales_of_justice.lua",
+          "line": 16
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 9
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 46
+        }
+      ],
+      "notes": " Script-selected instance version 6.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Sickness of the Spirit",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Sequential kill/interaction stages spawn Nethran and the scroll thieves.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/sickness_of_the_spirit.lua",
+          "line": 52
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 3
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 41
+        }
+      ],
+      "notes": " Script-selected instance version 1.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Tea for Thy Master",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Trigger spawns poison master, pet and assistants; pet handling and completion event.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/tea_for_thy_master.lua",
+          "line": 1
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 15
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 47
+        }
+      ],
+      "notes": " Script-selected instance version 7.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Tracking the Kirin",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Ordered footprint trail reveals the Elusive Kirin.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/tracking_the_kirin.lua",
+          "line": 36
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 13
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 48
+        }
+      ],
+      "notes": " Script-selected instance version 8.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoona",
+      "title": "Trial of Perseverance",
+      "kind": "Mission",
+      "confidence": "needs-review",
+      "reason": "Timed gong defense against replenishing goblins followed by a warlord.",
+      "sources": [
+        {
+          "path": "stillmoona/encounters/perseverance.lua",
+          "line": 34
+        },
+        {
+          "path": "stillmoona/script_init.lua",
+          "line": 5
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 49
+        }
+      ],
+      "notes": "Goblin_Spawn is defined twice (lines30,72); timer initialization is overwritten. Verify/fix before describing exact failure timing. Script-selected instance version 9.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Death Comes Swiftly: Lair Mistress",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Five crawling warder deaths unlock Lair Mistress.",
+      "sources": [
+        {
+          "path": "stillmoonb/encounters/death_comes_swiftly.lua",
+          "line": 3
+        },
+        {
+          "path": "stillmoonb/script_init.lua",
+          "line": 7
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 52
+        }
+      ],
+      "notes": " Script-selected instance version 3.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Drake Eggs",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Mission trigger populates the dead-contact ambush with guards and guardian statues.",
+      "sources": [
+        {
+          "path": "stillmoonb/encounters/drake_eggs.lua",
+          "line": 8
+        },
+        {
+          "path": "stillmoonb/script_init.lua",
+          "line": 3
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 53
+        }
+      ],
+      "notes": " Script-selected instance version 4.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Kessdona's Perch",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Dragon phases and active/inactive manashard guardian rotation.",
+      "sources": [
+        {
+          "path": "stillmoonb/encounters/kessdonas_perch.lua",
+          "line": 32
+        },
+        {
+          "path": "stillmoonb/script_init.lua",
+          "line": 5
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 50
+        }
+      ],
+      "notes": " Script-selected instance version 1.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Rikkukin the Defender",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Emote warnings precede attacks; ice protection locks HP and blindness phases.",
+      "sources": [
+        {
+          "path": "stillmoonb/Rikkukin_the_Defender.lua",
+          "line": 85
+        }
+      ],
+      "notes": "NPC filename script; confirm raid version via launcher/task data when authoring.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Storm Dragon Scales: The Storm Caller",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Controller spawns a Storm Caller and Ascent storms after mission progression.",
+      "sources": [
+        {
+          "path": "stillmoonb/encounters/storm_dragon_scales.lua",
+          "line": 13
+        },
+        {
+          "path": "stillmoonb/script_init.lua",
+          "line": 9
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 54
+        }
+      ],
+      "notes": " Script-selected instance version 5.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Sudden Tremors: Ancient Golem",
+      "kind": "Mission",
+      "confidence": "needs-review",
+      "reason": "Runed chest controls golem earthquake/emote stage.",
+      "sources": [
+        {
+          "path": "stillmoonb/encounters/sudden_tremors.lua",
+          "line": 4
+        },
+        {
+          "path": "stillmoonb/script_init.lua",
+          "line": 11
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 55
+        }
+      ],
+      "notes": "Source notes mission may become incomplete if golem dies before chest opens; verify task gates. Script-selected instance version 6.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "stonebrunt",
+      "title": "Mountain dragon transformation",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Dire panda transforms at 80% HP into the mountain dragon.",
+      "sources": [
+        {
+          "path": "stonebrunt/a_dire_panda.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Dragon script includes combat handling; use epic context.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "swampofnohope",
+      "title": "Swamp dragon transformation",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Dire leech transforms at 80% HP into the swamp dragon.",
+      "sources": [
+        {
+          "path": "swampofnohope/a_dire_leech.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Dragon script includes combat handling; use epic context.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Pixtt Kretv Krakxt",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP stages, reflections, brood waves and final AE rampage.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/pkk.lua",
+          "line": 107
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Pixtt Riel Tavas",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Door seal, construct waves, flurry and venom phases.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/prt.lua",
+          "line": 44
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Pixtt Xxeric Kex",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP-driven defenses, cleaver/rage timers and ukun waves.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/pxk.lua",
+          "line": 54
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Tunat`Muram Cuu Vauax",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Multi-phase finale reproduces prior bosses then reveals the true boss and lifedrain mechanics.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/tmcv.lua",
+          "line": 94
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Zun`Muram Kvxe Pirik",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Four balance NPCs and timed balance stages govern boss power.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/zmkp.lua",
+          "line": 28
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Zun`Muram Mordl Delt",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss splits into increasingly numerous smaller copies.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/zmmd.lua",
+          "line": 71
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Zun`Muram Shaldn Boc",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Alternating rage/weakness changes duration as health declines.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/zmsb.lua",
+          "line": 27
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "tacvi",
+      "title": "Zun`Muram Yihst Vor",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP damage stages, Allure timer and final rampage.",
+      "sources": [
+        {
+          "path": "tacvi/encounters/zmyv.lua",
+          "line": 52
+        }
+      ],
+      "notes": "Loaded by script_init.lua; helpers consolidated.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "taka",
+      "title": "Takish-Hiz adventures (shared rules)",
+      "kind": "Adventure system",
+      "confidence": "clear",
+      "reason": "Shared scaled assassination/kill/collect/rescue mission controller, traps, minibosses and completion.",
+      "sources": [
+        {
+          "path": "taka/encounters/tak.lua",
+          "line": 167
+        }
+      ],
+      "notes": "Same system duplicated across taka-takj. Prefer one theme overview rather than 10 identical guides.",
+      "group": "Lost Dungeons of Norrath"
+    },
+    {
+      "zone": "takc",
+      "title": "Queen of Sand and Ritana",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Named guardians, HP transition, split adds, bonus reward conditions and final queen.",
+      "sources": [
+        {
+          "path": "takc/encounters/takcraid.lua",
+          "line": 19
+        }
+      ],
+      "notes": "Version 2 explicitly loads in zone_status.lua:9.",
+      "group": "Lost Dungeons of Norrath"
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "Aaryonar",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss and named guards are explicitly linked by combat aggro script.",
+      "sources": [
+        {
+          "path": "templeveeshan/#Aaryonar.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Only linked-aggro mechanics present here; fuller guide needs database spells.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "Lady Mirenilla",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss and named guards are explicitly linked by combat aggro script.",
+      "sources": [
+        {
+          "path": "templeveeshan/#Lady_Mirenilla.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Only linked-aggro mechanics present here; fuller guide needs database spells.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "Lord Feshlak",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss and named guards are explicitly linked by combat aggro script.",
+      "sources": [
+        {
+          "path": "templeveeshan/#Lord_Feshlak.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Only linked-aggro mechanics present here; fuller guide needs database spells.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "Lord Kreizenn",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss and named guards are explicitly linked by combat aggro script.",
+      "sources": [
+        {
+          "path": "templeveeshan/#Lord_Kreizenn.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Only linked-aggro mechanics present here; fuller guide needs database spells.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "Lord Vyemm",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Boss and named guards are explicitly linked by combat aggro script.",
+      "sources": [
+        {
+          "path": "templeveeshan/#Lord_Vyemm.lua",
+          "line": 2
+        }
+      ],
+      "notes": "Only linked-aggro mechanics present here; fuller guide needs database spells.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "Vulak`Aerr ring event",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Thylex launches a multiwave ring with named waves and destroyer failure handling.",
+      "sources": [
+        {
+          "path": "templeveeshan/encounters/Vulak_Event.lua",
+          "line": 45
+        }
+      ],
+      "notes": "Loaded by #Thylex_of_Veeshan.lua:58. Keep fabled lockout-only variant distinct.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "tenebrous",
+      "title": "Disciple of Focus",
+      "kind": "Quest boss",
+      "confidence": "needs-review",
+      "reason": "Monk challenge and intended recurring Quivering Nightmares mechanic.",
+      "sources": [
+        {
+          "path": "tenebrous/#Disciple_of_Focus.lua",
+          "line": 27
+        }
+      ],
+      "notes": "Combat starts timer cast but handler checks startcast; verify/fix actual spell behavior.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "tenebrous",
+      "title": "Hoober",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Subdue to 20% HP, then use the elixir during a five-minute noncombat window.",
+      "sources": [
+        {
+          "path": "tenebrous/Hoober.lua",
+          "line": 76
+        }
+      ],
+      "notes": "",
+      "group": "Quest events"
+    },
+    {
+      "zone": "tenebrous",
+      "title": "Johanius Barleou",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Triggered transformation/escort encounter includes family NPCs and Slayer follow-up.",
+      "sources": [
+        {
+          "path": "tenebrous/encounters/Johanius.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Loaded from #Johanius_Barleou.lua:27.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "thedeep",
+      "title": "Deklean Korgad: invisible bridge",
+      "kind": "Escort event",
+      "confidence": "clear",
+      "reason": "Turn-in starts a specific escort route with bridge beacons.",
+      "sources": [
+        {
+          "path": "thedeep/Deklean_Korgad.lua",
+          "line": 29
+        }
+      ],
+      "notes": "Noncombat navigation event; optional journal scope.",
+      "group": "Quest events"
+    },
+    {
+      "zone": "thedeep",
+      "title": "The Burrower Beast",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Death launches a timed burrower wave sequence ending in parasite stages.",
+      "sources": [
+        {
+          "path": "thedeep/The_Burrower_Beast.lua",
+          "line": 9
+        }
+      ],
+      "notes": "Do not confuse with orphan encounters/Burrower.lua using unrelated 154xxx NPC IDs.",
+      "group": "Shadows of Luclin"
+    },
+    {
+      "zone": "thedeep",
+      "title": "Thought Horror Overfiend (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP phases change horror, rage and magic-vulnerability behavior.",
+      "sources": [
+        {
+          "path": "thedeep/Thought_Horror_Overfiend.lua",
+          "line": 64
+        }
+      ],
+      "notes": "Resolve seasonal registry/version centrally.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "thenest",
+      "title": "A Failed Expedition: Shargone",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Kill threshold awakens Shargone the Ice Drake.",
+      "sources": [
+        {
+          "path": "thenest/encounters/lost_comrades.lua",
+          "line": 4
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 9
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 93
+        }
+      ],
+      "notes": " Script-selected instance version 8.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "Circle of Drakes",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Drake magus wave controller and combat activation.",
+      "sources": [
+        {
+          "path": "thenest/encounters/circle_of_drakes.lua",
+          "line": 98
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 15
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 89
+        }
+      ],
+      "notes": " Script-selected instance version 4.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "In the Shadows: Vishimtar",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Eggs, incorporeal adds, HP lock and curse/lifedrain mechanics.",
+      "sources": [
+        {
+          "path": "thenest/encounters/in_the_shadows.lua",
+          "line": 73
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 3
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 88
+        }
+      ],
+      "notes": "Includes seasonal task variation; keep task-specific differences explicit. Script-selected instance version 3.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "Rampaging Monolith",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "HP thresholds split off debris and rubble adds.",
+      "sources": [
+        {
+          "path": "thenest/Rampaging_Monolith.lua",
+          "line": 7
+        }
+      ],
+      "notes": "Named script is independent of mission modules.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "Rivals",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Faction-specific rival party, scripted negotiation/fighting and Silverclaw interaction.",
+      "sources": [
+        {
+          "path": "thenest/encounters/rivals.lua",
+          "line": 126
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 11
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 96
+        }
+      ],
+      "notes": " Script-selected instance version 11.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "T'Shara",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Aspect adds alter the main encounter and respawn through timed stages.",
+      "sources": [
+        {
+          "path": "thenest/encounters/tshara.lua",
+          "line": 42
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 25
+        }
+      ],
+      "notes": "Default script_init branch, outside named mission variants.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "The Curse of Jurek",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Repeating HP stages summon harsh winds and control the encounter.",
+      "sources": [
+        {
+          "path": "thenest/encounters/the_curse_of_jurek.lua",
+          "line": 3
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 23
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 91
+        }
+      ],
+      "notes": " Script-selected instance version 6.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thenest",
+      "title": "Web of Lies",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Negotiation, weapon check and faction-specific combat outcomes.",
+      "sources": [
+        {
+          "path": "thenest/encounters/web_of_lies.lua",
+          "line": 1
+        },
+        {
+          "path": "thenest/script_init.lua",
+          "line": 7
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 100
+        }
+      ],
+      "notes": " Script-selected instance version 15.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "A Simple Task",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Timed flower decay and courier spawning make the retrieval mission time-sensitive.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/simple_task.lua",
+          "line": 1
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 11
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 64
+        }
+      ],
+      "notes": " Script-selected instance version 8.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "An End to the Storms: Yar`Lir",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Dragon changes storm forms and spawns form-specific adds.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/an_end_to_the_storms.lua",
+          "line": 23
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 29
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 59
+        }
+      ],
+      "notes": "Includes explicit seasonal task IDs 401017/401018. Script-selected instance version 3.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Behind Closed Doors",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Door interactions release two generals and their sentries.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/behind_closed_doors.lua",
+          "line": 1
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 21
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 60
+        }
+      ],
+      "notes": " Script-selected instance version 4.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Four Corners",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Four bosses form one open-world raid with coordinated completion/reset.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/four_corners.lua",
+          "line": 12
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 31
+        }
+      ],
+      "notes": "Default open-world branch in script_init.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Holy Hour",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Timed departures reduce available enemies and can fail the mission.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/holy_hour.lua",
+          "line": 1
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 7
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 58
+        }
+      ],
+      "notes": " Script-selected instance version 2.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "House of the Autumn Rose",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Combat triggers drop assassin ambushes at distinct temple locations.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/house_of_the_autumn_rose.lua",
+          "line": 1
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 23
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 61
+        }
+      ],
+      "notes": " Script-selected instance version 5.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Lair Unguarded",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Locked-gate progression with Claws, Wings and Breath of Yar`Lir and knockback checks.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/lair_unguarded.lua",
+          "line": 5
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 9
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 62
+        }
+      ],
+      "notes": "Source labels spawn-location list possibly incomplete. Script-selected instance version 6.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Lore Warden",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Messenger drakes, summoned guardians, signal progression and time limit.",
+      "sources": [
+        {
+          "path": "thundercrest/#Lore_Warden.lua",
+          "line": 7
+        }
+      ],
+      "notes": "Includes Guardian_of_the_Past.lua, Sentinel_of_Antiquity.lua, Messenger_Drake.lua.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Plunder the Hoard",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Guardian of the Blades cycles movement/equipment/combat with a half-health transition.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/plunder_the_hoard.lua",
+          "line": 25
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 25
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 69
+        }
+      ],
+      "notes": " Script-selected instance version 13.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Scions of Thundercrest",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Three tome searches and spoken phrases activate Wind, Sky and Storm scions.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/scions_of_thundercrest.lua",
+          "line": 35
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 15
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 63
+        }
+      ],
+      "notes": " Script-selected instance version 7.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Splitting the Storm",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Escort Lila with owner-follow state and captor spawns.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/splitting_the_storm.lua",
+          "line": 1
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 17
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 65
+        }
+      ],
+      "notes": " Script-selected instance version 9.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Storm Chasers / Raging Thunderhead",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Storm Chaser deaths spawn Thunderheads and Raging Thunderhead; Thunderheads split into Stormfronts.",
+      "sources": [
+        {
+          "path": "thundercrest/Storm_Chaser.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Consolidated weather-creature chain.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Stormreach Challenge: Goblin Dojo",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Multi-stage timed trials of elements, emotions, animals, steel/silk and sensei.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/goblin_dojo.lua",
+          "line": 12
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 27
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 66
+        }
+      ],
+      "notes": "Source explicitly models live retry behavior; verify intended behavior in guide. Script-selected instance version 10.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "The Creator",
+      "kind": "Mission",
+      "confidence": "needs-review",
+      "reason": "Defunct sentry kills and Identify reveal Creator Kro`val and sentinel guards.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/the_creator.lua",
+          "line": 11
+        },
+        {
+          "path": "thundercrest/script_init.lua",
+          "line": 13
+        },
+        {
+          "path": "lua_modules/constants/instance_versions.lua",
+          "line": 67
+        }
+      ],
+      "notes": "Source warns lower difficulty NPC IDs require work; verify supported difficulty. Script-selected instance version 11.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "thundercrest",
+      "title": "Throes of Contagion",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Three toxin stages culminate in a timed evacuation; failure triggers Poison Cloud.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/throes_of_contagion.lua",
+          "line": 45
+        }
+      ],
+      "notes": "Loaded by script_init.lua:19.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "timorous",
+      "title": "Draz Nurakk and his images",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Triggered encounter creates six images including one explicitly unslowable variant.",
+      "sources": [
+        {
+          "path": "timorous/Draz_Nurakk.lua",
+          "line": 15
+        }
+      ],
+      "notes": "",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "timorous",
+      "title": "Gefaari Drokaz",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Multiple HP phases summon Zordak minions.",
+      "sources": [
+        {
+          "path": "timorous/#Gefaari_Drokaz.lua",
+          "line": 15
+        }
+      ],
+      "notes": "Triggered by Omat_Vastsea.lua:111; epic encounter.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "tipt",
+      "title": "Tipt mountain trials / Kyv Heartstriker Jhiru",
+      "kind": "Group expedition",
+      "confidence": "clear",
+      "reason": "Cragbeast trial, ghost section, riddler penalty waves and final boss progression.",
+      "sources": [
+        {
+          "path": "tipt/encounters/cragbeasts.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Consolidate ghosts.lua, #Rikabi_the_Riddler.lua and #Kyv_Heartstriker_Jhiru.lua; module load verified in script_init.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "torgiran",
+      "title": "Overseer Wrank and the Captains",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Controller spawns four captains then transitions Wrank on signals.",
+      "sources": [
+        {
+          "path": "torgiran/#wrank_trigger.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Captains are helpers in this sequence.",
+      "group": "Legacy of Ykesha"
+    },
+    {
+      "zone": "torgiran",
+      "title": "Taskmaster Lugald Brokenskull",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Overlord death counter unlocks Taskmaster.",
+      "sources": [
+        {
+          "path": "torgiran/#overlord_counter.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Short unlock sequence, lower priority than fully phased bosses.",
+      "group": "Legacy of Ykesha"
+    },
+    {
+      "zone": "txevu",
+      "title": "Ancient Cragbeast Matriarch",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Hatchling waves, AE casts and melee mitigation/ability changes.",
+      "sources": [
+        {
+          "path": "txevu/encounters/acm.lua",
+          "line": 49
+        }
+      ],
+      "notes": "Loaded by script_init.lua; zone_status.lua spawns controller.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "txevu",
+      "title": "High Priest Nkosi Bakari",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Chanter/ritualist progression with charm and final priest.",
+      "sources": [
+        {
+          "path": "txevu/encounters/highpriest.lua",
+          "line": 98
+        }
+      ],
+      "notes": "Loaded by script_init.lua; zone_status.lua spawns controller.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "txevu",
+      "title": "Ikaav Nysf Lleiv",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP thresholds summon Onyx Rockchanters and advance boss phases.",
+      "sources": [
+        {
+          "path": "txevu/#Ikaav_Nysf_Lleiv.lua",
+          "line": 84
+        }
+      ],
+      "notes": "Spawned by zone_status.lua:76.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "txevu",
+      "title": "Mastruq Champion / Ixt Hsek Syat",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Arena sequence including the Runt, champions and Ixt finale.",
+      "sources": [
+        {
+          "path": "txevu/encounters/champ.lua",
+          "line": 64
+        }
+      ],
+      "notes": "Loaded by script_init.lua; zone_status.lua spawns controller.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "txevu",
+      "title": "Ukun Bloodfeaster",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Staged mauler/stonemite adds, immunity gates and timed reset.",
+      "sources": [
+        {
+          "path": "txevu/encounters/bloodfeaster.lua",
+          "line": 25
+        }
+      ],
+      "notes": "Loaded by script_init.lua; zone_status.lua spawns controller.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "txevu",
+      "title": "Zun`Muram Tkarish Zyk",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Top-threat banish, ritualist waves, ghost jailers and linked combat.",
+      "sources": [
+        {
+          "path": "txevu/#Zun-Muram_Tkarish_Zyk.lua",
+          "line": 13
+        }
+      ],
+      "notes": "Include jail/inquisitor/ritualist helpers.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "unrest",
+      "title": "Wilhavyn Estate / Master Operative",
+      "kind": "GM event",
+      "confidence": "needs-review",
+      "reason": "Estate party, guards, Wilhavyn family and disguised spies lead to phased Master Operative.",
+      "sources": [
+        {
+          "path": "unrest/event_controller.lua",
+          "line": 24
+        }
+      ],
+      "notes": "Header says GM-Unrest content-flag event; controller spawn logic is partly commented and notes unfinished spawning. Confirm launch path and intended publication.",
+      "group": "Custom events"
+    },
+    {
+      "zone": "uqua",
+      "title": "Tqiv Araxt the Enraged and Tqiv Qukret the Furious",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Each side summons rage/fury constructs and unlocks orb/specter progression.",
+      "sources": [
+        {
+          "path": "uqua/#Tqiv_Araxt_the_Enraged.lua",
+          "line": 17
+        }
+      ],
+      "notes": "Include #Tqiv_Qukret_the_Furious.lua and associated constructs/specters.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "uqua",
+      "title": "Uqua gas chambers",
+      "kind": "Raid puzzle",
+      "confidence": "clear",
+      "reason": "Two timed gas-chamber puzzles with flame and trap penalties.",
+      "sources": [
+        {
+          "path": "uqua/#Gas_Chamber_1.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Part of Uqua expedition; combine duplicate chamber variants.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "uqua",
+      "title": "Vrex Barxt Qurat and Guardian of Destruction",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Guardian HP transition activates Vrex, with aura healing, summoners and staged bonded mechanics.",
+      "sources": [
+        {
+          "path": "uqua/encounters/vrex.lua",
+          "line": 28
+        }
+      ],
+      "notes": "Finale; module registered in script_init.lua.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "veeshan",
+      "title": "Phara Dar and the Ring of Scale",
+      "kind": "Raid event",
+      "confidence": "clear",
+      "reason": "Five dragon deaths remove Phara Dar immunity; HP phases summon protectors.",
+      "sources": [
+        {
+          "path": "veeshan/108048.lua",
+          "line": 6
+        }
+      ],
+      "notes": "NPC script comment labels Phara Dar 2.0; that is a content name, not verified instance version.",
+      "group": "Veeshan's Peak"
+    },
+    {
+      "zone": "veksar",
+      "title": "Decaying Lord Galuk Drek",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "Repeated Darkened Decay spell timer during combat.",
+      "sources": [
+        {
+          "path": "veksar/Decaying_Lord_Galuk_Drek.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Compact mechanics; full NPC stats are database-backed.",
+      "group": "Legacy of Ykesha"
+    },
+    {
+      "zone": "veksar",
+      "title": "Raging Bloodgill",
+      "kind": "Group event",
+      "confidence": "clear",
+      "reason": "Bloodgill warrior HP trigger starts a chance-based, instance-scoped raging encounter.",
+      "sources": [
+        {
+          "path": "veksar/#a_bloodgill_warrior.lua",
+          "line": 5
+        }
+      ],
+      "notes": "Use both warrior and shaman helpers to describe spawn sequence.",
+      "group": "Legacy of Ykesha"
+    },
+    {
+      "zone": "vexthal",
+      "title": "Aten Ha Ra progression / Akhevan Warders",
+      "kind": "Raid sequence",
+      "confidence": "clear",
+      "reason": "Boss deaths remove specific warders and trigger the valid Aten variant.",
+      "sources": [
+        {
+          "path": "vexthal/#aten_trigger.lua",
+          "line": 11
+        }
+      ],
+      "notes": "Consolidated progression overview; named boss files mostly provide warder cleanup instead of distinctive attacks.",
+      "group": "Shadows of Luclin"
+    },
+    {
+      "zone": "vexthal",
+      "title": "NPC 158006: teleport hunt",
+      "kind": "Scripted boss",
+      "confidence": "needs-review",
+      "reason": "40% and 20% HP transitions teleport, heal and hide the boss with one-hour hunt timers.",
+      "sources": [
+        {
+          "path": "vexthal/158006.lua",
+          "line": 26
+        }
+      ],
+      "notes": "NPC display name not present in this script; resolve database identity before approval.",
+      "group": "Custom events"
+    },
+    {
+      "zone": "vxed",
+      "title": "Vxed trial / Stonespiritist Ekikoa",
+      "kind": "Group expedition",
+      "confidence": "clear",
+      "reason": "Zone death counter unlocks Ekikoa and trial completion.",
+      "sources": [
+        {
+          "path": "vxed/encounters/vxed.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Loaded by script_init.lua.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "wakening",
+      "title": "Cristoc Bonethug",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Cristoc spawns five mercenaries and controls their linked aggression.",
+      "sources": [
+        {
+          "path": "wakening/Cristoc_Bonethug.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Triggered by #Lantaric-Dar.lua.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "wakening",
+      "title": "Dark Disciple Master",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "HP phases summon Plavo remains and additional disciples.",
+      "sources": [
+        {
+          "path": "wakening/Dark_Disciple_Master.lua",
+          "line": 14
+        }
+      ],
+      "notes": "Triggered by Scout_Leader_Plavo.lua:50.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "wakening",
+      "title": "Wuoshi (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Large custom phased dragon script with combat state, queued HP gates and encounter resets.",
+      "sources": [
+        {
+          "path": "wakening/Wuoshi.lua",
+          "line": 773
+        }
+      ],
+      "notes": "Resolve seasonal registry/version centrally.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "wallofslaughter",
+      "title": "Discordling Spiritcaller",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Feran adds split into chimeras; combat/death signals coordinate the event.",
+      "sources": [
+        {
+          "path": "wallofslaughter/#Discordling_Spiritcaller.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Spawned by #Hudar_Trittan.lua:23.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "wallofslaughter",
+      "title": "Durunal the Cursebearer",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Triggered boss spawns three named lightning elementals.",
+      "sources": [
+        {
+          "path": "wallofslaughter/#Durunal_the_Cursebearer.lua",
+          "line": 7
+        }
+      ],
+      "notes": "Player.lua contains epic trigger.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "wallofslaughter",
+      "title": "Lightning Lord",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Multiple health thresholds summon loyalists after nervous-guardian trigger.",
+      "sources": [
+        {
+          "path": "wallofslaughter/#Lightning_Lord.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Druid epic 2.0 trap/Retired Soldier chain.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "wallofslaughter",
+      "title": "Murkglider Hivequeen",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Combat spawns murkglider hatchling waves.",
+      "sources": [
+        {
+          "path": "wallofslaughter/#The_Murkglider_Hivequeen.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Epic encounter; egg/hatchling scripts belong to same guide.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "wallofslaughter",
+      "title": "Pyrique Redwing",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Splits into six shadows, shuffles them and requires finding the real one.",
+      "sources": [
+        {
+          "path": "wallofslaughter/encounters/redwing.lua",
+          "line": 45
+        }
+      ],
+      "notes": "Loaded by script_init.lua:1.",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "wallofslaughter",
+      "title": "Tarn Icewind",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Portal-crystal setup gates combat and the boss calls reinforcements.",
+      "sources": [
+        {
+          "path": "wallofslaughter/#Tarn_Icewind.lua",
+          "line": 40
+        }
+      ],
+      "notes": "Include Tarn_Icewind_Spawner.lua and portal crystal helpers.",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "warslikswood",
+      "title": "Raving Goblinmaster",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Triggered dialogue challenge summons successive frantic goblin waves.",
+      "sources": [
+        {
+          "path": "warslikswood/Raving_Goblinmaster.lua",
+          "line": 55
+        }
+      ],
+      "notes": "Includes #Raving_Goblinmaster.lua finale and a_frantic_goblin.lua signals.",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "westkorlach",
+      "title": "Grokui, the Slumbering Basilisk",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "HP phases repeatedly heal the boss while escalating melee damage.",
+      "sources": [
+        {
+          "path": "westkorlach/Grokui,_the_Slumbering_Basilisk.lua",
+          "line": 14
+        }
+      ],
+      "notes": "Combat loss resets HP and damage.",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "westkorlacha",
+      "title": "Matriarch Shyra",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Shyra and protector/enforcer adds share aggro and a distance tether.",
+      "sources": [
+        {
+          "path": "westkorlacha/encounters/Shyra.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Loaded by script_init.lua.",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "westkorlachb",
+      "title": "Find Fibblebrap 2: Lost Caverns",
+      "kind": "Mission",
+      "confidence": "clear",
+      "reason": "Task-stage controller with Captain Therimel and Therigal scholar dialogue/progression.",
+      "sources": [
+        {
+          "path": "westkorlachb/encounters/find_fibblebrap_two.lua",
+          "line": 71
+        }
+      ],
+      "notes": "Version 1 and supported task levels documented in source header; initializer checks version constant.",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "westwastes",
+      "title": "Disciple of Moon",
+      "kind": "Quest boss",
+      "confidence": "clear",
+      "reason": "Epic proximity trap spawns the disciple, with a 30-minute combat deadline.",
+      "sources": [
+        {
+          "path": "westwastes/Disciple_of_Moon.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic quests"
+    },
+    {
+      "zone": "westwastes",
+      "title": "Klandicar (Seasonal)",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Custom combat state and phased HP transitions with reset handling.",
+      "sources": [
+        {
+          "path": "westwastes/Klandicar.lua",
+          "line": 620
+        }
+      ],
+      "notes": "Resolve seasonal registry/version centrally.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "westwastes",
+      "title": "Scout Charisa: Kromzek Captain",
+      "kind": "Quest event",
+      "confidence": "clear",
+      "reason": "Scout-triggered encounter spawns a captain and seven warriors.",
+      "sources": [
+        {
+          "path": "westwastes/encounters/Scout_Charisa.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Explicit loader Scout_Charisa.lua:13; compact quest ambush.",
+      "group": "Scars of Velious"
+    },
+    {
+      "zone": "yxtta",
+      "title": "Hexxt Huntmaster",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "HP-triggered archery volley with combat/reset behavior.",
+      "sources": [
+        {
+          "path": "yxtta/#Hexxt_Huntmaster.lua",
+          "line": 12
+        }
+      ],
+      "notes": "Shares generic Kyv mechanic; lower priority.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "yxtta",
+      "title": "Pixtt Suir Mindrider",
+      "kind": "Raid boss",
+      "confidence": "clear",
+      "reason": "Repeated HP thresholds cast Curse of the Ikaav on multiple random targets.",
+      "sources": [
+        {
+          "path": "yxtta/#Pixtt_Suir_Mindrider.lua",
+          "line": 17
+        }
+      ],
+      "notes": "Room boundary and reset also scripted.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "yxtta",
+      "title": "Primal door riddle",
+      "kind": "Raid puzzle",
+      "confidence": "clear",
+      "reason": "Ordered riddle-door answers open access; mistakes summon stone attackers.",
+      "sources": [
+        {
+          "path": "yxtta/player.lua",
+          "line": 75
+        }
+      ],
+      "notes": "Supports raid-zone guide; do not publish fixed answer order because source randomizes it.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "yxtta",
+      "title": "Xounii Shifter / Tqiv Trusik Fanatic",
+      "kind": "Named encounter",
+      "confidence": "clear",
+      "reason": "Roaming disguises change at 50% and 15% HP.",
+      "sources": [
+        {
+          "path": "yxtta/#Tqiv_Trusik_Fanatic.lua",
+          "line": 27
+        }
+      ],
+      "notes": "Source explicitly identifies both names.",
+      "group": "Gates of Discord"
+    }
+  ],
+  "excluded": [
+    {
+      "zone": "qeynos",
+      "title": "trumpy",
+      "reason": "Conversation/waypoint ambience, no defined player combat event.",
+      "sources": [
+        {
+          "path": "qeynos/encounters/trumpy.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "qinimi",
+      "title": "thunder_dome_two",
+      "reason": "Parallel arena copy consolidated into Thunderdome row.",
+      "sources": [
+        {
+          "path": "qinimi/encounters/thunder_dome_two.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "qinimi",
+      "title": "thunder_dome_three",
+      "reason": "Parallel arena copy consolidated into Thunderdome row.",
+      "sources": [
+        {
+          "path": "qinimi/encounters/thunder_dome_three.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujb",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujb/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujc",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujc/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujd",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujd/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "ruje",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "ruje/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujf",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujf/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujg",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujg/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujh",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujh/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "ruji",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "ruji/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rujj",
+      "title": "ruj",
+      "reason": "Duplicate shared Rujarkian Hills adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "rujj/encounters/ruj.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takb",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takb/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takc",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takc/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takd",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takd/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "take",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "take/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takf",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takf/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takg",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takg/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takh",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takh/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "taki",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "taki/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takj",
+      "title": "tak",
+      "reason": "Duplicate shared Takish-Hiz adventure controller; covered by theme overview.",
+      "sources": [
+        {
+          "path": "takj/encounters/tak.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "snplant",
+      "title": "area_emotes",
+      "reason": "Ambient area text, helper for sewer setting.",
+      "sources": [
+        {
+          "path": "snplant/encounters/area_emotes.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "stillmoonb",
+      "title": "Mask_of_the_Hidden",
+      "reason": "Personal mask-to-class-reward chest conversion, not an encounter; outside combat journal scope.",
+      "sources": [
+        {
+          "path": "stillmoonb/encounters/Mask_of_the_Hidden.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "takishruinsa",
+      "title": "living_legacy_endurance",
+      "reason": "Root audit covers this central Living Legacy endurance event; not duplicated in zone shard.",
+      "sources": [
+        {
+          "path": "takishruinsa/encounters/living_legacy_endurance.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thedeep",
+      "title": "Burrower",
+      "reason": "Misplaced or unwired: registers 154xxx Acrylia NPCs. Acrylia loader names Burrower but has no encounters directory; The Deep has separate functioning Beast script.",
+      "sources": [
+        {
+          "path": "thedeep/encounters/Burrower.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thenest",
+      "title": "clues",
+      "reason": "Kill-count/random clue distribution plus boss flavor emotes only.",
+      "sources": [
+        {
+          "path": "thenest/encounters/clues.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thenest",
+      "title": "dragons_egg",
+      "reason": "Only random mission item drops.",
+      "sources": [
+        {
+          "path": "thenest/encounters/dragons_egg.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thenest",
+      "title": "rival_party",
+      "reason": "Only random mission item drops.",
+      "sources": [
+        {
+          "path": "thenest/encounters/rival_party.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thenest",
+      "title": "scrap_metal",
+      "reason": "Only random mission item drops.",
+      "sources": [
+        {
+          "path": "thenest/encounters/scrap_metal.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thenest",
+      "title": "spiders_eye",
+      "reason": "Only kill-count/random mission-item drop system.",
+      "sources": [
+        {
+          "path": "thenest/encounters/spiders_eye.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thundercrest",
+      "title": "history_of_the_isle",
+      "reason": "Guard deaths expose artifact loot; mission loot/progression helper without additional combat behavior.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/history_of_the_isle.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thundercrest",
+      "title": "the_gilded_scroll",
+      "reason": "Scroll-distribution and mission loot system; no distinct encounter behavior.",
+      "sources": [
+        {
+          "path": "thundercrest/encounters/the_gilded_scroll.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "tipt",
+      "title": "ghosts",
+      "reason": "Consolidated into Tipt mountain trials row.",
+      "sources": [
+        {
+          "path": "tipt/encounters/ghosts.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "tox",
+      "title": "druid_1_5",
+      "reason": "Dialogue/song/turn-in puzzle; no combat encounter, outside initial journal scope.",
+      "sources": [
+        {
+          "path": "tox/encounters/druid_1_5.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "shadowhaven",
+      "title": "General_Dalinastalarix",
+      "reason": "Waypoint conversation and city ambience.",
+      "sources": [
+        {
+          "path": "shadowhaven/General_Dalinastalarix.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "shadowhaven",
+      "title": "Verte",
+      "reason": "Tavern/banking dialogue signals.",
+      "sources": [
+        {
+          "path": "shadowhaven/Verte.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thurgadina",
+      "title": "Grand_Historian_Thoridain",
+      "reason": "Shawl quest lecture and turn-in rewards.",
+      "sources": [
+        {
+          "path": "thurgadina/Grand_Historian_Thoridain.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "tutorialb",
+      "title": "#Spider_Tamer_Gugan",
+      "reason": "Combat/death flavor emotes only; same pattern on other tutorial named scripts.",
+      "sources": [
+        {
+          "path": "tutorialb/#Spider_Tamer_Gugan.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "tutoriala",
+      "title": "#The_Gloomingdeep_Jailor",
+      "reason": "Arias dialogue signals only, not mechanics for a standalone encounter guide.",
+      "sources": [
+        {
+          "path": "tutoriala/#The_Gloomingdeep_Jailor.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "westwastes",
+      "title": "Julius_Oresko",
+      "reason": "Combat taunt only.",
+      "sources": [
+        {
+          "path": "westwastes/Julius_Oresko.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "qvic",
+      "title": "#Pixtt_Ttinq_Val",
+      "reason": "Static race/weapon modifiers only, no encounter controller or staged mechanics.",
+      "sources": [
+        {
+          "path": "qvic/#Pixtt_Ttinq_Val.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "qvic",
+      "title": "Pixtt_Llan_Kvish",
+      "reason": "Static race/weapon modifiers only.",
+      "sources": [
+        {
+          "path": "qvic/Pixtt_Llan_Kvish.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "yxtta",
+      "title": "#Pixtt_Flamedirge",
+      "reason": "Static weapon modifiers only.",
+      "sources": [
+        {
+          "path": "yxtta/#Pixtt_Flamedirge.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "yxtta",
+      "title": "#Mastered_Destroyer",
+      "reason": "Static weapon modifiers only.",
+      "sources": [
+        {
+          "path": "yxtta/#Mastered_Destroyer.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "sleeper",
+      "title": "#The_Fabled_Final_Arbiter",
+      "reason": "Death/lockout only; included in Sleep Walking overview instead of standalone mechanics guide.",
+      "sources": [
+        {
+          "path": "sleeper/#The_Fabled_Final_Arbiter.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "templeveeshan",
+      "title": "#The_Fabled_Vulak-Aerr",
+      "reason": "Fabled death/lockout/announcement only; not the separately scripted Vulak ring.",
+      "sources": [
+        {
+          "path": "templeveeshan/#The_Fabled_Vulak-Aerr.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "trakanon",
+      "title": "forager_trigger",
+      "reason": "Random rare-spawn cycle, not a scripted encounter.",
+      "sources": [
+        {
+          "path": "trakanon/forager_trigger.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "trakanon",
+      "title": "hunter_trigger",
+      "reason": "Random rare-spawn cycle, not a scripted encounter.",
+      "sources": [
+        {
+          "path": "trakanon/hunter_trigger.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "southkarana",
+      "title": "14003",
+      "reason": "Quillmane rare-spawn cycle, not a phased encounter.",
+      "sources": [
+        {
+          "path": "southkarana/14003.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "thurgadinb",
+      "title": "#Councilor_Juliah_Lockheart",
+      "reason": "Turn-in spawned enemy with only despawn timer; quest guide scope rather than encounter mechanics.",
+      "sources": [
+        {
+          "path": "thurgadinb/#Councilor_Juliah_Lockheart.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "rathemtn",
+      "title": "corrupted_hill_giant",
+      "reason": "Timed despawn paused in combat only; no distinct fight logic.",
+      "sources": [
+        {
+          "path": "rathemtn/corrupted_hill_giant.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "weddingchapel",
+      "title": "Florist",
+      "reason": "Decoration/flower spawning, not combat encounter.",
+      "sources": [
+        {
+          "path": "weddingchapel/Florist.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "qvic",
+      "title": "991125",
+      "reason": "Bonded Hunt echo wrapper; root audit covers shared system.",
+      "sources": [
+        {
+          "path": "qvic/991125.lua",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "zone_directories": 99,
+    "lua_perl_files_scanned": 2636,
+    "encounter_modules": 106,
+    "encounter_modules_accounted": 106,
+    "files_by_zone": {
+      "qcat": 33,
+      "qey2hh1": 56,
+      "qeynos": 132,
+      "qeynos2": 91,
+      "qeytoqrg": 45,
+      "qinimi": 21,
+      "qrg": 22,
+      "qvic": 36,
+      "rathemtn": 64,
+      "riftseekers": 9,
+      "rivervale": 78,
+      "riwwi": 59,
+      "ruja": 3,
+      "rujb": 3,
+      "rujc": 3,
+      "rujd": 6,
+      "ruje": 4,
+      "rujf": 3,
+      "rujg": 5,
+      "rujh": 3,
+      "ruji": 3,
+      "rujj": 3,
+      "runnyeye": 15,
+      "scarlet": 7,
+      "sebilis": 10,
+      "shadeweaver": 35,
+      "shadowhaven": 261,
+      "shadowrest": 2,
+      "sharvahl": 188,
+      "sirens": 7,
+      "skyfire": 13,
+      "skyshrine": 59,
+      "sleeper": 36,
+      "sncrematory": 10,
+      "snlair": 4,
+      "snplant": 5,
+      "snpool": 5,
+      "soldunga": 4,
+      "soldungb": 4,
+      "soldungc": 25,
+      "solrotower": 24,
+      "soltemple": 27,
+      "southkarana": 27,
+      "sro": 22,
+      "sseru": 46,
+      "ssratemple": 39,
+      "steamfont": 42,
+      "stillmoona": 17,
+      "stillmoonb": 8,
+      "stonebrunt": 22,
+      "swampofnohope": 19,
+      "tacvi": 29,
+      "taka": 5,
+      "takb": 5,
+      "takc": 6,
+      "takd": 5,
+      "take": 5,
+      "takf": 5,
+      "takg": 5,
+      "takh": 5,
+      "taki": 5,
+      "takishruinsa": 2,
+      "takj": 5,
+      "templeveeshan": 44,
+      "tenebrous": 27,
+      "thedeep": 9,
+      "thegrey": 14,
+      "thenest": 16,
+      "thundercrest": 30,
+      "thurgadina": 92,
+      "thurgadinb": 27,
+      "timorous": 33,
+      "tipt": 15,
+      "torgiran": 27,
+      "tox": 21,
+      "trakanon": 43,
+      "tutoriala": 3,
+      "tutorialb": 41,
+      "twilight": 36,
+      "txevu": 45,
+      "umbral": 6,
+      "unrest": 21,
+      "uqua": 59,
+      "veeshan": 11,
+      "veksar": 8,
+      "velketor": 6,
+      "vexthal": 77,
+      "vxed": 10,
+      "wakening": 41,
+      "wallofslaughter": 34,
+      "warrens": 8,
+      "warslikswood": 17,
+      "weddingchapel": 2,
+      "westkorlach": 1,
+      "westkorlacha": 2,
+      "westkorlachb": 2,
+      "westwastes": 25,
+      "yxtta": 36
+    },
+    "clear_candidates": 150,
+    "needs_review_candidates": 7,
+    "exclusion_records": 53,
+    "method": "Read every Lua/Perl source for mechanical/event signatures; manually inspected candidate bodies, NPC event registrations, launchers and scripted stage data. Every encounters-directory module is either a candidate or an explicit helper/duplicate/nonencounter exclusion. Ordinary dialogue, merchants, turn-ins, kill credit and generic NPC race modifiers are excluded. Clear means source-backed candidate, not live or database-activation verification."
+  }
+}

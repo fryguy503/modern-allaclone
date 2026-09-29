@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "skyshrine-lord-yelinak-seasonal",
+  "title": "Lord Yelinak (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "skyshrine",
+    "name": "Skyshrine",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Read Yelinak's storm warnings, shelter during his shield and survive increasingly fast ground mechanics.",
+  "overview": [
+    "Read Yelinak's storm warnings, shelter during his shield and survive increasingly fast ground mechanics."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Move to the marked boundaries rather than following a moving tank.",
+        "Finish or cancel spells before Silence resolves."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Ground warnings give eight seconds: leave the marked 32-range storm strike, shelter within the marked 65-range storm eye, or stop casting for Silence.",
+        "At 65% health, Yelinak becomes protected for a fixed storm-shield sequence. Gather within 60 range, then move beyond the inner 35-range ring when warned.",
+        "The shield ends after 23 seconds. At 30% and 10% health, ground mechanics accelerate."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "skyshrine/Lord_Yelinak.lua",
+        "sha256": "c69be3e047272503760a3f78ea87d8ca0a0baf0c01483e63727f04503621887b"
+      },
+      {
+        "path": "lua_modules/seasonal_velious.lua",
+        "sha256": "1d2f02b537ff32319f50cfcee7b25912a2ee591751ab8806f83744a0469ff0cd"
+      }
+    ],
+    "notes": [
+      "Approval E290. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“249. Confirm the deployed version.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

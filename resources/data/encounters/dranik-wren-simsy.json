@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-wren-simsy",
+  "title": "Wren Simsy",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336253,
+    336255
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Wren Simsy summons assassins, with more pressure when a larger group is nearby.",
+  "overview": [
+    "Wren Simsy summons assassins, with more pressure when a larger group is nearby."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for two assassins as combat starts.",
+        "The opening participant check adds an assassin for each nearby player beyond four.",
+        "Finish the encounter inside the thirty-minute appearance window.",
+        "Wren's death removes the remaining shadowed assassins."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/#Wren_Simsy.lua",
+        "sha256": "cdc5c29d6ea4f348ae1c518c1f7f49756e0302a8b5e50b5500923330015c6fe3"
+      },
+      {
+        "path": "dranik/#Daignal_the_Revered.lua",
+        "sha256": "1f9dd222cb1bbf7938a8785e4f623dd88049db6fe2055adc82af9842caa00934"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "lakerathe-man-eating-freshwater-shark",
+  "title": "Man-eating Freshwater Shark",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "lakerathe",
+    "name": "Lake Rathetear",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The man-eating freshwater shark becomes more dangerous as it loses health.",
+  "overview": [
+    "The man-eating freshwater shark becomes more dangerous as it loses health."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Its maximum melee hit increases at 75%, 50% and 25% health. Save tank support for the later part of the fight.",
+        "Keep the shark controlled while crossing each threshold, allowing healers to adjust before the next push.",
+        "The summoned shark despawns thirty minutes after appearing, so prepare before triggering the encounter."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lakerathe/#Man-eating_Freshwater_Shark.lua",
+        "sha256": "a26d6338fea78853a58b9eb44d5f0951168da84a456bd8179c1f6d5b5e918c8d"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

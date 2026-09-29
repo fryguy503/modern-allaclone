@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-splitting-the-storm",
+  "title": "Splitting the Storm",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 9
+  },
+  "npc_ids": [
+    340597,
+    340598
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort Lila Trulan to the entrance and survive the captors waiting there.",
+  "overview": [
+    "Escort Lila Trulan to the entrance and survive the captors waiting there."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Use stop to park Lila safely while clearing the path, and prepare for the final two adds."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "One player claims the escort and can direct Lila with 'follow' and 'stop'.",
+        "Other players cannot take over while that owner is still in the zone.",
+        "Reaching the entrance area summons two captors and advances the escort objective."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/splitting_the_storm.lua",
+        "sha256": "21480379ae2364e1f23d6c175c19f559754e6fd8b51581f825808b03b430ccba"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E370. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "slug": "potimeb-quarm",
+  "title": "Quarm",
+  "group": "Plane of Time",
+  "type": "raid",
+  "zone": {
+    "short_name": "potimeb",
+    "name": "Plane of Time",
+    "version": 0
+  },
+  "npc_ids": [
+    223201
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Quarm loses heads as its health falls, changing its area spells while renewing a trio of time vortexes.",
+  "overview": [
+    "Quarm loses heads as its health falls, changing its area spells while renewing a trio of time vortexes."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Four heads",
+      "trigger": "Pull to 76%",
+      "description": "Control three vortexes and the opening five-spell selection."
+    },
+    {
+      "id": "phase-2",
+      "label": "Three heads",
+      "trigger": "76%",
+      "description": "Quarm loses the red head, clears its buffs and changes its spell set."
+    },
+    {
+      "id": "phase-3",
+      "label": "Two heads",
+      "trigger": "51%",
+      "description": "The blue head is lost and the spell set changes again."
+    },
+    {
+      "id": "phase-4",
+      "label": "Final head",
+      "trigger": "26%",
+      "description": "The white head is lost; finish Quarm through the final two-spell selection."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Three time vortexes appear almost immediately on engagement and are replaced every fifty seconds. Assign add control without losing pressure on Quarm.",
+        "At 76%, 51% and 26% health, a head is destroyed. Each transition removes all buffs from Quarm and changes its available area spells.",
+        "Area spells normally repeat every twenty-five seconds. A head transition resets that timer to six seconds, so prepare the raid for a quick follow-up.",
+        "Reapply needed debuffs after each head loss. Keep healers ready as the spell set narrows through the final phase.",
+        "Leaving combat removes the vortexes. Five minutes without combat restores Quarm’s health, heads and opening phase."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potimeb/Quarm.lua",
+        "sha256": "19e63a4c535a1856b474ec5c1065a40dbf2b6b94c3eb5495f4e260df06f41199"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

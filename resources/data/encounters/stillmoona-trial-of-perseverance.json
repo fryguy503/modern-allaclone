@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-trial-of-perseverance",
+  "title": "Trial of Perseverance",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 9
+  },
+  "npc_ids": [
+    338403,
+    338412,
+    338415,
+    338416,
+    338417,
+    338413
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keep the gong's defenders occupied and defeat twelve goblins to draw out their warlord.",
+  "overview": [
+    "Keep the gong's defenders occupied and defeat twelve goblins to draw out their warlord."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Maintain aggression on the goblins and prevent any disengaged defender from ringing the gong."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Tell Osashi 'ready' to summon four goblins and begin the trial.",
+        "Killed goblins are replaced until twelve kills have been credited without a bell failure.",
+        "At twelve credited kills, the Stillmoon warlord appears.",
+        "Engaging a goblin cancels its bell timers; a disengaged goblin starts a warning followed by the bell. A bell failure summons an Ancient Stillmoon Guardian."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/perseverance.lua",
+        "sha256": "a626d22e8e765f940ac64b668dcbf022bcf5f178ca9684f57b5b426528d75fcb"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval R018. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Publication blocker: Goblin_Spawn is defined twice; the second definition overwrites the initial timer setup. Exact idle-start/failure timing must be fixed or live-verified before publication."
+    ]
+  }
+}

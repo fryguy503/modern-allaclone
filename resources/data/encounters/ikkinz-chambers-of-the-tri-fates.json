@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-the-tri-fates",
+  "title": "Chambers of the Tri-Fates",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 2
+  },
+  "npc_ids": [
+    294624,
+    294135,
+    294625
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat all three Tri-Fate hunters before their replacements undo your progress.",
+  "overview": [
+    "Defeat all three Tri-Fate hunters before their replacements undo your progress."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each hunter’s death begins a twelve-minute replacement timer and starts summoning Pixtt Annuller reinforcements after a random delay.",
+        "Hunter replacement timers pause while a hunter is engaged and resume when combat ends. Move promptly between targets rather than taking a long break after a kill.",
+        "Control the annullers while finishing the remaining hunters. All three hunters must be absent together to complete the trial.",
+        "Completion locks the expedition to new entrants and grants the trial’s replay lockout."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/#Trigger_Ikkinz_2.lua",
+        "sha256": "3508e60d9fc3ecab96a2e6eae2dccbe58b96869b8770217327ee613d9937c8e6"
+      },
+      {
+        "path": "ikkinz/#Flesh_Hunter.lua",
+        "sha256": "a453807eb4af432b0c289c0cfed23c4a17fa9fed4c83da4ba7a216ccd660780c"
+      },
+      {
+        "path": "ikkinz/Pixtt_Annuller.lua",
+        "sha256": "039177d79ae690b99656974ca7f4acd4e09abf60b7dd8e3d9aa33424250e31e5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-the-curse-of-jurek",
+  "title": "The Curse of Jurek",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 6
+  },
+  "npc_ids": [
+    343447,
+    343027
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Control the harsh winds thrown off by Ju`Rek as the fight progresses.",
+  "overview": [
+    "Control the harsh winds thrown off by Ju`Rek as the fight progresses."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Have add control ready before every health threshold."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 95%, 80%, 60%, 40% and 20% health, Ju`Rek summons three harsh winds at his position.",
+        "The winds remain until defeated or the encounter resets.",
+        "Two minutes out of combat restores Ju`Rek and clears the wind adds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/the_curse_of_jurek.lua",
+        "sha256": "2237f36aaabc6d78aa10236de066aee95db5e39a0a8acdb251b0b8053a7d1e07"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E358. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

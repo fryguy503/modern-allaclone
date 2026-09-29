@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "potorment-baraguj-szuul-mouth-event",
+  "title": "Baraguj Szuul mouth event",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "potorment",
+    "name": "Plane of Torment",
+    "version": 0
+  },
+  "npc_ids": [
+    207031,
+    207309
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight through the mouth gauntlet, defeat an Unimaginable Horror, then confront the returned Baraguj Szuul.",
+  "overview": [
+    "Fight through the mouth gauntlet, defeat an Unimaginable Horror, then confront the returned Baraguj Szuul."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The mouth event populates a descending gauntlet of enemies ending in an Unimaginable Horror.",
+        "Defeating the Horror casts Dimensional Return on players within two hundred units and replaces the waiting Baraguj with the combat version.",
+        "Regroup after the return before fighting Baraguj. His triggered form begins checking for an idle reset after fifteen minutes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potorment/mouth_trigger.pl",
+        "sha256": "33ac12d831cd3d8cbff48f2d24817451e9ee3577af48c51b3849c23839574b9c"
+      },
+      {
+        "path": "potorment/Baraguj_Szuul.lua",
+        "sha256": "3ce70f9427c9e0600a9b1ed7a8e1efbfc467d2fbed9e2e95a7b713bfe7710c12"
+      },
+      {
+        "path": "potorment/An_Unimaginable_Horror.lua",
+        "sha256": "bce387013d101b97934ceba82b8d4674535e5c40ed3d3fec1009b124525310c6"
+      },
+      {
+        "path": "potorment/#Baraguj_Szuul.lua",
+        "sha256": "458583c56cf235d03bdf051e8f73518941bfe181a9659166ee7faf0f077bd763"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Confirm the entry trigger and spawn wiring for legacy mouth_trigger.pl before publication. The completion chain from the Horror to Baraguj is present, but no reviewed source caller starts that Perl gauntlet."
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-transcendence",
+  "title": "Chambers of Transcendence",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 5
+  },
+  "npc_ids": [
+    294590,
+    294500,
+    294593,
+    294595
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Face the Transcendent Acolytes, follow the Guardian and solve the sentinels’ class requirements to release Vrex Xalkak Nixki.",
+  "overview": [
+    "Face the Transcendent Acolytes, follow the Guardian and solve the sentinels’ class requirements to release Vrex Xalkak Nixki."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Transcendent Acolytes briefly rampage at 50% and 10% health. Stay inside their chamber to avoid a full heal and reset.",
+        "The Guardian of Transcendence retreats at 90%, 75% and 50% health, opening doors along its route. Defeat its last manifestation to reveal Vrex and his four sentinels.",
+        "A sentinel reveals a class clue at 10%. Let a player of the required class deliver the killing blow; an incorrect finisher causes the sentinel to return.",
+        "Vrex remains protected during the sentinel sequence and can still disrupt nearby players. Complete the sentinels and marauder progression to activate him.",
+        "While not engaged, Vrex alternates between very high and low health. Coordinate the pull around this change, then maintain combat.",
+        "At 4% health, Vrex enters a final five-second rampage burst."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/##Transcendent_Acolyte.lua",
+        "sha256": "315fbb1ea643c5a93dd0d49b990b7f59f3ac5950c7e2e653555632f0263ab375"
+      },
+      {
+        "path": "ikkinz/294593.lua",
+        "sha256": "1ba39ad61b48843a65008559575206d82c5a1959977976dca4e8a4356061ee59"
+      },
+      {
+        "path": "ikkinz/#Vrex_Xalkak_Nixki.lua",
+        "sha256": "325c4dac3f86e6e4fca2a0ca32d73b46e9b523a3282e4d6911a8812370221e3e"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      },
+      {
+        "path": "ikkinz/Guardian_of_Transcendence.lua",
+        "sha256": "29594bb8ab3e24682a0a62741223d689669a206812734a1a04059474ffa219a5"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Guardian_of_Transcendence.lua explicitly spawns NPC 294595 and identifies it as Vrex Xalkak Nixki."
+    ]
+  }
+}

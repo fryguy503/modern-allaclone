@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "poair-sigismond-windwalker",
+  "title": "Sigismond Windwalker",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poair",
+    "name": "Eryslai, the Kingdom of Wind",
+    "version": 0
+  },
+  "npc_ids": [
+    215375,
+    215392,
+    215393
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the spider island’s inhabitants and archwalkers to expose Sigismond Windwalker.",
+  "overview": [
+    "Defeat the spider island’s inhabitants and archwalkers to expose Sigismond Windwalker."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear all thirty-eight designated island spawns. Sigismond grows as the required kill count advances.",
+        "Defeat three archwalkers. The first two deaths produce smaller vorladien spawn that must be cleared before the next archwalker appears.",
+        "During the later stages, erratic arachnids replenish while the archwalker or Sigismond is engaged. Assign sustained add control.",
+        "The third archwalker’s death makes Sigismond attackable. His periodic hate clears require active tank recovery."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poair/encounters/Sigismond_Event.lua",
+        "sha256": "02bff870366103485e558c5dfe1293f213f043a3069224d09baf5f9e4fd338e7"
+      },
+      {
+        "path": "poair/#isle_five_controller.lua",
+        "sha256": "4694b2cdc7fdc91886ef02e0fdaeb41457615b26b38e9b4fb809e491e58bde29"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

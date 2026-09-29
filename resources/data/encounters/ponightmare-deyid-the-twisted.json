@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "ponightmare-deyid-the-twisted",
+  "title": "Deyid the Twisted",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "ponightmare",
+    "name": "Plane of Nightmare",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Deyid the Twisted closes a ring of trees around the raid before bringing part of it to life.",
+  "overview": [
+    "Deyid the Twisted closes a ring of trees around the raid before bringing part of it to life."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Encirclement",
+      "trigger": "90% health",
+      "description": "A ring of eleven trees surrounds the fight."
+    },
+    {
+      "id": "phase-2",
+      "label": "Closing ring",
+      "trigger": "60% and 50% health",
+      "description": "The trees move progressively closer."
+    },
+    {
+      "id": "phase-3",
+      "label": "Living trees",
+      "trigger": "40% health",
+      "description": "Four trees become attackable opponents."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 90% health, eleven trees appear around the encounter.",
+        "At 60% and 50%, the ring moves inward. Keep room to adjust your positioning as the trees close around you.",
+        "At 40%, four trees become active enemies. Assign add control before crossing this threshold and maintain the main tank on Deyid.",
+        "Deyid’s death removes the summoned trees and advances the local event."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ponightmare/Deyid_the_Twisted.lua",
+        "sha256": "7434fe1e04b031dc3591eb8a197727b614384752e8ee370130b0e95fcef3b495"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

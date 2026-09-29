@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "rujg-flawless-experimental-battlelord",
+  "title": "Flawless Experimental Battlelord",
+  "group": "Lost Dungeons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "rujg",
+    "name": "Rujarkian Hills: The Drudge Hollows",
+    "version": 2
+  },
+  "npc_ids": [
+    260169,
+    260170
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the research operation before facing a battlelord backed by dormant mutations.",
+  "overview": [
+    "Break the research operation before facing a battlelord backed by dormant mutations."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep an alternate tank ready for Throw and reserve add control for mutation activations."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Kill the separated research subjects, then the researchers they unlock, to reveal the final room.",
+        "Every two minutes of combat, the battlelord briefly grows stronger and activates the next mutation group.",
+        "Throw occurs on a one-minute timer and can remove the leading target from hate lists.",
+        "Defeat both final researchers while the battlelord is still alive to satisfy the bonus chest condition.",
+        "After 30 seconds out of combat, the encounter restores its adds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "rujg/encounters/rujgraid.lua",
+        "sha256": "be3e9c1887cae21f577081ff9a8fbc58b33e43c87b9225c6781673ad53c349e6"
+      },
+      {
+        "path": "rujg/Crispen_Koloff.lua",
+        "sha256": "a670f76c42b87840a01230f43d5e0c2114d14b15c2f88f409c6b09dc7c6ac83e"
+      }
+    ],
+    "notes": [
+      "Approval E282. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Raid version 2 requires confirmation against the expedition launcher/database before publication."
+    ]
+  }
+}

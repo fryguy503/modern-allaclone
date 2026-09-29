@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-ry-gorr-assault-chief-ry-gorr-coldain-ring8",
+  "title": "Ry'Gorr assault / Chief Ry'Gorr (Coldain ring8)",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort Garadain into battle, defeat Chief Ry'Gorr and bring him home alive.",
+  "overview": [
+    "Escort Garadain into battle, defeat Chief Ry'Gorr and bring him home alive."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the marching-order hand-in only when the force is assembled.",
+        "Stay with Garadain as he gathers the Coldain and moves to the battlefield.",
+        "Prioritize protecting Garadain and defeating the chief amid the larger battle.",
+        "Return the required proof while the battle version of Garadain remains alive."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/Gloradin_Coldheart.lua",
+        "sha256": "8da03e68097ba1268c92f3aa25e8151f503000c7f4b6ac3391200140202140ab"
+      },
+      {
+        "path": "eastwastes/Garadain_Glacierbane.lua",
+        "sha256": "f920b8b8b5703e4028d87fd911abdfbcd7466d24d10fd3399df018eb25dc7b54"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

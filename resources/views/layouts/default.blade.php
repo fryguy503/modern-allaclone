@@ -29,7 +29,7 @@
         <div class="container mx-auto px-4">
             @include('layouts.partials.navbar')
             <div class="flex flex-col min-w-0 break-words bg-base-200 w-full mb-6 rounded-t-lg min-h-lvh">
-                <div class="p-10 h-full">
+                <div class="@yield('content-padding', 'p-10') h-full">
                     <x-h1>@yield('title')</x-h1>
                     @yield('content')
                 </div>

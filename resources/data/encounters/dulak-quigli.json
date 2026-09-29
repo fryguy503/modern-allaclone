@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "dulak-quigli",
+  "title": "Quigli",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dulak",
+    "name": "Dulak's Harbor",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Quigli calls his crew when a monk accepts the challenge.",
+  "overview": [
+    "Quigli calls his crew when a monk accepts the challenge."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The eligible monk can choose the crew fight through dialogue.",
+        "The first crew arrives five seconds after the challenge begins.",
+        "Collect the lackey, swabbies and scallywag while keeping pressure on Quigli.",
+        "Finish inside the fifteen-minute encounter window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dulak/Quigli.lua",
+        "sha256": "9c3b15e325172c640b966bbf84a06000fa06a0ba3cef1cd4994e3cddfcfdfeea"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

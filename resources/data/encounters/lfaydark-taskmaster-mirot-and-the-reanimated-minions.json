@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "lfaydark-taskmaster-mirot-and-the-reanimated-minions",
+  "title": "Taskmaster Mirot and the reanimated minions",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "lfaydark",
+    "name": "Lesser Faydark",
+    "version": 0
+  },
+  "npc_ids": [
+    57151,
+    57154,
+    57155
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Taskmaster Mirot and his reanimated minions fight as a linked group.",
+  "overview": [
+    "Taskmaster Mirot and his reanimated minions fight as a linked group."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The quest sequence summons Mirot with six minions. Engaging either the taskmaster or a minion pulls other linked opponents into combat.",
+        "Minions taken more than 200 units from Mirot are brought back to him. Plan to control the group nearby rather than splitting them across the forest.",
+        "The summoned taskmaster has a thirty-minute cleanup timer. Finish the fight and recover the quest objective within that window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lfaydark/Taskmaster_Mirot.lua",
+        "sha256": "957cbade1bf6d36a08e09b3e862c7e996572955d2371388a8a4549a33985ab73"
+      },
+      {
+        "path": "lfaydark/#Taskmaster_Mirot.lua",
+        "sha256": "b6406f8372c6e9e5397daf10cb0876348567da14f61ad2d5e5e75aac882d8e97"
+      },
+      {
+        "path": "lfaydark/Reanimated_Minion.lua",
+        "sha256": "1c81cf8dd93d639bd0d746daf33e0a800d0872b1a987d6009bd43e7e017edaba"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

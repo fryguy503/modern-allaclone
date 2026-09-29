@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-zun-muram-mordl-delt",
+  "title": "Zun`Muram Mordl Delt",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298020,
+    298050,
+    298051,
+    298052,
+    298053
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Mordl Delt divides into images whose deaths determine his health when he reforms.",
+  "overview": [
+    "Mordl Delt divides into images whose deaths determine his health when he reforms."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign each image to a tank and focus kills during the timed split windows."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 90%, 70% and 50%, the boss becomes inactive and splits into two, three and four images.",
+        "Defeat the images to force his return, or survive until the three-minute split timer expires. Kills reduce the reformed boss's health.",
+        "At 30%, two additional images appear while the main body stays active and hits harder."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/zmmd.lua",
+        "sha256": "e7c0f7bc2132bfe3d35a1a490b70422141a26c80b0920fe4a0da558b77f50e50"
+      }
+    ],
+    "notes": [
+      "Approval E335. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "potactics-rallos-zek-the-warlord",
+  "title": "Rallos Zek the Warlord",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "potactics",
+    "name": "Drunder, the Fortress of Zek",
+    "version": 0
+  },
+  "npc_ids": [
+    214296,
+    214299,
+    214052,
+    214298
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Zek brothers, drive Rallos into the arena, then finish the Warlord amid waves of animated corpses.",
+  "overview": [
+    "Defeat the Zek brothers, drive Rallos into the arena, then finish the Warlord amid waves of animated corpses."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "The brothers",
+      "trigger": "Berik and Grunhork defeated",
+      "description": "Defeat Vallon and Tallon; control Vallon’s copies at half health."
+    },
+    {
+      "id": "phase-2",
+      "label": "Upper Rallos",
+      "trigger": "Both brothers defeated",
+      "description": "Handle elite pairs at 75% and 65%, then push Rallos to 55%."
+    },
+    {
+      "id": "phase-3",
+      "label": "The Warlord",
+      "trigger": "Upper Rallos reaches 55%",
+      "description": "Move into the arena, control recurring corpse waves and defeat the real Rallos."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat Berik and Grunhork to summon the event versions of Vallon and Tallon. This opening phase has twenty minutes.",
+        "Vallon creates two copies at 50% health. Defeat both real brothers to activate Rallos on the upper level.",
+        "Upper Rallos summons two Decorin Elites at 75% and again at 65%. At 55%, he moves the fight into the arena. This stage has fifteen minutes.",
+        "In the arena, seven corpse adds begin arriving roughly sixty-five seconds into combat and then every fifty-five seconds. Keep an add team ready while damaging the Warlord.",
+        "The final stage has twenty minutes. The script also banishes players beyond seventy-two clients on Rallos’s hate list."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potactics/encounters/rztw_event.lua",
+        "sha256": "7046770e7980ab424faf09faad7f86c1186c231e5893c0ee2851fb3157aee639"
+      },
+      {
+        "path": "potactics/script_init.lua",
+        "sha256": "12ce61a2e2ee0298c1251e84237be7e97e46b70305e9492aa1bb6033968b6441"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

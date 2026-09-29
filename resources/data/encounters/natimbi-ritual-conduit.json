@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "natimbi-ritual-conduit",
+  "title": "Ritual Conduit",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "natimbi",
+    "name": "Natimbi, the Broken Shores",
+    "version": 0
+  },
+  "npc_ids": [
+    280090,
+    280091
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the ritual’s Reborn, expose the Conduit and finish the Noc Juggernaut it releases.",
+  "overview": [
+    "Defeat the ritual’s Reborn, expose the Conduit and finish the Noc Juggernaut it releases."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The Conduit starts protected with ten Reborn nearby. Six Reborn deaths make it attackable.",
+        "At 30% health, the Conduit is replaced by a Noc Juggernaut. Keep the tank ready for the new target.",
+        "The Juggernaut uses Energy Conduit seven seconds after engagement, then every twenty seconds.",
+        "Both principal enemies must stay close to the ritual site; leaving the leash area heals them and clears hate.",
+        "The event’s spawned stages have fifteen-minute cleanup timers. Avoid a long pause during the transition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "natimbi/encounters/druid_1_5.lua",
+        "sha256": "4ab55d398cc5017cf5ffcece6fefb5a066d9418e9914f0953ecb650d21e0eec7"
+      },
+      {
+        "path": "natimbi/script_init.lua",
+        "sha256": "eeed17eb2e4b34b8f0a6d37d7e24f62ef72428ab9a73c7c68ed8bf420698f8e1"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

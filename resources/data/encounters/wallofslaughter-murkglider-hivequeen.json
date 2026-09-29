@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "wallofslaughter-murkglider-hivequeen",
+  "title": "Murkglider Hivequeen",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "wallofslaughter",
+    "name": "Wall of Slaughter",
+    "version": 0
+  },
+  "npc_ids": [
+    300083,
+    300084
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Manage the Hivequeen's recurring eggs before their hatchlings overwhelm the group.",
+  "overview": [
+    "Manage the Hivequeen's recurring eggs before their hatchlings overwhelm the group."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign egg and hatchling control and avoid allowing successive waves to accumulate."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Every forty seconds in combat, the Hivequeen lays three quivering eggs.",
+        "After thirty seconds, each egg produces two murk hatchlings.",
+        "A repeating hate check draws idle hatchlings and murkglider attendants into her fight.",
+        "Disengagement stops new egg waves and the hate-link timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wallofslaughter/#The_Murkglider_Hivequeen.lua",
+        "sha256": "c5432d1ccef6bb6d69349f62f9d66fd42d1aa7e4df450a2ce5b137051509da0e"
+      },
+      {
+        "path": "wallofslaughter/a_quivering_egg.lua",
+        "sha256": "a14f0faa1bf2c5c30c4df8ad3b65b08bf9d84b3018c4634c1959d20656855997"
+      }
+    ],
+    "notes": [
+      "Approval E399. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Egg and hatchling template IDs are verified; the Hivequeen template still needs database confirmation."
+    ]
+  }
+}

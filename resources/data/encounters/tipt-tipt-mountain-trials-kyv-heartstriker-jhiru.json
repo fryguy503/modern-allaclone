@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "slug": "tipt-tipt-mountain-trials-kyv-heartstriker-jhiru",
+  "title": "Tipt mountain trials / Kyv Heartstriker Jhiru",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "tipt",
+    "name": "Tipt, Treacherous Crags",
+    "version": 0
+  },
+  "npc_ids": [
+    289034,
+    289036,
+    289033,
+    289032
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Advance through cragbeasts, repeating ghosts and a riddle before facing Jhiru.",
+  "overview": [
+    "Advance through cragbeasts, repeating ghosts and a riddle before facing Jhiru."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear each triggered group fully, solve the current riddle rather than guessing, and prepare a backup tank for Jhiru's hate changes."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Approaching the cragbeast trigger releases six hatchlings; killing them summons their mother.",
+        "The ghost area releases eight spirits, each of which creates a replacement on death. Defeat the complete spirit sequence to open the key room.",
+        "With the required key available, request Rikabi's riddle and turn in one matching answer object. Incorrect or multiple answer items have consequences.",
+        "Keep Jhiru in his arena: leaving its boundary raises his melee damage. He lowers the hate of a top target using certain defensive disciplines.",
+        "Jhiru's death locks the expedition and summons Master Stonespiritist Okkanu."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tipt/encounters/cragbeasts.lua",
+        "sha256": "b29159e6211ec84598eee70d8276879cf60c4a17815f05e65abad5976a279a34"
+      },
+      {
+        "path": "tipt/encounters/ghosts.lua",
+        "sha256": "f2c06b976a3274ebab7f50359bf9c8adfff0ec4488013f72d90e310eb1fb55d2"
+      },
+      {
+        "path": "tipt/#Rikabi_the_Riddler.lua",
+        "sha256": "22c904ebfe6619bb0e20fc83f802dbabf58fbdc5bd445e9654215bccf88b8c33"
+      },
+      {
+        "path": "tipt/#Kyv_Heartstriker_Jhiru.lua",
+        "sha256": "c7193bfdf7449a66258d93859717df7bced47803086ba09e90e94dbfae866e64"
+      }
+    ],
+    "notes": [
+      "Approval E376. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

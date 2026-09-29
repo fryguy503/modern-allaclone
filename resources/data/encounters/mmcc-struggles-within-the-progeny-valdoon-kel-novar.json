@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "mmcc-struggles-within-the-progeny-valdoon-kel-novar",
+  "title": "Struggles within the Progeny / Valdoon Kel'Novar",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "mmcc",
+    "name": "The Asylum of Invoked Stone",
+    "version": 2
+  },
+  "npc_ids": [
+    243672,
+    243677,
+    243636
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken Valdoon through his guardians, expose the false lord and survive the true vampire’s shifting attacks.",
+  "overview": [
+    "Weaken Valdoon through his guardians, expose the false lord and survive the true vampire’s shifting attacks."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each Guardian of Kel’Novar killed removes 30,000 health from the true Valdoon. Clear the guardians before engaging him.",
+        "Defeating the false Valdoon creates another guardian and enables an additional final reward container in the raid version.",
+        "The true Valdoon can call three to five lookouts, drain the raid’s vitality and briefly increase his melee damage. Collect lookouts quickly and reinforce the tank when his muscles-bulge emote appears.",
+        "Seneschal’s Petrification repeats during combat. Keep backup tank control available when the top-hate target is affected.",
+        "Stay inside the aviary. Leaving combat for ninety seconds heals Valdoon and clears the lookouts."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mmcc/encounters/mmccraid.lua",
+        "sha256": "0ebb4a2474772d615e58e4dd4c5f5f70165b34bae759109f92aea18faa239cb7"
+      },
+      {
+        "path": "mmcc/zone_status.lua",
+        "sha256": "0c7097bf4a38197ef69d15601b9c0877b3f251c937b721176a19920f8a96aa89"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The same module supports a paladin epic context with different reward handling. This draft describes the version 2 raid sequence and does not assert epic-specific loot."
+    ]
+  }
+}

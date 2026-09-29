@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "drachnidhivea-find-fibblebrap3-the-hive",
+  "title": "Find Fibblebrap3: The Hive",
+  "group": "Find Fibblebrap",
+  "type": "group",
+  "zone": {
+    "short_name": "drachnidhivea",
+    "name": "The Hatchery",
+    "version": 1
+  },
+  "npc_ids": [
+    355073
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Complete the Hive objectives to confront Foreman Zlixtil.",
+  "overview": [
+    "Complete the Hive objectives to confront Foreman Zlixtil."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Progress the mission stages before expecting the foreman to become attackable.",
+        "Regroup while his dialogue sequence plays.",
+        "When the dialogue ends, take control of the foreman and finish the recovery objective."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "drachnidhivea/encounters/find_fibblebrap_three.lua",
+        "sha256": "813dd736295f6dd092165ad91bdbbc751d95e296b7db45baca570fd4eca47412"
+      },
+      {
+        "path": "drachnidhivea/script_init.lua",
+        "sha256": "08179feb528f0f6d8a781e1ab0f88306c65834375e453dfe8dbcac82c993021b"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

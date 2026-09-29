@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "northkarana-dire-griffon-plains-dragon-transformation",
+  "title": "Dire griffon / plains dragon transformation",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "northkarana",
+    "name": "North Karana",
+    "version": 0
+  },
+  "npc_ids": [
+    13130
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A dire griffon changes into a plains dragon when reduced below 80% health.",
+  "overview": [
+    "A dire griffon changes into a plains dragon when reduced below 80% health."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare the group before crossing the griffon’s health threshold.",
+        "The griffon disappears and the dragon appears in its place. Switch targets and establish the dragon on the tank immediately.",
+        "If the dragon is already present, the script waits rather than summoning another copy."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "northkarana/a_dire_griffon.lua",
+        "sha256": "7ca3d05626cc596c090b1ad8cae0e2d1075d6059fb4131cef0fe09d581e857d4"
+      },
+      {
+        "path": "northkarana/#a_plains_dragon.lua",
+        "sha256": "68a112d24f3f18c1beaf893535ecbf47841596883ba1cf4c501ea643a2a60aa0"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

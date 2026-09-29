@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "tenebrous-disciple-of-focus",
+  "title": "Disciple of Focus",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "tenebrous",
+    "name": "Tenebrous Mountains",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Challenge the Disciple of Focus during the monk epic sequence.",
+  "overview": [
+    "Challenge the Disciple of Focus during the monk epic sequence."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Complete the dialogue with the eligible monk and have the party prepared before the challenge."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "An eligible monk at the relevant second-epic stage can hail the disciple and say 'challenge'.",
+        "The challenge advances the initial eligible stage, removes the disciple's protection and starts combat.",
+        "Leaving combat stops all quest timers."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tenebrous/#Disciple_of_Focus.lua",
+        "sha256": "8dc1cb43beef1cf26d68d649be5954c2759e8d9b1719d932ee6123e7c27a2ed8"
+      }
+    ],
+    "notes": [
+      "Approval R020. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Publication blocker: combat starts timer cast, but the spell handler checks startcast. The intended recurring Quivering Nightmares cast does not follow from the current timer path and is intentionally not claimed as a working mechanic.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

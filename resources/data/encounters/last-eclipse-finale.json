@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "slug": "last-eclipse-finale",
+  "title": "Mayong Mistmoore",
+  "group": "The Hour of the Last Eclipse",
+  "type": "raid",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 10
+  },
+  "npc_ids": [
+    59805
+  ],
+  "status": "published",
+  "spoiler": true,
+  "summary": "Answer the crimson covenants, control the shades and survive the final eclipse.",
+  "overview": [
+    "Mayong Mistmoore combines retreat, spread and gathering mechanics with repeated shade summons. Two health gates demand coordinated use of the four guardian seals before the final phase accelerates the fight.",
+    "Keep the raid in the courtyard battle area. Assign seal users and a caller before engaging; dealing more damage cannot bypass an unanswered covenant."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep Mayong near his courtyard home with space for both retreat and gathering mechanics.",
+        "Expect his melee hits to increase by 35% while a crimson covenant is active.",
+        "Control shades promptly and keep the boss accessible to seal users."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Plan healing around the six-second movement warnings and increased tank damage during covenants.",
+        "The crimson brand's bearer can still take the blast after separating from the raid.",
+        "Remain inside the battle boundary; outside healing and resurrection support are rejected."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Prioritize shades before their one-minute renewal and coordinate boss damage with movement.",
+        "Save major damage opportunities for after a covenant breaks, when Mayong no longer reduces incoming damage to one tenth.",
+        "At 20%, respond to faster warnings and continue controlling adds while finishing the encounter."
+      ]
+    },
+    {
+      "id": "seal-bearer",
+      "label": "Seal bearers",
+      "tips": [
+        "Target Mayong, move within 100 paces and maintain line of sight before invoking a seal.",
+        "At 75%, use Grave, Keep, Hunt and Choir once each in any order.",
+        "At 45%, follow Keep, Choir, Grave, Hunt. Each successful invocation advances the litany.",
+        "Allow the three-second item cast to complete. The seals share a 60-second reuse timer, so assign users before the pull."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "opening",
+      "label": "The master of Mistmoore",
+      "trigger": "100% to 75% health",
+      "description": "Every 22 seconds, Mayong cycles through a retreat warning, a crimson brand and a gathering warning. Each movement warning allows six seconds to react. He also attempts to summon two shades every 35 seconds."
+    },
+    {
+      "id": "first-covenant",
+      "label": "The first covenant",
+      "trigger": "75% health",
+      "description": "Mayong takes only one tenth of incoming damage and increases his melee damage by 35%. Invoke Grave, Keep, Hunt and Choir once each in any order to break the covenant. He attempts to summon up to two shades when the covenant begins, without exceeding six living shades."
+    },
+    {
+      "id": "final-litany",
+      "label": "The final litany",
+      "trigger": "45% health",
+      "description": "The covenant returns and Mayong attempts to summon up to two more shades, without exceeding six living shades. Break this covenant by invoking the seals in order: Keep, Choir, Grave, Hunt. Incorrect or repeated seals do not advance the litany."
+    },
+    {
+      "id": "final-eclipse",
+      "label": "The final eclipse",
+      "trigger": "20% health",
+      "description": "Movement warnings accelerate to every 12 seconds and regular shade summons to every 24 seconds. Pulse damage also increases. The six-second response window remains."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "ring-of-blood",
+      "name": "Ring of Blood",
+      "summary": "Retreat more than 35 paces from Mayong.",
+      "description": [
+        "After a six-second warning, a pulse strikes raiders and pets within 35 paces of Mayong's position and in line of sight of its center.",
+        "Move out for the pulse, then return to the planned position while remaining inside the battle."
+      ],
+      "tags": [
+        "Movement",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "crimson-brand",
+      "name": "Crimson Brand",
+      "summary": "Separate the marked raider from the group by more than 25 paces.",
+      "description": [
+        "A random eligible raider receives the brand and a private warning. Six seconds later, the blast resolves around that player's current position.",
+        "The blast can strike the marked player and nearby raiders or pets. The bearer should move away from allies, with healing ready for the impact."
+      ],
+      "tags": [
+        "Spread",
+        "Marked player",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "sheltering-shadows",
+      "name": "Sheltering Shadows",
+      "summary": "Gather within 20 paces of Mayong.",
+      "description": [
+        "When the shadows deepen, raiders have six seconds to move into the sheltered area around Mayong.",
+        "The pulse strikes beyond 20 paces out to 180 paces, subject to line of sight. Pets also need to be inside the sheltered area."
+      ],
+      "tags": [
+        "Gather",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "crimson-covenant",
+      "name": "Crimson Covenant",
+      "summary": "Complete the seal requirement to remove the ward and increased melee damage.",
+      "description": [
+        "The covenant begins at 75% and 45% health. Incoming damage is reduced to one tenth and Mayong's melee damage increases by 35%.",
+        "Damage cannot force Mayong through the next phase while the covenant remains. The first covenant accepts all four seals in any order; the second requires Keep, Choir, Grave, Hunt.",
+        "The ward has no timeout. Complete the four successful invocations to remove it.",
+        "Entering a covenant cancels any movement pulse already counting down. The normal movement-warning rotation and regular shade summons continue during the covenant, so keep responding to new warnings while the seals are invoked."
+      ],
+      "tags": [
+        "Required mechanic",
+        "Seal sequence"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "forgotten-shades",
+      "name": "Forgotten Shades",
+      "summary": "Defeat shades before their one-minute renewal.",
+      "description": [
+        "Mayong attempts to summon up to two shades every 35 seconds and when each covenant begins. These summons never exceed six living shades: one can appear if five are alive, and none if six are alive.",
+        "At 20% health, regular shade summons accelerate to every 24 seconds.",
+        "A warning announces the oldest shades at 45 seconds of age. At one minute, surviving shades dissolve and return at full strength."
+      ],
+      "tags": [
+        "Adds",
+        "Priority target"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "guardian-seals",
+      "title": "Guardian seals",
+      "paragraphs": [
+        "Assign one or more raiders to each seal type before the pull. Two copies drop from each guardian, and the four seal types share one lore group, distributing them among different raiders.",
+        "Use the seal while targeting Mayong during an active covenant. The bearer must be a living expedition member, within 100 paces, on the battle's floor and in line of sight.",
+        "Each seal has a three-second cast and the seals share a 60-second reuse timer. An invocation counts after a successful cast; the same seal type can answer only once per covenant."
+      ],
+      "bullets": [
+        "First covenant: Grave, Keep, Hunt and Choir, in any order.",
+        "Final litany: Keep, Choir, Grave, Hunt."
+      ],
+      "items": [
+        {
+          "id": 147750,
+          "name": "Gravewarden's Seal",
+          "quantity": 1
+        },
+        {
+          "id": 147751,
+          "name": "Keepwarden's Seal",
+          "quantity": 1
+        },
+        {
+          "id": 147752,
+          "name": "Huntwarden's Seal",
+          "quantity": 1
+        },
+        {
+          "id": 147753,
+          "name": "Choirwarden's Seal",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "battlefield",
+      "title": "Stay in the battle",
+      "paragraphs": [
+        "Fight near the boss's home. Raiders and their pets must remain within 180 paces of the boss and within 30 paces vertically; attacks and aid from outside that boundary are rejected.",
+        "If no eligible living raider remains in the arena, or the boss is pulled too far from home, a warning precedes an encounter reset. Keep healers and resurrection targets inside the battle."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "warnings",
+      "title": "Read the warnings",
+      "paragraphs": [
+        "Mechanic warnings appear in the Event Messages chat filter. Movement mechanics give six seconds to respond.",
+        "Ground markers can supplement the warning when supported and enabled. Follow the chat instruction even if a marker is absent."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "First equipment pool",
+      "description": "One item is selected from this pool.",
+      "items": [
+        {
+          "id": 147734,
+          "name": "Nightfall, Edge of the Eclipse",
+          "quantity": 1
+        },
+        {
+          "id": 147735,
+          "name": "Dawnbreaker, the Final Toll",
+          "quantity": 1
+        },
+        {
+          "id": 147736,
+          "name": "Aegis of the Unrisen Sun",
+          "quantity": 1
+        },
+        {
+          "id": 147737,
+          "name": "Cuirass of the Last Eclipse",
+          "quantity": 1
+        },
+        {
+          "id": 147738,
+          "name": "Robe of a Thousand Midnights",
+          "quantity": 1
+        },
+        {
+          "id": 147739,
+          "name": "Bloodsworn Chain Leggings",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Second equipment pool",
+      "description": "One item is selected independently from this pool, for two equipment rewards in total.",
+      "items": [
+        {
+          "id": 147740,
+          "name": "Grasps of the Deathless Hunt",
+          "quantity": 1
+        },
+        {
+          "id": 147741,
+          "name": "Cloak of the Stolen Dawn",
+          "quantity": 1
+        },
+        {
+          "id": 147742,
+          "name": "Crimson Signet of the Unseen Court",
+          "quantity": 1
+        },
+        {
+          "id": 147743,
+          "name": "Heart of the Hollow Moon",
+          "quantity": 1
+        },
+        {
+          "id": 147744,
+          "name": "Girdle of the Undying Court",
+          "quantity": 1
+        },
+        {
+          "id": 147745,
+          "name": "Testament of the Final Dawn",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Quest reward",
+      "description": "Six copies accompany the equipment rewards.",
+      "items": [
+        {
+          "id": 147760,
+          "name": "Blood-Sealed Writ of the Last Eclipse",
+          "quantity": 6
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-28",
+    "revision": "ad251da365c0241c2f37673ed2af58e93b578c09",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "336743a95076db1e0656448a23cc26af066de9d9a0e076ca97490933e62572b1"
+      },
+      {
+        "path": "sql/mistmoore_eclipse.sql",
+        "sha256": "a65094b6ac6bac7e7f18e6bfeed46328aa4ed61a79a464b1d48c92fe7ecd8bde"
+      }
+    ],
+    "notes": [
+      "Reviewed against the local quest working tree. The encounter script contains uncommitted changes beyond the recorded Git revision; the file hashes identify the exact reviewed bytes.",
+      "Mechanics, item definitions and loot pools were checked in source. This review does not establish which revision, database templates or settings are deployed on the live server.",
+      "Role tips are guidance derived from the scripted mechanics, not a strategy verified in a live raid. Pulse damage is omitted because it depends on the NPC's loaded spell scale.",
+      "Ability names describe scripted mechanics. The damage pulses are not ordinary database spells and do not have spell tooltip IDs."
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-tain-hammerfrost-defense-coldain-ring4",
+  "title": "Tain Hammerfrost defense (Coldain ring4)",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    116604,
+    116532
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Save the wounded Tain from Ghrek and the pursuing giants.",
+  "overview": [
+    "Save the wounded Tain from Ghrek and the pursuing giants."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare before telling Tain you will help.",
+        "Intercept Ghrek and four soldiers as they advance directly on Tain.",
+        "Defeat the leader and deliver the requested elixir to finish the rescue."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/Tain_Hammerfrost.lua",
+        "sha256": "16843cae7c7c78be1c3c7cc60dfbdeb65ed778ceb12c699c2783cdb714f73ab4"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

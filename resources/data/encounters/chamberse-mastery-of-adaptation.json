@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "chamberse-mastery-of-adaptation",
+  "title": "Mastery of Adaptation",
+  "group": "Muramite trials",
+  "type": "raid",
+  "zone": {
+    "short_name": "chamberse",
+    "name": "Muramite Proving Grounds",
+    "version": 2
+  },
+  "npc_ids": [
+    308010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Adapt to constructs whose changing forms alter resistances and combat abilities.",
+  "overview": [
+    "Adapt to constructs whose changing forms alter resistances and combat abilities."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Identify the active form before committing your strongest attacks.",
+        "Favor cold against the fire form and fire against the ice form.",
+        "Keep extra healing available for the forms with rampage or flurry.",
+        "Pick up supporting constructs as they appear and adjust weapon choices to the current form."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chamberse/encounters/mpg_adaptation.lua",
+        "sha256": "8a9b2e331efd38430e7fb30664b170b4735cd55f10b9ee938ac43c80ccb84e8d"
+      },
+      {
+        "path": "chamberse/script_init.lua",
+        "sha256": "7a07a7529387e0b15e7d368dbf47fd1304fa6b89f7d18db00ea5af980aff8301"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

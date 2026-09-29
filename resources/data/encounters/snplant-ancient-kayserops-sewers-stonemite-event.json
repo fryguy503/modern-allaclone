@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "snplant-ancient-kayserops-sewers-stonemite-event",
+  "title": "Ancient Kayserops: Sewers stonemite event",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "snplant",
+    "name": "Sewers of Nihilia: Purifying Plant",
+    "version": 0
+  },
+  "npc_ids": [
+    287145,
+    287021
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Draw Ancient Kayserops out by defeating the aged stonemites.",
+  "overview": [
+    "Draw Ancient Kayserops out by defeating the aged stonemites."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare for the boss before killing the final aged stonemite."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Hail Ansharu with the plant task active to spawn the nine aged stonemites.",
+        "The ninth death brings Ancient Kayserops into the room.",
+        "Defeating Kayserops closes the expedition to additional members and updates the plant and sewer progression tasks."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "snplant/encounters/stonemites.lua",
+        "sha256": "3954408f514f8a60e67d2637861fa7192aa843162c8eacd5e09bce6074d35b34"
+      }
+    ],
+    "notes": [
+      "Approval E296. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

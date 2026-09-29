@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "cobaltscar-gnashing-killer-shark-and-companions",
+  "title": "Gnashing Killer Shark and companions",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "cobaltscar",
+    "name": "Cobalt Scar",
+    "version": 0
+  },
+  "npc_ids": [
+    117091,
+    117089,
+    117090
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A shaman quest summons a dangerous shark and two companions beneath Cobalt Scar.",
+  "overview": [
+    "A shaman quest summons a dangerous shark and two companions beneath Cobalt Scar."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Have underwater travel and combat preparations ready before speaking with Yoppa.",
+        "The eligible shaman starts the encounter through the quest dialogue.",
+        "Collect all three sharks and focus the group on one target at a time."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "cobaltscar/Yoppa_Greenthumb.lua",
+        "sha256": "a4ec5de17844017420add887bee6aa6b05bac2b49fede7edfc8b4ca1d8369764"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

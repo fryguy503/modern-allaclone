@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "arena2-living-legacy-battle-prowess",
+  "title": "Living Legacy: Battle Prowess",
+  "group": "Living Legacy",
+  "type": "raid",
+  "zone": {
+    "short_name": "arena2",
+    "name": "The Arena",
+    "version": 7
+  },
+  "npc_ids": [
+    180004,
+    180005,
+    180006,
+    180007
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Avatar quickly while matching each defense and destroying despair adds.",
+  "overview": [
+    "Defeat the Avatar quickly while matching each defense and destroying despair adds."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "open-defenses",
+      "label": "Open defenses",
+      "trigger": "100% to 75%",
+      "description": "Every spell and weapon is effective."
+    },
+    {
+      "id": "changing-defenses",
+      "label": "Changing defenses",
+      "trigger": "75% to 25%",
+      "description": "In order: cold and hand-to-hand; magic and piercing; poison and slashing; disease and blunt; fire and two-handed weapons."
+    },
+    {
+      "id": "final-assault",
+      "label": "Final assault",
+      "trigger": "Below 25%",
+      "description": "All attack types become effective again."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Match the announced spell school or weapon style as the Avatar changes defenses.",
+        "Stand inside a green rune for two seconds to gain twenty seconds of attunement when your usual attacks are unsuitable.",
+        "Destroy each trio of despair manifestations within 45 seconds.",
+        "The final quarter of the Avatar's health opens every attack type again."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "arena2/encounters/living_legacy_battle_prowess.lua",
+        "sha256": "bf0829dc73159941aff1d12be3dfce305e4fe4f5821c67b1871f7a89441c1e03"
+      },
+      {
+        "path": "arena2/script_init.lua",
+        "sha256": "a73d6e3228d745c806bae88a849fcf0be3404aefad75d883d1e1a2d5f3bb2ca5"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 7."
+    ]
+  }
+}

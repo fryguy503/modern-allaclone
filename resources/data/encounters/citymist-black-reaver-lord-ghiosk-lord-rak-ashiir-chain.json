@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "citymist-black-reaver-lord-ghiosk-lord-rak-ashiir-chain",
+  "title": "Black reaver / Lord Ghiosk / Lord Rak'Ashiir chain",
+  "group": "City of Mist",
+  "type": "event",
+  "zone": {
+    "short_name": "citymist",
+    "name": "City of Mist",
+    "version": 0
+  },
+  "npc_ids": [
+    90005,
+    90193,
+    90194,
+    90200,
+    90201,
+    90011,
+    90012
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Black reavers can continue into replacement enemies and named opponents.",
+  "overview": [
+    "Black reavers can continue into replacement enemies and named opponents."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Keep a tank ready at the death location because a replacement may appear immediately.",
+        "The normal reaver chain can produce a shadow, Ghiosk or another reaver. Clearing the last normal reaver can call Rak'Ashiir.",
+        "A separate reaver script chooses normal or fabled named opponents from the active content flag."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "citymist/90005.lua",
+        "sha256": "754f2fdf557c8368834f426144ffec5b6559efd8be9735be5efa0df1e497123d"
+      },
+      {
+        "path": "citymist/90200.lua",
+        "sha256": "2c6ce24682eb2c226f4102a58848a68bff415b2cb5e8f05c0396463244b0d562"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The fabled branch is controlled by fabled_kunark, not an independently verified instance version. Both source branches are covered in this version-0 draft."
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "slug": "ferubi-smith-rondo-weapon-master",
+  "title": "Smith Rondo / Weapon Master cycle",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "ferubi",
+    "name": "Ferubi",
+    "version": 0
+  },
+  "npc_ids": [
+    284074,
+    284092
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Weapon Master and his apprentices, then face Smith Rondo.",
+  "overview": [
+    "Bring Rondo the four broken weapon components to summon Weapon Master Vtiink Vzaan and four apprentices. Rondo becomes vulnerable after the Weapon Master dies.",
+    "Rondo transforms at 65% health. His attackable stage has a 45-minute timer, after which he returns home and becomes protected again."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "weapon-master",
+      "label": "Weapon Master and apprentices",
+      "trigger": "Four-component turn-in",
+      "description": "The Weapon Master calls idle apprentices onto his target every six seconds. Apprentice replacement signals schedule their return after one minute."
+    },
+    {
+      "id": "rondo",
+      "label": "Smith Rondo",
+      "trigger": "Weapon Master defeated",
+      "description": "Rondo stands, loses his damage protection and begins his timed combat stage."
+    },
+    {
+      "id": "transformation",
+      "label": "Transformation",
+      "trigger": "65% health",
+      "description": "Rondo changes into a larger corrupted form. The script does not define a new damage ability at this threshold."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "components",
+      "title": "Starting components",
+      "paragraphs": [
+        "Turn in all four required weapon components to Rondo together."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 67521,
+          "name": "Required weapon component",
+          "quantity": 1
+        },
+        {
+          "id": 67522,
+          "name": "Required weapon component",
+          "quantity": 1
+        },
+        {
+          "id": 67523,
+          "name": "Required weapon component",
+          "quantity": 1
+        },
+        {
+          "id": 67524,
+          "name": "Required weapon component",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "completion",
+      "title": "Completion",
+      "paragraphs": [
+        "Rondo's death creates his spectral memory for the follow-up. The component turn-in also records temporary presence credit for participating characters."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ferubi/#Smith_Rondo.lua",
+        "sha256": "687134154a0a99578e314a00ef2abd2cb1e4cf3766bb205405c66aaf0cb993e2"
+      },
+      {
+        "path": "ferubi/Weapon_Master_Vtiink_Vzaan.lua",
+        "sha256": "72af975647f560718315d6c4e83801ee0442ce4b4c655028977e7bf27aef803d"
+      },
+      {
+        "path": "global/Theta_Sigma.lua",
+        "sha256": "0f4155cd09ab48ecfac1bd7fe2b326321a192db9b1e5f40aecc505cb2019acf4"
+      },
+      {
+        "path": "ferubi/284093.lua",
+        "sha256": "44ffed28cb571dbb1c0a85f23e65d5bef0d408cf95190c8abced6707d6c2bc72"
+      },
+      {
+        "path": "ferubi/284094.lua",
+        "sha256": "a84bc4569c0a902d70ee0e29d6efe34145096d3eea61cc2f9e602c250e5f2f55"
+      },
+      {
+        "path": "ferubi/284095.lua",
+        "sha256": "0a784dd9adc3a47e5c8bcf3440426b3522646e4dc01954ad3b9854f0dbcece4d"
+      },
+      {
+        "path": "ferubi/284096.lua",
+        "sha256": "0c1708302e9d4b690dbf5a35e58e0d0ac33a5112262432eca0e8b93539e7d942"
+      }
+    ],
+    "notes": [
+      "Approved row E122. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
+      "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+      "The normal draft describes the static-zone branch. Rondo removes himself from nonzero instances other than version 200."
+    ]
+  }
+}

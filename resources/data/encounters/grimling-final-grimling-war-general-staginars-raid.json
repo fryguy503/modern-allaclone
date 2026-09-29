@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "grimling-final-grimling-war-general-staginars-raid",
+  "title": "Final Grimling War / General Staginar's raid",
+  "group": "Grimling war",
+  "type": "raid",
+  "zone": {
+    "short_name": "grimling",
+    "name": "Grimling Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    167196,
+    167731,
+    167732,
+    167733,
+    167734
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defend the Acrylia entrance and northern fort until the high commander arrives.",
+  "overview": [
+    "The final war follows General Staginar's progression and Cullin's march. Split your force between the Acrylia mines entrance and the northern fort, then clear both camps.",
+    "Cullin, Shiktan, Kufur and Fhelik must all survive. The first counterattack begins 60 to 75 seconds after both camps are clear, followed by waves every minute. Ten grimlings head to the Acrylia entrance and five to the northern camp per ordinary wave."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Assign tanks at both camps before the first wave."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep healing coverage on all four veterans; losing any one fails the war."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "capture",
+      "label": "Secure both objectives",
+      "trigger": "Veterans launch the assault",
+      "description": "Clear both freshly repopulated camps."
+    },
+    {
+      "id": "defense",
+      "label": "Protect all four veterans",
+      "trigger": "Both camps clear",
+      "description": "Defend both positions while the chance of a high-commander wave rises."
+    },
+    {
+      "id": "commander",
+      "label": "High commander",
+      "trigger": "After the initial five waves",
+      "description": "The high commander can appear at the northern fort. Defeat it to end the defense and regroup the surviving veterans for the follow-up."
+    }
+  ],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "grimling/encounters/Final_War.lua",
+        "sha256": "9d545edb9bc1c94f79e45620cb42dcfeef7fef73fef0817f35168340048d7f22"
+      },
+      {
+        "path": "grimling/Veteran_Cullin.lua",
+        "sha256": "6dbc25cd2578102cd0c53df10ad437ac9ff567a12e6c01808c1e46b10e7e02bf"
+      }
+    ],
+    "notes": [
+      "Approved row E133. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The detailed General Staginar entry exchanges and final reward hand-in are not included in this combat-stage draft; verify those NPC branches before publication."
+    ]
+  }
+}

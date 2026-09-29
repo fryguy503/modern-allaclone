@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "sleeper-awakening-the-sleeper",
+  "title": "Awakening the Sleeper",
+  "group": "Sleeper's Tomb",
+  "type": "raid",
+  "zone": {
+    "short_name": "sleeper",
+    "name": "Sleeper's Tomb",
+    "version": 0
+  },
+  "npc_ids": [
+    128094,
+    128136,
+    128090,
+    128091,
+    128092,
+    128093
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the warders' hold to awaken Kerafyrm in the legacy Sleeper event.",
+  "overview": [
+    "Break the warders' hold to awaken Kerafyrm in the legacy Sleeper event."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare everyone in the zone before the last warder falls, because Kerafyrm's aggression reaches beyond the immediate room."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The wardstone checks for all four warders to be absent before awakening the Sleeper.",
+        "The Sleeper is replaced by Kerafyrm, who adds every non-GM player in the zone to his hate list every ten seconds.",
+        "Kerafyrm's script removes him after four hours.",
+        "The wardstone records an instance-scoped seven-day awakening marker; warder respawns reset that marker and restore the sleeping form."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sleeper/#The_Sleeper.lua",
+        "sha256": "31ca8c6632536fe304e23b2b63ff9cdc1de5f775205d7d1cbdecea2a77c6832b"
+      },
+      {
+        "path": "sleeper/A_wardstone.lua",
+        "sha256": "a0fdb271f94a51eb668e5b100a93808bf20a1877509114abf4a7e2a61fd8d9a6"
+      },
+      {
+        "path": "sleeper/#Kerafyrm.lua",
+        "sha256": "7e8ee068710c91521083ee9d56c2f464fddfc779d450006494332d772702af75"
+      }
+    ],
+    "notes": [
+      "Approval R017. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Legacy unversioned event only. Confirm deployed wardstone/warder spawn availability versus seasonal and Fabled content; this draft does not describe the separate Fabled Kerafyrm encounter."
+    ]
+  }
+}

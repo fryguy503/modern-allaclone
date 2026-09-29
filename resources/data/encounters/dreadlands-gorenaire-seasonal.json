@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "dreadlands-gorenaire-seasonal",
+  "title": "Gorenaire: Seasonal",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "dreadlands",
+    "name": "Dreadlands",
+    "version": 200
+  },
+  "npc_ids": [
+    86260
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Seasonal Gorenaire pulses frost damage until her icy shell breaks.",
+  "overview": [
+    "Seasonal Gorenaire pulses frost damage until her icy shell breaks."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Players within 60 units take the scripted frost pulse every ten seconds.",
+        "Keep ranged players outside that area when their abilities allow it and cover the melee group with healing.",
+        "At 15%, the pulse stops and the boss becomes more vulnerable to two-handed blunt and two-handed slashing attacks."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dreadlands/Gorenaire.lua",
+        "sha256": "76446fe5d2eb01de23bb43f722c15525ff370def52e8e942b89f9ed07c8fae1d"
+      },
+      {
+        "path": "lua_modules/raid_luck_credit.lua",
+        "sha256": "d6013ca1a7bb61032cc789d5d3cd5920d4f4e559ea7251fcbfd85e8f2abf6e07"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 200.",
+      "Only the version-200 custom mechanics are documented. The standard open-zone spawn does not run these combat timers.",
+      "Health-phase comments label skills 2 and 3 incorrectly; guidance follows the skill numbers (two-handed blunt and two-handed slashing). The howl timer is commented out, so no recurring scripted howl is claimed."
+    ]
+  }
+}

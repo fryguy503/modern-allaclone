@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "potactics-vallon-zek",
+  "title": "Vallon Zek",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "potactics",
+    "name": "Drunder, the Fortress of Zek",
+    "version": 0
+  },
+  "npc_ids": [
+    214295
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Identify the real Vallon Zek through five rounds of copies, then defeat his final form.",
+  "overview": [
+    "Identify the real Vallon Zek through five rounds of copies, then defeat his final form."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Before the final round, pushing the real Vallon to 61% health makes him vanish and summons five figures: one real Vallon and four copies.",
+        "Control the copies while locating the real target. Repeat the 61% transition through five split rounds.",
+        "The real Vallon in the fifth replacement group can be killed normally. Defeat him and approach the resulting planar projection.",
+        "An unengaged event can reset after twenty minutes, removing the copies."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potactics/encounters/vallon_event.lua",
+        "sha256": "34000634b3bed54ea68751e03670f8a442d99383c1a27123896e3ddf757448fc"
+      },
+      {
+        "path": "potactics/script_init.lua",
+        "sha256": "12ce61a2e2ee0298c1251e84237be7e97e46b70305e9492aa1bb6033968b6441"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Verify or repair the planar projection’s flag dialogue before publication: PP_Say defines vallon_bucket but tests the undefined tallon_bucket variable."
+    ]
+  }
+}

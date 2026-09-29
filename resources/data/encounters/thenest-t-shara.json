@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-t-shara",
+  "title": "T'Shara",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 0
+  },
+  "npc_ids": [
+    343358,
+    343359,
+    343360,
+    343361,
+    343362,
+    343363
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat T`Shara's aspects to remove her linked offensive and defensive benefits.",
+  "overview": [
+    "Defeat T`Shara's aspects to remove her linked offensive and defensive benefits."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prioritize the protection aspect and coordinate damage during the time its benefit is absent."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The five aspects govern armor, combat, magic, power and protection; engaging the group links their aggression.",
+        "Defeating an aspect removes its corresponding benefit but starts a 150-second respawn window.",
+        "The aspects strengthen after thirty seconds of combat.",
+        "If every aspect is dead at once, the protection aspect is immediately replaced, so plan the kill sequence deliberately."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/tshara.lua",
+        "sha256": "855acbf34f4294d2ec59ef101b6961e09e275e8fbf786c1117e68dcda9b42aa5"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      }
+    ],
+    "notes": [
+      "Approval E357. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

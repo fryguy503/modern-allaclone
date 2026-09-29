@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "westwastes-scout-charisa-kromzek-captain",
+  "title": "Scout Charisa: Kromzek Captain",
+  "group": "Scars of Velious",
+  "type": "event",
+  "zone": {
+    "short_name": "westwastes",
+    "name": "Western Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    120115,
+    120121
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Help Scout Charisa confront a Kromzek captain and seven warriors.",
+  "overview": [
+    "Help Scout Charisa confront a Kromzek captain and seven warriors."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare control for the eight-giant group and complete the return before the scout's cleanup timer."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The initial scout-supplies turn-in loads the encounter once for that scout spawn.",
+        "A captain and seven warriors appear together at the giants' camp.",
+        "Return the recovered quest disk to the scout to advance the reward exchange.",
+        "Twenty minutes after activation, or when the scout dies, the encounter unloads and remaining giants are removed."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "westwastes/encounters/Scout_Charisa.lua",
+        "sha256": "b37c9736102e1a23880b7b137464168d78797880509cd610ca8c47756cc812fe"
+      },
+      {
+        "path": "westwastes/Scout_Charisa.lua",
+        "sha256": "6482e56d2dd91ad60210e87b591ec9fef6b60ccaa259b8bd3305bca922303907"
+      }
+    ],
+    "notes": [
+      "Approval E408. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

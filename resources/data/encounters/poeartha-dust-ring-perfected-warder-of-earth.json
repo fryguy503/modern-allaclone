@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "poeartha-dust-ring-perfected-warder-of-earth",
+  "title": "Dust ring / Perfected Warder of Earth",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poeartha",
+    "name": "Vegarlson, the Earthen Badlands",
+    "version": 0
+  },
+  "npc_ids": [
+    218366,
+    218391,
+    218376,
+    218348
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the dust temple to release the Triumvirate of Soil and the Perfected Warder of Earth.",
+  "overview": [
+    "Clear the dust temple to release the Triumvirate of Soil and the Perfected Warder of Earth."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat all thirty-two Dust Devotees to activate the three members of the Triumvirate of Soil.",
+        "Defeat the Triumvirate to summon the Warder, or a Dust Follower if the main encounter is on cooldown.",
+        "The Warder randomly uses one of three setups: additional Soil enemies, repeated groups of three to six protectors, or no added wave.",
+        "The boss can clear hate every twelve seconds. Have tanks ready for both a target reset and a new protector group.",
+        "The overall event allows three hours, while the final boss has a fifty-minute hard despawn."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poeartha/encounters/Dust_Event.lua",
+        "sha256": "03188cb921fd5bd65e997c01e43a636b2ddcfdcda75575cde77dcadd5ab633d4"
+      },
+      {
+        "path": "poeartha/#dust_controller.lua",
+        "sha256": "00d997032b703361b86adee18e262aa4b61756caba494f388684448acf00de61"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

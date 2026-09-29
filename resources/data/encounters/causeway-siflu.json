@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-siflu",
+  "title": "Siflu",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [
+    303091
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Subdue Siflu and speak with him after the Muramite control breaks.",
+  "overview": [
+    "Subdue Siflu and speak with him after the Muramite control breaks."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Lower Siflu to 15% health rather than expecting a death completion.",
+        "Once he becomes immune and stops fighting, the eligible ranger should follow the adventurers dialogue.",
+        "Complete the encounter and dialogue before his fifteen-minute appearance ends."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/#Siflu.lua",
+        "sha256": "75a74d6adb9aade848e539178948dbd587948a70beb61bbf990e300030861aa3"
+      },
+      {
+        "path": "causeway/#rng_trap.lua",
+        "sha256": "cff275dabce0ca5210d16360518124ef4341ad63421400934b0f85f0cabeb7fd"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

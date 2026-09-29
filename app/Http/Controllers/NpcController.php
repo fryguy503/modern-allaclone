@@ -8,6 +8,7 @@ use App\Models\DiscoveredItem;
 use App\Models\NpcSpell;
 use App\Models\NpcType;
 use App\Models\Zone;
+use App\Services\EncounterJournalService;
 use App\Services\NpcLocationService;
 use Illuminate\Http\Request;
 
@@ -69,7 +70,7 @@ class NpcController extends Controller
         ]);
     }
 
-    public function show(NpcType $npc, NpcLocationService $locationService)
+    public function show(NpcType $npc, NpcLocationService $locationService, EncounterJournalService $journal)
     {
         $discoveryEnabled = config('everquest.discovered_items.enable');
 
@@ -185,6 +186,7 @@ class NpcController extends Controller
 
         return view('npcs.show', [
             'npc' => $npc,
+            'journalEntries' => $journal->forNpc((int) $npc->id),
             'defaultTab' => $defaultTab,
             'locationGroups' => $locationGroups,
             'hasSpawnLocations' => $hasSpawnLocations,

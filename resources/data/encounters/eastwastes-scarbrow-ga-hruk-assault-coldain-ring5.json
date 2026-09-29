@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-scarbrow-ga-hruk-assault-coldain-ring5",
+  "title": "Scarbrow Ga'Hruk assault (Coldain ring5)",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    116600,
+    116586,
+    116587
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defend the Coldain camp against Scarbrow and his invading orcs.",
+  "overview": [
+    "Defend the Coldain camp against Scarbrow and his invading orcs."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The messenger-order hand-in to the lookout starts the assault.",
+        "Prepare to collect Scarbrow, invaders and oracles together.",
+        "Defeat Scarbrow and retain the required quest proof for Garadain."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/a_coldain_lookout.lua",
+        "sha256": "b81407b301ce968f0618e14d741616974c47df1e7874e28d010209a60d6bfdac"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

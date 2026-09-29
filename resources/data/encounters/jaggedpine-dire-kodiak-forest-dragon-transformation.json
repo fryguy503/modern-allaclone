@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "jaggedpine-dire-kodiak-forest-dragon-transformation",
+  "title": "Dire kodiak / forest dragon transformation",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "jaggedpine",
+    "name": "Jaggedpine Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    181004
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A dire kodiak reveals a forest dragon when driven below 80% health.",
+  "overview": [
+    "A dire kodiak reveals a forest dragon when driven below 80% health."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Lower the dire kodiak to the transformation threshold with the group ready for a replacement target.",
+        "The kodiak disappears and the forest dragon appears at its location. Re-establish the tank’s target and hate immediately.",
+        "If the dragon is already present, the transformation is postponed instead of creating another copy."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "jaggedpine/a_dire_kodiak.lua",
+        "sha256": "15c4193c237455ef0158d4bc9a20b24756dbda6c88b4356dd946877282b3333c"
+      },
+      {
+        "path": "jaggedpine/#a_forest_dragon.lua",
+        "sha256": "2868abb929d6b84859e809e17d4a78cf47d45c69a04ea612ff4673da050551fe"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

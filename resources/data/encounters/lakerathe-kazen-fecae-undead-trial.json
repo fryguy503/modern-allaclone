@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "lakerathe-kazen-fecae-undead-trial",
+  "title": "Kazen Fecae undead trial",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "lakerathe",
+    "name": "Lake Rathetear",
+    "version": 0
+  },
+  "npc_ids": [
+    51153,
+    51152
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Kazen Fecae tests a necromancer with a chain of undead opponents.",
+  "overview": [
+    "Kazen Fecae tests a necromancer with a chain of undead opponents."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete Kazen’s challenge hand-in with the group ready for the bone golem.",
+        "The bone golem’s death summons the next undead challenger at the ritual site.",
+        "Remain for the full succession of opponents and complete Kazen’s requested follow-up rather than leaving after the first kill."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lakerathe/Kazen_Fecae.lua",
+        "sha256": "941db642755174f67cb531d51aa5390bd3d6de1f10919b0469c443af27f7b4a8"
+      },
+      {
+        "path": "lakerathe/a_bone_golem.lua",
+        "sha256": "daaac5e6d8c03cf18c2c04d5f308cadda3d31e22de5545d6c3e2630e8bd6d945"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

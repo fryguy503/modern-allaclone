@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "westkorlacha-matriarch-shyra",
+  "title": "Matriarch Shyra",
+  "group": "Depths of Darkhollow",
+  "type": "raid",
+  "zone": {
+    "short_name": "westkorlacha",
+    "name": "The Lodge of the Fang",
+    "version": 0
+  },
+  "npc_ids": [
+    359037,
+    359038,
+    359039
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight Matriarch Shyra with her linked protectors and enforcers inside the shadow's tether.",
+  "overview": [
+    "Fight Matriarch Shyra with her linked protectors and enforcers inside the shadow's tether."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign the full linked pack and keep every target within the shadow's tether."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Shyra, protectors and enforcers repeatedly share aggression while any is engaged.",
+        "Every six seconds, each checks its distance from Shyra's Shadow.",
+        "Moving farther than 210 units from that anchor heals the enemy fully, clears hate and returns it to its bind point."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "westkorlacha/encounters/Shyra.lua",
+        "sha256": "733d156056d62fa72808c0af3a0b7cdff702b4ede184994250f9583b3de68e2e"
+      }
+    ],
+    "notes": [
+      "Approval E404. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

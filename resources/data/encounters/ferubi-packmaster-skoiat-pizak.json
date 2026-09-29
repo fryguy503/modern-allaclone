@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "slug": "ferubi-packmaster-skoiat-pizak",
+  "title": "Packmaster Skoiat Pizak",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "ferubi",
+    "name": "Ferubi",
+    "version": 0
+  },
+  "npc_ids": [
+    284067,
+    284098,
+    284107
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Control recurring Rav reinforcements while fighting the Packmaster.",
+  "overview": [
+    "The Packmaster calls his Rav guards into combat and keeps bringing in more. Prepare tanks for four new Rav every 45 seconds rather than treating the opening guards as the whole encounter."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Intercept the repeating Rav waves before they reach healers."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Clear new Rav promptly to prevent overlapping waves."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "rav-waves",
+      "name": "Rav reinforcements",
+      "summary": "Four Rav arrive every 45 seconds.",
+      "description": [
+        "New arrivals attack random targets on the Packmaster's hate list. The Packmaster also calls existing guard types toward his current hate leader every 30 seconds."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    },
+    {
+      "id": "weapon-matchups",
+      "name": "Weapon matchups",
+      "summary": "Slashing and archery are favored over blunt attacks.",
+      "description": [
+        "The Packmaster's script increases incoming slashing and archery skill damage and reduces incoming blunt skill damage."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "recovery",
+      "title": "Recovery",
+      "paragraphs": [
+        "One minute after the Packmaster leaves combat, the script removes both Rav guard types. Engaged Rav check their distance every five seconds and clear hate when more than 600 paces from the Packmaster."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ferubi/Packmaster_Skoiat_Pizak.lua",
+        "sha256": "dfe65e68067bb7ed1132a569359843ff6b77526fdec052e6ac1de8569377fa2e"
+      },
+      {
+        "path": "ferubi/#Rav_Pizak.lua",
+        "sha256": "d9c7dcacdce776a04751475e085dbef42284d7f15d562a2d7f0c9fdde0d0bf9d"
+      }
+    ],
+    "notes": [
+      "Approved row E120. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified."
+    ]
+  }
+}

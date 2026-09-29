@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoonb-sudden-tremors-ancient-golem",
+  "title": "Sudden Tremors: Ancient Golem",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoonb",
+    "name": "The Ascent",
+    "version": 6
+  },
+  "npc_ids": [
+    339244,
+    339252
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Open the runed chest before defeating the Ancient Golem to preserve the mission sequence.",
+  "overview": [
+    "Open the runed chest before defeating the Ancient Golem to preserve the mission sequence."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Handle the chest before committing damage to the golem."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Destroying or opening the scripted runed chest marks the chest objective as complete.",
+        "Once that flag is set, the living golem emits an earthquake warning and camera tremor on its one-minute timer.",
+        "The source warns that killing the golem before opening the chest can leave the mission incomplete."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoonb/encounters/sudden_tremors.lua",
+        "sha256": "2d1d8949e27d4817a7f0a060cfa3d3459494bdb498bc13efd19171b6c463ef74"
+      },
+      {
+        "path": "stillmoonb/script_init.lua",
+        "sha256": "1cf191f934ba1b41f918d44e34ddec8c25bb30c5a3906ce6f8f26621d49b83ac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval R019. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Task-database gates and completion behavior are not present in this short controller. Confirm the chest-first path and verify recovery from an early golem kill before publication."
+    ]
+  }
+}

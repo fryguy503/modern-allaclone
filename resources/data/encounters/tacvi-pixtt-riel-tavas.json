@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-pixtt-riel-tavas",
+  "title": "Pixtt Riel Tavas",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298032
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Control unstable constructs as Riel Tavas locks the room and increases her offensive pressure.",
+  "overview": [
+    "Control unstable constructs as Riel Tavas locks the room and increases her offensive pressure."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Use controlled crowd control on unstable constructs rather than killing them beside the raid."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The room seals at 90% health. At 50%, she gains flurry and an additional timed attack.",
+        "Construct spawning resumes at 30%, becomes faster and larger at lower health, and is joined by a venom cycle below 25%.",
+        "Unstable constructs explode when killed. A construct observed mezzed begins a 30-second despawn timer while Riel remains alive.",
+        "The 10% stage further strengthens flurry; a wipe reset restores health and unlocks the room."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/prt.lua",
+        "sha256": "a8d0e4370b43b5899f92f541fe728b85a6484c411b9663a4d7e592776f81ff0d"
+      }
+    ],
+    "notes": [
+      "Approval E331. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

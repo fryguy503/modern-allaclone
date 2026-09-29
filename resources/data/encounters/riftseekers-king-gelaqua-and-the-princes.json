@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "slug": "riftseekers-king-gelaqua-and-the-princes",
+  "title": "King Gelaqua and the Princes",
+  "group": "Omens of War",
+  "type": "raid",
+  "zone": {
+    "short_name": "riftseekers",
+    "name": "Riftseekers' Sanctum",
+    "version": 0
+  },
+  "npc_ids": [
+    334041,
+    334040,
+    334039,
+    334038,
+    334037,
+    334036,
+    334035
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat both prince formations while controlling portals, then face King Gelaqua.",
+  "overview": [
+    "Six princes guard Gelaqua in two linked trios. Each engaged prince activates its portal after five seconds, then every forty to sixty seconds, producing a feran or icy orb.",
+    "Defeating one trio prompts the surviving formation to become aggressive. Kill all six princes to remove the king's protection.",
+    "Keep the princes and king inside their chamber. Their boundary check runs every six seconds and heals, returns and clears hate from any who cross it."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "princes",
+      "label": "Six princes",
+      "trigger": "Opening pull",
+      "description": "Cover a linked trio and its feran adds while watching for icy orbs. Prepare for the other trio as the first falls."
+    },
+    {
+      "id": "king",
+      "label": "King Gelaqua",
+      "trigger": "All princes defeated",
+      "description": "The king becomes vulnerable and seeks a target. His active portals always produce icy orbs, beginning after five seconds and recurring every forty to sixty seconds."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "orbs",
+      "name": "Icy orb pursuit",
+      "summary": "Orbs move toward the king, then pursue a player.",
+      "description": [
+        "Keep pursuing orbs away from the main group. Within three paces of their target they split into four crystals. Crystals immediately cast Gelaqua's Embrace, repeat every four seconds and remain for up to seven minutes."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        5760
+      ]
+    }
+  ],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "riftseekers/encounters/king.lua",
+        "sha256": "af5e68a5f1eb2c40e82f940f54799afaa242c3c8662cc2efbb250a7370b9de8f"
+      },
+      {
+        "path": "riftseekers/script_init.lua",
+        "sha256": "adab5178212a5fb0aa641773dfbd1a9ef4bf53c69cf4883b0188181ad05c9693"
+      }
+    ],
+    "notes": [
+      "Approved row E275. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "One prince transition signals 334045, a princess ID, instead of the apparent remaining prince 334035. Verify both trio-clear orders before publication.",
+      "Orb target selection uses a large placeholder range marked TODO in the source. Current crowd-control susceptibility is database-dependent and is not promised here."
+    ]
+  }
+}

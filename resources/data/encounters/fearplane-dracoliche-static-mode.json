@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "fearplane-dracoliche-static-mode",
+  "title": "Dracoliche: Static Mode",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "fearplane",
+    "name": "Plane of Fear",
+    "version": 255
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The static-mode dracoliche reassembles after nearly being defeated.",
+  "overview": [
+    "The static-mode dracoliche reassembles after nearly being defeated."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Cover nearby players for the necrotic breath pulse every twenty-five seconds.",
+        "Save enough resources for another push: at 1%, the dracoliche restores itself to 35% health.",
+        "Pick up the two fetid fiends that appear during reanimation.",
+        "A disengagement clears the adds and rearms the reanimation sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fearplane/a_dracoliche.lua",
+        "sha256": "2b4df7a91688ad6132e917ee6ba26caf142934c27726ff70015afa2ce8c8308b"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 255.",
+      "The reanimation code toggles special ability 24 while its comments call that Unkillable. No guaranteed immunity is claimed; the three-second transition needs live verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "poair-melernil-faal-armanna",
+  "title": "Melernil Faal'Armanna",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poair",
+    "name": "Eryslai, the Kingdom of Wind",
+    "version": 0
+  },
+  "npc_ids": [
+    215435,
+    215437,
+    215385,
+    215388
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the phoenix island, then defeat firesurgers, windsurgers and Melernil Faal’Armanna.",
+  "overview": [
+    "Clear the phoenix island, then defeat firesurgers, windsurgers and Melernil Faal’Armanna."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear all twenty designated island creatures to summon four phoenix firesurgers.",
+        "Defeat the four firesurgers to summon four windsurgers. Defeat those to bring out Melernil or the cooldown replacement.",
+        "Melernil may clear hate every twelve seconds. Prepare tanks to regain control throughout the final fight.",
+        "Victory can summon the Avatar of Mist. The event has a three-hour failure timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poair/encounters/Melernil_Event.lua",
+        "sha256": "728c7fc140a19dbb8cb6bc9200590f6a775421cc42323eb937495f6b4b17b585"
+      },
+      {
+        "path": "poair/#isle_four_controller.lua",
+        "sha256": "a744421b76e2f6a09ce9e7143090841b9d2973463d7aa732b57bc39d7d45082b"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

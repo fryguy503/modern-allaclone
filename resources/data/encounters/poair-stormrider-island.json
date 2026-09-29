@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "poair-stormrider-island",
+  "title": "Stormrider island",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poair",
+    "name": "Eryslai, the Kingdom of Wind",
+    "version": 0
+  },
+  "npc_ids": [
+    215419,
+    215390,
+    215417,
+    215433,
+    215430
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the stormrider formations and identify Pherlondien Clawpike among his copies.",
+  "overview": [
+    "Break the stormrider formations and identify Pherlondien Clawpike among his copies."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the twenty-seven designated island creatures to summon the Priest of Destruction and eight protected stormriders.",
+        "The priest activates two stormriders at a time, beginning shortly after engagement and then every thirty seconds. Secure each pair as it becomes active.",
+        "After the priest, defeat three sporadic stormriders to trigger the final formation.",
+        "Pherlondien appears at a randomized position among four false copies. The cooldown state can instead produce a loathesome stormclaw.",
+        "The final named opponent can clear hate; keep tanks ready while identifying and finishing the real target."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poair/encounters/Stormrider_Event.lua",
+        "sha256": "9fbb458d4c17aeee9437bfb37c27f5d2ba201967c9de681fc69772020b2f8d64"
+      },
+      {
+        "path": "poair/#isle_two_controller.lua",
+        "sha256": "cc08aca141fd1af913260b022a5a1ea491e4cb8c14ecfcb48cf99d27e3356431"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "hatesfury-captain-krasnok",
+  "title": "Captain Krasnok",
+  "group": "Legacy of Ykesha",
+  "type": "raid",
+  "zone": {
+    "short_name": "hatesfury",
+    "name": "Hate’s Fury",
+    "version": 0
+  },
+  "npc_ids": [
+    228121,
+    228122
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Captain Krasnok appears with four Fists of Krasnok when the attendant receives the required quest hand-in.",
+  "overview": [
+    "Captain Krasnok appears with four Fists of Krasnok when the attendant receives the required quest hand-in."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare the group before the hand-in to Attendant Mi-Ta; it creates the captain and his four defenders together.",
+        "Assign control of the Fists while a tank establishes the captain. Clear supporting enemies to reduce the simultaneous pressure.",
+        "Use the attendant’s passage NPCs to enter and leave the encounter area."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hatesfury/Attendant_Mi-Ta.lua",
+        "sha256": "3037596ea75838dedd902878e33ebdccf9a1fabcbe58af63a5f9636437d78e67"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The reviewed attendant script establishes the spawn and access sequence; no additional captain combat mechanics are asserted from its hand-in handler."
+    ]
+  }
+}

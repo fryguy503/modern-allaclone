@@ -1,0 +1,679 @@
+[
+  {
+    "id": "E001",
+    "slug": "acrylia-archmage-gorraferg-ring",
+    "issues": []
+  },
+  {
+    "id": "E003",
+    "slug": "acrylia-high-priest-gakkernog-ring",
+    "issues": []
+  },
+  {
+    "id": "E004",
+    "slug": "acrylia-khati-sha-the-twisted",
+    "issues": []
+  },
+  {
+    "id": "E005",
+    "slug": "acrylia-ring-of-fire",
+    "issues": []
+  },
+  {
+    "id": "E006",
+    "slug": "acrylia-trondol-shir-escort",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E009",
+    "slug": "akheva-shei-vinitras",
+    "issues": []
+  },
+  {
+    "id": "E010",
+    "slug": "akheva-the-insanity-crawler",
+    "issues": []
+  },
+  {
+    "id": "E010",
+    "slug": "akheva-time-corrupted-insanity-crawler",
+    "issues": []
+  },
+  {
+    "id": "E011",
+    "slug": "anguish-arch-magus-vangl",
+    "issues": []
+  },
+  {
+    "id": "E012",
+    "slug": "anguish-jelvan",
+    "issues": []
+  },
+  {
+    "id": "E013",
+    "slug": "anguish-keldovan-the-harrier",
+    "issues": []
+  },
+  {
+    "id": "E014",
+    "slug": "anguish-overlord-mata-muram",
+    "issues": []
+  },
+  {
+    "id": "E015",
+    "slug": "anguish-ture",
+    "issues": []
+  },
+  {
+    "id": "E016",
+    "slug": "anguish-warden-hanvar",
+    "issues": []
+  },
+  {
+    "id": "E017",
+    "slug": "arena2-heigan-the-unclean-the-safety-dance",
+    "issues": []
+  },
+  {
+    "id": "E018",
+    "slug": "arena2-living-legacy-battle-prowess",
+    "issues": []
+  },
+  {
+    "id": "E019",
+    "slug": "arena2-trial-of-the-dreadscale-simple",
+    "issues": []
+  },
+  {
+    "id": "E019",
+    "slug": "arena2-trial-of-the-dreadscale-moderate",
+    "issues": []
+  },
+  {
+    "id": "E019",
+    "slug": "arena2-trial-of-the-dreadscale-difficult",
+    "issues": []
+  },
+  {
+    "id": "E019",
+    "slug": "arena2-trial-of-the-dreadscale-insane",
+    "issues": []
+  },
+  {
+    "id": "E020",
+    "slug": "barindu-ixvet-pox-colossus-of-war",
+    "issues": []
+  },
+  {
+    "id": "E021",
+    "slug": "barindu-kyv-rux-vhedt",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E022",
+    "slug": "bloodfields-discordling-dark-animist",
+    "issues": []
+  },
+  {
+    "id": "E023",
+    "slug": "bloodfields-elite-dragorn-jekisia",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E024",
+    "slug": "bloodfields-gazz-the-gargantuan",
+    "issues": []
+  },
+  {
+    "id": "E025",
+    "slug": "bloodfields-kragsmash",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E026",
+    "slug": "bloodfields-marshal-histent-grinbik-the-fertile-rescue",
+    "issues": []
+  },
+  {
+    "id": "E027",
+    "slug": "bloodfields-reclusive-girplan-chain-rolthee-and-myrhee",
+    "issues": []
+  },
+  {
+    "id": "E028",
+    "slug": "bloodfields-the-keeper",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E029",
+    "slug": "bloodfields-war-caller-kaavi",
+    "issues": [
+      "The encounter module registers War_Combat although its definition is commented out. Loader behavior and overlap with the NPC script need live verification."
+    ]
+  },
+  {
+    "id": "E033",
+    "slug": "cauldron-praklion-of-the-cauldron",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E034",
+    "slug": "causeway-alpha-feran",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E035",
+    "slug": "causeway-bazu-smasher",
+    "issues": []
+  },
+  {
+    "id": "E036",
+    "slug": "causeway-bazu-terror",
+    "issues": []
+  },
+  {
+    "id": "E037",
+    "slug": "causeway-essence-of-kreljnok",
+    "issues": []
+  },
+  {
+    "id": "E038",
+    "slug": "causeway-magician1-5-elemental-mastery-event",
+    "issues": []
+  },
+  {
+    "id": "E039",
+    "slug": "causeway-oshiruk",
+    "issues": []
+  },
+  {
+    "id": "E040",
+    "slug": "causeway-siflu",
+    "issues": []
+  },
+  {
+    "id": "E041",
+    "slug": "causeway-slavedriver-menlo",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E042",
+    "slug": "causeway-stone-thrower",
+    "issues": [
+      "The close-range warning tells players to get away, but the impact condition damages targets farther than 100 units. Guidance follows the implemented condition and needs live verification.",
+      "A final_fury timer is armed but no handler was found; no timed enrage is claimed.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E043",
+    "slug": "causeway-withering-murkglider",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E044",
+    "slug": "cazicthule-gimlik-cogboggle-escort",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E045",
+    "slug": "cazicthule-ring-of-fear",
+    "issues": []
+  },
+  {
+    "id": "E046",
+    "slug": "cazicthule-sickly-mosquito",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E047",
+    "slug": "chambersa-mastery-of-fear",
+    "issues": []
+  },
+  {
+    "id": "E048",
+    "slug": "chambersa-mastery-of-hate",
+    "issues": []
+  },
+  {
+    "id": "E049",
+    "slug": "chambersb-mastery-of-endurance",
+    "issues": []
+  },
+  {
+    "id": "E050",
+    "slug": "chambersb-mastery-of-weaponry",
+    "issues": []
+  },
+  {
+    "id": "E051",
+    "slug": "chambersc-mastery-of-foresight",
+    "issues": []
+  },
+  {
+    "id": "E052",
+    "slug": "chambersc-mastery-of-subversion",
+    "issues": []
+  },
+  {
+    "id": "E053",
+    "slug": "chambersd-mastery-of-efficiency",
+    "issues": []
+  },
+  {
+    "id": "E054",
+    "slug": "chambersd-mastery-of-specialization",
+    "issues": []
+  },
+  {
+    "id": "E055",
+    "slug": "chamberse-mastery-of-adaptation",
+    "issues": []
+  },
+  {
+    "id": "E056",
+    "slug": "chamberse-mastery-of-ingenuity",
+    "issues": []
+  },
+  {
+    "id": "E057",
+    "slug": "chambersf-mastery-of-corruption",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E058",
+    "slug": "chambersf-mastery-of-destruction",
+    "issues": []
+  },
+  {
+    "id": "E059",
+    "slug": "chardokb-korucust",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E060",
+    "slug": "chardokb-leprous-chokidai",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E061",
+    "slug": "citymist-black-reaver-lord-ghiosk-lord-rak-ashiir-chain",
+    "issues": []
+  },
+  {
+    "id": "E062",
+    "slug": "cobaltscar-gnashing-killer-shark-and-companions",
+    "issues": []
+  },
+  {
+    "id": "E063",
+    "slug": "codecay-bertoxxulous",
+    "issues": []
+  },
+  {
+    "id": "E064",
+    "slug": "codecay-carprin-deatharn-cycle",
+    "issues": []
+  },
+  {
+    "id": "E065",
+    "slug": "codecay-overlord-banord-paffa",
+    "issues": []
+  },
+  {
+    "id": "E066",
+    "slug": "corathus-taskmaster",
+    "issues": []
+  },
+  {
+    "id": "E067",
+    "slug": "corathusb-find-fibblebrap1-the-mines",
+    "issues": []
+  },
+  {
+    "id": "E068",
+    "slug": "dawnshroud-hunter-s-pike-beast-challenge",
+    "issues": []
+  },
+  {
+    "id": "E069",
+    "slug": "delvea-a-halfling-s-greed",
+    "issues": []
+  },
+  {
+    "id": "E070",
+    "slug": "delvea-lavaspinner-hunting",
+    "issues": []
+  },
+  {
+    "id": "E071",
+    "slug": "delvea-stonemaw",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E072",
+    "slug": "delvea-the-drake-menace-drake-matriarch",
+    "issues": []
+  },
+  {
+    "id": "E073",
+    "slug": "delvea-volkara-s-bite",
+    "issues": []
+  },
+  {
+    "id": "E074",
+    "slug": "delveb-a-goblin-s-escort",
+    "issues": []
+  },
+  {
+    "id": "E075",
+    "slug": "delveb-emoush-the-destroyer",
+    "issues": []
+  },
+  {
+    "id": "E076",
+    "slug": "delveb-have-note-will-travel",
+    "issues": []
+  },
+  {
+    "id": "E077",
+    "slug": "delveb-tirranun-fanning-the-flames",
+    "issues": []
+  },
+  {
+    "id": "E078",
+    "slug": "drachnidhive-drithnak-the-exiled",
+    "issues": [
+      "Combat starts a timer named agro but the handler checks aggro; the intended periodic hate-link behavior needs runtime verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E079",
+    "slug": "drachnidhive-the-lost-notebook",
+    "issues": []
+  },
+  {
+    "id": "E080",
+    "slug": "drachnidhivea-find-fibblebrap3-the-hive",
+    "issues": []
+  },
+  {
+    "id": "E081",
+    "slug": "drachnidhivea-the-lost-gnomes",
+    "issues": []
+  },
+  {
+    "id": "E082",
+    "slug": "drachnidhivec-sendaii-the-hive-queen",
+    "issues": []
+  },
+  {
+    "id": "E083",
+    "slug": "dragonscalea-living-legacy-marathon",
+    "issues": []
+  },
+  {
+    "id": "E084",
+    "slug": "dragonscalea-living-legacy-sprint",
+    "issues": []
+  },
+  {
+    "id": "R003",
+    "slug": "corathusb-find-fibblebrap-5",
+    "issues": [
+      "The version-2 loader selects find_fibblebrap_five, but that file repeats the Find Fibblebrap 1 header, task IDs and much of its objective logic. Fifth-mission identity and objective correctness remain unresolved; this is a provisional source-backed draft."
+    ]
+  },
+  {
+    "id": "R006",
+    "slug": "gukg-the-cavern-creeper",
+    "issues": [
+      "The health-stage handlers only emit dialogue and explicitly question whether additional effects are missing. No weakening, shield or timed vulnerability effect is claimed."
+    ]
+  },
+  {
+    "id": "E085",
+    "slug": "dranik-battlemaster-rhorious",
+    "issues": []
+  },
+  {
+    "id": "E086",
+    "slug": "dranik-bloated-girplan",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E087",
+    "slug": "dranik-discord-fluctuation-trio",
+    "issues": []
+  },
+  {
+    "id": "E088",
+    "slug": "dranik-discordling-dark-animist",
+    "issues": []
+  },
+  {
+    "id": "E089",
+    "slug": "dranik-kyv-sharpshooters-jaeth-mihl-and-nass",
+    "issues": []
+  },
+  {
+    "id": "E090",
+    "slug": "dranik-lhranc-and-his-minions",
+    "issues": []
+  },
+  {
+    "id": "E091",
+    "slug": "dranik-lirah-the-bridgekeeper",
+    "issues": [
+      "The replacement check looks for template 336129 but spawns 336130. Actual replacement timing and population need live verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E091",
+    "slug": "dranik-lirah-the-bridgekeeper-seasonal",
+    "issues": [
+      "The replacement check looks for template 336129 but spawns 336130. Actual replacement timing and population need live verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E092",
+    "slug": "dranik-murkglider-breeder",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E093",
+    "slug": "dranik-sverins-uisima-rescue",
+    "issues": []
+  },
+  {
+    "id": "E094",
+    "slug": "dranik-tiorpat-tornwing",
+    "issues": []
+  },
+  {
+    "id": "E095",
+    "slug": "dranik-wren-simsy",
+    "issues": []
+  },
+  {
+    "id": "E096",
+    "slug": "dranik-zun-muram-volklana",
+    "issues": []
+  },
+  {
+    "id": "E097",
+    "slug": "draniksscar-girplan-spiritleech",
+    "issues": []
+  },
+  {
+    "id": "E098",
+    "slug": "dreadlands-gorenaire-seasonal",
+    "issues": [
+      "Health-phase comments label skills 2 and 3 incorrectly; guidance follows the skill numbers (two-handed blunt and two-handed slashing). The howl timer is commented out, so no recurring scripted howl is claimed."
+    ]
+  },
+  {
+    "id": "E099",
+    "slug": "dreadspire-redfang",
+    "issues": []
+  },
+  {
+    "id": "E100",
+    "slug": "dreadspire-zi-thuuli-of-the-granite-claw",
+    "issues": []
+  },
+  {
+    "id": "E101",
+    "slug": "dulak-quigli",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E102",
+    "slug": "eastkarana-althele-s-druid-gathering-defense",
+    "issues": []
+  },
+  {
+    "id": "E103",
+    "slug": "eastkorlach-general-veronhar",
+    "issues": []
+  },
+  {
+    "id": "E104",
+    "slug": "eastkorlacha-bloodeye",
+    "issues": []
+  },
+  {
+    "id": "E105",
+    "slug": "eastwastes-boridain-glacierbane-escort-coldain-ring2",
+    "issues": []
+  },
+  {
+    "id": "E106",
+    "slug": "eastwastes-corbin-blackwell-rescue-coldain-ring7",
+    "issues": []
+  },
+  {
+    "id": "E107",
+    "slug": "eastwastes-icefang-poxbreath-pursuit-coldain-ring6",
+    "issues": []
+  },
+  {
+    "id": "E108",
+    "slug": "eastwastes-peffin-ambersnow-berradin-confrontation",
+    "issues": []
+  },
+  {
+    "id": "E109",
+    "slug": "eastwastes-ry-gorr-assault-chief-ry-gorr-coldain-ring8",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E110",
+    "slug": "eastwastes-scarbrow-ga-hruk-assault-coldain-ring5",
+    "issues": []
+  },
+  {
+    "id": "E111",
+    "slug": "eastwastes-tain-hammerfrost-defense-coldain-ring4",
+    "issues": []
+  },
+  {
+    "id": "E112",
+    "slug": "emeraldjungle-severilous-seasonal",
+    "issues": [
+      "Health-phase comments say slashing, but the implemented skill IDs 7 and 8 are archery and backstab. Guidance follows the implementation."
+    ]
+  },
+  {
+    "id": "E113",
+    "slug": "fearplane-cazic-thule",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E113",
+    "slug": "fearplane-cazic-thule-static-mode",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E114",
+    "slug": "fearplane-dracoliche-static-mode",
+    "issues": [
+      "The reanimation code toggles special ability 24 while its comments call that Unkillable. No guaranteed immunity is claimed; the three-second transition needs live verification.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E115",
+    "slug": "fearplane-fear-golems-dread-fright-and-terror",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  },
+  {
+    "id": "E116",
+    "slug": "fearplane-fear-touched-dracolich-ambush",
+    "issues": []
+  },
+  {
+    "id": "E117",
+    "slug": "fearplane-ireblind-imp",
+    "issues": []
+  },
+  {
+    "id": "E118",
+    "slug": "feerrott-swamp-terror",
+    "issues": []
+  },
+  {
+    "id": "E119",
+    "slug": "ferubi-hexxt-pzik-shziaak",
+    "issues": [
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+]

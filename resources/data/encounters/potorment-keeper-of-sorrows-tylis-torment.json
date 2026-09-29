@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "potorment-keeper-of-sorrows-tylis-torment",
+  "title": "Keeper of Sorrows / Tylis' torment",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "potorment",
+    "name": "Plane of Torment",
+    "version": 0
+  },
+  "npc_ids": [
+    207015
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Enter Tylis Newleaf’s torment, defeat the Keeper of Sorrows, and speak with the freed Tylis.",
+  "overview": [
+    "Enter Tylis Newleaf’s torment, defeat the Keeper of Sorrows, and speak with the freed Tylis."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "An eligible character with the Shadyglade progression flag and the required key can tell Tylis that they will assist. Tylis moves that character’s group into the chamber.",
+        "Defeat the Keeper of Sorrows to summon the freed Tylis and record the expedition’s Keeper completion.",
+        "Hail the freed Tylis for progression credit, then gather within one hundred units before using the ready dialogue to return to the tower.",
+        "The freed Tylis remains for thirty minutes. Complete the dialogue and return together during that window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potorment/Tylis_Newleaf.lua",
+        "sha256": "1597fc5b8368b1be02e02a0f8d425d2c0e99151996e4a37d4beae1c64f694ca0"
+      },
+      {
+        "path": "potorment/The_Keeper_of_Sorrows.lua",
+        "sha256": "4766c10cd0d39b18ca343e281753f642aae2e324007c289ff263e4cc838c7bca"
+      },
+      {
+        "path": "potorment/#Tylis_Newleaf.lua",
+        "sha256": "1c72874e0892e9de9bbe8dc5ecec989ab09f958dfb6c8f2c6e695f8f2e53c5f1"
+      },
+      {
+        "path": "potorment/zone_status.lua",
+        "sha256": "2ccdbb15383b39125d356e585325d1bf10ea7590e3e5d076cc97debdb5f63bd5"
+      },
+      {
+        "path": "potorment/Maareq_the_Prophet.lua",
+        "sha256": "ea6800ce2f4e7323e7c983d5fb14e4059de81d872dd98399080437b5c44806a7"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Maareq’s death activates the entry Tylis. The Keeper’s death spawns a separate freed Tylis.",
+      "Review the chamber’s database spawns and Keeper abilities before publication; the quest files confirm access and completion, but do not establish the full intervening combat sequence."
+    ]
+  }
+}

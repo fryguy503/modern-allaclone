@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "sleeper-sleep-walking-expedition",
+  "title": "Sleep Walking expedition",
+  "group": "Sleep Walking",
+  "type": "raid",
+  "zone": {
+    "short_name": "sleeper",
+    "name": "Sleeper's Tomb",
+    "version": 1
+  },
+  "npc_ids": [
+    128002,
+    128003,
+    128004,
+    128005,
+    128006,
+    128007,
+    128008,
+    128009,
+    128010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Sleep Walking is a fabled Sleeper's Tomb expedition whose boss availability follows saved lockouts.",
+  "overview": [
+    "Sleep Walking is a fabled Sleeper's Tomb expedition whose boss availability follows saved lockouts."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Check expedition lockouts before choosing the next target; use the separate scripted boss guides for detailed mechanics."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The expedition configuration allows 6ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“96 players and a six-hour instance.",
+        "The gatekeeper replaces the normal named population with fabled bosses whose lockouts have not been earned.",
+        "Each named completion records a five-day lockout. The finale includes the fabled awakened dragon."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sleeper/#Gozer_The_Gatekeeper.lua",
+        "sha256": "5caa84f27a0e41926c33760d960f1d3978ce924862f3a853fcd781e7af9fd5ea"
+      }
+    ],
+    "notes": [
+      "Approval E292. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

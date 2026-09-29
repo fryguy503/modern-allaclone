@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "uqua-uqua-gas-chambers",
+  "title": "Uqua gas chambers",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "uqua",
+    "name": "Uqua, The Ocean God Chantry",
+    "version": 0
+  },
+  "npc_ids": [
+    292051,
+    292052
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Solve each changing gas-chamber lock using the precise clue and the correct key alone.",
+  "overview": [
+    "Solve each changing gas-chamber lock using the precise clue and the correct key alone."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Have the definite clue recipient call the key immediately and keep other key types off the opener."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The chamber begins issuing new lock clues every twenty seconds.",
+        "One player receives a definite key clue; another can receive a misleading either-or clue.",
+        "At least six non-GM players must stand in the chamber's checked area to open the door.",
+        "The opener must carry the correct key and none of the other three key types. A wrong attempt summons a jet flame and starts a one-minute reset.",
+        "Success permanently opens that chamber for the expedition's saved completion window and releases guards beyond it."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "uqua/#Gas_Chamber_1.lua",
+        "sha256": "bdd0cd527dc09c754db6ec94c6fdcbf92a3a217c2a83ff159318f07beae5c43f"
+      },
+      {
+        "path": "uqua/#Gas_Chamber_2.lua",
+        "sha256": "888cc62db49ecbf219b62fe1c2b8c92006ba5689fe0d472a01eb778c2f802e5f"
+      },
+      {
+        "path": "uqua/player.lua",
+        "sha256": "7adcaf1e66d8d922395cf15053288bc8faf24657a6a167d6c6dae18d1badf56c"
+      }
+    ],
+    "notes": [
+      "Approval E386. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

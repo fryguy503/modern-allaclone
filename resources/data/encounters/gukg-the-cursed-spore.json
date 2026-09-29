@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "gukg-the-cursed-spore",
+  "title": "The Cursed Spore",
+  "group": "LDoN: Ritualist of Hate",
+  "type": "raid",
+  "zone": {
+    "short_name": "gukg",
+    "name": "The Accursed Sanctuary",
+    "version": 2
+  },
+  "npc_ids": [
+    259235
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Help the Prophets of Gukta weaken the Cursed Spore while your raid drives its health down.",
+  "overview": [
+    "Help the Prophets of Gukta weaken the Cursed Spore while your raid drives its health down."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The Spore begins immune to slow. At 90% health, the prophets remove that immunity, creating an opportunity to slow its attacks.",
+        "At 75%, 50% and 25% health, its elemental and magical resistances fall in stages. Casters should expect greater resistance early in the fight.",
+        "Regaining health can restore earlier resistance stages. Leaving combat restores the initial resistances and slow immunity.",
+        "Its defeat opens the route toward Gragna and the final Keeper encounter."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gukg/encounters/gukgraid.lua",
+        "sha256": "c09b1f92d1fa17699d54e60cd8a16d164e447ea1e35a41b481b61ee6a8463ab0"
+      },
+      {
+        "path": "gukg/zone_status.lua",
+        "sha256": "5bbb0f05ccf0032612f6f3f86b75d7720c9f3189105f3d2f3a2f87e3ccbd1eeb"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-web-of-lies",
+  "title": "Web of Lies",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 15
+  },
+  "npc_ids": [
+    343664,
+    343665,
+    343716,
+    343663
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Use careful diplomacy to choose a peaceful or hostile resolution with the nest's rivals.",
+  "overview": [
+    "Use careful diplomacy to choose a peaceful or hostile resolution with the nest's rivals."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep weapons unequipped during the negotiation and let one player lead the dialogue."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Approach the meeting with weapons put away; visible weapons or excessive delay can provoke the guards.",
+        "Follow the future and other-reason dialogue toward surrender for the peaceful route.",
+        "Choosing the kill response starts combat instead.",
+        "The rival spokesperson depends on the assigned faction task."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/web_of_lies.lua",
+        "sha256": "53aa9f1367c99019c38ef7a9d5669df5befe4e67b8a744571c5c0cf02c3671cb"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E359. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

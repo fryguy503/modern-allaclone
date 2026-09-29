@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "slug": "takishruinsa-living-legacy-sandkeep-endurance-raid",
+  "title": "Living Legacy: Sandkeep Endurance Raid",
+  "group": "Living Legacy",
+  "type": "raid",
+  "zone": {
+    "short_name": "takishruinsa",
+    "name": "The Sandkeep",
+    "version": 1
+  },
+  "npc_ids": [
+    35183,
+    35184,
+    35185,
+    35186
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive Sandkeep's endlessly replenished enemy field and earn enduring checkpoints through sustained pressure.",
+  "overview": [
+    "Survive Sandkeep's endlessly replenished enemy field and earn enduring checkpoints through sustained pressure."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Distribute add control across the field and keep steady damage through each pressure window.",
+        "Treat Eothar as an anchor to control, not a kill target."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Warmup",
+      "trigger": "Activation",
+      "description": "Establish control of the enemy field during the opening 30 seconds."
+    },
+    {
+      "id": "phase-2",
+      "label": "Pressure",
+      "trigger": "After warmup",
+      "description": "Meet each 12-second quota; five qualified windows earn the next checkpoint."
+    },
+    {
+      "id": "phase-3",
+      "label": "Recovery",
+      "trigger": "A missed pressure quota",
+      "description": "Restore sufficient pressure during the 24-second recovery window or the expedition fails."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The captured raid contains 6ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“54 players. Eothar anchors a 27-enemy field with 26 killable enemies; defeated adds return after 12 seconds.",
+        "After a 30-second warmup, damage must satisfy repeated 12-second pressure windows. Five qualified windows advance the earned minute checkpoint.",
+        "A missed quota enters a 24-second recovery period; failing recovery ends the attempt.",
+        "Difficulty keeps increasing while earned reward checkpoints cap at model LXX. There is no conventional boss-kill victory.",
+        "A failed instance is terminal and requires a new expedition for another attempt."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "takishruinsa/encounters/living_legacy_endurance.lua",
+        "sha256": "3a89776dc744b7af375f791b7db84db5211d1f5ac143259d2b2847863dbbd220"
+      },
+      {
+        "path": "takishruinsa/script_init.lua",
+        "sha256": "678905263f4397319dc4ecb1f32011b04047bac842b6f3690f66c87bc89e2a5a"
+      },
+      {
+        "path": "lua_modules/living_legacy.lua",
+        "sha256": "53b1909d7c2552b7d3c42d28f198cab10aa5106617e695ce11af9c34fd916637"
+      },
+      {
+        "path": "sro/35180.lua",
+        "sha256": "d4fde82b73bc117873f1b47f41c34b2ec54f057961cbbe4497c91fc55123afbb"
+      },
+      {
+        "path": "lua_modules/living_legacy_balance.lua",
+        "sha256": "959cc6cc1f55336ee00e422aa49bcd205e19aa09526c08bcdffbf8b91d83489a"
+      },
+      {
+        "path": "lua_modules/living_legacy_npc_refs.lua",
+        "sha256": "1a8b8cb1670789236b5f262c29892d27afec6a332490ccd941cfdeb859b66a07"
+      }
+    ],
+    "notes": [
+      "Approval E340. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Encounter header and tuning comments require matching deployed SQL and level-60 live validation before publication."
+    ]
+  }
+}

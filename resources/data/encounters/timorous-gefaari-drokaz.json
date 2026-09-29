@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "timorous-gefaari-drokaz",
+  "title": "Gefaari Drokaz",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "timorous",
+    "name": "Timorous Deep",
+    "version": 0
+  },
+  "npc_ids": [
+    96005,
+    96007
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Gefaari Drokaz layers chants, breaths and minions as his health falls.",
+  "overview": [
+    "Gefaari Drokaz layers chants, breaths and minions as his health falls."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign minion control and save defensive coverage for the overlapping late-stage spell cycles."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 90% health, repeated deathly chants begin; at 85%, the lava-breath cycle begins.",
+        "At 60%, two minions join and a discord cloud cycle starts.",
+        "At 30%, three more minions join with faster breath and panic pressure.",
+        "At 25%, another three minions arrive and the boss changes melee tuning."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "timorous/#Gefaari_Drokaz.lua",
+        "sha256": "6969e144c25408113c4634e414378ec20399e29bac01fb9c5a2b6757bf2d0e2c"
+      },
+      {
+        "path": "timorous/Omat_Vastsea.lua",
+        "sha256": "4c7612905beabb207900fcddaf51383f247ea543f556378767b929ef6a5058a0"
+      }
+    ],
+    "notes": [
+      "Approval E375. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

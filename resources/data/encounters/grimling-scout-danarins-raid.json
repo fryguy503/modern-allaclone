@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "slug": "grimling-scout-danarins-raid",
+  "title": "Scout Danarin's raid",
+  "group": "Grimling war",
+  "type": "event",
+  "zone": {
+    "short_name": "grimling",
+    "name": "Grimling Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    167202,
+    167720
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Capture a camp with Danarin, protect the scout and defeat the arriving officer.",
+  "overview": [
+    "Give Danarin the requested sphere, follow the scout and clear the occupied camp. The event refreshes the camp population when it starts, so clearing it beforehand does not skip this objective.",
+    "After the camp is clear, reinforcements begin after a random 30 to 60 seconds and then arrive every 90 seconds. The officer can appear after the fifth wave, with the chance increasing as more waves pass."
+  ],
+  "roles": [
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep the scout alive throughout the assault."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Clear waves promptly and switch to the officer when it appears."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "capture",
+      "label": "Capture the camp",
+      "trigger": "Scout starts the assault",
+      "description": "Defeat the camp occupants while keeping the scout alive."
+    },
+    {
+      "id": "defend",
+      "label": "Hold the camp",
+      "trigger": "Camp cleared",
+      "description": "Intercept the timed reinforcement waves. New waves stop when the officer appears."
+    },
+    {
+      "id": "officer",
+      "label": "Defeat the officer",
+      "trigger": "Officer arrival",
+      "description": "Kill the officer and return its proof to the scout. Losing the scout fails the event."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Starting item",
+      "paragraphs": [
+        "Bring the requested sphere to the scout."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 4349,
+          "name": "Marbled Acrylia Sphere",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "grimling/encounters/Danarins_Raid.lua",
+        "sha256": "e7146646207b30c7cadcdadab27312e221e56e44d42c9e8bafaf6b246ca9dea1"
+      },
+      {
+        "path": "grimling/Scout_Danarin.lua",
+        "sha256": "abe021d6fbeffd61ae07944140ddd916b2467182cf95fba5cafa71add2d83902"
+      }
+    ],
+    "notes": [
+      "Approved row E134. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified."
+    ]
+  }
+}

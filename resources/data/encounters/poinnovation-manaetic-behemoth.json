@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "poinnovation-manaetic-behemoth",
+  "title": "Manaetic Behemoth",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poinnovation",
+    "name": "Plane of Innovation",
+    "version": 0
+  },
+  "npc_ids": [
+    206046,
+    206205
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Stop the clockwork devices from feeding the inactive Manaetic Behemoth, then defeat its active form.",
+  "overview": [
+    "Stop the clockwork devices from feeding the inactive Manaetic Behemoth, then defeat its active form."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Intercept the devices before they reach their final waypoint and release an energy burst. Leave a team on each approach while preparing the main tank.",
+        "The dormant Behemoth uses a three-minute activation counter influenced by device bursts. Keep the incoming devices controlled until the active form appears.",
+        "The active Behemoth has a twenty-minute hard despawn. Fight inside its room to avoid its positional leash.",
+        "Its death advances the local gnome’s progression dialogue."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poinnovation/Manaetic_Behemoth.lua",
+        "sha256": "2ddb6739ac4b3ba579941fd1f3abd8863be93883245fa3e5454a6498e57c4483"
+      },
+      {
+        "path": "poinnovation/#Manaetic_Behemoth.lua",
+        "sha256": "e7cf1774942f097cf69820b8c512b79dd26190fb5a61fd7f679c997cedd03aab"
+      },
+      {
+        "path": "poinnovation/206001.lua",
+        "sha256": "fb9a5c225a6e11a1b20e6731ee097b9f190fa49445e60420ae4c3d06249154ae"
+      },
+      {
+        "path": "poinnovation/AOE_Trigger.lua",
+        "sha256": "280c0a438c4690c5f1f72091b26b554f3ee83da63a69e7914cfdfb0bfe73ed3f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Verify the dormant activation sequence in game before publication: repeated device signals toggle first_signal and only alternate signals reset the counter, rather than consistently resetting it."
+    ]
+  }
+}

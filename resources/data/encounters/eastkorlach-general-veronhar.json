@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "eastkorlach-general-veronhar",
+  "title": "General Veronhar",
+  "group": "Depths of Darkhollow",
+  "type": "event",
+  "zone": {
+    "short_name": "eastkorlach",
+    "name": "The Undershore",
+    "version": 0
+  },
+  "npc_ids": [
+    362090,
+    362091,
+    362088
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "General Veronhar orders lethal arrow volleys while his commanders assist.",
+  "overview": [
+    "General Veronhar orders lethal arrow volleys while his commanders assist."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "When the general orders the archers to ready their bows, duck before the five-second warning ends.",
+        "Keep supporting commanders controlled while maintaining the boss tank.",
+        "Fight inside the encounter area; pulling the enemies beyond its limits causes a return and cleansing response."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastkorlach/encounters/General_Veronhar.lua",
+        "sha256": "8c7522fe2c466976e80ab3b0e14da478ef03897d65945c24f7f792151f1cb388"
+      },
+      {
+        "path": "eastkorlach/script_init.lua",
+        "sha256": "a25ced4b522e18ed2b05bfc8094b80200f26dd77cf57895be384c9976ea7c9a4"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

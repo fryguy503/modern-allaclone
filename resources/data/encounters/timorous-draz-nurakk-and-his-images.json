@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "timorous-draz-nurakk-and-his-images",
+  "title": "Draz Nurakk and his images",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "timorous",
+    "name": "Timorous Deep",
+    "version": 0
+  },
+  "npc_ids": [
+    96385,
+    96386
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prepare for Draz Nurakk's death to release a ring of hostile images.",
+  "overview": [
+    "Prepare for Draz Nurakk's death to release a ring of hostile images."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Reserve healing and control for six simultaneous images."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The initial Draz Nurakk has a twenty-four-hour despawn timer.",
+        "Killing him immediately creates six images at fixed positions: one uses a separate template from the other five.",
+        "The death transition begins the image fight rather than ending all combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "timorous/Draz_Nurakk.lua",
+        "sha256": "f389e6334bbbc16c23bd5a6871458519120ac921645a984d0bcaef1180dc0c99"
+      }
+    ],
+    "notes": [
+      "Approval E374. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Image template IDs are verified by spawn calls; the initial Draz Nurakk template requires database confirmation."
+    ]
+  }
+}

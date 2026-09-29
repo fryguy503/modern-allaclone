@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-rizlona",
+  "title": "Rizlona",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212406
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeating Rizlona's first form reveals her dragon form.",
+  "overview": [
+    "Defeating Rizlona's first form reveals her dragon form."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the raid ready for an immediate second target when the first form falls."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The first form's death spawns the second form immediately at the same position.",
+        "Both forms enforce a room boundary; pulling the first form south of the room heals and resets it.",
+        "The dragon form has an out-of-combat despawn timer and provides the final progression projection."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/Rizlona.lua",
+        "sha256": "1e59e87a1b07120518cba50f6ac222c33b9882f7c0d047177f28cba6013d52f1"
+      },
+      {
+        "path": "solrotower/#Rizlona.lua",
+        "sha256": "7f7110be7f63f8a1ebdc97b3fb4b339aad1b66d5974cdacd43f8dadd69a322f0"
+      }
+    ],
+    "notes": [
+      "Approval E306. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The first-form NPC ID needs a database lookup before linking both forms."
+    ]
+  }
+}

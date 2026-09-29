@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "postorms-drornok-tok-vo-lok",
+  "title": "Drornok Tok Vo'Lok",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "postorms",
+    "name": "Plane of Storms",
+    "version": 0
+  },
+  "npc_ids": [
+    210480
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the pond creatures to call Drornok Tok Vo’Lok, then handle two additional frog waves during the fight.",
+  "overview": [
+    "Clear the pond creatures to call Drornok Tok Vo’Lok, then handle two additional frog waves during the fight."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the required loktoles, amphans and toads around the pond to summon Drornok.",
+        "Drornok repopulates the pond when he appears. Establish a controlled approach before pulling him.",
+        "At 97% and 50% health, he summons two more pond creatures directly onto the tank’s hate target. Prepare an add tank at both thresholds.",
+        "If he heals to 99%, his summoned combat adds are cleared and both health triggers reset."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "postorms/#Drornok_trigger.lua",
+        "sha256": "e29bf7479269cce581aa7a976bd0d8822276a0d680802dcaf9c48ae240cff659"
+      },
+      {
+        "path": "postorms/#Drornok_Tok_Vo-Lok.lua",
+        "sha256": "44ecbc0c8221829a80e91a1d89bfb2f2123269959546f31ad6b3fd00f1fc598f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

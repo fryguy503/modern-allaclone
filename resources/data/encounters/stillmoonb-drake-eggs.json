@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoonb-drake-eggs",
+  "title": "Drake Eggs",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoonb",
+    "name": "The Ascent",
+    "version": 4
+  },
+  "npc_ids": [
+    339184,
+    339114,
+    339297
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover the drake eggs and investigate the ambush around the dead contact.",
+  "overview": [
+    "Recover the drake eggs and investigate the ambush around the dead contact."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare to handle the guard and statues when the egg-carrying drake falls."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The mission marks one specific drake spawn group as the egg carrier.",
+        "Killing that drake creates a goblin guard, two guardian statues and the dead contact.",
+        "The trigger is tied to the designated spawn group, so killing an arbitrary drake does not start it."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoonb/encounters/drake_eggs.lua",
+        "sha256": "bbd3dabb07a573445c092520c421de06b74b9862deea917668d13e07e4fdc4fc"
+      },
+      {
+        "path": "stillmoonb/script_init.lua",
+        "sha256": "1cf191f934ba1b41f918d44e34ddec8c25bb30c5a3906ce6f8f26621d49b83ac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E324. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

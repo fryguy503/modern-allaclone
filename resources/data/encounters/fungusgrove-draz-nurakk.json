@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "fungusgrove-draz-nurakk",
+  "title": "Draz Nurakk",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "fungusgrove",
+    "name": "Fungus Grove",
+    "version": 0
+  },
+  "npc_ids": [
+    157131,
+    157140
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prepare for Draz Nurakk and his pet to fight together.",
+  "overview": [
+    "When Draz gains a new enemy and his pet is present, he calls the pet onto his current hate leader after one second.",
+    "Draz stops his one-hour despawn timer during combat. Leaving combat restarts the timer; when it expires, both Draz and his pet are removed."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Pick up the pet as well as Draz at the start of combat."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fungusgrove/Draz_Nurakk.lua",
+        "sha256": "9b5a60e64b2707f1c3df5331ffca85d260bf74e2a65e592617b5bcf739e78c49"
+      }
+    ],
+    "notes": [
+      "Approved row E128. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "The reviewed Draz script does not provide the event-start hand-in or the pet's database abilities. Those details remain outside this draft."
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "thedeep-thought-horror-overfiend-seasonal",
+  "title": "Thought Horror Overfiend (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "thedeep",
+    "name": "The Deep",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The seasonal Overfiend combines repeating mental attacks with a late close-range burst.",
+  "overview": [
+    "The seasonal Overfiend combines repeating mental attacks with a late close-range burst."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep recovery available for the 25% pulse and continue handling the spell timers through the finish."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A self-centered dread spell repeats every 20 seconds, while a random-target fracture spell repeats every 35 seconds.",
+        "The 50% threshold is an announcement; at 25% the boss deals a direct area-damage pulse within 70 range.",
+        "At 10%, the script changes its appearance and adjusts damage-taken skill modifiers."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thedeep/Thought_Horror_Overfiend.lua",
+        "sha256": "b0f42cc1d41afd6fbbfb368e2eea3095ba8ebd37cc23ca526e0488d0d58a573c"
+      }
+    ],
+    "notes": [
+      "Approval E351. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The final-stage skill modifiers are labeled as magic vulnerability in comments, but their actual spell-damage effect requires server/database validation.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "powater-coirnav-avatar-of-water",
+  "title": "Coirnav, Avatar of Water",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "powater",
+    "name": "Reef of Coirnav",
+    "version": 0
+  },
+  "npc_ids": [
+    216048,
+    216279,
+    216278,
+    216280
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear Coirnav’s elemental armies, defeat three lieutenants, then kill the Avatar of Water within fifteen minutes.",
+  "overview": [
+    "Clear Coirnav’s elemental armies, defeat three lieutenants, then kill the Avatar of Water within fifteen minutes."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Elemental armies",
+      "trigger": "Start, three minutes and five minutes",
+      "description": "Clear twenty-five fiends of each of vapor, ice and water."
+    },
+    {
+      "id": "phase-2",
+      "label": "Three lieutenants",
+      "trigger": "All fiends defeated",
+      "description": "Kill Pwelon, Nrinda and Vamuil."
+    },
+    {
+      "id": "phase-3",
+      "label": "Coirnav",
+      "trigger": "All three lieutenants defeated",
+      "description": "Handle thirty final adds and defeat the now-vulnerable Avatar before time runs out."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The event begins with twenty-five vaporfiends. Twenty-five icefiends arrive at three minutes and twenty-five waterfiends at five minutes.",
+        "Clear all seventy-five fiends to replace the initial lieutenants with their final combat forms: Pwelon of Vapor, Nrinda of Ice and Vamuil of Water.",
+        "Defeat all three lieutenants to make Coirnav vulnerable. Thirty weaker elemental adds arrive at the same time.",
+        "Assign add tanks for the final wave and immediately establish a tank on Coirnav after its hate reset.",
+        "The entire event has a fifteen-minute limit. Failure banishes the zone’s players; victory summons the Essence of Water."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "powater/encounters/Coirnav_Event.lua",
+        "sha256": "35857647cf2ff39808771a8a35f4e6630890e63031e83512106ba4ecbd3fbb68"
+      },
+      {
+        "path": "powater/Guardian_of_Coirnav.lua",
+        "sha256": "a6e0aef059083140f921e8c30df4e9d3ea124a553b5be95944d8809164f5c0b6"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

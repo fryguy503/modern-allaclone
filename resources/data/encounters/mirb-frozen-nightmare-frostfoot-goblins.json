@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "mirb-frozen-nightmare-frostfoot-goblins",
+  "title": "Frozen Nightmare: Frostfoot goblins",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "mirb",
+    "name": "The Frozen Nightmare",
+    "version": 2
+  },
+  "npc_ids": [
+    237785,
+    237786
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Find and defeat the Frostfoot leaders before their reinforcements overwhelm the raid.",
+  "overview": [
+    "Find and defeat the Frostfoot leaders before their reinforcements overwhelm the raid."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Approaching the Frostfoot scout starts its run to the leaders’ room. The leaders appear when it reaches its destination.",
+        "Each surviving leader creates a henchman every ten seconds. Push toward Raid Leader Sig Chol and Taskmaster Suttalp instead of staying in the scout room indefinitely.",
+        "The event counts total spawned goblins, not only living adds. At thirty spawns, the raid is expelled and the event resets.",
+        "Use the warning emotes to judge urgency while tanks collect the arriving henchmen."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mirb/encounters/goblins.lua",
+        "sha256": "4d991498ec7cc56112db15c57540366821de69ce6d988cda0457a4b5f9647bb0"
+      },
+      {
+        "path": "mirb/zone_status.lua",
+        "sha256": "96d9679db47451ca1aee2939a2031350082177f37096e12f1be94665fa99b540"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "ponightmare-terror-matriarch",
+  "title": "Terror Matriarch",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "ponightmare",
+    "name": "Plane of Nightmare",
+    "version": 0
+  },
+  "npc_ids": [
+    204034
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Terror Matriarch continually produces hatchlings once the fight begins.",
+  "overview": [
+    "The Terror Matriarch continually produces hatchlings once the fight begins."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 98% health, the first abhorrent hatchling appears; another can spawn every thirty seconds while the Matriarch remains engaged.",
+        "Assign someone to gather the hatchlings away from vulnerable group members while the main tank holds the Matriarch.",
+        "Finish the boss before the recurring adds overwhelm the group. Each summoned hatchling has its own five-minute cleanup timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ponightmare/#Terror_Matriarch.lua",
+        "sha256": "678a8b560b7397bafa15d0baa4ba7ee473a52284b0e780a1ab5018e88a94bcc1"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

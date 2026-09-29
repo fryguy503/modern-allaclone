@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-alpha-feran",
+  "title": "Alpha Feran",
+  "group": "Named encounters",
+  "type": "group",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Alpha Feran calls other ferans into the fight.",
+  "overview": [
+    "Alpha Feran calls other ferans into the fight."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Expect the first call ten seconds after engagement and further calls every fifteen seconds.",
+        "Control nearby ferans before committing to the boss.",
+        "Have a tank collect any ferans brought into combat by the howl."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/Alpha_Feran.lua",
+        "sha256": "ecd685e53a50c7cab162803c26ff7b72d1f811b9d0385efb4328385af691713b"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

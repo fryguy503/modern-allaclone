@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "slug": "anguish-overlord-mata-muram",
+  "title": "Overlord Mata Muram",
+  "group": "Anguish",
+  "type": "raid",
+  "zone": {
+    "short_name": "anguish",
+    "name": "Anguish, the Fallen Palace",
+    "version": 0
+  },
+  "npc_ids": [
+    317109,
+    317114,
+    317123,
+    317117,
+    317122
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Overlord Mata Muram tests gaze reactions and add control through several health stages.",
+  "overview": [
+    "Mata Muram requires fast personal reactions to his gaze, control of recurring adds, and a planned return after the raid is banished. Defeat Vangl before starting the initial dialogue."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep the boss and recurring enemies controlled through each transition."
+      ]
+    },
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "React immediately to personal gaze and buzzing warnings."
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Healers and support",
+      "tips": [
+        "Prepare mark removal for the short fifteen-second resolution window."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "opening-assault",
+      "label": "Opening assault",
+      "trigger": "Initial engagement",
+      "description": "Control the coerced lieutenants and recurring lashers while responding to gaze warnings."
+    },
+    {
+      "id": "mark-of-death",
+      "label": "Mark of Death",
+      "trigger": "70%",
+      "description": "The boss applies marks to randomly selected clients and checks for remaining marks fifteen seconds later."
+    },
+    {
+      "id": "converts",
+      "label": "Converts",
+      "trigger": "50%",
+      "description": "Two languished converts appear. Collect and defeat them."
+    },
+    {
+      "id": "riftseeker-intervention",
+      "label": "Riftseeker intervention",
+      "trigger": "30%",
+      "description": "Four riftseekers appear and restrain Mata Muram. Banishment follows after sixty seconds, or sooner if his health falls below 20%."
+    },
+    {
+      "id": "return-and-finish",
+      "label": "Return and finish",
+      "trigger": "After banishment",
+      "description": "The raid is moved away and Mata Muram retains his remaining health. Return correctly, reactivate him through dialogue and finish the encounter."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "gaze",
+      "name": "Mata Muram's Gaze",
+      "summary": "A selected player has ten seconds to prepare Reflective Skin.",
+      "description": [
+        "The script checks the selected player for Reflective Skin when the warning expires."
+      ],
+      "tags": [
+        "Personal responsibility"
+      ],
+      "roles": [],
+      "spell_ids": [
+        5685,
+        6494
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "When personally warned of the gaze, obtain Reflective Skin before ten seconds pass.",
+        "A buzzing warning leads to five lashers at the selected player after six seconds; have add control ready.",
+        "At 70%, remove Mark of Death before its fifteen-second check.",
+        "After banishment, return through the encounter's intended route and use the boss dialogue to resume the fight."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "anguish/encounters/omm.lua",
+        "sha256": "0c749d895b01e3d0f484b5b91fbac76dcce855195fd2e1ca789304a3b854136d"
+      },
+      {
+        "path": "anguish/script_init.lua",
+        "sha256": "01fa5cb9faa896b618877d74a33d7e46153f12bebab6daf61687db1e3bcd7a82"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "cazicthule-ring-of-fear",
+  "title": "Ring of Fear",
+  "group": "Cazic-Thule",
+  "type": "event",
+  "zone": {
+    "short_name": "cazicthule",
+    "name": "Temple of Cazic-Thule",
+    "version": 0
+  },
+  "npc_ids": [
+    48384,
+    48385,
+    48386
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Interrupt the sacrifice, survive the temple waves and face the avatars of fear.",
+  "overview": [
+    "Interrupt the sacrifice, survive the temple waves and face the avatars of fear."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Engaging the high priest draws his guards into combat.",
+        "After the priest falls, the linked sequence escalates through waves and the Avatars of Dread, Fright and Terror.",
+        "Keep resources for the Avatar of Fear when the final stage becomes attackable.",
+        "Finish the final avatar within its thirty-minute window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "cazicthule/#a_Thul_Tae_Ew_High_Priest.lua",
+        "sha256": "40cdb3e85ad388ce7a2f5fc64e4e55b21de7694494171a3c0fb3923742e1fcca"
+      },
+      {
+        "path": "cazicthule/Avatar_of_Fear.lua",
+        "sha256": "eec61044daa21c2b78489570430f23fb067b0106a081d0344e434a61b1a8a731"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

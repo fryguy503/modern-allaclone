@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "txevu-zun-muram-tkarish-zyk",
+  "title": "Zun`Muram Tkarish Zyk",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "txevu",
+    "name": "Txevu, Lair of the Elite",
+    "version": 0
+  },
+  "npc_ids": [
+    297150,
+    297148,
+    297149,
+    297131,
+    297132,
+    297133,
+    297147
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Maintain tank coverage through Zun`Muram's banishments while suppressing ritualist reinforcements.",
+  "overview": [
+    "Maintain tank coverage through Zun`Muram's banishments while suppressing ritualist reinforcements."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep a backup tank ready for banishment and free jailed players promptly.",
+        "Assign ritualist kills to stop their recurring waves."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A check every twenty-five seconds can banish the top-threat target to a northern or southern jail.",
+        "Leaving a player in jail for twenty seconds brings six apparitions into that room.",
+        "Four ritualists begin staggered reinforcement waves after thirty, sixty, ninety and 120 seconds, then repeat every two minutes while their ritualist survives.",
+        "The boss, inquisitors and ritualists share aggression; the main chamber boundary resets targets pulled outside it."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "txevu/#Zun-Muram_Tkarish_Zyk.lua",
+        "sha256": "6ff1927af352b62d2feb9ea108f01fec83e9ef918bacae90bb0ed4f3026420cb"
+      },
+      {
+        "path": "txevu/zone_status.lua",
+        "sha256": "d706eb1a084dba79fc9edf0128df5c76e7971356360afeb2d4605c1d4c71aa6c"
+      },
+      {
+        "path": "txevu/297075.lua",
+        "sha256": "501bc55a470a130846e2fdca8c0d61110d04ab883ce58ea5531b1a44d63215e2"
+      },
+      {
+        "path": "txevu/297076.lua",
+        "sha256": "b07b4662dce95869cfa9e93a13f9628aa3365a1ec4414d1e7cd335985e16c4a4"
+      },
+      {
+        "path": "txevu/#Inquisitor_Lliev_Kinth.lua",
+        "sha256": "44e5a1b5bd0eadd2106a6e3e4faf5cecefb5c600b503c70965f82183ccf3812b"
+      },
+      {
+        "path": "txevu/#Inquisitor_Chiak_Tansk.lua",
+        "sha256": "b9b2e7196c3937a537a9e4d3b1762c8575f64b6596905e4c45e9510f266fdb9c"
+      }
+    ],
+    "notes": [
+      "Approval E384. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

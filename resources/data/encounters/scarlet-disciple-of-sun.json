@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "scarlet-disciple-of-sun",
+  "title": "Disciple of Sun",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "scarlet",
+    "name": "The Scarlet Desert",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Accept the Disciple of Sun's monk challenge and defeat him before his deadline.",
+  "overview": [
+    "Accept the Disciple of Sun's monk challenge and defeat him before his deadline."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Have the group ready before saying challenge."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A monk on epic 1.5 steps 12 through 16 can use the challenge dialogue.",
+        "The challenge removes his protection and immediately adds the challenger to his hate list.",
+        "Entering combat starts a 15-minute despawn timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "scarlet/#Disciple_of_Sun.lua",
+        "sha256": "d47e68a03188f7a09ba512c69f6ecb444473b778f52eba48ef5131e62643003b"
+      }
+    ],
+    "notes": [
+      "Approval E283. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "txevu-ikaav-nysf-lleiv",
+  "title": "Ikaav Nysf Lleiv",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "txevu",
+    "name": "Txevu, Lair of the Elite",
+    "version": 0
+  },
+  "npc_ids": [
+    297090,
+    297087,
+    297088,
+    297089
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat newly vulnerable stonemasters to slow and stop Ikaav Nysf Lleiv's rockchanters.",
+  "overview": [
+    "Defeat newly vulnerable stonemasters to slow and stop Ikaav Nysf Lleiv's rockchanters."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Switch to each stonemaster as its shield falls and keep spawned rockchanters controlled."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Hateq",
+      "trigger": "75% health",
+      "description": "Remove the first stonemaster while managing charm."
+    },
+    {
+      "id": "phase-2",
+      "label": "Lorasa",
+      "trigger": "50% health",
+      "description": "Remove the second stonemaster as Malicious Intent joins the fight."
+    },
+    {
+      "id": "phase-3",
+      "label": "Veset",
+      "trigger": "25% health",
+      "description": "Remove the last stonemaster to end rockchanter spawning through the flame cycle."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Rockchanters initially arrive every thirty seconds while three stonemasters remain; fewer survivors extend the interval to sixty and ninety seconds.",
+        "At 75%, Hateq becomes vulnerable and the boss gains charm.",
+        "At 50%, Lorasa becomes vulnerable and Malicious Intent begins.",
+        "At 25%, Veset becomes vulnerable and Curse of Flames begins. Killing the final stonemaster stops new rockchanters.",
+        "Losing combat heals the boss and schedules a twenty-minute event reset."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "txevu/#Ikaav_Nysf_Lleiv.lua",
+        "sha256": "1c4c952d6306d8b8c8f42ce59a11c094d3ec058c9957d45d10fa60b86b200d6c"
+      }
+    ],
+    "notes": [
+      "Approval E381. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

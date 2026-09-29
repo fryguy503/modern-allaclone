@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "slug": "chambersf-mastery-of-corruption",
+  "title": "Mastery of Corruption",
+  "group": "Muramite trials",
+  "type": "raid",
+  "zone": {
+    "short_name": "chambersf",
+    "name": "Muramite Proving Grounds",
+    "version": 2
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat increasingly large groups of adventurer-like opponents.",
+  "overview": [
+    "Defeat increasingly large groups of adventurer-like opponents."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "first-wave",
+      "label": "First wave",
+      "trigger": "Challenge begins",
+      "description": "Defeat the initial party of six class-based enemies."
+    },
+    {
+      "id": "second-wave",
+      "label": "Second wave",
+      "trigger": "First wave defeated",
+      "description": "Collect the larger party and control its casters and healers."
+    },
+    {
+      "id": "final-wave",
+      "label": "Final wave",
+      "trigger": "Second wave defeated",
+      "description": "Defeat the largest party to complete the trial."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The three waves grow from a small balanced party to a much larger force.",
+        "Assign control for healers and dangerous casters while tanks collect the melee enemies.",
+        "Expect class-specific tricks, including monk recovery and wizard positioning behavior.",
+        "Keep the fighting inside the trial area."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersf/encounters/mpg_corruption.lua",
+        "sha256": "b4bbb28bb231879f05f01a62e4250952f4243e16e70a1a9ae2f81176bd65c376"
+      },
+      {
+        "path": "chambersf/script_init.lua",
+        "sha256": "932a3db5d3525bb4f3e43f80f7a33cdcd4becdb504c3f7eb659cd62fd61e8eac"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2.",
+      "Opponent identities are selected from class-specific source tables; NPC links include only literal registered participants.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

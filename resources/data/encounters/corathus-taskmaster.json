@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "corathus-taskmaster",
+  "title": "Taskmaster",
+  "group": "Depths of Darkhollow",
+  "type": "event",
+  "zone": {
+    "short_name": "corathus",
+    "name": "Corathus Creep",
+    "version": 0
+  },
+  "npc_ids": [
+    365290,
+    365246,
+    365243
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the reapers, then stop their repair support when Taskmaster XVII activates.",
+  "overview": [
+    "Clear the reapers, then stop their repair support when Taskmaster XVII activates."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat all four active creep reapers to summon the Taskmaster.",
+        "At 75%, the Taskmaster begins its repair sequence and activates further reapers.",
+        "Destroy active repair adds promptly to reduce the boss's regeneration."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "corathus/encounters/taskmaster.lua",
+        "sha256": "355eb9f6765b4706b5e53255c526d72e71c779aac068de0aca6c166711706da5"
+      },
+      {
+        "path": "corathus/script_init.lua",
+        "sha256": "5e492e657929f680d40bb0bceb0b84ba4b485752d17334380cac5d5a8f4b08c2"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

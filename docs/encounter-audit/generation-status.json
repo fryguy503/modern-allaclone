@@ -1,0 +1,5973 @@
+{
+  "date": "2026-09-29",
+  "workbook_sha256": "be92b4d97448fbd84c2608b0fc7bba2454cf4fc4e877545bc0b66833f3e54d35",
+  "approved_rows": 422,
+  "disapproved_rows": 14,
+  "pending_rows": 0,
+  "encounter_groups": 420,
+  "draft_documents": 431,
+  "existing_documents": 5,
+  "reviewed_source_files": 717,
+  "merged_approval_ids": [
+    "E030",
+    "E031",
+    "E032"
+  ],
+  "errors": [],
+  "documents": [
+    {
+      "slug": "acrylia-archmage-gorraferg-ring",
+      "title": "Archmage Gorraferg ring",
+      "zone": {
+        "short_name": "acrylia",
+        "name": "Acrylia Caverns",
+        "version": 0
+      },
+      "approved_ids": [
+        "E001"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "acrylia-high-priest-gakkernog-ring",
+      "title": "High Priest Gakkernog ring",
+      "zone": {
+        "short_name": "acrylia",
+        "name": "Acrylia Caverns",
+        "version": 0
+      },
+      "approved_ids": [
+        "E003"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "acrylia-khati-sha-the-twisted",
+      "title": "Khati Sha the Twisted",
+      "zone": {
+        "short_name": "acrylia",
+        "name": "Acrylia Caverns",
+        "version": 0
+      },
+      "approved_ids": [
+        "E004"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "acrylia-ring-of-fire",
+      "title": "Ring of Fire",
+      "zone": {
+        "short_name": "acrylia",
+        "name": "Acrylia Caverns",
+        "version": 0
+      },
+      "approved_ids": [
+        "E005"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "acrylia-trondol-shir-escort",
+      "title": "Trondol Shir escort",
+      "zone": {
+        "short_name": "acrylia",
+        "name": "Acrylia Caverns",
+        "version": 0
+      },
+      "approved_ids": [
+        "E006"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "akheva-shei-vinitras",
+      "title": "Shei Vinitras",
+      "zone": {
+        "short_name": "akheva",
+        "name": "Akheva Ruins",
+        "version": 0
+      },
+      "approved_ids": [
+        "E009"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "akheva-the-insanity-crawler",
+      "title": "The Insanity Crawler",
+      "zone": {
+        "short_name": "akheva",
+        "name": "Akheva Ruins",
+        "version": 0
+      },
+      "approved_ids": [
+        "E010"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "akheva-time-corrupted-insanity-crawler",
+      "title": "Time-Corrupted Insanity Crawler",
+      "zone": {
+        "short_name": "akheva",
+        "name": "Akheva Ruins",
+        "version": 200
+      },
+      "approved_ids": [
+        "E010"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "anguish-arch-magus-vangl",
+      "title": "Arch Magus Vangl",
+      "zone": {
+        "short_name": "anguish",
+        "name": "Anguish, the Fallen Palace",
+        "version": 0
+      },
+      "approved_ids": [
+        "E011"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "anguish-jelvan",
+      "title": "Jelvan",
+      "zone": {
+        "short_name": "anguish",
+        "name": "Anguish, the Fallen Palace",
+        "version": 0
+      },
+      "approved_ids": [
+        "E012"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "anguish-keldovan-the-harrier",
+      "title": "Keldovan the Harrier",
+      "zone": {
+        "short_name": "anguish",
+        "name": "Anguish, the Fallen Palace",
+        "version": 0
+      },
+      "approved_ids": [
+        "E013"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "anguish-overlord-mata-muram",
+      "title": "Overlord Mata Muram",
+      "zone": {
+        "short_name": "anguish",
+        "name": "Anguish, the Fallen Palace",
+        "version": 0
+      },
+      "approved_ids": [
+        "E014"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "anguish-ture",
+      "title": "Ture",
+      "zone": {
+        "short_name": "anguish",
+        "name": "Anguish, the Fallen Palace",
+        "version": 0
+      },
+      "approved_ids": [
+        "E015"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "anguish-warden-hanvar",
+      "title": "Warden Hanvar",
+      "zone": {
+        "short_name": "anguish",
+        "name": "Anguish, the Fallen Palace",
+        "version": 0
+      },
+      "approved_ids": [
+        "E016"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "arena2-heigan-the-unclean-the-safety-dance",
+      "title": "Heigan the Unclean: The Safety Dance",
+      "zone": {
+        "short_name": "arena2",
+        "name": "The Arena",
+        "version": 6
+      },
+      "approved_ids": [
+        "E017"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "arena2-living-legacy-battle-prowess",
+      "title": "Living Legacy: Battle Prowess",
+      "zone": {
+        "short_name": "arena2",
+        "name": "The Arena",
+        "version": 7
+      },
+      "approved_ids": [
+        "E018"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-difficult",
+      "title": "Trial of the Dreadscale: Difficult",
+      "zone": {
+        "short_name": "arena2",
+        "name": "The Arena",
+        "version": 4
+      },
+      "approved_ids": [
+        "E019"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-insane",
+      "title": "Trial of the Dreadscale: Insane",
+      "zone": {
+        "short_name": "arena2",
+        "name": "The Arena",
+        "version": 5
+      },
+      "approved_ids": [
+        "E019"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-moderate",
+      "title": "Trial of the Dreadscale: Moderate",
+      "zone": {
+        "short_name": "arena2",
+        "name": "The Arena",
+        "version": 3
+      },
+      "approved_ids": [
+        "E019"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "arena2-trial-of-the-dreadscale-simple",
+      "title": "Trial of the Dreadscale: Simple",
+      "zone": {
+        "short_name": "arena2",
+        "name": "The Arena",
+        "version": 2
+      },
+      "approved_ids": [
+        "E019"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "barindu-ixvet-pox-colossus-of-war",
+      "title": "Ixvet Pox / Colossus of War",
+      "zone": {
+        "short_name": "barindu",
+        "name": "Barindu, Hanging Gardens",
+        "version": 0
+      },
+      "approved_ids": [
+        "E020"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "barindu-kyv-rux-vhedt",
+      "title": "Kyv Rux Vhedt",
+      "zone": {
+        "short_name": "barindu",
+        "name": "Barindu, Hanging Gardens",
+        "version": 0
+      },
+      "approved_ids": [
+        "E021"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "bloodfields-discordling-dark-animist",
+      "title": "Discordling Dark Animist",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E022"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "bloodfields-elite-dragorn-jekisia",
+      "title": "Elite Dragorn Jekisia",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E023"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "bloodfields-gazz-the-gargantuan",
+      "title": "Gazz the Gargantuan",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E024"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "bloodfields-kragsmash",
+      "title": "Kragsmash",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E025"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "bloodfields-marshal-histent-grinbik-the-fertile-rescue",
+      "title": "Marshal Histent / Grinbik the Fertile rescue",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E026"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "bloodfields-reclusive-girplan-chain-rolthee-and-myrhee",
+      "title": "Reclusive girplan chain / Rolthee and Myrhee",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E027"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "bloodfields-the-keeper",
+      "title": "The Keeper",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E028"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "bloodfields-war-caller-kaavi",
+      "title": "War Caller Kaavi",
+      "zone": {
+        "short_name": "bloodfields",
+        "name": "The Bloodfields",
+        "version": 0
+      },
+      "approved_ids": [
+        "E029"
+      ],
+      "issues": [
+        "The encounter module registers War_Combat although its definition is commented out. Loader behavior and overlap with the NPC script need live verification."
+      ]
+    },
+    {
+      "slug": "bothunder-agnarr-event",
+      "title": "Agnarr Event",
+      "zone": {
+        "short_name": "bothunder",
+        "name": "Bastion of Thunder",
+        "version": 0
+      },
+      "approved_ids": [
+        "E030",
+        "E031",
+        "E032"
+      ],
+      "issues": [
+        "Publication blocker: Gozer creates version 0 and zone_status spawns Agnarr there, but Agnarr event_spawn depops him in every nonzero instance unless its version is 200. The static zone is allowed. Verify the intended normal expedition behavior before publishing this version."
+      ]
+    },
+    {
+      "slug": "bothunder-agnarr-event-seasonal",
+      "title": "Agnarr Event (Seasonal)",
+      "zone": {
+        "short_name": "bothunder",
+        "name": "Bastion of Thunder",
+        "version": 200
+      },
+      "approved_ids": [
+        "E030",
+        "E031",
+        "E032"
+      ],
+      "issues": [
+        "Version 200 is enforced directly in Agnarr event_spawn. Theta Sigma uses Custom:SeasonalInstanceVersion with fallback 200; verify the deployed rule also resolves to 200."
+      ]
+    },
+    {
+      "slug": "cauldron-praklion-of-the-cauldron",
+      "title": "Praklion of the Cauldron",
+      "zone": {
+        "short_name": "cauldron",
+        "name": "Dagnor's Cauldron",
+        "version": 0
+      },
+      "approved_ids": [
+        "E033"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "causeway-alpha-feran",
+      "title": "Alpha Feran",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E034"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "causeway-bazu-smasher",
+      "title": "Bazu Smasher",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E035"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "causeway-bazu-terror",
+      "title": "Bazu Terror",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E036"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "causeway-essence-of-kreljnok",
+      "title": "Essence of Kreljnok",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E037"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "causeway-magician1-5-elemental-mastery-event",
+      "title": "Magician1.5 elemental mastery event",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E038"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "causeway-oshiruk",
+      "title": "Oshiruk",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E039"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "causeway-siflu",
+      "title": "Siflu",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E040"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "causeway-slavedriver-menlo",
+      "title": "Slavedriver Menlo",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E041"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "causeway-stone-thrower",
+      "title": "Stone Thrower",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 200
+      },
+      "approved_ids": [
+        "E042"
+      ],
+      "issues": [
+        "The close-range warning tells players to get away, but the impact condition damages targets farther than 100 units. Guidance follows the implemented condition and needs live verification.",
+        "A final_fury timer is armed but no handler was found; no timed enrage is claimed.",
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "causeway-withering-murkglider",
+      "title": "Withering Murkglider",
+      "zone": {
+        "short_name": "causeway",
+        "name": "Nobles' Causeway",
+        "version": 0
+      },
+      "approved_ids": [
+        "E043"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "cazicthule-gimlik-cogboggle-escort",
+      "title": "Gimlik Cogboggle escort",
+      "zone": {
+        "short_name": "cazicthule",
+        "name": "Temple of Cazic-Thule",
+        "version": 0
+      },
+      "approved_ids": [
+        "E044"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "cazicthule-ring-of-fear",
+      "title": "Ring of Fear",
+      "zone": {
+        "short_name": "cazicthule",
+        "name": "Temple of Cazic-Thule",
+        "version": 0
+      },
+      "approved_ids": [
+        "E045"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "cazicthule-sickly-mosquito",
+      "title": "Sickly mosquito",
+      "zone": {
+        "short_name": "cazicthule",
+        "name": "Temple of Cazic-Thule",
+        "version": 0
+      },
+      "approved_ids": [
+        "E046"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "chambersa-mastery-of-fear",
+      "title": "Mastery of Fear",
+      "zone": {
+        "short_name": "chambersa",
+        "name": "Muramite Proving Grounds",
+        "version": 1
+      },
+      "approved_ids": [
+        "E047"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersa-mastery-of-hate",
+      "title": "Mastery of Hate",
+      "zone": {
+        "short_name": "chambersa",
+        "name": "Muramite Proving Grounds",
+        "version": 2
+      },
+      "approved_ids": [
+        "E048"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersb-mastery-of-endurance",
+      "title": "Mastery of Endurance",
+      "zone": {
+        "short_name": "chambersb",
+        "name": "Muramite Proving Grounds",
+        "version": 2
+      },
+      "approved_ids": [
+        "E049"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersb-mastery-of-weaponry",
+      "title": "Mastery of Weaponry",
+      "zone": {
+        "short_name": "chambersb",
+        "name": "Muramite Proving Grounds",
+        "version": 1
+      },
+      "approved_ids": [
+        "E050"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersc-mastery-of-foresight",
+      "title": "Mastery of Foresight",
+      "zone": {
+        "short_name": "chambersc",
+        "name": "Muramite Proving Grounds",
+        "version": 2
+      },
+      "approved_ids": [
+        "E051"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersc-mastery-of-subversion",
+      "title": "Mastery of Subversion",
+      "zone": {
+        "short_name": "chambersc",
+        "name": "Muramite Proving Grounds",
+        "version": 1
+      },
+      "approved_ids": [
+        "E052"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersd-mastery-of-efficiency",
+      "title": "Mastery of Efficiency",
+      "zone": {
+        "short_name": "chambersd",
+        "name": "Muramite Proving Grounds",
+        "version": 1
+      },
+      "approved_ids": [
+        "E053"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersd-mastery-of-specialization",
+      "title": "Mastery of Specialization",
+      "zone": {
+        "short_name": "chambersd",
+        "name": "Muramite Proving Grounds",
+        "version": 2
+      },
+      "approved_ids": [
+        "E054"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chamberse-mastery-of-adaptation",
+      "title": "Mastery of Adaptation",
+      "zone": {
+        "short_name": "chamberse",
+        "name": "Muramite Proving Grounds",
+        "version": 2
+      },
+      "approved_ids": [
+        "E055"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chamberse-mastery-of-ingenuity",
+      "title": "Mastery of Ingenuity",
+      "zone": {
+        "short_name": "chamberse",
+        "name": "Muramite Proving Grounds",
+        "version": 1
+      },
+      "approved_ids": [
+        "E056"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chambersf-mastery-of-corruption",
+      "title": "Mastery of Corruption",
+      "zone": {
+        "short_name": "chambersf",
+        "name": "Muramite Proving Grounds",
+        "version": 2
+      },
+      "approved_ids": [
+        "E057"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "chambersf-mastery-of-destruction",
+      "title": "Mastery of Destruction",
+      "zone": {
+        "short_name": "chambersf",
+        "name": "Muramite Proving Grounds",
+        "version": 1
+      },
+      "approved_ids": [
+        "E058"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "chardokb-korucust",
+      "title": "Korucust",
+      "zone": {
+        "short_name": "chardokb",
+        "name": "Chardok: Halls of Betrayal",
+        "version": 0
+      },
+      "approved_ids": [
+        "E059"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "chardokb-leprous-chokidai",
+      "title": "Leprous chokidai",
+      "zone": {
+        "short_name": "chardokb",
+        "name": "Chardok: Halls of Betrayal",
+        "version": 0
+      },
+      "approved_ids": [
+        "E060"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "citymist-black-reaver-lord-ghiosk-lord-rak-ashiir-chain",
+      "title": "Black reaver / Lord Ghiosk / Lord Rak'Ashiir chain",
+      "zone": {
+        "short_name": "citymist",
+        "name": "City of Mist",
+        "version": 0
+      },
+      "approved_ids": [
+        "E061"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "cobaltscar-gnashing-killer-shark-and-companions",
+      "title": "Gnashing Killer Shark and companions",
+      "zone": {
+        "short_name": "cobaltscar",
+        "name": "Cobalt Scar",
+        "version": 0
+      },
+      "approved_ids": [
+        "E062"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "codecay-bertoxxulous",
+      "title": "Bertoxxulous",
+      "zone": {
+        "short_name": "codecay",
+        "name": "Ruins of Lxanvom",
+        "version": 0
+      },
+      "approved_ids": [
+        "E063"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "codecay-carprin-deatharn-cycle",
+      "title": "Carprin Deatharn cycle",
+      "zone": {
+        "short_name": "codecay",
+        "name": "Ruins of Lxanvom",
+        "version": 0
+      },
+      "approved_ids": [
+        "E064"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "codecay-overlord-banord-paffa",
+      "title": "Overlord Banord Paffa",
+      "zone": {
+        "short_name": "codecay",
+        "name": "Ruins of Lxanvom",
+        "version": 0
+      },
+      "approved_ids": [
+        "E065"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "corathus-taskmaster",
+      "title": "Taskmaster",
+      "zone": {
+        "short_name": "corathus",
+        "name": "Corathus Creep",
+        "version": 0
+      },
+      "approved_ids": [
+        "E066"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "corathusb-find-fibblebrap-5",
+      "title": "Find Fibblebrap 5",
+      "zone": {
+        "short_name": "corathusb",
+        "name": "Corathus Lair",
+        "version": 2
+      },
+      "approved_ids": [
+        "R003"
+      ],
+      "issues": [
+        "The version-2 loader selects find_fibblebrap_five, but that file repeats the Find Fibblebrap 1 header, task IDs and much of its objective logic. Fifth-mission identity and objective correctness remain unresolved; this is a provisional source-backed draft."
+      ]
+    },
+    {
+      "slug": "corathusb-find-fibblebrap1-the-mines",
+      "title": "Find Fibblebrap1: The Mines",
+      "zone": {
+        "short_name": "corathusb",
+        "name": "Corathus Lair",
+        "version": 1
+      },
+      "approved_ids": [
+        "E067"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dawnshroud-hunter-s-pike-beast-challenge",
+      "title": "Hunter's Pike beast challenge",
+      "zone": {
+        "short_name": "dawnshroud",
+        "name": "Dawnshroud Peaks",
+        "version": 0
+      },
+      "approved_ids": [
+        "E068"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delvea-a-halfling-s-greed",
+      "title": "A Halfling's Greed",
+      "zone": {
+        "short_name": "delvea",
+        "name": "Lavaspinner's Lair",
+        "version": 2
+      },
+      "approved_ids": [
+        "E069"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delvea-lavaspinner-hunting",
+      "title": "Lavaspinner Hunting",
+      "zone": {
+        "short_name": "delvea",
+        "name": "Lavaspinner's Lair",
+        "version": 8
+      },
+      "approved_ids": [
+        "E070"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delvea-stonemaw",
+      "title": "Stonemaw",
+      "zone": {
+        "short_name": "delvea",
+        "name": "Lavaspinner's Lair",
+        "version": 0
+      },
+      "approved_ids": [
+        "E071"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "delvea-the-drake-menace-drake-matriarch",
+      "title": "The Drake Menace / Drake Matriarch",
+      "zone": {
+        "short_name": "delvea",
+        "name": "Lavaspinner's Lair",
+        "version": 5
+      },
+      "approved_ids": [
+        "E072"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delvea-volkara-s-bite",
+      "title": "Volkara's Bite",
+      "zone": {
+        "short_name": "delvea",
+        "name": "Lavaspinner's Lair",
+        "version": 9
+      },
+      "approved_ids": [
+        "E073"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delveb-a-goblin-s-escort",
+      "title": "A Goblin's Escort",
+      "zone": {
+        "short_name": "delveb",
+        "name": "Tirranun's Delve",
+        "version": 2
+      },
+      "approved_ids": [
+        "E074"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delveb-emoush-the-destroyer",
+      "title": "Emoush the Destroyer",
+      "zone": {
+        "short_name": "delveb",
+        "name": "Tirranun's Delve",
+        "version": 4
+      },
+      "approved_ids": [
+        "E075"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delveb-have-note-will-travel",
+      "title": "Have Note, Will Travel",
+      "zone": {
+        "short_name": "delveb",
+        "name": "Tirranun's Delve",
+        "version": 6
+      },
+      "approved_ids": [
+        "E076"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "delveb-tirranun-fanning-the-flames",
+      "title": "Tirranun: Fanning the Flames",
+      "zone": {
+        "short_name": "delveb",
+        "name": "Tirranun's Delve",
+        "version": 5
+      },
+      "approved_ids": [
+        "E077"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "drachnidhive-drithnak-the-exiled",
+      "title": "Drithnak the Exiled",
+      "zone": {
+        "short_name": "drachnidhive",
+        "name": "The Hive",
+        "version": 0
+      },
+      "approved_ids": [
+        "E078"
+      ],
+      "issues": [
+        "Combat starts a timer named agro but the handler checks aggro; the intended periodic hate-link behavior needs runtime verification.",
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "drachnidhive-the-lost-notebook",
+      "title": "The Lost Notebook",
+      "zone": {
+        "short_name": "drachnidhive",
+        "name": "The Hive",
+        "version": 4
+      },
+      "approved_ids": [
+        "E079"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "drachnidhivea-find-fibblebrap3-the-hive",
+      "title": "Find Fibblebrap3: The Hive",
+      "zone": {
+        "short_name": "drachnidhivea",
+        "name": "The Hatchery",
+        "version": 1
+      },
+      "approved_ids": [
+        "E080"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "drachnidhivea-the-lost-gnomes",
+      "title": "The Lost Gnomes",
+      "zone": {
+        "short_name": "drachnidhivea",
+        "name": "The Hatchery",
+        "version": 2
+      },
+      "approved_ids": [
+        "E081"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "drachnidhivec-sendaii-the-hive-queen",
+      "title": "Sendaii the Hive Queen",
+      "zone": {
+        "short_name": "drachnidhivec",
+        "name": "Queen Sendaii's Lair",
+        "version": 1
+      },
+      "approved_ids": [
+        "E082"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dragonscalea-living-legacy-marathon",
+      "title": "Living Legacy: Marathon",
+      "zone": {
+        "short_name": "dragonscalea",
+        "name": "Dragonscale Hills",
+        "version": 1
+      },
+      "approved_ids": [
+        "E083"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dragonscalea-living-legacy-sprint",
+      "title": "Living Legacy: Sprint",
+      "zone": {
+        "short_name": "dragonscalea",
+        "name": "Dragonscale Hills",
+        "version": 2
+      },
+      "approved_ids": [
+        "E084"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-battlemaster-rhorious",
+      "title": "Battlemaster Rhorious",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E085"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-bloated-girplan",
+      "title": "Bloated Girplan",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E086"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "dranik-discord-fluctuation-trio",
+      "title": "Discord Fluctuation trio",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E087"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-discordling-dark-animist",
+      "title": "Discordling Dark Animist",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E088"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-kyv-sharpshooters-jaeth-mihl-and-nass",
+      "title": "Kyv Sharpshooters: Jaeth, Mihl and Nass",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E089"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-lhranc-and-his-minions",
+      "title": "Lhranc and his minions",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E090"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-lirah-the-bridgekeeper",
+      "title": "Lirah the Bridgekeeper",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E091"
+      ],
+      "issues": [
+        "The replacement check looks for template 336129 but spawns 336130. Actual replacement timing and population need live verification.",
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "dranik-lirah-the-bridgekeeper-seasonal",
+      "title": "Lirah the Bridgekeeper: Seasonal",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 200
+      },
+      "approved_ids": [
+        "E091"
+      ],
+      "issues": [
+        "The replacement check looks for template 336129 but spawns 336130. Actual replacement timing and population need live verification.",
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "dranik-murkglider-breeder",
+      "title": "Murkglider Breeder",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E092"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "dranik-sverins-uisima-rescue",
+      "title": "Sverins / Uisima rescue",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E093"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-tiorpat-tornwing",
+      "title": "Tiorpat Tornwing",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E094"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-wren-simsy",
+      "title": "Wren Simsy",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E095"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dranik-zun-muram-volklana",
+      "title": "Zun'Muram Volklana",
+      "zone": {
+        "short_name": "dranik",
+        "name": "Ruined City of Dranik",
+        "version": 0
+      },
+      "approved_ids": [
+        "E096"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "draniksscar-girplan-spiritleech",
+      "title": "Girplan Spiritleech",
+      "zone": {
+        "short_name": "draniksscar",
+        "name": "Dranik's Scar",
+        "version": 0
+      },
+      "approved_ids": [
+        "E097"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dreadlands-gorenaire-seasonal",
+      "title": "Gorenaire: Seasonal",
+      "zone": {
+        "short_name": "dreadlands",
+        "name": "Dreadlands",
+        "version": 200
+      },
+      "approved_ids": [
+        "E098"
+      ],
+      "issues": [
+        "Health-phase comments label skills 2 and 3 incorrectly; guidance follows the skill numbers (two-handed blunt and two-handed slashing). The howl timer is commented out, so no recurring scripted howl is claimed."
+      ]
+    },
+    {
+      "slug": "dreadspire-redfang",
+      "title": "Redfang",
+      "zone": {
+        "short_name": "dreadspire",
+        "name": "Dreadspire Keep",
+        "version": 1
+      },
+      "approved_ids": [
+        "E099"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dreadspire-zi-thuuli-of-the-granite-claw",
+      "title": "Zi-Thuuli of the Granite Claw",
+      "zone": {
+        "short_name": "dreadspire",
+        "name": "Dreadspire Keep",
+        "version": 1
+      },
+      "approved_ids": [
+        "E100"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "dulak-quigli",
+      "title": "Quigli",
+      "zone": {
+        "short_name": "dulak",
+        "name": "Dulak's Harbor",
+        "version": 0
+      },
+      "approved_ids": [
+        "E101"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "eastkarana-althele-s-druid-gathering-defense",
+      "title": "Althele's druid gathering defense",
+      "zone": {
+        "short_name": "eastkarana",
+        "name": "Eastern Plains of Karana",
+        "version": 0
+      },
+      "approved_ids": [
+        "E102"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastkorlach-general-veronhar",
+      "title": "General Veronhar",
+      "zone": {
+        "short_name": "eastkorlach",
+        "name": "The Undershore",
+        "version": 0
+      },
+      "approved_ids": [
+        "E103"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastkorlacha-bloodeye",
+      "title": "Bloodeye",
+      "zone": {
+        "short_name": "eastkorlacha",
+        "name": "Snarlstone Dens",
+        "version": 2
+      },
+      "approved_ids": [
+        "E104"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastwastes-boridain-glacierbane-escort-coldain-ring2",
+      "title": "Boridain Glacierbane escort (Coldain ring2)",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E105"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastwastes-corbin-blackwell-rescue-coldain-ring7",
+      "title": "Corbin Blackwell rescue (Coldain ring7)",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E106"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastwastes-icefang-poxbreath-pursuit-coldain-ring6",
+      "title": "Icefang / Poxbreath pursuit (Coldain ring6)",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E107"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastwastes-peffin-ambersnow-berradin-confrontation",
+      "title": "Peffin Ambersnow / Berradin confrontation",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E108"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastwastes-ry-gorr-assault-chief-ry-gorr-coldain-ring8",
+      "title": "Ry'Gorr assault / Chief Ry'Gorr (Coldain ring8)",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E109"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "eastwastes-scarbrow-ga-hruk-assault-coldain-ring5",
+      "title": "Scarbrow Ga'Hruk assault (Coldain ring5)",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E110"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "eastwastes-tain-hammerfrost-defense-coldain-ring4",
+      "title": "Tain Hammerfrost defense (Coldain ring4)",
+      "zone": {
+        "short_name": "eastwastes",
+        "name": "Eastern Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E111"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "emeraldjungle-severilous-seasonal",
+      "title": "Severilous: Seasonal",
+      "zone": {
+        "short_name": "emeraldjungle",
+        "name": "The Emerald Jungle",
+        "version": 200
+      },
+      "approved_ids": [
+        "E112"
+      ],
+      "issues": [
+        "Health-phase comments say slashing, but the implemented skill IDs 7 and 8 are archery and backstab. Guidance follows the implementation."
+      ]
+    },
+    {
+      "slug": "fearplane-cazic-thule",
+      "title": "Cazic Thule",
+      "zone": {
+        "short_name": "fearplane",
+        "name": "Plane of Fear",
+        "version": 0
+      },
+      "approved_ids": [
+        "E113"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "fearplane-cazic-thule-static-mode",
+      "title": "Cazic Thule: Static Mode",
+      "zone": {
+        "short_name": "fearplane",
+        "name": "Plane of Fear",
+        "version": 255
+      },
+      "approved_ids": [
+        "E113"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "fearplane-dracoliche-static-mode",
+      "title": "Dracoliche: Static Mode",
+      "zone": {
+        "short_name": "fearplane",
+        "name": "Plane of Fear",
+        "version": 255
+      },
+      "approved_ids": [
+        "E114"
+      ],
+      "issues": [
+        "The reanimation code toggles special ability 24 while its comments call that Unkillable. No guaranteed immunity is claimed; the three-second transition needs live verification.",
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "fearplane-fear-golems-dread-fright-and-terror",
+      "title": "Fear golems: Dread, Fright and Terror",
+      "zone": {
+        "short_name": "fearplane",
+        "name": "Plane of Fear",
+        "version": 0
+      },
+      "approved_ids": [
+        "E115"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "fearplane-fear-touched-dracolich-ambush",
+      "title": "Fear-Touched Dracolich ambush",
+      "zone": {
+        "short_name": "fearplane",
+        "name": "Plane of Fear",
+        "version": 0
+      },
+      "approved_ids": [
+        "E116"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "fearplane-ireblind-imp",
+      "title": "Ireblind Imp",
+      "zone": {
+        "short_name": "fearplane",
+        "name": "Plane of Fear",
+        "version": 0
+      },
+      "approved_ids": [
+        "E117"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "feerrott-swamp-terror",
+      "title": "Swamp Terror",
+      "zone": {
+        "short_name": "feerrott",
+        "name": "The Feerrott",
+        "version": 0
+      },
+      "approved_ids": [
+        "E118"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ferubi-hexxt-pzik-shziaak",
+      "title": "Hexxt Pzik Shziaak",
+      "zone": {
+        "short_name": "ferubi",
+        "name": "Ferubi, Forgotten Temple of Taelosia",
+        "version": 0
+      },
+      "approved_ids": [
+        "E119"
+      ],
+      "issues": [
+        "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+      ]
+    },
+    {
+      "slug": "ferubi-packmaster-skoiat-pizak",
+      "title": "Packmaster Skoiat Pizak",
+      "zone": {
+        "short_name": "ferubi",
+        "name": "Ferubi",
+        "version": 0
+      },
+      "approved_ids": [
+        "E120"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ferubi-pxet-elite-ambushes",
+      "title": "Pxet elite ambushes",
+      "zone": {
+        "short_name": "ferubi",
+        "name": "Ferubi",
+        "version": 0
+      },
+      "approved_ids": [
+        "E121"
+      ],
+      "issues": [
+        "The source identifies eligible spawn-point IDs, but their current database placement and the elite NPC spell/loot data still need verification."
+      ]
+    },
+    {
+      "slug": "ferubi-smith-rondo-weapon-master",
+      "title": "Smith Rondo / Weapon Master cycle",
+      "zone": {
+        "short_name": "ferubi",
+        "name": "Ferubi",
+        "version": 0
+      },
+      "approved_ids": [
+        "E122"
+      ],
+      "issues": [
+        "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
+        "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+        "The normal draft describes the static-zone branch. Rondo removes himself from nonzero instances other than version 200."
+      ]
+    },
+    {
+      "slug": "ferubi-smith-rondo-weapon-master-seasonal",
+      "title": "Smith Rondo / Weapon Master cycle (Seasonal)",
+      "zone": {
+        "short_name": "ferubi",
+        "name": "Ferubi",
+        "version": 200
+      },
+      "approved_ids": [
+        "E122"
+      ],
+      "issues": [
+        "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
+        "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+        "Confirm Custom:SeasonalInstanceVersion is 200 for the explicit Rondo gate."
+      ]
+    },
+    {
+      "slug": "ferubi-zun-muram-votal",
+      "title": "Zun-Muram Votal",
+      "zone": {
+        "short_name": "ferubi",
+        "name": "Ferubi",
+        "version": 0
+      },
+      "approved_ids": [
+        "E123"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "fieldofbone-berserkers-image",
+      "title": "Berserker's Image",
+      "zone": {
+        "short_name": "fieldofbone",
+        "name": "The Field of Bone",
+        "version": 0
+      },
+      "approved_ids": [
+        "E124"
+      ],
+      "issues": [
+        "The death handler credits e.other as a client; pet or other final-hit attribution has not been verified."
+      ]
+    },
+    {
+      "slug": "freportw-sir-lucan-dlere",
+      "title": "Sir Lucan D'Lere",
+      "zone": {
+        "short_name": "freportw",
+        "name": "West Freeport",
+        "version": 0
+      },
+      "approved_ids": [
+        "E125"
+      ],
+      "issues": [
+        "The living NPC template ID and identity/combat data for the spawned 9147 form require database verification. NPC links are intentionally empty."
+      ]
+    },
+    {
+      "slug": "frontiermtns-goblin-king-dronan-event",
+      "title": "Goblin King Dronan event",
+      "zone": {
+        "short_name": "frontiermtns",
+        "name": "Frontier Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E126"
+      ],
+      "issues": [
+        "The reviewed encounter registers behavior but does not establish how the King is initially made available; verify the current launcher or database spawn."
+      ]
+    },
+    {
+      "slug": "fungusgrove-calling-beasties-murkin-groo-and-torgal",
+      "title": "Calling Beasties (Murkin, Groo and Torgal)",
+      "zone": {
+        "short_name": "fungusgrove",
+        "name": "Fungus Grove",
+        "version": 0
+      },
+      "approved_ids": [
+        "E127"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "fungusgrove-draz-nurakk",
+      "title": "Draz Nurakk",
+      "zone": {
+        "short_name": "fungusgrove",
+        "name": "Fungus Grove",
+        "version": 0
+      },
+      "approved_ids": [
+        "E128"
+      ],
+      "issues": [
+        "The reviewed Draz script does not provide the event-start hand-in or the pet's database abilities. Those details remain outside this draft."
+      ]
+    },
+    {
+      "slug": "gfaydark-seana-and-stefan-marsinger",
+      "title": "Seana and Stefan Marsinger",
+      "zone": {
+        "short_name": "gfaydark",
+        "name": "Greater Faydark",
+        "version": 0
+      },
+      "approved_ids": [
+        "E129"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "greatdivide-high-priest-maltan-assault",
+      "title": "High Priest Maltan assault",
+      "zone": {
+        "short_name": "greatdivide",
+        "name": "The Great Divide",
+        "version": 0
+      },
+      "approved_ids": [
+        "E130"
+      ],
+      "issues": [
+        "The launcher provides the roster, but no boss-specific spell list or combat phases were found in the reviewed source."
+      ]
+    },
+    {
+      "slug": "greatdivide-tenth-coldain-ring-war-narandi",
+      "title": "Tenth Coldain Ring War / Narandi",
+      "zone": {
+        "short_name": "greatdivide",
+        "name": "The Great Divide",
+        "version": 0
+      },
+      "approved_ids": [
+        "E131"
+      ],
+      "issues": [
+        "RingTen contains TODO testing and incomplete Thurgadin aftermath notes. Verify the complete war and reward turn-in in game before publication.",
+        "Narandi escape calls the simple-repopulation end branch despite a failure comment; this draft does not claim the defeat aftermath occurs on escape."
+      ]
+    },
+    {
+      "slug": "grimling-captain-necins-raid",
+      "title": "Captain Necin's raid",
+      "zone": {
+        "short_name": "grimling",
+        "name": "Grimling Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E132"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "grimling-final-grimling-war-general-staginars-raid",
+      "title": "Final Grimling War / General Staginar's raid",
+      "zone": {
+        "short_name": "grimling",
+        "name": "Grimling Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E133"
+      ],
+      "issues": [
+        "The detailed General Staginar entry exchanges and final reward hand-in are not included in this combat-stage draft; verify those NPC branches before publication."
+      ]
+    },
+    {
+      "slug": "grimling-scout-danarins-raid",
+      "title": "Scout Danarin's raid",
+      "zone": {
+        "short_name": "grimling",
+        "name": "Grimling Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E134"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "grimling-scout-derrins-raid",
+      "title": "Scout Derrin's raid",
+      "zone": {
+        "short_name": "grimling",
+        "name": "Grimling Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E135"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "grimling-scout-husmans-raid",
+      "title": "Scout Husman's raid",
+      "zone": {
+        "short_name": "grimling",
+        "name": "Grimling Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E136"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "grimling-veteran-vadrels-raid",
+      "title": "Veteran Vadrel's raid",
+      "zone": {
+        "short_name": "grimling",
+        "name": "Grimling Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E137"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "growthplane-tunare",
+      "title": "Tunare",
+      "zone": {
+        "short_name": "growthplane",
+        "name": "Plane of Growth",
+        "version": 0
+      },
+      "approved_ids": [
+        "E138"
+      ],
+      "issues": [
+        "Normal Tunare starts a timer named despawn but handles depop; the intended 20-minute return/reset is not implemented consistently.",
+        "The Fabled helper accesses listed NPCs without checking that each exists. Verify live population and assistance behavior before publication."
+      ]
+    },
+    {
+      "slug": "guke-deepest-guk-raid-executioner-gimdk-first-witness",
+      "title": "Deepest Guk raid: Executioner Gimdk / First Witness",
+      "zone": {
+        "short_name": "guke",
+        "name": "Deepest Guk: The Foreboding Prison",
+        "version": 2
+      },
+      "approved_ids": [
+        "E139"
+      ],
+      "issues": [
+        "The scout auto-start check looks for a player more than 150 paces away rather than confirming raid readiness. The explicit ready dialogue is the documented start."
+      ]
+    },
+    {
+      "slug": "gukg-gragna-the-cursed",
+      "title": "Gragna the Cursed",
+      "zone": {
+        "short_name": "gukg",
+        "name": "Deepest Guk: The Root Garden",
+        "version": 2
+      },
+      "approved_ids": [
+        "E140"
+      ],
+      "issues": [
+        "Verify spell 4458 and its target against the loaded database before describing its effect as healing or assigning a response. The emote alone does not establish the actual effect."
+      ]
+    },
+    {
+      "slug": "gukg-leklos-the-bonekeeper",
+      "title": "Leklos the Bonekeeper",
+      "zone": {
+        "short_name": "gukg",
+        "name": "The Accursed Sanctuary",
+        "version": 2
+      },
+      "approved_ids": [
+        "E141"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "gukg-the-cavern-creeper",
+      "title": "The Cavern Creeper",
+      "zone": {
+        "short_name": "gukg",
+        "name": "Deepest Guk: The Root Garden",
+        "version": 2
+      },
+      "approved_ids": [
+        "R006"
+      ],
+      "issues": [
+        "The health-stage handlers only emit dialogue and explicitly question whether additional effects are missing. No weakening, shield or timed vulnerability effect is claimed."
+      ]
+    },
+    {
+      "slug": "gukg-the-cursed-keeper",
+      "title": "The Cursed Keeper",
+      "zone": {
+        "short_name": "gukg",
+        "name": "The Accursed Sanctuary",
+        "version": 2
+      },
+      "approved_ids": [
+        "E142"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "gukg-the-cursed-spore",
+      "title": "The Cursed Spore",
+      "zone": {
+        "short_name": "gukg",
+        "name": "The Accursed Sanctuary",
+        "version": 2
+      },
+      "approved_ids": [
+        "E143"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "gunthak-dimaal-the-spiritmaster-s-waves",
+      "title": "Dimaal the Spiritmaster's waves",
+      "zone": {
+        "short_name": "gunthak",
+        "name": "The Gulf of Gunthak",
+        "version": 0
+      },
+      "approved_ids": [
+        "E144"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "gunthak-lairyn-debeian-defense-krill-the-backbleeder",
+      "title": "Lairyn Debeian defense / Krill the Backbleeder",
+      "zone": {
+        "short_name": "gunthak",
+        "name": "The Gulf of Gunthak",
+        "version": 0
+      },
+      "approved_ids": [
+        "E145"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "harbingers-attendant-of-light",
+      "title": "Attendant of Light",
+      "zone": {
+        "short_name": "harbingers",
+        "name": "Harbinger's Spire",
+        "version": 0
+      },
+      "approved_ids": [
+        "E146"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "harbingers-azibelle-spavin-and-glenfire-telzir",
+      "title": "Azibelle Spavin and Glenfire Telzir",
+      "zone": {
+        "short_name": "harbingers",
+        "name": "Harbinger's Spire",
+        "version": 0
+      },
+      "approved_ids": [
+        "E147"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "harbingers-windrush",
+      "title": "Windrush",
+      "zone": {
+        "short_name": "harbingers",
+        "name": "Harbinger's Spire",
+        "version": 0
+      },
+      "approved_ids": [
+        "E148"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "hateplaneb-innoruuk",
+      "title": "Innoruuk",
+      "zone": {
+        "short_name": "hateplaneb",
+        "name": "The Plane of Hate",
+        "version": 0
+      },
+      "approved_ids": [
+        "E149"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hateplaneb-lanys-t-vyl-teir-dal-guardian-event",
+      "title": "Lanys T'Vyl / Teir'Dal guardian event",
+      "zone": {
+        "short_name": "hateplaneb",
+        "name": "The Plane of Hate",
+        "version": 0
+      },
+      "approved_ids": [
+        "E150"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hateplaneb-maestro-of-rancor",
+      "title": "Maestro of Rancor",
+      "zone": {
+        "short_name": "hateplaneb",
+        "name": "The Plane of Hate",
+        "version": 0
+      },
+      "approved_ids": [
+        "E151"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hatesfury-broken-skull-armsmaster",
+      "title": "Broken Skull Armsmaster",
+      "zone": {
+        "short_name": "hatesfury",
+        "name": "Hate’s Fury",
+        "version": 0
+      },
+      "approved_ids": [
+        "E152"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "hatesfury-captain-krasnok",
+      "title": "Captain Krasnok",
+      "zone": {
+        "short_name": "hatesfury",
+        "name": "Hate’s Fury",
+        "version": 0
+      },
+      "approved_ids": [
+        "E153"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hohonora-alekson-garn-s-trial",
+      "title": "Alekson Garn's trial",
+      "zone": {
+        "short_name": "hohonora",
+        "name": "Halls of Honor",
+        "version": 0
+      },
+      "approved_ids": [
+        "E155"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hohonora-rhaliq-trell-s-trial",
+      "title": "Rhaliq Trell's trial",
+      "zone": {
+        "short_name": "hohonora",
+        "name": "Halls of Honor",
+        "version": 0
+      },
+      "approved_ids": [
+        "E156"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hohonora-rydda-dar-trydan-faye-s-trial",
+      "title": "Rydda'Dar / Trydan Faye's trial",
+      "zone": {
+        "short_name": "hohonora",
+        "name": "Halls of Honor",
+        "version": 0
+      },
+      "approved_ids": [
+        "E157"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hohonorb-lord-mithaniel-marr",
+      "title": "Lord Mithaniel Marr",
+      "zone": {
+        "short_name": "hohonorb",
+        "name": "Temple of Marr",
+        "version": 0
+      },
+      "approved_ids": [
+        "E158"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "hole-master-yael",
+      "title": "Master Yael",
+      "zone": {
+        "short_name": "hole",
+        "name": "The Hole",
+        "version": 0
+      },
+      "approved_ids": [
+        "E159"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "hollowshade-hollowshade-moor-war",
+      "title": "Hollowshade Moor war",
+      "zone": {
+        "short_name": "hollowshade",
+        "name": "Hollowshade Moor",
+        "version": 0
+      },
+      "approved_ids": [
+        "E160"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "iceclad-general-bragmur-escort-coldain-shawl-finale",
+      "title": "General Bragmur escort (Coldain shawl finale)",
+      "zone": {
+        "short_name": "iceclad",
+        "name": "Iceclad Ocean",
+        "version": 0
+      },
+      "approved_ids": [
+        "E161"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "iceclad-noble-oldencamp-and-the-necromancer-delegation",
+      "title": "Noble Oldencamp and the necromancer delegation",
+      "zone": {
+        "short_name": "iceclad",
+        "name": "Iceclad Ocean",
+        "version": 0
+      },
+      "approved_ids": [
+        "E162"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ikkinz-chambers-of-destruction-keeper-of-the-altar",
+      "title": "Chambers of Destruction / Keeper of the Altar",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 6
+      },
+      "approved_ids": [
+        "E163"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ikkinz-chambers-of-glorification",
+      "title": "Chambers of Glorification",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 4
+      },
+      "approved_ids": [
+        "E164"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ikkinz-chambers-of-righteousness",
+      "title": "Chambers of Righteousness",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 3
+      },
+      "approved_ids": [
+        "E165"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "ikkinz-chambers-of-singular-might",
+      "title": "Chambers of Singular Might",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 0
+      },
+      "approved_ids": [
+        "R007"
+      ],
+      "issues": [
+        "Review the Pixtt Annihilator’s database abilities and trial spawns before publishing a detailed combat guide; the quest handler supplies completion logic only."
+      ]
+    },
+    {
+      "slug": "ikkinz-chambers-of-the-tri-fates",
+      "title": "Chambers of the Tri-Fates",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 2
+      },
+      "approved_ids": [
+        "E166"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ikkinz-chambers-of-transcendence",
+      "title": "Chambers of Transcendence",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 5
+      },
+      "approved_ids": [
+        "E167"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ikkinz-chambers-of-twin-struggles",
+      "title": "Chambers of Twin Struggles",
+      "zone": {
+        "short_name": "ikkinz",
+        "name": "Ikkinz",
+        "version": 1
+      },
+      "approved_ids": [
+        "E168"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "illsalin-ritesmaster-verok",
+      "title": "Ritesmaster Verok",
+      "zone": {
+        "short_name": "illsalin",
+        "name": "Ruins of Illsalin",
+        "version": 0
+      },
+      "approved_ids": [
+        "E169"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "illsalinb-find-fibblebrap-4-the-korlach",
+      "title": "Find Fibblebrap 4: The Korlach",
+      "zone": {
+        "short_name": "illsalinb",
+        "name": "Temple of the Korlach",
+        "version": 2
+      },
+      "approved_ids": [
+        "R008"
+      ],
+      "issues": [
+        "Publication blocked pending completion review: Neran uses TODO template 111111 and Bilitan uses TODO template 349999; neither placeholder is linked as a confirmed encounter NPC.",
+        "Resolve the task mismatch: headers identify tasks 8135–8139, but instance level and reward tables use 8130–8134.",
+        "Review the open-world callback entity usage and instance rare-item assignment before live validation; several references use NPC event self as a client or pass a table where an item ID is expected."
+      ]
+    },
+    {
+      "slug": "illsalinb-the-council-of-nine",
+      "title": "The Council of Nine",
+      "zone": {
+        "short_name": "illsalinb",
+        "name": "Temple of the Korlach",
+        "version": 1
+      },
+      "approved_ids": [
+        "E170"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "illsalinc-deserting-the-ranks",
+      "title": "Deserting the Ranks",
+      "zone": {
+        "short_name": "illsalinc",
+        "name": "The Nargilor Pits",
+        "version": 1
+      },
+      "approved_ids": [
+        "E171"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "illsalinc-emperor-draygun-the-lich-king",
+      "title": "Emperor Draygun, the Lich King",
+      "zone": {
+        "short_name": "illsalinc",
+        "name": "The Nargilor Pits",
+        "version": 2
+      },
+      "approved_ids": [
+        "E172"
+      ],
+      "issues": [
+        "Verify the end of the split-phase spell immunity in a live test: the reviewed module enables it but does not explicitly disable it when the living Emperor despawns."
+      ]
+    },
+    {
+      "slug": "inktuta-kelekdrix-herald-of-trushar",
+      "title": "Kelekdrix, Herald of Trushar",
+      "zone": {
+        "short_name": "inktuta",
+        "name": "Inktu’ta",
+        "version": 0
+      },
+      "approved_ids": [
+        "E173"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "inktuta-noqufiel-true-and-mirror-images",
+      "title": "Noqufiel: true and mirror images",
+      "zone": {
+        "short_name": "inktuta",
+        "name": "Inktu’ta",
+        "version": 0
+      },
+      "approved_ids": [
+        "E174"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "inktuta-the-cursecallers",
+      "title": "The Cursecallers",
+      "zone": {
+        "short_name": "inktuta",
+        "name": "Inktu’ta",
+        "version": 0
+      },
+      "approved_ids": [
+        "E175"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "inktuta-the-exiles-stonemite-trial",
+      "title": "The Exiles / Stonemite trial",
+      "zone": {
+        "short_name": "inktuta",
+        "name": "Inktu’ta",
+        "version": 0
+      },
+      "approved_ids": [
+        "E176"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "jaggedpine-dire-kodiak-forest-dragon-transformation",
+      "title": "Dire kodiak / forest dragon transformation",
+      "zone": {
+        "short_name": "jaggedpine",
+        "name": "Jaggedpine Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E177"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kael-fabled-king-tormax",
+      "title": "Fabled King Tormax",
+      "zone": {
+        "short_name": "kael",
+        "name": "Kael Drakkel",
+        "version": 0
+      },
+      "approved_ids": [
+        "E178"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kael-fabled-statue-idol-and-avatar-of-war",
+      "title": "Fabled Statue, Idol and Avatar of War",
+      "zone": {
+        "short_name": "kael",
+        "name": "Kael Drakkel",
+        "version": 0
+      },
+      "approved_ids": [
+        "E179"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kael-kael-armor-plate-cycle",
+      "title": "Kael armor / plate cycle",
+      "zone": {
+        "short_name": "kael",
+        "name": "Kael Drakkel",
+        "version": 0
+      },
+      "approved_ids": [
+        "E180"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kael-king-tormax",
+      "title": "King Tormax",
+      "zone": {
+        "short_name": "kael",
+        "name": "Kael Drakkel",
+        "version": 0
+      },
+      "approved_ids": [
+        "E181"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kael-statue-idol-and-avatar-of-war",
+      "title": "Statue, Idol and Avatar of War",
+      "zone": {
+        "short_name": "kael",
+        "name": "Kael Drakkel",
+        "version": 0
+      },
+      "approved_ids": [
+        "E182"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "katta-rakshasa-skull-ritual",
+      "title": "Rakshasa skull ritual",
+      "zone": {
+        "short_name": "katta",
+        "name": "Katta Castellum",
+        "version": 0
+      },
+      "approved_ids": [
+        "E183"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "katta-vampyre-troubles-autarkic-lord-sfarosh",
+      "title": "Vampyre Troubles: Autarkic Lord Sfarosh",
+      "zone": {
+        "short_name": "katta",
+        "name": "Katta Castellum",
+        "version": 0
+      },
+      "approved_ids": [
+        "E184"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kedge-seasons-watery-death",
+      "title": "Seasons: Watery Death",
+      "zone": {
+        "short_name": "kedge",
+        "name": "Kedge Keep",
+        "version": 200
+      },
+      "approved_ids": [
+        "R010"
+      ],
+      "issues": [
+        "Publication blocked: identify the seasonal Kedge boss, database spawn group, abilities and completion rules. The launcher alone does not establish a Phinigel or other boss encounter.",
+        "Confirm the deployed SeasonalInstanceVersion rule and Kedge entry/return coordinates before publication.",
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "kerraridge-tissa-sovereign-of-terror-and-the-nine-lives-of-kerra",
+      "title": "Tissa, Sovereign of Terror and the nine lives of Kerra",
+      "zone": {
+        "short_name": "kerraridge",
+        "name": "Kerra Isle",
+        "version": 0
+      },
+      "approved_ids": [
+        "E185"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kithicor-blackened-treant-and-blackened-dryad",
+      "title": "Blackened Treant and Blackened Dryad",
+      "zone": {
+        "short_name": "kithicor",
+        "name": "Kithicor Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E186"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kithicor-cloaked-figure-shadow-thief",
+      "title": "Cloaked figure / shadow thief",
+      "zone": {
+        "short_name": "kithicor",
+        "name": "Kithicor Forest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E187"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kodtaz-pixtt-grand-summoner-ring",
+      "title": "Pixtt Grand Summoner ring",
+      "zone": {
+        "short_name": "kodtaz",
+        "name": "Kod’Taz",
+        "version": 0
+      },
+      "approved_ids": [
+        "E188"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "kodtaz-temple-of-the-damned",
+      "title": "Temple of the Damned",
+      "zone": {
+        "short_name": "kodtaz",
+        "name": "Kod’Taz",
+        "version": 0
+      },
+      "approved_ids": [
+        "E189"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "lakeofillomen-scorpion-hatchling-ambush",
+      "title": "Scorpion hatchling ambush",
+      "zone": {
+        "short_name": "lakeofillomen",
+        "name": "Lake of Ill Omen",
+        "version": 0
+      },
+      "approved_ids": [
+        "R012"
+      ],
+      "issues": [
+        "Identify the prone trigger NPC bound to lakeofillomen/#_.lua and verify the player kill-credit requirement before publication; the file name does not reveal its template."
+      ]
+    },
+    {
+      "slug": "lakeofillomen-vorash-deep-and-xenevorash",
+      "title": "Vorash, Deep and Xenevorash",
+      "zone": {
+        "short_name": "lakeofillomen",
+        "name": "Lake of Ill Omen",
+        "version": 0
+      },
+      "approved_ids": [
+        "E190"
+      ],
+      "issues": [
+        "Confirm Vorash and Deep template IDs for additional NPC links; only the directly spawned Xenevorash ID is linked."
+      ]
+    },
+    {
+      "slug": "lakerathe-kazen-fecae-undead-trial",
+      "title": "Kazen Fecae undead trial",
+      "zone": {
+        "short_name": "lakerathe",
+        "name": "Lake Rathetear",
+        "version": 0
+      },
+      "approved_ids": [
+        "E191"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "lakerathe-man-eating-freshwater-shark",
+      "title": "Man-eating Freshwater Shark",
+      "zone": {
+        "short_name": "lakerathe",
+        "name": "Lake Rathetear",
+        "version": 0
+      },
+      "approved_ids": [
+        "E192"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "lavastorm-high-priestess-shima-ambush",
+      "title": "High Priestess Shima ambush",
+      "zone": {
+        "short_name": "lavastorm",
+        "name": "Lavastorm Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E193"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "lfaydark-taskmaster-mirot-and-the-reanimated-minions",
+      "title": "Taskmaster Mirot and the reanimated minions",
+      "zone": {
+        "short_name": "lfaydark",
+        "name": "Lesser Faydark",
+        "version": 0
+      },
+      "approved_ids": [
+        "E194"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mirb-frozen-nightmare-chromatic-bonewalkers",
+      "title": "Frozen Nightmare: chromatic bonewalkers",
+      "zone": {
+        "short_name": "mirb",
+        "name": "The Frozen Nightmare",
+        "version": 2
+      },
+      "approved_ids": [
+        "E195"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mirb-frozen-nightmare-frostfoot-goblins",
+      "title": "Frozen Nightmare: Frostfoot goblins",
+      "zone": {
+        "short_name": "mirb",
+        "name": "The Frozen Nightmare",
+        "version": 2
+      },
+      "approved_ids": [
+        "E196"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mirb-frozen-nightmare-laskuth-the-colossus",
+      "title": "Frozen Nightmare: Laskuth the Colossus",
+      "zone": {
+        "short_name": "mirb",
+        "name": "The Frozen Nightmare",
+        "version": 2
+      },
+      "approved_ids": [
+        "E197"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mirb-frozen-nightmare-marrow-the-broken",
+      "title": "Frozen Nightmare: Marrow the Broken",
+      "zone": {
+        "short_name": "mirb",
+        "name": "The Frozen Nightmare",
+        "version": 2
+      },
+      "approved_ids": [
+        "E198"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "mirb-frozen-nightmare-sharalla",
+      "title": "Frozen Nightmare: Sharalla",
+      "zone": {
+        "short_name": "mirb",
+        "name": "The Frozen Nightmare",
+        "version": 2
+      },
+      "approved_ids": [
+        "E199"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mirb-frozen-nightmare-sundering-sludge",
+      "title": "Frozen Nightmare: sundering sludge",
+      "zone": {
+        "short_name": "mirb",
+        "name": "The Frozen Nightmare",
+        "version": 2
+      },
+      "approved_ids": [
+        "E200"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mischiefplane-bristlebane-the-king-of-thieves-2-0",
+      "title": "Bristlebane the King of Thieves (2.0)",
+      "zone": {
+        "short_name": "mischiefplane",
+        "name": "Plane of Mischief",
+        "version": 0
+      },
+      "approved_ids": [
+        "E201"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mistmoore-the-archivist-s-midnight-vigil",
+      "title": "The Archivist's Midnight Vigil",
+      "zone": {
+        "short_name": "mistmoore",
+        "name": "Castle Mistmoore",
+        "version": 11
+      },
+      "approved_ids": [
+        "E202"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "mmcc-struggles-within-the-progeny-valdoon-kel-novar",
+      "title": "Struggles within the Progeny / Valdoon Kel'Novar",
+      "zone": {
+        "short_name": "mmcc",
+        "name": "The Asylum of Invoked Stone",
+        "version": 2
+      },
+      "approved_ids": [
+        "E203"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "nadox-the-luggald-broodmother",
+      "title": "The Luggald Broodmother",
+      "zone": {
+        "short_name": "nadox",
+        "name": "Crypt of Nadox",
+        "version": 0
+      },
+      "approved_ids": [
+        "E205"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "natimbi-cragbeast-queen-seasonal",
+      "title": "Cragbeast Queen (seasonal)",
+      "zone": {
+        "short_name": "natimbi",
+        "name": "Natimbi, the Broken Shores",
+        "version": 200
+      },
+      "approved_ids": [
+        "E206"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "natimbi-ritual-conduit",
+      "title": "Ritual Conduit",
+      "zone": {
+        "short_name": "natimbi",
+        "name": "Natimbi, the Broken Shores",
+        "version": 0
+      },
+      "approved_ids": [
+        "E207"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "natimbi-spiritbinder-trenzar-and-senvial-of-the-mist",
+      "title": "Spiritbinder Trenzar and Senvial of the Mist",
+      "zone": {
+        "short_name": "natimbi",
+        "name": "Natimbi, the Broken Shores",
+        "version": 0
+      },
+      "approved_ids": [
+        "E208"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "natimbi-tybone-biggums",
+      "title": "Tybone Biggums",
+      "zone": {
+        "short_name": "natimbi",
+        "name": "Natimbi, the Broken Shores",
+        "version": 0
+      },
+      "approved_ids": [
+        "E209"
+      ],
+      "issues": [
+        "Confirm the gathering event flag and guild-specific tuning before publication."
+      ]
+    },
+    {
+      "slug": "necropolis-garzicor-s-corpse-and-wraith",
+      "title": "Garzicor's Corpse and Wraith",
+      "zone": {
+        "short_name": "necropolis",
+        "name": "Dragon Necropolis",
+        "version": 0
+      },
+      "approved_ids": [
+        "E210"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "necropolis-vesthon-marijakin-and-the-dracoliche-of-hsagra",
+      "title": "Vesthon Marijakin and the Dracoliche of Hsagra",
+      "zone": {
+        "short_name": "necropolis",
+        "name": "Dragon Necropolis",
+        "version": 0
+      },
+      "approved_ids": [
+        "E211"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "necropolis-vesthon-marijakin-first-confrontation",
+      "title": "Vesthon Marijakin: first confrontation",
+      "zone": {
+        "short_name": "necropolis",
+        "name": "Dragon Necropolis",
+        "version": 0
+      },
+      "approved_ids": [
+        "E212"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "necropolis-zlandicar-seasonal",
+      "title": "Zlandicar (seasonal)",
+      "zone": {
+        "short_name": "necropolis",
+        "name": "Dragon Necropolis",
+        "version": 200
+      },
+      "approved_ids": [
+        "E213"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "nightmareb-terris-thule",
+      "title": "Terris Thule",
+      "zone": {
+        "short_name": "nightmareb",
+        "name": "Lair of Terris Thule",
+        "version": 0
+      },
+      "approved_ids": [
+        "E214"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "northkarana-dire-griffon-plains-dragon-transformation",
+      "title": "Dire griffon / plains dragon transformation",
+      "zone": {
+        "short_name": "northkarana",
+        "name": "North Karana",
+        "version": 0
+      },
+      "approved_ids": [
+        "E215"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "oasis-remal-the-black",
+      "title": "Remal the Black",
+      "zone": {
+        "short_name": "oasis",
+        "name": "Oasis of Marr",
+        "version": 0
+      },
+      "approved_ids": [
+        "E216"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "overthere-glowing-cliff-golem-and-watch-sergeant-grolj",
+      "title": "Glowing cliff golem and Watch Sergeant Grolj",
+      "zone": {
+        "short_name": "overthere",
+        "name": "The Overthere",
+        "version": 0
+      },
+      "approved_ids": [
+        "E217"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "permafrost-lady-vox-seasonal",
+      "title": "Lady Vox (seasonal)",
+      "zone": {
+        "short_name": "permafrost",
+        "name": "Permafrost Keep",
+        "version": 200
+      },
+      "approved_ids": [
+        "E218"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "poair-chamberlain-escalardian",
+      "title": "Chamberlain Escalardian",
+      "zone": {
+        "short_name": "poair",
+        "name": "Eryslai, the Kingdom of Wind",
+        "version": 0
+      },
+      "approved_ids": [
+        "E219"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poair-elemental-masterpiece",
+      "title": "Elemental Masterpiece",
+      "zone": {
+        "short_name": "poair",
+        "name": "Eryslai, the Kingdom of Wind",
+        "version": 0
+      },
+      "approved_ids": [
+        "E220"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poair-melernil-faal-armanna",
+      "title": "Melernil Faal'Armanna",
+      "zone": {
+        "short_name": "poair",
+        "name": "Eryslai, the Kingdom of Wind",
+        "version": 0
+      },
+      "approved_ids": [
+        "E221"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poair-sigismond-windwalker",
+      "title": "Sigismond Windwalker",
+      "zone": {
+        "short_name": "poair",
+        "name": "Eryslai, the Kingdom of Wind",
+        "version": 0
+      },
+      "approved_ids": [
+        "E222"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poair-stormrider-island",
+      "title": "Stormrider island",
+      "zone": {
+        "short_name": "poair",
+        "name": "Eryslai, the Kingdom of Wind",
+        "version": 0
+      },
+      "approved_ids": [
+        "E223"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poair-xegony-queen-of-air",
+      "title": "Xegony, Queen of Air",
+      "zone": {
+        "short_name": "poair",
+        "name": "Eryslai, the Kingdom of Wind",
+        "version": 0
+      },
+      "approved_ids": [
+        "E224"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poeartha-dust-ring-perfected-warder-of-earth",
+      "title": "Dust ring / Perfected Warder of Earth",
+      "zone": {
+        "short_name": "poeartha",
+        "name": "Vegarlson, the Earthen Badlands",
+        "version": 0
+      },
+      "approved_ids": [
+        "E225"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poeartha-mud-ring-monstrous-mudwalker",
+      "title": "Mud ring / Monstrous Mudwalker",
+      "zone": {
+        "short_name": "poeartha",
+        "name": "Vegarlson, the Earthen Badlands",
+        "version": 0
+      },
+      "approved_ids": [
+        "E226"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poeartha-mystical-arbitor-of-earth",
+      "title": "Mystical Arbitor of Earth",
+      "zone": {
+        "short_name": "poeartha",
+        "name": "Vegarlson, the Earthen Badlands",
+        "version": 0
+      },
+      "approved_ids": [
+        "E227"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poeartha-stone-ring-peregrin-rockskull",
+      "title": "Stone ring / Peregrin Rockskull",
+      "zone": {
+        "short_name": "poeartha",
+        "name": "Vegarlson, the Earthen Badlands",
+        "version": 0
+      },
+      "approved_ids": [
+        "E228"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poeartha-vine-ring-derugoak-bloodwalker",
+      "title": "Vine ring / Derugoak Bloodwalker",
+      "zone": {
+        "short_name": "poeartha",
+        "name": "Vegarlson, the Earthen Badlands",
+        "version": 0
+      },
+      "approved_ids": [
+        "E229"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poearthb-rathe-council-and-avatar-of-earth",
+      "title": "Rathe Council and Avatar of Earth",
+      "zone": {
+        "short_name": "poearthb",
+        "name": "Ragrax, Stronghold of the Twelve",
+        "version": 0
+      },
+      "approved_ids": [
+        "E230"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poearthb-warlord-gintolaken",
+      "title": "Warlord Gintolaken",
+      "zone": {
+        "short_name": "poearthb",
+        "name": "Ragrax, Stronghold of the Twelve",
+        "version": 0
+      },
+      "approved_ids": [
+        "E231"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pofire-fennin-ro-tyrant-of-fire",
+      "title": "Fennin Ro, Tyrant of Fire",
+      "zone": {
+        "short_name": "pofire",
+        "name": "Doomfire, the Burning Lands",
+        "version": 0
+      },
+      "approved_ids": [
+        "E232"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poinnovation-manaetic-behemoth",
+      "title": "Manaetic Behemoth",
+      "zone": {
+        "short_name": "poinnovation",
+        "name": "Plane of Innovation",
+        "version": 0
+      },
+      "approved_ids": [
+        "E233"
+      ],
+      "issues": [
+        "Verify the dormant activation sequence in game before publication: repeated device signals toggle first_signal and only alternate signals reset the counter, rather than consistently resetting it."
+      ]
+    },
+    {
+      "slug": "poinnovation-nitram-anizok-xanamech-nezmirthafen",
+      "title": "Nitram Anizok / Xanamech Nezmirthafen",
+      "zone": {
+        "short_name": "poinnovation",
+        "name": "Plane of Innovation",
+        "version": 0
+      },
+      "approved_ids": [
+        "E234"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pojustice-the-seventh-hammer",
+      "title": "The Seventh Hammer",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E235"
+      ],
+      "issues": [
+        "Confirm the intended Tribunal timer behavior before publication: the ready dialogue sets dialogue=true, while the combat handler starts the judgment timer only when dialogue is false. The dialogue-triggered fight may omit that cycle."
+      ]
+    },
+    {
+      "slug": "pojustice-trial-of-execution",
+      "title": "Trial of Execution",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E236"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pojustice-trial-of-flame",
+      "title": "Trial of Flame",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E237"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pojustice-trial-of-hanging",
+      "title": "Trial of Hanging",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E238"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pojustice-trial-of-lashing",
+      "title": "Trial of Lashing",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E239"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pojustice-trial-of-stoning",
+      "title": "Trial of Stoning",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E240"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "pojustice-trial-of-torture",
+      "title": "Trial of Torture",
+      "zone": {
+        "short_name": "pojustice",
+        "name": "Plane of Justice",
+        "version": 0
+      },
+      "approved_ids": [
+        "E241"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "poknowledge-bonded-hunts-companion-challenges-36-targets",
+      "title": "Bonded Hunts: companion challenges (36 targets)",
+      "zone": {
+        "short_name": "poknowledge",
+        "name": "Plane of Knowledge",
+        "version": 0
+      },
+      "approved_ids": [
+        "E204"
+      ],
+      "issues": [
+        "Confirm deployment of the native Bonded Hunt combat audit before publication; the Lua reward transition depends on its audit result."
+      ]
+    },
+    {
+      "slug": "ponightmare-aid-eino-escort-dreamkeeper",
+      "title": "Aid Eino escort / Dreamkeeper",
+      "zone": {
+        "short_name": "ponightmare",
+        "name": "Plane of Nightmare",
+        "version": 0
+      },
+      "approved_ids": [
+        "E242"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ponightmare-deyid-the-twisted",
+      "title": "Deyid the Twisted",
+      "zone": {
+        "short_name": "ponightmare",
+        "name": "Plane of Nightmare",
+        "version": 0
+      },
+      "approved_ids": [
+        "E243"
+      ],
+      "issues": [
+        "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+      ]
+    },
+    {
+      "slug": "ponightmare-mujaki-the-devourer",
+      "title": "Mujaki the Devourer",
+      "zone": {
+        "short_name": "ponightmare",
+        "name": "Plane of Nightmare",
+        "version": 0
+      },
+      "approved_ids": [
+        "E244"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ponightmare-terror-matriarch",
+      "title": "Terror Matriarch",
+      "zone": {
+        "short_name": "ponightmare",
+        "name": "Plane of Nightmare",
+        "version": 0
+      },
+      "approved_ids": [
+        "E245"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "postorms-drornok-tok-vo-lok",
+      "title": "Drornok Tok Vo'Lok",
+      "zone": {
+        "short_name": "postorms",
+        "name": "Plane of Storms",
+        "version": 0
+      },
+      "approved_ids": [
+        "E246"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "postorms-falto-lord-of-thunder",
+      "title": "Falto, Lord of Thunder",
+      "zone": {
+        "short_name": "postorms",
+        "name": "Plane of Storms",
+        "version": 0
+      },
+      "approved_ids": [
+        "E247"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "postorms-ston-ruak-ancient-of-trees",
+      "title": "Ston'Ruak, Ancient of Trees",
+      "zone": {
+        "short_name": "postorms",
+        "name": "Plane of Storms",
+        "version": 0
+      },
+      "approved_ids": [
+        "E248"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potactics-rallos-zek-the-warlord",
+      "title": "Rallos Zek the Warlord",
+      "zone": {
+        "short_name": "potactics",
+        "name": "Drunder, the Fortress of Zek",
+        "version": 0
+      },
+      "approved_ids": [
+        "E249"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potactics-tallon-zek",
+      "title": "Tallon Zek",
+      "zone": {
+        "short_name": "potactics",
+        "name": "Drunder, the Fortress of Zek",
+        "version": 0
+      },
+      "approved_ids": [
+        "E250"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potactics-vallon-zek",
+      "title": "Vallon Zek",
+      "zone": {
+        "short_name": "potactics",
+        "name": "Drunder, the Fortress of Zek",
+        "version": 0
+      },
+      "approved_ids": [
+        "E251"
+      ],
+      "issues": [
+        "Verify or repair the planar projection’s flag dialogue before publication: PP_Say defines vallon_bucket but tests the undefined tallon_bucket variable."
+      ]
+    },
+    {
+      "slug": "potimeb-plane-of-time-phase-4-gods",
+      "title": "Plane of Time: phase 4 gods",
+      "zone": {
+        "short_name": "potimeb",
+        "name": "Plane of Time",
+        "version": 0
+      },
+      "approved_ids": [
+        "E252"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potimeb-plane-of-time-phase-5-gods",
+      "title": "Plane of Time: phase 5 gods",
+      "zone": {
+        "short_name": "potimeb",
+        "name": "Plane of Time",
+        "version": 0
+      },
+      "approved_ids": [
+        "E253"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potimeb-plane-of-time-phases-1-3",
+      "title": "Plane of Time: phases 1-3",
+      "zone": {
+        "short_name": "potimeb",
+        "name": "Plane of Time",
+        "version": 0
+      },
+      "approved_ids": [
+        "E254"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potimeb-quarm",
+      "title": "Quarm",
+      "zone": {
+        "short_name": "potimeb",
+        "name": "Plane of Time",
+        "version": 0
+      },
+      "approved_ids": [
+        "E255"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potorment-baraguj-szuul-mouth-event",
+      "title": "Baraguj Szuul mouth event",
+      "zone": {
+        "short_name": "potorment",
+        "name": "Plane of Torment",
+        "version": 0
+      },
+      "approved_ids": [
+        "R014"
+      ],
+      "issues": [
+        "Confirm the entry trigger and spawn wiring for legacy mouth_trigger.pl before publication. The completion chain from the Horror to Baraguj is present, but no reviewed source caller starts that Perl gauntlet."
+      ]
+    },
+    {
+      "slug": "potorment-keeper-of-sorrows-tylis-torment",
+      "title": "Keeper of Sorrows / Tylis' torment",
+      "zone": {
+        "short_name": "potorment",
+        "name": "Plane of Torment",
+        "version": 0
+      },
+      "approved_ids": [
+        "R015"
+      ],
+      "issues": [
+        "Review the chamber’s database spawns and Keeper abilities before publication; the quest files confirm access and completion, but do not establish the full intervening combat sequence."
+      ]
+    },
+    {
+      "slug": "potorment-maareq-the-prophet",
+      "title": "Maareq the Prophet",
+      "zone": {
+        "short_name": "potorment",
+        "name": "Plane of Torment",
+        "version": 0
+      },
+      "approved_ids": [
+        "E256"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potorment-salczek-the-fleshgrinder",
+      "title": "Salczek the Fleshgrinder",
+      "zone": {
+        "short_name": "potorment",
+        "name": "Plane of Torment",
+        "version": 0
+      },
+      "approved_ids": [
+        "E257"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "potorment-saryrn",
+      "title": "Saryrn",
+      "zone": {
+        "short_name": "potorment",
+        "name": "Plane of Torment",
+        "version": 0
+      },
+      "approved_ids": [
+        "E258"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "povalor-aerin-dar",
+      "title": "Aerin'Dar",
+      "zone": {
+        "short_name": "povalor",
+        "name": "Plane of Valor",
+        "version": 0
+      },
+      "approved_ids": [
+        "E259"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "powater-coirnav-avatar-of-water",
+      "title": "Coirnav, Avatar of Water",
+      "zone": {
+        "short_name": "powater",
+        "name": "Reef of Coirnav",
+        "version": 0
+      },
+      "approved_ids": [
+        "E260"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "provinggrounds-lightning-warrior-spiritseeker",
+      "title": "Lightning Warrior Spiritseeker",
+      "zone": {
+        "short_name": "provinggrounds",
+        "name": "Muramite Proving Grounds",
+        "version": 0
+      },
+      "approved_ids": [
+        "E261"
+      ],
+      "issues": [
+        "Check the Spiritseeker cleanup timer before publication: the combat handler starts it on disengagement but does not stop an existing timer when combat resumes."
+      ]
+    },
+    {
+      "slug": "qey2hh1-yuanda-werewolf-ambush",
+      "title": "Yuanda: werewolf ambush",
+      "zone": {
+        "short_name": "qey2hh1",
+        "name": "West Karana",
+        "version": 0
+      },
+      "approved_ids": [
+        "E262"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "qeynos2-enchanted-rat-experiment",
+      "title": "Enchanted Rat Experiment",
+      "zone": {
+        "short_name": "qeynos2",
+        "name": "North Qeynos",
+        "version": 0
+      },
+      "approved_ids": [
+        "E263"
+      ],
+      "issues": [
+        "Jar IDs and tile behavior are source-verified; the individual jar display names still require database confirmation."
+      ]
+    },
+    {
+      "slug": "qinimi-execution-rescue-kreshin-silentcog",
+      "title": "Execution: Rescue Kreshin Silentcog",
+      "zone": {
+        "short_name": "qinimi",
+        "name": "Qinimi, Court of Nihilia",
+        "version": 0
+      },
+      "approved_ids": [
+        "E264"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "qinimi-mastruq-commander-gorlakt-and-the-spiritlords",
+      "title": "Mastruq Commander Gorlakt and the Spiritlords",
+      "zone": {
+        "short_name": "qinimi",
+        "name": "Qinimi, Court of Nihilia",
+        "version": 0
+      },
+      "approved_ids": [
+        "E265"
+      ],
+      "issues": [
+        "Gorlakt stops both spell timers when combat ends but keeps spell_active set. The reviewed script does not restart those timers on re-engagement; verify recovery before publication."
+      ]
+    },
+    {
+      "slug": "qinimi-thunderdome",
+      "title": "Thunderdome: First Chamber",
+      "zone": {
+        "short_name": "qinimi",
+        "name": "Qinimi, Court of Nihilia",
+        "version": 0
+      },
+      "approved_ids": [
+        "E266"
+      ],
+      "issues": [
+        "Only thunder_dome_one combat logic was reviewed. The launcher also offers chambers two and three; those branches need their own source comparison before this guide claims to cover every room.",
+        "The launcher dialogue says eighteen participants and the module declares player_limit=18, but this module does not enforce that variable. Do not present eighteen as a verified admission cap.",
+        "The final boss calls stop_timer(\"fail_2\") on itself although the overall timer belongs to the controller, then cleanup depops the final boss. Verify the victory, loot and delayed-ejection path before publication."
+      ]
+    },
+    {
+      "slug": "qvic-cynosure-kvanjji",
+      "title": "Cynosure Kvanjji",
+      "zone": {
+        "short_name": "qvic",
+        "name": "Qvic, Prayer Grounds of Calling",
+        "version": 0
+      },
+      "approved_ids": [
+        "E267"
+      ],
+      "issues": [
+        "The reset timer is started as reset but handled as Reset. The intended one-minute reset is not reliable as written; healing and mimic timers also remain active after combat ends. Verify recovery before publication.",
+        "Queued arbiter heals are unconditional when delivered, even if the matching arbiter died during the ten-second delay. This draft intentionally does not advise killing an arbiter to interrupt a queued heal.",
+        "Spell 4748 is cast by the 90-second portal-energy timer, but its loaded effect has not been verified. The draft does not infer an effect from the emote."
+      ]
+    },
+    {
+      "slug": "qvic-hexxt-ilk-klokk",
+      "title": "Hexxt Ilk Klokk",
+      "zone": {
+        "short_name": "qvic",
+        "name": "Qvic, Prayer Grounds of Calling",
+        "version": 0
+      },
+      "approved_ids": [
+        "E268"
+      ],
+      "issues": [
+        "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+        "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+      ]
+    },
+    {
+      "slug": "qvic-hexxt-jkak-miq",
+      "title": "Hexxt Jkak Miq",
+      "zone": {
+        "short_name": "qvic",
+        "name": "Qvic, Prayer Grounds of Calling",
+        "version": 0
+      },
+      "approved_ids": [
+        "E269"
+      ],
+      "issues": [
+        "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+        "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+      ]
+    },
+    {
+      "slug": "qvic-hexxt-pvin-nki",
+      "title": "Hexxt Pvin Nki",
+      "zone": {
+        "short_name": "qvic",
+        "name": "Qvic, Prayer Grounds of Calling",
+        "version": 0
+      },
+      "approved_ids": [
+        "E270"
+      ],
+      "issues": [
+        "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+        "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+      ]
+    },
+    {
+      "slug": "qvic-iqthinxa-karnkvi-zoo-event",
+      "title": "Iqthinxa Karnkvi: Zoo Event",
+      "zone": {
+        "short_name": "qvic",
+        "name": "Qvic, Prayer Grounds of Calling",
+        "version": 0
+      },
+      "approved_ids": [
+        "E271"
+      ],
+      "issues": [
+        "The three-Rav lowest-health selection misses the case where rav1 is below rav2 but rav3 is below rav1. An imbalance may therefore fail to trigger frenzy in that arrangement. Guidance keeps the health spread below ten points rather than relying on the defect.",
+        "The Rav check begins at ten-second intervals and changes to one second after an imbalance. It does not restore the original interval when balance returns.",
+        "The reviewed boss script does not define an out-of-combat cleanup or rearming of the 75% transition. Verify recovery after a wipe before publication."
+      ]
+    },
+    {
+      "slug": "rathemtn-warrior-spirit-chalex-captain-krignok",
+      "title": "Warrior Spirit Chalex: Captain Krignok",
+      "zone": {
+        "short_name": "rathemtn",
+        "name": "The Rathe Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E272"
+      ],
+      "issues": [
+        "Chalex transforms on leaving combat rather than on a confirmed Krignok death. Verify this recovery/completion edge before publication.",
+        "Krignok begins a five-minute despawn timer after the third add wave; that timer is not paused in combat."
+      ]
+    },
+    {
+      "slug": "riftseekers-chailak",
+      "title": "Chailak",
+      "zone": {
+        "short_name": "riftseekers",
+        "name": "Riftseekers' Sanctum",
+        "version": 0
+      },
+      "approved_ids": [
+        "E273"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "riftseekers-craftmaster-tieranu",
+      "title": "Craftmaster Tieranu",
+      "zone": {
+        "short_name": "riftseekers",
+        "name": "Riftseekers' Sanctum",
+        "version": 0
+      },
+      "approved_ids": [
+        "E274"
+      ],
+      "issues": [
+        "The cleanup function omits Sizzle (334090), although it removes the other elemental IDs. Verify leftover-add behavior before publication."
+      ]
+    },
+    {
+      "slug": "riftseekers-king-gelaqua-and-the-princes",
+      "title": "King Gelaqua and the Princes",
+      "zone": {
+        "short_name": "riftseekers",
+        "name": "Riftseekers' Sanctum",
+        "version": 0
+      },
+      "approved_ids": [
+        "E275"
+      ],
+      "issues": [
+        "One prince transition signals 334045, a princess ID, instead of the apparent remaining prince 334035. Verify both trio-clear orders before publication.",
+        "Orb target selection uses a large placeholder range marked TODO in the source. Current crowd-control susceptibility is database-dependent and is not promised here."
+      ]
+    },
+    {
+      "slug": "riftseekers-queen-pyrilonis-and-the-princesses",
+      "title": "Queen Pyrilonis and the Princesses",
+      "zone": {
+        "short_name": "riftseekers",
+        "name": "Riftseekers' Sanctum",
+        "version": 0
+      },
+      "approved_ids": [
+        "E276"
+      ],
+      "issues": [
+        "Construct target selection uses a large placeholder range marked TODO in the source. Live range and database spell effects remain unverified."
+      ]
+    },
+    {
+      "slug": "riwwi-arena-turlini-and-the-enslaved-yunjo",
+      "title": "Arena: Turlini and the enslaved yunjo",
+      "zone": {
+        "short_name": "riwwi",
+        "name": "Riwwi, Coliseum of Games",
+        "version": 0
+      },
+      "approved_ids": [
+        "E277"
+      ],
+      "issues": [
+        "The sequence and trade IDs are source-verified. Container recipe contents, enemy spell lists and equipment rewards require database review. No boss-specific abilities are invented for the wave roster."
+      ]
+    },
+    {
+      "slug": "riwwi-taskmistress-krisz",
+      "title": "Taskmistress Krisz",
+      "zone": {
+        "short_name": "riwwi",
+        "name": "Riwwi, Coliseum of Games",
+        "version": 0
+      },
+      "approved_ids": [
+        "E278"
+      ],
+      "issues": [
+        "The initial audit described prerequisite Pixtt kills; the current trigger is dialogue with Pixtt Kekken and an 18-member raid check."
+      ]
+    },
+    {
+      "slug": "riwwi-viqu-the-blindeye",
+      "title": "Viqu the Blindeye",
+      "zone": {
+        "short_name": "riwwi",
+        "name": "Riwwi, Coliseum of Games",
+        "version": 0
+      },
+      "approved_ids": [
+        "E279"
+      ],
+      "issues": [
+        "Volley code has no branch for hate-list sizes above six; confirm intended raid behavior before publication.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "ruja-rujarkian-hills-adventures-shared-rules",
+      "title": "Rujarkian Hills adventures (shared rules)",
+      "zone": {
+        "short_name": "ruja",
+        "name": "Rujarkian Hills",
+        "version": 1
+      },
+      "approved_ids": [
+        "E280"
+      ],
+      "issues": [
+        "This theme overview is linked to ruja version 1; identical controllers serve the other Rujarkian maps. Confirm the deployed ruja version before publication.",
+        "Rescue is listed as a type, but the reviewed controller implements explicit completion branches only for assassination, kills and collection.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "rujd-prison-break-warden-neyremal-and-high-shaman-yenner",
+      "title": "Prison Break: Warden Neyremal and High Shaman Yenner",
+      "zone": {
+        "short_name": "rujd",
+        "name": "Rujarkian Hills: Prison Break",
+        "version": 2
+      },
+      "approved_ids": [
+        "E281"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "rujg-flawless-experimental-battlelord",
+      "title": "Flawless Experimental Battlelord",
+      "zone": {
+        "short_name": "rujg",
+        "name": "Rujarkian Hills: The Drudge Hollows",
+        "version": 2
+      },
+      "approved_ids": [
+        "E282"
+      ],
+      "issues": [
+        "Raid version 2 requires confirmation against the expedition launcher/database before publication."
+      ]
+    },
+    {
+      "slug": "scarlet-disciple-of-sun",
+      "title": "Disciple of Sun",
+      "zone": {
+        "short_name": "scarlet",
+        "name": "The Scarlet Desert",
+        "version": 0
+      },
+      "approved_ids": [
+        "E283"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "scarlet-high-priest-valon-and-the-plasmatic-followers",
+      "title": "High Priest Valon and the Plasmatic followers",
+      "zone": {
+        "short_name": "scarlet",
+        "name": "The Scarlet Desert",
+        "version": 0
+      },
+      "approved_ids": [
+        "E284"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "sebilis-sebilite-protector",
+      "title": "Sebilite Protector",
+      "zone": {
+        "short_name": "sebilis",
+        "name": "Old Sebilis",
+        "version": 0
+      },
+      "approved_ids": [
+        "E285"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "sebilis-trakanon-seasonal",
+      "title": "Trakanon (Seasonal)",
+      "zone": {
+        "short_name": "sebilis",
+        "name": "Old Sebilis",
+        "version": 200
+      },
+      "approved_ids": [
+        "E286"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "sirens-a-twitching-swordfish",
+      "title": "A twitching swordfish",
+      "zone": {
+        "short_name": "sirens",
+        "name": "Siren's Grotto",
+        "version": 0
+      },
+      "approved_ids": [
+        "E287"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "skyfire-rithnok-the-tormented",
+      "title": "Rithnok the Tormented",
+      "zone": {
+        "short_name": "skyfire",
+        "name": "Skyfire Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E288"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "skyfire-talendor-seasonal",
+      "title": "Talendor (Seasonal)",
+      "zone": {
+        "short_name": "skyfire",
+        "name": "Skyfire Mountains",
+        "version": 200
+      },
+      "approved_ids": [
+        "E289"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "skyshrine-lord-yelinak-seasonal",
+      "title": "Lord Yelinak (Seasonal)",
+      "zone": {
+        "short_name": "skyshrine",
+        "name": "Skyshrine",
+        "version": 200
+      },
+      "approved_ids": [
+        "E290"
+      ],
+      "issues": [
+        "Version 200 documents the default seasonal configuration; the seasonal helper also accepts configured versions and versions 200ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“249. Confirm the deployed version.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "sleeper-awakening-the-sleeper",
+      "title": "Awakening the Sleeper",
+      "zone": {
+        "short_name": "sleeper",
+        "name": "Sleeper's Tomb",
+        "version": 0
+      },
+      "approved_ids": [
+        "R017"
+      ],
+      "issues": [
+        "Legacy unversioned event only. Confirm deployed wardstone/warder spawn availability versus seasonal and Fabled content; this draft does not describe the separate Fabled Kerafyrm encounter."
+      ]
+    },
+    {
+      "slug": "sleeper-master-of-the-guard",
+      "title": "Master of the Guard",
+      "zone": {
+        "short_name": "sleeper",
+        "name": "Sleeper's Tomb",
+        "version": 0
+      },
+      "approved_ids": [
+        "E291"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "sleeper-sleep-walking-expedition",
+      "title": "Sleep Walking expedition",
+      "zone": {
+        "short_name": "sleeper",
+        "name": "Sleeper's Tomb",
+        "version": 1
+      },
+      "approved_ids": [
+        "E292"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "sleeper-the-fabled-kerafyrm-the-awakened",
+      "title": "The Fabled Kerafyrm the Awakened",
+      "zone": {
+        "short_name": "sleeper",
+        "name": "Sleeper's Tomb",
+        "version": 1
+      },
+      "approved_ids": [
+        "E293"
+      ],
+      "issues": [
+        "Timers start on spawn, not engagement. Live spell data must be checked before assigning effect names or avoidance advice."
+      ]
+    },
+    {
+      "slug": "sleeper-the-fabled-master-of-the-guard",
+      "title": "The Fabled Master of the Guard",
+      "zone": {
+        "short_name": "sleeper",
+        "name": "Sleeper's Tomb",
+        "version": 1
+      },
+      "approved_ids": [
+        "E291"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "sncrematory-gzifa-the-pure-one",
+      "title": "Gzifa the Pure One",
+      "zone": {
+        "short_name": "sncrematory",
+        "name": "Sewers of Nihilia: Crematory",
+        "version": 0
+      },
+      "approved_ids": [
+        "E294"
+      ],
+      "issues": [
+        "The trigger comment mentions a progression flag, but the current active condition checks the carried remains only."
+      ]
+    },
+    {
+      "slug": "snlair-sewers-of-nihilia-lair-tool-recovery",
+      "title": "Sewers of Nihilia: Lair tool recovery",
+      "zone": {
+        "short_name": "snlair",
+        "name": "Sewers of Nihilia: Lair of Trapped Ones",
+        "version": 0
+      },
+      "approved_ids": [
+        "E295"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "snplant-ancient-kayserops-sewers-stonemite-event",
+      "title": "Ancient Kayserops: Sewers stonemite event",
+      "zone": {
+        "short_name": "snplant",
+        "name": "Sewers of Nihilia: Purifying Plant",
+        "version": 0
+      },
+      "approved_ids": [
+        "E296"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "snpool-sewers-of-nihilia-slime-cube",
+      "title": "Sewers of Nihilia: Slime Cube",
+      "zone": {
+        "short_name": "snpool",
+        "name": "Sewers of Nihilia: Pool of Sludge",
+        "version": 0
+      },
+      "approved_ids": [
+        "E297"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "soldungb-lord-nagafen-seasonal",
+      "title": "Lord Nagafen (Seasonal)",
+      "zone": {
+        "short_name": "soldungb",
+        "name": "Nagafen's Lair",
+        "version": 200
+      },
+      "approved_ids": [
+        "E298"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "soldungc-culthor-the-gatekeeper",
+      "title": "Culthor the Gatekeeper",
+      "zone": {
+        "short_name": "soldungc",
+        "name": "The Caverns of Exile",
+        "version": 0
+      },
+      "approved_ids": [
+        "E299"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "soldungc-fireback-queen",
+      "title": "Fireback Queen",
+      "zone": {
+        "short_name": "soldungc",
+        "name": "The Caverns of Exile",
+        "version": 0
+      },
+      "approved_ids": [
+        "E300"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "soldungc-protector-of-fire-pure-flame-elemental",
+      "title": "Protector of Fire / Pure Flame Elemental",
+      "zone": {
+        "short_name": "soldungc",
+        "name": "The Caverns of Exile",
+        "version": 0
+      },
+      "approved_ids": [
+        "E301"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "solrotower-arlyxir",
+      "title": "Arlyxir",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E302"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "solrotower-galremos",
+      "title": "Galremos",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E303"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "solrotower-jiva",
+      "title": "Jiva",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E304"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "solrotower-protector-of-dresolik",
+      "title": "Protector of Dresolik",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E305"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "solrotower-rizlona",
+      "title": "Rizlona",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E306"
+      ],
+      "issues": [
+        "The first-form NPC ID needs a database lookup before linking both forms."
+      ]
+    },
+    {
+      "slug": "solrotower-solusek-ro",
+      "title": "Solusek Ro",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E307"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "solrotower-xuzl",
+      "title": "Xuzl",
+      "zone": {
+        "short_name": "solrotower",
+        "name": "Tower of Solusek Ro",
+        "version": 0
+      },
+      "approved_ids": [
+        "E308"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "sseru-lord-inquisitor-seru",
+      "title": "Lord Inquisitor Seru",
+      "zone": {
+        "short_name": "sseru",
+        "name": "Sanctus Seru",
+        "version": 0
+      },
+      "approved_ids": [
+        "E309"
+      ],
+      "issues": [
+        "Native spell lists and special defenses reside in database data and are not established by the tether script.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "ssratemple-emperor-ssraeshza-and-the-blood",
+      "title": "Emperor Ssraeshza and the Blood",
+      "zone": {
+        "short_name": "ssratemple",
+        "name": "Ssraeshza Temple",
+        "version": 0
+      },
+      "approved_ids": [
+        "E310"
+      ],
+      "issues": [
+        "This entry is for the open-world version 0; the boss explicitly depops from nonseasonal instances."
+      ]
+    },
+    {
+      "slug": "ssratemple-emperor-ssraeshza-and-the-blood-seasonal",
+      "title": "Emperor Ssraeshza and the Blood (Seasonal)",
+      "zone": {
+        "short_name": "ssratemple",
+        "name": "Ssraeshza Temple",
+        "version": 200
+      },
+      "approved_ids": [
+        "E310"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ssratemple-rhag-cycle-arch-lich",
+      "title": "Rhag cycle / Arch Lich",
+      "zone": {
+        "short_name": "ssratemple",
+        "name": "Ssraeshza Temple",
+        "version": 0
+      },
+      "approved_ids": [
+        "E311"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "ssratemple-vyzh-dra-cycle",
+      "title": "Vyzh`dra cycle",
+      "zone": {
+        "short_name": "ssratemple",
+        "name": "Ssraeshza Temple",
+        "version": 0
+      },
+      "approved_ids": [
+        "E312"
+      ],
+      "issues": [
+        "Full Exiled and serpent branch details still require a dedicated publication pass; this draft documents the reviewed controller and Banished path."
+      ]
+    },
+    {
+      "slug": "steamfont-cargo-clockwork-ambush",
+      "title": "Cargo Clockwork ambush",
+      "zone": {
+        "short_name": "steamfont",
+        "name": "Steamfont Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E313"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "steamfont-yama-tolk-and-the-inactive-clockwork",
+      "title": "Yama Tolk and the Inactive Clockwork",
+      "zone": {
+        "short_name": "steamfont",
+        "name": "Steamfont Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E314"
+      ],
+      "issues": [
+        "The callback comment claims same-player enforcement, but the cast callback should be audited before relying on that restriction."
+      ]
+    },
+    {
+      "slug": "stillmoona-animated-statue-plans",
+      "title": "Animated Statue Plans",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 2
+      },
+      "approved_ids": [
+        "E315"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-best-laid-plans",
+      "title": "Best Laid Plans",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 3
+      },
+      "approved_ids": [
+        "E316"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-guardian-of-the-sands-shogurei",
+      "title": "Guardian of the Sands: Shogurei",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 5
+      },
+      "approved_ids": [
+        "E317"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-keepers-of-strength-and-wisdom",
+      "title": "Keepers of Strength and Wisdom",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 0
+      },
+      "approved_ids": [
+        "E318"
+      ],
+      "issues": [
+        "The separate Sung Li Wisdom sequence needs a deeper publication review; this draft establishes both activation branches."
+      ]
+    },
+    {
+      "slug": "stillmoona-scales-of-justice",
+      "title": "Scales of Justice",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 6
+      },
+      "approved_ids": [
+        "E319"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-sickness-of-the-spirit",
+      "title": "Sickness of the Spirit",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 1
+      },
+      "approved_ids": [
+        "E320"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-tea-for-thy-master",
+      "title": "Tea for Thy Master",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 7
+      },
+      "approved_ids": [
+        "E321"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-tracking-the-kirin",
+      "title": "Tracking the Kirin",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 8
+      },
+      "approved_ids": [
+        "E322"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoona-trial-of-perseverance",
+      "title": "Trial of Perseverance",
+      "zone": {
+        "short_name": "stillmoona",
+        "name": "Stillmoon Temple",
+        "version": 9
+      },
+      "approved_ids": [
+        "R018"
+      ],
+      "issues": [
+        "Publication blocker: Goblin_Spawn is defined twice; the second definition overwrites the initial timer setup. Exact idle-start/failure timing must be fixed or live-verified before publication."
+      ]
+    },
+    {
+      "slug": "stillmoonb-death-comes-swiftly-lair-mistress",
+      "title": "Death Comes Swiftly: Lair Mistress",
+      "zone": {
+        "short_name": "stillmoonb",
+        "name": "The Ascent",
+        "version": 3
+      },
+      "approved_ids": [
+        "E323"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoonb-drake-eggs",
+      "title": "Drake Eggs",
+      "zone": {
+        "short_name": "stillmoonb",
+        "name": "The Ascent",
+        "version": 4
+      },
+      "approved_ids": [
+        "E324"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoonb-kessdona-s-perch",
+      "title": "Kessdona's Perch",
+      "zone": {
+        "short_name": "stillmoonb",
+        "name": "The Ascent",
+        "version": 1
+      },
+      "approved_ids": [
+        "E325"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoonb-rikkukin-the-defender",
+      "title": "Rikkukin the Defender",
+      "zone": {
+        "short_name": "stillmoonb",
+        "name": "The Ascent",
+        "version": 2
+      },
+      "approved_ids": [
+        "E326"
+      ],
+      "issues": [
+        "Version 2 is the Reflections of Silver mission constant; confirm this NPC is bound to that mission in the database before publication.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "stillmoonb-storm-dragon-scales-the-storm-caller",
+      "title": "Storm Dragon Scales: The Storm Caller",
+      "zone": {
+        "short_name": "stillmoonb",
+        "name": "The Ascent",
+        "version": 5
+      },
+      "approved_ids": [
+        "E327"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "stillmoonb-sudden-tremors-ancient-golem",
+      "title": "Sudden Tremors: Ancient Golem",
+      "zone": {
+        "short_name": "stillmoonb",
+        "name": "The Ascent",
+        "version": 6
+      },
+      "approved_ids": [
+        "R019"
+      ],
+      "issues": [
+        "Task-database gates and completion behavior are not present in this short controller. Confirm the chest-first path and verify recovery from an early golem kill before publication."
+      ]
+    },
+    {
+      "slug": "stonebrunt-mountain-dragon-transformation",
+      "title": "Mountain dragon transformation",
+      "zone": {
+        "short_name": "stonebrunt",
+        "name": "Stonebrunt Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E328"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "swampofnohope-swamp-dragon-transformation",
+      "title": "Swamp dragon transformation",
+      "zone": {
+        "short_name": "swampofnohope",
+        "name": "Swamp of No Hope",
+        "version": 0
+      },
+      "approved_ids": [
+        "E329"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-pixtt-kretv-krakxt",
+      "title": "Pixtt Kretv Krakxt",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E330"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-pixtt-riel-tavas",
+      "title": "Pixtt Riel Tavas",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E331"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-pixtt-xxeric-kex",
+      "title": "Pixtt Xxeric Kex",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E332"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-tunat-muram-cuu-vauax",
+      "title": "Tunat`Muram Cuu Vauax",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E333"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-zun-muram-kvxe-pirik",
+      "title": "Zun`Muram Kvxe Pirik",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E334"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-zun-muram-mordl-delt",
+      "title": "Zun`Muram Mordl Delt",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E335"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-zun-muram-shaldn-boc",
+      "title": "Zun`Muram Shaldn Boc",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E336"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tacvi-zun-muram-yihst-vor",
+      "title": "Zun`Muram Yihst Vor",
+      "zone": {
+        "short_name": "tacvi",
+        "name": "Tacvi, Seat of the Slaver",
+        "version": 0
+      },
+      "approved_ids": [
+        "E337"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "taka-takish-hiz-adventures-shared-rules",
+      "title": "Takish-Hiz adventures (shared rules)",
+      "zone": {
+        "short_name": "taka",
+        "name": "Takish-Hiz",
+        "version": 1
+      },
+      "approved_ids": [
+        "E338"
+      ],
+      "issues": [
+        "Version 1 is the standard adventure mapping and needs confirmation against the deployed taka launcher.",
+        "Rescue is listed as a type but lacks an explicit completion path in the reviewed theme controller.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "takc-quintessence-of-sand-and-ritana",
+      "title": "Quintessence of Sand and Ritana",
+      "zone": {
+        "short_name": "takc",
+        "name": "Takish-Hiz: Sunken Library",
+        "version": 2
+      },
+      "approved_ids": [
+        "E339"
+      ],
+      "issues": [
+        "Corrected the approval-list label Queen of Sand to the Quintessence wording used by the encounter script."
+      ]
+    },
+    {
+      "slug": "takishruinsa-living-legacy-sandkeep-endurance-raid",
+      "title": "Living Legacy: Sandkeep Endurance Raid",
+      "zone": {
+        "short_name": "takishruinsa",
+        "name": "The Sandkeep",
+        "version": 1
+      },
+      "approved_ids": [
+        "E340"
+      ],
+      "issues": [
+        "Encounter header and tuning comments require matching deployed SQL and level-60 live validation before publication."
+      ]
+    },
+    {
+      "slug": "templeveeshan-aaryonar",
+      "title": "Aaryonar",
+      "zone": {
+        "short_name": "templeveeshan",
+        "name": "Temple of Veeshan",
+        "version": 0
+      },
+      "approved_ids": [
+        "E341"
+      ],
+      "issues": [
+        "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+      ]
+    },
+    {
+      "slug": "templeveeshan-lady-mirenilla",
+      "title": "Lady Mirenilla",
+      "zone": {
+        "short_name": "templeveeshan",
+        "name": "Temple of Veeshan",
+        "version": 0
+      },
+      "approved_ids": [
+        "E342"
+      ],
+      "issues": [
+        "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+      ]
+    },
+    {
+      "slug": "templeveeshan-lord-feshlak",
+      "title": "Lord Feshlak",
+      "zone": {
+        "short_name": "templeveeshan",
+        "name": "Temple of Veeshan",
+        "version": 0
+      },
+      "approved_ids": [
+        "E343"
+      ],
+      "issues": [
+        "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+      ]
+    },
+    {
+      "slug": "templeveeshan-lord-kreizenn",
+      "title": "Lord Kreizenn",
+      "zone": {
+        "short_name": "templeveeshan",
+        "name": "Temple of Veeshan",
+        "version": 0
+      },
+      "approved_ids": [
+        "E344"
+      ],
+      "issues": [
+        "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+      ]
+    },
+    {
+      "slug": "templeveeshan-lord-vyemm",
+      "title": "Lord Vyemm",
+      "zone": {
+        "short_name": "templeveeshan",
+        "name": "Temple of Veeshan",
+        "version": 0
+      },
+      "approved_ids": [
+        "E345"
+      ],
+      "issues": [
+        "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+      ]
+    },
+    {
+      "slug": "templeveeshan-vulak-aerr-ring-event",
+      "title": "Vulak`Aerr ring event",
+      "zone": {
+        "short_name": "templeveeshan",
+        "name": "Temple of Veeshan",
+        "version": 0
+      },
+      "approved_ids": [
+        "E346"
+      ],
+      "issues": [
+        "This entry covers the scripted ring, not the separate fabled lockout-only variant."
+      ]
+    },
+    {
+      "slug": "tenebrous-disciple-of-focus",
+      "title": "Disciple of Focus",
+      "zone": {
+        "short_name": "tenebrous",
+        "name": "Tenebrous Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "R020"
+      ],
+      "issues": [
+        "Publication blocker: combat starts timer cast, but the spell handler checks startcast. The intended recurring Quivering Nightmares cast does not follow from the current timer path and is intentionally not claimed as a working mechanic.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "tenebrous-hoober",
+      "title": "Hoober",
+      "zone": {
+        "short_name": "tenebrous",
+        "name": "Tenebrous Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E347"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "tenebrous-johanius-barleou",
+      "title": "Johanius Barleou",
+      "zone": {
+        "short_name": "tenebrous",
+        "name": "Tenebrous Mountains",
+        "version": 0
+      },
+      "approved_ids": [
+        "E348"
+      ],
+      "issues": [
+        "Johanius dialogue, transformation and later Slayer follow-up require a fuller publication review beyond the camp controller."
+      ]
+    },
+    {
+      "slug": "thedeep-deklean-korgad-invisible-bridge",
+      "title": "Deklean Korgad: invisible bridge",
+      "zone": {
+        "short_name": "thedeep",
+        "name": "The Deep",
+        "version": 0
+      },
+      "approved_ids": [
+        "E349"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "thedeep-the-burrower-beast",
+      "title": "The Burrower Beast",
+      "zone": {
+        "short_name": "thedeep",
+        "name": "The Deep",
+        "version": 0
+      },
+      "approved_ids": [
+        "E350"
+      ],
+      "issues": [
+        "Corrected the initial audit: the current event starts by proximity, not by killing the Burrower Beast. The orphan Burrower.lua controller is excluded."
+      ]
+    },
+    {
+      "slug": "thedeep-thought-horror-overfiend-seasonal",
+      "title": "Thought Horror Overfiend (Seasonal)",
+      "zone": {
+        "short_name": "thedeep",
+        "name": "The Deep",
+        "version": 200
+      },
+      "approved_ids": [
+        "E351"
+      ],
+      "issues": [
+        "The final-stage skill modifiers are labeled as magic vulnerability in comments, but their actual spell-damage effect requires server/database validation.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "thenest-a-failed-expedition-shargone",
+      "title": "A Failed Expedition: Shargone",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 8
+      },
+      "approved_ids": [
+        "E352"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thenest-circle-of-drakes",
+      "title": "Circle of Drakes",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 4
+      },
+      "approved_ids": [
+        "E353"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thenest-in-the-shadows-vishimtar",
+      "title": "In the Shadows: Vishimtar",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 3
+      },
+      "approved_ids": [
+        "E354"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thenest-rampaging-monolith",
+      "title": "Rampaging Monolith",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 14
+      },
+      "approved_ids": [
+        "E355"
+      ],
+      "issues": [
+        "Version14 is the named Toppling of the Monolith mission constant; verify the standalone Rampaging_Monolith NPC mapping against the deployed database before publication.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "thenest-rivals",
+      "title": "Rivals",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 11
+      },
+      "approved_ids": [
+        "E356"
+      ],
+      "issues": [
+        "The alternate tooth-return ending updates a task stage while announcing failure and suppressing in-zone rewards; verify intended reward behavior before publication."
+      ]
+    },
+    {
+      "slug": "thenest-t-shara",
+      "title": "T'Shara",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 0
+      },
+      "approved_ids": [
+        "E357"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thenest-the-curse-of-jurek",
+      "title": "The Curse of Jurek",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 6
+      },
+      "approved_ids": [
+        "E358"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thenest-web-of-lies",
+      "title": "Web of Lies",
+      "zone": {
+        "short_name": "thenest",
+        "name": "The Accursed Nest",
+        "version": 15
+      },
+      "approved_ids": [
+        "E359"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-a-simple-task",
+      "title": "A Simple Task",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 8
+      },
+      "approved_ids": [
+        "E360"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-an-end-to-the-storms-yar-lir",
+      "title": "An End to the Storms: Yar`Lir",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 200
+      },
+      "approved_ids": [
+        "E361"
+      ],
+      "issues": [
+        "Publication blocker: script_init loads this encounter for version 3, but the module removes the boss from nonzero instances unless version 200. No version 200 loader was confirmed. This draft describes the intended version 200 branch, not a verified playable expedition."
+      ]
+    },
+    {
+      "slug": "thundercrest-behind-closed-doors",
+      "title": "Behind Closed Doors",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 4
+      },
+      "approved_ids": [
+        "E362"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-four-corners",
+      "title": "Four Corners",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E363"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-holy-hour",
+      "title": "Holy Hour",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 2
+      },
+      "approved_ids": [
+        "E364"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "thundercrest-house-of-the-autumn-rose",
+      "title": "House of the Autumn Rose",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 5
+      },
+      "approved_ids": [
+        "E365"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-lair-unguarded",
+      "title": "Lair Unguarded",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 6
+      },
+      "approved_ids": [
+        "E366"
+      ],
+      "issues": [
+        "The source labels the guardian location list possibly incomplete and notes the statue timer needs a quest reload after repop. Verify deployed spawns/reset behavior."
+      ]
+    },
+    {
+      "slug": "thundercrest-lore-warden",
+      "title": "Lore Warden",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E367"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-plunder-the-hoard",
+      "title": "Plunder the Hoard",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 13
+      },
+      "approved_ids": [
+        "E368"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-scions-of-thundercrest",
+      "title": "Scions of Thundercrest",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 7
+      },
+      "approved_ids": [
+        "E369"
+      ],
+      "issues": [
+        "The source marks the chest location list possibly incomplete; verify against deployed mission spawns."
+      ]
+    },
+    {
+      "slug": "thundercrest-splitting-the-storm",
+      "title": "Splitting the Storm",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 9
+      },
+      "approved_ids": [
+        "E370"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "thundercrest-storm-chasers-raging-thunderhead",
+      "title": "Storm Chasers / Raging Thunderhead",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E371"
+      ],
+      "issues": [
+        "The growth emote is verified; exact Raging Thunderhead stat scaling is not defined in these reviewed scripts."
+      ]
+    },
+    {
+      "slug": "thundercrest-stormreach-challenge-goblin-dojo",
+      "title": "Stormreach Challenge: Goblin Dojo",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 10
+      },
+      "approved_ids": [
+        "E372"
+      ],
+      "issues": [
+        "The controller intentionally enables a historical retry bug after early-wave failure; later reset behavior must be verified before documenting guaranteed retries."
+      ]
+    },
+    {
+      "slug": "thundercrest-the-creator",
+      "title": "The Creator",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 11
+      },
+      "approved_ids": [
+        "R021"
+      ],
+      "issues": [
+        "Publication blocker for lower difficulties: the source hardcodes level 68+ NPC templates and explicitly states that lower-difficulty mappings still need work. Confirm the selected task difficulty before publication."
+      ]
+    },
+    {
+      "slug": "thundercrest-throes-of-contagion",
+      "title": "Throes of Contagion",
+      "zone": {
+        "short_name": "thundercrest",
+        "name": "Thundercrest Isles",
+        "version": 12
+      },
+      "approved_ids": [
+        "E373"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "timorous-draz-nurakk-and-his-images",
+      "title": "Draz Nurakk and his images",
+      "zone": {
+        "short_name": "timorous",
+        "name": "Timorous Deep",
+        "version": 0
+      },
+      "approved_ids": [
+        "E374"
+      ],
+      "issues": [
+        "Image template IDs are verified by spawn calls; the initial Draz Nurakk template requires database confirmation."
+      ]
+    },
+    {
+      "slug": "timorous-gefaari-drokaz",
+      "title": "Gefaari Drokaz",
+      "zone": {
+        "short_name": "timorous",
+        "name": "Timorous Deep",
+        "version": 0
+      },
+      "approved_ids": [
+        "E375"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "tipt-tipt-mountain-trials-kyv-heartstriker-jhiru",
+      "title": "Tipt mountain trials / Kyv Heartstriker Jhiru",
+      "zone": {
+        "short_name": "tipt",
+        "name": "Tipt, Treacherous Crags",
+        "version": 0
+      },
+      "approved_ids": [
+        "E376"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "torgiran-overseer-wrank-and-the-captains",
+      "title": "Overseer Wrank and the Captains",
+      "zone": {
+        "short_name": "torgiran",
+        "name": "Torgiran Mines",
+        "version": 0
+      },
+      "approved_ids": [
+        "E377"
+      ],
+      "issues": [
+        "The controller tests exactly twenty accumulated key credits; verify the upstream turn-in handling prevents overshooting that value."
+      ]
+    },
+    {
+      "slug": "torgiran-taskmaster-lugald-brokenskull",
+      "title": "Taskmaster Lugald Brokenskull",
+      "zone": {
+        "short_name": "torgiran",
+        "name": "Torgiran Mines",
+        "version": 0
+      },
+      "approved_ids": [
+        "E378"
+      ],
+      "issues": [
+        "The exact set of enemies supplying the twenty-three signals should be checked against the deployed spawn population before publication."
+      ]
+    },
+    {
+      "slug": "txevu-ancient-cragbeast-matriarch",
+      "title": "Ancient Cragbeast Matriarch",
+      "zone": {
+        "short_name": "txevu",
+        "name": "Txevu, Lair of the Elite",
+        "version": 0
+      },
+      "approved_ids": [
+        "E379"
+      ],
+      "issues": [
+        "The audit described generic HP phases, but the reviewed controller actually ties these benefits to living bearer NPCs."
+      ]
+    },
+    {
+      "slug": "txevu-high-priest-nkosi-bakari",
+      "title": "High Priest Nkosi Bakari",
+      "zone": {
+        "short_name": "txevu",
+        "name": "Txevu, Lair of the Elite",
+        "version": 0
+      },
+      "approved_ids": [
+        "E380"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "txevu-ikaav-nysf-lleiv",
+      "title": "Ikaav Nysf Lleiv",
+      "zone": {
+        "short_name": "txevu",
+        "name": "Txevu, Lair of the Elite",
+        "version": 0
+      },
+      "approved_ids": [
+        "E381"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "txevu-mastruq-champion-ixt-hsek-syat",
+      "title": "Mastruq Champion / Ixt Hsek Syat",
+      "zone": {
+        "short_name": "txevu",
+        "name": "Txevu, Lair of the Elite",
+        "version": 0
+      },
+      "approved_ids": [
+        "E382"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "txevu-ukun-bloodfeaster",
+      "title": "Ukun Bloodfeaster",
+      "zone": {
+        "short_name": "txevu",
+        "name": "Txevu, Lair of the Elite",
+        "version": 0
+      },
+      "approved_ids": [
+        "E383"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "txevu-zun-muram-tkarish-zyk",
+      "title": "Zun`Muram Tkarish Zyk",
+      "zone": {
+        "short_name": "txevu",
+        "name": "Txevu, Lair of the Elite",
+        "version": 0
+      },
+      "approved_ids": [
+        "E384"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "uqua-tqiv-araxt-the-enraged-and-tqiv-qukret-the-furious",
+      "title": "Tqiv Araxt the Enraged and Tqiv Qukret the Furious",
+      "zone": {
+        "short_name": "uqua",
+        "name": "Uqua, The Ocean God Chantry",
+        "version": 0
+      },
+      "approved_ids": [
+        "E385"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "uqua-uqua-gas-chambers",
+      "title": "Uqua gas chambers",
+      "zone": {
+        "short_name": "uqua",
+        "name": "Uqua, The Ocean God Chantry",
+        "version": 0
+      },
+      "approved_ids": [
+        "E386"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "uqua-vrex-barxt-qurat-and-guardian-of-destruction",
+      "title": "Vrex Barxt Qurat and Guardian of Destruction",
+      "zone": {
+        "short_name": "uqua",
+        "name": "Uqua, The Ocean God Chantry",
+        "version": 0
+      },
+      "approved_ids": [
+        "E387"
+      ],
+      "issues": [
+        "Barxt starts a tether_check timer but the handler tests tether; his own leash requires verification. The Guardian and channeler boundary checks are present."
+      ]
+    },
+    {
+      "slug": "veeshan-phara-dar-and-the-ring-of-scale",
+      "title": "Phara Dar and the Ring of Scale",
+      "zone": {
+        "short_name": "veeshan",
+        "name": "Veeshan's Peak",
+        "version": 0
+      },
+      "approved_ids": [
+        "E388"
+      ],
+      "issues": [
+        "The source calls this Phara Dar 2.0 but does not specify an instance version. Version0 represents the unversioned zone script; confirm the deployed spawn version before publication."
+      ]
+    },
+    {
+      "slug": "veksar-decaying-lord-galuk-drek",
+      "title": "Decaying Lord Galuk Drek",
+      "zone": {
+        "short_name": "veksar",
+        "name": "Veksar",
+        "version": 0
+      },
+      "approved_ids": [
+        "E389"
+      ],
+      "issues": [
+        "The combat handler does not stop the spell timer on disengagement; verify wipe behavior and database spell effects before publication.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "veksar-raging-bloodgill",
+      "title": "Raging Bloodgill",
+      "zone": {
+        "short_name": "veksar",
+        "name": "Veksar",
+        "version": 0
+      },
+      "approved_ids": [
+        "E390"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "vexthal-aten-ha-ra-progression-akhevan-warders",
+      "title": "Aten Ha Ra progression / Akhevan Warders",
+      "zone": {
+        "short_name": "vexthal",
+        "name": "Vex Thal",
+        "version": 0
+      },
+      "approved_ids": [
+        "E391"
+      ],
+      "issues": [
+        "This draft documents warder progression and variant selection; it does not claim distinct Aten combat mechanics absent from the reviewed trigger."
+      ]
+    },
+    {
+      "slug": "vexthal-npc-158006-teleport-hunt",
+      "title": "NPC 158006: teleport hunt",
+      "zone": {
+        "short_name": "vexthal",
+        "name": "Vex Thal",
+        "version": 0
+      },
+      "approved_ids": [
+        "R024"
+      ],
+      "issues": [
+        "Publication blocker: NPC 158006 has no display name or verified spawn-version mapping in the reviewed script. The numeric identity is preserved; resolve its database name and deployed version before publication."
+      ]
+    },
+    {
+      "slug": "vxed-vxed-trial-stonespiritist-ekikoa",
+      "title": "Vxed trial / Stonespiritist Ekikoa",
+      "zone": {
+        "short_name": "vxed",
+        "name": "Vxed, The Crumbling Caverns",
+        "version": 0
+      },
+      "approved_ids": [
+        "E392"
+      ],
+      "issues": [
+        "Final dialogue and progression credit need a separate review of Ekikoa before publication."
+      ]
+    },
+    {
+      "slug": "wakening-cristoc-bonethug",
+      "title": "Cristoc Bonethug",
+      "zone": {
+        "short_name": "wakening",
+        "name": "The Wakening Land",
+        "version": 0
+      },
+      "approved_ids": [
+        "E393"
+      ],
+      "issues": [
+        "The audit described linked aggression, but these reviewed scripts only verify the spawns and despawn timers; database social aggro remains unverified."
+      ]
+    },
+    {
+      "slug": "wakening-dark-disciple-master",
+      "title": "Dark Disciple Master",
+      "zone": {
+        "short_name": "wakening",
+        "name": "The Wakening Land",
+        "version": 0
+      },
+      "approved_ids": [
+        "E394"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "wakening-wuoshi-seasonal",
+      "title": "Wuoshi (Seasonal)",
+      "zone": {
+        "short_name": "wakening",
+        "name": "The Wakening Land",
+        "version": 200
+      },
+      "approved_ids": [
+        "E395"
+      ],
+      "issues": [
+        "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+      ]
+    },
+    {
+      "slug": "wallofslaughter-discordling-spiritcaller",
+      "title": "Discordling Spiritcaller",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 0
+      },
+      "approved_ids": [
+        "E396"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "wallofslaughter-durunal-the-cursebearer",
+      "title": "Durunal the Cursebearer",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 0
+      },
+      "approved_ids": [
+        "E397"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "wallofslaughter-lightning-lord",
+      "title": "Lightning Lord",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 0
+      },
+      "approved_ids": [
+        "E398"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "wallofslaughter-murkglider-hivequeen",
+      "title": "Murkglider Hivequeen",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 0
+      },
+      "approved_ids": [
+        "E399"
+      ],
+      "issues": [
+        "Egg and hatchling template IDs are verified; the Hivequeen template still needs database confirmation."
+      ]
+    },
+    {
+      "slug": "wallofslaughter-pyrique-redwing",
+      "title": "Pyrique Redwing",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 0
+      },
+      "approved_ids": [
+        "E400"
+      ],
+      "issues": [
+        "The source explicitly treats killing the real shadow as an uncertain historical behavior; that alternate transition needs live validation."
+      ]
+    },
+    {
+      "slug": "wallofslaughter-tarn-icewind",
+      "title": "Tarn Icewind",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 0
+      },
+      "approved_ids": [
+        "E401"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "wallofslaughter-tarn-icewind-seasonal",
+      "title": "Tarn Icewind (Seasonal)",
+      "zone": {
+        "short_name": "wallofslaughter",
+        "name": "Wall of Slaughter",
+        "version": 200
+      },
+      "approved_ids": [
+        "E401"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "warslikswood-raving-goblinmaster",
+      "title": "Raving Goblinmaster",
+      "zone": {
+        "short_name": "warslikswood",
+        "name": "Warsliks Woods",
+        "version": 0
+      },
+      "approved_ids": [
+        "E402"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "westkorlach-grokui-the-slumbering-basilisk",
+      "title": "Grokui, the Slumbering Basilisk",
+      "zone": {
+        "short_name": "westkorlach",
+        "name": "Stoneroot Falls",
+        "version": 0
+      },
+      "approved_ids": [
+        "E403"
+      ],
+      "issues": [
+        "The script sets 430,000 current HP rather than using GetMaxHP; compare the deployed NPC max health before describing each transition as a full heal.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "westkorlacha-matriarch-shyra",
+      "title": "Matriarch Shyra",
+      "zone": {
+        "short_name": "westkorlacha",
+        "name": "The Lodge of the Fang",
+        "version": 0
+      },
+      "approved_ids": [
+        "E404"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "westkorlachb-find-fibblebrap-2-lost-caverns",
+      "title": "Find Fibblebrap 2: Lost Caverns",
+      "zone": {
+        "short_name": "westkorlachb",
+        "name": "Caverns of the Lost",
+        "version": 1
+      },
+      "approved_ids": [
+        "E405"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "westwastes-disciple-of-moon",
+      "title": "Disciple of Moon",
+      "zone": {
+        "short_name": "westwastes",
+        "name": "Western Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E406"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "westwastes-klandicar-seasonal",
+      "title": "Klandicar (Seasonal)",
+      "zone": {
+        "short_name": "westwastes",
+        "name": "Western Wastes",
+        "version": 200
+      },
+      "approved_ids": [
+        "E407"
+      ],
+      "issues": [
+        "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+      ]
+    },
+    {
+      "slug": "westwastes-scout-charisa-kromzek-captain",
+      "title": "Scout Charisa: Kromzek Captain",
+      "zone": {
+        "short_name": "westwastes",
+        "name": "Western Wastes",
+        "version": 0
+      },
+      "approved_ids": [
+        "E408"
+      ],
+      "issues": []
+    },
+    {
+      "slug": "yxtta-hexxt-huntmaster",
+      "title": "Hexxt Huntmaster",
+      "zone": {
+        "short_name": "yxtta",
+        "name": "Yxtta, Pulpit of Exiles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E409"
+      ],
+      "issues": [
+        "The volley handler only covers hate-list sizes one through six; behavior above six targets needs verification.",
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "yxtta-pixtt-suir-mindrider",
+      "title": "Pixtt Suir Mindrider",
+      "zone": {
+        "short_name": "yxtta",
+        "name": "Yxtta, Pulpit of Exiles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E410"
+      ],
+      "issues": [
+        "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+      ]
+    },
+    {
+      "slug": "yxtta-primal-door-riddle",
+      "title": "Primal door riddle",
+      "zone": {
+        "short_name": "yxtta",
+        "name": "Yxtta, Pulpit of Exiles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E411"
+      ],
+      "issues": [
+        "Publication blocker: enterzone is not named event_enter_zone and its numeric status check uses Lua truthiness; verify door initialization. The initial question increment also skips an index, so no exact answer count is claimed."
+      ]
+    },
+    {
+      "slug": "yxtta-xounii-shifter-tqiv-trusik-fanatic",
+      "title": "Xounii Shifter / Tqiv Trusik Fanatic",
+      "zone": {
+        "short_name": "yxtta",
+        "name": "Yxtta, Pulpit of Exiles",
+        "version": 0
+      },
+      "approved_ids": [
+        "E412"
+      ],
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "sebilis-trakanon-seasonal",
+  "title": "Trakanon (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "sebilis",
+    "name": "Old Sebilis",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Trakanon alternates close-range bile, random deathgaze and a banishment of his leading target.",
+  "overview": [
+    "Trakanon alternates close-range bile, random deathgaze and a banishment of his leading target."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Arrange a tank handoff when the current target is banished and keep healers ready for simultaneous damage."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Bile bursts every 20 seconds within 70 range; deathgaze checks a random hate target every 40 seconds.",
+        "Every 30 seconds, the leading client or pet owner is moved away and reduced to minimal hate.",
+        "At 20% health, scripted timers stop and several slashing, piercing and blunt attacks gain increased damage taken."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sebilis/Trakanon.lua",
+        "sha256": "65a0a3938ed78920bfdc5077c6abd92dd431a06ccae836282d12f2f4fae8016c"
+      }
+    ],
+    "notes": [
+      "Approval E286. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

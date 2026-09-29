@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "slug": "rathemtn-warrior-spirit-chalex-captain-krignok",
+  "title": "Warrior Spirit Chalex: Captain Krignok",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "rathemtn",
+    "name": "The Rathe Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    50329,
+    50331,
+    50330
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect Chalex through Krignok's assault and return the quest sword after the fight.",
+  "overview": [
+    "Give the restored quest sword to the pile of froglok remains to summon Warrior Spirit Chalex. He moves into position and calls Krignok twenty seconds after appearing.",
+    "Krignok attacks Chalex and summons nine undead troll marauders in three closely spaced groups. Protect the spirit while controlling the adds.",
+    "When Chalex leaves combat, his redeemed form appears. Return the quest sword to that form within its ten-minute window."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "sword",
+      "title": "Quest sword",
+      "paragraphs": [
+        "The remains accept the restored sword and return the version used for the final hand-in."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 67012,
+          "name": "Restored quest sword",
+          "quantity": 1
+        },
+        {
+          "id": 67020,
+          "name": "Returned quest sword",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "rathemtn/Warrior_Spirit_Chalex.lua",
+        "sha256": "d5b6fff4dffcba1e0c5dc86101b8a0b79c3f87eae6a7841124f55fb62a9ed92c"
+      },
+      {
+        "path": "rathemtn/#a_pile_of_froglok_remains.lua",
+        "sha256": "9ab2b3359b4fd458a2b0274f1656052b52f0b4a10858d4f5326921b60f231c84"
+      },
+      {
+        "path": "rathemtn/Troll_Captain_Krignok.lua",
+        "sha256": "000757706921ca1e49d72235ba699c76a067a7dbd067886bf6d579af0530a55d"
+      },
+      {
+        "path": "rathemtn/Chalex_the_Redeemed.lua",
+        "sha256": "b65c14f092b47c81290809375780233dcb7a3b32197e69f0399ce5bee986fcb2"
+      }
+    ],
+    "notes": [
+      "Approved row E272. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "Chalex transforms on leaving combat rather than on a confirmed Krignok death. Verify this recovery/completion edge before publication.",
+      "Krignok begins a five-minute despawn timer after the third add wave; that timer is not paused in combat."
+    ]
+  }
+}

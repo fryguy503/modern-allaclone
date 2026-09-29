@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "necropolis-vesthon-marijakin-and-the-dracoliche-of-hsagra",
+  "title": "Vesthon Marijakin and the Dracoliche of Hsagra",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "necropolis",
+    "name": "Dragon Necropolis",
+    "version": 0
+  },
+  "npc_ids": [
+    123173,
+    123175,
+    123176,
+    123177,
+    123178,
+    123179,
+    123180,
+    123181,
+    123189
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Vesthon’s seven masters, then confront Vesthon and the Dracoliche of Hsagra.",
+  "overview": [
+    "Defeat Vesthon’s seven masters, then confront Vesthon and the Dracoliche of Hsagra."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each master has two minions. The minions respawn while their master lives and disappear when that master is defeated, so focus the masters while controlling their servants.",
+        "Masters become actively hostile at 80% health. Coordinate the first damage push so the raid is ready when each one engages.",
+        "Do not drag minions beyond their short leash: returning them increases their damage.",
+        "Defeating all seven masters activates Vesthon. His death replaces Hsagra’s relics with the Dracoliche for the final battle.",
+        "The event has a two-hour cleanup timer. Complete the full sequence before its expiry."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "necropolis/encounters/vesthon.lua",
+        "sha256": "f382fe36083c93b7ae71426e874ace20ce206ab2fa48eaee56363580db7e16de"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "torgiran-taskmaster-lugald-brokenskull",
+  "title": "Taskmaster Lugald Brokenskull",
+  "group": "Legacy of Ykesha",
+  "type": "group",
+  "zone": {
+    "short_name": "torgiran",
+    "name": "Torgiran Mines",
+    "version": 0
+  },
+  "npc_ids": [
+    226207
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the taskmaster's supporting force to reveal his attackable form.",
+  "overview": [
+    "Defeat the taskmaster's supporting force to reveal his attackable form."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Finish the required supporting enemies and be ready to pick up the newly spawned taskmaster."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The controller counts qualifying death signals.",
+        "The twenty-third signal removes the protected Taskmaster Luga and spawns Taskmaster Lugald Brokenskull.",
+        "The controller then depops, making this a single transition per spawn cycle."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "torgiran/#overlord_counter.lua",
+        "sha256": "b261d3b788a6fd67e3eb6016b40624ecd21fe5aa20328a1c953e819f6a80d915"
+      }
+    ],
+    "notes": [
+      "Approval E378. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The exact set of enemies supplying the twenty-three signals should be checked against the deployed spawn population before publication."
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-protector-of-dresolik",
+  "title": "Protector of Dresolik",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212063
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight the Protector of Dresolik within his guarded chamber.",
+  "overview": [
+    "Fight the Protector of Dresolik within his guarded chamber."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the boss inside the chamber to avoid a complete reset."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The protector checks his east-west room boundary every six seconds.",
+        "Crossing the boundary fully heals him, returns him to bind and clears hate.",
+        "He has a 30-minute out-of-combat despawn timer; victory produces a planar projection and warders."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/#The_Protector_of_Dresolik.lua",
+        "sha256": "907b302acf0d98ff5ca7f15b917e04b86764aaf98622f54399d9b277c8b4c5e5"
+      }
+    ],
+    "notes": [
+      "Approval E305. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

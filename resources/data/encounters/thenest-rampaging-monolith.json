@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-rampaging-monolith",
+  "title": "Rampaging Monolith",
+  "group": "Dragons of Norrath",
+  "type": "event",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 14
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the Rampaging Monolith into progressively smaller pieces while controlling its fragments.",
+  "overview": [
+    "Break the Rampaging Monolith into progressively smaller pieces while controlling its fragments."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign an add tank and clear fragments before pushing the next health threshold."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 85%, 70%, 55%, 40%, 25% and 10% health, the boss releases four debris and rubble adds.",
+        "Each threshold also shrinks the boss, but does not remove the existing fragments.",
+        "Pause boss damage when necessary to prevent several fragment waves overlapping."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/Rampaging_Monolith.lua",
+        "sha256": "932543e8a2741da6cb2170644c6f024f1f555f944351b5cab7212bd2a0580739"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E355. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Version14 is the named Toppling of the Monolith mission constant; verify the standalone Rampaging_Monolith NPC mapping against the deployed database before publication.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

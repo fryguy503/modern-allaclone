@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "hateplaneb-maestro-of-rancor",
+  "title": "Maestro of Rancor",
+  "group": "Plane of Hate",
+  "type": "raid",
+  "zone": {
+    "short_name": "hateplaneb",
+    "name": "The Plane of Hate",
+    "version": 0
+  },
+  "npc_ids": [
+    186111,
+    186191,
+    186192,
+    186193,
+    186194
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Maestro’s performance brings supporting musicians and banshees into the hall.",
+  "overview": [
+    "The Maestro’s performance brings supporting musicians and banshees into the hall."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 95% health, three silent banshees appear.",
+        "At 75%, two accompanists grant the Maestro very high health regeneration. Kill both accompanists to remove it.",
+        "At 40%, the silent banshees are replaced with screeching, moaning and wailing banshees. The moaning banshee repeatedly attacks the top hate target’s mana.",
+        "Killing every active singing banshee while the Maestro lives summons two more. Manage the remaining banshees while finishing the boss.",
+        "Stay inside the music hall. The boss leashes outside its boundaries and the event resets after sixty seconds out of combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hateplaneb/encounters/maestro.lua",
+        "sha256": "30a9518619a23b8b43a3ccb11b97b0945ec90a6ff8afa03c6331a8ed180534be"
+      },
+      {
+        "path": "hateplaneb/script_init.lua",
+        "sha256": "14dcf1c22330fbdb395190ebbd5ec24a8597c18af6c34e0d46af238150ad3c66"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "This guide covers the revamped Maestro template. The controller selects an older template when global expansion progression is below 2."
+    ]
+  }
+}

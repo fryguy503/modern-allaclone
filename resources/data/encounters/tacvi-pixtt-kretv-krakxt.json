@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-pixtt-kretv-krakxt",
+  "title": "Pixtt Kretv Krakxt",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298201
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Kretv Krakxt repeatedly sheds a husk and releases stronger brood waves.",
+  "overview": [
+    "Kretv Krakxt repeatedly sheds a husk and releases stronger brood waves."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear each brood fully and save raid recovery for the final area-rampage stage."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 90%, 70%, 50% and 30% health, the boss disappears into a husk and releases four, five, six and seven hatchlings respectively.",
+        "Kill the full brood to restore the boss; additional roaming reflections complicate later stages.",
+        "At 10%, three hatchlings appear while the boss remains active, switches to area rampage and begins a 12-second spell cycle.",
+        "The room seals early in the encounter and punishes attempts to leave."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/pkk.lua",
+        "sha256": "65e44cd2048a389d819b149492c22c19a66258fd13fe7f6152a50e1d6309c4a8"
+      }
+    ],
+    "notes": [
+      "Approval E330. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

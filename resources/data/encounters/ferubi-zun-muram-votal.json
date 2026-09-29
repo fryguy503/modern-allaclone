@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "ferubi-zun-muram-votal",
+  "title": "Zun-Muram Votal",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "ferubi",
+    "name": "Ferubi",
+    "version": 0
+  },
+  "npc_ids": [
+    284080,
+    284079,
+    284103
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keep Votal and his two Pixtt guards inside their encounter area.",
+  "overview": [
+    "Votal brings both Pixtt guards into the fight, and the guards call one another and Votal when engaged. Plan for a linked pull instead of isolated enemies."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep the fight south of the boundary and assign coverage for both guards."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "boundary",
+      "name": "Encounter boundary",
+      "summary": "Crossing north of Y -400 sends these enemies home.",
+      "description": [
+        "The reviewed Votal and Pixtt scripts check the boundary every six seconds, return the NPC to its bind location and clear its hate list."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "guards",
+      "title": "Guard recovery",
+      "paragraphs": [
+        "Votal creates the guards while idle. A 30-minute replacement timer begins on initial engagement; if he is still fighting when it expires, the replacement waits until combat ends."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ferubi/Zun-Muram_Votal.lua",
+        "sha256": "21c534438f0aa806c94015034cff822c9c7d7f38d619e3411a5cee26dae4a1eb"
+      },
+      {
+        "path": "ferubi/Pixtt_Votal.lua",
+        "sha256": "67c27c96590275c4d16757a0ba26c6b41c9f42320f740e925fe5007ba83fff3d"
+      },
+      {
+        "path": "ferubi/Pixtt_Votal_.lua",
+        "sha256": "29b38159f641e1cab3ffc1b07d112c93dec892fbdb9bae3c6b25ba964b637b6d"
+      }
+    ],
+    "notes": [
+      "Approved row E123. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified."
+    ]
+  }
+}

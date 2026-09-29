@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "qinimi-thunderdome",
+  "title": "Thunderdome: First Chamber",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "qinimi",
+    "name": "Qinimi, Court of Nihilia",
+    "version": 0
+  },
+  "npc_ids": [
+    281125,
+    281149,
+    281150,
+    281151
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the chamber waves and identify the real boss before the Thunderdome deadline.",
+  "overview": [
+    "At the required Qinimi quest stage, tell Councilman Sislono Nislan you are ready while in a raid with at least six members in the zone. He assigns an available chamber.",
+    "In the reviewed first chamber, clear twenty-one opening enemies and three ratuks within ten minutes. The complete event has a separate twenty-seven-minute timer.",
+    "After Kabeka falls, test the boss images by taking them to 90% health. Finding the real image advances the fight immediately; a false image removes the set and produces fewer choices."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "waves",
+      "label": "Chamber waves",
+      "trigger": "Event begins",
+      "description": "Six guardians spawn after five seconds, six noc and ukun at one minute, and nine more at three minutes. Clear all twenty-one."
+    },
+    {
+      "id": "ratuks",
+      "label": "Three ratuks",
+      "trigger": "Opening enemies defeated",
+      "description": "Defeat the three ratuks. Completing this stage stops the first ten-minute deadline."
+    },
+    {
+      "id": "kabeka",
+      "label": "Kabeka",
+      "trigger": "Three ratuks defeated",
+      "description": "Manage arrow volleys and the self-buff at 5% health."
+    },
+    {
+      "id": "images",
+      "label": "Find the real image",
+      "trigger": "Kabeka defeated",
+      "description": "Push images to 90% until the real boss appears. Wrong choices reduce the next set; exhausting the choices also produces the final boss."
+    },
+    {
+      "id": "final",
+      "label": "Final boss",
+      "trigger": "Real image identified",
+      "description": "Defeat the final incarnation before the overall deadline."
+    }
+  ],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qinimi/encounters/thunder_dome_one.lua",
+        "sha256": "3ddc1c8d07f1195007a4081efc8e7f797ca120d3d5b4341644cfdf4237f011ea"
+      },
+      {
+        "path": "qinimi/#Councilman_Sislono_Nislan.lua",
+        "sha256": "17c6e523be36d94c8225c2e42f2a45121c3fc910974594b8eb1d5374ae72db5c"
+      }
+    ],
+    "notes": [
+      "Approved row E266. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "Only thunder_dome_one combat logic was reviewed. The launcher also offers chambers two and three; those branches need their own source comparison before this guide claims to cover every room.",
+      "The launcher dialogue says eighteen participants and the module declares player_limit=18, but this module does not enforce that variable. Do not present eighteen as a verified admission cap.",
+      "The final boss calls stop_timer(\"fail_2\") on itself although the overall timer belongs to the controller, then cleanup depops the final boss. Verify the victory, loot and delayed-ejection path before publication."
+    ]
+  }
+}

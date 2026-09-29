@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "acrylia-ring-of-fire",
+  "title": "Ring of Fire",
+  "group": "Acrylia",
+  "type": "event",
+  "zone": {
+    "short_name": "acrylia",
+    "name": "Acrylia Caverns",
+    "version": 0
+  },
+  "npc_ids": [
+    154357,
+    154358,
+    154359,
+    154360,
+    154361,
+    154362
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight through successive grimling rounds in the Ring of Fire.",
+  "overview": [
+    "Fight through successive grimling rounds in the Ring of Fire."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for repeated trash waves followed by stronger enemies.",
+        "Keep tanks available for the named boss at the end of each round.",
+        "Use gaps between spawns to recover and reposition before the next round."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "acrylia/#RoF_spawner.lua",
+        "sha256": "9506712fb778e54b308a3b49e0a649bb2a4a3da244988585262a775412a52d5d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

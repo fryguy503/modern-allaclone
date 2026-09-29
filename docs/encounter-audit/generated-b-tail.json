@@ -1,0 +1,101 @@
+[
+  {
+    "id": "E262",
+    "slug": "qey2hh1-yuanda-werewolf-ambush",
+    "issues": []
+  },
+  {
+    "id": "E263",
+    "slug": "qeynos2-enchanted-rat-experiment",
+    "issues": [
+      "Jar IDs and tile behavior are source-verified; the individual jar display names still require database confirmation."
+    ]
+  },
+  {
+    "id": "E264",
+    "slug": "qinimi-execution-rescue-kreshin-silentcog",
+    "issues": []
+  },
+  {
+    "id": "E265",
+    "slug": "qinimi-mastruq-commander-gorlakt-and-the-spiritlords",
+    "issues": [
+      "Gorlakt stops both spell timers when combat ends but keeps spell_active set. The reviewed script does not restart those timers on re-engagement; verify recovery before publication."
+    ]
+  },
+  {
+    "id": "E266",
+    "slug": "qinimi-thunderdome",
+    "issues": [
+      "Only thunder_dome_one combat logic was reviewed. The launcher also offers chambers two and three; those branches need their own source comparison before this guide claims to cover every room.",
+      "The launcher dialogue says eighteen participants and the module declares player_limit=18, but this module does not enforce that variable. Do not present eighteen as a verified admission cap.",
+      "The final boss calls stop_timer(\"fail_2\") on itself although the overall timer belongs to the controller, then cleanup depops the final boss. Verify the victory, loot and delayed-ejection path before publication."
+    ]
+  },
+  {
+    "id": "E268",
+    "slug": "qvic-hexxt-ilk-klokk",
+    "issues": [
+      "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+      "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+    ]
+  },
+  {
+    "id": "E269",
+    "slug": "qvic-hexxt-jkak-miq",
+    "issues": [
+      "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+      "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+    ]
+  },
+  {
+    "id": "E270",
+    "slug": "qvic-hexxt-pvin-nki",
+    "issues": [
+      "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+      "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+    ]
+  },
+  {
+    "id": "E272",
+    "slug": "rathemtn-warrior-spirit-chalex-captain-krignok",
+    "issues": [
+      "Chalex transforms on leaving combat rather than on a confirmed Krignok death. Verify this recovery/completion edge before publication.",
+      "Krignok begins a five-minute despawn timer after the third add wave; that timer is not paused in combat."
+    ]
+  },
+  {
+    "id": "E273",
+    "slug": "riftseekers-chailak",
+    "issues": []
+  },
+  {
+    "id": "E274",
+    "slug": "riftseekers-craftmaster-tieranu",
+    "issues": [
+      "The cleanup function omits Sizzle (334090), although it removes the other elemental IDs. Verify leftover-add behavior before publication."
+    ]
+  },
+  {
+    "id": "E275",
+    "slug": "riftseekers-king-gelaqua-and-the-princes",
+    "issues": [
+      "One prince transition signals 334045, a princess ID, instead of the apparent remaining prince 334035. Verify both trio-clear orders before publication.",
+      "Orb target selection uses a large placeholder range marked TODO in the source. Current crowd-control susceptibility is database-dependent and is not promised here."
+    ]
+  },
+  {
+    "id": "E276",
+    "slug": "riftseekers-queen-pyrilonis-and-the-princesses",
+    "issues": [
+      "Construct target selection uses a large placeholder range marked TODO in the source. Live range and database spell effects remain unverified."
+    ]
+  },
+  {
+    "id": "E277",
+    "slug": "riwwi-arena-turlini-and-the-enslaved-yunjo",
+    "issues": [
+      "The sequence and trade IDs are source-verified. Container recipe contents, enemy spell lists and equipment rewards require database review. No boss-specific abilities are invented for the wave roster."
+    ]
+  }
+]

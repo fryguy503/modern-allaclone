@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "potorment-maareq-the-prophet",
+  "title": "Maareq the Prophet",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "potorment",
+    "name": "Plane of Torment",
+    "version": 0
+  },
+  "npc_ids": [
+    207004
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Stop Maareq’s minions from reaching him while he transforms into an increasingly dangerous melee opponent.",
+  "overview": [
+    "Stop Maareq’s minions from reaching him while he transforms into an increasingly dangerous melee opponent."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "A minion appears every five seconds during combat. Any minion that gets within five units of Maareq is absorbed and heals him for 6,000 health.",
+        "Intercept the minions on their approach instead of letting them collect at the boss.",
+        "At 80%, Maareq grows. At 60%, he transforms and attacks faster. At 40%, he gains area rampage.",
+        "Prepare melee healing for the final stage. His death removes the remaining minions and activates Tylis Newleaf."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potorment/Maareq_the_Prophet.lua",
+        "sha256": "ea6800ce2f4e7323e7c983d5fb14e4059de81d872dd98399080437b5c44806a7"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

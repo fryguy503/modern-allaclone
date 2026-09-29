@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-trial-of-execution",
+  "title": "Trial of Execution",
+  "group": "Planes of Power",
+  "type": "group",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201470
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Save the prisoner from execution through four waves, then defeat Prime Executioner Vathoch.",
+  "overview": [
+    "Save the prisoner from execution through four waves, then defeat Prime Executioner Vathoch."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each wave brings four enemies while the executioner moves toward the prisoner. The executioner moves faster with each new wave.",
+        "Killing a wave enemy interrupts the executioner and sends it back when more enemies remain. Use those kills to buy time, then finish the wave.",
+        "Do not allow the executioner to remain at the prisoner. Its execution timer causes the trial to fail.",
+        "After the fourth wave is cleared, defeat Vathoch to complete the trial."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/#Event_Execution_Control.lua",
+        "sha256": "6c3f8a3cc464114eaee89e4ed2f16f3067801086f934dfe9dad0bd55aa59143e"
+      },
+      {
+        "path": "pojustice/#an_executioner.lua",
+        "sha256": "9e1737c59d6b8bef10062981436928a2134d1defae0ca912e5782c7cefaa5a44"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

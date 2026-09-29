@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "acrylia-archmage-gorraferg-ring",
+  "title": "Archmage Gorraferg ring",
+  "group": "Acrylia",
+  "type": "event",
+  "zone": {
+    "short_name": "acrylia",
+    "name": "Acrylia Caverns",
+    "version": 0
+  },
+  "npc_ids": [
+    154388
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive the grimling waves to draw out Archmage Gorraferg.",
+  "overview": [
+    "Survive the grimling waves to draw out Archmage Gorraferg."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Assemble before triggering the ring; the controller advances through eight wave stages.",
+        "Pick up new grimlings promptly and keep the fighting area clear for the next wave.",
+        "The last stage calls the archmage after a short delay. Save resources for that final opponent."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "acrylia/#archmage_spawner.lua",
+        "sha256": "235fea9c779a138f3c5e5785d9a516c41a71c5112fbcd89b5270b268305b9c87"
+      },
+      {
+        "path": "acrylia/#the_grimling_archmage.lua",
+        "sha256": "c9daeefc8e226a3bb547273b7ae516eba930343ccbabf0e757ae3e83e8cdc763"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "hateplaneb-lanys-t-vyl-teir-dal-guardian-event",
+  "title": "Lanys T'Vyl / Teir'Dal guardian event",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "hateplaneb",
+    "name": "The Plane of Hate",
+    "version": 0
+  },
+  "npc_ids": [
+    186190
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A rogue’s taunts reveal Lanys T’Vyl, whose defenses alternate between physical and magical damage.",
+  "overview": [
+    "A rogue’s taunts reveal Lanys T’Vyl, whose defenses alternate between physical and magical damage."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Twenty qualifying trash kills summon the Teir’Dal guardian. A rogue at the appropriate epic stage can provoke her through the dialogue.",
+        "The final taunt, Laarthik, activates Lanys. Prepare the raid before speaking it.",
+        "Every twenty seconds, watch the emote: when she pauses to catch her breath, magic is effective and weapon damage is heavily reduced. When she regains strength, weapon damage is effective and several spell skills are heavily reduced.",
+        "Pulse of Pain and Avatar Power repeat on separate thirty-five-second rotations after their opening casts. Healers should expect repeated pressure while damage dealers adapt to the defensive state."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hateplaneb/encounters/rogue_1_5.lua",
+        "sha256": "8e5bbf19a021acf976b369f956382d595fbfe93a9f4757b65f63a59d42af32fa"
+      },
+      {
+        "path": "hateplaneb/player.lua",
+        "sha256": "4c07f1bce4f726a743d96dd7565b6997fe85020c4d62a527aa10448ef759d718"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

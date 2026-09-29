@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-kyv-sharpshooters-jaeth-mihl-and-nass",
+  "title": "Kyv Sharpshooters: Jaeth, Mihl and Nass",
+  "group": "Omens of War",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336066,
+    336067,
+    336068
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Three linked sharpshooters must be defeated as one encounter.",
+  "overview": [
+    "Three linked sharpshooters must be defeated as one encounter."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Engaging one sharpshooter can pull the other two into combat.",
+        "Each becomes mobile at 45% health, so prepare tanks to follow the change.",
+        "Finish all three; the first deaths remove their own loot while another sharpshooter remains."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/kyv_controller.lua",
+        "sha256": "8ec37c5e313a7bbf33cd774ca07e1c6f12a799c36b11a25ee80d22af5e5c9c5f"
+      },
+      {
+        "path": "dranik/#Kyv_Sharpshooter_Jaeth.lua",
+        "sha256": "ec2af66b96320172ec5751a9a35c4d2caaa3b03c521a815963eb1c61cab31aec"
+      },
+      {
+        "path": "dranik/#Kyv_Sharpshooter_Mihl.lua",
+        "sha256": "e4729964560bf491f1067b025a5d01524059ac3d5307b14b4ca286ffc11a708d"
+      },
+      {
+        "path": "dranik/#Kyv_Sharpshooter_Nass.lua",
+        "sha256": "b887fd01bc0fe28bfb3cd937aee52bfb1c142ba7e4e4d6c3307fb8a142b576a7"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

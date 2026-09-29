@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "chardokb-leprous-chokidai",
+  "title": "Leprous chokidai",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "chardokb",
+    "name": "Chardok: Halls of Betrayal",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Weaken the leprous chokidai to complete its ranger quest interaction.",
+  "overview": [
+    "Weaken the leprous chokidai to complete its ranger quest interaction."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Lower the chokidai to 25% to begin the capture checks.",
+        "The ranger must have dealt damage and hold the required capture tool in the primary slot; keep the chokidai alive while waiting for capture.",
+        "A death triggers Epidermal Rot against a random hated target."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chardokb/a_leprous_chokidai.lua",
+        "sha256": "707a657b6b30af7c1ab0d073ec623358e753b8e0bc6dd9f1e5367f4235f98c34"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

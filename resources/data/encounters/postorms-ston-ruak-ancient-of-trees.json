@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "postorms-ston-ruak-ancient-of-trees",
+  "title": "Ston'Ruak, Ancient of Trees",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "postorms",
+    "name": "Plane of Storms",
+    "version": 0
+  },
+  "npc_ids": [
+    210469
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the Koka’Vor defenders, defeat their reinforcements, and summon Ston’Ruak, Ancient of Trees.",
+  "overview": [
+    "Clear the Koka’Vor defenders, defeat their reinforcements, and summon Ston’Ruak, Ancient of Trees."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "First clear the Koka’Vor krovians, senvars and chieftains monitored by the event.",
+        "Eight elders or chieftains then appear in two groups of four: one in the boss chamber and one to the northwest.",
+        "Defeat all eight reinforcements while keeping the original required defenders cleared. This summons Ston’Ruak in the chamber."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "postorms/#Ston_trigger.lua",
+        "sha256": "affeb51e1c566bd4b71ec4296f5ca2e4e8323be2d18e5383dc0ed5b578ddc786"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

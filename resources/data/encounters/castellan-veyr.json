@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "slug": "castellan-veyr",
+  "title": "Castellan Veyr",
+  "group": "The Hour of the Last Eclipse",
+  "type": "raid",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 10
+  },
+  "npc_ids": [
+    59802
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Separate the branded raider from the group before the following blast erupts.",
+  "overview": [
+    "Castellan Veyr commands the Courtyard and Battlements. His crimson brand picks a raider and follows that player, making controlled separation the central mechanic."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep Veyr near his home with space for the branded raider to move away.",
+        "If you receive the brand, separate from the raid without dragging the fight beyond its boundary."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep the branded raider in healing range while staying more than 25 paces away.",
+        "Prepare to heal the marked player after the blast; moving away protects nearby allies, not the brand's bearer."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "If marked, move away from the raid immediately. The blast follows your position.",
+        "Keep more than 25 paces from the marked player and move pets out of the blast."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "crimson-brand",
+      "label": "Break the Keep Seal",
+      "trigger": "Throughout combat",
+      "description": "A crimson brand warning repeats every 22 seconds. A random eligible raider is marked; the blast resolves six seconds later around that player's position."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "crimson-brand",
+      "name": "Crimson Brand",
+      "summary": "Give the marked raider more than 25 paces of space.",
+      "description": [
+        "The chosen player receives a private warning in addition to the raid announcement. After six seconds, the brand erupts around that player's current location.",
+        "The blast can hit the marked raider, nearby raiders and pets. Crossing the combat boundary does not leave the brand behind."
+      ],
+      "tags": [
+        "Spread",
+        "Marked player",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "battlefield",
+      "title": "Stay in the battle",
+      "paragraphs": [
+        "Fight near the boss's home. Raiders and their pets must remain within 180 paces of the boss and within 30 paces vertically; attacks and aid from outside that boundary are rejected.",
+        "If no eligible living raider remains in the arena, or the boss is pulled too far from home, a warning precedes an encounter reset. Keep healers and resurrection targets inside the battle."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "warnings",
+      "title": "Read the warnings",
+      "paragraphs": [
+        "Mechanic warnings appear in the Event Messages chat filter. Movement mechanics give six seconds to respond.",
+        "Ground markers can supplement the warning when supported and enabled. Follow the chat instruction even if a marker is absent."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment",
+      "description": "One item is selected from this six-item pool.",
+      "items": [
+        {
+          "id": 147716,
+          "name": "Gateward Aegis",
+          "quantity": 1
+        },
+        {
+          "id": 147717,
+          "name": "Castellan Pauldrons",
+          "quantity": 1
+        },
+        {
+          "id": 147718,
+          "name": "Veyr Watchband",
+          "quantity": 1
+        },
+        {
+          "id": 147719,
+          "name": "Dusksteel Longsword",
+          "quantity": 1
+        },
+        {
+          "id": 147720,
+          "name": "Ring of the Ashen Oath",
+          "quantity": 1
+        },
+        {
+          "id": 147721,
+          "name": "Mantle of the Fallen Watch",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Guardian relic",
+      "description": "Two copies accompany the equipment reward.",
+      "items": [
+        {
+          "id": 147751,
+          "name": "Keepwarden's Seal",
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-28",
+    "revision": "ad251da365c0241c2f37673ed2af58e93b578c09",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "336743a95076db1e0656448a23cc26af066de9d9a0e076ca97490933e62572b1"
+      },
+      {
+        "path": "sql/mistmoore_eclipse.sql",
+        "sha256": "a65094b6ac6bac7e7f18e6bfeed46328aa4ed61a79a464b1d48c92fe7ecd8bde"
+      }
+    ],
+    "notes": [
+      "Reviewed against the local quest working tree. The encounter script contains uncommitted changes beyond the recorded Git revision; the file hashes identify the exact reviewed bytes.",
+      "Mechanics, item definitions and loot pools were checked in source. This review does not establish which revision, database templates or settings are deployed on the live server.",
+      "Role tips are guidance derived from the scripted mechanics, not a strategy verified in a live raid. Pulse damage is omitted because it depends on the NPC's loaded spell scale.",
+      "Ability names describe scripted mechanics. The damage pulses are not ordinary database spells and do not have spell tooltip IDs."
+    ]
+  }
+}

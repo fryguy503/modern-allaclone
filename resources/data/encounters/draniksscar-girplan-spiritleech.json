@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "draniksscar-girplan-spiritleech",
+  "title": "Girplan Spiritleech",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "draniksscar",
+    "name": "Dranik's Scar",
+    "version": 0
+  },
+  "npc_ids": [
+    302085,
+    302084
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A beastlord quest calls the Girplan Spiritleech and a ring of spiritminions.",
+  "overview": [
+    "A beastlord quest calls the Girplan Spiritleech and a ring of spiritminions."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Have the group prepared before the quest hand-in to Yerika Sisslak.",
+        "The spawn sequence creates eleven spiritminions around the boss.",
+        "Collect the surrounding adds before they overwhelm the group and finish the spirit leech."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "draniksscar/#Yerika_Sisslak.lua",
+        "sha256": "e81dd93c1b32aafffa463787db693f5167f31808054a3f11cc988ae59e9730b8"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Current source contains eleven spiritminion spawns; the earlier audit summary understated the count."
+    ]
+  }
+}

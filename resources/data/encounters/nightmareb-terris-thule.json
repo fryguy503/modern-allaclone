@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "nightmareb-terris-thule",
+  "title": "Terris Thule",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "nightmareb",
+    "name": "Lair of Terris Thule",
+    "version": 0
+  },
+  "npc_ids": [
+    221041
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Terris Thule calls dream defilers and animated statues while trapping the raid inside her nightmare.",
+  "overview": [
+    "Terris Thule calls dream defilers and animated statues while trapping the raid inside her nightmare."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Keep Terris inside her lair. Pulling her outside the scripted boundaries despawns her.",
+        "At 75% health, fifteen dream defilers appear: eight use the mezzable template and seven use the unmezzable template. Assign crowd control and tanks accordingly.",
+        "At 50%, she casts Direption of Dreams; at 45%, Defilement of Hope targets the top of her hate list.",
+        "At 35%, four statues animate. Pick them up while the raid finishes Terris.",
+        "After victory, speak with the planar projection for progression credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "nightmareb/Terris_Thule.lua",
+        "sha256": "958fd163cf4b130c7d238c5d9d73bab9e3783e80d051a77313ca0ab1f255efbe"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

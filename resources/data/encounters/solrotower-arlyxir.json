@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-arlyxir",
+  "title": "Arlyxir",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212023
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keep Arlyxir inside his room and finish before his rebirth heal.",
+  "overview": [
+    "Keep Arlyxir inside his room and finish before his rebirth heal."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Maintain damage and keep the tank safely inside the room."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The boss checks his room boundary every six seconds. Crossing south of it heals him fully, returns him to bind and clears hate.",
+        "After 12.5 minutes of continuous combat, Arlyxir heals and casts Searing Flames.",
+        "Victory creates a planar projection for progression."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/Arlyxir.lua",
+        "sha256": "b00672aece5cad8a0e953d4851e24e917960d0f705b03680bb71d0786f062c03"
+      }
+    ],
+    "notes": [
+      "Approval E302. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

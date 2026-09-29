@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "wallofslaughter-tarn-icewind-seasonal",
+  "title": "Tarn Icewind (Seasonal)",
+  "group": "Omens of War",
+  "type": "raid",
+  "zone": {
+    "short_name": "wallofslaughter",
+    "name": "Wall of Slaughter",
+    "version": 200
+  },
+  "npc_ids": [
+    300063,
+    300086
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Face seasonal Tarn with the portal already activated, then break his crystal support.",
+  "overview": [
+    "Face seasonal Tarn with the portal already activated, then break his crystal support."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Control the crystal targets and recurring add pairs while maintaining the boss tank."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The seasonal controller automatically completes the four portal activation signals and summons Tarn.",
+        "Defeat all four attackable crystals to lower his regeneration.",
+        "Two reinforcements arrive every minute during combat.",
+        "Ten minutes out of combat resets the event; a seasonal victory also summons its completion NPC."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wallofslaughter/#Tarn_Icewind.lua",
+        "sha256": "93c4bc05cdbe7fd5f1f485630294e155c05ad62ea03e3cf80a5947228c497c75"
+      },
+      {
+        "path": "wallofslaughter/Tarn_Icewind_Spawner.lua",
+        "sha256": "72797c4ff921b076f5ef8cb504d720fc9c5aa9d5b709eea51323d89b2910566e"
+      },
+      {
+        "path": "wallofslaughter/#a_portal_crystal.lua",
+        "sha256": "69a75cc9bed8aabd3aba5b885334231c2d8a64372548d264c83cab8de21f5ec8"
+      }
+    ],
+    "notes": [
+      "Approval E401. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

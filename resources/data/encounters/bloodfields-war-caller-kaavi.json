@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "bloodfields-war-caller-kaavi",
+  "title": "War Caller Kaavi",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "bloodfields",
+    "name": "The Bloodfields",
+    "version": 0
+  },
+  "npc_ids": [
+    301042,
+    301017,
+    301043,
+    301086
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear Kaavi's defenders before confronting the war caller.",
+  "overview": [
+    "Clear Kaavi's defenders before confronting the war caller."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the sentries and guardians that prevent Kaavi from being attacked.",
+        "Keep add control available when the boss becomes vulnerable.",
+        "At 90% health, Kaavi's NPC script summons two additional sentinels."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "bloodfields/encounters/war.lua",
+        "sha256": "755af7e8d96be00b0f60afc6fc795179c4fb04bea9d007677e0f1b874c968ba6"
+      },
+      {
+        "path": "bloodfields/War_Caller_Kaavi.lua",
+        "sha256": "e26e7404ecf0f0924c2d5bbc96cda055ac39e08a480b15430ddcf9e2ca3240c8"
+      },
+      {
+        "path": "bloodfields/script_init.lua",
+        "sha256": "65e3a5257e4c5641aed6268eac55d8956bc9dbc4ba6374f4ea255dab5cf091bb"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "The encounter module registers War_Combat although its definition is commented out. Loader behavior and overlap with the NPC script need live verification."
+    ]
+  }
+}

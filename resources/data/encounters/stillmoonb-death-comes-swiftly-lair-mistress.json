@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoonb-death-comes-swiftly-lair-mistress",
+  "title": "Death Comes Swiftly: Lair Mistress",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoonb",
+    "name": "The Ascent",
+    "version": 3
+  },
+  "npc_ids": [
+    339296
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the crawling warders to expose the Lair Mistress.",
+  "overview": [
+    "Defeat the crawling warders to expose the Lair Mistress."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Regroup before the fifth warder dies."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The controller counts the designated crawling warder deaths.",
+        "The fifth qualifying death spawns the Lair Mistress.",
+        "Finish the newly revealed named encounter to advance the mission objective."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoonb/encounters/death_comes_swiftly.lua",
+        "sha256": "4c79b8b11182658dc7e05c8a1db8ad25458f76ae894c825baa94ba1e76f8181d"
+      },
+      {
+        "path": "stillmoonb/script_init.lua",
+        "sha256": "1cf191f934ba1b41f918d44e34ddec8c25bb30c5a3906ce6f8f26621d49b83ac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E323. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

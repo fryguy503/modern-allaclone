@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "inktuta-kelekdrix-herald-of-trushar",
+  "title": "Kelekdrix, Herald of Trushar",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "inktuta",
+    "name": "Inktu’ta",
+    "version": 0
+  },
+  "npc_ids": [
+    296024,
+    296025,
+    296026,
+    296084,
+    296083
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear Kelekdrix’s watchers and ushers to break her rocky protection, then maintain control as reinforcements return.",
+  "overview": [
+    "Clear Kelekdrix’s watchers and ushers to break her rocky protection, then maintain control as reinforcements return."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Soon after engagement, Kelekdrix becomes protected and calls four minions. Defeat every watcher and usher to make her attackable.",
+        "Reinforcements return on a variable timer. Pick them up and clear them while keeping the raid ready for the boss’s exposed windows.",
+        "When active, Kelekdrix can banish her highest-hate player. Have another tank ready to take over.",
+        "Her defeat unlocks the lower reaches of Inktu’ta and advances the expedition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "inktuta/encounters/kelekdrix.lua",
+        "sha256": "2d58c6f18f929612184a44c37bdb3a46937df227055140b649daf0350550f57a"
+      },
+      {
+        "path": "inktuta/script_init.lua",
+        "sha256": "fb13a7cc8246c8167b7a844c27403e212a2e2ad9e8d43bdbc3bc8256d61844ee"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

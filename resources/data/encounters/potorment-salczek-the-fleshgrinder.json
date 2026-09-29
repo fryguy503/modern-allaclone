@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "potorment-salczek-the-fleshgrinder",
+  "title": "Salczek the Fleshgrinder",
+  "group": "Planes of Power",
+  "type": "event",
+  "zone": {
+    "short_name": "potorment",
+    "name": "Plane of Torment",
+    "version": 0
+  },
+  "npc_ids": [
+    207027
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Salczek the Fleshgrinder becomes dangerous to nearby attackers as his health falls.",
+  "overview": [
+    "Salczek the Fleshgrinder becomes dangerous to nearby attackers as his health falls."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 40% health, Salczek gains area rampage. Keep vulnerable group members away from his melee range.",
+        "At 20%, area rampage becomes more frequent. Reserve defensive abilities and additional melee healing for the finish.",
+        "After five minutes out of combat, the scripted rampage state resets."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potorment/Salczek_the_Fleshgrinder.lua",
+        "sha256": "a33f4d5ae0e6c8038eae40d4fd130a75c5ee01e19fa556f0c3f0e43e27bd42b5"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

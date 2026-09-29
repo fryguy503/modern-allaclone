@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-discord-fluctuation-trio",
+  "title": "Discord Fluctuation trio",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336244,
+    336243,
+    336242
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A necromancer quest releases three named creatures from the Discord Fluctuation.",
+  "overview": [
+    "A necromancer quest releases three named creatures from the Discord Fluctuation."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The eligible necromancer activates the fluctuation through its proximity dialogue.",
+        "Prepare for Rargari, Gornogg and Arlagai to appear together.",
+        "Assign tanks before the trigger and focus the group on one opponent at a time."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/#Discord_Fluctuation.lua",
+        "sha256": "7db9175ac32dff1d618939237f9656381f517469c9f087cfac3ff66be6ed2555"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

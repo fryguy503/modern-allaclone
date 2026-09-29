@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "swampofnohope-swamp-dragon-transformation",
+  "title": "Swamp dragon transformation",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "swampofnohope",
+    "name": "Swamp of No Hope",
+    "version": 0
+  },
+  "npc_ids": [
+    83249
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A dire leech reveals a swamp dragon when wounded.",
+  "overview": [
+    "A dire leech reveals a swamp dragon when wounded."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Be ready to acquire the dragon as soon as the leech transforms."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 80% health the leech attempts to spawn the swamp dragon at its current position.",
+        "If that dragon is already present, the health trigger is rearmed instead.",
+        "The leech disappears when the transformation succeeds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "swampofnohope/a_dire_leech.lua",
+        "sha256": "e9e5a2f47004d899df484404c033be66b530ffaaeba308504c344154b8064d09"
+      }
+    ],
+    "notes": [
+      "Approval E329. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

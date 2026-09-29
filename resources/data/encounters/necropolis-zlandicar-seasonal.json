@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "slug": "necropolis-zlandicar-seasonal",
+  "title": "Zlandicar (seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "necropolis",
+    "name": "Dragon Necropolis",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Respond to Zlandicar’s surgical warnings, destroy his constructs and prevent risen corpses from healing him.",
+  "overview": [
+    "Respond to Zlandicar’s surgical warnings, destroy his constructs and prevent risen corpses from healing him."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Hold Zlandicar while the group responds to the marked-target mechanics. Collect each construct or corpse wave promptly."
+      ]
+    },
+    {
+      "id": "group",
+      "label": "Everyone",
+      "tips": [
+        "Read the named warning before moving: Incision requires a stack, Septic requires separation, and Lobotomy requires stopping casts."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Operating table",
+      "trigger": "70% health",
+      "description": "Switch all damage to the surgical constructs while Zlandicar is protected."
+    },
+    {
+      "id": "phase-2",
+      "label": "Risen corpses",
+      "trigger": "40% health",
+      "description": "Destroy the healing corpses while continuing to respond to the surgical warnings."
+    },
+    {
+      "id": "phase-3",
+      "label": "Final procedure",
+      "trigger": "20% health",
+      "description": "Warnings arrive more quickly. Clear the final corpse before committing to the boss."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Shared Incision: stack within twenty-five feet of the marked player before the eight-second warning ends. The damage is shared by the players in the stack.",
+        "Septic Burst: move more than twenty-eight feet from the marked player before the eight-second warning ends.",
+        "Lobotomy: the marked player must stop casting before the eight-second warning ends. Casting at resolution causes an interrupt, silence and damage.",
+        "At 70% health, Zlandicar becomes untouchable and summons surgical constructs. Destroy all constructs to expose him; allowing the seventy-two-second operation to time out heals him.",
+        "At 40%, risen corpses begin restoring his health every eight seconds. Kill them promptly.",
+        "At 20%, the warning rotation accelerates. A final priority corpse appears if none remain, so keep add damage available during the burn."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "necropolis/Zlandicar.lua",
+        "sha256": "ae252bc04eb5c4661cfefe819d30dbfb65aa8e01858406d9ae665640b4c6715c"
+      },
+      {
+        "path": "lua_modules/seasonal_velious.lua",
+        "sha256": "1d2f02b537ff32319f50cfcee7b25912a2ee591751ab8806f83744a0469ff0cd"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The seasonal helper accepts configured seasonal versions, with 200 as the default and 200–249 fallback support. This document targets the standard version 200 seasonal expedition.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

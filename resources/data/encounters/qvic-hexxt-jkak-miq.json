@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "qvic-hexxt-jkak-miq",
+  "title": "Hexxt Jkak Miq",
+  "group": "Gates of Discord",
+  "type": "event",
+  "zone": {
+    "short_name": "qvic",
+    "name": "Qvic, Prayer Grounds of Calling",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Prepare for random-target arrow volleys below 45% health.",
+  "overview": [
+    "Crossing 45% health starts a twenty-second volley check. A successful check casts random arrow spells at random members of the hate list.",
+    "The scripted branch handles hate-list sizes from one to six and makes that many target selections. Targets are selected independently, so a player may be hit more than once.",
+    "Healing above 45% stops the volley timer and allows it to be armed again on the next downward crossing."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "volley",
+      "name": "Arrow volley",
+      "summary": "Random-target pressure below 45% health.",
+      "description": [
+        "Keep wounded players covered during the twenty-second checks."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": [
+        4850,
+        4849,
+        4851
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "archery",
+      "title": "Weapon choice",
+      "paragraphs": [
+        "This NPC reduces incoming archery skill damage by 25%."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qvic/Hexxt_Jkak_Miq.lua",
+        "sha256": "5b70a17eeb16435d09747c9294fb9242fbbb0f9c467e502bc8c35d43759fc4f7"
+      }
+    ],
+    "notes": [
+      "Approved row E269. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "The NPC template ID was not established from the reviewed file; the guide has no automatic NPC-page link until that identity is confirmed.",
+      "The volley implementation has no branch for hate-list counts greater than six. Do not claim the same targeting behavior for a larger raid."
+    ]
+  }
+}

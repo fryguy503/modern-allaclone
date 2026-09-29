@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "qeynos2-enchanted-rat-experiment",
+  "title": "Enchanted Rat Experiment",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "qeynos2",
+    "name": "North Qeynos",
+    "version": 0
+  },
+  "npc_ids": [
+    2052,
+    2179,
+    2180,
+    2181
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Use three enchanted rats to cure a randomized board before time expires.",
+  "overview": [
+    "Give Velarte the research briefing at the appropriate badge quest stage. A random four-by-four board appears and an 18-minute timer begins.",
+    "Trade each filled rat jar to an empty tile. The released rat cures diseased rats in straight cardinal lines when they lie between it and the nearest healthy rat in that direction.",
+    "Use all three jars, cure every diseased rat, and return the three empty jars together to Velarte before the experiment times out."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "supplies",
+      "title": "Experiment supplies",
+      "paragraphs": [
+        "Bring the briefing and all three filled jars before starting. Empty jars are returned when the rats are placed."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 18295,
+          "name": "Research Briefing",
+          "quantity": 1
+        },
+        {
+          "id": 2584,
+          "name": "Filled enchanted rat jar",
+          "quantity": 1
+        },
+        {
+          "id": 2585,
+          "name": "Filled enchanted rat jar",
+          "quantity": 1
+        },
+        {
+          "id": 2586,
+          "name": "Filled enchanted rat jar",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qeynos2/#game_spawner.lua",
+        "sha256": "aa457f0b65fdad2a61123180db18fff2579ad991851d40ab59eb189663293961"
+      },
+      {
+        "path": "qeynos2/Velarte_Selire.lua",
+        "sha256": "f089ee324ac95683d5f2b1b89addaf68246211e637b2b7cd7a500602adf967b8"
+      },
+      {
+        "path": "qeynos2/2177.lua",
+        "sha256": "312930e48179cd32b2fe30b694d9d88adafaa6b66a6a4c32b3d1be1d4545ddcc"
+      },
+      {
+        "path": "qeynos2/#Enchanted_Rat.lua",
+        "sha256": "4d303092582e61c58ce71f3788b490f735eb3240d7ce565471eb8b4d09c12f9b"
+      }
+    ],
+    "notes": [
+      "Approved row E263. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics.",
+      "Jar IDs and tile behavior are source-verified; the individual jar display names still require database confirmation."
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "hohonora-alekson-garn-s-trial",
+  "title": "Alekson Garn's trial",
+  "group": "Halls of Honor",
+  "type": "event",
+  "zone": {
+    "short_name": "hohonora",
+    "name": "Halls of Honor",
+    "version": 0
+  },
+  "npc_ids": [
+    211085,
+    211095,
+    211093
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear Alekson Garn’s three guarded rooms while protecting the maidens of Marr.",
+  "overview": [
+    "Clear Alekson Garn’s three guarded rooms while protecting the maidens of Marr."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Speak with Alekson to enter the trial, then defeat its Custodian of Marr to start the room encounters.",
+        "Each room begins with five enemies. Clear the room to bring out its named opponent: Advocent Joran, Halgoz Rell or Freegan Haun.",
+        "Protect the maidens throughout the trial. Their loss can fail the event even if the attackers are being defeated.",
+        "Defeat all three named opponents, then return to Alekson’s projection for trial credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "hohonora/encounters/Alekson_Trial.lua",
+        "sha256": "f26ad9b0cb4d9219a14cdb98448e328a3975ef8fa6f729cc0110da4a90e9e64c"
+      },
+      {
+        "path": "hohonora/Alekson_Garn.lua",
+        "sha256": "0622d1c2845d30d485b1ee8f862c54c676010d14168c964082115c9ac9902262"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "harbingers-attendant-of-light",
+  "title": "Attendant of Light",
+  "group": "Omens of War",
+  "type": "event",
+  "zone": {
+    "short_name": "harbingers",
+    "name": "Harbinger's Spire",
+    "version": 0
+  },
+  "npc_ids": [
+    335051
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeating a dragorn sycophant can call the Attendant of Light and a group of discordling harassers.",
+  "overview": [
+    "Defeating a dragorn sycophant can call the Attendant of Light and a group of discordling harassers."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The ritual begins with eight sycophants around the spawner. A sycophant death summons the Attendant if one is not already present.",
+        "Four discordling harassers appear with the Attendant. Prepare to control the escort enemies when triggering the boss.",
+        "The spawner tracks all eight sycophant deaths separately; killing all eight is not required by the Attendant’s spawn condition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "harbingers/Attendant_Spawner.lua",
+        "sha256": "2e5dac152d4ad7bfcd74dc5884f09a5eb55204d3ce33f3f69fc8f3f12a90150a"
+      },
+      {
+        "path": "harbingers/a_dragorn_sycophant.lua",
+        "sha256": "89760ac7de0e280fd6272ee1518798c5371e8012a2516da413d987f38782de6f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

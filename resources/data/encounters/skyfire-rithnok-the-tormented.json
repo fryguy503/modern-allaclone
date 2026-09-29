@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "skyfire-rithnok-the-tormented",
+  "title": "Rithnok the Tormented",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "skyfire",
+    "name": "Skyfire Mountains",
+    "version": 0
+  },
+  "npc_ids": [
+    91002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Release Rithnok from his torment after Dry Sapara's paladin epic trigger.",
+  "overview": [
+    "Release Rithnok from his torment after Dry Sapara's paladin epic trigger."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare the tank for the opening Harm Touch."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A paladin on the qualifying epic steps carrying the required seal can hail Dry Sapara to spawn Rithnok.",
+        "Rithnok opens combat with Harm Touch.",
+        "He depops after 30 minutes from spawn."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "skyfire/#Rithnok_the_Tormented.lua",
+        "sha256": "3e5b8d323c7a93b1b5d8bace890dab25b0338c5c32abd6ee37cf6abb7083314e"
+      },
+      {
+        "path": "skyfire/Dry_Sapara.lua",
+        "sha256": "8ee559444be29bce66ac7e794d679ed37d62b0bb81cd81c182b11f85c8432294"
+      }
+    ],
+    "notes": [
+      "Approval E288. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

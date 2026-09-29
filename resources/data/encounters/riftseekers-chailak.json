@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "riftseekers-chailak",
+  "title": "Chailak",
+  "group": "Omens of War",
+  "type": "raid",
+  "zone": {
+    "short_name": "riftseekers",
+    "name": "Riftseekers' Sanctum",
+    "version": 0
+  },
+  "npc_ids": [
+    334014,
+    334050
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight Chailak with the Flawless Experimental Battlelords.",
+  "overview": [
+    "Every three seconds during combat, Chailak calls idle Flawless Experimental Battlelords onto a random member of his hate list. Prepare for the linked enemies together.",
+    "After five minutes out of combat, Chailak heals fully, removes his buffs, returns home and clears hate. The Battlelords receive the same reset signal."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Assign coverage for Battlelords before engaging Chailak."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "riftseekers/encounters/chailak.lua",
+        "sha256": "4ded6531bb66130bbff83ec8cbbe7a7fa649007475f305f1ff96949ed2142841"
+      },
+      {
+        "path": "riftseekers/script_init.lua",
+        "sha256": "adab5178212a5fb0aa641773dfbd1a9ef4bf53c69cf4883b0188181ad05c9693"
+      }
+    ],
+    "notes": [
+      "Approved row E273. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics."
+    ]
+  }
+}

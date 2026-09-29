@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "wallofslaughter-lightning-lord",
+  "title": "Lightning Lord",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "wallofslaughter",
+    "name": "Wall of Slaughter",
+    "version": 0
+  },
+  "npc_ids": [
+    300098,
+    300099
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat every loyalist before the Lightning Lord can consume one to restore his health.",
+  "overview": [
+    "Defeat every loyalist before the Lightning Lord can consume one to restore his health."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear each loyalist and stop boss damage near fifteen percent until the final add is dead."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The last nervous guardian's death summons the Lightning Lord.",
+        "A loyalist joins at 90%, 75%, 60%, 45%, 30% and 15% health.",
+        "Below 15%, a surviving loyalist can be destroyed by the boss to return him to full health.",
+        "Electric Shock repeats every thirty seconds."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wallofslaughter/#Lightning_Lord.lua",
+        "sha256": "3883578d6bc9a1e4a8a5560eafc5adf7705791557e5aaa8fb2aa07eead3b5d64"
+      },
+      {
+        "path": "wallofslaughter/#a_nervous_guardian.lua",
+        "sha256": "38f4f273bea51ce07d0a49d1b7655544c79be921a1930aed6d0572c0e0b8ef30"
+      }
+    ],
+    "notes": [
+      "Approval E398. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

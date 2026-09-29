@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "pojustice-the-seventh-hammer",
+  "title": "The Seventh Hammer",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "pojustice",
+    "name": "Plane of Justice",
+    "version": 0
+  },
+  "npc_ids": [
+    201074
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Face the Seventh Hammer in the chamber of judgment.",
+  "overview": [
+    "Face the Seventh Hammer in the chamber of judgment."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The Seventh Hammer offers a challenge through its judgment dialogue. Assemble the group before accepting.",
+        "When the Tribunal cycle is active, the encounter alternates judgments on a seventy-five-second timer after its opening warning.",
+        "Keep healing ready for repeated area pressure and defeat the Hammer before leaving the chamber."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "pojustice/The_Seventh_Hammer.lua",
+        "sha256": "4efaa78fc8caffac680ea6a64d4c78e9fa500711d4c44b339da0d720ba41dc2f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Confirm the intended Tribunal timer behavior before publication: the ready dialogue sets dialogue=true, while the combat handler starts the judgment timer only when dialogue is false. The dialogue-triggered fight may omit that cycle."
+    ]
+  }
+}

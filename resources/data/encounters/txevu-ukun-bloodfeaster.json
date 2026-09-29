@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "txevu-ukun-bloodfeaster",
+  "title": "Ukun Bloodfeaster",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "txevu",
+    "name": "Txevu, Lair of the Elite",
+    "version": 0
+  },
+  "npc_ids": [
+    297082,
+    297200,
+    297207
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Fight the Bloodfeaster and its maulers while corpses feed a recurring stonemite swarm.",
+  "overview": [
+    "Fight the Bloodfeaster and its maulers while corpses feed a recurring stonemite swarm."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Control the maulers and reduce the corpse-driven add pressure before stonemites overwhelm the raid."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Starting the event removes protection from the Bloodfeaster, maulers and decaying corpses.",
+        "Every thirty seconds, surviving corpses are signaled to create pairs of stonemites while the active add count is below thirty-six.",
+        "The boss and adds return and clear hate outside their room boundaries.",
+        "The forty-five-minute event reset timer pauses while the Bloodfeaster is engaged."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "txevu/encounters/bloodfeaster.lua",
+        "sha256": "33cc2884c50c574f63bb9110532249693c10fa6268200bc4fdfe4e446b8f38b6"
+      }
+    ],
+    "notes": [
+      "Approval E383. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

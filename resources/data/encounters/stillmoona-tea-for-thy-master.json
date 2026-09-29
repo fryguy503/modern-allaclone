@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-tea-for-thy-master",
+  "title": "Tea for Thy Master",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 7
+  },
+  "npc_ids": [
+    338425,
+    338426,
+    338385
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect the tea master while defeating the poison master and his recurring pet.",
+  "overview": [
+    "Protect the tea master while defeating the poison master and his recurring pet."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Intercept the pets promptly and protect the tea master while finishing the poison master."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The tea master's mission dialogue spawns the poison master, a pet and two assistants.",
+        "The poison master begins a pet timer 25 seconds after spawn; later pets arrive every 97 seconds.",
+        "Pets seek the tea master, whose death is tracked by the mission."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/tea_for_thy_master.lua",
+        "sha256": "3ff33974441540a8b49620ee9bed0ae86b1bc110887572f8ef472479d2f14e1d"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E321. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

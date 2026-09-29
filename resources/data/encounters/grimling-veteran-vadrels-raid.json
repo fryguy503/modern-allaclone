@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "grimling-veteran-vadrels-raid",
+  "title": "Veteran Vadrel's raid",
+  "group": "Grimling war",
+  "type": "event",
+  "zone": {
+    "short_name": "grimling",
+    "name": "Grimling Forest",
+    "version": 0
+  },
+  "npc_ids": [
+    167194,
+    167196,
+    167726
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defend two northern camps with Veterans Vadrel and Cullin.",
+  "overview": [
+    "Show Vadrel the medal from Necin's mission, then return the plans when ready. Follow the veterans and clear both camps after the assault resets their populations.",
+    "Reinforcement waves begin after 30 to 60 seconds and then arrive every minute. Protect both veterans while watching for a grimling commander at either camp."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "capture",
+      "label": "Take both camps",
+      "trigger": "Plans returned",
+      "description": "Clear both camp areas to start the defense."
+    },
+    {
+      "id": "commander",
+      "label": "Defeat the commander",
+      "trigger": "Commander appears",
+      "description": "Follow the veterans' warning to the correct camp. Kill the commander and return its proof to Vadrel. Either veteran's death fails the event."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Entry requirements",
+      "paragraphs": [
+        "Present the prior medal and then return Vadrel's plans."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 4396,
+          "name": "Silver Medal of War",
+          "quantity": 1
+        },
+        {
+          "id": 5987,
+          "name": "Vadrel's Plans",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "grimling/encounters/Vadrels_Raid.lua",
+        "sha256": "4d270c4f2eb745a56bba228be61f6185cff43cbc6e06f2f05cf8bc5100546019"
+      },
+      {
+        "path": "grimling/Veteran_Vadrel.lua",
+        "sha256": "ab508891fd8443e3877c37173c28c31376e1f2b7cefa125eecace92a0ba748e8"
+      }
+    ],
+    "notes": [
+      "Approved row E137. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "Unlike Necin's controller, this controller does not stop the waves immediately on commander spawn; no pause is promised."
+    ]
+  }
+}

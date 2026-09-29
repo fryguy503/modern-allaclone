@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "dragonscalea-living-legacy-marathon",
+  "title": "Living Legacy: Marathon",
+  "group": "Living Legacy",
+  "type": "raid",
+  "zone": {
+    "short_name": "dragonscalea",
+    "name": "Dragonscale Hills",
+    "version": 1
+  },
+  "npc_ids": [
+    450002,
+    450003,
+    450004,
+    450005
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive increasingly difficult rounds against I.R.A. and its clockwork reinforcements.",
+  "overview": [
+    "Survive increasingly difficult rounds against I.R.A. and its clockwork reinforcements."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Face I.R.A. away from the raid; stand behind it to avoid Flamethrower.",
+        "Collect bashers, whirlygigs and repair clockworks as they enter.",
+        "Read the immunity label beneath each clockwork's name before choosing control; one enemy can have several immunities.",
+        "Use the respite between completed rounds to recover and prepare for stronger opponents."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dragonscalea/encounters/living_legacy_ira.lua",
+        "sha256": "93d91ec67618571cf0965dc9be7ffe336acab364d7f164c5232c2a62796e6796"
+      },
+      {
+        "path": "dragonscalea/script_init.lua",
+        "sha256": "f5587639702dfd6104e658f4ce923536f94cb63ab9a65f0d3eb6b30ec5d5d4ee"
+      },
+      {
+        "path": "lua_modules/living_legacy.lua",
+        "sha256": "53b1909d7c2552b7d3c42d28f198cab10aa5106617e695ce11af9c34fd916637"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1.",
+      "Marathon uses clockwork add waves; Sprint is documented separately."
+    ]
+  }
+}

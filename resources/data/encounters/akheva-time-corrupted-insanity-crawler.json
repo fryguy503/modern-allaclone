@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "akheva-time-corrupted-insanity-crawler",
+  "title": "Time-Corrupted Insanity Crawler",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "akheva",
+    "name": "Akheva Ruins",
+    "version": 200
+  },
+  "npc_ids": [
+    179000
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The seasonal crawler combines silence, piercing vulnerability and death-triggered worms.",
+  "overview": [
+    "The seasonal crawler combines silence, piercing vulnerability and death-triggered worms."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Control mind worms immediately when a player or pet death brings them into the fight.",
+        "Prepare for silence at 50% health and recurring screeches throughout combat.",
+        "At 20% health the crawler becomes more vulnerable to piercing attacks.",
+        "An out-of-combat reset clears the worms and restores the damage modifiers."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "akheva/A_Time-Corrupted_Insanity_Crawler.lua",
+        "sha256": "530387e863252c40829ae7d2972079e6420775825383ec5462b381163407d967"
+      },
+      {
+        "path": "akheva/insanity.lua",
+        "sha256": "f7b53135709a2299cb19585aeb106da9b5961e99aed6a3e8d181a8fa8478fe0d"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 200.",
+      "The tremor timer produces flavor text; no separate tremor damage mechanic is documented."
+    ]
+  }
+}

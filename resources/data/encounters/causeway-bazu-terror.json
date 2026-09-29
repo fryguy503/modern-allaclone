@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "causeway-bazu-terror",
+  "title": "Bazu Terror",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "causeway",
+    "name": "Nobles' Causeway",
+    "version": 0
+  },
+  "npc_ids": [
+    303092,
+    303093,
+    303094
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Bazu Terror and its crushers to expose the dark animist.",
+  "overview": [
+    "Defeat Bazu Terror and its crushers to expose the dark animist."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The eligible beastlord starts the event through Jillaa Oogblat.",
+        "Be ready for four bazu crushers alongside the boss.",
+        "Bazu Terror's death summons the dark animist at its position.",
+        "The bazu stage has a thirty-minute appearance window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "causeway/#Jillaa_Oogblat.lua",
+        "sha256": "1a2b65fdb06f9fb0e4a83ef44e92cb51cd53bf2e155192cdf72902f8c96fbac2"
+      },
+      {
+        "path": "causeway/#Bazu_Terror.lua",
+        "sha256": "e4e86c87c9941d8cf38347d0069766b1951b0b5847abc3dec5f3bd6b26c55059"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

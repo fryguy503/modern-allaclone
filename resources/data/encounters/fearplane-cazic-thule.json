@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "fearplane-cazic-thule",
+  "title": "Cazic Thule",
+  "group": "Plane of Fear",
+  "type": "raid",
+  "zone": {
+    "short_name": "fearplane",
+    "name": "Plane of Fear",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Cazic Thule calls much of the Plane of Fear to defend him.",
+  "overview": [
+    "Cazic Thule calls much of the Plane of Fear to defend him."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the surrounding zone before engaging Cazic Thule.",
+        "The opening call adds most surviving zone NPCs to the top-threat target's hate list.",
+        "Keep spare tanks and control available for any enemies that arrive after the pull."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fearplane/Cazic_Thule.lua",
+        "sha256": "465db47eb223f907cc5d3914598f10a37757bcc23c2a1db3466e0560218f7abc"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Version-0 guidance covers the verified zone-assist script. The additional static-instance health phases are documented separately.",
+      "Primary NPC template ID remains unverified; npc_ids is intentionally empty."
+    ]
+  }
+}

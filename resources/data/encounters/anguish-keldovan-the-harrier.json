@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "anguish-keldovan-the-harrier",
+  "title": "Keldovan the Harrier",
+  "group": "Anguish",
+  "type": "raid",
+  "zone": {
+    "short_name": "anguish",
+    "name": "Anguish, the Fallen Palace",
+    "version": 0
+  },
+  "npc_ids": [
+    317005,
+    317102,
+    317103
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Keldovan becomes easier to handle when the raid keeps killing his pit adds.",
+  "overview": [
+    "Keep the pit-add kills flowing while a dedicated tank holds Keldovan. The recent-kill count weakens his defenses and abilities, but begins falling when kills stop."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep a separate tank on the pit adds."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Continue killing adds instead of abandoning them once the boss is weakened."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "build-the-advantage",
+      "label": "Build the advantage",
+      "trigger": "Initial engagement",
+      "description": "Kill the pit adds to accumulate the weakening effect."
+    },
+    {
+      "id": "maintain-the-advantage",
+      "label": "Maintain the advantage",
+      "trigger": "Throughout combat",
+      "description": "Continue add kills while damaging Keldovan; the recent-kill count decays after a gap."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Assign a group to the pit fiends and hounds while the main tank holds Keldovan.",
+        "Recent add kills weaken the boss, but that advantage decays if kills stop.",
+        "Keep healing and curse handling organized through his recurring combat spell rotation."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "anguish/encounters/keldovan.lua",
+        "sha256": "4f3a11ffe6076b2d95cb42265bac9305f501782bd30ef3b7397d10ce1b6e5809"
+      },
+      {
+        "path": "anguish/script_init.lua",
+        "sha256": "01fa5cb9faa896b618877d74a33d7e46153f12bebab6daf61687db1e3bcd7a82"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

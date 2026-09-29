@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "chambersb-mastery-of-endurance",
+  "title": "Mastery of Endurance",
+  "group": "Muramite trials",
+  "type": "raid",
+  "zone": {
+    "short_name": "chambersb",
+    "name": "Muramite Proving Grounds",
+    "version": 2
+  },
+  "npc_ids": [
+    305007,
+    305008
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive a twenty-minute assault with coordinated control and sustained healing.",
+  "overview": [
+    "Survive a twenty-minute assault with coordinated control and sustained healing."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for a survival fight rather than a quick boss burn.",
+        "Collect each new wave and use crowd control to keep the number of active attackers manageable.",
+        "Conserve mana and rotate defensive abilities so the raid can survive the full twenty minutes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersb/encounters/mpg_endurance.lua",
+        "sha256": "202e202e06014a1843346d9d3fa1100f98ed228312b974620e160b1e197256f3"
+      },
+      {
+        "path": "chambersb/script_init.lua",
+        "sha256": "7dbb469878286ab43ba4065b1a67f8a7b152a6c1f7be0d6ed232add792909bcf"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

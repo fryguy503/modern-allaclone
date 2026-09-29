@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "potimeb-plane-of-time-phase-5-gods",
+  "title": "Plane of Time: phase 5 gods",
+  "group": "Plane of Time",
+  "type": "raid",
+  "zone": {
+    "short_name": "potimeb",
+    "name": "Plane of Time",
+    "version": 0
+  },
+  "npc_ids": [
+    223142,
+    223166,
+    223167,
+    223168
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Bertoxxulous, Cazic Thule, Innoruuk and Rallos Zek to open the final phase of the Plane of Time.",
+  "overview": [
+    "Defeat Bertoxxulous, Cazic Thule, Innoruuk and Rallos Zek to open the final phase of the Plane of Time."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Bertoxxulous gains melee strength at 90%, 70% and 55%, while his spell resistances fall. Below 40%, 30% and 10%, those changes reverse. Plan the strongest tank support around the middle of the fight.",
+        "Innoruuk summons three or four adds at 75%, then four or five at 20%. Establish add control before pushing either threshold.",
+        "Rallos summons four adds at 90%, 75% and 50%, then five at 25%. At 75% he gains area rampage and faster attacks; at 50% he gains flurry; at 25% his attacks accelerate again.",
+        "Maintain steady tank healing on Cazic Thule and finish all four gods to advance to Quarm."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potimeb/#Bertoxxulous.lua",
+        "sha256": "ef88a8eacba28eadaf8a9f3c5f2fb5904ab94df2e660fdb23bff93f9c350446f"
+      },
+      {
+        "path": "potimeb/#Innoruuk.lua",
+        "sha256": "6ed035b3ad2f22736b7b4f7917a6b5ea93158d9eaa6c3d947ca67333ccc024af"
+      },
+      {
+        "path": "potimeb/#Rallos_Zek.lua",
+        "sha256": "f15840039b58242b12f6a3e6d4ab564577f68d6d39875d2db398bc332b548fd2"
+      },
+      {
+        "path": "potimeb/#Cazic_Thule.lua",
+        "sha256": "74c497c0821627a20c8d99c0bc5a5fd0744ba60302fe9faddce47f453a7e6ca7"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The Cazic Thule quest handler records completion and loot initialization; it does not define additional combat mechanics. Database spell lists have not been reviewed."
+    ]
+  }
+}

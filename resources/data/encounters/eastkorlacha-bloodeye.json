@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "eastkorlacha-bloodeye",
+  "title": "Bloodeye",
+  "group": "Depths of Darkhollow",
+  "type": "event",
+  "zone": {
+    "short_name": "eastkorlacha",
+    "name": "Snarlstone Dens",
+    "version": 2
+  },
+  "npc_ids": [
+    363017,
+    363077,
+    363076
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Bloodeye calls two Ragepaw commanders at 75% health.",
+  "overview": [
+    "Bloodeye calls two Ragepaw commanders at 75% health."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Have two adds covered when the boss reaches 75%.",
+        "Control Stonebite and Ironfur as they join the encounter.",
+        "Keep the fight in Bloodeye's area to avoid the out-of-bounds reset."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastkorlacha/encounters/Bloodeye.lua",
+        "sha256": "7b658bb0c154c7c4aba4efc52fe2a97299ccbd0a287e61adb846be306118b457"
+      },
+      {
+        "path": "eastkorlacha/script_init.lua",
+        "sha256": "180ff003a279166260ec598ed412cd037973ddeb12c17a84dc678f202a3a2297"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

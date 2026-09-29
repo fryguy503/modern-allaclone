@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "chambersb-mastery-of-weaponry",
+  "title": "Mastery of Weaponry",
+  "group": "Muramite trials",
+  "type": "group",
+  "zone": {
+    "short_name": "chambersb",
+    "name": "Muramite Proving Grounds",
+    "version": 1
+  },
+  "npc_ids": [
+    305000,
+    305001,
+    305002,
+    305003
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat four opponents by adapting your weapons to their vulnerabilities.",
+  "overview": [
+    "Defeat four opponents by adapting your weapons to their vulnerabilities."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "weapon-opponents",
+      "label": "Weapon opponents",
+      "trigger": "Four sequential activations",
+      "description": "Defeat the opponents in the randomized activation order, matching weapon types to each vulnerability."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Use slashing against the Hulking Bazu.",
+        "Use piercing, backstab or archery against Hemkai the Ascendant.",
+        "Use blunt or hand-to-hand attacks against the Granite Stoneguardian.",
+        "Steelshock strongly reduces most weapon damage; reserve spell damage for this opponent."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersb/encounters/mpg_weaponry.lua",
+        "sha256": "82a9cf6c0f763e6e404f4f3136aaddaa8ee3dd3654ab498483a403b5f2f7f6ac"
+      },
+      {
+        "path": "chambersb/script_init.lua",
+        "sha256": "7dbb469878286ab43ba4065b1a67f8a7b152a6c1f7be0d6ed232add792909bcf"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "poeartha-stone-ring-peregrin-rockskull",
+  "title": "Stone ring / Peregrin Rockskull",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poeartha",
+    "name": "Vegarlson, the Earthen Badlands",
+    "version": 0
+  },
+  "npc_ids": [
+    218388,
+    218029,
+    218359,
+    218383
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the stone formations, reunite the rubble and defeat six waves of heaps to expose Peregrin Rockskull.",
+  "overview": [
+    "Clear the stone formations, reunite the rubble and defeat six waves of heaps to expose Peregrin Rockskull."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the four required stone-creature families and the fortifications their deaths create.",
+        "Four mounds of rubble appear. Reduce each to 10% so it becomes protected and returns to the temple center.",
+        "When all four mounds assemble, the Rock Monstrosity reforms and becomes attackable. Defeat it to begin Peregrin’s protection phase.",
+        "Six waves of four stone heaps guard the final boss. Clear all six waves to activate Peregrin or the cooldown replacement.",
+        "The final boss can clear hate and has a fifty-minute hard despawn after activation. The entire ring has a three-hour limit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poeartha/encounters/Stone_Event.lua",
+        "sha256": "4129d4548aeaf1220ae940f4c47076f8c9b1b003f7ee7aae8de9e7e4bc939aed"
+      },
+      {
+        "path": "poeartha/#stone_controller.lua",
+        "sha256": "f512e642211c59779985035086da18117ed4bf9d92a342ad7db024e45ecbdef9"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

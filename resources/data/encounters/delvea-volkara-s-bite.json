@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "delvea-volkara-s-bite",
+  "title": "Volkara's Bite",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "delvea",
+    "name": "Lavaspinner's Lair",
+    "version": 9
+  },
+  "npc_ids": [
+    341063,
+    341064
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Volkara drops egg sacs at health thresholds that soon hatch into spiderlings.",
+  "overview": [
+    "Volkara drops egg sacs at health thresholds that soon hatch into spiderlings."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "At 80%, 60%, 40%, 20% and 10%, expect a new egg sequence.",
+        "Deal with egg sacs before their thirty-second hatch timer when possible.",
+        "Keep an add tank ready for magma spiderlings and avoid pushing several thresholds together."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "delvea/encounters/volkaras_bite.lua",
+        "sha256": "85ee5d487d1277d571f6045381c4664cc284718b54e55fdfdd1efabd5b5afbdc"
+      },
+      {
+        "path": "delvea/script_init.lua",
+        "sha256": "209dd27c078503cc17b9db026e48d70ebb185d65aaa4840f70ba098b5ec76ab8"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 9."
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-rivals",
+  "title": "Rivals",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 11
+  },
+  "npc_ids": [
+    343565,
+    343563,
+    343717
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Navigate rival adventurers and decide how to handle the wounded Silverclaw.",
+  "overview": [
+    "Navigate rival adventurers and decide how to handle the wounded Silverclaw."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Decide on the intended faction objective before promising to help Silverclaw."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The assigned task selects the Norrath's Keepers or Dark Reign rival party.",
+        "Moving through the meeting area advances the negotiation and starts attacks from the local goblins and spiders.",
+        "Silverclaw begins at half health. Promising not to harm him makes him protected and opens the recovery dialogue.",
+        "Returning the stolen tooth spawns a chest and ends the expedition, but explicitly fails the assigned task and suppresses normal completion rewards for players inside."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/rivals.lua",
+        "sha256": "acb52e55386da2cba2d03f82e2f53f929c2c046cbd5a0905dfda61a488bd0422"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E356. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The alternate tooth-return ending updates a task stage while announcing failure and suppressing in-zone rewards; verify intended reward behavior before publication."
+    ]
+  }
+}

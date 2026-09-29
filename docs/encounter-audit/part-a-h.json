@@ -1,0 +1,3681 @@
+{
+  "rows": [
+    {
+      "zone": "acrylia",
+      "title": "Archmage Gorraferg ring",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Eight-wave controller culminates in the archmage and includes failure/reset behavior.",
+      "sources": [
+        {
+          "path": "acrylia/#archmage_spawner.lua",
+          "line": 71
+        },
+        {
+          "path": "acrylia/#the_grimling_archmage.lua",
+          "line": 9
+        }
+      ],
+      "notes": "",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "acrylia",
+      "title": "Burrower",
+      "kind": "raid",
+      "confidence": "needs-review",
+      "reason": "Acrylia initializer loads Burrower; a misplaced module under thedeep contains154xxx NPC registrations and life-cycle phases.",
+      "sources": [
+        {
+          "path": "acrylia/script_init.lua",
+          "line": 1
+        },
+        {
+          "path": "thedeep/encounters/Burrower.lua",
+          "line": 151
+        }
+      ],
+      "notes": "No matching local/global module is in Acrylia. The implementation under thedeep is not proven to be loaded here; resolve routing before documenting.",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "acrylia",
+      "title": "Foreman Gworknop",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Killing elite guards triggers an attackable foreman and replacement undead guards.",
+      "sources": [
+        {
+          "path": "acrylia/#foreman_control.lua",
+          "line": 10
+        },
+        {
+          "path": "acrylia/#foreman_control.lua",
+          "line": 34
+        }
+      ],
+      "notes": "",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "acrylia",
+      "title": "High Priest Gakkernog ring",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Proximity trigger runs timed waves and spawns the high priest after the wave sequence.",
+      "sources": [
+        {
+          "path": "acrylia/#HP_shackles.lua",
+          "line": 54
+        },
+        {
+          "path": "acrylia/#High_Priest_Gakkernog.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "acrylia",
+      "title": "Khati Sha the Twisted",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Warders, spiritists, minions and staged activation form a full coordinated raid encounter.",
+      "sources": [
+        {
+          "path": "acrylia/Khati_Sha_the_Twisted.lua",
+          "line": 46
+        },
+        {
+          "path": "acrylia/#arcanist_trigger.lua",
+          "line": 62
+        },
+        {
+          "path": "acrylia/WDTrpMn.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Include the prerequisite warder/chant sequence under this entry.",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "acrylia",
+      "title": "Ring of Fire",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Controller progresses rounds, trash waves, minibosses and final bosses.",
+      "sources": [
+        {
+          "path": "acrylia/#RoF_spawner.lua",
+          "line": 45
+        },
+        {
+          "path": "acrylia/#RoF_spawner.lua",
+          "line": 143
+        }
+      ],
+      "notes": "",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "acrylia",
+      "title": "Trondol Shir escort",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Key quest escort spawns hostile guards and a soulstealer and checks completion.",
+      "sources": [
+        {
+          "path": "acrylia/Trondol_Shir.lua",
+          "line": 41
+        },
+        {
+          "path": "acrylia/Trondol_Shir.lua",
+          "line": 66
+        }
+      ],
+      "notes": "",
+      "group": "Quest events"
+    },
+    {
+      "zone": "acrylia",
+      "title": "Witchdoctor ring",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Timed waves and elemental summoners culminate in a witchdoctor whose resistances depend on the summoners.",
+      "sources": [
+        {
+          "path": "acrylia/#witchdoctor_spawner.lua",
+          "line": 44
+        },
+        {
+          "path": "acrylia/154391.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Acrylia"
+    },
+    {
+      "zone": "airplane",
+      "title": "Spiroc island progression / The Spiroc Lord",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Linked spiroc NPCs repop one another until their guardian chain is broken; Lord victory and Sirran access depend on the guardian state.",
+      "sources": [
+        {
+          "path": "airplane/The_Spiroc_Guardian.lua",
+          "line": 17
+        },
+        {
+          "path": "airplane/The_Spiroc_Lord.lua",
+          "line": 1
+        },
+        {
+          "path": "airplane/a_spiroc_vanquisher.lua",
+          "line": 27
+        }
+      ],
+      "notes": "Consolidated island sequence rather than a row per spiroc helper.",
+      "group": "Plane of Sky"
+    },
+    {
+      "zone": "akheva",
+      "title": "Shei Vinitras",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Loaded encounter scripts death touch, fake/real forms and adds on player kills.",
+      "sources": [
+        {
+          "path": "akheva/encounters/Shei.lua",
+          "line": 12
+        },
+        {
+          "path": "akheva/Shei_Vinitras.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Akheva"
+    },
+    {
+      "zone": "akheva",
+      "title": "The Insanity Crawler / Time-Corrupted Insanity Crawler",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Seasonal burrow/vulnerability thresholds, tremors and kill-triggered mind worms; normal crawler also has kill-triggered adds.",
+      "sources": [
+        {
+          "path": "akheva/A_Time-Corrupted_Insanity_Crawler.lua",
+          "line": 31
+        },
+        {
+          "path": "akheva/A_Time-Corrupted_Insanity_Crawler.lua",
+          "line": 70
+        },
+        {
+          "path": "akheva/The_Insanity_Crawler.lua",
+          "line": 6
+        },
+        {
+          "path": "akheva/insanity.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Instance trigger selects the custom crawler; preserve distinct normal and seasonal behavior in eventual document.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "anguish",
+      "title": "Arch Magus Vangl",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "HP stages, Vangl's Focus and recurring languished converts.",
+      "sources": [
+        {
+          "path": "anguish/encounters/amv.lua",
+          "line": 31
+        },
+        {
+          "path": "anguish/encounters/amv.lua",
+          "line": 72
+        },
+        {
+          "path": "anguish/script_init.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Anguish"
+    },
+    {
+      "zone": "anguish",
+      "title": "Jelvan",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Three linked tormentors, shared state checks and Jelvan blessings.",
+      "sources": [
+        {
+          "path": "anguish/encounters/jelvan.lua",
+          "line": 38
+        },
+        {
+          "path": "anguish/encounters/jelvan.lua",
+          "line": 226
+        },
+        {
+          "path": "anguish/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Anguish"
+    },
+    {
+      "zone": "anguish",
+      "title": "Keldovan the Harrier",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Pit fiend/hound adds, curse rotation and add-death interactions.",
+      "sources": [
+        {
+          "path": "anguish/encounters/keldovan.lua",
+          "line": 52
+        },
+        {
+          "path": "anguish/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Anguish"
+    },
+    {
+      "zone": "anguish",
+      "title": "Overlord Mata Muram",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Multiple health phases, linked lieutenants/adds and scripted failure responses.",
+      "sources": [
+        {
+          "path": "anguish/encounters/omm.lua",
+          "line": 112
+        },
+        {
+          "path": "anguish/script_init.lua",
+          "line": 6
+        }
+      ],
+      "notes": "",
+      "group": "Anguish"
+    },
+    {
+      "zone": "anguish",
+      "title": "Ture",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed destruction/rampage abilities and combat resets.",
+      "sources": [
+        {
+          "path": "anguish/encounters/ture.lua",
+          "line": 51
+        },
+        {
+          "path": "anguish/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Anguish"
+    },
+    {
+      "zone": "anguish",
+      "title": "Warden Hanvar",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Five guards, guard-death progression and scripted combat spells.",
+      "sources": [
+        {
+          "path": "anguish/encounters/hanvar.lua",
+          "line": 45
+        },
+        {
+          "path": "anguish/encounters/hanvar.lua",
+          "line": 70
+        },
+        {
+          "path": "anguish/script_init.lua",
+          "line": 4
+        }
+      ],
+      "notes": "",
+      "group": "Anguish"
+    },
+    {
+      "zone": "arena2",
+      "title": "Heigan the Unclean: The Safety Dance",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Server-controlled movement encounter with phase timing, geometry, damage and failure handling.",
+      "sources": [
+        {
+          "path": "arena2/encounters/arena2_heigan_safety_dance.lua",
+          "line": 1
+        },
+        {
+          "path": "arena2/script_init.lua",
+          "line": 13
+        }
+      ],
+      "notes": "Verified instance version6.",
+      "group": "Arena training"
+    },
+    {
+      "zone": "arena2",
+      "title": "Living Legacy: Battle Prowess",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Custom timed raid with phase scaling, adds and participant capture.",
+      "sources": [
+        {
+          "path": "arena2/encounters/living_legacy_battle_prowess.lua",
+          "line": 1
+        },
+        {
+          "path": "arena2/script_init.lua",
+          "line": 15
+        }
+      ],
+      "notes": "Verified instance version7.",
+      "group": "Living Legacy"
+    },
+    {
+      "zone": "arena2",
+      "title": "Trial of the Dreadscale",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Four difficulty profiles with combat phases and movement telegraphs.",
+      "sources": [
+        {
+          "path": "arena2/encounters/arena2_kunark_trial.lua",
+          "line": 67
+        },
+        {
+          "path": "arena2/encounters/arena2_kunark_trial.lua",
+          "line": 1319
+        },
+        {
+          "path": "arena2/script_init.lua",
+          "line": 11
+        }
+      ],
+      "notes": "Verified versions2-5; intentionally reward-free training encounter.",
+      "group": "Arena training"
+    },
+    {
+      "zone": "barindu",
+      "title": "Ixvet Pox / Colossus of War",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Controllers activate constructs and colossus; alternate poison sequence changes Ixvet's state.",
+      "sources": [
+        {
+          "path": "barindu/encounters/iip.lua",
+          "line": 18
+        },
+        {
+          "path": "barindu/encounters/iip.lua",
+          "line": 105
+        },
+        {
+          "path": "barindu/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Grouped linked event; some source comments note unparsed Nihil behavior.",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "barindu",
+      "title": "Kyv Rux Vhedt",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Health threshold switches the named kyv into ranged behavior with a timer.",
+      "sources": [
+        {
+          "path": "barindu/#Kyv_Rux_Vhedt.lua",
+          "line": 7
+        }
+      ],
+      "notes": "",
+      "group": "Named encounters"
+    },
+    {
+      "zone": "blackburrow",
+      "title": "Blackburrow invasion (Chunky / king event)",
+      "kind": "event",
+      "confidence": "needs-review",
+      "reason": "Zone-wide kill progression drives enraged/chief/warlord/king stages and scaling.",
+      "sources": [
+        {
+          "path": "blackburrow/encounters/bbevent.lua",
+          "line": 66
+        },
+        {
+          "path": "blackburrow/player.lua",
+          "line": 4
+        }
+      ],
+      "notes": "Explicitly GM-started in player.lua; event availability and intended title need owner approval.",
+      "group": "Special events"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "Discordling Dark Animist",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Beastlord2.0 boss appears with six savage ferans and a bounded encounter duration.",
+      "sources": [
+        {
+          "path": "bloodfields/#Discordling_Dark_Animist.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "Elite Dragorn Jekisia",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Repeated health thresholds relocate and root the boss while summoning dragorn flunkies.",
+      "sources": [
+        {
+          "path": "bloodfields/#Elite_Dragorn_Jekisia.lua",
+          "line": 98
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "Gazz the Gargantuan",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Three dreamwalkers control boss awakening and reset timers.",
+      "sources": [
+        {
+          "path": "bloodfields/encounters/gaz.lua",
+          "line": 51
+        },
+        {
+          "path": "bloodfields/encounters/gaz.lua",
+          "line": 70
+        },
+        {
+          "path": "bloodfields/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "Kragsmash",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Monk challenge summons paired strength/speed adds at three health thresholds.",
+      "sources": [
+        {
+          "path": "bloodfields/#Kragsmash.lua",
+          "line": 29
+        },
+        {
+          "path": "bloodfields/#Kragsmash.lua",
+          "line": 42
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "Marshal Histent / Grinbik the Fertile rescue",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Linked marshal combat and Grinbik rescue/surrender event.",
+      "sources": [
+        {
+          "path": "bloodfields/encounters/ranger_1_5.lua",
+          "line": 9
+        },
+        {
+          "path": "bloodfields/marshall_trap.lua",
+          "line": 27
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "Reclusive girplan chain / Rolthee and Myrhee",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Sequential girplan deaths lead to the rogue epic targets.",
+      "sources": [
+        {
+          "path": "bloodfields/301033.lua",
+          "line": 1
+        },
+        {
+          "path": "bloodfields/301076.lua",
+          "line": 1
+        },
+        {
+          "path": "bloodfields/#Rolthee_Roundbelly.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "The Keeper",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Monk challenge progresses health thresholds and a timed encounter state.",
+      "sources": [
+        {
+          "path": "bloodfields/The_Keeper.lua",
+          "line": 29
+        },
+        {
+          "path": "bloodfields/The_Keeper.lua",
+          "line": 36
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "bloodfields",
+      "title": "War Caller Kaavi",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Sentries/guardians gate Kaavi and health threshold summons additional sentinels.",
+      "sources": [
+        {
+          "path": "bloodfields/encounters/war.lua",
+          "line": 5
+        },
+        {
+          "path": "bloodfields/War_Caller_Kaavi.lua",
+          "line": 21
+        },
+        {
+          "path": "bloodfields/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "bothunder",
+      "title": "Agnarr the Storm Lord",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Health-based elemental boss summons and seasonal storm mechanics.",
+      "sources": [
+        {
+          "path": "bothunder/Agnarr_the_Storm_Lord.lua",
+          "line": 49
+        },
+        {
+          "path": "bothunder/Agnarr_the_Storm_Lord.lua",
+          "line": 77
+        }
+      ],
+      "notes": "",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "bothunder",
+      "title": "Emmerik Skyfury",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed combat signals activate portal adds, and victory advances tower progression.",
+      "sources": [
+        {
+          "path": "bothunder/Emmerik_Skyfury.lua",
+          "line": 4
+        }
+      ],
+      "notes": "",
+      "group": "Bastion of Thunder"
+    },
+    {
+      "zone": "bothunder",
+      "title": "Evynd Firestorm",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed combat signals activate portal adds, and victory advances tower progression.",
+      "sources": [
+        {
+          "path": "bothunder/Evynd_Firestorm.lua",
+          "line": 4
+        }
+      ],
+      "notes": "",
+      "group": "Bastion of Thunder"
+    },
+    {
+      "zone": "cauldron",
+      "title": "Praklion of the Cauldron",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Two health thresholds require the event to be resolved correctly for the quest reward.",
+      "sources": [
+        {
+          "path": "cauldron/Praklion_of_the_Cauldron.lua",
+          "line": 8
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "causeway",
+      "title": "Alpha Feran",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Timed howl links combat to attendant/defender helpers.",
+      "sources": [
+        {
+          "path": "causeway/Alpha_Feran.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Named encounters"
+    },
+    {
+      "zone": "causeway",
+      "title": "Bazu Smasher",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Multiple health thresholds summon pairs of Bazu Hulks.",
+      "sources": [
+        {
+          "path": "causeway/Bazu_Smasher.lua",
+          "line": 4
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "causeway",
+      "title": "Bazu Terror",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Beastlord2.0 trigger creates the boss and four Bazu Crushers.",
+      "sources": [
+        {
+          "path": "causeway/#Jillaa_Oogblat.lua",
+          "line": 19
+        },
+        {
+          "path": "causeway/#Bazu_Terror.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "causeway",
+      "title": "Essence of Kreljnok",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Timed Power/Rage adds and add-alive checks support the warrior2.0 encounter.",
+      "sources": [
+        {
+          "path": "causeway/Essence_of_Kreljnok.lua",
+          "line": 10
+        },
+        {
+          "path": "causeway/Essence_of_Kreljnok.lua",
+          "line": 21
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "causeway",
+      "title": "Magician1.5 elemental mastery event",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Multi-NPC elemental event with timed casts, health states and spawned opposition.",
+      "sources": [
+        {
+          "path": "causeway/encounters/mageepic_1_5.lua",
+          "line": 1
+        },
+        {
+          "path": "causeway/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "causeway",
+      "title": "Oshiruk",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Bard2.0 final encounter runs a recurring Tendrils of Oshiruk area attack.",
+      "sources": [
+        {
+          "path": "causeway/#Oshiruk.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "causeway",
+      "title": "Siflu",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Ranger2.0 fight has a scripted surrender health threshold and quest progression.",
+      "sources": [
+        {
+          "path": "causeway/#Siflu.lua",
+          "line": 8
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "causeway",
+      "title": "Slavedriver Menlo",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Timed refugee waves join combat with repeated hate checks.",
+      "sources": [
+        {
+          "path": "causeway/#Slavedriver_Menlo.lua",
+          "line": 12
+        },
+        {
+          "path": "causeway/#Slavedriver_Menlo.lua",
+          "line": 22
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "causeway",
+      "title": "Stone Thrower",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Seasonal enhancement adds timed combat mechanics to the named encounter.",
+      "sources": [
+        {
+          "path": "causeway/#Stone_Thrower.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "causeway",
+      "title": "Withering Murkglider",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Repeated health thresholds spawn murkglider adds.",
+      "sources": [
+        {
+          "path": "causeway/#Withering_Murkglider.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "cazicthule",
+      "title": "Gimlik Cogboggle escort",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Escort waypoints trigger successive ambushes and a final tracker.",
+      "sources": [
+        {
+          "path": "cazicthule/Gimlik_Cogboggle.lua",
+          "line": 12
+        },
+        {
+          "path": "cazicthule/Gimlik_Cogboggle.lua",
+          "line": 82
+        }
+      ],
+      "notes": "",
+      "group": "Quest events"
+    },
+    {
+      "zone": "cazicthule",
+      "title": "Ring of Fear",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "High-priest trigger frees Tahia and begins waves that activate Dread, Fright and Terror avatars.",
+      "sources": [
+        {
+          "path": "cazicthule/#a_Thul_Tae_Ew_High_Priest.lua",
+          "line": 11
+        },
+        {
+          "path": "cazicthule/Avatar_of_Fear.lua",
+          "line": 15
+        }
+      ],
+      "notes": "",
+      "group": "Cazic-Thule"
+    },
+    {
+      "zone": "cazicthule",
+      "title": "Sickly mosquito",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Ranger1.5 combat target has health-threshold and timed behavior.",
+      "sources": [
+        {
+          "path": "cazicthule/a_sickly_mosquito.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "chambersa",
+      "title": "Mastery of Fear",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Trial distinguishes fearable/fearless enemies, timed behavior and completion chest.",
+      "sources": [
+        {
+          "path": "chambersa/encounters/mpg_fear.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersa/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersa",
+      "title": "Mastery of Hate",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Feran waves precede a hate-management master encounter.",
+      "sources": [
+        {
+          "path": "chambersa/encounters/mpg_hate.lua",
+          "line": 40
+        },
+        {
+          "path": "chambersa/encounters/mpg_hate.lua",
+          "line": 123
+        },
+        {
+          "path": "chambersa/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersb",
+      "title": "Mastery of Endurance",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed multi-NPC endurance raid trial.",
+      "sources": [
+        {
+          "path": "chambersb/encounters/mpg_endurance.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersb/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersb",
+      "title": "Mastery of Weaponry",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Weapon-specialized opponents and event timers form a group mastery trial.",
+      "sources": [
+        {
+          "path": "chambersb/encounters/mpg_weaponry.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersb/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersc",
+      "title": "Mastery of Foresight",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed warnings and multi-NPC responses implement the foresight raid trial.",
+      "sources": [
+        {
+          "path": "chambersc/encounters/mpg_foresight.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersc/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersc",
+      "title": "Mastery of Subversion",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Scripted trial coordinates a master, guardians, event timers and completion.",
+      "sources": [
+        {
+          "path": "chambersc/encounters/mpg_subversion.lua",
+          "line": 102
+        },
+        {
+          "path": "chambersc/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersd",
+      "title": "Mastery of Efficiency",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Trial applies resource-limiting debuffs and timed enforcer/kill progression.",
+      "sources": [
+        {
+          "path": "chambersd/encounters/mpg_efficiency.lua",
+          "line": 55
+        },
+        {
+          "path": "chambersd/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersd",
+      "title": "Mastery of Specialization",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Specialized enemy handling and completion logic define a raid trial.",
+      "sources": [
+        {
+          "path": "chambersd/encounters/mpg_specialization.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersd/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chamberse",
+      "title": "Mastery of Adaptation",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Adaptive enemy state and multi-phase raid trial.",
+      "sources": [
+        {
+          "path": "chamberse/encounters/mpg_adaptation.lua",
+          "line": 1
+        },
+        {
+          "path": "chamberse/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chamberse",
+      "title": "Mastery of Ingenuity",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Timed group trial challenges the party against a scripted master with combat checks and completion handling.",
+      "sources": [
+        {
+          "path": "chamberse/encounters/mpg_ingenuity.lua",
+          "line": 74
+        },
+        {
+          "path": "chamberse/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersf",
+      "title": "Mastery of Corruption",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Multi-NPC corruption trial with health/timer-driven event states.",
+      "sources": [
+        {
+          "path": "chambersf/encounters/mpg_corruption.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersf/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chambersf",
+      "title": "Mastery of Destruction",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Timed destruction trial with enemy waves and reward completion.",
+      "sources": [
+        {
+          "path": "chambersf/encounters/mpg_destruction.lua",
+          "line": 1
+        },
+        {
+          "path": "chambersf/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Muramite trials"
+    },
+    {
+      "zone": "chardokb",
+      "title": "Korucust",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Oblivion/Vengeance spells and an HP-triggered Phantasmal Shift second phase.",
+      "sources": [
+        {
+          "path": "chardokb/#Korucust.lua",
+          "line": 20
+        },
+        {
+          "path": "chardokb/#Korucust.lua",
+          "line": 58
+        }
+      ],
+      "notes": "",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "chardokb",
+      "title": "Leprous chokidai",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Ranger1.5 encounter with low-health behavior and Epidermal Rot on death.",
+      "sources": [
+        {
+          "path": "chardokb/a_leprous_chokidai.lua",
+          "line": 3
+        },
+        {
+          "path": "chardokb/a_leprous_chokidai.lua",
+          "line": 29
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "citymist",
+      "title": "Black reaver / Lord Ghiosk / Lord Rak'Ashiir chain",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Repeated black reaver deaths conditionally replace them with named encounters.",
+      "sources": [
+        {
+          "path": "citymist/90005.lua",
+          "line": 2
+        },
+        {
+          "path": "citymist/90200.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Includes fabled/normal branch in90200.lua; authoring should verify the applicable spawn IDs.",
+      "group": "City of Mist"
+    },
+    {
+      "zone": "cobaltscar",
+      "title": "Gnashing Killer Shark and companions",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Shaman1.5 trigger spawns the Gnashing Killer Shark, Darting Shark and Feeder Shark together.",
+      "sources": [
+        {
+          "path": "cobaltscar/Yoppa_Greenthumb.lua",
+          "line": 15
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "codecay",
+      "title": "Bertoxxulous",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Crypt waves, named kings and kill counters culminate in Bertoxxulous.",
+      "sources": [
+        {
+          "path": "codecay/encounters/Bertoxx_Event.lua",
+          "line": 89
+        },
+        {
+          "path": "codecay/encounters/Bertoxx_Event.lua",
+          "line": 142
+        },
+        {
+          "path": "codecay/#Spectre_of_Corruption.lua",
+          "line": 8
+        }
+      ],
+      "notes": "",
+      "group": "Crypt of Decay"
+    },
+    {
+      "zone": "codecay",
+      "title": "Carprin Deatharn cycle",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Guard gating leads through Avhi, Bishop and the final high-priest/guard stage.",
+      "sources": [
+        {
+          "path": "codecay/#_Carprin_Deatharn.lua",
+          "line": 20
+        },
+        {
+          "path": "codecay/Avhi_Escron.lua",
+          "line": 38
+        },
+        {
+          "path": "codecay/Bishop_Toluwon.lua",
+          "line": 10
+        }
+      ],
+      "notes": "Keep dependent named steps as phases of this cycle.",
+      "group": "Crypt of Decay"
+    },
+    {
+      "zone": "codecay",
+      "title": "Overlord Banord Paffa",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Wave and failure timers with pusling checks culminate in the real overlord.",
+      "sources": [
+        {
+          "path": "codecay/encounters/Overlord_Banord_Paffa.lua",
+          "line": 64
+        },
+        {
+          "path": "codecay/A_deep.lua",
+          "line": 14
+        }
+      ],
+      "notes": "",
+      "group": "Crypt of Decay"
+    },
+    {
+      "zone": "corathus",
+      "title": "Taskmaster",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Reaper deaths release the taskmaster, then health thresholds activate more adds.",
+      "sources": [
+        {
+          "path": "corathus/encounters/taskmaster.lua",
+          "line": 34
+        },
+        {
+          "path": "corathus/encounters/taskmaster.lua",
+          "line": 82
+        },
+        {
+          "path": "corathus/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "corathusb",
+      "title": "Find Fibblebrap1: The Mines",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Instanced mission handles named objectives, pickups, combat state and reward completion.",
+      "sources": [
+        {
+          "path": "corathusb/encounters/find_fibblebrap_one.lua",
+          "line": 49
+        },
+        {
+          "path": "corathusb/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Find Fibblebrap"
+    },
+    {
+      "zone": "corathusb",
+      "title": "Find Fibblebrap5",
+      "kind": "mission",
+      "confidence": "needs-review",
+      "reason": "Separate instance selector loads another Fibblebrap mission with objective handlers.",
+      "sources": [
+        {
+          "path": "corathusb/encounters/find_fibblebrap_five.lua",
+          "line": 48
+        },
+        {
+          "path": "corathusb/script_init.lua",
+          "line": 4
+        }
+      ],
+      "notes": "Header erroneously repeats Find Fibblebrap1; verify mission title and stage data before publication.",
+      "group": "Find Fibblebrap"
+    },
+    {
+      "zone": "dawnshroud",
+      "title": "Hunter's Pike beast challenge",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Carre Harger summons two beasts; each death transforms into another beast opponent.",
+      "sources": [
+        {
+          "path": "dawnshroud/#Carre_Harger.lua",
+          "line": 8
+        },
+        {
+          "path": "dawnshroud/174322.lua",
+          "line": 2
+        },
+        {
+          "path": "dawnshroud/174323.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Quest events"
+    },
+    {
+      "zone": "delvea",
+      "title": "A Halfling's Greed",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Cursed/gold chests have guards, inspection/opening rules and triggered consequences.",
+      "sources": [
+        {
+          "path": "delvea/encounters/a_halflings_greed.lua",
+          "line": 63
+        },
+        {
+          "path": "delvea/script_init.lua",
+          "line": 15
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delvea",
+      "title": "Lavaspinner Hunting",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Kill progression spawns cracked and pristine eggs for mission objectives.",
+      "sources": [
+        {
+          "path": "delvea/encounters/lavaspinner_hunting.lua",
+          "line": 25
+        },
+        {
+          "path": "delvea/script_init.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delvea",
+      "title": "Stonemaw",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Magma, Molten and Smolder spawn when Stonemaw enters combat.",
+      "sources": [
+        {
+          "path": "delvea/Stonemaw.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delvea",
+      "title": "The Drake Menace / Drake Matriarch",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Kill/egg progression triggers the Drake Matriarch.",
+      "sources": [
+        {
+          "path": "delvea/encounters/the_drake_menace.lua",
+          "line": 45
+        },
+        {
+          "path": "delvea/script_init.lua",
+          "line": 11
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delvea",
+      "title": "Volkara's Bite",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Health stages place eggs that hatch into magma spiderlings.",
+      "sources": [
+        {
+          "path": "delvea/encounters/volkaras_bite.lua",
+          "line": 10
+        },
+        {
+          "path": "delvea/encounters/volkaras_bite.lua",
+          "line": 21
+        },
+        {
+          "path": "delvea/script_init.lua",
+          "line": 19
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delveb",
+      "title": "A Goblin's Escort",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Sequential goblin escorts use arrival checks, dialogue stages and nearby hostile aggro.",
+      "sources": [
+        {
+          "path": "delveb/encounters/a_goblins_escort.lua",
+          "line": 38
+        },
+        {
+          "path": "delveb/script_init.lua",
+          "line": 9
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delveb",
+      "title": "Emoush the Destroyer",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Three mystics control vulnerability and power-up states of Emoush.",
+      "sources": [
+        {
+          "path": "delveb/encounters/emoush.lua",
+          "line": 17
+        },
+        {
+          "path": "delveb/encounters/emoush.lua",
+          "line": 29
+        },
+        {
+          "path": "delveb/script_init.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delveb",
+      "title": "Have Note, Will Travel",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Kill counts summon a Goblin Task Master, whose death spawns guard waves.",
+      "sources": [
+        {
+          "path": "delveb/encounters/have_note_will_travel.lua",
+          "line": 3
+        },
+        {
+          "path": "delveb/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "delveb",
+      "title": "Tirranun: Fanning the Flames",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Banish phase transitions through a false death and regeneration into a stronger form with ash adds; bridge hazards also scripted.",
+      "sources": [
+        {
+          "path": "delveb/#Tirranun.lua",
+          "line": 9
+        },
+        {
+          "path": "delveb/#Tirranun.lua",
+          "line": 27
+        },
+        {
+          "path": "delveb/encounters/fanning_the_flames.lua",
+          "line": 41
+        },
+        {
+          "path": "delveb/script_init.lua",
+          "line": 11
+        }
+      ],
+      "notes": "The encounter module alone is largely notes, but the separate named NPC script contains the actual boss behavior.",
+      "group": "Dragons of Norrath"
+    },
+    {
+      "zone": "drachnidhive",
+      "title": "Drithnak the Exiled",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Combat timers create drachnid egg sacs, coordinate hate and enforce distance checks.",
+      "sources": [
+        {
+          "path": "drachnidhive/#Drithnak_the_Exiled.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "drachnidhive",
+      "title": "The Lost Notebook",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Mission-specific enemy deaths and trap-triggered spawns progress the notebook recovery.",
+      "sources": [
+        {
+          "path": "drachnidhive/encounters/the_lost_notebook.lua",
+          "line": 68
+        },
+        {
+          "path": "drachnidhive/encounters/the_lost_notebook.lua",
+          "line": 80
+        },
+        {
+          "path": "drachnidhive/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "drachnidhivea",
+      "title": "Find Fibblebrap3: The Hive",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Stage progression controls a foreman encounter and mission reward.",
+      "sources": [
+        {
+          "path": "drachnidhivea/encounters/find_fibblebrap_three.lua",
+          "line": 86
+        },
+        {
+          "path": "drachnidhivea/encounters/find_fibblebrap_three.lua",
+          "line": 101
+        },
+        {
+          "path": "drachnidhivea/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Find Fibblebrap"
+    },
+    {
+      "zone": "drachnidhivea",
+      "title": "The Lost Gnomes",
+      "kind": "mission",
+      "confidence": "clear",
+      "reason": "Destroy cocoons and protect/rescue gnomes amid hostile bursts.",
+      "sources": [
+        {
+          "path": "drachnidhivea/encounters/the_lost_gnomes.lua",
+          "line": 94
+        },
+        {
+          "path": "drachnidhivea/encounters/the_lost_gnomes.lua",
+          "line": 160
+        },
+        {
+          "path": "drachnidhivea/script_init.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "drachnidhivec",
+      "title": "Sendaii the Hive Queen",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Egg trigger, curse progression and extensive staged combat/add waves form a full raid event.",
+      "sources": [
+        {
+          "path": "drachnidhivec/encounters/Sendaii.lua",
+          "line": 58
+        },
+        {
+          "path": "drachnidhivec/encounters/Sendaii.lua",
+          "line": 111
+        },
+        {
+          "path": "drachnidhivec/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "dragonscalea",
+      "title": "Living Legacy: Marathon",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Round-based raid with scaling add budgets, immunities and timed attacks.",
+      "sources": [
+        {
+          "path": "dragonscalea/encounters/living_legacy_ira.lua",
+          "line": 1
+        },
+        {
+          "path": "dragonscalea/script_init.lua",
+          "line": 6
+        }
+      ],
+      "notes": "Shares encounter implementation with Sprint; central LivingLegacy profiles distinguish the modes.",
+      "group": "Living Legacy"
+    },
+    {
+      "zone": "dragonscalea",
+      "title": "Living Legacy: Sprint",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed variant of the Living Legacy round-based raid.",
+      "sources": [
+        {
+          "path": "dragonscalea/encounters/living_legacy_ira.lua",
+          "line": 1
+        },
+        {
+          "path": "dragonscalea/script_init.lua",
+          "line": 6
+        }
+      ],
+      "notes": "Shares encounter implementation with Marathon; central LivingLegacy profiles distinguish the modes.",
+      "group": "Living Legacy"
+    },
+    {
+      "zone": "dranik",
+      "title": "Battlemaster Rhorious",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Controller spawns linked named lieutenants, groundpounders and the battlemaster.",
+      "sources": [
+        {
+          "path": "dranik/encounters/battlemaster.lua",
+          "line": 27
+        },
+        {
+          "path": "dranik/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "dranik",
+      "title": "Bloated Girplan",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Timed Rain of Bile, Fetid Breath and Disconcerting Presence rotation.",
+      "sources": [
+        {
+          "path": "dranik/#Bloated_Girplan.lua",
+          "line": 1
+        },
+        {
+          "path": "dranik/#Bloated_Girplan.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Named encounters"
+    },
+    {
+      "zone": "dranik",
+      "title": "Discord Fluctuation trio",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Necromancer epic trigger summons Rargari, Gornogg and Arlagai together.",
+      "sources": [
+        {
+          "path": "dranik/#Discord_Fluctuation.lua",
+          "line": 11
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dranik",
+      "title": "Discordling Dark Animist",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Beastlord1.5 boss spawns five beast adds and uses timed Discordant Feedback/Corporeal Torment.",
+      "sources": [
+        {
+          "path": "dranik/#Discordling_Dark_Animist.lua",
+          "line": 3
+        },
+        {
+          "path": "dranik/#Discordling_Dark_Animist.lua",
+          "line": 11
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dranik",
+      "title": "Kyv Sharpshooters: Jaeth, Mihl and Nass",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Three linked sharpshooters share spawn/death coordination and switch combat behavior below45 percent health.",
+      "sources": [
+        {
+          "path": "dranik/kyv_controller.lua",
+          "line": 5
+        },
+        {
+          "path": "dranik/#Kyv_Sharpshooter_Jaeth.lua",
+          "line": 10
+        },
+        {
+          "path": "dranik/#Kyv_Sharpshooter_Mihl.lua",
+          "line": 9
+        },
+        {
+          "path": "dranik/#Kyv_Sharpshooter_Nass.lua",
+          "line": 9
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "dranik",
+      "title": "Lhranc and his minions",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Shadow knight2.0 trigger progresses through minions into Lhranc.",
+      "sources": [
+        {
+          "path": "dranik/#Filligno_the_Slayer.lua",
+          "line": 68
+        },
+        {
+          "path": "dranik/#Lhranc.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dranik",
+      "title": "Lirah the Bridgekeeper",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Seasonal encounter links Dragorn Protector spawns, respawns and combat behavior.",
+      "sources": [
+        {
+          "path": "dranik/Lirah_the_Bridgekeeper.lua",
+          "line": 24
+        },
+        {
+          "path": "dranik/Lirah_the_Bridgekeeper.lua",
+          "line": 100
+        }
+      ],
+      "notes": "",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "dranik",
+      "title": "Murkglider Breeder",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Shadow knight1.5 encounter repeatedly spawns murkgliders with lifecycle signals.",
+      "sources": [
+        {
+          "path": "dranik/#Murkglider_Breeder.lua",
+          "line": 5
+        },
+        {
+          "path": "dranik/#Murkglider_Breeder.lua",
+          "line": 15
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dranik",
+      "title": "Sverins / Uisima rescue",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Ranger1.5 linked encounter combines timed attacks, spirit adds and Uisima surrender.",
+      "sources": [
+        {
+          "path": "dranik/encounters/ranger_1_5.lua",
+          "line": 10
+        },
+        {
+          "path": "dranik/encounters/ranger_1_5.lua",
+          "line": 104
+        },
+        {
+          "path": "dranik/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dranik",
+      "title": "Tiorpat Tornwing",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Crowd factions, timed actions and related NPC signals control the event.",
+      "sources": [
+        {
+          "path": "dranik/encounters/tiorpat.lua",
+          "line": 15
+        },
+        {
+          "path": "dranik/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "dranik",
+      "title": "Wren Simsy",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Rogue2.0 event creates assassins and checks participant conditions during combat.",
+      "sources": [
+        {
+          "path": "dranik/#Wren_Simsy.lua",
+          "line": 8
+        },
+        {
+          "path": "dranik/#Wren_Simsy.lua",
+          "line": 32
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dranik",
+      "title": "Zun'Muram Volklana",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Health threshold behavior and recurring terror checks.",
+      "sources": [
+        {
+          "path": "dranik/336141.lua",
+          "line": 17
+        },
+        {
+          "path": "dranik/336141.lua",
+          "line": 30
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "draniksscar",
+      "title": "Girplan Spiritleech",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Beastlord1.5 turn-in starts a boss and eight spiritminions.",
+      "sources": [
+        {
+          "path": "draniksscar/#Yerika_Sisslak.lua",
+          "line": 14
+        },
+        {
+          "path": "draniksscar/#Yerika_Sisslak.lua",
+          "line": 29
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "dreadlands",
+      "title": "Gorenaire",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Combat roar timer and a low-health seasonal phase.",
+      "sources": [
+        {
+          "path": "dreadlands/Gorenaire.lua",
+          "line": 9
+        },
+        {
+          "path": "dreadlands/Gorenaire.lua",
+          "line": 37
+        }
+      ],
+      "notes": "",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "dreadlands",
+      "title": "The Turkey King / Tainted Turkey invasion",
+      "kind": "event",
+      "confidence": "needs-review",
+      "reason": "Thanksgiving controller escalates turkey populations into captain/god spawns.",
+      "sources": [
+        {
+          "path": "dreadlands/The_Turkey_King.lua",
+          "line": 17
+        },
+        {
+          "path": "dreadlands/The_Turkey_King.lua",
+          "line": 65
+        }
+      ],
+      "notes": "Holiday availability is not established by quest source alone; owner should confirm intended availability.",
+      "group": "Holiday events"
+    },
+    {
+      "zone": "dreadspire",
+      "title": "Hatchet the Torturer",
+      "kind": "raid",
+      "confidence": "needs-review",
+      "reason": "Has partial HP-lock/trap code and extensive reference logs.",
+      "sources": [
+        {
+          "path": "dreadspire/encounters/Hatchet.lua",
+          "line": 87
+        },
+        {
+          "path": "dreadspire/encounters/Hatchet.lua",
+          "line": 113
+        },
+        {
+          "path": "dreadspire/script_init.lua",
+          "line": 3
+        }
+      ],
+      "notes": "Loader registers undefined Hanvar_Spawn/Hanvar_Combat/Hanvar_Timer instead of Hatchet functions; mechanics are incomplete and cannot be presented as implemented.",
+      "group": "Demi-Plane of Blood"
+    },
+    {
+      "zone": "dreadspire",
+      "title": "Redfang",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Initial screecher-bat kills spawn Redfang and drive subsequent bat/position mechanics.",
+      "sources": [
+        {
+          "path": "dreadspire/encounters/Redfang.lua",
+          "line": 37
+        },
+        {
+          "path": "dreadspire/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Demi-Plane of Blood"
+    },
+    {
+      "zone": "dreadspire",
+      "title": "Zi-Thuuli of the Granite Claw",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Multiple health gates and encounter transitions culminate in a chest.",
+      "sources": [
+        {
+          "path": "dreadspire/encounters/thuuli.lua",
+          "line": 12
+        },
+        {
+          "path": "dreadspire/encounters/thuuli.lua",
+          "line": 24
+        },
+        {
+          "path": "dreadspire/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Demi-Plane of Blood"
+    },
+    {
+      "zone": "dulak",
+      "title": "Quigli",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Monk1.5 challenge spawns four support enemies shortly after activation.",
+      "sources": [
+        {
+          "path": "dulak/Quigli.lua",
+          "line": 3
+        },
+        {
+          "path": "dulak/Quigli.lua",
+          "line": 38
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "eastkarana",
+      "title": "Althele's druid gathering defense",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Timed gathering is attacked by a Dark Elf Corruptor and Reavers; protect the druids.",
+      "sources": [
+        {
+          "path": "eastkarana/Althele.lua",
+          "line": 131
+        },
+        {
+          "path": "eastkarana/Althele.lua",
+          "line": 145
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "eastkorlach",
+      "title": "General Veronhar",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "General and commanders have scripted positioning, healing/leash behavior and coordinated setup.",
+      "sources": [
+        {
+          "path": "eastkorlach/encounters/General_Veronhar.lua",
+          "line": 5
+        },
+        {
+          "path": "eastkorlach/encounters/General_Veronhar.lua",
+          "line": 19
+        },
+        {
+          "path": "eastkorlach/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "eastkorlacha",
+      "title": "Bloodeye",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "75-percent health gate summons commanders and encounter enforces leash behavior.",
+      "sources": [
+        {
+          "path": "eastkorlacha/encounters/Bloodeye.lua",
+          "line": 17
+        },
+        {
+          "path": "eastkorlacha/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Depths of Darkhollow"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Boridain Glacierbane escort (Coldain ring2)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Escort path culminates in a scripted Rabid Tundra Kodiak spawn and quest completion.",
+      "sources": [
+        {
+          "path": "eastwastes/Boridain_Glacierbane.lua",
+          "line": 28
+        }
+      ],
+      "notes": "",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Corbin Blackwell rescue (Coldain ring7)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Rescue escort has two ambush groups; warden combat summons guards.",
+      "sources": [
+        {
+          "path": "eastwastes/Corbin_Blackwell.lua",
+          "line": 3
+        },
+        {
+          "path": "eastwastes/Warden_Bruke.lua",
+          "line": 10
+        }
+      ],
+      "notes": "",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Icefang / Poxbreath pursuit (Coldain ring6)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Wolf escort leads to scripted orc/Poxbreath ambush and cleanup.",
+      "sources": [
+        {
+          "path": "eastwastes/Icefang.lua",
+          "line": 12
+        },
+        {
+          "path": "eastwastes/Icefang.lua",
+          "line": 54
+        }
+      ],
+      "notes": "",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Peffin Ambersnow / Berradin confrontation",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Scripted betrayal/confrontation summons elite guards and changes event states.",
+      "sources": [
+        {
+          "path": "eastwastes/Peffin_Ambersnow.lua",
+          "line": 1
+        },
+        {
+          "path": "eastwastes/#Peffin_Ambersnow.lua",
+          "line": 1
+        },
+        {
+          "path": "eastwastes/Captain_Berradin.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Associated with later Coldain ring progression; do not infer a version from filenames.",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Ry'Gorr assault / Chief Ry'Gorr (Coldain ring8)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Turn-in begins a coordinated Coldain assault with a large scripted enemy force.",
+      "sources": [
+        {
+          "path": "eastwastes/Gloradin_Coldheart.lua",
+          "line": 2
+        },
+        {
+          "path": "eastwastes/Gloradin_Coldheart.lua",
+          "line": 18
+        },
+        {
+          "path": "eastwastes/Garadain_Glacierbane.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Scarbrow Ga'Hruk assault (Coldain ring5)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Lookout trigger starts Scarbrow and Ry'Gorr invader waves.",
+      "sources": [
+        {
+          "path": "eastwastes/a_coldain_lookout.lua",
+          "line": 8
+        },
+        {
+          "path": "eastwastes/a_coldain_lookout.lua",
+          "line": 29
+        }
+      ],
+      "notes": "",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "eastwastes",
+      "title": "Tain Hammerfrost defense (Coldain ring4)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Dialogue starts a five-enemy assault on Tain.",
+      "sources": [
+        {
+          "path": "eastwastes/Tain_Hammerfrost.lua",
+          "line": 8
+        }
+      ],
+      "notes": "",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "emeraldjungle",
+      "title": "Severilous",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Seasonal toxic attacks and low-health phase modify dragon combat.",
+      "sources": [
+        {
+          "path": "emeraldjungle/Severilous.lua",
+          "line": 12
+        },
+        {
+          "path": "emeraldjungle/Severilous.lua",
+          "line": 43
+        }
+      ],
+      "notes": "",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "fearplane",
+      "title": "Cazic Thule",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Instance/seasonal branches implement health phases, spawned adds and fear behavior.",
+      "sources": [
+        {
+          "path": "fearplane/Cazic_Thule.lua",
+          "line": 118
+        },
+        {
+          "path": "fearplane/Cazic_Thule.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Distinct normal and instance branches must be preserved when authoring.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "fearplane",
+      "title": "Dracoliche",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Instance encounter has a false-death/reanimation sequence and adds.",
+      "sources": [
+        {
+          "path": "fearplane/a_dracoliche.lua",
+          "line": 28
+        },
+        {
+          "path": "fearplane/a_dracoliche.lua",
+          "line": 59
+        }
+      ],
+      "notes": "Special false-death branch is gated to instance version255 in event_spawn.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "fearplane",
+      "title": "Fear golems: Dread, Fright and Terror",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Dread and Fright have scripted death-touch cycles; the three golems can spawn an iksar broodling when killed.",
+      "sources": [
+        {
+          "path": "fearplane/Dread.lua",
+          "line": 1
+        },
+        {
+          "path": "fearplane/Fright.lua",
+          "line": 1
+        },
+        {
+          "path": "fearplane/Terror.lua",
+          "line": 8
+        }
+      ],
+      "notes": "A shared golem entry must make clear that Terror lacks the scripted death-touch cycle.",
+      "group": "Plane of Fear"
+    },
+    {
+      "zone": "fearplane",
+      "title": "Fear-Touched Dracolich ambush",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Zone kills can trigger a dracolich that attacks the credited player.",
+      "sources": [
+        {
+          "path": "fearplane/encounters/fear_touched_dracolich.lua",
+          "line": 5
+        },
+        {
+          "path": "fearplane/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Enabled by Rotten_Hand content flag in script_init.lua; separate from ordinary Dracoliche.",
+      "group": "Plane of Fear"
+    },
+    {
+      "zone": "fearplane",
+      "title": "Ireblind Imp",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Berserker epic health stages summon waves of Essence of Rage adds.",
+      "sources": [
+        {
+          "path": "fearplane/Ireblind_Imp.lua",
+          "line": 7
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "feerrott",
+      "title": "Swamp Terror",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Druid epic proximity trigger runs a dialogue sequence and summons Swamp Terror.",
+      "sources": [
+        {
+          "path": "feerrott/#druid_epic_trap.lua",
+          "line": 32
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "ferubi",
+      "title": "Hexxt Pzik Shziaak",
+      "kind": "group",
+      "confidence": "clear",
+      "reason": "Named kyv switches combat at a health threshold and runs a ranged timer.",
+      "sources": [
+        {
+          "path": "ferubi/Hexxt_Pzik_Shziaak.lua",
+          "line": 6
+        },
+        {
+          "path": "ferubi/Hexxt_Pzik_Shziaak.lua",
+          "line": 12
+        }
+      ],
+      "notes": "",
+      "group": "Named encounters"
+    },
+    {
+      "zone": "ferubi",
+      "title": "Packmaster Skoiat Pizak",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Linked Rav guards assist the packmaster and use distance checks.",
+      "sources": [
+        {
+          "path": "ferubi/Packmaster_Skoiat_Pizak.lua",
+          "line": 4
+        },
+        {
+          "path": "ferubi/#Rav_Pizak.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ferubi",
+      "title": "Pxet elite ambushes",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Kill-count/signaled controllers summon elite Blademaster, Spearmaster, Hammermaster and Brawler.",
+      "sources": [
+        {
+          "path": "ferubi/Event_Spawner.lua",
+          "line": 13
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "ferubi",
+      "title": "Smith Rondo / Weapon Master cycle",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Trades/signals, Weapon Master apprentices and seasonal combat phases comprise the linked encounter.",
+      "sources": [
+        {
+          "path": "ferubi/#Smith_Rondo.lua",
+          "line": 62
+        },
+        {
+          "path": "ferubi/#Smith_Rondo.lua",
+          "line": 110
+        },
+        {
+          "path": "ferubi/Weapon_Master_Vtiink_Vzaan.lua",
+          "line": 4
+        }
+      ],
+      "notes": "Weapon Master prerequisite is retained as a stage instead of duplicate candidate.",
+      "group": "Seasonal"
+    },
+    {
+      "zone": "ferubi",
+      "title": "Zun-Muram Votal",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Encounter has linked Pixtt adds, aggro coordination and out-of-bounds checks.",
+      "sources": [
+        {
+          "path": "ferubi/Zun-Muram_Votal.lua",
+          "line": 1
+        },
+        {
+          "path": "ferubi/Pixtt_Votal.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Gates of Discord"
+    },
+    {
+      "zone": "fieldofbone",
+      "title": "Berserker's Image",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Three health stages alter the epic trial and death spawns the noncombat follow-up.",
+      "sources": [
+        {
+          "path": "fieldofbone/#Berserker-s_Image.lua",
+          "line": 7
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "freportw",
+      "title": "Sir Lucan D'Lere",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Killing the living Lucan triggers a second NPC form at the death location.",
+      "sources": [
+        {
+          "path": "freportw/Sir_Lucan_D-Lere.lua",
+          "line": 9
+        }
+      ],
+      "notes": "Second form NPC9147 requires database identity/combat verification before detailed authoring.",
+      "group": "Classic quest encounters"
+    },
+    {
+      "zone": "frontiermtns",
+      "title": "Goblin King Dronan event",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Druid1.5 controller manages seekers, the king and linked named goblins.",
+      "sources": [
+        {
+          "path": "frontiermtns/encounters/druid_1_5.lua",
+          "line": 10
+        },
+        {
+          "path": "frontiermtns/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "fungusgrove",
+      "title": "Calling Beasties (Murkin, Groo and Torgal)",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Three cavern callers run paid timed waves with pauses between sets and survival rewards.",
+      "sources": [
+        {
+          "path": "fungusgrove/#Caller_Murkin.lua",
+          "line": 17
+        },
+        {
+          "path": "fungusgrove/#Caller_Murkin.lua",
+          "line": 69
+        },
+        {
+          "path": "fungusgrove/#Caller_Groo.lua",
+          "line": 1
+        },
+        {
+          "path": "fungusgrove/#Caller_Torgal.lua",
+          "line": 1
+        }
+      ],
+      "notes": "Consolidated variants of the same wave event.",
+      "group": "Luclin events"
+    },
+    {
+      "zone": "fungusgrove",
+      "title": "Draz Nurakk",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Beastlord epic challenge calls its pet into combat and manages timed reset/despawn.",
+      "sources": [
+        {
+          "path": "fungusgrove/Draz_Nurakk.lua",
+          "line": 17
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "gfaydark",
+      "title": "Seana and Stefan Marsinger",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Turn-in activates both linked bards; Seana gives a stone then teleports the current target, while the pair repeatedly assist one another.",
+      "sources": [
+        {
+          "path": "gfaydark/Seana_Marsinger.lua",
+          "line": 79
+        },
+        {
+          "path": "gfaydark/Stefan_Marsinger.lua",
+          "line": 73
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "greatdivide",
+      "title": "High Priest Maltan assault",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Cleric pre1.5 encounter spawns Maltan and five plasmatic priests/priestesses.",
+      "sources": [
+        {
+          "path": "greatdivide/Gavon_Morant.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "greatdivide",
+      "title": "Tenth Coldain Ring War / Narandi",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Large multiwave Coldain/giant war with allied commanders, escape/failure and Narandi finale.",
+      "sources": [
+        {
+          "path": "greatdivide/encounters/RingTen.lua",
+          "line": 34
+        },
+        {
+          "path": "greatdivide/Sentry_Badain.lua",
+          "line": 34
+        }
+      ],
+      "notes": "Source contains TODO testing comments; runtime acceptance not established.",
+      "group": "Coldain rings"
+    },
+    {
+      "zone": "grimling",
+      "title": "Captain Necin's raid",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Coordinated assault covers two camps with independent camp checks.",
+      "sources": [
+        {
+          "path": "grimling/encounters/Necins_Raid.lua",
+          "line": 36
+        },
+        {
+          "path": "grimling/Captain_Necin.lua",
+          "line": 67
+        }
+      ],
+      "notes": "",
+      "group": "Grimling war"
+    },
+    {
+      "zone": "grimling",
+      "title": "Final Grimling War / General Staginar's raid",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Final war runs multiple camps, high commanders and win/fail state.",
+      "sources": [
+        {
+          "path": "grimling/encounters/Final_War.lua",
+          "line": 48
+        },
+        {
+          "path": "grimling/Veteran_Cullin.lua",
+          "line": 229
+        }
+      ],
+      "notes": "",
+      "group": "Grimling war"
+    },
+    {
+      "zone": "grimling",
+      "title": "Scout Danarin's raid",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Second camp assault has scripted waves, progression and failure checks.",
+      "sources": [
+        {
+          "path": "grimling/encounters/Danarins_Raid.lua",
+          "line": 26
+        },
+        {
+          "path": "grimling/Scout_Danarin.lua",
+          "line": 68
+        }
+      ],
+      "notes": "",
+      "group": "Grimling war"
+    },
+    {
+      "zone": "grimling",
+      "title": "Scout Derrin's raid",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Third scout camp assault has waves, camp checks and completion.",
+      "sources": [
+        {
+          "path": "grimling/encounters/Derrins_Raid.lua",
+          "line": 24
+        },
+        {
+          "path": "grimling/Scout_Derrin.lua",
+          "line": 69
+        }
+      ],
+      "notes": "",
+      "group": "Grimling war"
+    },
+    {
+      "zone": "grimling",
+      "title": "Scout Husman's raid",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Camp assault runs spawn waves, camp checks and win/fail cleanup.",
+      "sources": [
+        {
+          "path": "grimling/encounters/Husmans_Raid.lua",
+          "line": 23
+        },
+        {
+          "path": "grimling/Scout_Husman.lua",
+          "line": 94
+        }
+      ],
+      "notes": "",
+      "group": "Grimling war"
+    },
+    {
+      "zone": "grimling",
+      "title": "Veteran Vadrel's raid",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "North camp assault coordinates two camps, waves and failure checks.",
+      "sources": [
+        {
+          "path": "grimling/encounters/Vadrels_Raid.lua",
+          "line": 36
+        },
+        {
+          "path": "grimling/Veteran_Vadrel.lua",
+          "line": 61
+        }
+      ],
+      "notes": "",
+      "group": "Grimling war"
+    },
+    {
+      "zone": "growthplane",
+      "title": "Tunare",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Tree form transitions to ground encounter; aggro calls specific zone populations to assist.",
+      "sources": [
+        {
+          "path": "growthplane/#_Tunare.lua",
+          "line": 3
+        },
+        {
+          "path": "growthplane/#Tunare.lua",
+          "line": 10
+        },
+        {
+          "path": "growthplane/#The_Fabled_Tunare.lua",
+          "line": 3
+        }
+      ],
+      "notes": "Includes fabled helper variant; verify selected NPC identity when authoring.",
+      "group": "Plane of Growth"
+    },
+    {
+      "zone": "guke",
+      "title": "Deepest Guk raid: Executioner Gimdk / First Witness",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Protect scouts through waves, stop executioner sacrifices and destroy focus defenses to release First Witness.",
+      "sources": [
+        {
+          "path": "guke/encounters/gukeraid.lua",
+          "line": 37
+        },
+        {
+          "path": "guke/encounters/gukeraid.lua",
+          "line": 173
+        },
+        {
+          "path": "guke/encounters/gukeraid.lua",
+          "line": 232
+        },
+        {
+          "path": "guke/zone_status.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Verified raid version2; present as a linked raid sequence.",
+      "group": "LDoN raids"
+    },
+    {
+      "zone": "gukg",
+      "title": "Gragna the Cursed",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Timed combat behavior and raid progression control the Gragna stage.",
+      "sources": [
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 353
+        },
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 357
+        },
+        {
+          "path": "gukg/zone_status.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Verified raid version2.",
+      "group": "LDoN: Ritualist of Hate"
+    },
+    {
+      "zone": "gukg",
+      "title": "Leklos the Bonekeeper",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Opening boss has health-triggered adds and advances the raid to Cavern Creeper.",
+      "sources": [
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 82
+        },
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 90
+        },
+        {
+          "path": "gukg/zone_status.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Verified raid version2.",
+      "group": "LDoN: Ritualist of Hate"
+    },
+    {
+      "zone": "gukg",
+      "title": "The Cavern Creeper",
+      "kind": "raid",
+      "confidence": "needs-review",
+      "reason": "Raid boss progression and health-stage emotes are present.",
+      "sources": [
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 221
+        },
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 229
+        },
+        {
+          "path": "gukg/zone_status.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Health handlers explicitly question missing functional effects; do not turn emote claims into actual mechanics.",
+      "group": "LDoN: Ritualist of Hate"
+    },
+    {
+      "zone": "gukg",
+      "title": "The Cursed Keeper",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Health gates and combat timers implement the raid finale.",
+      "sources": [
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 401
+        },
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 409
+        },
+        {
+          "path": "gukg/zone_status.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Verified raid version2.",
+      "group": "LDoN: Ritualist of Hate"
+    },
+    {
+      "zone": "gukg",
+      "title": "The Cursed Spore",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "HP stages remove slow immunity and reduce resistances, with reset behavior.",
+      "sources": [
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 253
+        },
+        {
+          "path": "gukg/encounters/gukgraid.lua",
+          "line": 274
+        },
+        {
+          "path": "gukg/zone_status.lua",
+          "line": 8
+        }
+      ],
+      "notes": "Verified raid version2.",
+      "group": "LDoN: Ritualist of Hate"
+    },
+    {
+      "zone": "gunthak",
+      "title": "Dimaal the Spiritmaster's waves",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Three selectable difficulties run four waves ending in a named spirit.",
+      "sources": [
+        {
+          "path": "gunthak/Dimaal_the_Spiritmaster.lua",
+          "line": 67
+        },
+        {
+          "path": "gunthak/Dimaal_the_Spiritmaster.lua",
+          "line": 97
+        }
+      ],
+      "notes": "",
+      "group": "Legacy of Ykesha"
+    },
+    {
+      "zone": "gunthak",
+      "title": "Lairyn Debeian defense / Krill the Backbleeder",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Rogue epic protection event runs five hostile waves and a named finale.",
+      "sources": [
+        {
+          "path": "gunthak/Lairyn_Debeian.lua",
+          "line": 54
+        },
+        {
+          "path": "gunthak/Lairyn_Debeian.lua",
+          "line": 81
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "harbingers",
+      "title": "Attendant of Light",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Sycophant kills and controller signals summon attendant plus harasser support.",
+      "sources": [
+        {
+          "path": "harbingers/Attendant_Spawner.lua",
+          "line": 3
+        },
+        {
+          "path": "harbingers/a_dragorn_sycophant.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Omens of War"
+    },
+    {
+      "zone": "harbingers",
+      "title": "Azibelle Spavin and Glenfire Telzir",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Druid epic proximity trigger creates both encounter targets.",
+      "sources": [
+        {
+          "path": "harbingers/#druid_epic_trap.lua",
+          "line": 5
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "harbingers",
+      "title": "Windrush",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Monk epic health phases and timed Mana Spectrum/Stunning Strike attacks.",
+      "sources": [
+        {
+          "path": "harbingers/Windrush.lua",
+          "line": 29
+        },
+        {
+          "path": "harbingers/Windrush.lua",
+          "line": 36
+        },
+        {
+          "path": "harbingers/Windrush.lua",
+          "line": 47
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "hateplaneb",
+      "title": "Innoruuk",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Controller and real/fake forms coordinate adds and staged boss combat.",
+      "sources": [
+        {
+          "path": "hateplaneb/encounters/inny.lua",
+          "line": 42
+        },
+        {
+          "path": "hateplaneb/encounters/inny.lua",
+          "line": 53
+        },
+        {
+          "path": "hateplaneb/script_init.lua",
+          "line": 2
+        }
+      ],
+      "notes": "",
+      "group": "Plane of Hate"
+    },
+    {
+      "zone": "hateplaneb",
+      "title": "Lanys T'Vyl / Teir'Dal guardian event",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Rogue epic kill trigger leads to dialogue activation and timed boss spells.",
+      "sources": [
+        {
+          "path": "hateplaneb/encounters/rogue_1_5.lua",
+          "line": 6
+        },
+        {
+          "path": "hateplaneb/encounters/rogue_1_5.lua",
+          "line": 58
+        },
+        {
+          "path": "hateplaneb/player.lua",
+          "line": 37
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "hateplaneb",
+      "title": "Maestro of Rancor",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Accompanists, banshees and health/timer-driven mechanics support the maestro.",
+      "sources": [
+        {
+          "path": "hateplaneb/encounters/maestro.lua",
+          "line": 33
+        },
+        {
+          "path": "hateplaneb/encounters/maestro.lua",
+          "line": 43
+        },
+        {
+          "path": "hateplaneb/script_init.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Plane of Hate"
+    },
+    {
+      "zone": "hatesfury",
+      "title": "Broken Skull Armsmaster",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Berserker pre1.5 encounter has a low-health weakened state and task credit.",
+      "sources": [
+        {
+          "path": "hatesfury/Broken_Skull_Armsmaster.lua",
+          "line": 10
+        },
+        {
+          "path": "hatesfury/Broken_Skull_Armsmaster.lua",
+          "line": 18
+        }
+      ],
+      "notes": "",
+      "group": "Epic events"
+    },
+    {
+      "zone": "hatesfury",
+      "title": "Captain Krasnok",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Turn-in spawns captain and fists behind event doors; supporting spell scripts drive hazards.",
+      "sources": [
+        {
+          "path": "hatesfury/Attendant_Mi-Ta.lua",
+          "line": 22
+        },
+        {
+          "path": "hatesfury/Attendant_Mi-Ta.lua",
+          "line": 38
+        }
+      ],
+      "notes": "",
+      "group": "Legacy of Ykesha"
+    },
+    {
+      "zone": "highkeep",
+      "title": "Xentil Herkanon assassination",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Quest trigger summons Xentil with bodyguards Lartin and Grex.",
+      "sources": [
+        {
+          "path": "highkeep/Fenn_Kaedrick.lua",
+          "line": 10
+        }
+      ],
+      "notes": "",
+      "group": "Quest events"
+    },
+    {
+      "zone": "hohonora",
+      "title": "Alekson Garn's trial",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Three-room rescue/defense trial spawns attackers and protects maidens.",
+      "sources": [
+        {
+          "path": "hohonora/encounters/Alekson_Trial.lua",
+          "line": 21
+        },
+        {
+          "path": "hohonora/Alekson_Garn.lua",
+          "line": 18
+        }
+      ],
+      "notes": "",
+      "group": "Halls of Honor"
+    },
+    {
+      "zone": "hohonora",
+      "title": "Rhaliq Trell's trial",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Villager trial has timed attacks, named transformations and failure/reset state.",
+      "sources": [
+        {
+          "path": "hohonora/encounters/Rhaliq_Trial.lua",
+          "line": 34
+        },
+        {
+          "path": "hohonora/Rhaliq_Trell.lua",
+          "line": 18
+        }
+      ],
+      "notes": "",
+      "group": "Halls of Honor"
+    },
+    {
+      "zone": "hohonora",
+      "title": "Rydda'Dar / Trydan Faye's trial",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Defeating the custodian summons the raid boss; boss death completes trial progression.",
+      "sources": [
+        {
+          "path": "hohonora/#_A_Custodian_of_Marr.lua",
+          "line": 15
+        },
+        {
+          "path": "hohonora/#Rydda-Dar.lua",
+          "line": 8
+        }
+      ],
+      "notes": "",
+      "group": "Halls of Honor"
+    },
+    {
+      "zone": "hohonorb",
+      "title": "Lord Mithaniel Marr",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Signal-gated attackability with timed deactivation and expedition boss lockouts.",
+      "sources": [
+        {
+          "path": "hohonorb/Lord_Mithaniel_Marr.lua",
+          "line": 11
+        },
+        {
+          "path": "hohonorb/zone_status.lua",
+          "line": 42
+        }
+      ],
+      "notes": "",
+      "group": "Temple of Marr"
+    },
+    {
+      "zone": "hole",
+      "title": "Master Yael",
+      "kind": "raid",
+      "confidence": "clear",
+      "reason": "Named raid boss has a dedicated scripted death-touch cycle.",
+      "sources": [
+        {
+          "path": "hole/Master_Yael.lua",
+          "line": 1
+        }
+      ],
+      "notes": "",
+      "group": "Classic raid encounters"
+    },
+    {
+      "zone": "hollowshade",
+      "title": "Hollowshade Moor war",
+      "kind": "event",
+      "confidence": "clear",
+      "reason": "Owlbear, sonic wolf and grimling factions attack/take over camps and trigger a zone-wide victory.",
+      "sources": [
+        {
+          "path": "hollowshade/War_Trigger.lua",
+          "line": 47
+        },
+        {
+          "path": "hollowshade/War_Trigger.lua",
+          "line": 99
+        },
+        {
+          "path": "hollowshade/War_Trigger.lua",
+          "line": 159
+        }
+      ],
+      "notes": "",
+      "group": "Luclin events"
+    }
+  ],
+  "excluded": [
+    {
+      "zone": "anguish",
+      "title": "Augment miniboss spawning",
+      "category": "helper",
+      "reason": "Zone trash-kill threshold summons augment reward mobs; retain as Anguish raid field notes rather than an independent combat-mechanics entry.",
+      "sources": [
+        {
+          "path": "anguish/encounters/augs.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "arena2",
+      "title": "Telegraph demonstration",
+      "category": "training helper",
+      "reason": "No-damage movement course exercises telegraph rendering; optional tutorial rather than an encounter guide.",
+      "sources": [
+        {
+          "path": "arena2/encounters/arena2_telegraph_demo.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "arena2",
+      "title": "Training dummy system",
+      "category": "service",
+      "reason": "Training Master menu and per-player dummies; actual trial bosses are listed separately.",
+      "sources": [
+        {
+          "path": "arena2/encounters/training_dummies.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "cshome",
+      "title": "Encounter script test",
+      "category": "test",
+      "reason": "Debug all-death/say echo handlers.",
+      "sources": [
+        {
+          "path": "cshome/encounters/test.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "delvea",
+      "title": "Diving for Lavarocks",
+      "category": "cosmetic helper",
+      "reason": "Only tracks kills to issue cosmetic earthquake emotes; no encounter mechanics defined here.",
+      "sources": [
+        {
+          "path": "delvea/encounters/diving_for_lavarocks.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "delvea",
+      "title": "Forbin's Elixir",
+      "category": "loot helper",
+      "reason": "Distributes three poison sacs and cosmetic kill emotes; no scripted boss/event progression.",
+      "sources": [
+        {
+          "path": "delvea/encounters/forbins_elixir.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "delvea",
+      "title": "Grounding the Drakes",
+      "category": "loot helper",
+      "reason": "Adds mission Drake Fang drops on spawn only.",
+      "sources": [
+        {
+          "path": "delvea/encounters/grounding_the_drakes.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "delvea",
+      "title": "Infested",
+      "category": "cosmetic helper",
+      "reason": "Only tracks kills to issue cosmetic earthquake emotes.",
+      "sources": [
+        {
+          "path": "delvea/encounters/infested.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "delvea",
+      "title": "Lavaspinner's Locals",
+      "category": "loot helper",
+      "reason": "Adds mission items on NPC spawn only.",
+      "sources": [
+        {
+          "path": "delvea/encounters/lavaspinners_locals.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "delveb",
+      "title": "Storming the Goblin Palace",
+      "category": "dialogue helper",
+      "reason": "Only Amaro hail text in this module; database task content would be needed to establish the rest.",
+      "sources": [
+        {
+          "path": "delveb/encounters/storming_the_goblin_palace.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "dreadspire",
+      "title": "Demi-Plane augment minibosses",
+      "category": "notes only",
+      "reason": "File contains comments naming Maggotmiser, Ur-Gorloch, Swirling Bloodspirit, Madrillah and Legionnaire Silkbinder; no executable handlers.",
+      "sources": [
+        {
+          "path": "dreadspire/encounters/augs.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "hollowshade",
+      "title": "Eternal Animist blessing ceremony",
+      "category": "noncombat ceremony",
+      "reason": "Timed epic reward dialogue spawns spirits for their blessing; no hostile encounter.",
+      "sources": [
+        {
+          "path": "hollowshade/Alladnu_Araihse.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "guktop",
+      "title": "Ancient crocodile spawn cycle",
+      "category": "ordinary spawn cycle",
+      "reason": "Population/placeholder controller without an encounter objective.",
+      "sources": [
+        {
+          "path": "guktop/croc_trigger.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "hohonora",
+      "title": "Amalgamation of Honor's Spirits",
+      "category": "timed spawn",
+      "reason": "Midnight spawn controller only; boss combat mechanics not present in this script.",
+      "sources": [
+        {
+          "path": "hohonora/#Amalgamation_Trigger.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "frozenshadow",
+      "title": "Tower of Frozen Shadow group doors",
+      "category": "travel helper",
+      "reason": "Group teleport/key handling only.",
+      "sources": [
+        {
+          "path": "frozenshadow/perl/player.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "bazaar",
+      "title": "Caerlyna bag check",
+      "category": "service",
+      "reason": "Bag/token exchanges only.",
+      "sources": [
+        {
+          "path": "bazaar/Caerlyna.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "cshome",
+      "title": "Patchious",
+      "category": "test",
+      "reason": "Test dialogue only.",
+      "sources": [
+        {
+          "path": "cshome/Patchious.pl",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "guka",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "guka/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "gukb",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "gukb/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "gukc",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "gukc/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "gukd",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "gukd/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "guke",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "guke/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "gukf",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "gukf/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "gukg",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "gukg/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "zone": "gukh",
+      "title": "Generic Deepest Guk LDoN adventure engine",
+      "category": "shared template",
+      "reason": "Generic randomized adventure/task population and objective handling; not an individually authored encounter. Distinct raid modules are listed separately.",
+      "sources": [
+        {
+          "path": "gukh/encounters/guk.lua",
+          "line": 1
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "directories": 121,
+    "luaFiles": 2697,
+    "perlFiles": 3,
+    "totalScripts": 2700,
+    "signalFiles": 957,
+    "encounterModules": 89,
+    "encounterModulesCovered": 89,
+    "encounterModulesUnclassified": [],
+    "filesPerZone": {
+      "abysmal": 243,
+      "acrylia": 60,
+      "airplane": 119,
+      "akanon": 59,
+      "akheva": 23,
+      "anguish": 14,
+      "arena": 3,
+      "arena2": 13,
+      "barindu": 25,
+      "bazaar": 16,
+      "befallen": 11,
+      "beholder": 2,
+      "blackburrow": 2,
+      "bloodfields": 30,
+      "bothunder": 31,
+      "broodlands": 6,
+      "burningwood": 12,
+      "butcher": 41,
+      "cabeast": 70,
+      "cabwest": 38,
+      "cauldron": 14,
+      "causeway": 31,
+      "cazicthule": 33,
+      "chambersa": 5,
+      "chambersb": 5,
+      "chambersc": 5,
+      "chambersd": 5,
+      "chamberse": 5,
+      "chambersf": 5,
+      "charasis": 6,
+      "chardok": 6,
+      "chardokb": 18,
+      "citymist": 22,
+      "cobaltscar": 11,
+      "codecay": 32,
+      "commons": 15,
+      "corathus": 20,
+      "corathusb": 3,
+      "crescent": 1,
+      "crushbone": 19,
+      "crystal": 3,
+      "cshome": 7,
+      "dalnir": 7,
+      "dawnshroud": 35,
+      "delvea": 15,
+      "delveb": 9,
+      "drachnidhive": 8,
+      "drachnidhivea": 3,
+      "drachnidhivec": 2,
+      "dragonscalea": 2,
+      "dranik": 43,
+      "dranikcatacombsa": 2,
+      "dranikcatacombsb": 2,
+      "dranikcatacombsc": 3,
+      "dranikhollowsa": 3,
+      "dranikhollowsb": 3,
+      "dranikhollowsc": 4,
+      "draniksewersa": 2,
+      "draniksewersb": 2,
+      "draniksewersc": 3,
+      "draniksscar": 18,
+      "dreadlands": 20,
+      "dreadspire": 7,
+      "droga": 10,
+      "dulak": 5,
+      "eastkarana": 40,
+      "eastkorlach": 3,
+      "eastkorlacha": 2,
+      "eastwastes": 49,
+      "echo": 25,
+      "ecommons": 14,
+      "emeraldjungle": 10,
+      "erudnext": 50,
+      "erudnint": 19,
+      "erudsxing": 14,
+      "everfrost": 25,
+      "fearplane": 30,
+      "feerrott": 15,
+      "felwithea": 26,
+      "felwitheb": 9,
+      "ferubi": 41,
+      "fhalls": 1,
+      "fieldofbone": 17,
+      "firiona": 73,
+      "freporte": 71,
+      "freportn": 53,
+      "freportw": 58,
+      "frontiermtns": 66,
+      "frozenshadow": 43,
+      "fungusgrove": 25,
+      "gfaydark": 49,
+      "greatdivide": 31,
+      "griegsend": 19,
+      "grimling": 29,
+      "grobb": 26,
+      "growthplane": 16,
+      "guildhall": 4,
+      "guildlobby": 11,
+      "guka": 3,
+      "gukb": 7,
+      "gukbottom": 5,
+      "gukc": 6,
+      "gukd": 6,
+      "guke": 8,
+      "gukf": 6,
+      "gukg": 8,
+      "gukh": 5,
+      "guktop": 12,
+      "gunthak": 54,
+      "halas": 43,
+      "harbingers": 9,
+      "hateplane": 21,
+      "hateplaneb": 7,
+      "hatesfury": 34,
+      "highkeep": 59,
+      "highpass": 22,
+      "highpasshold": 25,
+      "hohonora": 49,
+      "hohonorb": 6,
+      "hole": 12,
+      "hollowshade": 32
+    },
+    "method": "Read all2700 Lua/Perl files for encounter/combat/HP/timer/spawn/registration signals; inspected candidate bodies and encounter loaders; reconciled every encounter module against selected rows or explicit exclusions. Other exclusions include routine dialogue, merchants, teleports, loot hooks, ordinary trash, generic traps and consolidated event helpers. Database NPC/spawn/task availability and live runtime not audited.",
+    "candidateRows": 166,
+    "clearRows": 160,
+    "needsReviewRows": 6
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "potorment-saryrn",
+  "title": "Saryrn",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "potorment",
+    "name": "Plane of Torment",
+    "version": 0
+  },
+  "npc_ids": [
+    207001,
+    207052
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Saryrn calls repeated raven waves and brings Sorrowsong into direct combat near the end.",
+  "overview": [
+    "Saryrn calls repeated raven waves and brings Sorrowsong into direct combat near the end."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 98%, Saryrn signals Sorrowsong to begin singing.",
+        "At every ten-percent threshold from 90% through 10%, Saryrn summons three or four servants or twisted spirits. Prepare add pickups before each health push.",
+        "At 25%, Sorrowsong becomes an active opponent. Assign a tank for it before crossing that threshold.",
+        "Keep add damage controlled through the last two raven waves and finish Saryrn. A planar projection appears after her death.",
+        "Five minutes without combat resets the scripted health progression and restores Sorrowsong."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potorment/Saryrn.lua",
+        "sha256": "bbf7d1cf7ccd6e577b54db07ce5ee4db6a07f46243ce52f9b92bcfb91bc942e9"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

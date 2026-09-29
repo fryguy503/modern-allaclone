@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "chambersa-mastery-of-fear",
+  "title": "Mastery of Fear",
+  "group": "Muramite trials",
+  "type": "group",
+  "zone": {
+    "short_name": "chambersa",
+    "name": "Muramite Proving Grounds",
+    "version": 1
+  },
+  "npc_ids": [
+    304005,
+    304010,
+    304011,
+    304012
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Use fear to control susceptible enemies while defeating the fearless attackers.",
+  "overview": [
+    "Use fear to control susceptible enemies while defeating the fearless attackers."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Begin only when everyone is ready for the fifteen-minute trial.",
+        "Keep fear on susceptible enemies; the script drains their health while they are feared.",
+        "Defeat at least fifteen of the fearless enemies before the timer expires."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersa/encounters/mpg_fear.lua",
+        "sha256": "b7572917d0b799f806954170589964562f60fe70e7978ae00353b945a4a3a190"
+      },
+      {
+        "path": "chambersa/script_init.lua",
+        "sha256": "d9d6d6c5af646e27814f85b9ba6e9a1f12a740691be37b6b9784ca0a4bd3924f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AaAbilityController;
 use App\Http\Controllers\DiscoveredItemController;
+use App\Http\Controllers\EncounterController;
 use App\Http\Controllers\FactionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
@@ -26,6 +27,14 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::prefix('encounters')->name('encounters.')
+    ->withoutMiddleware([StartSession::class, ShareErrorsFromSession::class, ValidateCsrfToken::class])
+    ->group(function () {
+        Route::get('/', [EncounterController::class, 'index'])->name('index');
+        Route::get('/{slug}', [EncounterController::class, 'show'])->name('show')
+            ->where('slug', '[a-z0-9]+(?:-[a-z0-9]+)*');
+    });
 
 if (config('everquest.patch_history.enable', true)) {
     // Searchable historical EverQuest patch archive.

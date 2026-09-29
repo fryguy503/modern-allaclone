@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "eastwastes-peffin-ambersnow-berradin-confrontation",
+  "title": "Peffin Ambersnow / Berradin confrontation",
+  "group": "Coldain rings",
+  "type": "event",
+  "zone": {
+    "short_name": "eastwastes",
+    "name": "Eastern Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    116605,
+    116182
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Expose Peffin's protection and follow the confrontation through Berradin.",
+  "overview": [
+    "Expose Peffin's protection and follow the confrontation through Berradin."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Have combat support ready before the quest exchange with Peffin.",
+        "Peffin's confrontation brings Kromrif elites; collect them before focusing the main target.",
+        "Complete Berradin's dialogue sequence and prepare for the replacement encounter form."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "eastwastes/Peffin_Ambersnow.lua",
+        "sha256": "f8da3d891ea5441ad320a90ecf25784d16209d4afadd6f39e79bd2b997697dbe"
+      },
+      {
+        "path": "eastwastes/#Peffin_Ambersnow.lua",
+        "sha256": "2e599aaefacf8f1152498003dd8c845b57e0725cde283dfd11443813cb390fd8"
+      },
+      {
+        "path": "eastwastes/Captain_Berradin.lua",
+        "sha256": "907b9ebbdd44c10cde1b2e086539d8cb8637dfc31c0879cd202a35e2a1e26c6b"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0.",
+      "Both Peffin scripts are retained as reviewed source variants in the same standard-zone event. Their exact database spawn selection remains unverified."
+    ]
+  }
+}

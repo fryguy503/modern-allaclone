@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "kael-statue-idol-and-avatar-of-war",
+  "title": "Statue, Idol and Avatar of War",
+  "group": "Velious",
+  "type": "raid",
+  "zone": {
+    "short_name": "kael",
+    "name": "Kael Drakkel",
+    "version": 0
+  },
+  "npc_ids": [
+    113628,
+    113629,
+    113627
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Statue and Idol of Rallos Zek to call forth the Avatar of War.",
+  "overview": [
+    "Defeat the Statue and Idol of Rallos Zek to call forth the Avatar of War."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The Statue’s death summons the Idol. Prepare the raid for the next stage before finishing the current target.",
+        "Defeating the Idol summons the Avatar of War in the temple.",
+        "The Avatar’s one-hour depop timer limits how long the raid can leave the final encounter waiting."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "kael/The_Statue_of_Rallos_Zek.lua",
+        "sha256": "8b59740b4554ea0c3e9ca090f6cb0e9a7654d6d04f982cda1126d2db07d0330d"
+      },
+      {
+        "path": "kael/#The_Idol_of_Rallos_Zek.lua",
+        "sha256": "897b4b9b375b87220145403cb8dfee7b35f3b8c3b509544ab54ece97b18be418"
+      },
+      {
+        "path": "kael/The_Avatar_of_War.lua",
+        "sha256": "6be404bae04b4330288ee8860d3f4095d65dec846c2c9fe38ea951716b32f126"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

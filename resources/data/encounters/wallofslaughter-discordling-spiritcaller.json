@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "wallofslaughter-discordling-spiritcaller",
+  "title": "Discordling Spiritcaller",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "wallofslaughter",
+    "name": "Wall of Slaughter",
+    "version": 0
+  },
+  "npc_ids": [
+    300091,
+    300092,
+    300093
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Control the spiritcaller's ferans and their splitting chimeras through repeated spell pressure.",
+  "overview": [
+    "Control the spiritcaller's ferans and their splitting chimeras through repeated spell pressure."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Stagger feran kills so the resulting chimeras remain controllable."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The eligible shaman's Hudar Trittan dialogue summons the spiritcaller and two spiritbound ferans.",
+        "Each feran splits into three chimeras when killed.",
+        "The spiritcaller cycles Black Symbol of Agony, Deathly Chants and Grip of Mental Reality during combat.",
+        "A thirty-minute timer from spawn removes the boss and its associated ferans and chimeras."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wallofslaughter/#Discordling_Spiritcaller.lua",
+        "sha256": "9a962fdd5a37440ac241898ad1ee3f33df5a78ea02ad288fb6fdfca3ca47f843"
+      },
+      {
+        "path": "wallofslaughter/#a_spiritbound_feran.lua",
+        "sha256": "b9971f7e28eb98cad5551625555bb77dd4ebe63fa3414ab384e24d45e79af0b3"
+      },
+      {
+        "path": "wallofslaughter/#Hudar_Trittan.lua",
+        "sha256": "99034814e311dfb0222d88fdb06996fd434c61ee71dbbd06838e9d4186c017ec"
+      }
+    ],
+    "notes": [
+      "Approval E396. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

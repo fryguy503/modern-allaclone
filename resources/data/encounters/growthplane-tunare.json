@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "growthplane-tunare",
+  "title": "Tunare",
+  "group": "Plane of Growth",
+  "type": "raid",
+  "zone": {
+    "short_name": "growthplane",
+    "name": "Plane of Growth",
+    "version": 0
+  },
+  "npc_ids": [
+    127001,
+    127098,
+    127002
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Engage Tunare's ground form while controlling the forest response.",
+  "overview": [
+    "Engaging the Tunare in the tree replaces her with the ground encounter. The active content flag selects either normal Tunare or the Fabled Tunare.",
+    "Normal Tunare adds the attacker to the hate lists of nearly all non-pet NPCs in the zone, with a small explicit exception list. Clear or prepare for the forest before beginning the fight."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "forest-call",
+      "name": "Forest assistance",
+      "summary": "Tunare calls the surrounding forest into the battle.",
+      "description": [
+        "Normal Tunare calls the zone on combat entry. Fabled Tunare instead moves a defined list of NPC types toward her and repeats that call every six minutes while engaged."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "variant",
+      "title": "Fabled variant",
+      "paragraphs": [
+        "The fabled_velious content flag selects the fabled ground form. Both variants are represented by this zone-version-0 entry because the script uses a content flag rather than a different zone version."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "growthplane/#_Tunare.lua",
+        "sha256": "bf7109b6310420e369564816a2314095cc333bcb32720187d4e4c823123bdc5f"
+      },
+      {
+        "path": "growthplane/#Tunare.lua",
+        "sha256": "093d5d335a44cf872e17b68d0dbd8c2da211bfe500f584f8ae5ace1a74a13a10"
+      },
+      {
+        "path": "growthplane/#The_Fabled_Tunare.lua",
+        "sha256": "38f7d79795eba16f6f1ed5603fd0fb84040839800271de8edd9e67e87bf1d9a4"
+      }
+    ],
+    "notes": [
+      "Approved row E138. Quest source reviewed; live encounter behavior and loaded database spell/loot data have not been verified.",
+      "Normal Tunare starts a timer named despawn but handles depop; the intended 20-minute return/reset is not implemented consistently.",
+      "The Fabled helper accesses listed NPCs without checking that each exists. Verify live population and assistance behavior before publication."
+    ]
+  }
+}

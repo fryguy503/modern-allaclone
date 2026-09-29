@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-a-simple-task",
+  "title": "A Simple Task",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 8
+  },
+  "npc_ids": [
+    340005
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Transport a fragile flower and draw out the Master Courier in the garden.",
+  "overview": [
+    "Transport a fragile flower and draw out the Master Courier in the garden."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Minimize time carrying the flower and coordinate garden kills as a group."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The flower decays while held by clients in the zone; its first decay is reached after roughly thirty seconds of accumulated time.",
+        "The decay counter is shared and advances faster when multiple tracked flowers are present. Zoning out pauses a carried flower's contribution.",
+        "Forty-one non-pet kills west of the garden boundary summon the Master Courier.",
+        "Plan the planting route before picking up the flower."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/simple_task.lua",
+        "sha256": "21a31f3936b325d14fa2fae42286243236cf49df9523586b7db8c80c5439b8ba"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E360. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

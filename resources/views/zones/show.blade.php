@@ -79,6 +79,8 @@
                 </div>
             </div>
         </div>
+        @include('components.encounter-journal-links', ['journalEntries' => $journalEntries ?? []])
+
         <div class="tabs tabs-lift">
             @include('zones.partials.show.tab-map')
             @if ($npcs->isNotEmpty())

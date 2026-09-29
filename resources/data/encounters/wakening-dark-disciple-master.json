@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "wakening-dark-disciple-master",
+  "title": "Dark Disciple Master",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "wakening",
+    "name": "The Wakening Land",
+    "version": 0
+  },
+  "npc_ids": [
+    119176,
+    119177,
+    119178
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive the Dark Disciple Master's escalating undead reinforcements.",
+  "overview": [
+    "Survive the Dark Disciple Master's escalating undead reinforcements."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Have add control ready before the first random threshold and save recovery for the final two waves."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "A randomly selected threshold between 60% and 70% health raises Plavo's remains.",
+        "At 30%, three disciples rise; at 20%, another three arrive and the master casts Spiritual Echo.",
+        "At 19%, the master casts Protection of Discord III.",
+        "The event has a thirty-minute cleanup timer from spawn; victory creates its quest chest."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wakening/Dark_Disciple_Master.lua",
+        "sha256": "dbdc5dc5d553b211270b5661eb95a27e941a38a923d0e3aa49889ec04b9cdb02"
+      },
+      {
+        "path": "wakening/Scout_Leader_Plavo.lua",
+        "sha256": "7d86176055fa9380e66489d537cfc27707d820f130b79b80c16196e0449564bd"
+      }
+    ],
+    "notes": [
+      "Approval E394. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

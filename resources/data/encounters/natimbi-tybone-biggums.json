@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "natimbi-tybone-biggums",
+  "title": "Tybone Biggums",
+  "group": "Custom events",
+  "type": "event",
+  "zone": {
+    "short_name": "natimbi",
+    "name": "Natimbi, the Broken Shores",
+    "version": 0
+  },
+  "npc_ids": [
+    280094,
+    280095,
+    280096
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Strip away Tybone’s armored and fleshy forms in the Skin and Bones expedition.",
+  "overview": [
+    "Strip away Tybone’s armored and fleshy forms in the Skin and Bones expedition."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the two gathering sets, then use Tybone’s give chase dialogue to request the group expedition.",
+        "The opening armored form favors blunt weapons. At 67% health, two dominated defenders appear and Tybone becomes untargetable until both are defeated.",
+        "The middle form favors non-blunt weapons. At 34%, two mastruq defenders appear and protect him through another transition.",
+        "After both defenders die, the final skeletal form again favors blunt damage. Re-establish the tank after each transition because Tybone clears his hate list.",
+        "Keep alternate weapon types available and finish each defender pair before trying to damage Tybone again."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "natimbi/Tybone_Biggums.lua",
+        "sha256": "5338e572426a8f429884deaae1c50c2d11f8790895aab8e5fd37fe47c42cf554"
+      },
+      {
+        "path": "natimbi/#Tybone_Biggums.lua",
+        "sha256": "1f97263f9834e4aef343c395a050d218cef53af1c028eee8a7382cc8dfa16dab"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The launcher explicitly creates version 0. Availability requires Gather_2022_event. The combat handler also applies additional abilities when the initiating character belongs to guild ID 40; confirm whether this historical special case remains intended.",
+      "Confirm the gathering event flag and guild-specific tuning before publication."
+    ]
+  }
+}

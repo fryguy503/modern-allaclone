@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-pixtt-xxeric-kex",
+  "title": "Pixtt Xxeric Kex",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298039
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Xxeric trades defense for aggression, summons ukun and heals into a final rage.",
+  "overview": [
+    "Xxeric trades defense for aggression, summons ukun and heals into a final rage."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Reserve resources for the health recovery at 10% and keep ukun controlled through the middle stages."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 90%, the room seals and the cleaver timer begins; subsequent health bands shorten its interval.",
+        "At 70% she changes from flurry to area rampage.",
+        "At 50% she summons ukun and starts the rage timer. The hounds have limited scripted replacements when killed.",
+        "At 10% she casts a reset effect and restores her health to 40% for the final rage."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/pxk.lua",
+        "sha256": "4318ffa1f648f19da82b5bae4ac08453efa3e6c6ec2fc77e176f730347eeb26e"
+      }
+    ],
+    "notes": [
+      "Approval E332. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

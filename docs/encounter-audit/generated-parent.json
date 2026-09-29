@@ -1,0 +1,144 @@
+[
+  {
+    "id": "E120",
+    "slug": "ferubi-packmaster-skoiat-pizak",
+    "issues": []
+  },
+  {
+    "id": "E121",
+    "slug": "ferubi-pxet-elite-ambushes",
+    "issues": [
+      "The source identifies eligible spawn-point IDs, but their current database placement and the elite NPC spell/loot data still need verification."
+    ]
+  },
+  {
+    "id": "E122",
+    "slug": "ferubi-smith-rondo-weapon-master",
+    "issues": [
+      "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
+      "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+      "The normal draft describes the static-zone branch. Rondo removes himself from nonzero instances other than version 200."
+    ]
+  },
+  {
+    "id": "E122",
+    "slug": "ferubi-smith-rondo-weapon-master-seasonal",
+    "issues": [
+      "The four required component IDs are verified in the turn-in, but individual name-to-ID mappings need database confirmation.",
+      "The group-only turn-in branch calls group:RaidCount(); verify this branch before publication.",
+      "Confirm Custom:SeasonalInstanceVersion is 200 for the explicit Rondo gate."
+    ]
+  },
+  {
+    "id": "E123",
+    "slug": "ferubi-zun-muram-votal",
+    "issues": []
+  },
+  {
+    "id": "E124",
+    "slug": "fieldofbone-berserkers-image",
+    "issues": [
+      "The death handler credits e.other as a client; pet or other final-hit attribution has not been verified."
+    ]
+  },
+  {
+    "id": "E125",
+    "slug": "freportw-sir-lucan-dlere",
+    "issues": [
+      "The living NPC template ID and identity/combat data for the spawned 9147 form require database verification. NPC links are intentionally empty."
+    ]
+  },
+  {
+    "id": "E126",
+    "slug": "frontiermtns-goblin-king-dronan-event",
+    "issues": [
+      "The reviewed encounter registers behavior but does not establish how the King is initially made available; verify the current launcher or database spawn."
+    ]
+  },
+  {
+    "id": "E127",
+    "slug": "fungusgrove-calling-beasties-murkin-groo-and-torgal",
+    "issues": []
+  },
+  {
+    "id": "E128",
+    "slug": "fungusgrove-draz-nurakk",
+    "issues": [
+      "The reviewed Draz script does not provide the event-start hand-in or the pet's database abilities. Those details remain outside this draft."
+    ]
+  },
+  {
+    "id": "E129",
+    "slug": "gfaydark-seana-and-stefan-marsinger",
+    "issues": []
+  },
+  {
+    "id": "E130",
+    "slug": "greatdivide-high-priest-maltan-assault",
+    "issues": [
+      "The launcher provides the roster, but no boss-specific spell list or combat phases were found in the reviewed source."
+    ]
+  },
+  {
+    "id": "E131",
+    "slug": "greatdivide-tenth-coldain-ring-war-narandi",
+    "issues": [
+      "RingTen contains TODO testing and incomplete Thurgadin aftermath notes. Verify the complete war and reward turn-in in game before publication.",
+      "Narandi escape calls the simple-repopulation end branch despite a failure comment; this draft does not claim the defeat aftermath occurs on escape."
+    ]
+  },
+  {
+    "id": "E134",
+    "slug": "grimling-scout-danarins-raid",
+    "issues": []
+  },
+  {
+    "id": "E135",
+    "slug": "grimling-scout-derrins-raid",
+    "issues": []
+  },
+  {
+    "id": "E136",
+    "slug": "grimling-scout-husmans-raid",
+    "issues": []
+  },
+  {
+    "id": "E132",
+    "slug": "grimling-captain-necins-raid",
+    "issues": []
+  },
+  {
+    "id": "E137",
+    "slug": "grimling-veteran-vadrels-raid",
+    "issues": []
+  },
+  {
+    "id": "E133",
+    "slug": "grimling-final-grimling-war-general-staginars-raid",
+    "issues": [
+      "The detailed General Staginar entry exchanges and final reward hand-in are not included in this combat-stage draft; verify those NPC branches before publication."
+    ]
+  },
+  {
+    "id": "E138",
+    "slug": "growthplane-tunare",
+    "issues": [
+      "Normal Tunare starts a timer named despawn but handles depop; the intended 20-minute return/reset is not implemented consistently.",
+      "The Fabled helper accesses listed NPCs without checking that each exists. Verify live population and assistance behavior before publication."
+    ]
+  },
+  {
+    "id": "E139",
+    "slug": "guke-deepest-guk-raid-executioner-gimdk-first-witness",
+    "issues": [
+      "The scout auto-start check looks for a player more than 150 paces away rather than confirming raid readiness. The explicit ready dialogue is the documented start."
+    ]
+  },
+  {
+    "id": "E140",
+    "slug": "gukg-gragna-the-cursed",
+    "issues": [
+      "Verify spell 4458 and its target against the loaded database before describing its effect as healing or assigning a response. The emote alone does not establish the actual effect."
+    ]
+  }
+]

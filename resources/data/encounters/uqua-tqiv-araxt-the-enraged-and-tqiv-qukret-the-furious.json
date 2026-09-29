@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "uqua-tqiv-araxt-the-enraged-and-tqiv-qukret-the-furious",
+  "title": "Tqiv Araxt the Enraged and Tqiv Qukret the Furious",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "uqua",
+    "name": "Uqua, The Ocean God Chantry",
+    "version": 0
+  },
+  "npc_ids": [
+    292022,
+    292021
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Coordinate the two twins' deaths before the survivor absorbs its partner's power.",
+  "overview": [
+    "Coordinate the two twins' deaths before the survivor absorbs its partner's power."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Balance damage and finish the second twin within thirty seconds of the first."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Constructs",
+      "trigger": "Before activation",
+      "description": "Clear both sides and prepare coordinated boss damage."
+    },
+    {
+      "id": "phase-2",
+      "label": "Twin finish",
+      "trigger": "First twin dies",
+      "description": "Defeat the survivor before its thirty-second absorption timer expires."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the constructs on each side to remove the matching twin's protection.",
+        "Once a twin is active, its thirty-minute failure timer can restore protection and respawn four constructs.",
+        "A twin's death starts a thirty-second absorption window on the survivor. If that expires, the survivor heals fully and gains stronger defenses, melee and spells.",
+        "Player or pet deaths to either twin can create hostile spirits.",
+        "Each twin drops a progression orb as a ground object."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "uqua/#Tqiv_Araxt_the_Enraged.lua",
+        "sha256": "b3c6e59622468e44d99ebac24cd2926ddcfe406b260804e2ac8b862931707ef1"
+      },
+      {
+        "path": "uqua/#Tqiv_Qukret_the_Furious.lua",
+        "sha256": "b55b59fa7db3658fae964f960d579eb73c02f90a219ee3241940691440198826"
+      }
+    ],
+    "notes": [
+      "Approval E385. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

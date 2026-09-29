@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "slug": "uqua-vrex-barxt-qurat-and-guardian-of-destruction",
+  "title": "Vrex Barxt Qurat and Guardian of Destruction",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "uqua",
+    "name": "Uqua, The Ocean God Chantry",
+    "version": 0
+  },
+  "npc_ids": [
+    292067,
+    292073,
+    292069
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break the Guardian and Barxt's bond while controlling destructive spirits and channelers.",
+  "overview": [
+    "Break the Guardian and Barxt's bond while controlling destructive spirits and channelers."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign Guardian, Barxt and add control separately. Prioritize channelers when they become vulnerable to reduce the periodic healing link."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Guardian",
+      "trigger": "Opening through 70%",
+      "description": "Fight the Guardian until Barxt enters."
+    },
+    {
+      "id": "phase-2",
+      "label": "Destructive spirits",
+      "trigger": "Barxt active above 40%",
+      "description": "Handle three waves, then clear every spirit to remove protection."
+    },
+    {
+      "id": "phase-3",
+      "label": "Channelers",
+      "trigger": "Barxt at 40%",
+      "description": "Defeat the newly vulnerable channelers while managing melee resistance."
+    },
+    {
+      "id": "phase-4",
+      "label": "Sever the bond",
+      "trigger": "Barxt at 10%",
+      "description": "Kill the Guardian first, then finish the spell-resistant Barxt."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 70% Guardian health, active Barxt enters combat.",
+        "Barxt creates three waves of four destructive spirits at one-minute intervals. After the third, the bosses become protected until the spirits are cleared; spirit deaths also damage Barxt.",
+        "At 40%, Barxt gains strong melee resistance and the two channelers become attackable.",
+        "At 10%, his melee resistance ends and his spell resistances rise.",
+        "Destroy the Guardian before killing Barxt. Finishing Barxt while the Guardian remains causes the failure outcome and denies the normal reward sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "uqua/encounters/vrex.lua",
+        "sha256": "a22844d77c838437bdebfa5c9b0a7aa69c4d0bf45b3017e3d4be77fb619af343"
+      }
+    ],
+    "notes": [
+      "Approval E387. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Barxt starts a tether_check timer but the handler tests tether; his own leash requires verification. The Guardian and channeler boundary checks are present."
+    ]
+  }
+}

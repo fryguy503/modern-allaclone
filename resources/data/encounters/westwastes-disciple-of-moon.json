@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "westwastes-disciple-of-moon",
+  "title": "Disciple of Moon",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "westwastes",
+    "name": "Western Wastes",
+    "version": 0
+  },
+  "npc_ids": [
+    120138
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Challenge the Disciple of Moon at the hidden monk trial location.",
+  "overview": [
+    "Challenge the Disciple of Moon at the hidden monk trial location."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Gather support before speaking the challenge and finish the fight within its combat deadline."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "An eligible monk near the trap receives a prompt to prove themselves.",
+        "Saying 'prove' in the proximity area summons the disciple.",
+        "Entering combat starts a thirty-minute despawn timer."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "westwastes/Disciple_of_Moon.lua",
+        "sha256": "5b49e483011388d8f5fe2b94748cdd35f006f1e1a8f502f10c882e10114a2b7e"
+      },
+      {
+        "path": "westwastes/disciple_of_moon_trap.lua",
+        "sha256": "f23fbf95eb19d48c8bc82f29c5d2f6a75e5c3cf772ca4e459dc3345801d552b0"
+      }
+    ],
+    "notes": [
+      "Approval E406. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "ikkinz-chambers-of-righteousness",
+  "title": "Chambers of Righteousness",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "ikkinz",
+    "name": "Ikkinz",
+    "version": 3
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the Chambers of Righteousness and defeat its priests, defenders and final custodian.",
+  "overview": [
+    "Clear the Chambers of Righteousness and defeat its priests, defenders and final custodian."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Priests and the Custodian enter rampage at 50% health, stop at 40%, and resume at 10%. Prepare healing before each health transition.",
+        "The Custodian clears its hate list every forty-five seconds. Tanks should be ready to regain its attention when the weight-shifting emote appears.",
+        "Keep each guardian within its assigned chamber. Crossing the scripted boundaries causes a return home and clears hate.",
+        "Complete the required defender kills to open the way through the chamber and finish with the Custodian."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ikkinz/Priest_of_Righteousness.lua",
+        "sha256": "82c6cb8c41c04cb9fbae6799c73200e767e9e1dda1d7ce0dca52ebd428525544"
+      },
+      {
+        "path": "ikkinz/Custodian_of_Righteousness.lua",
+        "sha256": "ae2230960a9dfa75ba7e074ff1029f36586b39e09a03529336f6d083fe94eb9b"
+      },
+      {
+        "path": "ikkinz/#Trigger_Ikkinz_1.lua",
+        "sha256": "9f85e93989eeeefc06397048400eda14a31bdc3534e18481cf363de8cc6cc67f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

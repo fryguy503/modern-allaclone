@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "veksar-raging-bloodgill",
+  "title": "Raging Bloodgill",
+  "group": "Legacy of Ykesha",
+  "type": "group",
+  "zone": {
+    "short_name": "veksar",
+    "name": "Veksar",
+    "version": 0
+  },
+  "npc_ids": [
+    109093
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A bloodgill call can bring a raging goblin into an ordinary pull.",
+  "overview": [
+    "A bloodgill call can bring a raging goblin into an ordinary pull."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep a spare tank or control available when pushing warriors below sixty percent."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 60% health, a warrior or shaman has a ten-percent chance to summon the raging bloodgill if this event is not already active.",
+        "The active-state marker is scoped to the current instance and expires after thirty minutes.",
+        "Killing the raging goblin clears the marker and allows another eligible trigger."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "veksar/#a_bloodgill_warrior.lua",
+        "sha256": "a00610bd2cd05550d6e26402708786dd537459cc35b6971870451089d412a822"
+      },
+      {
+        "path": "veksar/a_bloodgill_shaman.lua",
+        "sha256": "a00610bd2cd05550d6e26402708786dd537459cc35b6971870451089d412a822"
+      },
+      {
+        "path": "veksar/#a_raging_bloodgill_goblin.lua",
+        "sha256": "e7707235d89943c69b22ca2f661bcd268df43cfacdc85b1ee8cbcc4862eb44fc"
+      }
+    ],
+    "notes": [
+      "Approval E390. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

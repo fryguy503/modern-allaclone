@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "riwwi-taskmistress-krisz",
+  "title": "Taskmistress Krisz",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "riwwi",
+    "name": "Riwwi, Coliseum of Games",
+    "version": 0
+  },
+  "npc_ids": [
+    282105
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Challenge Riwwi's taskmistress and survive sharply increasing melee pressure near the end.",
+  "overview": [
+    "Challenge Riwwi's taskmistress and survive sharply increasing melee pressure near the end."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Save defensive coverage and healing for the final health bands."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "With at least 18 raid members in the zone, tell Pixtt Kekken 'dare' while the encounter trigger is available.",
+        "Krisz strengthens her melee attacks at 40%, 30%, 20%, 10% and 5% health; healing above the corresponding recovery thresholds reverses those increases.",
+        "Her 20-minute despawn timer pauses in combat and resumes when combat ends."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "riwwi/#Taskmistress_Krisz.lua",
+        "sha256": "c16383a1b4c935ac87ad6f2da4785d741d4384a23320091e1a4413d06b7b4c73"
+      },
+      {
+        "path": "riwwi/#Pixtt_Kekken.lua",
+        "sha256": "86eac65fd07f475d0d67751dc7ad43bbbe064cfedc60156706a136b014c38e89"
+      }
+    ],
+    "notes": [
+      "Approval E278. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The initial audit described prerequisite Pixtt kills; the current trigger is dialogue with Pixtt Kekken and an 18-member raid check."
+    ]
+  }
+}

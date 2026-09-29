@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "gukg-the-cavern-creeper",
+  "title": "The Cavern Creeper",
+  "group": "LDoN: Ritualist of Hate",
+  "type": "raid",
+  "zone": {
+    "short_name": "gukg",
+    "name": "Deepest Guk: The Root Garden",
+    "version": 2
+  },
+  "npc_ids": [
+    259229
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Cavern Creeper after Leklos falls to continue the raid.",
+  "overview": [
+    "Defeat the Cavern Creeper after Leklos falls to continue the raid."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Follow the chanting deeper into the cavern after defeating Leklos.",
+        "Tank the Cavern Creeper while the evokers perform their ritual.",
+        "Continue steady damage through the ritual announcements at 85%, 75% and 60%."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gukg/encounters/gukgraid.lua",
+        "sha256": "c09b1f92d1fa17699d54e60cd8a16d164e447ea1e35a41b481b61ee6a8463ab0"
+      },
+      {
+        "path": "gukg/zone_status.lua",
+        "sha256": "5bbb0f05ccf0032612f6f3f86b75d7720c9f3189105f3d2f3a2f87e3ccbd1eeb"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2.",
+      "The health-stage handlers only emit dialogue and explicitly question whether additional effects are missing. No weakening, shield or timed vulnerability effect is claimed."
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "natimbi-cragbeast-queen-seasonal",
+  "title": "Cragbeast Queen (seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "natimbi",
+    "name": "Natimbi, the Broken Shores",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The seasonal Cragbeast Queen favors piercing weapons and calls nearby creatures to her defense.",
+  "overview": [
+    "The seasonal Cragbeast Queen favors piercing weapons and calls nearby creatures to her defense."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Use piercing or two-handed piercing attacks where possible. The script increases those damage types while sharply reducing blunt, slashing, archery and throwing damage.",
+        "Every forty-five seconds in combat, the Queen draws idle creatures within a wide surrounding area onto her top-hate target.",
+        "Clear the nearby shore before the pull and keep an add tank ready for the call-for-help emote.",
+        "Leaving combat stops the repeated assist calls."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "natimbi/#Cragbeast_Queen.lua",
+        "sha256": "fba367179f0534f85b6c517e669fe97d44b28d8b02837b2fa24a6688f8a83400"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Version 200 is explicitly supported for the seasonal instance. The ability timer started by the script has no matching ability handler, so no additional timed special attack is claimed.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

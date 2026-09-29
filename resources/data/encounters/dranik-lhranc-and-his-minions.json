@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "dranik-lhranc-and-his-minions",
+  "title": "Lhranc and his minions",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "dranik",
+    "name": "Ruined City of Dranik",
+    "version": 0
+  },
+  "npc_ids": [
+    336251,
+    336250
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Lhranc's minions before facing the returned shadow knight.",
+  "overview": [
+    "Defeat Lhranc's minions before facing the returned shadow knight."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "The eligible shadow knight completes Filligno's preparation and says ready to start.",
+        "The first minion leads into a pair; defeating the minions brings out Lhranc.",
+        "Prepare the tank for Harm Touch on engagement and recurring Defiled Insanity afterward."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dranik/#Filligno_the_Slayer.lua",
+        "sha256": "12173cb90779047c24b0a714f03040c12588d4608d3658bfa9d585253e38efa2"
+      },
+      {
+        "path": "dranik/#Lhranc.lua",
+        "sha256": "55d99be7dfc67337e9cd946c7a510d4bd10d582be8d567a3d4a3d946f8ab954c"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "slug": "wakening-wuoshi-seasonal",
+  "title": "Wuoshi (Seasonal)",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "wakening",
+    "name": "The Wakening Land",
+    "version": 200
+  },
+  "npc_ids": [
+    119112,
+    119190,
+    119191,
+    119192
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Respond to Wuoshi's eight-second warnings and break the grove's protective and healing bonds.",
+  "overview": [
+    "Respond to Wuoshi's eight-second warnings and break the grove's protective and healing bonds."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Follow the ground mark for spores and the moving player mark for flare.",
+        "Switch immediately to vines, barrier guardians and the heartbloom when required."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Grove mechanics",
+      "trigger": "Opening",
+      "description": "Cycle through fixed spores, a breakable vine prison and a moving flare mark."
+    },
+    {
+      "id": "phase-2",
+      "label": "Flora Barrier",
+      "trigger": "75% health",
+      "description": "Kill every guardian within seventy-five seconds to avoid a heal."
+    },
+    {
+      "id": "phase-3",
+      "label": "Heartbloom",
+      "trigger": "45% health",
+      "description": "Destroy the healing bloom while continuing movement responses."
+    },
+    {
+      "id": "phase-4",
+      "label": "Tunareâ€™s wrath",
+      "trigger": "20% health",
+      "description": "Survive faster, stronger mechanics through the finish."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Toxic spores mark Wuoshi's current location: move beyond seventy feet of that fixed point before they burst.",
+        "Destroy the strangling vine to free its marked prisoner. Solar Flare follows its marked player, who must separate at least twenty-eight feet from allies.",
+        "At 75%, Wuoshi becomes protected and summons scaled guardians. Clear them within seventy-five seconds; failure restores eight percent of her health before the barrier falls.",
+        "At 45%, destroy the heartbloom that restores one percent of Wuoshi's health every eight seconds.",
+        "At 20%, warnings retain their eight-second duration but recovery gaps shorten and mechanic damage increases. A wipe clears adds and roots and restores the boss."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wakening/Wuoshi.lua",
+        "sha256": "0fad2d9e39491333585dd47c79e7efb7d0125d4a674e829341fcff087f4c738e"
+      },
+      {
+        "path": "lua_modules/seasonal_velious.lua",
+        "sha256": "1d2f02b537ff32319f50cfcee7b25912a2ee591751ab8806f83744a0469ff0cd"
+      },
+      {
+        "path": "global/global_npc.lua",
+        "sha256": "059323caa06bc6f84541b242bb43e45afd89cb21eae1ea06947dfb1f2c6d4575"
+      }
+    ],
+    "notes": [
+      "Approval E395. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Version200 is the shared helper default; deployments may configure another seasonal version or accept 200â€“249. Confirm the active expedition version and matching support-NPC provisioning before publication."
+    ]
+  }
+}

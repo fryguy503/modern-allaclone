@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "slug": "chambersf-mastery-of-destruction",
+  "title": "Mastery of Destruction",
+  "group": "Muramite trials",
+  "type": "group",
+  "zone": {
+    "short_name": "chambersf",
+    "name": "Muramite Proving Grounds",
+    "version": 1
+  },
+  "npc_ids": [
+    309061,
+    309067,
+    309064,
+    309062,
+    309066,
+    309063,
+    309065
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat enough attackers to expose the Master of Destruction, then finish him.",
+  "overview": [
+    "Defeat enough attackers to expose the Master of Destruction, then finish him."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "initial-opponents",
+      "label": "Initial opponents",
+      "trigger": "Before twenty kills",
+      "description": "Defeat twenty trial enemies while preserving resources."
+    },
+    {
+      "id": "master-of-destruction",
+      "label": "Master of Destruction",
+      "trigger": "Twenty kills reached",
+      "description": "Defeat the master before the trial timer expires."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Kill twenty of the trial enemies to activate the master.",
+        "Keep the group moving from target to target so the initial enemies do not consume the time budget.",
+        "Save enough resources for the master; the entire trial lasts fifteen minutes."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersf/encounters/mpg_destruction.lua",
+        "sha256": "99e4089ec14344a73bf3cf0336ec953cc310e9632e69e3ea86d6f1a01fe00eff"
+      },
+      {
+        "path": "chambersf/script_init.lua",
+        "sha256": "932a3db5d3525bb4f3e43f80f7a33cdcd4becdb504c3f7eb659cd62fd61e8eac"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

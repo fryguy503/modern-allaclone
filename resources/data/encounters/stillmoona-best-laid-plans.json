@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoona-best-laid-plans",
+  "title": "Best Laid Plans",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoona",
+    "name": "Stillmoon Temple",
+    "version": 3
+  },
+  "npc_ids": [
+    338420,
+    338422
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Recover the temple plans and confront the opposing faction's contact.",
+  "overview": [
+    "Recover the temple plans and confront the opposing faction's contact."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare for the contact and both assistants before completing the handoff."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Looting the plans causes the contact for the current faction route to appear.",
+        "The handoff produces an opposing contact with two assistants.",
+        "The opposing contact loses protection and becomes attackable."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoona/encounters/best_laid_plans.lua",
+        "sha256": "9ee144ba531868ce28b99efa09c043aaa9693fbeb56607763611d513d3773727"
+      },
+      {
+        "path": "stillmoona/script_init.lua",
+        "sha256": "8e073371659e66c04fcb3c53fe3cebbf3800ec2f35458a420e36ffb9609725f5"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E316. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

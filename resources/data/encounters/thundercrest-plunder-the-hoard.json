@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-plunder-the-hoard",
+  "title": "Plunder the Hoard",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 13
+  },
+  "npc_ids": [
+    340704,
+    340755,
+    340703
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Plunder the hoard while handling an armed guardian and the task's final visitors.",
+  "overview": [
+    "Plunder the hoard while handling an armed guardian and the task's final visitors."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Expect a pause and renewed attack when the guardian reaches half health."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At half health, the Guardian of the Blades becomes protected, moves to its weapon display and equips a weapon before resuming combat.",
+        "The pond interaction requires the quest gem and the proper door target.",
+        "The search objective creates an ornate chest; looting it starts Cherie's arrival and Yar`Lir's scripted exchange."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/plunder_the_hoard.lua",
+        "sha256": "d0072d1aa1073309354ed250adeff560d22ff12a0f08c0bc09d34c22d22cdd00"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E368. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "ssratemple-emperor-ssraeshza-and-the-blood",
+  "title": "Emperor Ssraeshza and the Blood",
+  "group": "Shadows of Luclin",
+  "type": "raid",
+  "zone": {
+    "short_name": "ssratemple",
+    "name": "Ssraeshza Temple",
+    "version": 0
+  },
+  "npc_ids": [
+    162504,
+    162189
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the Blood to awaken the Emperor, then control his linked royal guards.",
+  "overview": [
+    "Defeat the Blood to awaken the Emperor, then control his linked royal guards."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep the guard team organized through the delay between the Blood and the Emperor."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The Blood creates a protected Emperor and shares aggro with eight guards.",
+        "Killing the Blood starts a randomized three-to-five-minute Emperor activation delay.",
+        "The active Emperor re-engages any idle guards every 30 seconds.",
+        "A one-hour reset timer restores the Emperor's protected state."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ssratemple/Emperor_Ssraeshza.lua",
+        "sha256": "540ffe15ecabeb15bf22d8f81c4bf779966a0e506c7fa70150a06e6fae33f0ff"
+      },
+      {
+        "path": "ssratemple/#Blood_of_Ssraeshza.lua",
+        "sha256": "e24abbd8cd0e5eb3b160ca02b416af4b6d8139436fcf1cc7ed5fba5024d3029f"
+      }
+    ],
+    "notes": [
+      "Approval E310. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "This entry is for the open-world version 0; the boss explicitly depops from nonseasonal instances."
+    ]
+  }
+}

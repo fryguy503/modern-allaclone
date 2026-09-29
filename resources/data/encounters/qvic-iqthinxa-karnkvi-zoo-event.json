@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "slug": "qvic-iqthinxa-karnkvi-zoo-event",
+  "title": "Iqthinxa Karnkvi: Zoo Event",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "qvic",
+    "name": "Qvic, Prayer Grounds of Calling",
+    "version": 0
+  },
+  "npc_ids": [
+    295130,
+    295131,
+    295132,
+    295133
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Balance the health of three Ravs during Iqthinxa’s protected intermission, then finish the boss.",
+  "overview": [
+    "At 75% health, Iqthinxa becomes inactive and summons Rav Gernkki, Rav Marnkki and Rav Karnkki. All three initially attack the boss’s current hate leader, so have their tanks ready to take control.",
+    "Keep the surviving Ravs less than ten percentage points apart in health. An imbalance can make them stronger and force them all onto the wounded Rav’s target. Defeating all three makes Iqthinxa active again."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Assign one tank to each Rav before pushing the boss to 75%.",
+        "Keep every Rav inside the arena. If their health becomes unbalanced, prepare for them to converge on one tank; regain control as damage balance is restored."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Watch for the frenzy announcement and immediately support the tank being attacked by multiple Ravs."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Compare all surviving Rav health bars and switch targets to keep their spread below ten percentage points.",
+        "Stop attacking Iqthinxa during the Rav stage. Resume when all three Ravs are dead."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "opening",
+      "label": "Iqthinxa",
+      "trigger": "100% to 75% health",
+      "description": "Fight the boss and prepare the Rav tanks before reaching 75%."
+    },
+    {
+      "id": "ravs",
+      "label": "Balance the Ravs",
+      "trigger": "75% health",
+      "description": "Iqthinxa clears his hate list and becomes inactive. Defeat all three Ravs while keeping their health close together and controlling them inside the arena."
+    },
+    {
+      "id": "finish",
+      "label": "Finish Iqthinxa",
+      "trigger": "All three Ravs defeated",
+      "description": "The boss becomes active again. Reestablish tank control and defeat him to complete the encounter."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "pack-frenzy",
+      "name": "Pack frenzy",
+      "summary": "A health gap of ten percentage points can strengthen the Ravs and concentrate their attacks.",
+      "description": [
+        "The script checks surviving Rav health pairs. When it selects an injured Rav, all surviving Ravs clear their hate lists and heavily favor that Rav’s current target. Their maximum hits increase and their attack settings change to include area rampage.",
+        "Restoring the health balance signals the Ravs to return to their normal strength."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    },
+    {
+      "id": "arena-leash",
+      "name": "Arena leash",
+      "summary": "Pulling a Rav too far away returns it and its current player target to the arena.",
+      "description": [
+        "Ravs more than 250 paces from the arena center are moved back. If the current hate leader is a player, that player is moved with the Rav."
+      ],
+      "tags": [],
+      "roles": [],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "completion",
+      "title": "Completion",
+      "paragraphs": [
+        "Iqthinxa’s death records a 72-hour Zoo Event lockout in the Qvic expedition."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qvic/Iqthinxa_Karnkvi.lua",
+        "sha256": "7bbde4f32637664fb6f649d91a7f2a7feeaa4c3dc6b5d8a0c2a50df3dbd3efbb"
+      },
+      {
+        "path": "qvic/Rav_Gernkki.lua",
+        "sha256": "45347117a1e0e6d0dad7994e202f35a5456fb40001ef55268d29e5414248e119"
+      },
+      {
+        "path": "qvic/Rav_Marnkki.lua",
+        "sha256": "318d4dc1f5dbef7d6a27b73c3fe806cf0b968456761cd69d4e1c74a04605dbbd"
+      },
+      {
+        "path": "qvic/Rav_Karnkki.lua",
+        "sha256": "318d4dc1f5dbef7d6a27b73c3fe806cf0b968456761cd69d4e1c74a04605dbbd"
+      },
+      {
+        "path": "qvic/zone_status.lua",
+        "sha256": "3a31ce77cd712ec9057d231d60bfd917c800ba76ccc074557f7bcf3b8fd577b6"
+      },
+      {
+        "path": "qvic/#Gozer_The_Gatekeeper.lua",
+        "sha256": "f3311f933865c181ada71005cb423cd687b0611882d9b9496ccd12bf4808bb1e"
+      }
+    ],
+    "notes": [
+      "Approved row E271. Source reviewed; live behavior, loaded database spell effects and loot have not been verified.",
+      "Qvic version 0 is explicit in the Gozer expedition launcher. Zone status supplies the encounter spawns and lockouts.",
+      "The three-Rav lowest-health selection misses the case where rav1 is below rav2 but rav3 is below rav1. An imbalance may therefore fail to trigger frenzy in that arrangement. Guidance keeps the health spread below ten points rather than relying on the defect.",
+      "The Rav check begins at ten-second intervals and changes to one second after an imbalance. It does not restore the original interval when balance returns.",
+      "The reviewed boss script does not define an out-of-combat cleanup or rearming of the 75% transition. Verify recovery after a wipe before publication."
+    ]
+  }
+}

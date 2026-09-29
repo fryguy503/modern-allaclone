@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-29",
+  "environment": "Existing local codex-library-journal-preview container; no production validation",
+  "schema": {
+    "command": "php artisan encounters:validate",
+    "documents": 436,
+    "passed": true
+  },
+  "tests": {
+    "command": "php artisan test tests/Unit/Services/EncounterJournal tests/Feature/EncounterJournalTest.php tests/Feature/Console/EncounterCommandsTest.php",
+    "passed": 24,
+    "assertions": 146
+  },
+  "source_freshness": "Checked separately on the Windows host by verify_generation.mjs for every new draft; the PHP container does not mount the quest checkout."
+}

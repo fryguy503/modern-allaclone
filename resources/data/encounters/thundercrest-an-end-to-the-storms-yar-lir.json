@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-an-end-to-the-storms-yar-lir",
+  "title": "An End to the Storms: Yar`Lir",
+  "group": "Dragons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 200
+  },
+  "npc_ids": [
+    340028,
+    340029,
+    340030
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Adapt to Yar`Lir's changing storm forms and avoid wandering clouds.",
+  "overview": [
+    "Adapt to Yar`Lir's changing storm forms and avoid wandering clouds."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Watch each new form and move away from traveling thunderclouds."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "At 96% health the chamber doors seal.",
+        "Shapeshifts select the Living Storm, Mistress of Winds, Matriarch or Hurricane's Eye form, changing spells or add pressure.",
+        "Health thresholds accelerate the shapeshift cycle. Moving storm clouds discharge when they reach their destinations.",
+        "Losing combat restores the boss, clears adds and unlocks the room."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/an_end_to_the_storms.lua",
+        "sha256": "8853bd417f6fda60d26d4399706c705ec6eb1d2117b11094d111fd7452a62525"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E361. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Publication blocker: script_init loads this encounter for version 3, but the module removes the boss from nonzero instances unless version 200. No version 200 loader was confirmed. This draft describes the intended version 200 branch, not a verified playable expedition."
+    ]
+  }
+}

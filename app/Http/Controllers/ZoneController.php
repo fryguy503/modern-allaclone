@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AlternateCurrency;
 use App\Models\DiscoveredItem;
 use App\Models\Zone;
+use App\Services\EncounterJournalService;
 use App\Services\ZoneAtlasService;
 use App\ViewModels\ZoneViewModel;
 use Illuminate\Http\JsonResponse;
@@ -29,7 +30,7 @@ class ZoneController extends Controller
         ]);
     }
 
-    public function show(Zone $zone, Request $request, ZoneAtlasService $atlasService)
+    public function show(Zone $zone, Request $request, ZoneAtlasService $atlasService, EncounterJournalService $journal)
     {
         $request->validate(['v' => ['nullable', 'integer', 'min:0', 'max:32767']]);
         $version = $request->has('v') ? (int) $request->query('v') : (int) $zone->version;
@@ -82,6 +83,8 @@ class ZoneController extends Controller
 
         return view('zones.show', [
             ...$zoneCache,
+            // Journal content is request-scoped, independent of this zone's data cache.
+            'journalEntries' => $journal->forZone((string) $zone->short_name, $version),
             'altCurrency' => $altCurrency,
             'discoveredItems' => $discoveredItems,
             'atlasLayers' => $atlasService->layerDefinitions(),

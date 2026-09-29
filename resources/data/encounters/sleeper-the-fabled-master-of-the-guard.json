@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "sleeper-the-fabled-master-of-the-guard",
+  "title": "The Fabled Master of the Guard",
+  "group": "Sleeper's Tomb",
+  "type": "raid",
+  "zone": {
+    "short_name": "sleeper",
+    "name": "Sleeper's Tomb",
+    "version": 1
+  },
+  "npc_ids": [
+    128007
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The fabled Master of the Guard uses the paired-sentry sequence in Sleep Walking.",
+  "overview": [
+    "The fabled Master of the Guard uses the paired-sentry sequence in Sleep Walking."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign add tanks for each pair while maintaining control of the Master."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The first sentry pair activates three seconds after engagement.",
+        "Three further pairs activate at 50-second intervals.",
+        "Five minutes out of combat restores the sentry formation; the fabled death callback records the expedition boss lockout."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "sleeper/encounters/motg.lua",
+        "sha256": "f3be426ebeeb25bd9a4299a80a180094fb346d2cf87929fc8a57f1f3a394b29a"
+      },
+      {
+        "path": "sleeper/#Gozer_The_Gatekeeper.lua",
+        "sha256": "5caa84f27a0e41926c33760d960f1d3978ce924862f3a853fcd781e7af9fd5ea"
+      }
+    ],
+    "notes": [
+      "Approval E291. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

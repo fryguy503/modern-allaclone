@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-tunat-muram-cuu-vauax",
+  "title": "Tunat`Muram Cuu Vauax",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298014,
+    298055
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Tunat's doppelganger, then face a second body that borrows the powers of earlier Tacvi bosses.",
+  "overview": [
+    "Defeat Tunat's doppelganger, then face a second body that borrows the powers of earlier Tacvi bosses."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign leaders to call each borrowed form and carry add-control plans from the preceding bosses into the finale."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Doppelganger",
+      "trigger": "First body",
+      "description": "Handle the living phylacteries and the ukun that activate at 40%."
+    },
+    {
+      "id": "phase-2",
+      "label": "Borrowed powers",
+      "trigger": "Second body, 90% to 30%",
+      "description": "Adapt to the previous bosses in health-band order."
+    },
+    {
+      "id": "phase-3",
+      "label": "Tunat revealed",
+      "trigger": "Second body at 20%",
+      "description": "Finish the true form through haste, rage and overlapping spells."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The first body's room seals at 90%; its ukun activate at 40%. Killing it immediately reveals the second body.",
+        "The second body changes at 90%, 80%, 70%, 60%, 50%, 40% and 30%, reproducing Xxeric, Kretv, Riel, Kvxe, Yihst, Mordl and Shaldn mechanics.",
+        "These phases mix hatchlings, unstable constructs, timed power gains, charm pressure, split images and rage.",
+        "At 20%, Tunat returns to his own form with haste, rage and additional spell timers."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/tmcv.lua",
+        "sha256": "c7a3c9a669f290a86522e124eb2a8092a0c34a0019ac93656355e82841145d0f"
+      }
+    ],
+    "notes": [
+      "Approval E333. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "slug": "qey2hh1-yuanda-werewolf-ambush",
+  "title": "Yuanda: werewolf ambush",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "qey2hh1",
+    "name": "West Karana",
+    "version": 0
+  },
+  "npc_ids": [
+    12007,
+    12009,
+    12010
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive five werewolves and follow the trail to the shady bandit.",
+  "overview": [
+    "A necromancer at the appropriate pre-epic stage can give Yuanda the note to summon four regular werewolves and one stronger werewolf.",
+    "The stronger wolf increases its maximum melee hit at 75%, 50% and 25% health. Defeating all five wolves summons the shady bandit for the next step.",
+    "The wolves have a 30-minute despawn timer that is not paused in combat."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "wolves",
+      "label": "Werewolf ambush",
+      "trigger": "Note accepted",
+      "description": "Control all five wolves and prepare for the stronger wolf to hit harder at each health threshold."
+    },
+    {
+      "id": "bandit",
+      "label": "Follow the trail",
+      "trigger": "All five wolves defeated",
+      "description": "Find the newly spawned shady bandit to continue the quest."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "start",
+      "title": "Starting the ambush",
+      "paragraphs": [
+        "The necromancer must have the matching recorded pre-epic stage."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 15809,
+          "name": "Note to Yuanda",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "qey2hh1/encounters/Necro_pre_15.lua",
+        "sha256": "baacc18c51d83e8d462247e3654b4b1cba40b07ee40ab742870665882cd2e180"
+      },
+      {
+        "path": "qey2hh1/#Yuanda.lua",
+        "sha256": "ddc1df8fbbcbbd11f4feb17367f945ce1e8f7c6cba797da8306f2d38811cd08d"
+      }
+    ],
+    "notes": [
+      "Approved row E262. Source review only; live behavior and database spell/loot data have not been verified. Tactical recommendations are inferred from the scripted mechanics."
+    ]
+  }
+}

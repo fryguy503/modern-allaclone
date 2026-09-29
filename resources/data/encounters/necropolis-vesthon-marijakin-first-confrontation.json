@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "necropolis-vesthon-marijakin-first-confrontation",
+  "title": "Vesthon Marijakin: first confrontation",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "necropolis",
+    "name": "Dragon Necropolis",
+    "version": 0
+  },
+  "npc_ids": [
+    123167,
+    123171
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Interrupt Vesthon’s first attempt to seize Hsagra’s spirit.",
+  "overview": [
+    "Interrupt Vesthon’s first attempt to seize Hsagra’s spirit."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Vesthon begins a short ritual scene and calls mercenary guards into the area. Prepare for the guards as the dialogue progresses.",
+        "Drive Vesthon to 20% health to break the confrontation. He is replaced by a retreating form and Hsagra’s shade is released.",
+        "The hostile form has a three-minute despawn timer, so establish combat promptly after the ritual begins."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "necropolis/#Hsagra-s_Shade.lua",
+        "sha256": "18f63249968924269b6f8d1bfd0a8ac54a258e849a9a902ac0290e144052b73b"
+      },
+      {
+        "path": "necropolis/123167.lua",
+        "sha256": "1bd671d65a3b6afbb133eb5ebfe42df1f5c569899764ce4d738d0155d30e496c"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

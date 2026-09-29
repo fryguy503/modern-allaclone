@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "poeartha-vine-ring-derugoak-bloodwalker",
+  "title": "Vine ring / Derugoak Bloodwalker",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poeartha",
+    "name": "Vegarlson, the Earthen Badlands",
+    "version": 0
+  },
+  "npc_ids": [
+    218385,
+    218395,
+    218345
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear tainted rock beasts and bloodthirsty vegerogs to summon Derugoak Bloodwalker.",
+  "overview": [
+    "Clear tainted rock beasts and bloodthirsty vegerogs to summon Derugoak Bloodwalker."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Every three tainted rock-beast kills produces a bloodthirsty vegerog. Clearing the last required beast makes the vegerogs attackable.",
+        "Defeat all ten bloodthirsty vegerogs to summon Derugoak, or a bloodsoaked replacement if the main ring is on cooldown.",
+        "Derugoak summons two mangled vegerogs at 75% health and four at 25%. Prepare add tanks before either threshold.",
+        "The boss periodically clears hate. A five-minute break clears his adds and resets his health-stage triggers.",
+        "The ring has a three-hour limit and the final boss a fifty-minute hard despawn."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poeartha/encounters/Vine_Event.lua",
+        "sha256": "4afb8cf29dbcc8ecb39b673275b5d8fae65ca944252b7b8c199a23b0e32909a1"
+      },
+      {
+        "path": "poeartha/#vine_controller.lua",
+        "sha256": "5612877f80e7f08e47ac3764b772f7469962ccd3b7799f603102dfaba4c32ec2"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

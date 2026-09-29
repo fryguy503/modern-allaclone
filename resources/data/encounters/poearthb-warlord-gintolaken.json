@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "poearthb-warlord-gintolaken",
+  "title": "Warlord Gintolaken",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poearthb",
+    "name": "Ragrax, Stronghold of the Twelve",
+    "version": 0
+  },
+  "npc_ids": [
+    222151,
+    222152,
+    222153,
+    222154
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat three war chieftains to unlock Warlord Gintolaken.",
+  "overview": [
+    "Defeat three war chieftains to unlock Warlord Gintolaken."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the Rock Studded Champions, Myrmidons of Stone and Stonefist Clansmen to expose their associated chieftains.",
+        "Defeat Galronar, Awisano and Birak. Their expedition lockouts jointly unlock Gintolaken.",
+        "Gintolaken wipes hate every three minutes and has additional low-chance hate clears between those resets. Keep multiple tanks ready.",
+        "The named stages have fifty-minute hard despawns; the overall event has a three-hour failure limit.",
+        "Victory produces a planar projection for progression credit."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poearthb/encounters/Warlord_Event.lua",
+        "sha256": "279e8bf5387912ead222127e817b581e82a4a1de35ed66ae681631a1480724dd"
+      },
+      {
+        "path": "poearthb/#warlord_controller.lua",
+        "sha256": "7a116f651fda3965cefc70d2b8e198b9bd0d562479d004162bcb9fcdfea0cb47"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "illsalinc-emperor-draygun-the-lich-king",
+  "title": "Emperor Draygun, the Lich King",
+  "group": "Depths of Darkhollow",
+  "type": "raid",
+  "zone": {
+    "short_name": "illsalinc",
+    "name": "The Nargilor Pits",
+    "version": 2
+  },
+  "npc_ids": [
+    350051,
+    350097
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Draygun’s lich form feeds on lost souls and exposes a dangerous interaction with healing magic during his split phases.",
+  "overview": [
+    "Draygun’s lich form feeds on lost souls and exposes a dangerous interaction with healing magic during his split phases."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [
+    {
+      "id": "healing-weakness",
+      "name": "Restored lifeforce",
+      "summary": "Specific healing spells injure the lich while the living Emperor is present.",
+      "description": [
+        "Use only the supported spell ranks linked here. Other cast-on events in this phase restore 60,000 health to the lich."
+      ],
+      "tags": [
+        "Healing interaction"
+      ],
+      "roles": [],
+      "spell_ids": [
+        6140,
+        6142,
+        6141,
+        5265,
+        5355,
+        4901,
+        5251,
+        4883,
+        5395
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Lost souls begin arriving ninety seconds into combat, in groups of five spaced five seconds apart. Kill them before absorption: each survivor heals Draygun and increases his melee damage.",
+        "At 85%, 60% and 40% health, the living Emperor appears for a limited window while the lich becomes immune to ordinary spells.",
+        "During those windows, only the listed supported healing spells damage the lich through the scripted interaction. Other spells cast on him heal him instead, so stop unapproved casts.",
+        "Keep tanks and healers assigned to the lost souls throughout the split phases. A wipe heals the lich, and an already-started add sequence can still finish spawning."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "illsalinc/encounters/Emperor_Draygun.lua",
+        "sha256": "3e594505ff652b8f2b0c6f446aa235f7373b03266ebfb08f617a96403ad0095b"
+      },
+      {
+        "path": "illsalinc/script_init.lua",
+        "sha256": "f14ae3a8ac6fb88959872652e7edaac58e0c4f90d3be854f77a1d8d99ddc99cd"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Verify the end of the split-phase spell immunity in a live test: the reviewed module enables it but does not explicitly disable it when the living Emperor despawns."
+    ]
+  }
+}

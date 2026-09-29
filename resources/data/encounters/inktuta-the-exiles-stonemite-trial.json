@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "inktuta-the-exiles-stonemite-trial",
+  "title": "The Exiles / Stonemite trial",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "inktuta",
+    "name": "Inktu’ta",
+    "version": 0
+  },
+  "npc_ids": [
+    296030,
+    296033,
+    296035,
+    296036
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Coordinate the four exiles’ responses within one short window to pass the Stonemite trial.",
+  "overview": [
+    "Coordinate the four exiles’ responses within one short window to pass the Stonemite trial."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Assign a player to each exile and determine the required response from that exile’s dialogue before starting the coordinated attempt.",
+        "The first correct response starts a twenty-second window. All four exile responses must reach the controller before it expires.",
+        "If the window closes without all four responses, the exiles summon stonemites and the response state resets. Clear the failure wave before trying again.",
+        "A successful set removes the exiles, opens the next door and advances the expedition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "inktuta/zone_status.lua",
+        "sha256": "0965fcc554db7a7b32b6c7525a8fb0b30b479d9f8d0c2eaab92e62ee468d15ae"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

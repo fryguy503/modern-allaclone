@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "slug": "anguish-warden-hanvar",
+  "title": "Warden Hanvar",
+  "group": "Anguish",
+  "type": "raid",
+  "zone": {
+    "short_name": "anguish",
+    "name": "Anguish, the Fallen Palace",
+    "version": 0
+  },
+  "npc_ids": [
+    317002,
+    317015,
+    317016,
+    317017,
+    317018
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Warden Hanvar's guards control how far the raid can lower his health.",
+  "overview": [
+    "Guard kills lower Hanvar's enforced health floor by five percentage points each. The raid needs twenty guard kills to remove the floor completely, while keeping the guards from sacrificing themselves."
+  ],
+  "roles": [],
+  "phases": [
+    {
+      "id": "protected-warden",
+      "label": "Protected warden",
+      "trigger": "Health floor begins at 100%",
+      "description": "Kill the five initial guards to begin lowering the floor."
+    },
+    {
+      "id": "returning-guards",
+      "label": "Returning guards",
+      "trigger": "Until twenty guard kills",
+      "description": "Kill replacement guards before their sacrifice timer completes; each death lowers the floor by another five points."
+    },
+    {
+      "id": "unprotected-warden",
+      "label": "Unprotected warden",
+      "trigger": "Twenty guard kills",
+      "description": "The floor reaches zero and the encounter stops requesting further replacements. Finish Hanvar."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Kill guards promptly: each actual guard death lowers the protected health floor by five points.",
+        "A guard sacrifice casts Feedback Dispersion without advancing the kill count.",
+        "Continue until twenty guard kills remove the health floor, then finish Hanvar.",
+        "Keep the boss inside his encounter area and maintain healing through Chains and Wail of Anguish."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "anguish/encounters/hanvar.lua",
+        "sha256": "7ccae3717c697fc54fd841a21eeaf9c2f9cd007122b83f447a65eec3d540bb4c"
+      },
+      {
+        "path": "anguish/script_init.lua",
+        "sha256": "01fa5cb9faa896b618877d74a33d7e46153f12bebab6daf61687db1e3bcd7a82"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

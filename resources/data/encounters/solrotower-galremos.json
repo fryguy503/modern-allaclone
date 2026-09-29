@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "solrotower-galremos",
+  "title": "Galremos",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "solrotower",
+    "name": "Tower of Solusek Ro",
+    "version": 0
+  },
+  "npc_ids": [
+    212033
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Galremos breaks into smaller pieces as increasingly large magmite groups appear.",
+  "overview": [
+    "Galremos breaks into smaller pieces as increasingly large magmite groups appear."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Keep add control ready for the large final two waves."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Magmites spawn at 90%, 60%, 35%, 20% and 5% health, in groups of one, two, one, four and six respectively.",
+        "Each threshold also reduces Galremos's size.",
+        "Five minutes out of combat removes magmites and resets the health sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "solrotower/Galremos.lua",
+        "sha256": "02461c993103b24302f6089fdad90aa9b7777d3c478d4475a3acfee5da680156"
+      }
+    ],
+    "notes": [
+      "Approval E303. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

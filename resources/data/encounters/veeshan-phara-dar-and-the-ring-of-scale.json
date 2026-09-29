@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "veeshan-phara-dar-and-the-ring-of-scale",
+  "title": "Phara Dar and the Ring of Scale",
+  "group": "Veeshan's Peak",
+  "type": "raid",
+  "zone": {
+    "short_name": "veeshan",
+    "name": "Veeshan's Peak",
+    "version": 0
+  },
+  "npc_ids": [
+    108048,
+    108040,
+    108043,
+    108047,
+    108050,
+    108053
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the other Ring of Scale dragons to expose Phara Dar, then control her protectors.",
+  "overview": [
+    "Defeat the other Ring of Scale dragons to expose Phara Dar, then control her protectors."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Secure the other dragons and reserve add control for the larger final protector waves."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Phara Dar begins protected while any of the five listed dragon templates remain alive.",
+        "Once all five are gone, the dragon check removes her protection.",
+        "At 80%, 60%, 40% and 20% health, she summons two, three, four and five protectors respectively.",
+        "Ten minutes out of combat heals her and removes remaining protectors."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "veeshan/108048.lua",
+        "sha256": "43de9c86dea2f8367d94e084249a9be52bd78646c403dcf49a5d528bb1192721"
+      }
+    ],
+    "notes": [
+      "Approval E388. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The source calls this Phara Dar 2.0 but does not specify an instance version. Version0 represents the unversioned zone script; confirm the deployed spawn version before publication."
+    ]
+  }
+}

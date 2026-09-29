@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "mirb-frozen-nightmare-marrow-the-broken",
+  "title": "Frozen Nightmare: Marrow the Broken",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "mirb",
+    "name": "The Frozen Nightmare",
+    "version": 2
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Marrow the Broken sheds pieces of himself that become attacking skeletons.",
+  "overview": [
+    "Marrow the Broken sheds pieces of himself that become attacking skeletons."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Beginning at 90% health and continuing at ten-percent steps through 30%, Marrow shrinks and creates a splinterbone skeleton nearby.",
+        "Have an add tank ready before each threshold. Avoid pushing several health stages faster than the group can collect the skeletons.",
+        "Defeating Marrow advances Durgin Skell’s bone-golem objective."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mirb/Marrow_the_Broken.lua",
+        "sha256": "c3398c93a472f89df6b8fc65b61ce632ca24f3b3077104d9c5bd2ae21d3814d7"
+      },
+      {
+        "path": "mirb/Durgin_Skell.lua",
+        "sha256": "99831efade55a74e132169508b07e06efabf0303eef46b72aeb221d51874ab53"
+      },
+      {
+        "path": "mirb/zone_status.lua",
+        "sha256": "96d9679db47451ca1aee2939a2031350082177f37096e12f1be94665fa99b540"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The source mentions an unimplemented splinterbone dervish alternative. This guide documents only the skeleton currently spawned by the handler.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

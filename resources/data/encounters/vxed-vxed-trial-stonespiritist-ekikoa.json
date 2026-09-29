@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "vxed-vxed-trial-stonespiritist-ekikoa",
+  "title": "Vxed trial / Stonespiritist Ekikoa",
+  "group": "Gates of Discord",
+  "type": "group",
+  "zone": {
+    "short_name": "vxed",
+    "name": "Vxed, The Crumbling Caverns",
+    "version": 0
+  },
+  "npc_ids": [
+    290062
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear Vxed's enemies to summon Stonespiritist Ekikoa.",
+  "overview": [
+    "Clear Vxed's enemies to summon Stonespiritist Ekikoa."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Clear the expedition steadily and return to Ekikoa's location after the fiftieth qualifying kill."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The controller counts deaths from its registered zone enemy and named templates.",
+        "The fiftieth qualifying kill summons Ekikoa at the upper cavern location.",
+        "This controller runs only in version 0 and intentionally ignores the separate paladin expedition."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "vxed/encounters/vxed.lua",
+        "sha256": "8deb84d559aec68f65612866fd3a87d004cf513ccfca7e912527799803d5834d"
+      }
+    ],
+    "notes": [
+      "Approval E392. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Final dialogue and progression credit need a separate review of Ekikoa before publication."
+    ]
+  }
+}

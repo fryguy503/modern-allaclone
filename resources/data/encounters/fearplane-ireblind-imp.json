@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "fearplane-ireblind-imp",
+  "title": "Ireblind Imp",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "fearplane",
+    "name": "Plane of Fear",
+    "version": 0
+  },
+  "npc_ids": [
+    72069,
+    72005
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Ireblind Imp releases groups of rage essences at three health thresholds.",
+  "overview": [
+    "The Ireblind Imp releases groups of rage essences at three health thresholds."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Prepare for three essences at each of 76%, 51% and 26%.",
+        "Collect and control the essences before pushing into the next threshold.",
+        "Keep the imp tank covered while damage dealers manage each new group."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "fearplane/Ireblind_Imp.lua",
+        "sha256": "daaf3bc81027cbfc6b9906a9bf68f1acfa4ef481107ac738ce240951d47f6279"
+      },
+      {
+        "path": "fearplane/Enraged_Imp.lua",
+        "sha256": "55d1c24a74810967dd463e3180f17d71c8bdbcbe8044913a7b4d3bbe9e430815"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "The reviewed source is standard or unversioned; this draft applies to version 0."
+    ]
+  }
+}

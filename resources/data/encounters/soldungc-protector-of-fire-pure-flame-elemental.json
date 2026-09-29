@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "soldungc-protector-of-fire-pure-flame-elemental",
+  "title": "Protector of Fire / Pure Flame Elemental",
+  "group": "Lair of the Blackwing",
+  "type": "group",
+  "zone": {
+    "short_name": "soldungc",
+    "name": "The Caverns of Exile",
+    "version": 0
+  },
+  "npc_ids": [
+    278109,
+    278108
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Clear the elemental ring to summon its final fire guardian.",
+  "overview": [
+    "Clear the elemental ring to summon its final fire guardian."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Finish each wave and prepare for the two possible finale variants."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Eight initial kill signals summon four furious magma guardians.",
+        "Defeat those four to summon two inflamed champions.",
+        "After both champions die, the final spawn is Protector of Fire or the epic-specific Pure Flame Elemental, depending on the qualifying wizard signal."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "soldungc/_.lua",
+        "sha256": "b6aa403f84313c474a82295d3fe91f44f249e9221791d36efde2e35e47b2180e"
+      }
+    ],
+    "notes": [
+      "Approval E301. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

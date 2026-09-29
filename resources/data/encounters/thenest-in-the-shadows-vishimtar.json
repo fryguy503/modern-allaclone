@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "thenest-in-the-shadows-vishimtar",
+  "title": "In the Shadows: Vishimtar",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thenest",
+    "name": "The Accursed Nest",
+    "version": 3
+  },
+  "npc_ids": [
+    343094,
+    343095,
+    343159,
+    343163
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Control eggs, corrupted drakes and curses while breaking Vishimtar's final health lock.",
+  "overview": [
+    "Control eggs, corrupted drakes and curses while breaking Vishimtar's final health lock."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Reserve spirit interactions for cursed players.",
+        "Assign egg damage and deliberate shadow control before the final curse cycle."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Eggs and shadows",
+      "trigger": "99% through 51%",
+      "description": "Control eggs and new shadow spawns while keeping the tank healthy."
+    },
+    {
+      "id": "phase-2",
+      "label": "Doom cycle",
+      "trigger": "26% health",
+      "description": "Use cursed players and mournful spirits to lower the health lock until the boss can die."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Eggs arrive on a repeating timer and hatch into six drakes if left for a minute.",
+        "At 76% health, incorporeal shadows begin spawning. Killing one creates a lifedrain shadow and increases that new shadow's melee strength.",
+        "At 51%, the fight adds another cloud and activates the corrupted drakes.",
+        "At 26%, Vishimtar applies doom curses and becomes locked at 25% health. Cursed players must tell a mournful spirit 'shoulder my burden' to remove their curse and lower the lock by one point.",
+        "An uncursed player can consume a spirit without lowering the lock. Two minutes out of combat resets the encounter."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thenest/encounters/in_the_shadows.lua",
+        "sha256": "8d9b7c89a328a0753af3cd69dd9bda64bb36b12a94db03958121d35dbfd993d6"
+      },
+      {
+        "path": "thenest/script_init.lua",
+        "sha256": "9281b09519a78087ea1c9ad77de3b79817a78d4e3312ff809cb7d5558de43135"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E354. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

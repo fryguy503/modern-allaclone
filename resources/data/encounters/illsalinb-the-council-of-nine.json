@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "illsalinb-the-council-of-nine",
+  "title": "The Council of Nine",
+  "group": "Depths of Darkhollow",
+  "type": "raid",
+  "zone": {
+    "short_name": "illsalinb",
+    "name": "Temple of the Korlach",
+    "version": 1
+  },
+  "npc_ids": [
+    349030,
+    349031,
+    349074,
+    349075,
+    349076,
+    349077,
+    349078,
+    349079,
+    349080,
+    349081
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "The Avatar of the Council grows weaker as its nine council members join the battle.",
+  "overview": [
+    "The Avatar of the Council grows weaker as its nine council members join the battle."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Each ten-percent health step from 90% through 10% activates another council member and sends it against a random target on the Avatar’s hate list.",
+        "The Avatar’s melee damage falls at each activation, but the raid must handle the accumulating council members. Assign pickup tanks before the next health push.",
+        "Avoid pushing several thresholds faster than the raid can establish control of the newly active enemies.",
+        "Leaving combat fully heals the Avatar, restores its original damage and rebuilds the council population."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "illsalinb/encounters/council_of_nine.lua",
+        "sha256": "03e916fa50659b78b6449aa86810f8bc92ff3f816b2baa75da3fce5c269b8eb3"
+      },
+      {
+        "path": "illsalinb/script_init.lua",
+        "sha256": "39a1fb873c3472ffc4624417837cae937ff1f3c49071e8be98d5e41e2f1019b4"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

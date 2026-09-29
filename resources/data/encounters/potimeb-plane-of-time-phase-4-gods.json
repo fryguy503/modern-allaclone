@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "potimeb-plane-of-time-phase-4-gods",
+  "title": "Plane of Time: phase 4 gods",
+  "group": "Plane of Time",
+  "type": "raid",
+  "zone": {
+    "short_name": "potimeb",
+    "name": "Plane of Time",
+    "version": 0
+  },
+  "npc_ids": [
+    223075,
+    223076,
+    223077,
+    223078
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Terris Thule, Saryrn, Tallon Zek and Vallon Zek to complete the fourth phase of the Plane of Time.",
+  "overview": [
+    "Defeat Terris Thule, Saryrn, Tallon Zek and Vallon Zek to complete the fourth phase of the Plane of Time."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Terris Thule summons four adds at 91%, 51% and 11% health. Reserve add tanks for each threshold.",
+        "Saryrn also summons four adds per wave, at 96%, 51% and 11%. Avoid crossing a fresh threshold while the previous wave is uncontrolled.",
+        "Vallon creates two copies at 51% health. Hold those copies while continuing damage on the real Vallon.",
+        "Keep Tallon and Vallon inside their tethered area. Leaving it returns the boss home and clears hate.",
+        "Defeat all four gods to advance. Terris, Saryrn and Vallon reset their scripted stages after five minutes out of combat."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "potimeb/Terris_Thule.lua",
+        "sha256": "d62af13367f9c05cd4dc3a223015e5158fa08f88b0c693047c457969c6e22713"
+      },
+      {
+        "path": "potimeb/Saryrn.lua",
+        "sha256": "d656eecd852c88cb519b0c72dd48927d1ac8d4fb3db669477e81d5f3a0c5fdb6"
+      },
+      {
+        "path": "potimeb/Vallon_Zek.lua",
+        "sha256": "5ffa60e252f6049dcc9b88a8a95bc05a8db24d5480788baca90cd296866a0a5c"
+      },
+      {
+        "path": "potimeb/Tallon_Zek.lua",
+        "sha256": "e323e0c5404d2f63c73589c6b99d6030d2ca3dfa0644d486c1eb1d9aa8a10966"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

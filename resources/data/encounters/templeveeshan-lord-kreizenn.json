@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "templeveeshan-lord-kreizenn",
+  "title": "Lord Kreizenn",
+  "group": "Scars of Velious",
+  "type": "raid",
+  "zone": {
+    "short_name": "templeveeshan",
+    "name": "Temple of Veeshan",
+    "version": 0
+  },
+  "npc_ids": [
+    124074
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Engaging Lord Kreizenn also brings the linked named guards into combat.",
+  "overview": [
+    "Engaging Lord Kreizenn also brings the linked named guards into combat."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare tanks or control for the linked guards before the pull."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "If still alive, Kedrak and Carx`Vean immediately add the puller to their hate lists.",
+        "The quest script defines this linked pull but does not add a timed health-phase sequence."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "templeveeshan/#Lord_Kreizenn.lua",
+        "sha256": "af5b6e75b72727f952e0939392aeaf9a02647a0a1f0da5c948e718bce7ef09a3"
+      }
+    ],
+    "notes": [
+      "Approval E344. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Database spell lists and native combat defenses need review before expanding this short linked-aggro guide."
+    ]
+  }
+}

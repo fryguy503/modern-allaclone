@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "necropolis-garzicor-s-corpse-and-wraith",
+  "title": "Garzicor's Corpse and Wraith",
+  "group": "Quest battles",
+  "type": "event",
+  "zone": {
+    "short_name": "necropolis",
+    "name": "Dragon Necropolis",
+    "version": 0
+  },
+  "npc_ids": [
+    123255,
+    123247,
+    123253
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Release Garzicor through a corpse battle followed by his wraith.",
+  "overview": [
+    "Release Garzicor through a corpse battle followed by his wraith."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the ghostly presence’s summoning sequence to bring out Garzicor’s Corpse.",
+        "Defeat the corpse within its twenty-minute availability window. Its death summons Garzicor’s Wraith.",
+        "The wraith remains for thirty minutes. Defeat it, then speak with the resulting shade to continue the quest."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "necropolis/#a_ghostly_presence.lua",
+        "sha256": "9b6274c7e43030f1abeb6ca6e886b2cf2e2d13f907d3df5a9b3d5015cb1b5f49"
+      },
+      {
+        "path": "necropolis/#Garzicor-s_Corpse.lua",
+        "sha256": "44912efa4946144faf5164f8ec16ae87a2bd8e457671711bc08a4411242c1345"
+      },
+      {
+        "path": "necropolis/#Garzicor-s_Wraith.lua",
+        "sha256": "b60311b510c0785f47d61c79b939437b9f37e5e7943032aea85e9fa0afb75f22"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

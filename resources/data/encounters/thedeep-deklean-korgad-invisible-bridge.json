@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "thedeep-deklean-korgad-invisible-bridge",
+  "title": "Deklean Korgad: invisible bridge",
+  "group": "Quest events",
+  "type": "event",
+  "zone": {
+    "short_name": "thedeep",
+    "name": "The Deep",
+    "version": 0
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Earn Deklean's help and follow his marked route across the invisible bridge.",
+  "overview": [
+    "Earn Deklean's help and follow his marked route across the invisible bridge."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Follow the guide and beacons carefully instead of using the visible false bridge."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Complete Deklean's requested proof and supplies turn-in to begin the bridge route.",
+        "As he advances, he places beacons along the safe crossing.",
+        "After the route ends he starts a short despawn timer; combat changes his cleanup timing."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thedeep/Deklean_Korgad.lua",
+        "sha256": "6b8c54c37483be650064641fb2d61e0182f30520408c3a8206d7378ae2bb2a83"
+      }
+    ],
+    "notes": [
+      "Approval E349. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

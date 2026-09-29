@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "slug": "stillmoonb-storm-dragon-scales-the-storm-caller",
+  "title": "Storm Dragon Scales: The Storm Caller",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "stillmoonb",
+    "name": "The Ascent",
+    "version": 5
+  },
+  "npc_ids": [
+    339295,
+    339294
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Uncover the Storm Caller by advancing the climb and entering the gust of wind.",
+  "overview": [
+    "Uncover the Storm Caller by advancing the climb and entering the gust of wind."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Consolidate the group before approaching the new gust."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Thirty qualifying deaths reveal the gust trigger.",
+        "Entering its proximity spawns the Storm Caller and four Ascent storms at their fixed locations.",
+        "Prepare for both the caller and the nearby storm enemies before advancing the trigger."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "stillmoonb/encounters/storm_dragon_scales.lua",
+        "sha256": "0b6939879cc5c01522c9d192eebe9aa08f4d5b4b0e2fe2f51dda0a9ceed167a7"
+      },
+      {
+        "path": "stillmoonb/script_init.lua",
+        "sha256": "1cf191f934ba1b41f918d44e34ddec8c25bb30c5a3906ce6f8f26621d49b83ac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E327. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

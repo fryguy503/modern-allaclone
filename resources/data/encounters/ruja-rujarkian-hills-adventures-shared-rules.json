@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "ruja-rujarkian-hills-adventures-shared-rules",
+  "title": "Rujarkian Hills adventures (shared rules)",
+  "group": "Lost Dungeons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "ruja",
+    "name": "Rujarkian Hills",
+    "version": 1
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Complete the selected Rujarkian Hills adventure objective before its mission timer expires.",
+  "overview": [
+    "Complete the selected Rujarkian Hills adventure objective before its mission timer expires."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Use the adventure status dialogue to track the active objective and time remaining."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Assassination adventures unlock their target after the required kill count; defeat that target to finish.",
+        "Kill adventures count eligible deaths, while collection adventures count the requested items when looted.",
+        "NPC strength and rewards scale with the requested level and difficulty; optional named enemies and breakable traps populate the adventure.",
+        "Finishing after the main timer but before closure can award a partial win."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ruja/encounters/ruj.lua",
+        "sha256": "401f182ce458ce755726c2560db3d28f2de2eb52eb4b483e47743b0f4ffb3509"
+      },
+      {
+        "path": "rujd/zone_status.lua",
+        "sha256": "e91dc6874d42050a022da6c96cf737ff30a43881033c4bd53a03849587464a77"
+      }
+    ],
+    "notes": [
+      "Approval E280. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "This theme overview is linked to ruja version 1; identical controllers serve the other Rujarkian maps. Confirm the deployed ruja version before publication.",
+      "Rescue is listed as a type, but the reviewed controller implements explicit completion branches only for assassination, kills and collection.",
+      "Resolve the exact NPC template IDs from the zone database before enabling NPC-page links."
+    ]
+  }
+}

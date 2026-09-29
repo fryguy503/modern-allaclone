@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "povalor-aerin-dar",
+  "title": "Aerin'Dar",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "povalor",
+    "name": "Plane of Valor",
+    "version": 0
+  },
+  "npc_ids": [
+    208074,
+    208176
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Aerin’Dar activates pairs of golem guards as the fight progresses.",
+  "overview": [
+    "Aerin’Dar activates pairs of golem guards as the fight progresses."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Two golems activate at each of 80%, 60%, 40% and 20% health. They choose targets from Aerin’Dar’s hate list.",
+        "At 20%, the named golem Rhalgon also activates. Reserve enough tanks and healing for the largest final wave.",
+        "Control each pair before driving the boss through the next health threshold.",
+        "If Aerin’Dar heals back to 98%, the golems repopulate and the health stages reset. Defeat the dragon and approach the planar projection."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "povalor/#Aerin-Dar.lua",
+        "sha256": "0620b087e0436d5653c2bf795b4b755a1a30b6438eef7e8de8574766d6a1d035"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

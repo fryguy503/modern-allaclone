@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "gukg-the-cursed-keeper",
+  "title": "The Cursed Keeper",
+  "group": "LDoN: Ritualist of Hate",
+  "type": "raid",
+  "zone": {
+    "short_name": "gukg",
+    "name": "The Accursed Sanctuary",
+    "version": 2
+  },
+  "npc_ids": [
+    259254
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Finish the rescue by defeating the Cursed Keeper after Gragna falls.",
+  "overview": [
+    "Finish the rescue by defeating the Cursed Keeper after Gragna falls."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "At 50% health, the Keeper replaces area rampage with rampage. At 20%, the remaining rampage ability is removed.",
+        "Keep the boss in the rear encounter area. Crossing its leash boundary returns it home and clears combat.",
+        "Healing back above the phase boundaries restores the earlier special-attack state. Maintain steady pressure through the final stages."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gukg/encounters/gukgraid.lua",
+        "sha256": "c09b1f92d1fa17699d54e60cd8a16d164e447ea1e35a41b481b61ee6a8463ab0"
+      },
+      {
+        "path": "gukg/zone_status.lua",
+        "sha256": "5bbb0f05ccf0032612f6f3f86b75d7720c9f3189105f3d2f3a2f87e3ccbd1eeb"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

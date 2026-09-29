@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "rujd-prison-break-warden-neyremal-and-high-shaman-yenner",
+  "title": "Prison Break: Warden Neyremal and High Shaman Yenner",
+  "group": "Lost Dungeons of Norrath",
+  "type": "raid",
+  "zone": {
+    "short_name": "rujd",
+    "name": "Rujarkian Hills: Prison Break",
+    "version": 2
+  },
+  "npc_ids": [
+    245296,
+    245284,
+    245290
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Free the prisoners, stop the alarm and defeat the warden and high shaman together.",
+  "overview": [
+    "Free the prisoners, stop the alarm and defeat the warden and high shaman together."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Assign control for both final bosses and prepare healing for their 20% frenzies."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Defeat the three taskmasters and use their keys to release the first prisoners.",
+        "The last release calls Prison Guard Talkor. Engage him promptly before his escape sequence completes.",
+        "Clear the prison rooms so the rescuers can free their allies.",
+        "Warden Neyremal and High Shaman Yenner share aggro. Each heals and increases melee damage at 20%. Both must die for the final chest check."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "rujd/encounters/rujdraid.lua",
+        "sha256": "a23467cff17d134c3be69cec6c68a67a047f3568b41eba6ec991089da8959d6a"
+      },
+      {
+        "path": "rujd/#Raid_Timer.lua",
+        "sha256": "a06d1115378a8c3cbbb5a2acc7d7d55104657c6b4fc7b27e05f79828fd37693c"
+      },
+      {
+        "path": "rujd/encounters/goblins.lua",
+        "sha256": "5ca17946c3d7c7bb6faa793c277e6cb01b0c5e2e8db7a908d4bee72cf5bafd9d"
+      },
+      {
+        "path": "rujd/zone_status.lua",
+        "sha256": "e91dc6874d42050a022da6c96cf737ff30a43881033c4bd53a03849587464a77"
+      }
+    ],
+    "notes": [
+      "Approval E281. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

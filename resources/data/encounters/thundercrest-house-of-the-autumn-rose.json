@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "thundercrest-house-of-the-autumn-rose",
+  "title": "House of the Autumn Rose",
+  "group": "Dragons of Norrath",
+  "type": "group",
+  "zone": {
+    "short_name": "thundercrest",
+    "name": "Thundercrest Isles",
+    "version": 5
+  },
+  "npc_ids": [
+    340506
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Survive the temple's assassin ambushes and bring down Poison Brewer Ishi.",
+  "overview": [
+    "Survive the temple's assassin ambushes and bring down Poison Brewer Ishi."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Advance together and secure each ambush before moving farther."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Three hidden encounter triggers can each release a pair of assassins when engaged.",
+        "Defeating Poison Brewer Ishi signals the bridge sequence involving Sensei Gnarlshadow.",
+        "Clear the route carefully so multiple ambushes do not overlap."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "thundercrest/encounters/house_of_the_autumn_rose.lua",
+        "sha256": "598b0392110e7ee8ca97a203476f4e05da2d2e8f429d0cb568076d64ac200b7c"
+      },
+      {
+        "path": "thundercrest/script_init.lua",
+        "sha256": "ea307ae6170a9e6619ef8cfe0cea4f9105f33b1e29718c6a080b56faab1c193f"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Approval E365. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "mirb-frozen-nightmare-sharalla",
+  "title": "Frozen Nightmare: Sharalla",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "mirb",
+    "name": "The Frozen Nightmare",
+    "version": 2
+  },
+  "npc_ids": [
+    237772,
+    237773,
+    237793,
+    237794,
+    237795,
+    237796
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Protect Sharalla’s remains from four starving animals.",
+  "overview": [
+    "Protect Sharalla’s remains from four starving animals."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Hailing Sharalla’s warder starts the event and summons a polar bear, two snow cougars and a leopard.",
+        "Pull the animals away from the corpse. The corpse checks every five seconds; an animal within twenty units adds a bite toward failure.",
+        "Animals can drop combat and run back to the corpse. Watch for returning targets and re-establish control as soon as they can be engaged.",
+        "Ten bites fail the event. Kill all four animals before that happens to complete the defense."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mirb/encounters/sharalla.lua",
+        "sha256": "d6651738a119c29841bd308823013becc2af97a08a63dbc5c53423a3cbda45cd"
+      },
+      {
+        "path": "mirb/zone_status.lua",
+        "sha256": "96d9679db47451ca1aee2939a2031350082177f37096e12f1be94665fa99b540"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

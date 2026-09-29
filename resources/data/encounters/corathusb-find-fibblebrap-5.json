@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "corathusb-find-fibblebrap-5",
+  "title": "Find Fibblebrap 5",
+  "group": "Find Fibblebrap",
+  "type": "group",
+  "zone": {
+    "short_name": "corathusb",
+    "name": "Corathus Lair",
+    "version": 2
+  },
+  "npc_ids": [
+    367051
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "A separate Fibblebrap mission selector loads a return to the mines.",
+  "overview": [
+    "A separate Fibblebrap mission selector loads a return to the mines."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Follow the active mission objectives through the mine.",
+        "The reviewed script gives Clicktok a peaceful quest-material exchange and a hostile response if hailed without it.",
+        "Keep the group ready before starting that conversation."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "corathusb/encounters/find_fibblebrap_five.lua",
+        "sha256": "d7b7c1d47b993efd9dcf16569ff8783ae00ce1f8becd5a83042bfa298f6454c0"
+      },
+      {
+        "path": "corathusb/script_init.lua",
+        "sha256": "439e8bd76de0fd4a4539a02e7a882c7bf52cea0ddde62f9b161e8ceb83544cac"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2.",
+      "The version-2 loader selects find_fibblebrap_five, but that file repeats the Find Fibblebrap 1 header, task IDs and much of its objective logic. Fifth-mission identity and objective correctness remain unresolved; this is a provisional source-backed draft."
+    ]
+  }
+}

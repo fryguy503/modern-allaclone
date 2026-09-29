@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "poeartha-mud-ring-monstrous-mudwalker",
+  "title": "Mud ring / Monstrous Mudwalker",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "poeartha",
+    "name": "Vegarlson, the Earthen Badlands",
+    "version": 0
+  },
+  "npc_ids": [
+    218371,
+    218358,
+    218355
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Break apart the Sludge Lurker repeatedly, then defeat the Filth Gorgers and Monstrous Mudwalker.",
+  "overview": [
+    "Break apart the Sludge Lurker repeatedly, then defeat the Filth Gorgers and Monstrous Mudwalker."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the required mudwalkers and seekers to summon the Sludge Lurker.",
+        "Across four successive stages, the lurker breaks into ten muck mudlets at 75%, 60%, 40% and 15%. Kill every mudlet to reform the lurker and continue.",
+        "Finish the lurker sequence and the four Filth Gorgers to summon the Monstrous Mudwalker, or the cooldown replacement.",
+        "The final boss can clear hate, and killing a player or pet creates additional mudlets. Minimize casualties while keeping an add tank available.",
+        "Complete the ring within three hours and the final boss within its fifty-minute appearance window."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "poeartha/encounters/Mud_Event.lua",
+        "sha256": "7fb76427a992243c254bf7912c73b656609e31ddd3a755058a57cc9ceec321ec"
+      },
+      {
+        "path": "poeartha/#mud_controller.lua",
+        "sha256": "43ff4c07a7ac528b1959f24b477f40a9dee8afca64181126cdd0f6ed41e67326"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

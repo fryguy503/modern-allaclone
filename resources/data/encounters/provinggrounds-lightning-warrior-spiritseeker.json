@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "provinggrounds-lightning-warrior-spiritseeker",
+  "title": "Lightning Warrior Spiritseeker",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "provinggrounds",
+    "name": "Muramite Proving Grounds",
+    "version": 0
+  },
+  "npc_ids": [
+    316073
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "An eligible shaman awakens the Lightning Warrior Spiritseeker and its two spiritsappers.",
+  "overview": [
+    "An eligible shaman awakens the Lightning Warrior Spiritseeker and its two spiritsappers."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Approaching the stilled warrior at the appropriate epic stage replaces it with the Spiritseeker.",
+        "Engaging the Spiritseeker summons two lightning warrior spiritsappers at its location. Establish add control immediately.",
+        "After disengagement, a fifteen-minute cleanup timer removes the Spiritseeker and its spiritsappers."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "provinggrounds/#Stilled_Lightning_Warrior.lua",
+        "sha256": "e8c282fd6cf060c510041e3bbff53054d4290151e5df9b531e73fec0378a4626"
+      },
+      {
+        "path": "provinggrounds/#Lightning_Warrior_Spiritseeker.lua",
+        "sha256": "10c257014c8adcee3d7e77a849e1b8dca5426570b825cfd80592cf86632b16c3"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Check the Spiritseeker cleanup timer before publication: the combat handler starts it on disengagement but does not stop an existing timer when combat resumes."
+    ]
+  }
+}

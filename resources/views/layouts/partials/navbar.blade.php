@@ -1,7 +1,9 @@
 @php
     $patchHistoryEnabled = config('everquest.patch_history.enable', true);
+    $journalEnabled = config('everquest.encounter_journal.enable', true);
     $ddActive = Route::is('recipes.*', 'tasks.*', 'factions.*', 'pets.*')
-        || ($patchHistoryEnabled && Route::is('patches.*'));
+        || ($patchHistoryEnabled && Route::is('patches.*'))
+        || ($journalEnabled && Route::is('encounters.*'));
 @endphp
 <div id="navbar-trigger" class="h-0"></div>
 <nav class="navbar bg-neutral mb-3 sticky top-0 z-50">
@@ -46,6 +48,10 @@
                                 More
                             </summary>
                             <ul class="pl-4">
+                                @if ($journalEnabled)
+                                    <li><a href="{{ route('encounters.index') }}"
+                                        class="{{ Route::is('encounters.*') ? 'bg-base-300' : '' }}">Encounter Journal</a></li>
+                                @endif
                                 <li><a href="{{ route('recipes.index') }}"
                                         class="{{ Route::is('recipes.*') ? 'bg-base-300' : '' }}"
                                         title="Recipes">Recipes</a></li>
@@ -123,6 +129,10 @@
                     </svg>
                 </label>
                 <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                    @if ($journalEnabled)
+                        <li><a href="{{ route('encounters.index') }}"
+                            class="{{ Route::is('encounters.*') ? 'active bg-base-200' : '' }}">Encounter Journal</a></li>
+                    @endif
                     <li><a href="{{ route('recipes.index') }}"
                             class="{{ Route::is('recipes.*') ? 'active bg-base-200' : '' }}"
                             title="Recipes">Recipes</a></li>

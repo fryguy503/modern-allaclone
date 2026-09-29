@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "slug": "gunthak-lairyn-debeian-defense-krill-the-backbleeder",
+  "title": "Lairyn Debeian defense / Krill the Backbleeder",
+  "group": "Epic events",
+  "type": "event",
+  "zone": {
+    "short_name": "gunthak",
+    "name": "The Gulf of Gunthak",
+    "version": 0
+  },
+  "npc_ids": [
+    224436
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Escort Lairyn to his stand against the shadows, protect him through five attacks, then confront Krill the Backbleeder.",
+  "overview": [
+    "Escort Lairyn to his stand against the shadows, protect him through five attacks, then confront Krill the Backbleeder."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "A rogue at the relevant epic stage begins the defense by telling Lairyn that Lirprin sent them. Follow him while he moves to the defense location.",
+        "Five waves each contain a shadowed thug, assassin and enforcer. They arrive about 55 seconds apart and immediately attack Lairyn.",
+        "Assign someone to pick up each arriving trio. Krill also attacks Lairyn when summoned, so keep the protected NPC alive through the final fight.",
+        "A healing potion hand-in restores 3,000 of Lairyn’s health. After Krill falls, complete Lairyn’s requested quest hand-in for credit."
+      ],
+      "items": [
+        {
+          "id": 52354,
+          "name": "Cloudy Silver Potion",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "gunthak/Lairyn_Debeian.lua",
+        "sha256": "a19af53f6f2add2f8a309a89e1b98ff9f53337ea7688c0b28a5b794658108124"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

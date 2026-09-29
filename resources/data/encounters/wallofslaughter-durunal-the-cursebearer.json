@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "wallofslaughter-durunal-the-cursebearer",
+  "title": "Durunal the Cursebearer",
+  "group": "Epic quests",
+  "type": "event",
+  "zone": {
+    "short_name": "wallofslaughter",
+    "name": "Wall of Slaughter",
+    "version": 0
+  },
+  "npc_ids": [
+    300087,
+    300088,
+    300089,
+    300090
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat Durunal while managing repeated lightning elementals and disruptive spells.",
+  "overview": [
+    "Defeat Durunal while managing repeated lightning elementals and disruptive spells."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Prepare for the opening Harm Touch and reserve control for each three-elemental wave."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "An eligible paladin entering the zone can summon Durunal when the two-hour trigger cooldown is clear.",
+        "He opens combat with Harm Touch and brings three lightning elementals every two minutes.",
+        "Epoch Conviction, Gyrosonic Disruption and Thunder Call recur on separate combat timers.",
+        "The encounter has a one-hour cleanup timer from spawn."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "wallofslaughter/#Durunal_the_Cursebearer.lua",
+        "sha256": "9e09d69955416c9f0d8a06d3f502d26ca75716c4e135ab8d5bf947729b741192"
+      },
+      {
+        "path": "wallofslaughter/player.lua",
+        "sha256": "3f3168fd4bc342f5ccbc9222d29b61e1105da09d783d7e391ec527f35a1454b5"
+      }
+    ],
+    "notes": [
+      "Approval E397. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

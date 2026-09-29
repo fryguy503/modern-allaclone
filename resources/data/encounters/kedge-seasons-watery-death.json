@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "slug": "kedge-seasons-watery-death",
+  "title": "Seasons: Watery Death",
+  "group": "Seasonal",
+  "type": "raid",
+  "zone": {
+    "short_name": "kedge",
+    "name": "Kedge Keep",
+    "version": 200
+  },
+  "npc_ids": [],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Theta Sigma offers a seasonal expedition into Kedge Keep called Seasons: Watery Death.",
+  "overview": [
+    "Theta Sigma offers a seasonal expedition into Kedge Keep called Seasons: Watery Death."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "The launcher defines a raid expedition for three to seventy-two players, with a three-day instance duration.",
+        "Theta Sigma requires a seasonal character. Creating the expedition also adds a two-day replay lockout.",
+        "Speak with Theta Sigma about repairing the timeline to request the expedition, then use the ready dialogue to enter.",
+        "This entry currently covers access only. Encounter opponents, combat phases and completion objectives are not established by the reviewed quest source."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "global/Theta_Sigma.lua",
+        "sha256": "0f4155cd09ab48ecfac1bd7fe2b326321a192db9b1e5f40aecc505cb2019acf4"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "Version 200 is the launcher fallback; Custom:SeasonalInstanceVersion can override it. The live rule value is unverified.",
+      "Publication blocked: identify the seasonal Kedge boss, database spawn group, abilities and completion rules. The launcher alone does not establish a Phinigel or other boss encounter.",
+      "Confirm the deployed SeasonalInstanceVersion rule and Kedge entry/return coordinates before publication.",
+      "Resolve the encounter NPC template ID before publication; the reviewed files do not identify it unambiguously."
+    ]
+  }
+}

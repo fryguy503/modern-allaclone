@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "slug": "chambersc-mastery-of-foresight",
+  "title": "Mastery of Foresight",
+  "group": "Muramite trials",
+  "type": "raid",
+  "zone": {
+    "short_name": "chambersc",
+    "name": "Muramite Proving Grounds",
+    "version": 2
+  },
+  "npc_ids": [
+    306019,
+    306013,
+    306014,
+    306015,
+    306016,
+    306017,
+    306018
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Follow personal and raid warnings to survive the Trial of Foresight.",
+  "overview": [
+    "Follow personal and raid warnings to survive the Trial of Foresight."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Move to the announced safe side when the room heats up.",
+        "Read your kyv warning carefully: it may require moving, standing still or ducking.",
+        "Remove the specified rings or main-hand weapon when the equipment warning appears.",
+        "Watch dragorn preparations and respond with distance or focused damage as the warning directs."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "chambersc/encounters/mpg_foresight.lua",
+        "sha256": "f4c62bb6303754aa42397363e7e4bf8f2ffc241462e9be194e6caea7b210384e"
+      },
+      {
+        "path": "chambersc/script_init.lua",
+        "sha256": "e0a28efe541319d1ba4f5267074b344540a8e70e4ad9fca6a65880a65c6d9c6a"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 2."
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "mirb-frozen-nightmare-laskuth-the-colossus",
+  "title": "Frozen Nightmare: Laskuth the Colossus",
+  "group": "LDoN raids",
+  "type": "raid",
+  "zone": {
+    "short_name": "mirb",
+    "name": "The Frozen Nightmare",
+    "version": 2
+  },
+  "npc_ids": [
+    237797
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Laskuth the Colossus closes the Frozen Nightmare after its earlier challenges are resolved.",
+  "overview": [
+    "Laskuth the Colossus closes the Frozen Nightmare after its earlier challenges are resolved."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Complete the preceding tasks for Durgin Skell to bring Laskuth into the final encounter.",
+        "Five sleet flurries also appear along the approach. Keep the route controlled before establishing the boss pull.",
+        "Every five seconds, Laskuth has a fifty-percent chance to send his current target to the back of the room and remove that target from hate lists.",
+        "Keep another tank ready to pick up Laskuth when the current tank is displaced. Return promptly from the back of the room while preserving the group’s healing formation."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mirb/Durgin_Skell.lua",
+        "sha256": "99831efade55a74e132169508b07e06efabf0303eef46b72aeb221d51874ab53"
+      },
+      {
+        "path": "mirb/#Laskuth_the_Colossus.lua",
+        "sha256": "7628fea73444522cc92679320a112455e32c0580b828cd424465c87bf7130610"
+      },
+      {
+        "path": "mirb/zone_status.lua",
+        "sha256": "96d9679db47451ca1aee2939a2031350082177f37096e12f1be94665fa99b540"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics."
+    ]
+  }
+}

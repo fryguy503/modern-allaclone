@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "slug": "poknowledge-bonded-hunts-companion-challenges-36-targets",
+  "title": "Bonded Hunts: companion challenges (36 targets)",
+  "group": "Bonded Hunts",
+  "type": "event",
+  "zone": {
+    "short_name": "poknowledge",
+    "name": "Plane of Knowledge",
+    "version": 0
+  },
+  "npc_ids": [
+    991136,
+    991100,
+    991101,
+    991102,
+    991103,
+    991104,
+    991105,
+    991106,
+    991107,
+    991108,
+    991109,
+    991110,
+    991111,
+    991112,
+    991113,
+    991114,
+    991115,
+    991116,
+    991117,
+    991118,
+    991119,
+    991120,
+    991121,
+    991122,
+    991123,
+    991124,
+    991125,
+    991126,
+    991127,
+    991128,
+    991129,
+    991130,
+    991131,
+    991132,
+    991133,
+    991134,
+    991135
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Take a companion challenge from the Curator of Bonded Echoes and defeat an owner-bound echo with your own pet or charmed companion.",
+  "overview": [
+    "Take a companion challenge from the Curator of Bonded Echoes and defeat an owner-bound echo with your own pet or charmed companion."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Visit the Curator of Bonded Echoes in the Plane of Knowledge to select an eligible assignment. The system supports shadow knights, druids, bards, shamans, necromancers, magicians, enchanters and beastlords.",
+        "Travel to the assignment’s target zone and activate the hunt beacon. The echo appears beside you and scales to at least your level plus two, subject to the target’s own level.",
+        "Only you and your pet or charmed companion may enter the echo’s hate list for the victory audit to pass. Avoid assistance that would involve another character in the fight.",
+        "Druids, bards and enchanters receive an accompanying creature for the charm approach. Establish your companion before committing to the echo.",
+        "The echo expires after twenty minutes. A failed audit leaves the assignment available to retry.",
+        "After an accepted victory, return to the curator. Recharge assignments require carrying the assigned partially charged physical wand before activating the hunt."
+      ],
+      "items": []
+    },
+    {
+      "id": "target-zones",
+      "title": "Hunt destinations",
+      "paragraphs": [
+        "The curator offers thirty-six targets across these zones. The assignment identifies the exact echo and destination."
+      ],
+      "bullets": [
+        "The Hole",
+        "The Ruins of Old Guk",
+        "Ocean of Tears",
+        "The Jaggedpine Forest",
+        "Veksar",
+        "The Temple of Droga",
+        "The Ruins of Sebilis",
+        "Chardok",
+        "Cobaltscar",
+        "The Western Wastes",
+        "The Plane of Mischief",
+        "The Great Divide",
+        "The Paludal Caverns",
+        "Ssraeshza Temple",
+        "The Dawnshroud Peaks",
+        "The Maiden's Eye",
+        "The Plane of Nightmares",
+        "The Plane of Disease",
+        "The Plane of Water",
+        "The Plane of Fire",
+        "Dulak's Harbor",
+        "The Torgiran Mines",
+        "The Crypt of Nadox",
+        "Hate's Fury",
+        "Barindu, Hanging Gardens",
+        "Qvic, Prayer Grounds of Calling",
+        "Tipt, Treacherous Crags",
+        "Sewers of Nihilia, Purifying Plant",
+        "Wall of Slaughter",
+        "Nobles' Causeway",
+        "The Ruined City of Dranik",
+        "Riftseekers' Sanctum",
+        "The Broodlands",
+        "Stillmoon Temple",
+        "Thundercrest Isles",
+        "Lavaspinner's Lair"
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "lua_modules/bonded_hunts_config.lua",
+        "sha256": "c4b5693b2b2a09ed5a6ff4ebfa9c248eaf9394b15d1c30b2b40a1d265e964f7f"
+      },
+      {
+        "path": "lua_modules/bonded_hunt_echo.lua",
+        "sha256": "b9b92a7f46e5704fdcf88d2a0ebc414149dd84d4eef582b823c2f3727bfd4a3f"
+      },
+      {
+        "path": "lua_modules/bonded_hunts.lua",
+        "sha256": "95ef6f5170b9cea3ae9e58b7ab9bf2ab2c760ccff96830357d70b70e1ce1d770"
+      },
+      {
+        "path": "poknowledge/991136.lua",
+        "sha256": "223b12af4e832dd45e142d46cdace9a05c375d665af9061c3112cc1304caf031"
+      },
+      {
+        "path": "hole/991100.lua",
+        "sha256": "f8e3f441b52cfda6042e9241e80fff5d3a9cea817bd3f91041d8791fd350fb42"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The document is linked to the Plane of Knowledge curator hub because the schema supports only one zone per document. Echo NPC links cover all thirty-six targets, but automatic zone-page links do not cover the target destinations. Version 0 identifies the hub; activation checks the target base zone ID rather than prescribing a target instance version.",
+      "Confirm deployment of the native Bonded Hunt combat audit before publication; the Lua reward transition depends on its audit result."
+    ]
+  }
+}

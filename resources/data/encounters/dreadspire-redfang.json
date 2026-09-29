@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "dreadspire-redfang",
+  "title": "Redfang",
+  "group": "Demi-Plane of Blood",
+  "type": "raid",
+  "zone": {
+    "short_name": "dreadspire",
+    "name": "Dreadspire Keep",
+    "version": 1
+  },
+  "npc_ids": [
+    351192
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Defeat the screechers, control the bats and pursue Redfang through his disappearances.",
+  "overview": [
+    "Defeat the screechers, control the bats and pursue Redfang through his disappearances."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "strategy",
+      "title": "Encounter strategy",
+      "paragraphs": [],
+      "bullets": [
+        "Kill the seven opening screechers to bring out Redfang.",
+        "Control the recurring blooddrinkers while damaging the boss.",
+        "At 65% and 15%, Redfang disappears and the encounter shifts back to bat control.",
+        "Root the voracious bats when appropriate; the script recognizes root as a special response.",
+        "Keep the encounter moving to avoid the idle reset."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "dreadspire/encounters/Redfang.lua",
+        "sha256": "bdb2a9e1d7e00f791f309e7d59681f57cee74a800285293e9de5f15f44576d77"
+      },
+      {
+        "path": "dreadspire/script_init.lua",
+        "sha256": "21bc907be35f4feb4e057459e9feebcf06e02c1d432c42b31b92094abf2b2276"
+      },
+      {
+        "path": "lua_modules/constants/instance_versions.lua",
+        "sha256": "6f05e7efd8930099df4d08693dca4066bab73c465b5c7f14a8f4704df7e0b58f"
+      }
+    ],
+    "notes": [
+      "Reviewed quest source; behavior, balance, spawns and completion have not been verified in a live instance.",
+      "This document applies to instance version 1."
+    ]
+  }
+}

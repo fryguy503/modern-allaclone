@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "torgiran-overseer-wrank-and-the-captains",
+  "title": "Overseer Wrank and the Captains",
+  "group": "Legacy of Ykesha",
+  "type": "group",
+  "zone": {
+    "short_name": "torgiran",
+    "name": "Torgiran Mines",
+    "version": 0
+  },
+  "npc_ids": [
+    226066,
+    226095,
+    226109,
+    226203,
+    226202,
+    226201
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Remove Overseer Wrank's protection by defeating his four captains.",
+  "overview": [
+    "Remove Overseer Wrank's protection by defeating his four captains."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Complete the key turn-ins and prepare for the captain group before the overseer becomes vulnerable."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The controller begins with a protected Overseer Wrank.",
+        "The key counter must reach exactly twenty to summon Captain Nago, Lung, Lkai and Flang.",
+        "When all four captain-death signals arrive, the protected overseer is replaced by the combat version."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "torgiran/#wrank_trigger.lua",
+        "sha256": "cd6ebcc9e1de1b2519beed9ed3f2bba8bc10aa4ef56c4871f094ed00e4a2d64f"
+      }
+    ],
+    "notes": [
+      "Approval E377. Source review only; deployment, database spell lists and live balance have not been verified.",
+      "The controller tests exactly twenty accumulated key credits; verify the upstream turn-in handling prevents overshooting that value."
+    ]
+  }
+}

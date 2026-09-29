@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-zun-muram-shaldn-boc",
+  "title": "Zun`Muram Shaldn Boc",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298018
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Shaldn Boc alternates increasingly long rages with shorter periods of weakness.",
+  "overview": [
+    "Shaldn Boc alternates increasingly long rages with shorter periods of weakness."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Rotate defensive coverage during rages and recover during the weakened intervals."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "The first rage begins after 35 seconds in combat.",
+        "As health decreases, rage increases melee strength and attack speed and lasts from 20 up to 65 seconds.",
+        "Each rage ends in a 35-second weakened interval before the next begins.",
+        "At 90%, the room seals. Thirty seconds out of combat resets health, melee tuning and the room."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/zmsb.lua",
+        "sha256": "65520a7f8046515ddd63b511516870c1ba1deb189443ad2fc10595b3ef095518"
+      }
+    ],
+    "notes": [
+      "Approval E336. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

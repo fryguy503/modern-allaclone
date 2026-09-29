@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "txevu-high-priest-nkosi-bakari",
+  "title": "High Priest Nkosi Bakari",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "txevu",
+    "name": "Txevu, Lair of the Elite",
+    "version": 0
+  },
+  "npc_ids": [
+    297218,
+    297213,
+    297214,
+    297215,
+    297216,
+    297217
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Gather the five ritualist shades, then overcome their possession and healing link to the High Priest.",
+  "overview": [
+    "Gather the five ritualist shades, then overcome their possession and healing link to the High Priest."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Control the shades and plan around their charm rather than allowing repeated full boss heals."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "phase-1",
+      "label": "Ritual",
+      "trigger": "Five invokers and their chanters",
+      "description": "Release the shades and allow all five to reach the ritual."
+    },
+    {
+      "id": "phase-2",
+      "label": "Priest and shades",
+      "trigger": "Fifth shade arrives",
+      "description": "Control possession and remove the shades that can replenish the priest at half health."
+    }
+  ],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "Defeating the five invokers releases shades that travel to the central ritual.",
+        "The fifth arrival summons Nkosi Bakari and makes the shades attackable.",
+        "Engaged shades attempt Spiritual Possession after fifteen seconds; a shade returns when its possession ends.",
+        "At half health, the High Priest can absorb a surviving shade and return to full health, repeating while shades remain.",
+        "The priest and shades reset if pulled out of their permitted area."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "txevu/encounters/highpriest.lua",
+        "sha256": "71ecb1f085bbc13fb9ae792a6cf6245d220c88fc27fc49630b1de3ee820cb02d"
+      }
+    ],
+    "notes": [
+      "Approval E380. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}

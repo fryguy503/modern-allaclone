@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "ponightmare-mujaki-the-devourer",
+  "title": "Mujaki the Devourer",
+  "group": "Planes of Power",
+  "type": "raid",
+  "zone": {
+    "short_name": "ponightmare",
+    "name": "Plane of Nightmare",
+    "version": 0
+  },
+  "npc_ids": [
+    204039
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Intercept the servants approaching Mujaki’s platform, then defeat Mujaki the Devourer.",
+  "overview": [
+    "Intercept the servants approaching Mujaki’s platform, then defeat Mujaki the Devourer."
+  ],
+  "roles": [],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-guide",
+      "title": "Encounter guide",
+      "paragraphs": [],
+      "bullets": [
+        "Clear the nightmare steeds around the platform to start the event.",
+        "Seven waves bring thirty-six servants in total from three grave sites. Intercept them before they reach the platform: unengaged servants that arrive become mounted riders.",
+        "Each wave is timed, so avoid letting stronger riders and fresh servants accumulate together.",
+        "When all thirty-six servants have either died or transformed, Mujaki becomes attackable. Control the remaining riders while defeating him."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "ponightmare/encounters/Mujaki_1.lua",
+        "sha256": "7a6c4143bb4067d327a4b9a9f203866bc86b24f75e5d5fc42cdc4ba0eb8ec856"
+      },
+      {
+        "path": "ponightmare/Mujaki_the_Devourer.lua",
+        "sha256": "742ac4c0b9adf47ca12f495950b98cf4f11bbc73dc2a32ee5683c1eb67ce75a3"
+      }
+    ],
+    "notes": [
+      "Reviewed against quest source only; encounter behavior, database tuning and availability have not been verified in a live zone. Tactical advice is inferred from the scripted mechanics.",
+      "The module calls this platform Instance 1, but it selects physical spawn-point and coordinate boundaries. This is not evidence of zone version 1. The unversioned zone is represented as version 0."
+    ]
+  }
+}

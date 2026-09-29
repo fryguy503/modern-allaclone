@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "slug": "tacvi-zun-muram-kvxe-pirik",
+  "title": "Zun`Muram Kvxe Pirik",
+  "group": "Gates of Discord",
+  "type": "raid",
+  "zone": {
+    "short_name": "tacvi",
+    "name": "Tacvi, Seat of the Slaver",
+    "version": 0
+  },
+  "npc_ids": [
+    298029,
+    298125,
+    298126,
+    298127,
+    298128
+  ],
+  "status": "draft",
+  "spoiler": false,
+  "summary": "Balance four aspects during Kvxe's meditation to prevent permanent increases in his power.",
+  "overview": [
+    "Balance four aspects during Kvxe's meditation to prevent permanent increases in his power."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Split damage across the four aspects and stop damage when each enters its correct band."
+      ]
+    }
+  ],
+  "phases": [],
+  "abilities": [],
+  "sections": [
+    {
+      "id": "encounter-plan",
+      "title": "Encounter plan",
+      "paragraphs": [],
+      "bullets": [
+        "From 90% through 30% health in ten-point steps, Kvxe enters a 70-second meditation.",
+        "Bring each of the four balance NPCs into the current target health band. The messages announce when a scale tips in your favor or falls out of balance.",
+        "An unbalanced aspect increases the boss's attack speed, armor, melee damage or attack rating.",
+        "At 20% he accelerates again for the finish."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tacvi/encounters/zmkp.lua",
+        "sha256": "e22a5539ce0dd8b0a27b47f949ee9571ac18667ea2fd1d3502dd6d9f2bf1f903"
+      }
+    ],
+    "notes": [
+      "Approval E334. Source review only; deployment, database spell lists and live balance have not been verified."
+    ]
+  }
+}
