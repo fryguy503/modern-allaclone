@@ -1,0 +1,355 @@
+{
+  "schema_version": 1,
+  "slug": "bloodbound-eclipse-finale",
+  "title": "Mayong Mistmoore: Bloodbound",
+  "group": "The Hour of the Last Eclipse: Bloodbound",
+  "type": "raid",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 12
+  },
+  "npc_ids": [
+    59405
+  ],
+  "status": "published",
+  "spoiler": true,
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "c8934057b41ff9d3c37c2b448211583f9b47e00b491da3f6ea4ed73d6158a6f5"
+      },
+      {
+        "path": "sql/mistmoore_eclipse_hard_mode.sql",
+        "sha256": "f477910c1b89bad9c27827cf10614786787c3999d48accbe166c94640329340a"
+      }
+    ],
+    "notes": [
+      "Reviewed against the local quest working tree. Hard-mode changes are not committed at the recorded base revision; the file hashes identify the exact reviewed bytes.",
+      "Mechanics and rewards were checked in source. Publication of this guide does not establish that the hard-mode scripts or database content are deployed on the live server.",
+      "Role advice is derived from the scripts. A live raid has not verified the strategy or combat balance.",
+      "Ability names describe scripted mechanics. Direct damage pulses have no ordinary spell tooltip ID."
+    ]
+  },
+  "summary": "Break three ordered covenants while the master of Mistmoore turns every safe position against you.",
+  "overview": [
+    "The castle falls silent, but its master has not yielded. After all four guardians fall, complete the investigation by defeating 24 eligible enemies in the deep castle. The final confrontation takes place in the courtyard.",
+    "This Bloodbound encounter adds a second movement warning after each first impact. Three health gates require an ordered seal litany and the destruction of every surviving shade bound to Mayong. Assign seal bearers, shade control and a movement caller before the pull."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep Mayong near his courtyard home, with room to retreat and return.",
+        "His melee damage rises by 60% during each covenant. After the third covenant breaks, it remains 15% above base for the final fury.",
+        "Pick up shades promptly without dragging the encounter out of its battle area."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Prepare for increased tank damage at 75%, 45% and 20% health.",
+        "Each movement impact is followed by another six-second warning. Reposition while continuing to cover the tank and any branded raider.",
+        "The brand can hit its bearer after they separate. Leaving the battle area also prevents valid combat support."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Kill shades during covenants; completing the seal sequence alone cannot remove the ward.",
+        "Save burst damage for an unwarded boss, and keep moving after the first impact.",
+        "Finish older shades before their one-minute renewal restores them."
+      ]
+    },
+    {
+      "id": "seal-bearer",
+      "label": "Seal bearers",
+      "tips": [
+        "Follow the announced order exactly. Each ritual uses all four seal types in a different sequence.",
+        "Target Mayong, remain within 100 paces and in line of sight on the battle floor, and complete the three-second cast.",
+        "The reusable seals share a 60-second cooldown. Distribute the two copies of each type among different eligible raiders before the fight."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "opening",
+      "label": "The bloodbound court",
+      "trigger": "100% to 75% health",
+      "description": "Mayong starts a movement sequence every 18 seconds, cycling retreat, spread and gather. Each first warning lasts six seconds and its impact starts a second six-second warning. He attempts to summon two shades every 30 seconds."
+    },
+    {
+      "id": "first-covenant",
+      "label": "The first covenant",
+      "trigger": "75% health",
+      "description": "Invoke Grave, Hunt, Keep, Choir in that order. Mayong takes only one tenth of incoming damage, deals 60% more melee damage and attempts to summon four shades, up to six living shades. Complete the litany and kill every remaining shade to break the covenant."
+    },
+    {
+      "id": "second-covenant",
+      "label": "The second covenant",
+      "trigger": "45% health",
+      "description": "Invoke Keep, Choir, Grave, Hunt. The same damage reduction, increased melee and shade requirement return. An unanswered covenant has no timeout."
+    },
+    {
+      "id": "third-covenant",
+      "label": "The third covenant",
+      "trigger": "20% health",
+      "description": "Invoke Choir, Hunt, Keep, Grave, then finish every surviving shade. The last covenant must be answered before the final fury can begin."
+    },
+    {
+      "id": "final-fury",
+      "label": "The final fury",
+      "trigger": "After the third covenant breaks",
+      "description": "Mayong remains at 15% increased melee damage. Movement sequences start every 16 seconds, regular shade summons occur every 24 seconds and movement impacts grow stronger. Each individual warning still gives six seconds to react."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "bloodbound-reversals",
+      "name": "Bloodbound Reversals",
+      "summary": "Complete both movements in each sequence.",
+      "description": [
+        "Retreat: move more than 35 paces from Mayong for the first impact, then gather within 20 paces for the second.",
+        "Spread: keep more than 25 paces from the branded raider for the first blast, then retreat more than 35 paces from Mayong for the second.",
+        "Gather: stand within 20 paces of Mayong for the first impact, then retreat more than 35 paces for the second.",
+        "The second warning begins when the first impact resolves. Do not anticipate it by leaving the first safe position early. Markers follow the actor used by the mechanic; the green gathering circle indicates the safe area."
+      ],
+      "tags": [
+        "Movement",
+        "Two warnings",
+        "Six seconds each"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "crimson-brand",
+      "name": "Crimson Brand",
+      "summary": "The marked raider separates while healers prepare for the blast.",
+      "description": [
+        "The brand follows its bearer for six seconds and erupts around their position. The bearer and nearby raiders or pets can be hit.",
+        "The blast follows the bearer even if they move beyond the normal battle boundary. Separate from allies while remaining in the encounter."
+      ],
+      "tags": [
+        "Spread",
+        "Marked player"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "ordered-covenants",
+      "name": "Ordered Covenants",
+      "summary": "Answer the four seals in order and clear every shade.",
+      "description": [
+        "At 75%, 45% and 20%, Mayong reduces incoming damage to 10% and increases melee damage by 60%. Raw damage cannot bypass the required ritual.",
+        "A correct completed seal cast advances the litany. A wrong or repeated seal does not advance it.",
+        "After all four seals answer, the covenant remains until no surviving shade bound to Mayong remains. Clear the adds promptly because regular summons continue.",
+        "A new covenant cancels the movement impact currently counting down, but movement warnings and regular shade summons continue during the ritual."
+      ],
+      "tags": [
+        "Required mechanic",
+        "Seal sequence",
+        "Adds"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage",
+        "seal-bearer"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "forgotten-shades",
+      "name": "Forgotten Shades",
+      "summary": "Finish shades before they renew at full strength.",
+      "description": [
+        "Regular summons attempt to create two shades every 30 seconds, or every 24 seconds during final fury. Each covenant attempts to create four more. All summons share a limit of six living shades.",
+        "At about 45 seconds of age, an announcement warns that older shades will renew in fifteen seconds. At one minute, survivors dissolve and return at full strength.",
+        "Every surviving shade must be defeated to end a covenant after its seal sequence is complete."
+      ],
+      "tags": [
+        "Adds",
+        "Priority target"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "guardian-seals",
+      "title": "Prepare the seals",
+      "paragraphs": [
+        "Each guardian supplies two reusable temporary seals. All four types share a lore group, and each character can claim only one seal for this expedition. Plan primary and backup bearers.",
+        "Seals belong to the expedition that awarded them. A retained seal from another instance cannot answer this covenant.",
+        "Each invocation takes three seconds and uses a shared 60-second reuse timer. Preserve all four types through the three rituals."
+      ],
+      "bullets": [
+        "75%: Grave, Hunt, Keep, Choir.",
+        "45%: Keep, Choir, Grave, Hunt.",
+        "20%: Choir, Hunt, Keep, Grave."
+      ],
+      "items": [
+        {
+          "id": 147750,
+          "name": "Gravewarden's Seal",
+          "quantity": 2
+        },
+        {
+          "id": 147751,
+          "name": "Keepwarden's Seal",
+          "quantity": 2
+        },
+        {
+          "id": 147752,
+          "name": "Huntwarden's Seal",
+          "quantity": 2
+        },
+        {
+          "id": 147753,
+          "name": "Choirwarden's Seal",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "battlefield",
+      "title": "Hold the courtyard",
+      "paragraphs": [
+        "Keep raiders and pets within 180 paces of Mayong and within 30 paces vertically. Attacks, healing and resurrection support from outside the battle boundary are rejected.",
+        "Pulling Mayong too far from his courtyard home or leaving no eligible living raider in the battle leads to a reset."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "warnings",
+      "title": "Read both warnings",
+      "paragraphs": [
+        "Event communications use the Event Messages chat filter. Each movement warning gives six seconds, including the second warning in a reversal.",
+        "Ground markers supplement the chat warning when supported and enabled. Continue following the messages if a marker is absent."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "rewards",
+      "title": "Bloodbound rewards",
+      "paragraphs": [
+        "The two equipment rolls are independent, with one item from each six-item pool. Hard-mode equipment is regular No Trade, not Kinbound.",
+        "Equipment is level 60, with one type-7 augmentation socket and a type-21 ornamentation socket on visible armor. The hard-mode rewards are static rather than evolving.",
+        "The first credited hard-mode victory of each season awards the Nightbane title. Later credited victories award Bloodbreaker."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "First equipment pool",
+      "description": "One random item from this pool.",
+      "items": [
+        {
+          "id": 148024,
+          "name": "Nocturne, Blade of the First Night",
+          "quantity": 1
+        },
+        {
+          "id": 148025,
+          "name": "Black Dawn, Hammer of Reckoning",
+          "quantity": 1
+        },
+        {
+          "id": 148026,
+          "name": "Bastion of the Sunless King",
+          "quantity": 1
+        },
+        {
+          "id": 148027,
+          "name": "Carapace of the Bloodbound Lord",
+          "quantity": 1
+        },
+        {
+          "id": 148028,
+          "name": "Raiment of a Thousand Funerals",
+          "quantity": 1
+        },
+        {
+          "id": 148029,
+          "name": "Greaves of the Endless Procession",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Second equipment pool",
+      "description": "One random item from this pool, for two equipment rewards in total.",
+      "items": [
+        {
+          "id": 148030,
+          "name": "Claws of the Moonless Sovereign",
+          "quantity": 1
+        },
+        {
+          "id": 148031,
+          "name": "Mantle of the Unremembered Dawn",
+          "quantity": 1
+        },
+        {
+          "id": 148032,
+          "name": "Ruby of the Unseen Court",
+          "quantity": 1
+        },
+        {
+          "id": 148033,
+          "name": "Heart of the Eternal Eclipse",
+          "quantity": 1
+        },
+        {
+          "id": 148034,
+          "name": "Covenant of the Deathless Court",
+          "quantity": 1
+        },
+        {
+          "id": 148035,
+          "name": "Testament of the Unrisen Sun",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Progression rewards",
+      "description": "Six copies accompany the two equipment rewards.",
+      "items": [
+        {
+          "id": 147760,
+          "name": "Blood-Sealed Writ of the Last Eclipse",
+          "quantity": 6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "slug": "bloodbound-cantor-selindra",
+  "title": "Cantor Selindra (Bloodbound)",
+  "group": "The Hour of the Last Eclipse: Bloodbound",
+  "type": "raid",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 12
+  },
+  "npc_ids": [
+    59404
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Gather inside Selindra's shelter, then retreat when her second refrain turns that shelter into danger.",
+  "overview": [
+    "Bloodbound Cantor Selindra conducts the Castle Wings with a reversed refrain. Her first pulse rewards gathering close; the answering pulse punishes anyone who stays there."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep Selindra accessible and avoid moving her away from the gathering raid.",
+        "After the first pulse, retreat more than 35 paces with the raid while keeping the fight near her home."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Move within 20 paces for the first six-second warning.",
+        "Heal during the transition, then get more than 35 paces away before the second warning ends."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Ranged players must move in for the first warning and back out for the second.",
+        "Move pets with the raid. A pet safely inside the first shelter is still exposed to the following ring."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "gather",
+      "label": "Sheltering Shadows",
+      "trigger": "An 18-second repeating ability cycle",
+      "description": "Gather within 20 paces of Selindra during the six-second warning. The first pulse strikes the surrounding area beyond that shelter."
+    },
+    {
+      "id": "reverse-and-retreat",
+      "label": "Break the answering ring",
+      "trigger": "Immediately after the gathering pulse",
+      "description": "The rite reverses into a second six-second warning. Move more than 35 paces from Selindra before the next pulse."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "sheltering-shadows",
+      "name": "Sheltering Shadows",
+      "summary": "Gather within 20 paces for the first pulse.",
+      "description": [
+        "Selindra's current position is the center of the sheltered area. The gathering warning lasts six seconds.",
+        "At resolution, raiders and pets more than 20 and up to 180 paces away can be struck when they have line of sight to the pulse center. Hold the safe position until this first pulse has resolved."
+      ],
+      "tags": [
+        "Gather",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "answering-ring",
+      "name": "Answering Ring",
+      "summary": "Leave the shelter and move more than 35 paces away for the second pulse.",
+      "description": [
+        "The first pulse immediately begins a new six-second retreat warning. Selindra remains the center, but the safe position has changed.",
+        "The second pulse strikes raiders and pets within 35 paces and in line of sight. Staying in the previous green shelter will not protect you from it."
+      ],
+      "tags": [
+        "Retreat",
+        "Reversal",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Enter the Bloodbound covenant",
+      "paragraphs": [
+        "The raid leader offers one blood-sealed writ to the Archivist in public Castle Mistmoore. This single offering replaces the four-relic hand-in and creates the Bloodbound raid; a second offering is not needed.",
+        "The raid admits 12 to 36 characters without a character-level minimum. Its combat is designed for a well-equipped level-60 raid.",
+        "The first reward-bearing victory seals the roster and starts the separate 72-hour Bloodbound replay timer. Zoning out or reconnecting preserves membership; leaving or being removed from the task forfeits re-entry."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 147760,
+          "name": "Blood-Sealed Writ of the Last Eclipse",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "awaken-guardian",
+      "title": "Awaken the guardian",
+      "paragraphs": [
+        "Defeat the native servants in the Castle Wings. The guardian answers after a saved random threshold of 15 to 20 kills in that district.",
+        "Summoned shades and other encounter adds do not advance this district requirement."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "battlefield",
+      "title": "Stay in the battle",
+      "paragraphs": [
+        "Fight near the boss's home. Raiders and their pets must remain within 180 paces of the boss and within 30 paces vertically; attacks and aid from outside that boundary are rejected.",
+        "If no eligible living raider remains in the arena, or the boss is pulled too far from home, a warning precedes an encounter reset. Keep healers and resurrection targets inside the battle."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "warnings",
+      "title": "Follow both warnings",
+      "paragraphs": [
+        "Both instructions appear in the Event Messages chat filter. Respond to the current warning rather than repeating the normal covenant's gathering pattern.",
+        "The first marker is a green 20-pace shelter. The next marker marks the 35-pace danger area. Ground markers supplement the warnings; neither mechanic depends on their presence."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "guardian-seals",
+      "title": "Choose the seal bearers",
+      "paragraphs": [
+        "Assign the two seal looters before the guardian falls. Each character may claim only one guardian seal for this expedition, even if that seal is later destroyed or left on a corpse.",
+        "The seals are reusable, temporary items bound to this instance. Keep them with their chosen bearers as the raid continues."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Bloodbound equipment",
+      "description": "One item is selected from this six-item pool. The equipment is No Trade and requires level 60.",
+      "items": [
+        {
+          "id": 148018,
+          "name": "Vestment of the Ninth Lament",
+          "quantity": 1
+        },
+        {
+          "id": 148019,
+          "name": "Canticle of Stolen Names",
+          "quantity": 1
+        },
+        {
+          "id": 148020,
+          "name": "Ring of the Hushed Cathedral",
+          "quantity": 1
+        },
+        {
+          "id": 148021,
+          "name": "Crystal of the Unfinished Hymn",
+          "quantity": 1
+        },
+        {
+          "id": 148022,
+          "name": "Grasp of the Mourning Star",
+          "quantity": 1
+        },
+        {
+          "id": 148023,
+          "name": "Selindra's Last Breath",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Guardian relic",
+      "description": "Two copies accompany the equipment reward.",
+      "items": [
+        {
+          "id": 147753,
+          "name": "Choirwarden's Seal",
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "c8934057b41ff9d3c37c2b448211583f9b47e00b491da3f6ea4ed73d6158a6f5"
+      },
+      {
+        "path": "sql/mistmoore_eclipse_hard_mode.sql",
+        "sha256": "f477910c1b89bad9c27827cf10614786787c3999d48accbe166c94640329340a"
+      }
+    ],
+    "notes": [
+      "Reviewed against the local quest working tree. The encounter script contains uncommitted changes and the hard-mode SQL is not yet represented by the recorded Git revision; the file hashes identify the exact reviewed bytes.",
+      "Mechanics, admission rules, item definitions and loot pools were checked in source. This is not evidence that matching quest files, database content or client settings have been deployed or verified in a live raid.",
+      "Role tips are derived from the scripted mechanics. Exact pulse damage is omitted because it depends on the NPC template loaded by the zone process.",
+      "The movement pulses are scripted direct damage and have no database spell tooltip IDs. Equipment names appear only in structured item references so the Library can enforce item discovery."
+    ]
+  }
+}

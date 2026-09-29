@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "slug": "bloodbound-huntmaster-draeven",
+  "title": "Huntmaster Draeven (Bloodbound)",
+  "group": "The Hour of the Last Eclipse: Bloodbound",
+  "type": "raid",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 12
+  },
+  "npc_ids": [
+    59403
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Break the blood pack that shields Draeven, then spread from the hunter's branded prey.",
+  "overview": [
+    "Bloodbound Huntmaster Draeven rules the Ravine and Crypt through a living blood pack. His shades protect him while a delayed brand forces the raid to keep moving through the add fight."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Collect each new shade wave promptly while keeping Draeven near his home.",
+        "Leave space for a branded raider to separate from the raid without dragging adds through the healers."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Expect pressure when up to three new shades join the fight.",
+        "Keep the branded raider in healing range while staying more than 25 paces away from that player."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Prioritize the shades: Draeven takes only 20 percent damage while any shade bound to him survives.",
+        "Finish older shades before their one-minute renewal. Reposition pets and spread promptly when a brand appears."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "blood-pack",
+      "label": "Break the blood pack",
+      "trigger": "Every 26 seconds during combat",
+      "description": "Draeven attempts to summon up to three shades, capped at four living shades. While any of his shades survives, incoming damage to Draeven is reduced to 20 percent."
+    },
+    {
+      "id": "hunting-brand",
+      "label": "Separate the prey",
+      "trigger": "Six seconds after the shade summons",
+      "description": "A random eligible raider receives a brand with its own six-second warning. The ensuing blast follows that player and strikes within 25 paces."
+    },
+    {
+      "id": "renewal",
+      "label": "Finish the old shades",
+      "trigger": "A shade survives for one minute",
+      "description": "An age warning gives roughly fifteen seconds to finish the oldest shades. Surviving shades dissolve at one minute and are replaced at full strength."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "blood-pack",
+      "name": "Blood Pack",
+      "summary": "Destroy every bound shade to restore full damage against Draeven.",
+      "description": [
+        "Every 26 seconds Draeven attempts to add up to three shades, with at most four living shades at once. New shades attack eligible raiders.",
+        "Any surviving shade bound to Draeven grants him 80 percent damage reduction. Damage returns to normal once none remain.",
+        "The oldest-shade warning begins around 45 seconds of age. Shades surviving to one minute reform at full strength, so allowing a nearly defeated add to renew wastes the damage already dealt."
+      ],
+      "tags": [
+        "Adds",
+        "Damage reduction",
+        "Priority target"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "hunting-brand",
+      "name": "Hunting Brand",
+      "summary": "Keep more than 25 paces from the marked player.",
+      "description": [
+        "Six seconds after the summon, the hunting brand appears on a random eligible raider. That raider then has a full six-second warning before the blast.",
+        "The blast follows the bearer's current position, can strike that player as well as nearby raiders and pets, and is not left behind by crossing the combat boundary. Keep handling the shades while making room for the brand."
+      ],
+      "tags": [
+        "Spread",
+        "Marked player",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Enter the Bloodbound covenant",
+      "paragraphs": [
+        "The raid leader offers one blood-sealed writ to the Archivist in public Castle Mistmoore. This single offering replaces the four-relic hand-in and creates the Bloodbound raid; a second offering is not needed.",
+        "The raid admits 12 to 36 characters without a character-level minimum. Its combat is designed for a well-equipped level-60 raid.",
+        "The first reward-bearing victory seals the roster and starts the separate 72-hour Bloodbound replay timer. Zoning out or reconnecting preserves membership; leaving or being removed from the task forfeits re-entry."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 147760,
+          "name": "Blood-Sealed Writ of the Last Eclipse",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "awaken-guardian",
+      "title": "Awaken the guardian",
+      "paragraphs": [
+        "Defeat the native servants in the Ravine and Crypt. The guardian answers after a saved random threshold of 15 to 20 kills in that district.",
+        "Summoned shades and other encounter adds do not advance this district requirement."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "battlefield",
+      "title": "Stay in the battle",
+      "paragraphs": [
+        "Fight near the boss's home. Raiders and their pets must remain within 180 paces of the boss and within 30 paces vertically; attacks and aid from outside that boundary are rejected.",
+        "If no eligible living raider remains in the arena, or the boss is pulled too far from home, a warning precedes an encounter reset. Keep healers and resurrection targets inside the battle."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "warnings",
+      "title": "Follow both warnings",
+      "paragraphs": [
+        "Read the Event Messages filter for the pack summons, hunting brand and oldest-shade warning. The hunting brand has its own six-second warning after the initial six-second delay.",
+        "When available, a 25-pace ground marker follows the branded player. The warning and blast still apply if markers are absent."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "guardian-seals",
+      "title": "Choose the seal bearers",
+      "paragraphs": [
+        "Assign the two seal looters before the guardian falls. Each character may claim only one guardian seal for this expedition, even if that seal is later destroyed or left on a corpse.",
+        "The seals are reusable, temporary items bound to this instance. Keep them with their chosen bearers as the raid continues."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Bloodbound equipment",
+      "description": "One item is selected from this six-item pool. The equipment is No Trade and requires level 60.",
+      "items": [
+        {
+          "id": 148012,
+          "name": "Moonreaver's Spine",
+          "quantity": 1
+        },
+        {
+          "id": 148013,
+          "name": "Fang of the First Hunger",
+          "quantity": 1
+        },
+        {
+          "id": 148014,
+          "name": "Steps of the Pale Pursuit",
+          "quantity": 1
+        },
+        {
+          "id": 148015,
+          "name": "Collar of the Wild Covenant",
+          "quantity": 1
+        },
+        {
+          "id": 148016,
+          "name": "Silence Between Heartbeats",
+          "quantity": 1
+        },
+        {
+          "id": 148017,
+          "name": "Girdle of the Red Hunt",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Guardian relic",
+      "description": "Two copies accompany the equipment reward.",
+      "items": [
+        {
+          "id": 147752,
+          "name": "Huntwarden's Seal",
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "c8934057b41ff9d3c37c2b448211583f9b47e00b491da3f6ea4ed73d6158a6f5"
+      },
+      {
+        "path": "sql/mistmoore_eclipse_hard_mode.sql",
+        "sha256": "f477910c1b89bad9c27827cf10614786787c3999d48accbe166c94640329340a"
+      }
+    ],
+    "notes": [
+      "Reviewed against the local quest working tree. The encounter script contains uncommitted changes and the hard-mode SQL is not yet represented by the recorded Git revision; the file hashes identify the exact reviewed bytes.",
+      "Mechanics, admission rules, item definitions and loot pools were checked in source. This is not evidence that matching quest files, database content or client settings have been deployed or verified in a live raid.",
+      "Role tips are derived from the scripted mechanics. Exact pulse damage is omitted because it depends on the NPC template loaded by the zone process.",
+      "The movement pulses are scripted direct damage and have no database spell tooltip IDs. Equipment names appear only in structured item references so the Library can enforce item discovery."
+    ]
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "slug": "bloodbound-eclipse-shadow",
+  "title": "Vaelith, the Unseen Hand",
+  "group": "The Hour of the Last Eclipse: Bloodbound",
+  "type": "raid",
+  "zone": {
+    "short_name": "mistmoore",
+    "name": "Castle Mistmoore",
+    "version": 12
+  },
+  "npc_ids": [
+    59408
+  ],
+  "status": "published",
+  "spoiler": true,
+  "sources": {
+    "reviewed_at": "2026-09-29",
+    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "mistmoore/encounters/mistmoore_eclipse.lua",
+        "sha256": "c8934057b41ff9d3c37c2b448211583f9b47e00b491da3f6ea4ed73d6158a6f5"
+      },
+      {
+        "path": "sql/mistmoore_eclipse_hard_mode.sql",
+        "sha256": "f477910c1b89bad9c27827cf10614786787c3999d48accbe166c94640329340a"
+      }
+    ],
+    "notes": [
+      "Reviewed against the local quest working tree. Hard-mode changes are not committed at the recorded base revision; the file hashes identify the exact reviewed bytes.",
+      "Mechanics and rewards were checked in source. Publication of this guide does not establish that the hard-mode scripts or database content are deployed on the live server.",
+      "Role advice is derived from the scripts. A live raid has not verified the strategy or combat balance.",
+      "Ability names describe scripted mechanics. Direct damage pulses have no ordinary spell tooltip ID."
+    ]
+  },
+  "summary": "An unseen blade stalks the clearing raid. Survive three retreats before ending the hunt on its fourth appearance.",
+  "overview": [
+    "The Unseen Hand waits among Mistmoore's servants. After a random 8 to 16 eligible ordinary trash kills, Vaelith appears where the last servant fell and can attack the raid immediately.",
+    "This optional encounter unfolds across four appearances. The first three end at 80%, 60% and 40% health remaining. Each retreat starts another 8 to 16-kill interval; on the fourth appearance, he can finally be slain."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Keep a tank ready during ordinary clearing. An ambush can arrive while other enemies are still engaged.",
+        "Hold Vaelith near the point where he appeared, leaving room for a marked raider to separate.",
+        "Do not plan to burst through a retreat. The first three appearances end at fixed health thresholds."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Expect sudden tank pressure during trash pulls.",
+        "The marked raider still takes the shadow strike after separating. Prepare healing for the six-second impact.",
+        "Remain with the fight; healing or resurrection support from outside its battle boundary is rejected."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Control the existing pull before letting the ambush scatter the raid.",
+        "Separate more than 18 paces from the marked player and wait for the shadow strike before regrouping.",
+        "Resolve each appearance before continuing a large clear. Kills made during an active ambush do not count toward his next return."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "first-cut",
+      "label": "The first cut",
+      "trigger": "First ambush",
+      "description": "Vaelith begins at full health and retreats at 80% remaining. His completed retreat is retained for later appearances."
+    },
+    {
+      "id": "second-cut",
+      "label": "The second cut",
+      "trigger": "After another 8 to 16 eligible kills",
+      "description": "He returns at 80% health and retreats at 60% remaining."
+    },
+    {
+      "id": "third-cut",
+      "label": "The third cut",
+      "trigger": "After another 8 to 16 eligible kills",
+      "description": "He returns at 60% health and retreats at 40% remaining."
+    },
+    {
+      "id": "last-shadow",
+      "label": "The last shadow",
+      "trigger": "Fourth ambush, after another 8 to 16 eligible kills",
+      "description": "He returns at 40% health and no longer retreats. Defeat him to claim the bonus reward."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "second-shadow",
+      "name": "The Second Shadow",
+      "summary": "Separate more than 18 paces from the marked raider.",
+      "description": [
+        "Every 22 seconds, Vaelith can stitch a second shadow to a random eligible raider. After six seconds, it strikes the bearer and nearby raiders for 1,800 damage.",
+        "The red danger ring follows the marked player when ground markers are available. Allies should move beyond its edge before the impact; the bearer should move away from the raid.",
+        "Crossing the normal battle boundary does not remove the mark. The shadow still follows the bearer."
+      ],
+      "tags": [
+        "Spread",
+        "Marked player",
+        "Six-second warning"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "vanishing-cut",
+      "name": "Vanishing Cut",
+      "summary": "The first three health thresholds force a retreat.",
+      "description": [
+        "At 80%, 60% and 40% remaining, Vaelith vanishes instead of leaving a corpse. A large hit cannot skip an appearance.",
+        "If the raid wipes, the current appearance resets to its starting health. Earlier completed retreats remain complete."
+      ],
+      "tags": [
+        "Health gate",
+        "Four appearances"
+      ],
+      "roles": [
+        "tank",
+        "healer",
+        "damage"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "the-hunt",
+      "title": "Keep the hunt alive",
+      "paragraphs": [
+        "Only ordinary enemies from the hard-mode instance's static population advance the hunt. Guardians, charm pets, castle sentinels and summoned encounter adds do not count.",
+        "Each qualifying spawn can contribute only once. Trash killed while Vaelith is already present does not bank progress toward the next ambush.",
+        "The hunt may continue after the courtyard finale while the expedition remains active and qualifying enemies remain. Clearing all remaining trash before his next retreat can leave too few enemies for another appearance."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "battlefield",
+      "title": "Fight where the shadow falls",
+      "paragraphs": [
+        "Keep raiders and pets within 180 paces of Vaelith and within 30 paces vertically. Fight near his ambush location.",
+        "When the raid withdraws or pulls him too far from that location, the current appearance resets."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "warnings",
+      "title": "Watch Event Messages",
+      "paragraphs": [
+        "Spawn, retreat and marked-player warnings use the Event Messages chat filter. The marked-player blast gives six seconds to react.",
+        "The red ring is supplemental. Follow the chat warning when markers are unavailable."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "reward-and-replay",
+      "title": "One bonus victory",
+      "paragraphs": [
+        "The fourth appearance awards one random equipment item from the six-item selection below. These are drawn from the main hard-mode catalog; earlier retreats award no loot.",
+        "The reward is regular No Trade equipment. A successful final kill seals the raid roster and starts the separate 72-hour hard-mode replay lockout if no guardian has already done so."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Bonus equipment pool",
+      "description": "One random equipment reward on the fourth appearance only.",
+      "items": [
+        {
+          "id": 148001,
+          "name": "Reliquary of Borrowed Heartbeats",
+          "quantity": 1
+        },
+        {
+          "id": 148007,
+          "name": "Shoulders of the Sleepless Watch",
+          "quantity": 1
+        },
+        {
+          "id": 148013,
+          "name": "Fang of the First Hunger",
+          "quantity": 1
+        },
+        {
+          "id": 148019,
+          "name": "Canticle of Stolen Names",
+          "quantity": 1
+        },
+        {
+          "id": 148028,
+          "name": "Raiment of a Thousand Funerals",
+          "quantity": 1
+        },
+        {
+          "id": 148034,
+          "name": "Covenant of the Deathless Court",
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
