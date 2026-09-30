@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-until-death-refuses",
+  "title": "Until Death Refuses: Celebrant Orsella",
+  "group": "The Seven Silences",
+  "type": "group",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 20
+  },
+  "npc_ids": [
+    111804
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Carry two vow rings to the opposite spouses and finish the handoffs within eight seconds of each other.",
+  "overview": [
+    "Orsella is forcing Daman and Nosja to repeat a ceremony neither can leave. At two protected health gates, two different players must cross the chapel with assigned vow rings.",
+    "The spouses supply the temporary rings. Choose two runners and let them call their arrival; speed alone is less useful than a synchronized exchange."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Choose two different ring runners before the pull.",
+        "Control ushers and preserve room for the runners to cross.",
+        "Do not expect burst damage to bypass either vow."
+      ]
+    },
+    {
+      "id": "runner",
+      "label": "Ring runners",
+      "tips": [
+        "Take a ring from one spouse and deliver it to the other.",
+        "Complete the two-second interaction, then ensure the second runner finishes within eight seconds.",
+        "If a carrier is lost, the ring returns to its source and a replacement must restart the pair."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tank",
+      "tips": [
+        "Keep Orsella occupied during her shielded vow.",
+        "Her vow melee is reduced to 70% of normal, but ordinary attacks continue."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers and control",
+      "tips": [
+        "Keep runners alive and control the two ushers.",
+        "Prepare for the failure pulse if the vow expires."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "first-refusal",
+      "label": "The first forced vow",
+      "trigger": "75% health",
+      "description": "Orsella shields herself and starts a 30-second vow. Complete the paired exchange to break the shield."
+    },
+    {
+      "id": "second-refusal",
+      "label": "The final forced vow",
+      "trigger": "40% health",
+      "description": "Repeat the paired exchange. The required gate cannot be skipped by pets, spells or heavy hits."
+    },
+    {
+      "id": "choice",
+      "label": "Their own words",
+      "trigger": "Orsella is defeated",
+      "description": "The spouses can refuse freely and the route to floor six opens."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "paired-rings",
+      "name": "The Paired Rings",
+      "summary": "Two different carriers must finish within eight seconds.",
+      "description": [
+        "Each ring has a specific source and destination spouse. A carrier cannot finish the other ring's assignment.",
+        "Each delivery takes two seconds; movement or incoming damage interrupts the interaction. After the first completion, the spouse counts down the eight-second synchronization window. If that window expires, both rings return without an immediate failure pulse; the full 30-second vow still has to be answered."
+      ],
+      "tags": [
+        "Required objective",
+        "Paired interaction"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "the-forced-vow",
+      "name": "The Forced Vow",
+      "summary": "Complete the exchange before the 30-second vow expires.",
+      "description": [
+        "A successful exchange removes the shield and grants the group a 100-point physical rune for 12 seconds.",
+        "Failure causes a 450-damage pulse, clears the assignments and permits another attempt after 15 seconds. It does not require permanent items or a fresh boss pull.",
+        "A dead, disconnected or departed carrier loses the assignment immediately. Any partial synchronized completion is canceled so another pair can try."
+      ],
+      "tags": [
+        "Shield gate",
+        "Recoverable failure"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50909,
+        50916
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Seven Silences admits groups of three to six characters of level 55 or higher; six level-60 characters are recommended. Speak to Keeper Avel Rimeglass in Iceclad. Entry requires no raid trophy.",
+        "The eight-hour expedition and replay begin at acceptance. The lower floors start below the difficulty of the Mistmoore group expedition, then increase toward comparable pressure on the upper floors.",
+        "Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Each floor victory unlocks the next expedition mirror and a cleared return checkpoint. The two wings of floor six form one encounter."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148216,
+          "name": "Ring of the Unspoken No",
+          "quantity": 1
+        },
+        {
+          "id": 148217,
+          "name": "Veil of the Unwedded",
+          "quantity": 1
+        },
+        {
+          "id": 148218,
+          "name": "Nosja's Severed Ribbon",
+          "quantity": 1
+        },
+        {
+          "id": 148219,
+          "name": "Daman's Unfinished Dance",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Independent raid-entry reward",
+      "description": "There is a separate 40% chance for one entry splinter per boss victory. This roll does not replace the equipment reward and is not repeated for each player. The splinter is permanent, stackable, No Trade and not Lore.",
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-a-body-on-loan",
+  "title": "A Body on Loan: Sister Nhaliss",
+  "group": "The Seven Silences",
+  "type": "group",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 20
+  },
+  "npc_ids": [
+    111803
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Follow the visible stolen heart as it moves between bodies, and stop attacking the empty vessels.",
+  "overview": [
+    "Nhaliss borrows bodies from the crypt, but all of them share one stolen life. Only the Heart-Bearing Vessel can be damaged. Follow its name and visible heart instead of a familiar model.",
+    "Empty bodies do not reflect damage. The danger is staying on the wrong target long enough to awaken grave hands."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Find the Heart-Bearing Vessel after every transfer.",
+        "Respond to the six-second warning and stop attacking a vessel when it becomes empty.",
+        "Keep the fight within the crypt encounter area."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Acquire the new heart-bearing body promptly.",
+        "Keep grave hands away from support."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage and pet users",
+      "tips": [
+        "Call the current target and retarget pets after each transfer.",
+        "Allow for the short grace period, but do not leave automatic attacks on empty bodies."
+      ]
+    },
+    {
+      "id": "control",
+      "label": "Control and healers",
+      "tips": [
+        "Root or mez grave hands while the group finds the heart.",
+        "The extra body at half health adds another possible location, not another boss reward."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "three-vessels",
+      "label": "A heart among three bodies",
+      "trigger": "100% to 50% shared health",
+      "description": "Every 25 seconds, a six-second warning precedes a heart transfer. Only the named heart-bearing body accepts damage."
+    },
+    {
+      "id": "four-vessels",
+      "label": "Another borrowed body",
+      "trigger": "50% shared health",
+      "description": "A fourth body joins the rotation. Continue tracking the one visible heart."
+    },
+    {
+      "id": "remains",
+      "label": "The borrowed life ends",
+      "trigger": "The shared health pool is depleted",
+      "description": "Only the designated remains award loot; the other bodies disappear. The wedding route opens."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "heart-transfer",
+      "name": "Heart Transfer",
+      "summary": "Retarget the named Heart-Bearing Vessel.",
+      "description": [
+        "The transfer warning lasts six seconds. The arriving body carries the visible heart, while the others are named Empty Vessel.",
+        "The bodies share one health pool. Killing an unrelated empty body cannot bypass the encounter."
+      ],
+      "tags": [
+        "Six-second warning",
+        "Target switch"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "empty-vessels",
+      "name": "Empty Vessels",
+      "summary": "Stop striking an empty body before its grace period ends.",
+      "description": [
+        "Four seconds after the transfer warning resolves, continuing attacks on an empty body can awaken a 2,500-health grave hand.",
+        "Each offending empty vessel can create only one hand per transfer. Hands are controllable; empty bodies neither take damage nor reflect it."
+      ],
+      "tags": [
+        "Adds",
+        "Crowd control",
+        "Pet control"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Seven Silences admits groups of three to six characters of level 55 or higher; six level-60 characters are recommended. Speak to Keeper Avel Rimeglass in Iceclad. Entry requires no raid trophy.",
+        "The eight-hour expedition and replay begin at acceptance. The lower floors start below the difficulty of the Mistmoore group expedition, then increase toward comparable pressure on the upper floors.",
+        "Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Each floor victory unlocks the next expedition mirror and a cleared return checkpoint. The two wings of floor six form one encounter."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148212,
+          "name": "Coffin-Nail Stiletto",
+          "quantity": 1
+        },
+        {
+          "id": 148213,
+          "name": "Face of the Borrowed Saint",
+          "quantity": 1
+        },
+        {
+          "id": 148214,
+          "name": "Sister's Unclaimed Heart",
+          "quantity": 1
+        },
+        {
+          "id": 148215,
+          "name": "Sarcophagus Greaves",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Independent raid-entry reward",
+      "description": "There is a separate 35% chance for one entry splinter per boss victory. This roll does not replace the equipment reward and is not repeated for each player. The splinter is permanent, stackable, No Trade and not Lore.",
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

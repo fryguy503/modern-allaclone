@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-vhalsera-and-the-borrowed-heart",
+  "title": "VhalSera and the Borrowed Heart",
+  "group": "The Unwritten Hour",
+  "type": "raid",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 21
+  },
+  "npc_ids": [
+    111810
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Break the exposed reliquaries, guide freed prisoners to the Heart and prevent the gaolers from reclaiming them.",
+  "overview": [
+    "VhalSera borrows his protection from two captive souls. Breaking a reliquary frees its prisoner, but the binding ends only when that prisoner reaches the Heart.",
+    "The freed spirits are friendly. Protect their journey and control the gaolers; killing a friendly prisoner is neither required nor possible."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Stay with the encounter in the upper wing after the conduit preparation.",
+        "Leave the Heart destination and the guidance route clear.",
+        "Move away from Time Owed drops after their warning."
+      ]
+    },
+    {
+      "id": "guide",
+      "label": "Prisoner guides",
+      "tips": [
+        "Activate the freed prisoner's guidance interaction and remain nearby along the route.",
+        "If a guide is lost, the prisoner waits at an approved waypoint for a replacement.",
+        "The journey takes at least 15 seconds; do not abandon the spirit after the first interaction."
+      ]
+    },
+    {
+      "id": "control",
+      "label": "Gaoler control",
+      "tips": [
+        "Each rescue summons two 10,000-health gaolers; at most four can be alive.",
+        "Interrupt recapture with damage, stun or distance, or root, mez, tank or kill the gaoler before it reaches the prisoner."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Attack the currently exposed 25,000-health reliquary.",
+        "Both prisoners must arrive before VhalSera can pass 25% health.",
+        "After 30%, interrupt the furnace cast."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep the guide supported without standing on the prisoner route.",
+        "The cold patches tick every six seconds and have no immediate impact hit."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "disable-conduits",
+      "label": "The lower conduits",
+      "trigger": "Floor 6A preparation",
+      "description": "Defeat the three conduit guardians to open 6B. The preparation remains complete after a boss wipe."
+    },
+    {
+      "id": "bindings",
+      "label": "Two borrowed lives",
+      "trigger": "Until both prisoners reach the Heart",
+      "description": "A 30-second cycle exposes one reliquary at a time. VhalSera takes only 30% damage while a binding remains."
+    },
+    {
+      "id": "unbound",
+      "label": "Time owed",
+      "trigger": "Both bindings removed",
+      "description": "VhalSera takes full damage. Continue handling the timed cold hazards."
+    },
+    {
+      "id": "furnace",
+      "label": "The furnace calls its debt",
+      "trigger": "30% health",
+      "description": "An interruptible 1,000-damage furnace cast joins the encounter every 40 seconds."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "reliquaries",
+      "name": "The Borrowed Bindings",
+      "summary": "Break the exposed reliquary, then finish its rescue.",
+      "description": [
+        "Each exposed reliquary has 25,000 health. Breaking it releases one friendly prisoner and two hostile gaolers.",
+        "Reaching the Heart removes a binding permanently for the attempt. Recapture instead restores that reliquary after 20 seconds, allowing another rescue.",
+        "VhalSera cannot fall below 25% while any binding remains."
+      ],
+      "tags": [
+        "Required objective",
+        "Shield gate"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "recapture",
+      "name": "The Gaolers' Claim",
+      "summary": "Interrupt the three-second recapture channel.",
+      "description": [
+        "A gaoler within eight paces of a prisoner begins a visible three-second channel. Damage, stun or movement outside eight paces interrupts it.",
+        "A guide who dies, disconnects or leaves releases the assignment. The spirit waits for another guide and remains vulnerable to recapture."
+      ],
+      "tags": [
+        "Protect an ally",
+        "Channel",
+        "Crowd control"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "time-owed",
+      "name": "Time Owed",
+      "summary": "After the eight-second warning, leave the cold patch behind.",
+      "description": [
+        "Every 30 seconds, up to three distinct living non-tanks are warned. At warning expiry, an 18-second, ten-pace cold patch appears at the approved hazard point nearest each target. Read its visible marker and leave that point.",
+        "A patch deals 200 cold damage on each six-second tick, without an immediate impact hit. Overlapping patches do not multiply a single tick.",
+        "Hazards use fixed approved points outside the protected Heart destination. They do not follow a player after appearing."
+      ],
+      "tags": [
+        "Eight-second warning",
+        "Ground danger"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50904
+      ]
+    },
+    {
+      "id": "furnace-cast",
+      "name": "Furnace Debt",
+      "summary": "Interrupt the cast before its 1,000-damage hit.",
+      "description": [
+        "Below 30%, this interruptible cast occurs every 40 seconds. Its impact is separated from a new Time Owed hazard tick by at least six seconds."
+      ],
+      "tags": [
+        "Interrupt",
+        "Raid healing"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50908
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Unwritten Hour admits 12 to 36 characters of level 55 or higher and is tuned for 24 to 36 level-60 raiders. Speak to Keeper Avel Rimeglass in Iceclad to arrange the expedition.",
+        "The expedition lasts eight hours. A 72-hour replay begins when the first raid boss is defeated. That first victory seals the roster; arrange replacements beforehand. Disconnected members of the sealed roster may return before the expedition expires.",
+        "The tower uses expedition mirrors and saved checkpoints. Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Complete each floor objective before using the next mirror."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "An unsuccessful attempt does not consume another raid offering. A reset recreates temporary charges and actors for the next attempt. Return only to a checkpoint the expedition has already unlocked."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148240,
+          "name": "VhalSera's Debt",
+          "quantity": 1
+        },
+        {
+          "id": 148241,
+          "name": "Gauntlets of Repaid Years",
+          "quantity": 1
+        },
+        {
+          "id": 148242,
+          "name": "Unwound Heartstone",
+          "quantity": 1
+        },
+        {
+          "id": 148243,
+          "name": "Greaves of the Open Furnace",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-seven-silences-finale",
+  "title": "Tomorrow Dies First: Tserrina's Unlived Reflection",
+  "group": "The Seven Silences",
+  "type": "group",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 20
+  },
+  "npc_ids": [
+    111806
+  ],
+  "status": "published",
+  "spoiler": true,
+  "summary": "Leave remembered positions behind and interrupt the futures that threaten to become real.",
+  "overview": [
+    "A reflection remains at the summit, waiting for a future that never arrived. The mirror records where marked players stand and attacks those places eight seconds later.",
+    "This battle remembers positions without returning anyone to them. Move away from the marks, protect allies who pass nearby and interrupt the larger apparitions."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Leave every recorded location, including another player's mark.",
+        "Read the eight-second warning and keep the marked ground clear until the blast.",
+        "After 30% health, expect up to three distinct non-tank marks."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tank",
+      "tips": [
+        "Hold the reflection so allies have room to move.",
+        "The recording selects eligible non-tanks; it does not require moving the boss."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage and interrupters",
+      "tips": [
+        "At 65% and 30%, interrupt or defeat the Unlived Future before its 15-second cast ends.",
+        "The apparition has 4,000 health; assign a quick interrupt instead of relying on a final-second kill."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Keep moving after casting near a recorded position.",
+        "A missed apparition cast creates a group pulse."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "remembered",
+      "label": "The glass remembers",
+      "trigger": "Every 25 seconds",
+      "description": "Record up to two living non-tanks. Their old locations erupt eight seconds later."
+    },
+    {
+      "id": "first-future",
+      "label": "The first unlived future",
+      "trigger": "65% health",
+      "description": "One 4,000-health apparition begins an interruptible cast with at least 15 seconds to respond."
+    },
+    {
+      "id": "final-future",
+      "label": "More futures converge",
+      "trigger": "30% health",
+      "description": "A second apparition appears and future recordings can select up to three non-tanks."
+    },
+    {
+      "id": "mirror-breaks",
+      "label": "A voice beyond the glass",
+      "trigger": "The reflection is defeated",
+      "description": "The seven silences are broken. The final group equipment roll and independent splinter roll occur, and Avel can explain the next expedition."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "glass-remembers",
+      "name": "The Glass Remembers",
+      "summary": "Move beyond 12 paces from recorded ground before eight seconds expire.",
+      "description": [
+        "The explosion deals 550 cold damage around each remembered location. The selected players and their allies must move clear.",
+        "Targets are distinct living non-tanks, limited by how many are available. The tank is not substituted when there are fewer candidates.",
+        "Only an attack location is remembered. Health, equipment, cooldowns and player positions are not rewound."
+      ],
+      "tags": [
+        "Eight-second warning",
+        "Ground danger"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50906
+      ]
+    },
+    {
+      "id": "unlived-future",
+      "name": "Unlived Future",
+      "summary": "Interrupt or defeat the apparition before its announced completion.",
+      "description": [
+        "An unfinished apparition releases a 450-damage group pulse. Its cast is explicitly interruptible.",
+        "The apparition receives at least 15 seconds of warning. Its completion may be delayed to keep the pulse and a mirror explosion at least six seconds apart."
+      ],
+      "tags": [
+        "Interrupt",
+        "Priority add"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50909
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Seven Silences admits groups of three to six characters of level 55 or higher; six level-60 characters are recommended. Speak to Keeper Avel Rimeglass in Iceclad. Entry requires no raid trophy.",
+        "The eight-hour expedition and replay begin at acceptance. The lower floors start below the difficulty of the Mistmoore group expedition, then increase toward comparable pressure on the upper floors.",
+        "Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Each floor victory unlocks the next expedition mirror and a cleared return checkpoint. The two wings of floor six form one encounter."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "raid-offering",
+      "title": "Continuing the story",
+      "paragraphs": [
+        "One raid sponsor must supply three entry splinters and one writ from the Mistmoore raid to open The Unwritten Hour. One offering opens an expedition for the raid; each participant does not need to pay.",
+        "The offering consumes the four required items. The same Mistmoore writ can also have another event use, so choose its destination before paying."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 3
+        },
+        {
+          "id": 147760,
+          "name": "Blood-Sealed Writ of the Last Eclipse",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148224,
+          "name": "Looking Glass of the Life Unlived",
+          "quantity": 1
+        },
+        {
+          "id": 148225,
+          "name": "Robe of Tomorrow's Mourning",
+          "quantity": 1
+        },
+        {
+          "id": 148226,
+          "name": "Aegis of the Unbroken Name",
+          "quantity": 1
+        },
+        {
+          "id": 148227,
+          "name": "Tomorrow's Thorn",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Independent raid-entry reward",
+      "description": "There is a separate 60% chance for one entry splinter per boss victory. This roll does not replace the equipment reward and is not repeated for each player. The splinter is permanent, stackable, No Trade and not Lore.",
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

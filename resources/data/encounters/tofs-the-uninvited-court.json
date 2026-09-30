@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-the-uninvited-court",
+  "title": "The Uninvited Court: Seneschal Veylis",
+  "group": "The Unwritten Hour",
+  "type": "raid",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 21
+  },
+  "npc_ids": [
+    111808
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Choose two testimonies, defeat petitioners in the announced order and spend shared evidence charges when they matter.",
+  "overview": [
+    "The library holds three testimonies that contradict the court's claims. Choose any two before entering the dining room. Their shared charges refresh for each attempt.",
+    "Veylis recognizes one petitioner at a time. Defeating that petitioner opens a damage window and advances the public order. Attacking the wrong claim creates extra work."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Confirm the two testimonies before pulling.",
+        "Read the full name of the recognized petitioner instead of guessing from position.",
+        "Announce lectern use so the raid does not waste its shared charges."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Control petitioners and objections while maintaining Veylis.",
+        "Wrong-order kills can produce up to two objections."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Focus the recognized 18,000-health petitioner.",
+        "Use Veylis's 25-second exposures for boss damage.",
+        "All three claims must end correctly before Veylis can die."
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "Testimony callers",
+      "tips": [
+        "Each selected testimony has two shared charges per attempt.",
+        "Use the absent guest against the frost pulse, the servant against the advocate cast, and the posthumous signature to open a control window on objections."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "testimonies",
+      "label": "Choose the evidence",
+      "trigger": "Library preparation",
+      "description": "Discover the three labeled testimonies and select two. Choices persist and can be changed between attempts."
+    },
+    {
+      "id": "claims",
+      "label": "One recognized claim",
+      "trigger": "Dining-room combat",
+      "description": "Only the announced petitioner takes full damage. The other two take 20% damage. Veylis takes 40% damage between exposures."
+    },
+    {
+      "id": "exposure",
+      "label": "A claim is disproved",
+      "trigger": "The recognized petitioner is defeated",
+      "description": "Veylis takes full damage for 25 seconds, then the next surviving claim is recognized."
+    },
+    {
+      "id": "unmasked",
+      "label": "The court is unmasked",
+      "trigger": "All three claims end correctly",
+      "description": "Veylis remains exposed for the rest of the fight."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "recognized-claim",
+      "name": "Recognized Claim",
+      "summary": "Defeat the petitioner named by the court.",
+      "description": [
+        "An unrecognized petitioner killed early returns with its prior claim state and creates a 14,000-health objection, up to two alive.",
+        "A mistaken kill gives no loot and does not advance recognition. Veylis cannot fall below 10% until all three claims have ended correctly."
+      ],
+      "tags": [
+        "Target order",
+        "Required objective"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "all-voices",
+      "name": "All Voices Are Mine",
+      "summary": "Use the servant testimony or prepare to heal a 700 magic-damage room pulse.",
+      "description": [
+        "The advocate starts this cast every 35 seconds with a six-second warning. The selected servant testimony can interrupt the otherwise protected cast.",
+        "A separate 550 cold-damage pulse can be suppressed with the absent guest testimony. Major pulses remain at least ten seconds apart."
+      ],
+      "tags": [
+        "Six-second warning",
+        "Testimony",
+        "Raid healing"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50911,
+        50906
+      ]
+    },
+    {
+      "id": "posthumous-signature",
+      "name": "The Signature Written After Death",
+      "summary": "Temporarily make the objection adds controllable.",
+      "description": [
+        "Invoking this selected testimony makes the current objections susceptible to mez and root for 20 seconds.",
+        "All three testimony choices share their charges across the raid. Each chosen testimony has two uses per attempt."
+      ],
+      "tags": [
+        "Crowd control",
+        "Shared charges"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Unwritten Hour admits 12 to 36 characters of level 55 or higher and is tuned for 24 to 36 level-60 raiders. Speak to Keeper Avel Rimeglass in Iceclad to arrange the expedition.",
+        "The expedition lasts eight hours. A 72-hour replay begins when the first raid boss is defeated. That first victory seals the roster; arrange replacements beforehand. Disconnected members of the sealed roster may return before the expedition expires.",
+        "The tower uses expedition mirrors and saved checkpoints. Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Complete each floor objective before using the next mirror."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "An unsuccessful attempt does not consume another raid offering. A reset recreates temporary charges and actors for the next attempt. Return only to a checkpoint the expedition has already unlocked."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "testimony-effects",
+      "title": "The three testimonies",
+      "paragraphs": [],
+      "bullets": [
+        "The Guest Who Never Arrived suppresses one court frost pulse.",
+        "The Servant Who Heard the Vow interrupts one protected advocate cast.",
+        "The Signature Written After Death opens a 20-second mez and root window on current objections.",
+        "Choose two. Each chosen testimony has two shared uses for that attempt."
+      ],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148232,
+          "name": "Advocate's Final Word",
+          "quantity": 1
+        },
+        {
+          "id": 148233,
+          "name": "Robe of Contradictions",
+          "quantity": 1
+        },
+        {
+          "id": 148234,
+          "name": "Mantle of the Living Witness",
+          "quantity": 1
+        },
+        {
+          "id": 148235,
+          "name": "False Witness Longbow",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-the-last-ember",
+  "title": "The Last Ember: Nhalra, Keeper of the Dying Light",
+  "group": "The Seven Silences",
+  "type": "group",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 20
+  },
+  "npc_ids": [
+    111800
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Carry the Last Ember, warm three numbered witnesses, then light the brazier and share the warmth during Nhalra's frost.",
+  "overview": [
+    "The entrance has forgotten warmth. Take the Last Ember and visit three witnesses in their chambers. Warm each witness, defeat or control its two grasping shades, then warm it again to free it. After all three rescues, the bearer lights the Ember Brazier to summon Nhalra.",
+    "The witnesses remain stationary. The waiting ember disappears when claimed because its warmth is now carried by a player; no NPC follows the bearer. Say [ember] at any time to see the current objective and bearer. Hailing an actor explains its purpose; choose its action link to proceed.",
+    "This is the first and gentlest step of the ascent. Preparation has no stacking cold or time limit. During the boss fight, stay together and arrange a second bearer for the frost warnings."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Say [ember] for the current witness, saved rescue count, bearer and next action.",
+        "Defeat, root, mez or stun both grasping shades. The bearer must choose [warm] again while both are defeated or controlled.",
+        "During Nhalra, stay within 25 paces of the bearer. During Smothering Frost, a different nearby player chooses [take ember]."
+      ]
+    },
+    {
+      "id": "bearer",
+      "label": "Lantern bearers",
+      "tips": [
+        "Hail the waiting Last Ember and choose [take ember]. You carry its warmth directly; the manifestation fades while held.",
+        "Visit Witness 1 in the entrance-side chamber, Witness 2 in the middle side chamber, and Witness 3 in the far side chamber. Choose [warm] to reveal the shades and [warm] again to save the rescue.",
+        "After three witnesses, bring the light to the Ember Brazier in the middle side chamber and choose [light] when the group is ready for Nhalra.",
+        "A receiver within 15 paces and line of sight chooses [take ember] to accept a handoff. The previous bearer cannot reclaim it for ten seconds. [return ember] leaves it at the current objective and does not satisfy a frost handoff."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tank and support",
+      "tips": [
+        "Keep Nhalra near the warmth.",
+        "Watch the bearer and group when a missed pass extinguishes the light."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "witnesses",
+      "label": "The three witnesses",
+      "trigger": "Before lighting the brazier",
+      "description": "The stationary witnesses appear one at a time in numbered chambers. The bearer chooses [warm], the group handles two shades, then the bearer chooses [warm] again. Each rescue is saved immediately. Hails and repeated clicks cannot summon extra packs."
+    },
+    {
+      "id": "brazier",
+      "label": "Light the Ember Brazier",
+      "trigger": "All three witnesses are warm",
+      "description": "Return to the middle side chamber. The bearer hails the Ember Brazier and chooses [light] when the party is ready. This saves the lit brazier and summons Nhalra in the far side chamber. Waiting beside or hailing the brazier cannot start combat."
+    },
+    {
+      "id": "keeper",
+      "label": "Nhalra",
+      "trigger": "The bearer chooses [light]",
+      "description": "There are twelve seconds to gather before stacking cold starts. Fight within 25 paces of the bearer and pass during the ten-second Smothering Frost warnings."
+    },
+    {
+      "id": "warmth-restored",
+      "label": "The library mirror",
+      "trigger": "Nhalra is defeated",
+      "description": "The entrance warms and the library checkpoint opens. Saved rescues and a lit brazier survive a wipe, reload or instance recovery."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "the-last-ember",
+      "name": "The Last Ember",
+      "summary": "During Nhalra, stay within 25 paces of the player carrying the ember.",
+      "description": [
+        "There is no stacking cold during witness preparation. Starting twelve seconds after the brazier lights, cold builds every six seconds outside the warmth, up to five stacks. Each stack adds 40 cold damage to that pulse. Entering warmth removes one stack per tick.",
+        "The waiting Last Ember fades when claimed. Its warmth follows the actual bearer, without a following NPC. A nearby receiver can choose [take ember] even while targeting the boss; no moving manifestation has to be chased.",
+        "If the bearer dies, disconnects or leaves the encounter area, the ember reappears beside the current witness, or at the brazier during the boss fight. Claim it there. The waiting point also supplies warmth during combat. Say [ember] to locate it."
+      ],
+      "tags": [
+        "Positioning",
+        "Shared tool"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50900,
+        50901,
+        50902,
+        50903,
+        50904
+      ]
+    },
+    {
+      "id": "smothering-frost",
+      "name": "Smothering Frost",
+      "summary": "A nearby ally accepts the ember within ten seconds.",
+      "description": [
+        "During Nhalra, a named warning recurs every 30 seconds. A different living expedition member within 15 paces and line of sight of the bearer chooses [take ember] within ten seconds. The current bearer does not activate the handoff; the receiver accepts it.",
+        "A missed handoff smothers the light for six seconds and deals a 200 cold damage party pulse. The brazier relights it automatically. Returning the ember without sharing it does not satisfy the warning; the previous bearer cannot reclaim it for ten seconds."
+      ],
+      "tags": [
+        "Ten-second warning",
+        "Handoff"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50904
+      ]
+    },
+    {
+      "id": "grasping-shades",
+      "name": "Grasping Shades",
+      "summary": "Handle two separated shades, then choose [warm] again.",
+      "description": [
+        "The first [warm] action summons exactly two 1,200-HP shades, six to eight paces from the witness at separated positions on visible ground within the floor. Repeated hails or clicks do not create additional packs.",
+        "Both shades must be dead, rooted, mezzed or stunned when the bearer chooses [warm] again. The witness announces when the binding is ready and when control breaks. Successful rescue dismisses any controlled survivors. No particular crowd-control class is required because killing the shades also works.",
+        "A rescue is saved before its actors disappear. If saving fails, retry [warm] without spawning another pack. Existing expeditions retain the original saved rescue count and resume the next numbered witness."
+      ],
+      "tags": [
+        "Adds",
+        "Crowd control"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Seven Silences admits groups of three to six characters of level 55 or higher; six level-60 characters are recommended. Speak to Keeper Avel Rimeglass in Iceclad. Entry requires no raid trophy.",
+        "The eight-hour expedition and replay begin at acceptance. The lower floors start below the difficulty of the Mistmoore group expedition, then increase toward comparable pressure on the upper floors.",
+        "Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Each floor victory unlocks the next expedition mirror and a cleared return checkpoint. The two wings of floor six form one encounter."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "For this trial, hailing the witnesses, brazier or waiting ember only explains their purpose. Choose [take ember], [warm] or [light] explicitly. Say [ember] without a particular NPC targeted to inspect the current objective and bearer. There is no lantern inventory item to equip or hand in.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148200,
+          "name": "Shield of the Last Ember",
+          "quantity": 1
+        },
+        {
+          "id": 148201,
+          "name": "Pallbearer's Lantern",
+          "quantity": 1
+        },
+        {
+          "id": 148202,
+          "name": "Footfalls of the Unburied",
+          "quantity": 1
+        },
+        {
+          "id": 148203,
+          "name": "Manacles of the Candlekeeper",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Independent raid-entry reward",
+      "description": "There is a separate 20% chance for one entry splinter per boss victory. This roll does not replace the equipment reward and is not repeated for each player. The splinter is permanent, stackable, No Trade and not Lore.",
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-the-marriage-of-ash",
+  "title": "The Marriage of Ash: Prelate Avaris",
+  "group": "The Unwritten Hour",
+  "type": "raid",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 21
+  },
+  "npc_ids": [
+    111809
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Destroy the contract pages early for safety or near the altar for an offensive opening with a stronger ritual pulse.",
+  "overview": [
+    "Restore three names in the crypt before entering the chapel. Each restored witness provides one recoverable mistake during an attempt.",
+    "Avaris sends three contract pages toward the altar. The raid controls the risk by deciding when to destroy them: early pages become manageable adds, while late pages expose the boss and strengthen the next pulse."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Agree on an early or late page plan before combat.",
+        "Read the final-section markers and the announced pulse warning.",
+        "The page is the attackable target; the pallbearer is not."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Page damage",
+      "tips": [
+        "Each page has 3,000 health and a 24-second journey to the altar.",
+        "Early destruction creates a 6,000-health ash add.",
+        "Late destruction inside the final marked section grants an eight-second boss vulnerability but raises the procession pulse."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tanks and control",
+      "tips": [
+        "Root, mez or tank ash adds from early pages.",
+        "At the six-add cap, an early page instead strengthens an existing add briefly."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "The procession pulse occurs 26 seconds after the pages spawn.",
+        "Prepare for 650, 850 or 900 damage according to the worst unresolved outcome in that procession.",
+        "A six-second warning gives the current pulse strength and warns that unresolved pages can still raise it."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "restore-names",
+      "label": "Restore the witnesses",
+      "trigger": "Crypt preparation",
+      "description": "Match three remains to their inscriptions using the in-zone clues. All three can be restored before combat."
+    },
+    {
+      "id": "procession",
+      "label": "The contract approaches",
+      "trigger": "Every 35 seconds",
+      "description": "Three page actors travel fixed lanes toward the altar. Their arrival takes 24 seconds; the procession pulse follows at 26 seconds."
+    },
+    {
+      "id": "haste",
+      "label": "The final procession",
+      "trigger": "30% health",
+      "description": "Processions accelerate to every 28 seconds. No more than six page actors are alive at once."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "early-pages",
+      "name": "Burn It Before It Binds",
+      "summary": "Destroy a page before the final marked lane section.",
+      "description": [
+        "The early page creates one 6,000-health ash add and grants no offensive bonus. This is the cautious route.",
+        "At six living ash adds, another early destruction instead gives one existing add 25% extra melee damage for ten seconds. That bonus does not stack."
+      ],
+      "tags": [
+        "Adds",
+        "Cautious option"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "late-pages",
+      "name": "The Last Word",
+      "summary": "Destroy a page inside the final section before it reaches the altar.",
+      "description": [
+        "Avaris takes 15% extra damage for eight seconds, and the procession pulse rises from 650 to 850 damage.",
+        "More late pages refresh the vulnerability window; they do not multiply its strength or repeatedly increase that pulse."
+      ],
+      "tags": [
+        "Damage window",
+        "Risk choice"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "intact-pages",
+      "name": "An Intact Contract",
+      "summary": "Use rescued witnesses as recovery, not as the normal plan.",
+      "description": [
+        "A page arriving intact exhausts one witness for the attempt. Witnesses return on a wipe.",
+        "Without a witness, each intact page heals Avaris for 3% of maximum health, up to 9% in a procession, and sets that procession's pulse to 900 damage.",
+        "The pages cannot be charmed, rooted, slowed or stunned. Their timing is controlled by damage and positioning."
+      ],
+      "tags": [
+        "Recoverable failure",
+        "Shared charges"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "ritual-pulse",
+      "name": "The Ritual Pulse",
+      "summary": "Prepare for a pulse six seconds after its warning; unresolved pages can still increase its strength.",
+      "description": [
+        "Each procession produces one pulse 26 seconds after its spawn. The worst uncanceled outcome determines its damage: 650, 850 or 900.",
+        "Several page failures do not create several simultaneous raidwide pulses."
+      ],
+      "tags": [
+        "Six-second warning",
+        "Raid healing"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50910,
+        50912,
+        50913
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Unwritten Hour admits 12 to 36 characters of level 55 or higher and is tuned for 24 to 36 level-60 raiders. Speak to Keeper Avel Rimeglass in Iceclad to arrange the expedition.",
+        "The expedition lasts eight hours. A 72-hour replay begins when the first raid boss is defeated. That first victory seals the roster; arrange replacements beforehand. Disconnected members of the sealed roster may return before the expedition expires.",
+        "The tower uses expedition mirrors and saved checkpoints. Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Complete each floor objective before using the next mirror."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "An unsuccessful attempt does not consume another raid offering. A reset recreates temporary charges and actors for the next attempt. Return only to a checkpoint the expedition has already unlocked."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148236,
+          "name": "Wedding Band of Refusal",
+          "quantity": 1
+        },
+        {
+          "id": 148237,
+          "name": "Cuirass of the Broken Vow",
+          "quantity": 1
+        },
+        {
+          "id": 148238,
+          "name": "Processional Steps",
+          "quantity": 1
+        },
+        {
+          "id": 148239,
+          "name": "Hymnal of the Unmade Bride",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-bailiff-of-borrowed-names",
+  "title": "Nhalvek, Bailiff of Borrowed Names",
+  "group": "The Unwritten Hour",
+  "type": "raid",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 21
+  },
+  "npc_ids": [
+    111807
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Rescue each other's stolen names before the tower registers them, then release the chained prisoners.",
+  "overview": [
+    "The tower's entrance register claims the admitted raid as new residents. Nhalvek creates counterfeits bearing players' names. Each owner must rely on someone else to kill their counterfeit.",
+    "Assign cross-assist targets and two prisoner rescuers before the pull. Defeating Nhalvek commits the raid roster and starts its replay timer."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Attack another player's counterfeit; an owner cannot damage their own.",
+        "Read the full names above the counterfeits and respond before they reach the register.",
+        "Finalize the raid roster before this boss dies."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "Handle bailiffs during the 40% prisoner intermission.",
+        "Registered counterfeits can increase Nhalvek's melee; killing those counterfeits removes their enhancements."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage and control",
+      "tips": [
+        "Counterfeits have 12,000 health and can be rooted or stunned.",
+        "A registered counterfeit remains a valid priority target.",
+        "Bailiffs at 40% can be rooted and mezzed."
+      ]
+    },
+    {
+      "id": "rescuer",
+      "label": "Prisoner rescuers",
+      "tips": [
+        "Assign one player to each chained prisoner at 40%.",
+        "Complete the three-second release channel without taking damage.",
+        "The boss cannot pass the health gate until both prisoners are free."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "stolen-names",
+      "label": "Names on the register",
+      "trigger": "Every 40 seconds",
+      "description": "Up to three distinct living non-tanks receive counterfeits. The copies approach the register over 20 seconds; at most six counterfeits can be alive."
+    },
+    {
+      "id": "release-prisoners",
+      "label": "Break the chains",
+      "trigger": "40% health",
+      "description": "Two prisoners and two 12,000-health bailiffs appear. Further name theft pauses until both three-second prisoner releases finish."
+    },
+    {
+      "id": "verdict",
+      "label": "The register is broken",
+      "trigger": "Nhalvek is defeated",
+      "description": "The library route opens. This first raid victory seals the roster and begins the 72-hour replay."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "counterfeit-names",
+      "name": "Counterfeit Names",
+      "summary": "Cross-assist on another player's copy.",
+      "description": [
+        "Each counterfeit belongs to its named owner. That owner cannot damage it, while other eligible participants can.",
+        "When a counterfeit reaches the register, it can add one 5% outgoing-melee enhancement to Nhalvek. At most three enhancements coexist. Defeating that registered actor removes its own enhancement.",
+        "Additional registered actors remain attackable even when the enhancement cap has been reached. New waves do not heal old counterfeits."
+      ],
+      "tags": [
+        "Cross-assist",
+        "Adds",
+        "Recoverable failure"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "condemned-prisoners",
+      "name": "Condemned Prisoners",
+      "summary": "Release both chains with uninterrupted three-second interactions.",
+      "description": [
+        "The prisoners are protected from incidental area damage. Incoming damage interrupts a rescuer's channel.",
+        "Nhalvek's normal melee continues, and his health cannot fall below 40% until the release objective is complete."
+      ],
+      "tags": [
+        "Required objective",
+        "Shield gate",
+        "Channel"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Unwritten Hour admits 12 to 36 characters of level 55 or higher and is tuned for 24 to 36 level-60 raiders. Speak to Keeper Avel Rimeglass in Iceclad to arrange the expedition.",
+        "The expedition lasts eight hours. A 72-hour replay begins when the first raid boss is defeated. That first victory seals the roster; arrange replacements beforehand. Disconnected members of the sealed roster may return before the expedition expires.",
+        "The tower uses expedition mirrors and saved checkpoints. Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Complete each floor objective before using the next mirror."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "An unsuccessful attempt does not consume another raid offering. A reset recreates temporary charges and actors for the next attempt. Return only to a checkpoint the expedition has already unlocked."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "raid-offering",
+      "title": "Continuing the story",
+      "paragraphs": [
+        "One raid sponsor must supply three entry splinters and one writ from the Mistmoore raid to open The Unwritten Hour. One offering opens an expedition for the raid; each participant does not need to pay.",
+        "The offering consumes the four required items. The same Mistmoore writ can also have another event use, so choose its destination before paying."
+      ],
+      "bullets": [],
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 3
+        },
+        {
+          "id": 147760,
+          "name": "Blood-Sealed Writ of the Last Eclipse",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148228,
+          "name": "Bulwark of the Unclaimed",
+          "quantity": 1
+        },
+        {
+          "id": 148229,
+          "name": "Name-Stealer's Edge",
+          "quantity": 1
+        },
+        {
+          "id": 148230,
+          "name": "Censer of Unborrowed Breath",
+          "quantity": 1
+        },
+        {
+          "id": 148231,
+          "name": "Earring of the True Name",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

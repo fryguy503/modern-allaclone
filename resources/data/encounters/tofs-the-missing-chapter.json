@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-the-missing-chapter",
+  "title": "The Missing Chapter: Archivist Ezzelin",
+  "group": "The Seven Silences",
+  "type": "group",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 20
+  },
+  "npc_ids": [
+    111801
+  ],
+  "status": "published",
+  "spoiler": false,
+  "summary": "Erase one chapter from a living spellbook and fight the two dangers you choose to leave behind.",
+  "overview": [
+    "Three books govern Ezzelin's cold, silence and hunger. Before combat, erase one chapter to remove its mechanic. Read each book and choose around the group's strengths.",
+    "At half health, a short pause allows a second decision. Keep the same erased chapter or replace it; there is no hidden correct answer."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Agree on the erased chapter before engaging.",
+        "Read the current choice on the books and in Event Messages.",
+        "At half health, use the ten-second pause to change the choice if the current combination is uncomfortable."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Prepare for the cold pulse if Cold remains active.",
+        "A silence warning names its target before the brief interruption."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage and control",
+      "tips": [
+        "Control the paper shades when Hunger remains active.",
+        "Do not assume the choice erases the same chapter after a new attempt."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "choose",
+      "label": "Erase a chapter",
+      "trigger": "Before the pull",
+      "description": "Erase Cold, Silence or Hunger. Only the other two mechanics are active."
+    },
+    {
+      "id": "revision",
+      "label": "A chance to revise",
+      "trigger": "50% health",
+      "description": "Ezzelin pauses attacking for ten seconds and reopens the books. Keep or replace the erased chapter."
+    },
+    {
+      "id": "conclusion",
+      "label": "Finish the surviving text",
+      "trigger": "After the revision window",
+      "description": "Continue handling the two active chapters. Defeat Ezzelin to unlock the servants' mirror."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "cold",
+      "name": "Chapter of Cold",
+      "summary": "Prepare for a resistible 225-damage cold pulse.",
+      "description": [
+        "The two active chapters alternate on an 18-second cadence, so each returns every 36 seconds. Cold gives a six-second warning before its pulse. Erasing Cold removes it."
+      ],
+      "tags": [
+        "Cold",
+        "Healing"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50905
+      ]
+    },
+    {
+      "id": "silence",
+      "name": "Chapter of Silence",
+      "summary": "The marked non-tank has six seconds before a two-second silence.",
+      "description": [
+        "The warning recurs on the Silence turn in the 18-second alternating sequence. Erase Silence to remove it. The brief silence does not replace the warning."
+      ],
+      "tags": [
+        "Six-second warning",
+        "Silence"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50918
+      ]
+    },
+    {
+      "id": "hunger",
+      "name": "Chapter of Hunger",
+      "summary": "Handle two 2,500-health paper shades.",
+      "description": [
+        "While Hunger is active, a shade wave appears on its turn in the 18-second alternating sequence. Ordinary root and mez work on these adds.",
+        "The surviving chapters alternate every 18 seconds; each chapter therefore recurs every 36 seconds."
+      ],
+      "tags": [
+        "Adds",
+        "Crowd control"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Seven Silences admits groups of three to six characters of level 55 or higher; six level-60 characters are recommended. Speak to Keeper Avel Rimeglass in Iceclad. Entry requires no raid trophy.",
+        "The eight-hour expedition and replay begin at acceptance. The lower floors start below the difficulty of the Mistmoore group expedition, then increase toward comparable pressure on the upper floors.",
+        "Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Each floor victory unlocks the next expedition mirror and a cleared return checkpoint. The two wings of floor six form one encounter."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "Equipment reward",
+      "description": "Exactly one item is chosen from these four, with a 25% chance for each item. Supporting creatures and encounter objectives do not award additional equipment.",
+      "items": [
+        {
+          "id": 148204,
+          "name": "Index of Erased Winters",
+          "quantity": 1
+        },
+        {
+          "id": 148205,
+          "name": "Quill of the Last Sentence",
+          "quantity": 1
+        },
+        {
+          "id": 148206,
+          "name": "Bookmark of Borrowed Time",
+          "quantity": 1
+        },
+        {
+          "id": 148207,
+          "name": "Mantle of the Quiet Scholar",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Independent raid-entry reward",
+      "description": "There is a separate 25% chance for one entry splinter per boss victory. This roll does not replace the equipment reward and is not repeated for each player. The splinter is permanent, stackable, No Trade and not Lore.",
+      "items": [
+        {
+          "id": 148252,
+          "name": "Splinter of the Unwritten Hour",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}

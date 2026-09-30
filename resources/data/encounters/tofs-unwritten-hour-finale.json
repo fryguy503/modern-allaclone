@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "slug": "tofs-unwritten-hour-finale",
+  "title": "Tserrina, Lady of the Unwritten Hour",
+  "group": "The Unwritten Hour",
+  "type": "raid",
+  "zone": {
+    "short_name": "frozenshadow",
+    "name": "Tower of Frozen Shadow",
+    "version": 21
+  },
+  "npc_ids": [
+    111811,
+    111812
+  ],
+  "status": "published",
+  "spoiler": true,
+  "summary": "Choose where the mirrors will return you, break the pact's clauses with Severing Rays and finish the last claim before dawn collapses.",
+  "overview": [
+    "The last battle uses the tower's mirrors to record future landing places. Stand near a useful named anchor when recording ends, then be ready to move when you return.",
+    "Two protected intermissions require aimed rays through exposed clauses. The final transition changes the target without granting another full boss health bar or another separate reward."
+  ],
+  "roles": [
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Choose a named anchor during the eight-second recording warning.",
+        "Twelve seconds after recording, expect a return to that anchor and read which anchors are condemned.",
+        "Move clear during the six-second warning after returning.",
+        "Position alone returns. Deaths, health, mana, equipment and cooldowns do not rewind."
+      ]
+    },
+    {
+      "id": "tank",
+      "label": "Tanks",
+      "tips": [
+        "At 70% and 40%, use the six-second Severing Ray warning to aim through the exposed clause.",
+        "Keep the raid out of the marked ray lane.",
+        "Two successful rays break each clause; a missed ray leaves the objective available to try again."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Health gates cannot be skipped by burst damage, pets or ongoing spells.",
+        "At 15%, switch to The Last Claim and finish its 66,000 health within 90 seconds.",
+        "Do not keep attacking Tserrina after she opens the final mirror."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healers",
+      "tips": [
+        "Prepare for the 900-damage ray if someone remains in its lane.",
+        "Avoid the condemned anchors rather than trying to heal through their 1,200-damage hit.",
+        "During the final burn, move out of each named outer sector before its collapse warning ends."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "remember",
+      "label": "Remember This Place",
+      "trigger": "100% to 70% health; resumes between clauses",
+      "description": "Every 35 seconds, an eight-second warning precedes anchor recording. Twelve seconds after recording, eligible living players return to safe landing places at their recorded anchors. A condemned anchor strikes six seconds later."
+    },
+    {
+      "id": "first-clause",
+      "label": "The first exposed clause",
+      "trigger": "70% health",
+      "description": "Pending returns and anchor attacks stop. Tserrina is protected until two correctly aimed Severing Rays pass through the exposed clause."
+    },
+    {
+      "id": "second-clause",
+      "label": "The second exposed clause",
+      "trigger": "40% health",
+      "description": "Break a second clause with two successful rays. After this intermission, two anchors are condemned during each returning cycle."
+    },
+    {
+      "id": "last-claim",
+      "label": "A dawn she has never seen",
+      "trigger": "15% health",
+      "description": "Tserrina becomes nonhostile and holds the mirror open. Defeat the 66,000-health Last Claim within 90 seconds while narrow outer sectors collapse."
+    },
+    {
+      "id": "dawn",
+      "label": "The unwritten dawn",
+      "trigger": "The Last Claim is defeated",
+      "description": "The victory resolves once and its reward corpse contains two equipment items plus six continuation testaments. The surviving Tserrina and departing spirits complete the story."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "remember-this-place",
+      "name": "Remember This Place",
+      "summary": "Choose an anchor before recording ends, then prepare to move after returning.",
+      "description": [
+        "Six fixed anchors have distinct names and visible actors. At the end of the eight-second warning, each eligible living player records the nearest valid anchor; approaching one deliberately makes the landing choice clear.",
+        "Twelve seconds later, the mirror returns each eligible recorded player to a safe landing slot at that anchor. Dead, disconnected, departed or unauthorized players are skipped. A player resurrected after recording is not returned during that cycle.",
+        "The condemned anchor is announced after recording. Its 15-pace area strikes for 1,200 damage six seconds after the return. After the second clause, two anchors are condemned."
+      ],
+      "tags": [
+        "Eight-second recording",
+        "Position return",
+        "Six-second escape"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50914
+      ]
+    },
+    {
+      "id": "severing-ray",
+      "name": "Severing Ray",
+      "summary": "Aim the tank-directed ray through the exposed clause.",
+      "description": [
+        "Each protected intermission cancels pending returns and anchor attacks. Every 15 seconds, Tserrina warns the tank for six seconds before the ray.",
+        "Two successful rays break the clause. An incorrectly aimed ray deals its ordinary 900 damage along the lane and leaves the clause intact for another attempt.",
+        "The tank does not have to die to answer the mechanic. Everyone else should leave the marked line."
+      ],
+      "tags": [
+        "Required objective",
+        "Six-second warning",
+        "Lane"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50913
+      ]
+    },
+    {
+      "id": "last-claim",
+      "name": "The Last Claim",
+      "summary": "Finish the remaining 66,000 health in 90 seconds.",
+      "description": [
+        "The final target contains the remaining 15% of the encounter's 440,000 combined health budget. It is not a fresh full-strength boss.",
+        "Three narrow named outer sectors collapse at 25, 50 and 75 seconds, each preceded by an eight-second warning. A collapsed sector deals 900 damage every three seconds to occupants.",
+        "Failure resets this final encounter. Earlier victories and the paid offering remain; there is no reward for an incomplete final phase."
+      ],
+      "tags": [
+        "Timed ending",
+        "Eight-second warning",
+        "Ground danger"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": [
+        50913
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "access-and-route",
+      "title": "Expedition access and route",
+      "paragraphs": [
+        "The Unwritten Hour admits 12 to 36 characters of level 55 or higher and is tuned for 24 to 36 level-60 raiders. Speak to Keeper Avel Rimeglass in Iceclad to arrange the expedition.",
+        "The expedition lasts eight hours. A 72-hour replay begins when the first raid boss is defeated. That first victory seals the roster; arrange replacements beforehand. Disconnected members of the sealed roster may return before the expedition expires.",
+        "The tower uses expedition mirrors and saved checkpoints. Ordinary tower keys, keyring entries and the summit shortcut do not unlock this version. Complete each floor objective before using the next mirror."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "recovery-and-warnings",
+      "title": "Warnings and recovery",
+      "paragraphs": [
+        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
+        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
+        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
+        "An unsuccessful attempt does not consume another raid offering. A reset recreates temporary charges and actors for the next attempt. Return only to a checkpoint the expedition has already unlocked."
+      ],
+      "bullets": [],
+      "items": []
+    }
+  ],
+  "loot": [
+    {
+      "title": "First equipment pool",
+      "description": "One item is selected uniformly from this four-item pool.",
+      "items": [
+        {
+          "id": 148244,
+          "name": "Nevernight, the Severed Promise",
+          "quantity": 1
+        },
+        {
+          "id": 148245,
+          "name": "Last Toll of the Frozen Hour",
+          "quantity": 1
+        },
+        {
+          "id": 148246,
+          "name": "Tserrina's Unshackled Aegis",
+          "quantity": 1
+        },
+        {
+          "id": 148247,
+          "name": "Mantle of the First Thaw",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Second equipment pool",
+      "description": "One item is selected independently and uniformly from this four-item pool, for exactly two equipment rewards at the finale.",
+      "items": [
+        {
+          "id": 148248,
+          "name": "Glass of the Dawn Unwritten",
+          "quantity": 1
+        },
+        {
+          "id": 148249,
+          "name": "Robe of the Unpromised Morning",
+          "quantity": 1
+        },
+        {
+          "id": 148250,
+          "name": "Tear of the Freed Witness",
+          "quantity": 1
+        },
+        {
+          "id": 148251,
+          "name": "Ribbon Cut from Tomorrow",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "title": "Future-event continuation rewards",
+      "description": "Six copies are guaranteed alongside the two equipment rewards. Each is permanent, Lore and No Trade, so distribute them among six eligible characters. Keep them for future continuation events; no new event is opened by this reward yet.",
+      "items": [
+        {
+          "id": 148253,
+          "name": "Dawn-Sealed Testament of the Unwritten Hour",
+          "quantity": 6
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-09-30",
+    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "frozenshadow/encounters/tofs_unwritten_hour.lua",
+        "sha256": "c8c9733b1e75d45cad6029e93da3e5049187291df2e1afc758c062f178ba3c53"
+      },
+      {
+        "path": "frozenshadow/player_v20.lua",
+        "sha256": "9e4e9a485e33c1887a901e17d4cff96302859176356bd4020e5e74079b70cf06"
+      },
+      {
+        "path": "frozenshadow/player_v21.lua",
+        "sha256": "d6c0f3a60e0db07e9251e18f954b79ded06dd666e80c28cd50d5a1f13bd24234"
+      },
+      {
+        "path": "frozenshadow/script_init_v20.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "frozenshadow/script_init_v21.lua",
+        "sha256": "16b791d89b12a1c466cc016130a15f7f6f0f552ce43bc529b046b19869c6d14e"
+      },
+      {
+        "path": "iceclad/encounters/tofs_gateway.lua",
+        "sha256": "a1e8e2e5a9ce65282e94df504f89ce9c6a6bd5c650151f87ca3f1776a7f4b154"
+      },
+      {
+        "path": "iceclad/script_init.lua",
+        "sha256": "54b9bbe8bcbfa7edb0ac7fce58f9d63074c122dec0b4db59ec9afed7bad26dcc"
+      },
+      {
+        "path": "lua_modules/tofs_admission.lua",
+        "sha256": "90d84a9a827699b247ec14fe75fad4f3c47480df31e435eaccd2b53b291446d3"
+      },
+      {
+        "path": "lua_modules/tofs_content.lua",
+        "sha256": "722af158cdafa1725b08086803bc176aa9799ad1862892f9e0ba211e21760f11"
+      },
+      {
+        "path": "lua_modules/tofs_mechanics.lua",
+        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+      },
+      {
+        "path": "lua_modules/tofs_runtime.lua",
+        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+      },
+      {
+        "path": "lua_modules/tofs_store.lua",
+        "sha256": "96539d8988d398bc4235a149b3dfb5fa766b12aab990c4ae159f186a492902d3"
+      },
+      {
+        "path": "sql/tofs_content.sql",
+        "sha256": "3e2ef44c3e5dc8d108d8a689bf9b93a4d3962829f64410feff1ac98bb8b0383a"
+      },
+      {
+        "path": "sql/tofs_runtime.sql",
+        "sha256": "18c99a6116b563c38c36db841407eaee5d99c9cd165a733dc56d2cc45c45c127"
+      }
+    ],
+    "notes": [
+      "Reviewed against the authored TOFS quest implementation and generated data. The listed files are uncommitted additions or edits beyond the recorded base revision; their SHA-256 hashes identify the reviewed bytes.",
+      "Publication means the guide is ready for the Library. It does not establish game-server deployment, loaded database templates, client spell installation or in-game acceptance.",
+      "Role guidance is derived from source and isolated validation. Encounter balance, navigation, camera space and client presentation require matching-version playtests.",
+      "Linked spells are the native encounter damage or buff definitions actually used by the adapter. Pure state changes and interactions have no unrelated spell links."
+    ]
+  }
+}
