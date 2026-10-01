@@ -332,13 +332,13 @@
     }
   ],
   "sources": {
-    "reviewed_at": "2026-09-28",
-    "revision": "ad251da365c0241c2f37673ed2af58e93b578c09",
+    "reviewed_at": "2026-10-01",
+    "revision": "e4c032b2b8806d7a2be7c518b61f373f4de2caa8",
     "verification": "source-reviewed",
     "files": [
       {
         "path": "mistmoore/encounters/mistmoore_eclipse.lua",
-        "sha256": "336743a95076db1e0656448a23cc26af066de9d9a0e076ca97490933e62572b1"
+        "sha256": "c00f7fcc58f53b247352725ae1a5e637a00357fe4205a8507c73805f10b3f435"
       },
       {
         "path": "sql/mistmoore_eclipse.sql",
@@ -346,7 +346,7 @@
       }
     ],
     "notes": [
-      "Reviewed against the local quest working tree. The encounter script contains uncommitted changes beyond the recorded Git revision; the file hashes identify the exact reviewed bytes.",
+      "Reviewed against committed quest source at revision e4c032b2b8806d7a2be7c518b61f373f4de2caa8. Seasonal notification changes pass the encounter regression suites; the recorded file hashes identify the reviewed source. This review does not establish production deployment or live raid balance.",
       "Mechanics, item definitions and loot pools were checked in source. This review does not establish which revision, database templates or settings are deployed on the live server.",
       "Role tips are guidance derived from the scripted mechanics, not a strategy verified in a live raid. Pulse damage is omitted because it depends on the NPC's loaded spell scale.",
       "Ability names describe scripted mechanics. The damage pulses are not ordinary database spells and do not have spell tooltip IDs."

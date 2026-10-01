@@ -16,20 +16,20 @@
   "spoiler": true,
   "sources": {
     "reviewed_at": "2026-10-01",
-    "revision": "607e75d673b7dbd326c4129cec7f4d1f07004e76",
+    "revision": "e4c032b2b8806d7a2be7c518b61f373f4de2caa8",
     "verification": "source-reviewed",
     "files": [
       {
         "path": "mistmoore/encounters/mistmoore_eclipse.lua",
-        "sha256": "c8934057b41ff9d3c37c2b448211583f9b47e00b491da3f6ea4ed73d6158a6f5"
+        "sha256": "c00f7fcc58f53b247352725ae1a5e637a00357fe4205a8507c73805f10b3f435"
       },
       {
         "path": "sql/mistmoore_eclipse_hard_mode.sql",
-        "sha256": "aff8ae3f1b463bd053f8060f458fcaa27295d4edb28624d93e737ed373d66393"
+        "sha256": "e04c9e14c42e12e5ddc0ffa2e9d0b6e45fcbef83faea8b2baab38e331232c083"
       }
     ],
     "notes": [
-      "Reviewed against committed quest source at revision 607e75d673b7dbd326c4129cec7f4d1f07004e76. The recorded file hashes identify the reviewed encounter and complete hard-mode installer.",
+      "Reviewed against committed quest source at revision e4c032b2b8806d7a2be7c518b61f373f4de2caa8. Seasonal notification changes pass the encounter regression suites; the recorded file hashes identify the reviewed source. This review does not establish production deployment or live raid balance.",
       "Mechanics and rewards were checked in source. Publication of this guide does not establish that the hard-mode scripts or database content are deployed on the live server.",
       "Role advice is derived from the scripts. A live raid has not verified the strategy or combat balance.",
       "Ability names describe scripted mechanics. Direct damage pulses have no ordinary spell tooltip ID."
@@ -174,7 +174,8 @@
       "title": "One bonus victory",
       "paragraphs": [
         "The fourth appearance awards one random equipment item from the six-item selection below. These are drawn from the main hard-mode catalog; earlier retreats award no loot.",
-        "The reward is regular No Trade equipment. A successful final kill seals the raid roster and starts the separate 72-hour hard-mode replay lockout if no guardian has already done so."
+        "The reward is regular No Trade equipment. A successful final kill seals the raid roster and starts the separate 72-hour hard-mode replay lockout if no guardian has already done so.",
+        "A seasonal victory announcement follows the fourth, killable appearance. The earlier retreats do not announce a kill."
       ],
       "bullets": [],
       "items": []
@@ -183,7 +184,7 @@
   "loot": [
     {
       "title": "Bonus equipment pool",
-      "description": "One random equipment reward on the fourth appearance only.",
+      "description": "One random equipment reward on the fourth appearance only. Base HP and mana on the equipment are each capped at 90.",
       "items": [
         {
           "id": 148001,
