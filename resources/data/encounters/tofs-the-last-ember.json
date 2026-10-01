@@ -14,119 +14,85 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Carry the Last Ember, warm three numbered witnesses, then light the brazier and share the warmth during Nhalra's frost.",
+  "summary": "Defeat the Frostbound Warders, pull Nhalra and fight through frost and shades.",
   "overview": [
-    "The entrance has forgotten warmth. Take the Last Ember and visit three witnesses in their chambers. Warm each witness, defeat or control its two grasping shades, then warm it again to free it. After all three rescues, the bearer lights the Ember Brazier to summon Nhalra.",
-    "The witnesses remain stationary. The waiting ember disappears when claimed because its warmth is now carried by a player; no NPC follows the bearer. Say [ember] at any time to see the current objective and bearer. Hailing an actor explains its purpose; choose its action link to proceed.",
-    "This is the first and gentlest step of the ascent. Preparation has no stacking cold or time limit. During the boss fight, stay together and arrange a second bearer for the frost warnings."
+    "Two Frostbound Warders keep the tower's first keeper asleep. Defeat them to release Nhalra in the far first-floor chamber, then pull her when the party is ready. The Last Ember is the warmth restored by victory; there is no lantern to carry or witness ritual to perform.",
+    "This is the gentlest named fight of the ascent: tank Nhalra, avoid or interrupt her occasional frost burst, and pick up her two shades."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Say [ember] for the current witness, saved rescue count, bearer and next action.",
-        "Defeat, root, mez or stun both grasping shades. The bearer must choose [warm] again while both are defeated or controlled.",
-        "During Nhalra, stay within 25 paces of the bearer. During Smothering Frost, a different nearby player chooses [take ember]."
-      ]
-    },
-    {
-      "id": "bearer",
-      "label": "Lantern bearers",
-      "tips": [
-        "Hail the waiting Last Ember and choose [take ember]. You carry its warmth directly; the manifestation fades while held.",
-        "Visit Witness 1 in the entrance-side chamber, Witness 2 in the middle side chamber, and Witness 3 in the far side chamber. Choose [warm] to reveal the shades and [warm] again to save the rescue.",
-        "After three witnesses, bring the light to the Ember Brazier in the middle side chamber and choose [light] when the group is ready for Nhalra.",
-        "A receiver within 15 paces and line of sight chooses [take ember] to accept a handoff. The previous bearer cannot reclaim it for ten seconds. [return ember] leaves it at the current objective and does not satisfy a frost handoff."
+        "The leader chooses [begin] at the Echo Guide. Say [status] for the current combat objective.",
+        "Pull when ready. Named abilities begin when the boss is engaged."
       ]
     },
     {
       "id": "tank",
-      "label": "Tank and support",
+      "label": "Tank",
       "tips": [
-        "Keep Nhalra near the warmth.",
-        "Watch the bearer and group when a missed pass extinguishes the light."
+        "Pull the two warders and then Nhalra. The warders have 1,800 HP each.",
+        "Pick up the frostbound shades at 60% health."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Kill or control the shades. Nhalra remains vulnerable throughout combat.",
+        "Step out of the marked frost circle or interrupt its six-second cast."
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Healers and control",
+      "tips": [
+        "A missed frost burst deals 160 cold damage before native mitigation.",
+        "Completed warder kills remain saved after a wipe."
       ]
     }
   ],
   "phases": [
     {
-      "id": "witnesses",
-      "label": "The three witnesses",
-      "trigger": "Before lighting the brazier",
-      "description": "The stationary witnesses appear one at a time in numbered chambers. The bearer chooses [warm], the group handles two shades, then the bearer chooses [warm] again. Each rescue is saved immediately. Hails and repeated clicks cannot summon extra packs."
-    },
-    {
-      "id": "brazier",
-      "label": "Light the Ember Brazier",
-      "trigger": "All three witnesses are warm",
-      "description": "Return to the middle side chamber. The bearer hails the Ember Brazier and chooses [light] when the party is ready. This saves the lit brazier and summons Nhalra in the far side chamber. Waiting beside or hailing the brazier cannot start combat."
+      "id": "warders",
+      "label": "Frostbound Warders",
+      "trigger": "Before Nhalra appears",
+      "description": "Kill both warders in the entrance-side and middle side chambers. Each kill is saved; Nhalra appears only after both are dead."
     },
     {
       "id": "keeper",
       "label": "Nhalra",
-      "trigger": "The bearer chooses [light]",
-      "description": "There are twelve seconds to gather before stacking cold starts. Fight within 25 paces of the bearer and pass during the ten-second Smothering Frost warnings."
-    },
-    {
-      "id": "warmth-restored",
-      "label": "The library mirror",
-      "trigger": "Nhalra is defeated",
-      "description": "The entrance warms and the library checkpoint opens. Saved rescues and a lit brazier survive a wipe, reload or instance recovery."
+      "trigger": "Both warders are defeated",
+      "description": "Pull the keeper in the far side chamber. She uses a frost burst every 28 seconds and summons two shades once at 60% health. Defeat her to open the library mirror."
     }
   ],
   "abilities": [
     {
-      "id": "the-last-ember",
-      "name": "The Last Ember",
-      "summary": "During Nhalra, stay within 25 paces of the player carrying the ember.",
+      "id": "frost",
+      "name": "Dying-Light Frost",
+      "summary": "Interrupt or leave the marked circle.",
       "description": [
-        "There is no stacking cold during witness preparation. Starting twelve seconds after the brazier lights, cold builds every six seconds outside the warmth, up to five stacks. Each stack adds 40 cold damage to that pulse. Entering warmth removes one stack per tick.",
-        "The waiting Last Ember fades when claimed. Its warmth follows the actual bearer, without a following NPC. A nearby receiver can choose [take ember] even while targeting the boss; no moving manifestation has to be chased.",
-        "If the bearer dies, disconnects or leaves the encounter area, the ember reappears beside the current witness, or at the brazier during the boss fight. Claim it there. The waiting point also supplies warmth during combat. Say [ember] to locate it."
+        "Every 28 seconds, Nhalra begins a six-second interruptible cast and pauses her melee. A 12-pace circle is marked at her casting position.",
+        "A completed cast deals 160 cold damage inside that circle. Moving outside it avoids the burst. There are no ambient cold stacks or handoffs."
       ],
       "tags": [
-        "Positioning",
-        "Shared tool"
+        "Interruptible",
+        "Positioning"
       ],
       "roles": [
         "everyone"
       ],
       "spell_ids": [
-        50900,
-        50901,
-        50902,
-        50903,
-        50904
+        50903
       ]
     },
     {
-      "id": "smothering-frost",
-      "name": "Smothering Frost",
-      "summary": "A nearby ally accepts the ember within ten seconds.",
+      "id": "shades",
+      "name": "Frostbound Shades",
+      "summary": "Handle two adds at 60% health.",
       "description": [
-        "During Nhalra, a named warning recurs every 30 seconds. A different living expedition member within 15 paces and line of sight of the bearer chooses [take ember] within ten seconds. The current bearer does not activate the handoff; the receiver accepts it.",
-        "A missed handoff smothers the light for six seconds and deals a 200 cold damage party pulse. The brazier relights it automatically. Returning the ember without sharing it does not satisfy the warning; the previous bearer cannot reclaim it for ten seconds."
-      ],
-      "tags": [
-        "Ten-second warning",
-        "Handoff"
-      ],
-      "roles": [
-        "everyone"
-      ],
-      "spell_ids": [
-        50904
-      ]
-    },
-    {
-      "id": "grasping-shades",
-      "name": "Grasping Shades",
-      "summary": "Handle two separated shades, then choose [warm] again.",
-      "description": [
-        "The first [warm] action summons exactly two 1,200-HP shades, six to eight paces from the witness at separated positions on visible ground within the floor. Repeated hails or clicks do not create additional packs.",
-        "Both shades must be dead, rooted, mezzed or stunned when the bearer chooses [warm] again. The witness announces when the binding is ready and when control breaks. Successful rescue dismisses any controlled survivors. No particular crowd-control class is required because killing the shades also works.",
-        "A rescue is saved before its actors disappear. If saving fails, retry [warm] without spawning another pack. Existing expeditions retain the original saved rescue count and resume the next numbered witness."
+        "Two 1,200-HP shades join the fight once at 60%. They can be killed or controlled, and they do not make Nhalra invulnerable."
       ],
       "tags": [
         "Adds",
@@ -154,11 +120,21 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "For this trial, hailing the witnesses, brazier or waiting ember only explains their purpose. Choose [take ember], [warm] or [light] explicitly. Say [ember] without a particular NPC targeted to inspect the current objective and bearer. There is no lantern inventory item to equip or hand in.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
       ],
       "bullets": [],
       "items": []
@@ -205,7 +181,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -246,11 +222,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

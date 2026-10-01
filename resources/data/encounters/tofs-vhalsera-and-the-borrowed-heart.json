@@ -189,6 +189,17 @@
       ],
       "bullets": [],
       "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
+      ],
+      "bullets": [],
+      "items": []
     }
   ],
   "loot": [
@@ -221,7 +232,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -262,11 +273,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

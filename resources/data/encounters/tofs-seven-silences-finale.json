@@ -17,7 +17,8 @@
   "summary": "Leave remembered positions behind and interrupt the futures that threaten to become real.",
   "overview": [
     "A reflection remains at the summit, waiting for a future that never arrived. The mirror records where marked players stand and attacks those places eight seconds later.",
-    "This battle remembers positions without returning anyone to them. Move away from the marks, protect allies who pass nearby and interrupt the larger apparitions."
+    "This battle remembers positions without returning anyone to them. Move away from the marks, protect allies who pass nearby and interrupt the larger apparitions.",
+    "This remains a direct named fight: move out of marked frost and kill or interrupt the futures. The first mark selects one non-tank; after both future thresholds it selects two. There are no ritual objects or forced health gates."
   ],
   "roles": [
     {
@@ -26,7 +27,7 @@
       "tips": [
         "Leave every recorded location, including another player's mark.",
         "Read the eight-second warning and keep the marked ground clear until the blast.",
-        "After 30% health, expect up to three distinct non-tank marks."
+        "After 30% health, expect up to two distinct non-tank marks."
       ]
     },
     {
@@ -58,8 +59,8 @@
     {
       "id": "remembered",
       "label": "The glass remembers",
-      "trigger": "Every 25 seconds",
-      "description": "Record up to two living non-tanks. Their old locations erupt eight seconds later."
+      "trigger": "Every 30 seconds, subject to separation from future casts",
+      "description": "Record one living non-tank initially, or up to two after both future thresholds. Their old locations erupt eight seconds later."
     },
     {
       "id": "first-future",
@@ -71,7 +72,7 @@
       "id": "final-future",
       "label": "More futures converge",
       "trigger": "30% health",
-      "description": "A second apparition appears and future recordings can select up to three non-tanks."
+      "description": "A second apparition appears and future recordings can select up to two non-tanks."
     },
     {
       "id": "mirror-breaks",
@@ -137,10 +138,10 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
       ],
       "bullets": [],
       "items": []
@@ -165,6 +166,17 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
+      ],
+      "bullets": [],
+      "items": []
     }
   ],
   "loot": [
@@ -208,7 +220,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -249,11 +261,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

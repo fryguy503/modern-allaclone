@@ -14,69 +14,71 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Erase one chapter from a living spellbook and fight the two dangers you choose to leave behind.",
+  "summary": "Kill the optional Silencing Scribe to suppress Ezzelin's cold spell, then defeat the archivist.",
   "overview": [
-    "Three books govern Ezzelin's cold, silence and hunger. Before combat, erase one chapter to remove its mechanic. Read each book and choose around the group's strengths.",
-    "At half health, a short pause allows a second decision. Keep the same erased chapter or replace it; there is no hidden correct answer."
+    "The Silencing Scribe in the side library sustains Archivist Ezzelin's forbidden chapter. Killing the scribe before or during the named fight removes that cold spell for the rest of the expedition.",
+    "You can fight Ezzelin with the scribe alive, interrupting his cast or healing through it. The decision is made by pulling and killing enemies; there are no book selections or half-health pauses."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Agree on the erased chapter before engaging.",
-        "Read the current choice on the books and in Event Messages.",
-        "At half health, use the ten-second pause to change the choice if the current combination is uncomfortable."
+        "The leader chooses [begin] at the Echo Guide. Say [status] for the current combat objective.",
+        "Pull when ready. Named abilities begin when the boss is engaged."
       ]
     },
     {
-      "id": "healer",
-      "label": "Healers",
+      "id": "tank",
+      "label": "Tank",
       "tips": [
-        "Prepare for the cold pulse if Cold remains active.",
-        "A silence warning names its target before the brief interruption."
+        "Choose whether to pull the 2,200-HP scribe first.",
+        "Pick up Ezzelin's loose pages at half health."
       ]
     },
     {
       "id": "damage",
-      "label": "Damage and control",
+      "label": "Damage dealers",
       "tips": [
-        "Control the paper shades when Hunger remains active.",
-        "Do not assume the choice erases the same chapter after a new attempt."
+        "Kill the scribe to cancel a current cold cast and stop future casts.",
+        "Two 1,800-HP loose pages appear at 50%; the boss remains vulnerable."
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Healers and control",
+      "tips": [
+        "With the scribe alive, Forbidden Chapter is an interruptible six-second cast every 30 seconds.",
+        "A missed interrupt deals a 225 cold damage party pulse. Killing the scribe is a class-independent way to suppress it."
       ]
     }
   ],
   "phases": [
     {
-      "id": "choose",
-      "label": "Erase a chapter",
-      "trigger": "Before the pull",
-      "description": "Erase Cold, Silence or Hunger. Only the other two mechanics are active."
+      "id": "scribe",
+      "label": "Optional preclear",
+      "trigger": "Before or during Ezzelin",
+      "description": "Defeat the Silencing Scribe in the side library to suppress Forbidden Chapter. Its death is saved."
     },
     {
-      "id": "revision",
-      "label": "A chance to revise",
-      "trigger": "50% health",
-      "description": "Ezzelin pauses attacking for ten seconds and reopens the books. Keep or replace the erased chapter."
-    },
-    {
-      "id": "conclusion",
-      "label": "Finish the surviving text",
-      "trigger": "After the revision window",
-      "description": "Continue handling the two active chapters. Defeat Ezzelin to unlock the servants' mirror."
+      "id": "archivist",
+      "label": "Ezzelin",
+      "trigger": "Pull the named when ready",
+      "description": "Tank the archivist, handle his two loose pages at half health, and interrupt his cold cast if the scribe still lives. No health gate stops damage."
     }
   ],
   "abilities": [
     {
-      "id": "cold",
-      "name": "Chapter of Cold",
-      "summary": "Prepare for a resistible 225-damage cold pulse.",
+      "id": "chapter",
+      "name": "Forbidden Chapter",
+      "summary": "Kill the scribe or interrupt the cast.",
       "description": [
-        "The two active chapters alternate on an 18-second cadence, so each returns every 36 seconds. Cold gives a six-second warning before its pulse. Erasing Cold removes it."
+        "While the Silencing Scribe lives, Ezzelin starts a six-second cast every 30 seconds. Completion deals a 225 cold damage party pulse.",
+        "Killing the scribe cancels an active cast and permanently suppresses subsequent casts in this expedition. Failed persistence leaves the scribe at one HP and retains the ability until the kill can be saved."
       ],
       "tags": [
-        "Cold",
-        "Healing"
+        "Support mob",
+        "Interruptible"
       ],
       "roles": [
         "everyone"
@@ -86,30 +88,11 @@
       ]
     },
     {
-      "id": "silence",
-      "name": "Chapter of Silence",
-      "summary": "The marked non-tank has six seconds before a two-second silence.",
+      "id": "pages",
+      "name": "Unbound Pages",
+      "summary": "Kill or control two loose pages.",
       "description": [
-        "The warning recurs on the Silence turn in the 18-second alternating sequence. Erase Silence to remove it. The brief silence does not replace the warning."
-      ],
-      "tags": [
-        "Six-second warning",
-        "Silence"
-      ],
-      "roles": [
-        "everyone"
-      ],
-      "spell_ids": [
-        50918
-      ]
-    },
-    {
-      "id": "hunger",
-      "name": "Chapter of Hunger",
-      "summary": "Handle two 2,500-health paper shades.",
-      "description": [
-        "While Hunger is active, a shade wave appears on its turn in the 18-second alternating sequence. Ordinary root and mez work on these adds.",
-        "The surviving chapters alternate every 18 seconds; each chapter therefore recurs every 36 seconds."
+        "Ezzelin summons two 1,800-HP pages once at 50% health. The spectral pages are ordinary adds. Killing the archivist ends the encounter even if they remain alive."
       ],
       "tags": [
         "Adds",
@@ -137,10 +120,21 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
       ],
       "bullets": [],
       "items": []
@@ -187,7 +181,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -228,11 +222,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

@@ -14,76 +14,70 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Ring an available dinner bell, leave its lane and bait the blind hunter through the ghostly oven flame.",
+  "summary": "Remove Gorveth's slow immunity by killing the Starvation Tender, then avoid his stomp.",
   "overview": [
-    "Gorveth follows sound through three fixed dinner-bell lanes. Most attacks against his Starved Hide are weakened; a correctly baited charge opens a short damage window.",
-    "Choose the bell together, then move clear. The used bell rests for one cycle, so rotate between the remaining lanes."
+    "The Starvation Tender in the side dining area protects Gorveth from slows. Killing it before or during the fight removes that immunity for the rest of the expedition.",
+    "Gorveth is a direct melee named with an announced stomp and a modest late-fight melee increase. There are no bells to click or hide phases to expose."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Read the announced lane and leave it before the charge resolves.",
-        "Use the available bells, not an equipment item from the loot table."
-      ]
-    },
-    {
-      "id": "caller",
-      "label": "Bell caller",
-      "tips": [
-        "Ring an available bell during the six-second listening window.",
-        "Choose a lane that carries Gorveth through its furnace flame.",
-        "Allow the additional six-second charge warning before moving back in."
-      ]
-    },
-    {
-      "id": "damage",
-      "label": "Damage and control",
-      "tips": [
-        "Use damage cooldowns after a successful charge strips the hide.",
-        "Control hunger shades from missed charges."
+        "The leader chooses [begin] at the Echo Guide. Say [status] for the current combat objective.",
+        "Pull when ready. Named abilities begin when the boss is engaged."
       ]
     },
     {
       "id": "tank",
       "label": "Tank",
       "tips": [
-        "Expect Gorveth to stop ordinary melee while preparing his charge.",
-        "Reestablish the fight after his brief stun without standing in the lane."
+        "Choose whether to pull the 2,800-HP Starvation Tender first.",
+        "Step out of the marked stomp or help interrupt it."
+      ]
+    },
+    {
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Gorveth takes ordinary damage throughout the fight.",
+        "Below 35% health, his melee rises ten percent."
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Healers and control",
+      "tips": [
+        "The tender's death removes native slow immunity. Normal spell resistance and the boss's existing slow mitigation still apply.",
+        "Heal through a missed 350 physical damage stomp; interrupts and movement can avoid it."
       ]
     }
   ],
   "phases": [
     {
-      "id": "hunt",
-      "label": "The starving hunter",
-      "trigger": "Between charge cycles",
-      "description": "Starved Hide reduces incoming damage to 60% of normal. Fight while preparing the next bell choice."
+      "id": "tender",
+      "label": "Optional preclear",
+      "trigger": "Before or during Gorveth",
+      "description": "Kill the Starvation Tender to remove slow immunity. The named can be pulled with the tender alive."
     },
     {
-      "id": "listen",
-      "label": "He is listening",
-      "trigger": "Every 30 seconds",
-      "description": "Gorveth pauses for six seconds while a player rings an available bell. The chosen lane then receives a further six-second warning."
-    },
-    {
-      "id": "exposed",
-      "label": "Flame through the hide",
-      "trigger": "A charge crosses the correct flame",
-      "description": "The successful charge stuns Gorveth for two seconds and removes Starved Hide for 15 seconds."
+      "id": "golem",
+      "label": "Gorveth",
+      "trigger": "Pull when ready",
+      "description": "Fight the named normally. A six-second stomp warning recurs every 30 seconds. Below 35%, Gorveth hits ten percent harder."
     }
   ],
   "abilities": [
     {
-      "id": "starved-hide",
-      "name": "Starved Hide",
-      "summary": "A successful bait opens the full-damage window.",
+      "id": "ward",
+      "name": "Starvation Ward",
+      "summary": "Kill the tender to permit slows.",
       "description": [
-        "Gorveth otherwise takes 60% of normal damage. Continue fighting, but plan stronger attacks for the 15-second exposure."
+        "The living tender grants Gorveth native slow immunity. Its saved death removes that immunity immediately and keeps it removed after a wipe or reload. Other normal boss protections remain."
       ],
       "tags": [
-        "Damage window"
+        "Support mob",
+        "Immunity"
       ],
       "roles": [
         "everyone"
@@ -91,24 +85,37 @@
       "spell_ids": []
     },
     {
-      "id": "dinner-bell",
-      "name": "Dinner Bell",
-      "summary": "Ring one available bell and clear its marked lane.",
+      "id": "stomp",
+      "name": "Ravenous Stomp",
+      "summary": "Interrupt or leave the 12-pace circle.",
       "description": [
-        "The used bell is unavailable for one cycle. Failing to ring an available bell leaves the hide intact and creates a hunger shade.",
-        "Standing in the charge lane causes 350 physical damage and a short displacement to a safe point. Cold resistance does not answer a physical charge."
+        "Every 30 seconds, Gorveth pauses his melee and begins a six-second interruptible stomp. The circle is fixed at his casting position.",
+        "A completed stomp deals 350 physical damage to players inside the circle through the native physical-damage path."
       ],
       "tags": [
-        "Six-second warning",
-        "Lane",
-        "Physical failure"
+        "Physical damage",
+        "Positioning",
+        "Interruptible"
       ],
       "roles": [
         "everyone"
       ],
-      "spell_ids": [
-        50915
-      ]
+      "spell_ids": []
+    },
+    {
+      "id": "hunger",
+      "name": "Ravenous Hunger",
+      "summary": "Finish the fight through a modest melee increase.",
+      "description": [
+        "Below 35% health, Gorveth gains ten percent melee damage. This does not halt damage or create another objective."
+      ],
+      "tags": [
+        "Melee"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
     }
   ],
   "sections": [
@@ -127,10 +134,21 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
       ],
       "bullets": [],
       "items": []
@@ -177,7 +195,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -218,11 +236,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

@@ -14,105 +14,94 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Carry two vow rings to the opposite spouses and finish the handoffs within eight seconds of each other.",
+  "summary": "Defeat the Ceremony Warders, then break Orsella's wedding through combat.",
   "overview": [
-    "Orsella is forcing Daman and Nosja to repeat a ceremony neither can leave. At two protected health gates, two different players must cross the chapel with assigned vow rings.",
-    "The spouses supply the temporary rings. Choose two runners and let them call their arrival; speed alone is less useful than a synchronized exchange."
+    "Two Ceremony Warders keep the wedding suspended. Kill them in the chapel to release Celebrant Orsella, then pull her when ready.",
+    "The marriage still resists its end, but its answer is now a named fight: handle wedding ushers and interrupt the vow when possible. There are no rings, synchronized deliveries or invulnerability phases."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Choose two different ring runners before the pull.",
-        "Control ushers and preserve room for the runners to cross.",
-        "Do not expect burst damage to bypass either vow."
-      ]
-    },
-    {
-      "id": "runner",
-      "label": "Ring runners",
-      "tips": [
-        "Take a ring from one spouse and deliver it to the other.",
-        "Complete the two-second interaction, then ensure the second runner finishes within eight seconds.",
-        "If a carrier is lost, the ring returns to its source and a replacement must restart the pair."
+        "The leader chooses [begin] at the Echo Guide. Say [status] for the current combat objective.",
+        "Pull when ready. Named abilities begin when the boss is engaged."
       ]
     },
     {
       "id": "tank",
       "label": "Tank",
       "tips": [
-        "Keep Orsella occupied during her shielded vow.",
-        "Her vow melee is reduced to 70% of normal, but ordinary attacks continue."
+        "Kill the two 3,000-HP Ceremony Warders to release the named.",
+        "Pick up the two ushers summoned at half health."
       ]
     },
     {
-      "id": "healer",
+      "id": "damage",
+      "label": "Damage dealers",
+      "tips": [
+        "Keep attacking Orsella. Her vow cast does not make her invulnerable.",
+        "Kill or control the 2,500-HP ushers."
+      ]
+    },
+    {
+      "id": "support",
       "label": "Healers and control",
       "tips": [
-        "Keep runners alive and control the two ushers.",
-        "Prepare for the failure pulse if the vow expires."
+        "Interrupt Unbroken Vow when possible. The six-second cast recurs every 36 seconds.",
+        "A completed vow deals a 450 magic damage party pulse; it does not reset the fight."
       ]
     }
   ],
   "phases": [
     {
-      "id": "first-refusal",
-      "label": "The first forced vow",
-      "trigger": "75% health",
-      "description": "Orsella shields herself and starts a 30-second vow. Complete the paired exchange to break the shield."
+      "id": "warders",
+      "label": "Ceremony Warders",
+      "trigger": "Before Orsella appears",
+      "description": "Kill both chapel warders. Each death is saved, so a later wipe does not repeat this preparation."
     },
     {
-      "id": "second-refusal",
-      "label": "The final forced vow",
-      "trigger": "40% health",
-      "description": "Repeat the paired exchange. The required gate cannot be skipped by pets, spells or heavy hits."
-    },
-    {
-      "id": "choice",
-      "label": "Their own words",
-      "trigger": "Orsella is defeated",
-      "description": "The spouses can refuse freely and the route to floor six opens."
+      "id": "celebrant",
+      "label": "Orsella",
+      "trigger": "Both warders are dead",
+      "description": "Tank the celebrant, handle the two ushers at 50% and interrupt her vow cast or heal through its pulse. Her death ends the wedding."
     }
   ],
   "abilities": [
     {
-      "id": "paired-rings",
-      "name": "The Paired Rings",
-      "summary": "Two different carriers must finish within eight seconds.",
+      "id": "vow",
+      "name": "Unbroken Vow",
+      "summary": "Interrupt the six-second vow.",
       "description": [
-        "Each ring has a specific source and destination spouse. A carrier cannot finish the other ring's assignment.",
-        "Each delivery takes two seconds; movement or incoming damage interrupts the interaction. After the first completion, the spouse counts down the eight-second synchronization window. If that window expires, both rings return without an immediate failure pulse; the full 30-second vow still has to be answered."
+        "Every 36 seconds, Orsella begins a six-second interruptible cast. Completion deals 450 magic damage to the party.",
+        "A missed interrupt is a healing challenge, not a failed delivery or a ceremony reset."
       ],
       "tags": [
-        "Required objective",
-        "Paired interaction"
-      ],
-      "roles": [
-        "everyone"
-      ],
-      "spell_ids": []
-    },
-    {
-      "id": "the-forced-vow",
-      "name": "The Forced Vow",
-      "summary": "Complete the exchange before the 30-second vow expires.",
-      "description": [
-        "A successful exchange removes the shield and grants the group a 100-point physical rune for 12 seconds.",
-        "Failure causes a 450-damage pulse, clears the assignments and permits another attempt after 15 seconds. It does not require permanent items or a fresh boss pull.",
-        "A dead, disconnected or departed carrier loses the assignment immediately. Any partial synchronized completion is canceled so another pair can try."
-      ],
-      "tags": [
-        "Shield gate",
-        "Recoverable failure"
+        "Interruptible",
+        "Party damage"
       ],
       "roles": [
         "everyone"
       ],
       "spell_ids": [
-        50909,
-        50916
+        50909
       ]
+    },
+    {
+      "id": "ushers",
+      "name": "Wedding Ushers",
+      "summary": "Handle one pair of adds.",
+      "description": [
+        "Two 2,500-HP ushers join once at 50% health. They can be killed or controlled; the celebrant remains vulnerable."
+      ],
+      "tags": [
+        "Adds",
+        "Crowd control"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
     }
   ],
   "sections": [
@@ -131,10 +120,21 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
       ],
       "bullets": [],
       "items": []
@@ -181,7 +181,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -222,11 +222,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

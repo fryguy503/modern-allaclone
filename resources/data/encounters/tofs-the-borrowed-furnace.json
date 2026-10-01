@@ -14,119 +14,101 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Balance the furnace with shared valves while destroying conduits that pull its pressure toward safety.",
+  "summary": "Clear the route guards, then kill or control the conduit that powers the Cinderlain.",
   "overview": [
-    "The two sixth-floor wings feed one furnace. Clear its preparation in the lower wing, then fight the Cinderlain in the upper room with both controls available beside the battle.",
-    "The pressure gauge begins at 50. Keep it between 30 and 70 by choosing the correct valve, and prepare for the announced heat feed every 40 seconds. One operator can lead the calls, but any eligible player can use the controls."
+    "Defeat the two route guards to open the opposite furnace wing. The Cinderlain's Brittle Conduit supplies both Furnace Breath and fifteen percent extra melee. Kill the conduit before or during the fight to disable those powers permanently, or control it temporarily.",
+    "The named fight uses target selection, interrupts and ordinary damage. There is no pressure meter or valve operation."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Read the pressure value and the announced direction change.",
-        "Do not use a valve simply because its cooldown has ended; decide whether pressure needs to rise or fall."
+        "The leader chooses [begin] at the Echo Guide. Say [status] for the current combat objective.",
+        "Pull when ready. Named abilities begin when the boss is engaged."
       ]
     },
     {
-      "id": "operator",
-      "label": "Valve operator",
+      "id": "tank",
+      "label": "Tank",
       "tips": [
-        "Cold lowers pressure by 20; Heat raises it by 20.",
-        "Each interaction takes two seconds, and both valves share a ten-second lock.",
-        "Compensate for the direction change every 30 seconds."
+        "Kill the two 6,000-HP guards, cross the mirror and pull when ready.",
+        "Choose whether to pull the 3,000-HP conduit before the named."
       ]
     },
     {
       "id": "damage",
       "label": "Damage dealers",
       "tips": [
-        "Kill brittle conduits to move pressure ten points toward 50.",
-        "At most two conduits remain alive; use them when the operator is occupied."
+        "Destroy the conduit to remove Furnace Breath and the melee bonus for this expedition.",
+        "Root, mez or stun it for temporary suppression. The powers return if control expires."
       ]
     },
     {
-      "id": "tank",
-      "label": "Tank and healers",
+      "id": "support",
+      "label": "Healers and control",
       "tips": [
-        "At either extreme, expect 10% extra boss melee until pressure returns to the safe band.",
-        "Extreme cold or heat also pulses every six seconds."
+        "While a free conduit survives, Furnace Breath is an interruptible six-second cast every 36 seconds.",
+        "A completed breath deals a 200 fire damage party pulse. Killing or controlling the conduit cancels a pending breath."
       ]
     }
   ],
   "phases": [
     {
-      "id": "conduits",
-      "label": "Expose the controls",
-      "trigger": "Floor 6A preparation",
-      "description": "Clear the conduit guards before advancing to the upper furnace. This is preparation for one boss, not a second equipment encounter."
+      "id": "guards",
+      "label": "Route guards",
+      "trigger": "Before the furnace wing opens",
+      "description": "Defeat both guards. Their kills are saved and unlock the opposite wing."
     },
     {
-      "id": "pressure",
-      "label": "Keep the borrowed years in balance",
-      "trigger": "Cinderlain combat begins",
-      "description": "Pressure starts at 50 and trends five points every six seconds toward the announced heat or cold direction. The direction changes every 30 seconds."
+      "id": "supply",
+      "label": "Optional preclear",
+      "trigger": "Before or during the named",
+      "description": "Kill the Brittle Conduit to remove the named's breath and melee bonus permanently. Controlling it temporarily suppresses both powers."
     },
     {
-      "id": "released-years",
-      "label": "The furnace falls silent",
-      "trigger": "The Cinderlain is defeated",
-      "description": "The furnace releases its stolen years and the summit mirror opens."
+      "id": "cinderlain",
+      "label": "The Cinderlain",
+      "trigger": "Pull in the furnace wing",
+      "description": "Tank and defeat the named. Its ability clock waits for an actual pull, so travel across the floor does not run its spells."
     }
   ],
   "abilities": [
     {
-      "id": "pressure-gauge",
-      "name": "Furnace Pressure",
-      "summary": "Maintain the 30 to 70 safe band.",
+      "id": "supply",
+      "name": "Brittle Conduit",
+      "summary": "Remove the source of two boss powers.",
       "description": [
-        "At 20 or lower, cold pulses for 200 damage every six seconds; at 80 or higher, fire pulses for 200. At either extreme the boss gains 10% melee damage until the gauge returns to the safe band.",
-        "The gauge remains recoverable even at its limits. Correct the direction rather than abandoning an otherwise viable attempt."
+        "The conduit has 3,000 HP. While alive and uncontrolled, it grants fifteen percent extra melee and enables Furnace Breath.",
+        "Its saved death keeps both powers disabled after a wipe. Crowd control suppresses them only for the duration of that control."
       ],
       "tags": [
-        "Shared resource",
-        "Fire and cold"
+        "Support mob",
+        "Crowd control"
+      ],
+      "roles": [
+        "everyone"
+      ],
+      "spell_ids": []
+    },
+    {
+      "id": "breath",
+      "name": "Furnace Breath",
+      "summary": "Interrupt or suppress the supply.",
+      "description": [
+        "Every 36 seconds while the conduit is free, the Cinderlain begins a six-second interruptible cast. A completed cast deals a 200 fire damage party pulse.",
+        "Killing or controlling the conduit cancels the current breath; there is no valve channel or pressure threshold."
+      ],
+      "tags": [
+        "Interruptible",
+        "Fire damage"
       ],
       "roles": [
         "everyone"
       ],
       "spell_ids": [
-        50904,
         50907
       ]
-    },
-    {
-      "id": "paired-valves",
-      "name": "Cold and Heat Valves",
-      "summary": "Use the two-second interaction on the valve that moves pressure toward 50.",
-      "description": [
-        "The Cold valve lowers pressure by 20 and the Heat valve raises it by 20. Their ten-second lock is shared.",
-        "The controls are in the boss arena. Required valve use does not send the party into another wing during combat."
-      ],
-      "tags": [
-        "Interaction",
-        "Shared cooldown"
-      ],
-      "roles": [
-        "everyone"
-      ],
-      "spell_ids": []
-    },
-    {
-      "id": "brittle-conduits",
-      "name": "Brittle Conduits",
-      "summary": "Destroy a conduit for a correction toward the center.",
-      "description": [
-        "Every 40 seconds, the furnace announces a heat feed with six seconds to respond, then adds 20 pressure. The cycle also creates a brittle conduit when fewer than two are alive. Defeating a conduit shifts pressure ten points toward 50."
-      ],
-      "tags": [
-        "Adds",
-        "Resource recovery"
-      ],
-      "roles": [
-        "everyone"
-      ],
-      "spell_ids": []
     }
   ],
   "sections": [
@@ -145,10 +127,21 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
       ],
       "bullets": [],
       "items": []
@@ -195,7 +188,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -236,11 +229,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",

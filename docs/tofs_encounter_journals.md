@@ -66,8 +66,13 @@ release instructions, then release these journal documents through the normal
 Library process. Review and update a document's text before refreshing hashes
 after a mechanics change.
 
-The September 30 first-floor update documents stationary numbered witnesses,
-explicit `[take ember]`, `[warm]` and `[light]` actions, objective help through
-`[ember]`, separated shade spawns, safe crowd-control completion, and a
-ten-second boss handoff warning. The original rescue counter remains valid;
-players resume their next saved witness after reloading the active instance.
+The September 30 traditional group revision replaces lanterns, witnesses,
+book choices, bells, vessels, rings and valves with named fights. Required
+warders awaken bosses; optional support kills suppress spells or remove slow
+immunity. Journals describe pulling, saved kills, interruptible casts and
+ordinary damage throughout each group fight. The summit uses one initial
+non-tank mark, rising to two after both future thresholds, with a 30-second
+recording check. All seven group documents were reconciled against the current
+mechanics before their source hashes were refreshed.
+
+The ambient population follow-up adds independent inhabitants and native patrols to both expedition versions. All twelve journals distinguish these mobs from named warders and support targets, explain invisibility/undead detection and respawn behavior, and include the new population module in their reviewed source hashes.

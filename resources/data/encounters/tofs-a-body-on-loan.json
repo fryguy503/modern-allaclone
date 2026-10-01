@@ -14,78 +14,64 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Follow the visible stolen heart as it moves between bodies, and stop attacking the empty vessels.",
+  "summary": "Tank Sister Nhaliss, control her grave spirits and deny Soul Harvest.",
   "overview": [
-    "Nhaliss borrows bodies from the crypt, but all of them share one stolen life. Only the Heart-Bearing Vessel can be damaged. Follow its name and visible heart instead of a familiar model.",
-    "Empty bodies do not reflect damage. The danger is staying on the wrong target long enough to awaken grave hands."
+    "Sister Nhaliss now fights in one body. At 65% and 30% health she calls grave spirits to sustain her borrowed life. Kill or control them, or interrupt Soul Harvest, to deny the healing.",
+    "The party can keep attacking Nhaliss throughout combat. There is no vessel switching, wrong-target punishment or shared-heart chase."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Find the Heart-Bearing Vessel after every transfer.",
-        "Respond to the six-second warning and stop attacking a vessel when it becomes empty.",
-        "Keep the fight within the crypt encounter area."
+        "The leader chooses [begin] at the Echo Guide. Say [status] for the current combat objective.",
+        "Pull when ready. Named abilities begin when the boss is engaged."
       ]
     },
     {
       "id": "tank",
-      "label": "Tanks",
+      "label": "Tank",
       "tips": [
-        "Acquire the new heart-bearing body promptly.",
-        "Keep grave hands away from support."
+        "Tank Nhaliss and pick up up to two grave spirits.",
+        "The boss always accepts ordinary damage."
       ]
     },
     {
       "id": "damage",
-      "label": "Damage and pet users",
+      "label": "Damage dealers",
       "tips": [
-        "Call the current target and retarget pets after each transfer.",
-        "Allow for the short grace period, but do not leave automatic attacks on empty bodies."
+        "Kill the 2,200-HP spirits or control them to stop their healing contribution.",
+        "Each health threshold summons a wave only once; surviving spirits cap the total at two."
       ]
     },
     {
-      "id": "control",
-      "label": "Control and healers",
+      "id": "support",
+      "label": "Healers and control",
       "tips": [
-        "Root or mez grave hands while the group finds the heart.",
-        "The extra body at half health adds another possible location, not another boss reward."
+        "Interrupt the six-second Soul Harvest cast if spirits remain.",
+        "Each free spirit restores 1,000 boss health. Rooted, mezzed or stunned spirits contribute nothing."
       ]
     }
   ],
   "phases": [
     {
-      "id": "three-vessels",
-      "label": "A heart among three bodies",
-      "trigger": "100% to 50% shared health",
-      "description": "Every 25 seconds, a six-second warning precedes a heart transfer. Only the named heart-bearing body accepts damage."
-    },
-    {
-      "id": "four-vessels",
-      "label": "Another borrowed body",
-      "trigger": "50% shared health",
-      "description": "A fourth body joins the rotation. Continue tracking the one visible heart."
-    },
-    {
-      "id": "remains",
-      "label": "The borrowed life ends",
-      "trigger": "The shared health pool is depleted",
-      "description": "Only the designated remains award loot; the other bodies disappear. The wedding route opens."
+      "id": "sister",
+      "label": "Nhaliss",
+      "trigger": "Pull when ready",
+      "description": "Fight one named. Two spirits are called at 65% and again at 30%, with a maximum of two surviving spirits. These are soft combat mechanics; they never block the boss's death."
     }
   ],
   "abilities": [
     {
-      "id": "heart-transfer",
-      "name": "Heart Transfer",
-      "summary": "Retarget the named Heart-Bearing Vessel.",
+      "id": "spirits",
+      "name": "Grave Spirits",
+      "summary": "Kill or control the healing sources.",
       "description": [
-        "The transfer warning lasts six seconds. The arriving body carries the visible heart, while the others are named Empty Vessel.",
-        "The bodies share one health pool. Killing an unrelated empty body cannot bypass the encounter."
+        "Each spirit has 2,200 HP. They use normal crowd-control rules. The two threshold waves are not repeated when healing pushes the named back above a threshold."
       ],
       "tags": [
-        "Six-second warning",
-        "Target switch"
+        "Adds",
+        "Crowd control"
       ],
       "roles": [
         "everyone"
@@ -93,17 +79,16 @@
       "spell_ids": []
     },
     {
-      "id": "empty-vessels",
-      "name": "Empty Vessels",
-      "summary": "Stop striking an empty body before its grace period ends.",
+      "id": "harvest",
+      "name": "Soul Harvest",
+      "summary": "Interrupt the cast or remove its sources.",
       "description": [
-        "Four seconds after the transfer warning resolves, continuing attacks on an empty body can awaken a 2,500-health grave hand.",
-        "Each offending empty vessel can create only one hand per transfer. Hands are controllable; empty bodies neither take damage nor reflect it."
+        "Every 30 seconds while grave spirits remain, Nhaliss begins a six-second interruptible cast. On completion, each living uncontrolled spirit restores 1,000 health, up to the named's maximum.",
+        "Dead or controlled spirits contribute no healing. No particular class or ritual item is required."
       ],
       "tags": [
-        "Adds",
-        "Crowd control",
-        "Pet control"
+        "Healing",
+        "Interruptible"
       ],
       "roles": [
         "everyone"
@@ -127,10 +112,21 @@
       "id": "recovery-and-warnings",
       "title": "Warnings and recovery",
       "paragraphs": [
-        "Read Event Messages and use the named encounter actors. Color and visual effects supplement the instructions; no required answer depends on recognizing a color alone. Keep the fight and its support inside the current encounter area.",
-        "Evacuation returns eligible party members to the entrance of this same expedition. Gate and spells that transport you out of the tower remain available; reenter through the keeper while your expedition and membership remain valid. Binding, shadow steps, summons and transport within the tower cannot bypass its mirrors.",
-        "A wipe restores the active boss and its attempt-only objectives. Previously completed encounters and route objectives remain completed. Cleared bosses cannot be repeated for another reward during the same expedition.",
-        "The expedition supplies the temporary tools needed for each mechanic. No random equipment reward or particular class is required to perform an interaction."
+        "Read the named cast warnings and say [status] for the current objective. The leader chooses [begin] at the Echo Guide, then the party pulls when ready. Boss abilities begin on engagement; a completed disengage resets the attempt.",
+        "Defeated prerequisite warders and optional support mobs are saved before their deaths are accepted. A wipe or reload retains these kills, previously won floors, paid admission and replay deadlines. Cleared bosses cannot be repeated for another reward during this expedition.",
+        "The group floors require no carried tools, book choices, bells, rings or valves. Ordinary tower keys and movement shortcuts still cannot bypass the event mirrors. Every group boss retains one of its four equipment rewards and its independent splinter roll.",
+        "Root, mez and stun can help with ordinary adds. Interrupting a named is optional; when a cast is missed, the party can move or heal as described. No random loot item is required to perform a mechanic."
+      ],
+      "bullets": [],
+      "items": []
+    },
+    {
+      "id": "ambient-population",
+      "title": "Tower inhabitants",
+      "paragraphs": [
+        "Ordinary inhabitants populate the unlocked floors independently of this encounter. Each floor or wing has six stationary inhabitants and two native patrols. Most see normal invisibility, many are genuinely undead, and nearby inhabitants can assist one another.",
+        "Killing these ambient mobs does not complete named objectives, open mirrors, remove named protections or award boss equipment or progression items. Follow the named warder/support instructions separately.",
+        "Ambient mobs can be rooted, mezzed, stunned or snared. Their saved 30-minute respawns wait near living players and during an engaged named fight on that floor. Native undead-targeted spells and invisibility-versus-undead detection use their actual body types."
       ],
       "bullets": [],
       "items": []
@@ -177,7 +173,7 @@
   ],
   "sources": {
     "reviewed_at": "2026-09-30",
-    "revision": "983fa7c0b15d63fb1c1fb21426fd83d570416122",
+    "revision": "a84e4ce420dbb0b60686439c1edf5a2008147483",
     "verification": "source-reviewed",
     "files": [
       {
@@ -218,11 +214,15 @@
       },
       {
         "path": "lua_modules/tofs_mechanics.lua",
-        "sha256": "a10a72d76ab8dfa722ca95738ac14499086762ae51fbe37b46d0c57b8cc7ac50"
+        "sha256": "98e9823e28fc980b0e74ae7064ab00ad252e9076fae744fe1130be5d1b2482b1"
+      },
+      {
+        "path": "lua_modules/tofs_population.lua",
+        "sha256": "09c14e94c1e0e19fc1ddf8c6af93df00aec5756403c6dfbd4a77b14a215f7385"
       },
       {
         "path": "lua_modules/tofs_runtime.lua",
-        "sha256": "35d0a3ea70a067fdac5fbe512164dbf7ed6a8d27ce1e36951cbb264a606b0356"
+        "sha256": "0451f5904c80ebaece37eedb2e4d2a50573f8d7fd41a5742c5b9e584be1f0b9e"
       },
       {
         "path": "lua_modules/tofs_store.lua",
