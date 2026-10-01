@@ -6,7 +6,7 @@
   "type": "raid",
   "zone": {
     "short_name": "takishruinsa",
-    "name": "The Sandkeep",
+    "name": "The Root of Ro",
     "version": 1
   },
   "npc_ids": [
@@ -17,65 +17,208 @@
   ],
   "status": "published",
   "spoiler": false,
-  "summary": "Survive Sandkeep's endlessly replenished enemy field and earn enduring checkpoints through sustained pressure.",
+  "summary": "Hold off Sandkeep's replenishing army for 70 minutes. Each full minute earns one reward model, reaching Model LXX at victory. There is no minimum DPS requirement.",
   "overview": [
-    "Survive Sandkeep's endlessly replenished enemy field and earn enduring checkpoints through sustained pressure."
+    "This is a survival encounter, not a boss-kill race. Control Eothar, manage the returning adds, and keep your raid alive while the army grows stronger.",
+    "Rewards advance once per full minute survived. A shorter attempt keeps its completed models; surviving all 70 minutes earns Model LXX and ends the battle with a raid and server-wide victory announcement.",
+    "Everyone alive and present when the encounter begins keeps credit for the raid's progress, even after dying or leaving the zone. Arriving later does not add a player to the starting roster."
   ],
   "roles": [
     {
       "id": "everyone",
       "label": "Everyone",
       "tips": [
-        "Distribute add control across the field and keep steady damage through each pressure window.",
-        "Treat Eothar as an anchor to control, not a kill target."
+        "Be inside the instance and ready before choosing Begin. The expedition locks as combat starts, so you cannot leave for mana recovery and re-enter during the attempt.",
+        "Keep at least half the living enemies engaged. There is no damage quota, but leaving most of the army unattended eventually ends the attempt.",
+        "Keep more than half the starting raid alive and in the zone. Deaths and departures count toward the same failure condition."
+      ]
+    },
+    {
+      "id": "tanks",
+      "label": "Tanks",
+      "tips": [
+        "Assign a tank to Eothar. He cannot be killed, so control him rather than spending raid damage on him.",
+        "Spread add assignments across the field and pick up replacements quickly. Defeated adds return after 12 seconds."
+      ]
+    },
+    {
+      "id": "healers",
+      "label": "Healers",
+      "tips": [
+        "Plan healing and mana use for a long fight. Melee pressure increases each minute.",
+        "Cure curses and poisons, and watch for golem stuns and resource drains."
+      ]
+    },
+    {
+      "id": "damage-control",
+      "label": "Damage and add control",
+      "tips": [
+        "Kill the efreeti, golems, and dervishes to reduce immediate pressure, then prepare for their replacements.",
+        "Coordinate with tanks so living enemies stay engaged. Dead enemies waiting to respawn do not count against the raid."
       ]
     }
   ],
   "phases": [
     {
-      "id": "phase-1",
-      "label": "Warmup",
-      "trigger": "Activation",
-      "description": "Establish control of the enemy field during the opening 30 seconds."
+      "id": "preparation",
+      "label": "Prepare the raid",
+      "trigger": "Before choosing Begin",
+      "description": "Enter through Dougan's Ready option, gather near Rayna or the battlefield, and assign tanks and healers. The survival clock starts only when Begin is chosen."
     },
     {
-      "id": "phase-2",
-      "label": "Pressure",
-      "trigger": "After warmup",
-      "description": "Meet each 12-second quota; five qualified windows earn the next checkpoint."
+      "id": "hold-the-line",
+      "label": "Hold the line",
+      "trigger": "Begin through 69:59",
+      "description": "The expedition locks and the 27-enemy field awakens. Each full minute survived earns the next model. Adds return after death, and enemy health, melee damage, and attack strength increase over time."
     },
     {
-      "id": "phase-3",
-      "label": "Recovery",
-      "trigger": "A missed pressure quota",
-      "description": "Restore sufficient pressure during the 24-second recovery window or the expedition fails."
+      "id": "victory",
+      "label": "Sandkeep conquered",
+      "trigger": "70:00 survived",
+      "description": "Model LXX is earned, combat ends, and the victory is announced to the raid and server. The army withdraws after three seconds. Entry reopens for corpse recovery once the battlefield is cleared; another attempt requires a new expedition."
     }
   ],
-  "abilities": [],
+  "abilities": [
+    {
+      "id": "complex-gravity",
+      "name": "Complex Gravity",
+      "summary": "Eothar applies a curse that slows movement and drains resources.",
+      "description": [
+        "Keep Eothar controlled and use curse cures to relieve the debuff. He is an unkillable anchor, not the encounter's victory target."
+      ],
+      "tags": ["Curse", "Movement", "Resource drain"],
+      "roles": ["everyone", "tanks", "healers"],
+      "spell_ids": [6424]
+    },
+    {
+      "id": "curse-of-the-lich",
+      "name": "Curse of the Lich",
+      "summary": "The efreeti share a reduced, short-duration curse attack.",
+      "description": [
+        "All four efreeti share a 45-60 second cooldown, including replacement spawns. Their curse expires after 18 seconds and can deal at most three damage ticks.",
+        "The encounter reduces this spell's HP damage to one quarter of its original tuning. Its scripted ticks deal 125 base damage each before the global damage setting. Mana and endurance drains still matter, and the curse can be cured."
+      ],
+      "tags": ["Curse", "Damage over time", "Resource drain"],
+      "roles": ["everyone", "healers", "damage-control"],
+      "spell_ids": [7462]
+    },
+    {
+      "id": "whirling-smash",
+      "name": "Whirling Smash",
+      "summary": "Golems interrupt players with a damaging stun and resource drain.",
+      "description": [
+        "Keep healing coverage on golem tanks and be ready for disrupted casting. The encounter halves this spell's HP damage, but its other effects remain."
+      ],
+      "tags": ["Stun", "Resource drain"],
+      "roles": ["everyone", "tanks", "healers"],
+      "spell_ids": [5556]
+    },
+    {
+      "id": "dervish-venom",
+      "name": "Dervish venom",
+      "summary": "Dervishes use poison and movement-slowing attacks.",
+      "description": [
+        "Use poison cures and keep the dervishes controlled. Spell HP damage is halved for this encounter; movement effects can still make repositioning difficult."
+      ],
+      "tags": ["Poison", "Movement"],
+      "roles": ["everyone", "healers", "damage-control"],
+      "spell_ids": [12775, 11684]
+    }
+  ],
   "sections": [
     {
-      "id": "encounter-plan",
-      "title": "Encounter plan",
-      "paragraphs": [],
+      "id": "getting-started",
+      "title": "Getting started",
+      "paragraphs": [
+        "Request Sandkeep Endurance from Dougan Merule in South Ro. Requesting creates the expedition without zoning the raid in; each assigned member chooses Ready to enter The Root of Ro."
+      ],
       "bullets": [
-        "The captured raid contains 6 to 54 players. Eothar anchors a 27-enemy field with 26 killable enemies; defeated adds return after 12 seconds.",
-        "After a 30-second warmup, damage must satisfy repeated 12-second pressure windows. Five qualified windows advance the earned minute checkpoint.",
-        "A missed quota enters a 24-second recovery period; failing recovery ends the attempt.",
-        "Difficulty keeps increasing while earned reward checkpoints cap at model LXX. There is no conventional boss-kill victory.",
-        "A failed instance is terminal and requires a new expedition for another attempt."
+        "Gather 6 to 54 living players near Rayna or the battlefield, then choose Begin when the raid is ready.",
+        "All living players already in the instance are captured at the start, up to 54. Wait for everyone before beginning.",
+        "Entry is blocked while the attempt is active, including for assigned members who die or zone out."
+      ],
+      "items": []
+    },
+    {
+      "id": "enemy-field",
+      "title": "The enemy field",
+      "paragraphs": [
+        "Eothar anchors a field of 27 enemies: one unkillable Eothar, four efreeti, eight golems, and fourteen dervishes. The 26 killable enemies return 12 seconds after death."
+      ],
+      "bullets": [
+        "Distribute tanking and add control instead of concentrating the entire raid on Eothar.",
+        "Keep at least half the currently living enemies engaged with starting raid members or their pets. Other players do not satisfy this condition.",
+        "Dead adds waiting to respawn are excluded from the idle-enemy count."
+      ],
+      "items": []
+    },
+    {
+      "id": "failure-and-recovery",
+      "title": "Failure and corpse recovery",
+      "paragraphs": [
+        "There is no minimum DPS requirement, pressure window, or missed-DPS recovery phase. Failure is based on raid survival and leaving enemies unattended."
+      ],
+      "bullets": [
+        "The attempt ends if more than half the starting raid is dead or absent for five continuous seconds. Recovering to at least half alive and present resets that countdown.",
+        "If more than half the living enemies remain unattended, the raid receives a warning at 90 seconds and fails at 120 seconds. Re-engaging enough enemies resets the warning and countdown.",
+        "After failure, the enemies disappear after three seconds. Once cleanup finishes and entry reopens, assigned members can return through Dougan to recover corpses.",
+        "Completed reward models are retained. Neither a failed nor a victorious instance can restart the encounter; request a new expedition for another attempt."
+      ],
+      "items": []
+    },
+    {
+      "id": "difficulty",
+      "title": "How difficulty scales",
+      "paragraphs": [
+        "The starting raid size scales enemy health and melee damage. Larger raids must coordinate more pressure and healing rather than expecting the same enemies as a smaller force."
+      ],
+      "bullets": [
+        "Enemy AC rises with the captured roster, from 100 at six players to 400 at 54 players. It does not rise each minute.",
+        "Opening enemy health is eased for the first rewards. Health, regeneration, melee damage, and attack strength grow as the run continues; enemies remain level 60.",
+        "Endurance's authored melee damage is halved before raid-size and minute scaling. Most spell HP damage is halved, while Curse of the Lich HP damage is quartered.",
+        "Spell HP damage currently uses the global damage setting and encounter reductions, not the raid-size or elapsed-minute melee curve."
+      ],
+      "items": []
+    },
+    {
+      "id": "reward-progress",
+      "title": "Reward progress",
+      "paragraphs": [
+        "Each full minute survived earns one model: Model I at 1:00, Model X at 10:00, and the maximum Model LXX at 70:00. Partial minutes and post-fight cleanup do not earn another model."
+      ],
+      "bullets": [
+        "Progress is saved for the full starting roster, including members who later die, disconnect, or leave the zone. Those losses can still trigger encounter failure.",
+        "Your personal best never decreases. A shorter future attempt does not replace a higher result.",
+        "Recover your earned event abacus from the reward facilitator in the Plane of Knowledge. Move it into inventory and click it to claim your best recorded model.",
+        "Only one augment from each Living Legacy reward line may be owned. An existing augment from this line blocks another claim without consuming the abacus."
       ],
       "items": []
     }
   ],
-  "loot": [],
+  "loot": [
+    {
+      "title": "Reward token",
+      "description": "Recovered after earning at least Model I. Clicking the token requests the augment at your best recorded model.",
+      "items": [
+        { "id": 80498, "name": "Brass Clockwork Abacus", "quantity": 1 }
+      ]
+    },
+    {
+      "title": "Maximum reward",
+      "description": "Model LXX is earned by surviving the full 70-minute encounter. Shorter attempts retain their completed models instead.",
+      "items": [
+        { "id": 147631, "name": "Carefully Weighted Brass Pinion Model LXX [Bastion]", "quantity": 1 }
+      ]
+    }
+  ],
   "sources": {
-    "reviewed_at": "2026-09-29",
-    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "reviewed_at": "2026-10-01",
+    "revision": "b4e36d0fa69f696ceae414bf0bdd4d894e9ba83c",
     "verification": "source-reviewed",
     "files": [
       {
         "path": "takishruinsa/encounters/living_legacy_endurance.lua",
-        "sha256": "3a89776dc744b7af375f791b7db84db5211d1f5ac143259d2b2847863dbbd220"
+        "sha256": "b8f17892828efcce971c82cc248b12408a67f8ee5577977a7ba49ad260d1e833"
       },
       {
         "path": "takishruinsa/script_init.lua",
@@ -83,7 +226,7 @@
       },
       {
         "path": "lua_modules/living_legacy.lua",
-        "sha256": "53b1909d7c2552b7d3c42d28f198cab10aa5106617e695ce11af9c34fd916637"
+        "sha256": "92bf81b47f271766ae886a54090b8dd9204d30edc7f21a2b5e3c3e6e7bad82e5"
       },
       {
         "path": "sro/35180.lua",
@@ -91,16 +234,29 @@
       },
       {
         "path": "lua_modules/living_legacy_balance.lua",
-        "sha256": "959cc6cc1f55336ee00e422aa49bcd205e19aa09526c08bcdffbf8b91d83489a"
+        "sha256": "3a91f5a1b584fcbf0e6e78354c0370bff11e938a972c20b0e9f2b4a36b781da8"
       },
       {
         "path": "lua_modules/living_legacy_npc_refs.lua",
         "sha256": "1a8b8cb1670789236b5f262c29892d27afec6a332490ccd941cfdeb859b66a07"
+      },
+      {
+        "path": "sql/3_living_legacy.sql",
+        "sha256": "2606c8e60bd647ff01450241d398a8fc4b6cb894f3debb6387164e7ef263643a"
+      },
+      {
+        "path": "sql/6_living_legacy_expedition_templates.sql",
+        "sha256": "d5a6e9976314c7b81bb16c2d5a261cc141c7e9ab375548ce3ce64e99679e83d7"
+      },
+      {
+        "path": "sql/8_living_legacy_endurance_dev_update.sql",
+        "sha256": "83db7dd9117341c750680f7469808ea3d8dd6938cc3b425a600da4c1dee0abaa"
       }
     ],
     "notes": [
-      "Approval E340. Source review only; deployment, database spell lists and live balance have not been verified.",
-      "Encounter header and tuning comments require matching deployed SQL and level-60 live validation before publication."
+      "Approval E340 retained. Reviewed the committed survival, spell-damage, and 70-minute completion changes. The revision identifies the quest commit; file hashes identify the exact reviewed sources.",
+      "Source review only. Production deployment, client behavior, database spell payloads, and live balance have not been verified. Linked spell records are references; their canonical values do not include encounter-local damage reductions.",
+      "The development update SQL is supporting evidence for NPC identities and models, not a new production migration requirement for the 70-minute survival changes."
     ]
   }
 }
