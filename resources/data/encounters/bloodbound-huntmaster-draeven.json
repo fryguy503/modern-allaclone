@@ -112,8 +112,9 @@
       "id": "entry",
       "title": "Enter the Bloodbound covenant",
       "paragraphs": [
-        "The raid leader offers one blood-sealed writ to the Archivist in public Castle Mistmoore. This single offering replaces the four-relic hand-in and creates the Bloodbound raid; a second offering is not needed.",
-        "The raid admits 12 to 36 characters without a character-level minimum. Its combat is designed for a well-equipped level-60 raid.",
+        "The raid leader offers one blood-sealed writ, obtained from the normal Last Eclipse raid, to the Archivist in public Castle Mistmoore. This single offering is consumed to create the Bloodbound raid; a second offering is not needed.",
+        "The raid admits 12 to 36 characters without a character-level minimum. Combat targets a well-equipped level-60 raid of 24 to 36 players, with difficulty intended for a Sleeper's Tomb equipped guild.",
+        "After assignment, say enter hard to the Archivist. The instance lasts six hours. Bloodbound has its own replay timer, separate from the normal raid.",
         "The first reward-bearing victory seals the roster and starts the separate 72-hour Bloodbound replay timer. Zoning out or reconnecting preserves membership; leaving or being removed from the task forfeits re-entry."
       ],
       "bullets": [],
@@ -216,8 +217,8 @@
     }
   ],
   "sources": {
-    "reviewed_at": "2026-09-29",
-    "revision": "f3100d1a539093c717344860d4499558c48c7453",
+    "reviewed_at": "2026-10-01",
+    "revision": "607e75d673b7dbd326c4129cec7f4d1f07004e76",
     "verification": "source-reviewed",
     "files": [
       {
@@ -226,11 +227,11 @@
       },
       {
         "path": "sql/mistmoore_eclipse_hard_mode.sql",
-        "sha256": "f477910c1b89bad9c27827cf10614786787c3999d48accbe166c94640329340a"
+        "sha256": "aff8ae3f1b463bd053f8060f458fcaa27295d4edb28624d93e737ed373d66393"
       }
     ],
     "notes": [
-      "Reviewed against the local quest working tree. The encounter script contains uncommitted changes and the hard-mode SQL is not yet represented by the recorded Git revision; the file hashes identify the exact reviewed bytes.",
+      "Reviewed against committed quest source at revision 607e75d673b7dbd326c4129cec7f4d1f07004e76. The recorded file hashes identify the reviewed encounter and complete hard-mode installer.",
       "Mechanics, admission rules, item definitions and loot pools were checked in source. This is not evidence that matching quest files, database content or client settings have been deployed or verified in a live raid.",
       "Role tips are derived from the scripted mechanics. Exact pulse damage is omitted because it depends on the NPC template loaded by the zone process.",
       "The movement pulses are scripted direct damage and have no database spell tooltip IDs. Equipment names appear only in structured item references so the Library can enforce item discovery."
