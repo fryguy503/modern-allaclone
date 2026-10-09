@@ -23,7 +23,7 @@ class Merchantlist extends Model
     {
         return $this->hasOne(Item::class, 'id', 'item')
             ->select([
-                'id', 'Name', 'icon', 'itemtype', 'slots', 'bagslots', 'bagwr', 'augtype', 'price',
+                'id', 'Name', 'icon', 'itemtype', 'slots', 'bagslots', 'bagwr', 'augtype', 'price', 'sellrate',
                 'pointtype', 'ldontheme', 'ldonsold', 'ldonprice',
             ]);
     }

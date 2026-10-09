@@ -271,8 +271,10 @@ class ItemViewModel
                     'name' => $npc->name,
                     'clean_name' => $npc->clean_name,
                     'zone' => $spawn?->zone,
+                    'zone_version' => (int) ($spawn?->version ?? 0),
                     'zone_long_name' => $zone?->long_name,
                     'class' => $npc->class,
+                    'alt_currency_id' => (int) $npc->alt_currency_id,
                 ];
             })->groupBy('zone')->map(function ($items, $zone) {
                 return [
@@ -283,6 +285,8 @@ class ItemViewModel
                         'name' => $npc['name'],
                         'clean_name' => $npc['clean_name'],
                         'class' => $npc['class'],
+                        'alt_currency_id' => $npc['alt_currency_id'],
+                        'zone_version' => $npc['zone_version'],
                     ])->values(),
                 ];
             })->sortBy('zone_name')

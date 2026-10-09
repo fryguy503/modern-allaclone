@@ -50,7 +50,8 @@ class ItemController extends Controller
 
     public function show(Item $item, GroundSpawnLocationService $groundSpawnLocations)
     {
-        $itemCache = Cache::remember("items.show.{$item->id}", now()->addMonth(), function () use ($item) {
+        // Retire cached merchant locations that do not include their zone version.
+        $itemCache = Cache::remember("items.show.v2.{$item->id}", now()->addMonth(), function () use ($item) {
             $item = Item::with(['evolvingDetails.item', 'discovery'])
                 ->where('id', $item->id)
                 ->firstOrFail();
@@ -67,9 +68,9 @@ class ItemController extends Controller
         });
 
         $cachedItem = $itemCache['item'];
-        // Route binding already fetched the current item. Keep binding flags fresh
-        // even when the rest of the item details are cached for a month.
-        foreach (['kinbound', 'nodrop', 'notransfer', 'attuneable'] as $attribute) {
+        // Route binding already fetched the current item. Keep binding flags and
+        // merchant pricing inputs fresh while other item details remain cached.
+        foreach (['kinbound', 'nodrop', 'notransfer', 'attuneable', 'price', 'sellrate'] as $attribute) {
             $cachedItem->setAttribute($attribute, $item->getAttribute($attribute));
         }
 

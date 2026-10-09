@@ -1,5 +1,12 @@
+@inject('merchantPrices', 'App\Services\MerchantPriceService')
+@php
+    $usesCoinPrices = !$npc->alt_currency_id && !in_array((int) $npc->class, [61, 67, 68], true);
+@endphp
 <input type="radio" name="npc_details" class="tab" aria-label="Merchant" {{ $defaultTab === 'merchant' ? 'checked' : '' }}/>
 <div class="tab-content bg-base-100 border-base-300">
+    @if ($usesCoinPrices)
+        <p class="px-3 py-2 text-xs text-base-content/70">Coin prices are estimates using the best charisma and faction pricing; your in-game price may vary.</p>
+    @endif
     <div class="border border-base-content/5 overflow-x-auto">
         <div class="w-full bg-neutral">
             <div class="flex font-bold text-accent/50 ml-3 p-2 items-center">
@@ -30,7 +37,7 @@
                 <tr>
                     <th scope="col" class="w-[60%]">Item</th>
                     <th scope="col" class="w-[20%]">Type</th>
-                    <th scope="col" class="w-[20%] text-right">Cost</th>
+                    <th scope="col" class="w-[20%] text-right">{{ $usesCoinPrices ? 'Estimated cost' : 'Cost' }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -109,6 +116,8 @@
                                     {{ config('everquest.ldon_themes.' . $sell->items->ldontheme) }}
                                 @elseif (in_array($sell->items->pointtype, [4, 5]))
                                     {{ $sell->items->ldonprice }}
+                                @elseif ($usesCoinPrices)
+                                    {{ price($merchantPrices->estimate($sell->items, $primaryLocationZone['short_name'] ?? null, (int) ($primaryLocationZone['version'] ?? 0))) }}
                                 @else
                                     {{ price($sell->items->price) }}
                                 @endif

@@ -113,13 +113,27 @@ class ItemKinboundTest extends TestCase
     public function test_cached_item_page_uses_current_binding_flags(array $cachedFlags, array $currentFlags, string $expectedTags): void
     {
         $cachedItem = $this->item($cachedFlags);
-        Cache::put('items.show.'.$cachedItem->id, $this->viewData($cachedItem), now()->addMonth());
+        Cache::put('items.show.v2.'.$cachedItem->id, $this->viewData($cachedItem), now()->addMonth());
         $groundSpawns = $this->mock(GroundSpawnLocationService::class);
         $groundSpawns->shouldReceive('forItem')->once()->with($cachedItem->id)->andReturn([]);
 
         $view = (new ItemController)->show($this->item($currentFlags), $groundSpawns);
 
         $this->assertStringContainsString($expectedTags, $view->render());
+    }
+
+    public function test_cached_item_page_refreshes_merchant_price_inputs(): void
+    {
+        $cachedItem = $this->item(['price' => 100, 'sellrate' => 1]);
+        Cache::put('items.show.v2.'.$cachedItem->id, $this->viewData($cachedItem), now()->addMonth());
+        $groundSpawns = $this->mock(GroundSpawnLocationService::class);
+        $groundSpawns->shouldReceive('forItem')->once()->with($cachedItem->id)->andReturn([]);
+
+        $currentItem = $this->item(['price' => 6200, 'sellrate' => 2.8053]);
+        $view = (new ItemController)->show($currentItem, $groundSpawns);
+
+        $this->assertSame(6200, $view->getData()['item']->price);
+        $this->assertSame(2.8053, $view->getData()['item']->sellrate);
     }
 
     public static function cachedFlagChanges(): array
