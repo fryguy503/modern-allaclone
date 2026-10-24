@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "slug": "honest-lies-unexpected-1",
+  "title": "An Unexpected Appointment",
+  "group": "The House of Honest Lies",
+  "type": "group",
+  "zone": {
+    "short_name": "mischiefplane",
+    "name": "Plane of Mischief",
+    "version": 34
+  },
+  "npc_ids": [
+    997527
+  ],
+  "status": "published",
+  "spoiler": true,
+  "summary": "Read the local announcements and choose how to interrupt a performance that has forgotten its guests.",
+  "overview": [
+    "One tank, one healer and one operator can handle the assignments. Extra members may help. No particular class or special offering is required.",
+    "Only one urgent warning runs at a time, followed by at least ten seconds of recovery. Keep attacking; the encounter has no compulsory long invulnerability scene.",
+    "A timed interaction starts from the labeled control. Remain nearby and still until it completes; movement or leaving cancels it. Ordinary incidental damage does not cancel the action."
+  ],
+  "roles": [
+    {
+      "id": "tank",
+      "label": "Tank",
+      "tips": [
+        "Keep the boss on the reviewed same-floor camp and leave controls accessible. Summoning is disabled during required movement."
+      ]
+    },
+    {
+      "id": "healer",
+      "label": "Healer",
+      "tips": [
+        "Use the clearly announced recovery periods. The operator does not need a second tank for stationary helpers."
+      ]
+    },
+    {
+      "id": "operator",
+      "label": "Operator",
+      "tips": [
+        "Use the fixed labeled control or the printed alternative. No tiny moving target or simultaneous distant control is required."
+      ]
+    },
+    {
+      "id": "everyone",
+      "label": "Everyone",
+      "tips": [
+        "Read the named safe ground and full countdown. Friendly guests cannot be harmed."
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "counterplay",
+      "label": "A readable ringing",
+      "trigger": "Follow the local encounter announcements",
+      "description": "Stand on the named QUIET mat before the 18-second warning ends, or let one volunteer cancel the ring at SILENCE. A double appointment is two separate warnings with recovery between them. It never requires hearing a tune or reacting to an unannounced second impact."
+    }
+  ],
+  "abilities": [
+    {
+      "id": "counterplay",
+      "name": "A readable ringing",
+      "summary": "Readable cues and optional advantages",
+      "description": [
+        "Stand on the named QUIET mat before the 18-second warning ends, or let one volunteer cancel the ring at SILENCE. A double appointment is two separate warnings with recovery between them. It never requires hearing a tune or reacting to an unannounced second impact."
+      ],
+      "tags": [],
+      "roles": [
+        "tank",
+        "healer",
+        "operator",
+        "everyone"
+      ],
+      "spell_ids": []
+    }
+  ],
+  "sections": [
+    {
+      "id": "entry",
+      "title": "Entry and practice",
+      "paragraphs": [
+        "The native group leader requests this journey from the House Usher in public Plane of Mischief with three to six eligible characters of level 60 or higher. Review the labeled controls while the room is quiet, then confirm the challenge separately."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "return",
+      "title": "Wipes and saved return",
+      "paragraphs": [],
+      "bullets": [
+        "An unfinished fight resets after ten seconds without a living eligible engaged participant in its arena. Completed chapters stay complete.",
+        "Use the original expedition's guide after a native DZ Manager rejoin. Its original 24-hour expiry and replay deadline continue.",
+        "Cleared staging points remain reachable; checkpoint travel never places a returning member into an active arena."
+      ]
+    }
+  ],
+  "sources": {
+    "reviewed_at": "2026-10-24",
+    "revision": "659743ccd91dc3134495418fa82c7e381babc9a0",
+    "verification": "source-reviewed",
+    "files": [
+      {
+        "path": "tools/honest_lies_journals.py",
+        "sha256": "621e84ee9e9509abf54776acce68d12b41fe27db490e6eaca506d6b74bca23d3"
+      },
+      {
+        "path": "lua_modules/honest_lies_content.lua",
+        "sha256": "1df49c87612445ca62bf5145140d032df6e4aa92aefb5e22eca01294d437928f"
+      },
+      {
+        "path": "lua_modules/honest_lies_runtime.lua",
+        "sha256": "e3c70ef2d080f420f9ac33af17d45e3bcd976e997bc86d9b683e5cf24a2fea03"
+      },
+      {
+        "path": "lua_modules/honest_lies_admission.lua",
+        "sha256": "28e1d57f8f9020c71e5dcd35559f1bddc39ebcc99adc84e2dab7f53450c9f25e"
+      },
+      {
+        "path": "lua_modules/honest_lies_mechanics.lua",
+        "sha256": "04362afb437a939bd26dfb9ccaffa992111853e5d527bf11b64b2bd95356d0ac"
+      }
+    ],
+    "notes": [
+      "Local source and fixture checks do not establish installed-client presentation or live combat acceptance.",
+      "Exact optional discovery sequences and the final story reveal remain in operator material.",
+      "Published after a source review of the private version-34 House encounter catalog. Public journal metadata preserves the finale and optional-adventure spoiler settings; live deployment and combat balance remain unverified."
+    ]
+  }
+}
